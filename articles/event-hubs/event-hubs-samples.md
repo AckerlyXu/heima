@@ -7,14 +7,14 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 ---
 
@@ -27,7 +27,7 @@ At the time of this writing, Event Hubs samples are located in several different
 - [MSDN developer code samples](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-For more information about different versions of the .NET Framework, see [Frameworks and Targets](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
+For more information about the different versions of the .NET Framework, see [Frameworks and Targets](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 More samples will be added over time, so check back here frequently for updates.
 
@@ -63,9 +63,9 @@ The [Scale out event processing](https://code.msdn.microsoft.com/Service-Bus-Eve
 
 The [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) sample shows how to pull data from a SQL table and push it to an event hub, to use as an input in downstream analytical applications.
 
-### Pull web data into an event hub 
-
-The [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) sample shows how to pull data from public feeds (such as the Department of Transportation's traffic information feed) and push it to an event hub.
+<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a> Pull web data into an event hub  -->
+<!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
+<!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
 
 ## Next steps
 

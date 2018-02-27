@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,7 @@ This tutorial shows how to receive events into an event hub using a console appl
 In order to complete this tutorial, you need the following prerequisites:
 
 * A Java development environment. For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
-* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
+* An active Azure account. <br/>If you don't have an account, you can create a trial account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
 
 ## Receive messages with EventProcessorHost in Java
 
@@ -241,7 +241,7 @@ You can learn more about Event Hubs by visiting the following links:
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
-[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
+<!-- Not Available on [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png -->
+<!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png -->
 
-<!--Update_Description: update meta properties, wording update, update reference link-->
+<!--Update_Description: update meta properties, wording update -->

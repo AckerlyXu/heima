@@ -1,21 +1,20 @@
 ---
-title: Protect a Web API backend with Azure Active Directory and API Management | Azure
+title: Protect a Web API backend with Azure Active Directory and API Management
 description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # How to protect a Web API backend with Azure Active Directory and API Management
 
@@ -544,5 +543,5 @@ The next procedure is to configure a simple desktop application to call the API.
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
-[Manage your first API]: ./api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

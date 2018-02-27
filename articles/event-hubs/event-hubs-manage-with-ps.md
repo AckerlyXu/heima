@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -29,7 +29,7 @@ You can also manage Event Hubs resources using Azure Resource Manager templates.
 Before you begin, you'll need the following:
 
 * An Azure subscription. For more
-  information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
+  information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [trial account][trial account].
 * A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
 
@@ -154,7 +154,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 - Information about [Event Hubs .NET management libraries](event-hubs-management-libraries.md).
 
 [purchase options]: https://www.azure.cn/pricing/overview/
-[member offers]: https://www.azure.cn/pricing/member-offers/
-[free account]: https://www.azure.cn/pricing/1rmb-trial/
+[member offers]: https://www.azure.cn/support/legal/offer-rate-plans/
+[trial account]: https://www.azure.cn/pricing/1rmb-trial/
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

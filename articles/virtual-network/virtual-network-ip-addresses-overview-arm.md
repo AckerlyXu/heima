@@ -59,15 +59,17 @@ All public IP addresses created before the introduction of SKUs are Basic SKU pu
 - Assigned with the static or dynamic allocation method.
 - Assigned to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN Gateways, Application Gateways, and Internet-facing load balancers.
 - Can be assigned to a specific zone.
-- Not zone redundant. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json).
+- Not zone redundant.
+<!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 #### Standard
 
 Standard SKU public IP addresses are:
 
 - Assigned with the static allocation method only.
-- Assigned to network interfaces or Standard Internet-facing load balancers. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json).
-<!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json). -->
+- Assigned to network interfaces or Standard Internet-facing load balancers.
+<!--Not Available - [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 > [!NOTE]
 > When you assign a standard SKU public IP address to a virtual machine's network interface, you must explicitly allow the intended traffic with a [network security group](security-overview.md#network-security-groups).  Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.
@@ -140,7 +142,8 @@ In the Azure Resource Manager deployment model, a private IP address is associat
 
 ### IP address version
 
-Private IP addresses are created with an IPv4 or IPv6 address. Private IPv6 addresses can only be assigned with the dynamic allocation method. You cannot communicate between private IPv6 addresses on a virtual network. You can communicate inbound to a private IPv6 address from the Internet, through an Internet-facing load balancer. See [Create an Internet-facing load balancer with IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json) for details.
+Private IP addresses are created with an IPv4 address. 
+<!-- Not Available on IPV6 -->
 
 ### Allocation method
 

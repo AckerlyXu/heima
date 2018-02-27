@@ -1,5 +1,5 @@
 ---
-title: Start with Apache Kafka - Azure HDInsight | Azure
+title: Start with Apache Kafka - Azure HDInsight
 description: 'Learn how to create an Apache Kafka cluster on Azure HDInsight. Learn how to create topics, subscribers, and consumers.'
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/07/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 ---
 # Start with Apache Kafka on HDInsight
@@ -180,7 +180,7 @@ Use the following steps to store records into the test topic you created earlier
 2. Use a script provided with Kafka to read records from the topic:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
 
     This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.

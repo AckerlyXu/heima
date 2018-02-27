@@ -1,13 +1,9 @@
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/storage/common/storage-premium-storage.md) or [Standard](../articles/storage/common/storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/virtual-machines/windows/premium-storage.md) or [Standard](../articles/virtual-machines/windows/standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
 
-## Benefits of managed disks
-
-Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
-<br/>
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
-
+<!-- Not Available on ## Benefits of managed disks-->
+<!-- Not Available on channel9 VIDEO -->
 ### Simple and scalable VM deployment
 
 Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location - one storage account per Azure region - and use them to create hundreds of VMs in a subscription.
@@ -45,16 +41,16 @@ When using Managed Disks, the following billing considerations apply:
 Let's take a closer look at these.
 
 **Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based) and [Standard](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
 
 Here are the disk sizes available for a premium managed disk:
 
-| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 Here are the disk sizes available for a standard managed disk:
 
@@ -102,7 +98,7 @@ There are two kinds of encryption to discuss in reference to managed disks. The 
 ### Storage Service Encryption (SSE)
 
 [Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by 21 ViaNet.  Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
-
+<!-- Microsoft to 21Vianet -->
 
 ### Azure Disk Encryption (ADE)
 
@@ -128,9 +124,9 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Compare Managed Disks storage options
 
-* [Premium storage and disks](../articles/storage/common/storage-premium-storage.md)
+* [Premium storage and disks](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Standard storage and disks](../articles/storage/common/storage-standard-storage.md)
+* [Standard storage and disks](../articles/virtual-machines/windows/standard-storage.md)
 
 ### Operational guidance
 
@@ -138,5 +134,5 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
 
-<!--Update_Description: wording update-->
-<!--ms.date: 10/16/2017-->
+<!--Update_Description: wording update, update link-->
+<!--ms.date: 01/29/2018-->

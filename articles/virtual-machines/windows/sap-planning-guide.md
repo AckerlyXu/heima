@@ -267,7 +267,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-configure-raid]:../linux/configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md
+<!-- Not Avaiable on [virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md -->
 [virtual-machines-linux-how-to-attach-disk]:../linux/add-disk.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../linux/quick-create-cli.md
@@ -371,7 +371,7 @@ The following SAP Notes are related to the topic of SAP on Azure:
 | [2191498] |SAP on Linux with Azure: Enhanced Monitoring |
 | [2243692] |Linux on Azure (IaaS) VM: SAP license issues |
 | [1984787] |SUSE LINUX Enterprise Server 12: Installation notes |
-| [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
+<!-- Not Avaiable on | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade | -->
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
@@ -840,11 +840,13 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Please follow the steps described in these articles for [SUSE][virtual-machines-linux-create-upload-vhd-suse] or [Red Hat][virtual-machines-linux-redhat-create-upload-vhd] to prepare a VHD to be uploaded to Azure.
+> Please follow the steps described in these articles for [SUSE][virtual-machines-linux-create-upload-vhd-suse] to prepare a VHD to be uploaded to Azure.
 >
 >
 
 - - -
+<!-- Not Avaiable on  [Red Hat][virtual-machines-linux-redhat-create-upload-vhd]  -->
+
 If you have already installed SAP content in your on-premises VM (especially for 2-Tier systems), you can adapt the SAP system settings after the deployment of the Azure VM through the instance rename procedure supported by the SAP Software Provisioning Manager (SAP Note [1619720]). See chapters [Preparation for deploying a VM with a customer specific image for SAP][planning-guide-5.2.2] and [Uploading a VHD from on-premises to Azure][planning-guide-5.3.2] of this document for on-premises preparation steps and upload of a generalized VM to Azure. Please read chapter [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
 #### Deploying a VM out of the Azure Marketplace
@@ -1550,11 +1552,12 @@ Setting up your on-premises TCP/IP based network printers in an Azure VM is over
 > ![Linux][Logo_Linux] Linux
 >
 > * like for Windows just follow the standard procedure to install a network printer
-> * just follow the public Linux guides for [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) or [Red Hat](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) on how to add a printer.
+> * just follow the public Linux guides for [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) on how to add a printer.
 >
 >
 
 - - -
+<!-- Not Available on [Red Hat](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) -->
 ![Network printing][planning-guide-figure-2200]
 
 ##### Host-based printer over SMB (shared printer) in Cross-Premises scenario
@@ -1658,8 +1661,9 @@ In order to enable the monitoring of mission critical SAP systems on Azure the S
 #### Solution design
 The solution developed to enable SAP Monitoring is based on the architecture of Azure VM Agent and Extension framework. The idea of the Azure VM Agent and Extension framework is to allow installation of software application(s) available in the Azure VM Extension gallery within a VM. The principle idea behind this concept is to allow (in cases like the Azure Monitoring Extension for SAP), the deployment of special functionality into a VM and the configuration of such software at deployment time.
 
-Since February 2014, the 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure Portal. In case of SUSE or Red Hat Linux the VM agent is already part of the
+Since February 2014, the 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure Portal. In case of SUSE or CentOS Linux the VM agent is already part of the
 Azure Marketplace image. In case one would upload a Linux VM from on-premises to Azure the VM agent has to be installed manually.
+<!-- Change Red Hat to CentOS -->
 
 The basic building blocks of the Monitoring solution in Azure for SAP looks like this:
 

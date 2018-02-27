@@ -1,5 +1,5 @@
 ---
-title: Azure API Management access restriction policies | Azure
+title: Azure API Management access restriction policies
 description: Learn about the access restriction policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 
 ---
 # API Management access restriction policies
@@ -384,7 +384,7 @@ This topic provides a reference for the following API Management policies. For i
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -514,14 +514,20 @@ This topic provides a reference for the following API Management policies. For i
 |require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|
 |require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  
+|separator|String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.|No|N/A| 
 |url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  
  This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ## Next steps
-For more information working with policies, see [Policies in API Management](./api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

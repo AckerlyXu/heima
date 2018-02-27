@@ -14,9 +14,9 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -56,10 +56,12 @@ Possible solutions:
 
         full address:s:tailspin-azdatatier.chinacloudapp.cn:55919
         prompt for credentials:i:1
+<!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 
 The address portion of this RDP file has:
 
 * The fully qualified domain name of the cloud service that contains the VM ("tailspin-azdatatier.chinacloudapp.cn" in this example).
+<!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 * The external TCP port of the endpoint for Remote Desktop traffic (55919).
 
 <a id="rdpauth"></a>
@@ -107,4 +109,4 @@ If none of these errors occurred and you have an unknown issue with connecting u
 
 * For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 * If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

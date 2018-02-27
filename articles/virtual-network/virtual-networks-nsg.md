@@ -257,7 +257,7 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 ## Next steps
 * [Deploy NSGs (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md).
-<!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md).-->
+<!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md) -->
 * [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)
 
 <!--Update_Description: update meta properties, wording update, update link-->

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -218,7 +218,7 @@ Once the resize operation has completed, start the VM.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-If you've resized the operating system disk, the partition is automatically be expanded. If you have resized a data disk, any current partitions need to be expanded in the VMs operating system.
+If you've resized the operating system disk, the partition is automatically expanded. If you have resized a data disk, any current partitions need to be expanded in the VMs operating system.
 
 ## Snapshot Azure disks
 

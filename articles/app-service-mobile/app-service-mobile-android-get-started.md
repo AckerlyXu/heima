@@ -1,18 +1,20 @@
 ---
-title: Create an Android app on Azure App Service Mobile Apps | Azure
+title: Create an Android app on Azure App Service Mobile Apps 
 description: Follow this tutorial to get started with using Azure mobile app backends for Android development
 services: app-service\mobile
-documentationCenter: android
-authors: yuaxu
-manager: erikre
+documentationcenter: android
+author: conceptdev
+manager: crdun
 editor: ''
 
+ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -21,8 +23,7 @@ ms.author: v-yiso
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
-
-This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple _Todo list_ Android app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* Android app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other Android tutorials about using the Mobile Apps feature in Azure App Service.
 

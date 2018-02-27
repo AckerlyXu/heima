@@ -1,10 +1,10 @@
 ---
-title: Get Started with authentication for Mobile Apps in Xamarin Forms app | Microsoft Docs
+title: Get Started with authentication for Mobile Apps in Xamarin Forms app
 description: Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: ''
 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ---
 # Add authentication to your Xamarin Forms app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -299,7 +299,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
     This code ensures the authenticator is initialized before the app is loaded.
 
-6. Add **{url_scheme_of_your_app}** to URL Schemes in Info.plist.
+8. Open Info.plist and add a **URL Type**. Set the **Identifier** to a name of your choosing, the **URL Schemes** to the URL scheme for your app, and the **Role** to None.
 
 7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
@@ -414,6 +414,6 @@ Now that you completed this basic authentication tutorial, consider continuing o
 [5]: ./app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: ./app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/zh-cn/library/azure/jj730936(v=azure.10).aspx
-
+[8]: https://portal.azure.cn
 
 <!--Update_Description:add the section of "Add app to the Allowed External Redirect URLs" and update some code-->

@@ -51,7 +51,9 @@ Before you start this scenario, you must have the following pre-requisites:
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+The first step to configuring the example is to create the runbook. This example uses a run-as account.
+<!-- Not Available [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md) -->
+<!-- Redirect /automation/automation-sec-configure-azure-runas-account.md TO /automation -->
 
 ### Step 1
 
@@ -185,7 +187,7 @@ Click Save to save the schedule to the runbook.
 
 ## Next steps
 
-Now that you have an understanding on how to integrate Network Watcher troubleshooting with Azure Automation, learn how to trigger packet captures on VM alerts by visiting [Create an alert triggered packet capture with Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
+<!--Not Available on [Create an alert triggered packet capture with Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!-- images -->
 [scenario]: ./media/network-watcher-monitor-with-azure-automation/scenario.png

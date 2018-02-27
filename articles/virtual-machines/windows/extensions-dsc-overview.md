@@ -3,8 +3,8 @@ title: Desired State Configuration for Azure Overview | Azure
 description: Overview for using the Azure extension handler for PowerShell Desired State Configuration. Including prerequisites, architecture, cmdlets..
 services: virtual-machines-windows
 documentationcenter: ''
-author: zjalexander
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
 keywords: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 01/09/2017
-ms.date: 02/24/2017
-ms.author: v-dazen
+ms.date: 02/05/2018
+ms.author: v-yeche
 
 ---
 # Introduction to the Azure Desired State Configuration extension handler
@@ -37,11 +37,9 @@ The Azure VM that is configured by the DSC configuration needs to be an OS that 
 ## Terms and concepts
 This guide presumes familiarity with the following concepts:
 
-Configuration - A DSC configuration document. 
-
-Node - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
-
-Configuration Data - A .psd1 file containing environmental data for a configuration
+* **Configuration** - A DSC configuration document. 
+* **Node** - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
+* **Configuration Data** - A .psd1 file containing environmental data for a configuration
 
 ## Architectural overview
 The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Azure portal.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## Logging
 Logs are placed in:
 
+```
 C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## Next steps
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
@@ -156,3 +156,5 @@ Examine the [Azure Resource Manager template for the DSC extension](extensions-d
 To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
 For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!-- Update_Description: update meta properties, wording update -->

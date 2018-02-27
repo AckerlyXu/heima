@@ -39,6 +39,7 @@ You can upgrade your cluster to the new version only if you're using a productio
 
 Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that don't have connectivity to download the latest Service Fabric version.
 
+<a name="upgrade-the-cluster-configuration"></a>
 ### Upgrade clusters that have connectivity to download the latest code and configuration
 Use these steps to upgrade your cluster to a supported version if your cluster nodes have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
 

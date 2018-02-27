@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: v-yiso
-origin.date: 12/11/2017
+origin.date: 02/05/2018
 ---
 
 # Service Bus messaging exceptions
@@ -107,7 +107,7 @@ A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.
 You should check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/zh-cn/library/system.net.servicepointmanager.defaultconnectionlimit) property, as hitting this limit can also cause a [TimeoutException](https://msdn.microsoft.com/zh-cn/library/system.timeoutexception.aspx).
 
 ### Queues and topics
-For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](https://doc.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
+For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
 
 

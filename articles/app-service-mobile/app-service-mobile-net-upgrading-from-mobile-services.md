@@ -2,17 +2,19 @@
 title: Upgrade from Mobile Services to Azure App Service
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
-documentationCenter: ''
-authors: adrianhall
-manager: dwrede
+documentationcenter: ''
+author: conceptdev
+manager: crdun
 editor: ''
 
+ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -30,8 +32,10 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[!TIP]
-> It is recommended that you [perform a migration](./app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
+> [!TIP]
+> It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
+>
+>
 
 ###Improvements in Mobile Apps .NET server SDK
 
@@ -39,7 +43,7 @@ Upgrading to the new [Mobile Apps SDK](https://www.nuget.org/packages/Microsoft.
 
 - More flexibility on NuGet dependencies. The hosting environment no longer provides its own versions of NuGet packages, so you can use alternative compatible versions. However, if there are new critical bugfixes or security updates to the Mobile Server SDK or dependencies, you must update your service manually.
 
-- More flexibility in the mobile SDK. You can explicitly control which features and routes are set up, such as authentication, table APIs, and the push registration endpoint. To learn more, see [How to use the .NET server SDK for Azure Mobile Apps](./app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup).
+* More flexibility in the mobile SDK. You can explicitly control which features and routes are set up, such as authentication, table APIs, and the push registration endpoint. To learn more, see [How to use the .NET server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 - Support for other ASP.NET project types and routes. You can now host MVC and Web API controllers in the same project as your mobile backend project.
 
@@ -51,6 +55,8 @@ In many cases, upgrading will be as simple as switching to the new Mobile Apps s
 
 >[!TIP]
 > It is advised that you read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use which are called out below.
+>
+>
 
 The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
@@ -68,7 +74,7 @@ The first step in upgrading is to create the Mobile App resource which will host
 
 Next, create the second application instance by following the [.NET backend creation instructions](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). When prompted to select you App Service Plan or "hosting plan" choose the plan of your migrated application.
 
-You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values by opening [Azure portal] and navigating to the original application, then click **Settings** > **Application settings**. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your new upgrade site and paste them in, overwriting any existing values. Repeat this process for any other application settings your app needs. If not using a migrated service, you can read connection strings and app settings from the **Configure** tab of the Mobile Services section of the [Azure Classic Management Portal].
+You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values by opening [Azure portal] and navigating to the original application, then click **Settings** > **Application settings**. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your new upgrade site and paste them in, overwriting any existing values. Repeat this process for any other application settings your app needs. If not using a migrated service, you can read connection strings and app settings from the **Configure** tab of the Mobile Services section of the [Azure classic portal].
 
 Make a copy of the ASP.NET project for your application and publish it to your new site. Using a copy of your client application updated with the new URL, validate that everything works as expected.
 
@@ -166,7 +172,7 @@ If a client app is upgraded from Mobile Services to Mobile Apps while there are 
 On iOS, you should change your Core Data schema for your data entities to match the following. Note that the properties `createdAt`, `updatedAt` and `version` no longer have an `ms_` prefix:
 
 | Attribute |  Type   | Note                                                 |
-|---------- |  ------ | -----------------------------------------------------|
+| --- | --- | --- |
 | id        | String, marked required  | primary key in remote store         |
 | createdAt | Date    | (optional) maps to createdAt system property         |
 | updatedAt | Date    | (optional) maps to updatedAt system property         |
@@ -290,7 +296,7 @@ When you have the new client version ready, try it out against your upgraded ser
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.cn/
-[Azure Classic Management Portal]: https://manage.windowsazure.cn/
+[Azure classic portal]: https://manage.windowsazure.cn/
 [What are Mobile Apps?]: ./app-service-mobile-value-prop.md
 [I already use web sites and mobile services - how does App Service help me?]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server

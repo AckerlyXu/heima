@@ -137,7 +137,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     ```
 
 13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. 
-<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md) -->
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).

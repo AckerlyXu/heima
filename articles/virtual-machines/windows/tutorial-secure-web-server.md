@@ -205,7 +205,8 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### Test the secure web app
-Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
+Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
+<!-- URL is CORRECT on https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress -->
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"

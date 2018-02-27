@@ -15,7 +15,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 
 ---
@@ -82,6 +82,9 @@ Three conditions can cause this error:
 * The web app has reached a resource quota limit that might apply to a Free or Shared scale service plan.
 
 To see what is causing the error and to resolve the issue, follow the steps in [Web Apps: "Error 403 - This web app is stopped"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+## Where can I learn more about quotas and limits for various App Service plans?
+
+For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
 
 ## How do I decrease the response time for the first request after idle time?
 

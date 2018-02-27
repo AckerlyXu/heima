@@ -1,5 +1,5 @@
 ---
-title: Configure webhooks on Azure metric alerts | Azure
+title: Configure webhooks on Azure metric alerts
 description: Reroute Azure alerts to other non-Azure systems.
 author: johnkemnetz
 manager: carmonm
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/03/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ---
 
 # Configure a webhook on an Azure metric alert
@@ -104,5 +104,4 @@ The POST operation contains the following JSON payload and schema for all metric
 >
 
 ## Next steps
-- Learn more about Azure alerts and webhooks in the video [Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)

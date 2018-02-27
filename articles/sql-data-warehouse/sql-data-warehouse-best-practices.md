@@ -133,8 +133,8 @@ If you didn't find what you were looking for in this article, try using the "Sea
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
-[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+<!-- Not Available on [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md -->
+<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md -->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md

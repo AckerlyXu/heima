@@ -32,16 +32,16 @@ The following limits apply only for networking resources managed through Azure R
 | Network Interfaces (NIC) |350 |20000 |
 | Network Security Groups (NSG) |100 |5000 |
 | NSG rules per NSG |200 |500 |
-| IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
-| Application security groups |200 |500 |
-| Application security groups per IP configuration, per NIC |10 |20 |
-| IP configurations per application security group |1000 |4000 |
-| Application security groups that can be specified within all security rules of a network security group |50 |100 |
+<!-- Not Available on | IP addresses and ranges specified for source or destination in a security rule |2000 |4000 | -->
+<!-- Not Available on | Application security groups |200 |500 | -->
+<!-- Not Available on | Application security groups per IP configuration, per NIC |10 |20 | -->
+<!-- Not Available on | IP configurations per application security group |1000 |4000 | -->
+<!-- Not Available on | Application security groups that can be specified within all security rules of a network security group |50 |100 | -->
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses - dynamic |(Basic) |60 |contact support |
 | Public IP addresses - static |(Basic) 20 |contact support |
-| Public IP addresses - static |(Standard) 20 |contact support |
+<!-- Not Available on | Public IP addresses - static |(Standard) 20 |contact support | -->
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
 #### <a name="load-balancer"></a>Load Balancer limits
@@ -50,14 +50,14 @@ The following limits apply only for networking resources managed through Azure R
 | --- | --- | --- |
 | Load Balancers | 100 | 1000 |
 | Rules per resource, Basic | 150 | 250 |
-| Rules per resource, Standard | 1250 | 1500 |
-| Rules per IP configuration | 299 |299 |
+<!-- Not Avaiable on | Rules per resource, Standard | 1250 | 1500 | -->
+<!-- Not Avaiable on | Rules per IP configuration | 299 |299 | -->
 | Frontend IP configurations, Basic | 10 | contact support |
-| Frontend IP configurations, Standard | 10 | 600 |
+<!-- Not Avaiable on | Frontend IP configurations, Standard | 10 | 600 | -->
 | Backend pool, Basic | 100, single Availability Set | - |
-| Backend pool, Standard | 1000, single VNet | contact support |
-| HA Ports, Standard | 1 per internal frontend | - |
+<!-- Not Avaiable on | Backend pool, Standard | 1000, single VNet | contact support | -->
+<!-- Not Avaiable on | HA Ports, Standard | 1 per internal frontend | - | -->
 
 [Contact support](https://www.azure.cn/support/contact/) in case you need to increase limits from default.
 
-<!-- ms.date: 10/26/2017 -->
+<!-- ms.date: 02/23/2018 -->

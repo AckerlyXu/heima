@@ -132,7 +132,8 @@ To manually add VMs:
 
 **Number of DR-Drills in a year**: The number of times you perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the 'Apply to all' button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost is calculated.  
 
-**Each DR-Drill duration (Days)**: The duration of each DR-Drill. By default, it is 7 days every 90 days as per the [Disaster Recovery Software Assurance benefit](https://www.azure.cn/en-inhttps://www.azure.cn/pricing/details/site-recovery/). You can modify the period for specific VMs or you can apply a new value to all VMs by entering new value on the top row and clicking the 'Apply to all' button. The total DR-Drill cost is calculated based on number of DR-Drills in a year and each DR-Drill duration period.
+**Each DR-Drill duration (Days)**: The duration of each DR-Drill. By default, it is 7 days every 90 days as per the [Disaster Recovery Software Assurance benefit](https://www.azure.cn/pricing/details/site-recovery/). You can modify the period for specific VMs or you can apply a new value to all VMs by entering new value on the top row and clicking the 'Apply to all' button. The total DR-Drill cost is calculated based on number of DR-Drills in a year and each DR-Drill duration period.
+<!-- URL is Correct on https://www.azure.cn/pricing/details/site-recovery/ -->
 
 **OS Type**: The OS type of the VM. It is either Windows or Linux. If the OS type is Windows, then Azure Hybrid Use Benefit can be applied to that VM. 
 
@@ -148,24 +149,9 @@ To manually add VMs:
 
 **ASR license cost**: Azure Site Recovery license cost.
 
-## Supported target regions
-The Azure Site Recovery deployment planner provides cost estimation for the following Azure regions. If your region is not listed below, you can use any of the following regions whose pricing is nearest to your region.
+<!-- Not Available on ## Supported target regions -->
 
-chinaeast, chinaeast2, chinanorth, chinaeast, chinaeast, chinaeast, northeurope, chinanorth, chinaeast, chinaeast, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, chinanorth2, chinaeast, uksouth, ukwest, koreacentral, koreasouth 
-
-## Supported currencies
-The Azure Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
-
-|Currency|Name||Currency|Name||Currency|Name|
-|---|---|---|---|---|---|---|---|
-|ARS|Argentine Peso ($)||AUD|Australian Dollar ($)||BRL|Brazilian Real (R$)|
-|CAD|Canadian Dollar ($)||CHF|Swiss Franc. (chf)||DKK|Danish Krone (kr)|
-|EUR|Euro (€)||GBP|British Pound (£)||HKD|Hong Kong Dollar (HK$)|
-|IDR|Indonesia rupiah (Rp)||INR|Indian Rupee (₹)||JPY|Japanese Yen (¥)|
-|KRW|Korean Won (₩)||MXN|Mexican Peso (MX$)||MYR|Malaysian Ringgit (RM$)|
-|NOK|Norwegian Krone (kr)||NZD|New Zealand Dollar ($)||RUB|Russian Ruble (руб)|
-|SAR|Saudi Riyal (SR)||SEK|Swedish Krona (kr)||TWD|Taiwanese Dollar (NT$)|
-|TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
+<!-- Not Available on ## Supported currencies -->
 
 ## Next steps
 Learn more about protecting [Hyper-V VMs to Azure using Azure Site Recovery](/site-recovery/tutorial-hyper-v-to-azure).

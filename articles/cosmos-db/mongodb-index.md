@@ -54,7 +54,7 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 ### Create a web app
 
 - Video based: [Node.js + Angular](tutorial-develop-mongodb-nodejs.md)
-- Video based: [Node.js + React](tutorial-develop-mongodb-react.md)
+<!-- Not Available on - Video based: [Node.js + React](tutorial-develop-mongodb-react.md)  -->
 
 ### Migrate MongoDB data
 

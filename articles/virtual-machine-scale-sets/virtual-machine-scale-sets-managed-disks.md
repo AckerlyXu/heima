@@ -1,10 +1,10 @@
 ---
-title: Using Managed Disks With Azure Virtual Machine Scale Sets | Azure
+title: Using Managed Disks With Azure Virtual Machine Scale Sets | Microsoft Docs
 description: Learn why and how to use managed disks with virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: hayley244
-manager: digimobile
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/01/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 01/30/2018
+ms.author: v-junlch
 
 ---
 # Azure VM scale sets and managed disks
 
 Azure [virtual machine scale sets](/virtual-machine-scale-sets/) supports virtual machines with managed disks. Using managed disks with scale sets has several benefits, including:
 
-* You no longer need to pre-create and manage storage accounts to store the OS disks for the scale set VMs.
+- You no longer need to pre-create and manage storage accounts to store the OS disks for the scale set VMs.
 
-* You can attach managed data disks to the scale set.
+- You can attach managed data disks to the scale set.
 
-* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 100 VMs if based on a custom image.
+- With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 300 VMs if based on a custom image.
 
 ## Get started
 
 A simple way to get started with managed disk scale sets is to deploy one from the Azure portal. For more information, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0](/cli/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50-GB and 100-GB data disk:
 
 ```azurecli
-az group create -l chinaeast -n dsktest
+az group create -l chinanorth -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 

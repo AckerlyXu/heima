@@ -3,7 +3,7 @@ title: About Mobile Apps in Azure App Service
 description: Learn about the advantages that App Service brings to your enterprise mobile apps.
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
 Azure App Service is a fully managed platform as a service (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios. 
@@ -62,15 +62,13 @@ The following platform features are useful for mobile production sites:
 
   Discover more about [staging environments].
 
-* **Continuous deployment**: App Service can integrate with common supply chain management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
+* **Continuous deployment**: App Service can integrate with common source control management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
 
   Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
 
 * **Virtual networking**: App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
 
   Discover more about [hybrid connections], [virtual networks].
-
-  Discover more about [virtual networks].
 
 
 ## Next steps
@@ -82,11 +80,10 @@ For more information about Mobile Apps, review our [learning map].
 For more information about the Azure App Service platform, see [Azure App Service].
 
 <!-- URLs. -->
-[Migrate your Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
+[Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [getting started]: app-service-mobile-ios-get-started.md
 [Azure Table storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md
 [push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md

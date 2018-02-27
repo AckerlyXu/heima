@@ -3,7 +3,7 @@ title: Azure API Management template resources | Azure
 description: Learn about the types of resources available for use in developer portal templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # Azure API Management template resources
 Azure API Management provides the following types of resources for use in the developer portal templates.  

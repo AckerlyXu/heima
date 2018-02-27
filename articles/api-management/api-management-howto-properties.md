@@ -3,7 +3,7 @@ title: How to use properties in Azure API Management policies
 description: Learn how to use properties in Azure API Management policies.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # How to use properties in Azure API Management policies
 API Management policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 

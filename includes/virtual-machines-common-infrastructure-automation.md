@@ -4,7 +4,7 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 - Automate the configuration of VMs
     - Tools include [Chef](#chef).
     - Tools specific to VM customization include [cloud-init](#cloud-init) for Linux VMs, [PowerShell Desired State Configuration (DSC)](#powershell-dsc), and the [Azure Custom Script Extension](#azure-custom-script-extension) for all Azure VMs.
-<!--Not Available [Ansible](#ansible), [Puppet](#puppet) -->
+<!--Not Available [Ansible](#ansible) [Puppet](#puppet) -->
 
 - Automate infrastructure management
     - Tools include [Packer](#packer) to automate custom VM image builds, and [Terraform](#terraform) to automate the infrastructure build process.
@@ -88,8 +88,8 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 Learn how to:
 
 - [Create a PowerShell runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md).
-- [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
+<!-- Not Avaiable on - [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
+<!-- Not Available on - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md) -->
 
 ## Visual Studio Team Services
 [Team Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Team Services integrates with Visual Studio and other editors to simplify usage. Team Services can also create and configure Azure VMs and then deploy code to them.

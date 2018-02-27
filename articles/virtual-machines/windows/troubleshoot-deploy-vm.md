@@ -13,9 +13,9 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,27 @@ productPesIds="1234, 5678"
     - Add the new VM to the same virtual network.
 
 <!--Not Available ## How can I use and deploy a windows client image into Azure?-->
-<!--Not Available ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?-->
+## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
+
+There are a couple of different ways to deploy Windows virtual machines with the Azure Hybrid Use Benefit.
+
+For an Enterprise Agreement subscription:
+
+•	Deploy VMs from specific Marketplace images that are pre-configured with Azure Hybrid Use Benefit.
+
+For Enterprise agreement:
+
+•	Upload a custom VM and deploy using a Resource Manager template or Azure PowerShell.
+
+For more information, see the following resources:
+
+ - [Azure Hybrid Use Benefit overview ](https://www.azure.cn/pricing/hybrid-use-benefit/)
+
+ - [Downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
+
+ - [Azure Hybrid Use Benefit for Windows Server and Windows Client](hybrid-use-benefit-licensing.md).
+
+ - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 <!--Not Available ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)-->
 <!--Not Available ## How to add Enterprise Dev/Test to my Enterprise Agreement (EA) to get access to Window client images?-->
 <!--Not Available ## My drivers are missing for my Windows N-Series VM-->
@@ -80,4 +100,4 @@ Yes. You can add an existing classic VM to a new or existing Availability Set. F
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/).
 
 Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select **Get Support**.
-<!--Update_Description: update meta properties-->
+<!--Update_Description: add HUB question and answer -->

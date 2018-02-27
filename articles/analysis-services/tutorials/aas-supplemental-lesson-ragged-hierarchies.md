@@ -14,13 +14,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/16/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ---
 # Supplemental lesson - Ragged hierarchies
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In this supplemental lesson, you resolve a common problem when pivoting on hierarchies that contain blank values (members) at different levels. For example, an organization where a high-level manager has both departmental managers and non-managers as direct reports. Or, geographic hierarchies composed of Country-Region-City, where some cities lack a parent State or Province, such as Washington D.C., Vatican City. When a hierarchy has blank members, it often descends to different, or ragged, levels.
 
@@ -128,4 +126,4 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
 [Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

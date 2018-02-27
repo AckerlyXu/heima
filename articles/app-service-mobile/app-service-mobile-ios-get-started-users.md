@@ -2,17 +2,19 @@
 title: Add Authentication on iOS with Azure Mobile Apps
 description: Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD and Microsoft.
 services: app-service\mobile
-documentationCenter: ios
-authors: yuaxu
-manager: yochayk
+documentationcenter: ios
+author: conceptdev
+manager: crdun
 editor: ''
 
+ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 

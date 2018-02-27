@@ -2,6 +2,18 @@
 layout: LandingPage
 title: Service Bus Relay Documentation
 description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+orgin.date:  03/14/2017
+ms.date: 02/05/2018
+ms.author: v-yiso
 ---
 # Service Bus Relay Documentation
 Learn how Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.
@@ -19,24 +31,6 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                     </div>
                     <div class="cardText">
                         <h3>Learn about Service Bus Relay</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Service Bus Relay Video Library</h3>
                     </div>
                 </div>
             </div>

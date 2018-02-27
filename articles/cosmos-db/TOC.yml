@@ -4,6 +4,7 @@
   items:
   - name: About Azure Cosmos DB
     href: introduction.md
+### 20-days-of-tips.md is invalid
 - name: Quickstarts
   expanded: true
   items:
@@ -17,6 +18,7 @@
       href: create-sql-api-nodejs.md
     - name: Python
       href: create-sql-api-python.md
+### create-sql-api-xamarin-dotnet.md is invalid due to facebook authoriation
   - name: MongoDB
     items:
     - name: Node.js
@@ -71,7 +73,8 @@
       href: tutorial-query-mongodb.md
     - name: Table
       href: tutorial-query-table.md
-  - name: 4 - Distribute globally
+  - name: 4 - Distribute multiple-region
+### Notice: globally to multiple-region
     items:
     - name: SQL
       href: tutorial-global-distribution-sql-api.md
@@ -85,7 +88,7 @@
       href: local-emulator.md
     - name: Export certificates
       href: local-emulator-export-ssl-certificates.md
-### tutorial-functions-http-trigger.md is invalid
+### tutorial-functions-http-trigger.md is invalid due to Azure Function
 - name: Samples
   items:
   - name: Azure CLI
@@ -94,11 +97,14 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-### serverless-computing-database.md invalid
-  - name: Global distribution
+### serverless-computing-database.md invalid due to serverless 
+  - name: Multiple-region distribution
+### Notice: Global to Multiple-region
     href: distribute-data-globally.md
   - name: Partitioning
     href: partition-data.md
+  - name: Unique keys
+    href: unique-keys.md
   - name: Consistency
     href: consistency-levels.md
   - name: Throughput
@@ -142,8 +148,10 @@
         href: programming.md
       - name: Performance testing
         href: performance-testing.md
-      - name: Performance tips
+      - name: Performance tips for .NET
         href: performance-tips.md
+      - name: Performance tips for Java
+        href: performance-tips-java.md
       - name: Multi-master setup
         href: multi-region-writers.md
       - name: DateTimes
@@ -204,6 +212,8 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
+      - name: Using Mongoose
+        href: mongodb-mongoose.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
       - name: Angular tutorial series
@@ -242,6 +252,7 @@
               href: table-storage-how-to-use-dotnet.md
             - name: F#
               href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+### URL is correct for https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
             - name: Node.js 
               href: table-storage-cloud-service-nodejs.md
             - name: Java
@@ -346,10 +357,11 @@
       href: table-sdk-python.md  
 - name: Resources
   items:
+###    href: https://www.azure.cn/try/cosmosdb/ is invalid
   - name: Pricing
     href: https://www.azure.cn/pricing/details/cosmos-db/
   - name: FAQ
     href: faq.md
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-### ms.date: 12/25/2017
+### ms.date: 01/29/2018

@@ -510,4 +510,4 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
    > 
 
 <!--Not Available ## Next steps-->
-<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->

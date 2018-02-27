@@ -37,7 +37,7 @@ This article assumes you have the following resources:
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit Azure Network Watcher Agent virtual machine extension for Windows and for Linux VM visit Azure Network Watcher Agent virtual machine extension for Linux .
 
 ## Register the preview capability 
 
@@ -302,7 +302,7 @@ The following json is the example response from running the previous cmdlet. As 
 
 ## Next steps
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+<!-- Not Available on  [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Set up HBase cluster replication in Azure virtual networks | Microsoft Docs
+title: Set up HBase cluster replication in Azure virtual networks
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 services: hdinsight,virtual-network
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/09/2017
-ms.date: 11/28/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -280,4 +280,4 @@ In this tutorial, you learned how to set up HBase replication within a virtual n
 * [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight HBase overview](./apache-hbase-overview.md)
 * [Create HBase clusters in Azure Virtual Network](./apache-hbase-provision-vnet.md)
-* [Analyze sensor data with Storm and HBase in HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

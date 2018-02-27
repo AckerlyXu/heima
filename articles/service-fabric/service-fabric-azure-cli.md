@@ -184,7 +184,8 @@ To convert from a PFX file to a PEM file, use the following command:
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) for details.
+Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/pkcs12.html) for details.
+<!-- URL is correct on man1.0.2 -->
 
 <a id="troubleshooting"></a>
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 08/28/2017
-ms.date: 11/27/2017
+origin.date: 12/28/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-
 ---
+
 # Use Azure PowerShell to create a service principal to access resources
 
 When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This identity is known as a service principal. This approach enables you to:
@@ -25,10 +25,10 @@ When you have an app or script that needs to access resources, you can set up an
 * Assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * Use a certificate for authentication when executing an unattended script.
 
-This topic shows you how to use [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to set up everything you need for an application to run under its own credentials and identity.
+This article shows you how to use [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to set up everything you need for an application to run under its own credentials and identity.
 
 ## Required permissions
-To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Azure Active Directory, and assign the service principal to a role. 
+To complete this article, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Azure Active Directory, and assign the service principal to a role. 
 
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -102,8 +102,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
+
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -372,7 +374,7 @@ To add a password, use:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-To add a certificate value, create a self-signed certificate as shown in this topic. Then, use:
+To add a certificate value, create a self-signed certificate as shown in this article. Then, use:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -412,7 +414,7 @@ For information about logging in as the application through different platforms,
 
 * [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
-* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](https://docs.microsoft.com/javascript/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
@@ -423,4 +425,4 @@ For information about logging in as the application through different platforms,
 <!-- Notice: active-directory/develop/ is correct-->
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).
 
-<!--Update_Description: wording update， update link-->
+<!--Update_Description: wording update， update meta properties -->

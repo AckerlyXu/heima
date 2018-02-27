@@ -113,8 +113,9 @@ Your settings should look something like this:
 
 ### Set up CI/CD for automated deployment to Azure VM
 
-To set up a continuous delivery pipeline with Visual Studio Team Service, see [Deploy to a Windows Virtual Machine](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+To set up a continuous delivery pipeline with Visual Studio Team Service, see [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/zh-cn/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
+<!-- THE FOLLOWING ARCHOR IS NOT AVAILABLE -->
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
 [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png

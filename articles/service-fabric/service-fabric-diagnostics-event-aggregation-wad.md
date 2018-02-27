@@ -28,7 +28,7 @@ ms.author: v-yeche
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
 
-One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product.
+One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product.
 <!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
 
 ## Prerequisites
@@ -254,17 +254,16 @@ To collect performance counters or event logs, modify the Resource Manager templ
 
 ## Collect Performance Counters
 
-To collect performance metrics from your cluster, add the performance counters to your "WadCfg > DiagnosticMonitorConfiguration" in the Resource Manager template for your cluster. See [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) for steps on modifying your `WadCfg` to collect specific performance counters. Reference [Service Fabric Performance Counters](service-fabric-diagnostics-event-generation-perf.md) for a list of performance counters that we recommend collecting.
-
-If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource.
-
+To collect performance metrics from your cluster, add the performance counters to your "WadCfg > DiagnosticMonitorConfiguration" in the Resource Manager template for your cluster. Reference [Service Fabric Performance Counters](service-fabric-diagnostics-event-generation-perf.md) for a list of performance counters that we recommend collecting.
+<!-- Wait for [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) -->
+<!-- Not Available on If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource. -->
 <!-- Not Available on ## Send logs to Application Insights -->
 
 
 ## Next steps
 
 Once you have correctly configured Azure diagnostics, you will see data in your Storage tables from the ETW and EventSource logs. If you choose to use OMS, Kibana, or any other data analytics and visualization platform that is not directly configured in the Resource Manager template, make sure to set up the platform of your choice to read in the data from these storage tables.
-<!-- Not Available on  [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md).-->
+<!-- Not Available on [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 <!-- Not Available on [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
 >[!NOTE]

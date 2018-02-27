@@ -22,21 +22,22 @@ ms.author: v-yeche
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-> * [Linux](../../linux/sql/sql-server-linux-faq.md)
+<!-- Not Available on > * [Linux](../../linux/sql/sql-server-linux-faq.md) -->
 
 This article provides answers to some of the most common questions about running [SQL Server on Windows Azure Virtual Machines](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver).
 
 > [!NOTE]
-> This article focuses on issues specific to SQL Server on Windows VMs. If you are running SQL Server on Linux VMs, see the [Linux FAQ](../../linux/sql/sql-server-linux-faq.md).
+> This article focuses on issues specific to SQL Server on Windows VMs. 
 
+<!-- Not Avaiable on  [Linux FAQ](../../linux/sql/sql-server-linux-faq.md) -->
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a name="images"></a> Images
 
 1. **What SQL Server virtual machine gallery images are available?**
 
-   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more details, see the complete list of [Windows VM images](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) and [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
-
+   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more details, see the complete list of [Windows VM images](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) .
+<!-- Not Avaiable on [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create) -->
 1. **Are existing SQL Server virtual machine gallery images updated?**
 
    Every two months, SQL Server images in the virtual machine gallery are updated with the latest Windows and Linux updates. For Windows images, this includes any updates that are marked important in Windows Update, including important SQL Server security updates and service packs. For Linux images, this includes the latest system updates. SQL Server cumulative updates are handled differently for Linux and Windows. For Linux, SQL Server cumulative updates are also included in the refresh. But at this time, Windows VMs are not updated with SQL Server or Windows Server cumulative updates.
@@ -126,8 +127,8 @@ This article provides answers to some of the most common questions about running
 **Linux VMs**:
 
 * [Overview of SQL Server on a Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
-* [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
+<!-- Not Avaiable on * [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md) -->
+<!-- Not Avaiable on * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md) -->
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 <!--Update_Description: wording update， add images FAQ content -->

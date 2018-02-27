@@ -1,17 +1,14 @@
 ---
 title: Azure IoT Suite Documentation - Tutorials, API Reference | Azure
-description: 
+description: Documentation for Azure IoT Suite includes Getting started guides, How-to articles, Tutorials, and API Reference.
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
 ms.service: iot-suite
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
+origin.date: 11/27/2017
+ms.date: 02/05/2018
 ms.author: v-yiso
 ---
 
@@ -21,13 +18,13 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/iot-suite/iot-suite-overview">
+        <a href="/iot-suite/iot-suite-what-are-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/iot-suite.svg" alt="" />
+                            <img src="media/index/iot-suite.svg" alt="Learn about IoT Suite" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -39,35 +36,17 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/index/?services=internet-of-things">
+        <a href="/iot-suite/iot-suite-remote-monitoring-deploy">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="Deploy the remote monitoring preconfigured solution" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/iot-suite/iot-suite-getstarted-preconfigured-solutions">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Preconfigured Solutions</h3>
+                        <h3>Deploy the remote monitoring preconfigured solution</h3>
                     </div>
                 </div>
             </div>
@@ -76,5 +55,4 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
     </li>    
 </ul>
 
----
 

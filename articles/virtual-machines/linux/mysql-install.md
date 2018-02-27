@@ -82,7 +82,8 @@ We will use Linux VM with Ubuntu from Azure here.
 
              #[root@mysqlnode ~]# service mysql restart
 
-### How to install MySQL on Red Hat OS family like CentOS, Oracle Linux
+### How to install MySQL on CentOS
+<!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） -->
 We will use Linux VM with CentOS or Oracle Linux here.
 
 * Step 1: Add the MySQL Yum repository

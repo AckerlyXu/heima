@@ -22,6 +22,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
     * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 
 6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
 
 ### Validation (Windows)
 
@@ -30,7 +31,6 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
-
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
@@ -160,7 +160,6 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
-
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
@@ -177,3 +176,6 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 	- **10.0.0.5** with the private IP address that has a public IP address associated to it
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
+
+<!-- Update_Description: wording update -->
+<!-- ms.date: 01/29/2018 -->

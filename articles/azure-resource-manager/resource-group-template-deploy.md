@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -24,10 +24,10 @@ This article explains how to use Azure PowerShell with Resource Manager template
 
 The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+If needed, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 
 <a id="deploy-local-template"></a> 
-## <a name="deploy-a-template-from-your-local-machine"></a> Deploy a template from your local machine
+## <a name="deploy-a-template-from-your-local-machine"></a>Deploy a template from your local machine
 
 When deploying resources to Azure, you:
 

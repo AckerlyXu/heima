@@ -163,7 +163,7 @@ Application security groups are available in preview release. Features in previe
 ## Next steps
 
 * Complete the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) tutorial
-<!-- Not Available * Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) tutorial-->
+<!-- Not Available * Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) -->
 
 
 <!--Update_Description: wording update -->

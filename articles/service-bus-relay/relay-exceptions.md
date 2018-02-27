@@ -1,6 +1,6 @@
 ---
-title: Azure Relay exceptions and how to resolve them | Azure
-description: Get a list of Azure Relay exceptions and suggested actions you can take to help resolve them.
+title: Azure Relay exceptions and how to resolve them 
+description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
 services: service-bus-relay
 documentationcenter: na
 author: Derek1101
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/23/2017
+origin.date: 12/20/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 
 ---
 # Azure Relay exceptions
@@ -32,7 +32,7 @@ The Relay APIs generate exceptions that might fall into the following categories
 *   **Setup/configuration error**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
     **General action**: Review your configuration. If necessary, change the configuration.
-*   **Transient exceptions**: [Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception).
+*   **Transient exceptions**: [Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception).
     **General action**: Retry the operation or notify users.
 *   **Other exceptions**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
@@ -55,14 +55,14 @@ The following table lists messaging exception types and their causes. It also no
 
 ## QuotaExceededException
 
-[QuotaExceededException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indicates that a quota for a specific entity has been exceeded.
+[QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indicates that a quota for a specific entity has been exceeded.
 
 For Relay, this exception wraps the [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), which indicates that the maximum number of listeners has been exceeded for this endpoint. This is indicated in the **MaximumListenersPerEndpoint** value of the exception message.
 
 ## TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
 
-Check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property. Hitting this limit also can cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property. Reaching this limit also can cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 For Relay, you might receive timeout exceptions when you first open a relay sender connection. There are two common causes for this exception:
 

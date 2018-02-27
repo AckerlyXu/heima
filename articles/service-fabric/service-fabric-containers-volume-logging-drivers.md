@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ---
 
@@ -25,7 +25,8 @@ Only volume drivers for Linux containers are currently supported. If you're usin
 
 ## Install the Docker volume/logging driver
 
-If the Docker volume/logging driver is not installed on the machine, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](/service-fabric/service-fabric-application-model#describe-a-service).
+If the Docker volume/logging driver is not installed on the machine, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](/service-fabric/service-fabric-application-model).
+<!-- Archor not exist #describe-a-service-->
 
 An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is as follows:
 
@@ -38,6 +39,10 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 <!--Add AZURE_STORAGE_ENDPOINT="core.chinacloudapi.cn" -->
+
+> [!NOTE]
+> Windows Server 2016 Datacenter does not support SMB mounts on the host ([only supported on Windows Server version 1709](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/manage-containers/container-storage)). This prevents use of certain volume drivers such as Azure Files volume drivers. Instead, one can mount the shares directly within the container using **net use**. 
+>   
 
 ## Specify the plug-in or driver in the manifest
 The plug-ins are specified in the application manifest as follows:

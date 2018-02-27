@@ -48,7 +48,7 @@ Azure provides an extensive catalog of analytics technologies that are capable o
 **Download:** [Real-Time Event Processing with Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

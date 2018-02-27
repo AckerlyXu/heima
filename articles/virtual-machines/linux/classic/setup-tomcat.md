@@ -242,7 +242,8 @@ After connecting, you should see something similar to the following:
 
      Check your public port and private port endpoint settings and make sure the private port is the same as the Tomcat listen port. See "Phase 1: Create an image" section of this article for instructions on configuring endpoints for your virtual machine.  
 
-     To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release), or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
+     To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (CentOS release), or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
+<!-- Change Red Hat to CentOS -->
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 

@@ -96,7 +96,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location chinaeast -VM $vmConfig
 ```
 
-Use [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](https://docs.microsoft.com/sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
+Use [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](./sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"

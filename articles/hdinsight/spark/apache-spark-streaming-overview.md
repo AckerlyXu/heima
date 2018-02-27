@@ -1,5 +1,5 @@
 ---
-title: What is Spark Streaming in Azure HDInsight | Microsoft Docs
+title: What is Spark Streaming in Azure HDInsight 
 description: 'How to use Spark Streaming applications on HDInsight Spark clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/08/2017
-ms.date: 12/25/2017
+origin.date: 01/09/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 ---
 # Overview of Spark Streaming

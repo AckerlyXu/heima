@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/25/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -104,7 +104,7 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 - [REST](https://docs.microsoft.com/rest/api/documentdb/)
 - [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 - [SQL query reference](sql-api-sql-query-reference.md)
-- [Azure Functions reference](../azure-functions/functions-bindings-documentdb.md)
+<!-- Not Availalbe on - [Azure Functions reference](../azure-functions/functions-bindings-cosmosdb.md) -->
 
 ## Samples
 
@@ -114,4 +114,4 @@ These sample pages provide links to sample code and API reference content for th
 - [Node.js](sql-api-nodejs-samples.md)
 - [Python](sql-api-python-samples.md)
 
-<!-- Update_Description: new articles on sql api index page -->
+<!-- Update_Description: update meta properties, wording update -->

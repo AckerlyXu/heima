@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: 
 ---
@@ -32,7 +32,7 @@ For the most up-to-date notifications for the preview, check the [Azure Virtual 
 
 >[!NOTE]
 > During preview, the feature may not have the same level of availability and reliability as features that are in general availability release.
-<!-- Not Available on  [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/). -->
+<!-- Not Available on  [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/) -->
 
 ## Key benefits
 
@@ -59,7 +59,7 @@ Service endpoints provide the following benefits:
 
   By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow         traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP       addresses can be added through the IP firewall configuration for Azure service resources.
 
-  ExpressRoute: If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) from your premises, for public peering, each ExpressRoute circuit uses two NAT IP addresses applied to Azure service   traffic when the traffic enters the Azure network backbone. To allow access to your service resources, you must allow those two public IP addresses in the resource IP firewall setting. To find your ExpressRoute circuit IP addresses, [open a support   ticket with ExpressRoute](https://www.azure.cn/support/support-ticket-form) via the Azure portal.
+  ExpressRoute: If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) from your premises, for public peering or Azure peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Azure network backbone. For Azure peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://www.azure.cn/support/support-ticket-form) via the Azure portal. 
 <!-- Not Available on [NAT for ExpressRoute public peering.](../expressroute/expressroute-nat.md?toc=%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering) -->
 
 ![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
@@ -69,7 +69,7 @@ Service endpoints provide the following benefits:
 - Service endpoints are configured on a subnet in a virtual network. Endpoints work with any type of compute instances running within that subnet.
 - Only one service endpoint can be enabled to a specific service from a subnet. You can configure multiple service endpoints for all supported Azure services (Azure Storage, or Azure Sql Database, for example) on a subnet.
 - Virtual networks must be in the same region as the Azure service resource. If using GRS and RA-GRS Azure Storage accounts, the primary account must be in the same region as the virtual network.
-- The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#Provisioning).
+- The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#provisioning).
 - For supported services, you can secure new or existing resources to virtual networks using service endpoints.
 
 ### Considerations
@@ -126,4 +126,4 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
 - Quick start: [Azure resource manager template](https://www.azure.cn/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's Subnet and secure Azure Storage account to that subnet.
 
-<!-- Update_Description: new articles on virtual network service endpoints overview -->
+<!-- Update_Description: wording update -->

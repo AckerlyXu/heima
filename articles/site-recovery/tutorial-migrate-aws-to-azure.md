@@ -169,7 +169,7 @@ When you are all done with all 5 sections of **Prepare infrastructure**, click *
 
 Enable replication for each VM you want to migrate. When replication is enabled, Site Recovery installs the Mobility service automatically. 
 
-1. Open the [Azure portal](htts://portal.azure.cn).
+1. Open the [Azure portal](https://portal.azure.cn).
 1. On the page for your vault, under **Getting Started**, click **Site Recovery**.
 2. Under **For on-premises machines and Azure VMs**, click **Step 1:Replicate application**. Complete the wizard pages with the following information and click **OK** on each page when finished:
     - 1 Source Configure:

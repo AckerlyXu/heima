@@ -245,10 +245,10 @@ This article shows you how to perform basic operations on your resources with Az
 
 The following topics show you how to use Azure Automation, Resource Manager, and PowerShell to effectively perform management tasks:
 
-<!-- Not Available - For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md). -->
+<!-- Not Available - For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md) -->
 - For information about working with galleries of scripts, see [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md).
-<!-- Not Available - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md). -->
-<!-- Not Available - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md). -->
+<!-- Not Available - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md) -->
+<!-- Not Available - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md) -->
 
 ## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).

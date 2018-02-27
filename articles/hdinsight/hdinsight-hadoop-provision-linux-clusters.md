@@ -1,5 +1,5 @@
 ---
-title: Cluster setup for Hadoop, Spark, Kafka, HBase - Azure HDInsight | Microsoft Docs
+title: Cluster setup for Hadoop, Spark, Kafka, HBase - Azure HDInsight
 description: Set up Hadoop, Kafka, Spark, HBase, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/14/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -231,7 +231,7 @@ If your solution requires technologies that are spread across multiple HDInsight
 
 For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](hdinsight-extend-hadoop-virtual-network.md).
 
-For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](storm/apache-storm-sensor-data-analysis.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+For an example of using two cluster types within an Azure virtual network, see [Use Spark Structured Streaming with Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Troubleshoot access control issues
 

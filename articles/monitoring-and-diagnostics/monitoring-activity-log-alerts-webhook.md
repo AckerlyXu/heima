@@ -1,5 +1,5 @@
 ---
-title: Understand the webhook schema used in activity log alerts | Microsoft Docs
+title: Understand the webhook schema used in activity log alerts
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 author: johnkemnetz
 services: monitoring-and-diagnostics
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 12/11/2017
+ms.date: 02/26/218
 ms.author: v-yiso
 
 ---
@@ -21,6 +21,7 @@ As part of the definition of an action group, you can configure webhook endpoint
 
 For more information on activity log alerts, see how to [create Azure activity log alerts](monitoring-activity-log-alerts.md).
 
+For information on action groups, see how to [create action groups](monitoring-action-groups.md).
 
 ## Authenticate the webhook
 The webhook can optionally use token-based authorization for authentication. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -151,7 +152,7 @@ For specific schema details on all other activity log alerts, see [Overview of t
 | eventDataId |Unique identifier for the event. |
 | eventSource |Name of the Azure service or infrastructure that generated the event. |
 | httpRequest |The request usually includes the clientRequestId, clientIpAddress, and HTTP method (for example, PUT). |
-| level |One of the following values: Critical, Error, Warning, Informational, and Verbose. |
+| level |One of the following values: Critical, Error, Warning and Informational. |
 | operationId |Usually a GUID shared among the events corresponding to single operation. |
 | operationName |Name of the operation. |
 | properties |Properties of the event. |

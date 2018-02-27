@@ -1,5 +1,5 @@
 ---
-title: Best practices for autoscale | Microsoft Docs
+title: Best practices for autoscale
 description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services 
 author: anirudhcavale
 manager: orenr
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2017
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -28,8 +28,8 @@ This article teaches best practices to autoscale in Azure. Azure Monitor autosca
   An autoscale setting has a maximum, minimum, and default value of instances.
 * An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](insights-autoscale-common-metrics.md).
 * All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
-* You always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource receive email. You also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
-* You can opt-in to receive a successful scale action notification via email and webhooks.
+* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./monitoring-activity-log-alerts.md) so that you can be notified via email, SMS, webhook, etc. whenever there is an autoscale failure.
+* Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, webhooks, etc. whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices
 Use the following best practices as you use autoscale.
@@ -147,6 +147,8 @@ Autoscale will post to the Activity Log if any of the following conditions occur
 * Metrics are available (recovery) again to make a scale decision.
 
 You can also use an Activity Log alert to monitor the health of the autoscale engine. Here are examples to [create an Activity Log Alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) or to [create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+In addition to using activity log alerts, you can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Next Steps
 - [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

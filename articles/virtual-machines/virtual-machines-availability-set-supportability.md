@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 02/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -24,6 +25,7 @@ You may occasionally encounter limitations when you add new virtual machines (VM
 
 Here is the supportability matrix to mix different types of VMs:
 
+<!--PENDING FOR Dv3 GA ANOUNCEMENT -->
 Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |First VM|||||||
@@ -32,6 +34,7 @@ Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
 |D||OK|OK|OK|OK|OK|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
+<!--PENDING FOR Dv3 GA ANOUNCEMENT -->
 
 All other series could not be in the same availability set because they require a specific hardware.
 

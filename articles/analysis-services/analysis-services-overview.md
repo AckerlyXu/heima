@@ -1,5 +1,5 @@
 ---
-title: What is Azure Analysis Services | Azure
+title: Azure Analysis Services overview| Azure
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 12/08/2017
-ms.date: 12/25/2017
+origin.date: 01/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
-# What is Azure Analysis Services?
+# Azure Analysis Services overview
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
@@ -53,18 +53,14 @@ Azure Analysis Services is available in Developer, Basic, and Standard tiers. Wi
 
 Go up, down, or pause your server. Use the Azure portal or have total control on-the-fly by using PowerShell. You only pay for what you use. To learn more about the different plans and tiers, and use the pricing calculator to determine the right plan for you, see [Azure Analysis Services Pricing](https://www.azure.cn/pricing/details/analysis-services/).
 
-### Scale-out resources for fast query responses
-
-With Azure Analysis Services scale-out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. You can create a query pool with up to seven additional query replicas (eight total, including your server). 
-
-Just like with changing your tier, you can scale-out query replicas according to your needs. Configure scale-out in the portal or by using REST APIs. To learn more, see [Azure Analysis Services scale-out](analysis-services-scale-out.md).
-
+<!-- Not Available on ### Scale-out resources for fast query responses -->
 ## Keep your data close
 Azure Analysis Services servers can be created in the following [Azure regions](https://www.azure.cn/support/service-dashboard/):
 | China |
 |--------------|
 | China North |
 <!-- Not Available on China East for Azure Analysis Services -->
+
 New regions are being added all the time, so this list might be incomplete. You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 
 ## Migrate your existing tabular models
@@ -106,8 +102,9 @@ Azure Analysis Services Firewall blocks all client connections other than those 
 #### On-premises data sources
 Secure access to data residing on-premises in your organization is achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
 
-Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
-To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+<!-- Not Available on Global [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx) -->
+<!-- Not Available on Global [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity) -->
 
 ## Supports the latest client tools
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
@@ -123,7 +120,7 @@ Azure Analysis Services is simple to set up and to manage. You can find all the 
 
 <!-- Not Available ### Videos -->
 #### Blogs
-Things are changing rapidly. You can always get the latest information on the [Analysis Services team blog](https://www.azure.cn/blog/tags/Azure%20分析服务).
+Things are changing rapidly. You can always get the latest information on the [Azure blog](https://www.azure.cn/blog/tags/Azure%20分析服务).
 
 <!-- Not Available #### Community -->
 <!-- Not Available ## Feedback -->
@@ -131,4 +128,4 @@ Things are changing rapidly. You can always get the latest information on the [A
 ## Next steps
 Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure. When your server is ready, step through the [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md) to learn how to create a fully functional tabular model and deploy it to your server.
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

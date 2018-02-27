@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 11/03/2017
-  ms.date: 01/01/2018
+  ms.date: 02/26/2018
   ms.author: v-yeche
 abstract:
   description: Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Learn how to use Azure Service Fabric with our quickstarts, tutorials, and samples.  
@@ -26,6 +26,7 @@ sections:
   - type: list
     style: icon48
     items: 
+### we add the corresponding image in the directory of /service-fabric/media/index/ 
     - image: 
         src: /service-fabric/media/index/logo_net.svg
       text: .NET
@@ -84,4 +85,4 @@ sections:
     - title: Java
       html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Getting started</a></p>
 ### Not Available - title: Reference
-### ms.date: 01/01/2018
+### ms.date: 02/26/2018

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -153,6 +153,8 @@ A network security group (NSG) contains a list of security rules that allow or d
 NSG rules define networking ports over which traffic is allowed or denied. The rules can include source and destination IP address ranges so that traffic is controlled between specific systems or subnets. NSG rules also include a priority (between 1—and 4096). Rules are evaluated in the order of priority. A rule with a priority of 100 is evaluated before a rule with priority 200.
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
+
+The default rules for NSGs are:
 
 - **Virtual network** - Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
 - **Internet** - Outbound traffic is allowed, but inbound traffic is blocked.

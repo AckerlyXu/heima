@@ -21,6 +21,7 @@ ms.author: v-yeche
 # Plan and design Azure Virtual Networks
 Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
 
+<a name="plan"></a>
 ## Plan
 A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
 
@@ -35,6 +36,7 @@ Before answering the planning questions below, consider the following:
 * You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) available in Azure.
 * Different resources can be grouped together in [resource groups](../azure-resource-manager/resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
 
+<a name="define-requirements"></a>
 ### Define requirements
 Use the questions below as a starting point for your Azure network design.    
 
@@ -95,7 +97,7 @@ As far as virtual networks are concerned, users in the **Network Contributor** r
 >
 
 ## Design
-Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
+Once you know the answers to the questions in the [Plan](#plan) section, review the following before defining your VNets.
 
 ### Number of subscriptions and VNets
 You should consider creating multiple VNets in the following scenarios:
@@ -160,7 +162,7 @@ You need to design a virtual network solution that meets the following requireme
 * Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
 
 ### Plan
-You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
+You should start your design planning by answering the question in the [Define requirements](#define-requirements) section as shown below.
 
 1. What Azure locations will you use to host VNets?
 

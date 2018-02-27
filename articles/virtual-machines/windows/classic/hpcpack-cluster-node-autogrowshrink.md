@@ -25,6 +25,7 @@ automatically grow or shrink the cluster resources such as nodes or cores accord
 the workload on the cluster. Scaling the cluster resources in this way allows you
 to use your Azure resources more efficiently and control their costs.
 
+<a name="autogrowshrink-parameters"></a>
 This article shows you two ways that HPC Pack provides to autoscale compute resources:
 
 * The HPC Pack cluster property **AutoGrowShrink**

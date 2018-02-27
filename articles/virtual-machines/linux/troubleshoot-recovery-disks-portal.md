@@ -10,11 +10,11 @@ editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2016
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -92,7 +92,8 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 ## Mount the attached data disk
 
 > [!NOTE]
-> The following examples detail the steps required on an Ubuntu VM. If you are using a different Linux distro, such as Red Hat Enterprise Linux or SUSE, the log file locations and `mount` commands may be a little different. Refer to the documentation for your specific distro for the appropriate changes in commands.
+> The following examples detail the steps required on an Ubuntu VM. If you are using a different Linux distro, such as CentOS or SUSE, the log file locations and `mount` commands may be a little different. Refer to the documentation for your specific distro for the appropriate changes in commands.
+<!-- Change Red Hat to CentOS -->
 
 1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, it is likely connected to `/dev/sdc`. Use `dmseg` to list attached disks:
 
@@ -169,4 +170,4 @@ If you are having issues connecting to your VM, see [Troubleshoot SSH connection
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: wording update， update link-->
+<!--Update_Description: update meta properties -->

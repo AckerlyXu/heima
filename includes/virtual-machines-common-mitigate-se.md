@@ -1,4 +1,5 @@
-**Last document update**: January 6, 6:30 PM PST.
+<!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
+**Last document update**: January 12, 3:00 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -39,7 +40,12 @@ Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/win
 ### Linux
 If you are using Linux and hosting untrusted code, you should also update Linux to a more recent version that implements kernel page-table isolation (KPTI) which separates the page tables used by the kernel from those belonging to user space. These mitigations require a Linux OS update and can be obtained from your distribution provider when available. Your OS provider can tell you whether protections are enabled or disabled by default.
 
+We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
+
 ## Next steps
 
 To learn more, see [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
-<!-- ms.date: 01/09/2018 -->
+<!--Update_Description: update the update notice message for Linux -->
+<!--ms.date: 01/29/2018-->
+<!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
+

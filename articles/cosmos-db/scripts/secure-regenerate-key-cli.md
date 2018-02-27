@@ -27,7 +27,7 @@ This sample regenerates any kind of Azure Cosmos DB account key using the Azure 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 <!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Sample script
 
@@ -80,10 +80,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Updates an Azure Cosmos DB account. |
-| [az cosmosdb regenerate-key](https://docs.microsoft.com/cli/azure/cosmosdb/regenerate-key) | Regeneratates Azure Cosmos DB account keys. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.azure.cn/cli/azure/group?view=azure-cli-latest#create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | Updates an Azure Cosmos DB account. |
+| [az cosmosdb regenerate-key](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_regenerate_key) | Regeneratates Azure Cosmos DB account keys. |
+| [az group delete](https://docs.azure.cn/cli/azure/group?view=azure-cli-latest#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

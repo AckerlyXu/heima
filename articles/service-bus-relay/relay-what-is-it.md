@@ -1,5 +1,5 @@
 ---
-title: What is Azure Relay and why use it overview | Azure
+title: What is Azure Relay and why use it overview
 description: Overview of Azure Relay
 services: service-bus-relay
 documentationcenter: .net
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-origin.date: 08/23/2017
+origin.date: 12/20/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ---
 # What is Azure Relay?
 The Azure Relay service facilitates hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. Relay supports a variety of different transport protocols and web services standards.
@@ -43,12 +43,15 @@ Hybrid Connections and WCF Relays both enable secure connection to assets that e
 | **Multiple RPC Programming Models** | |x |
 
 ##<a name="hybrid-connections"></a> Hybrid Connections
+
 The [Azure Relay Hybrid Connections](./relay-hybrid-connections-protocol.md) capability is a secure, open-protocol evolution of the existing Relay features that can be implemented on any platform and in any language that has a basic WebSocket capability, which explicitly includes the WebSocket API in common web browsers. Hybrid Connections is based on HTTP and WebSockets.
 
-## Service history
-Hybrid Connections supplants the former, similarly named "BizTalk Services" feature that was built on the Azure Service Bus WCF Relay. The new Hybrid Connections capability complements the existing WCF Relay feature and these two service capabilities exist side-by-side in the Relay service for the foreseeable future. They share a common gateway, but are otherwise different implementations.
-##<a name="wcf-relays"></a> WCF Relays
-The WCF Relay works for the full .NET Framework (NETFX) and for WCF. You initiate the connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
+### Service history
+Hybrid Connections supplants the former, similarly named "BizTalk Services" feature that was built on the Azure Service Bus WCF Relay. The new Hybrid Connections capability complements the existing WCF Relay feature and these two service capabilities exist side-by-side in the Azure Relay service. They share a common gateway, but are otherwise different implementations.
+
+##<a name="wcf-relays"></a> WCF Relay
+
+WCF Relay works for the full .NET Framework (NETFX) and for WCF. You initiate the connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. For more information, see [getting started with WCF Relay](relay-wcf-dotnet-get-started.md).
 
 ## Architecture: Processing of incoming relay requests
 When a client sends a request to the [Azure Relay](/service-bus-relay/) service, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.

@@ -68,7 +68,7 @@ login.chinacloudapi.cn | Required for authorization and authentication to the Si
 
 If you are using any IP-based firewall proxy or NSG rules to control outbound connectivity, the following IP ranges need to be whitelisted, depending on the source and target locations of the virtual machines:
 
-- All IP ranges that correspond to the source location. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Whitelisting is required so that data can be written to the cache storage account from the VM.
+- All IP ranges that correspond to the source location. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=42064).) Whitelisting is required so that data can be written to the cache storage account from the VM.
 
 - All IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
@@ -96,11 +96,7 @@ For example, if your VM's source location is "China East" and your replication t
 
 * Create rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Create rules that correspond to the target location:
-
-   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
-    --- | --- | ---
-   China North | 40.69.144.231 | 52.165.34.144
+<!-- Not Available * Create rules that correspond to the target location: -->
 
 ### NSG rules on the China North network security group
 
@@ -110,11 +106,7 @@ These rules are required so that replication can be enabled from the target regi
 
 * Rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Rules that correspond to the source location:
-
-   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
-    --- | --- | ---
-   China East | 13.82.88.226 | 104.45.147.24
+<!-- Not Available on * Rules that correspond to the source location: -->
 
 ## Guidelines for existing Azure-to-on-premises ExpressRoute/VPN configuration
 
@@ -140,7 +132,8 @@ Follow these best practices for ExpressRoute configuration:
   - The source virtual network and the ExpressRoute circuit.
   - The target virtual network and the ExpressRoute circuit.
 
-- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
+- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
+<!-- Anchor not Exist on azure-regions-to-expressroute-locations-within-a-geopolitical-region -->
 
 - We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure virtual networks of the same IP ranges at the same time.
 

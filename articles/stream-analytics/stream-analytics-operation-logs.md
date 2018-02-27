@@ -81,7 +81,7 @@ You can select any one of the failures, and click on the **Details** for more in
 In case you need to contact [Support](https://www.azure.cn/support/contact/) or provide information to the team via the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), please note the Operation Details, specifically the **Correlation ID**. 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

@@ -29,7 +29,8 @@ This article shows you how to attach a persistent disk to your VM so that you ca
 Azure Managed Disks simplifies disk management for Azure VMs by managing the storage accounts associated with the VM disks. You only have to specify the type (Premium or Standard) and the size of disk you need, and Azure creates and manages the disk for you. For more information, see [Managed Disks overview](managed-disks-overview.md).
 
 ### Attach a new disk to a VM
-If you just need a new disk on your VM, use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is *50*Gb in size:
+If you just need a new disk on your VM, use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. The following example creates a disk named *myDataDisk* that is *50*Gb in size:
+<!-- Not Available on [Overview of Availability Zones](../../availability-zones/az-overview.md) -->
 
 ```azurecli
 az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \

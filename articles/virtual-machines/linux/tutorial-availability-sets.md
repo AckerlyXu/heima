@@ -91,7 +91,8 @@ If you look at the availability set in the portal by going to Resource Groups > 
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware.  Use [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/availability-set?view=azure-cli-latest#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
+You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware.  Use [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set.
+<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes -->
 
 ```azurecli 
 az vm availability-set list-sizes \

@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit to cloud - Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs
+title: IoT DevKit to cloud - Connect IoT DevKit AZ3166 to Azure IoT Hub 
 description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
 services: iot-hub
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ---
 # Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud
 
@@ -26,7 +26,7 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 ## What you do
 Connect the [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to an Azure IoT hub that you create, collect the temperature and humidity data from sensors, and send the data to the IoT hub.
 
-Don't have a DevKit yet? [Get one](https://aka.ms/iot-devkit-purchase).
+Don't have a DevKit yet? Try [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [get one](https://aka.ms/iot-devkit-purchase).
 
 ## What you learn
 
@@ -103,8 +103,7 @@ The default app running on the DevKit checks the latest version of the firmware 
 >
 >
 
-
-If you need a firmware upgrade, the screen will show the current and latest firmware versions. To upgrade, follow the [Upgrade firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) guide.
+If you need a firmware upgrade, the screen will show the current and latest firmware versions. To upgrade, follow the [Upgrade firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) guide.
 
 ![Display of current and latest firmware versions](./media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -309,5 +308,6 @@ You have successfully connected an MXChip IoT DevKit to your IoT hub, and you ha
 To continue getting started with Azure IoT Hub and to explore other IoT scenarios, see:
 
 - [Manage cloud device messaging with iothub-explorer](./iot-hub-explorer-cloud-device-messaging.md)
+- [Save IoT Hub messages to Azure data storage](./iot-hub-store-data-in-azure-table-storage.md)
 - [Use Web Apps to visualize real-time sensor data from Azure IoT Hub](./iot-hub-live-data-visualization-in-web-apps.md)
 - [Device management with iothub-explorer](./iot-hub-device-management-iothub-explorer.md)

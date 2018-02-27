@@ -52,6 +52,7 @@ The following list summarizes the most common features that SQL Data Warehouse d
 
 Fortunately most of these limitations can be worked around. Explanations are provided in the relevant development articles referenced above.
 
+<a name="Common-table-expressions"></a>
 ## Supported CTE features
 Common table expressions (CTEs) are partially supported in SQL Data Warehouse.  The following CTE features are currently supported:
 

@@ -1,9 +1,9 @@
 ---
-title: Secure APIs using client certificate authentication in API Management - Azure API Management | Azure
+title: Secure APIs using client certificate authentication in API Management - Azure API Management
 description: Learn how to secure access to APIs using client certificates
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 
 # How to secure APIs using client certificate authentication in API Management

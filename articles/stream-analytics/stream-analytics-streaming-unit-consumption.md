@@ -26,7 +26,8 @@ Azure Stream Analytics aggregates the performance "weight" of running a job into
 
 In order to achieve low latency streaming processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it's important to monitor a streaming job's resource usage, and make sure there is enough resource allocated in order to keep the jobs running 24/7.
 
-The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It's best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](/monitoring-and-diagnostics/insights-alerts-portal)).
+The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It's best to keep the metric below 80% to account for occasional spikes. 
+<!-- Not Available on  [here to set up metric alerts](/monitoring-and-diagnostics/insights-alerts-portal) -->
 
 ## Configure Stream Analytics Streaming Units (SUs)
 1. Sign in to [Azure portal](http://portal.azure.cn/)

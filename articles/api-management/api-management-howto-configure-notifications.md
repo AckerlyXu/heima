@@ -1,21 +1,20 @@
 ---
-title: Configure notifications and email templates in Azure API Management | Azure
+title: Configure notifications and email templates in Azure API Management
 description: Learn how to configure notifications and email templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # How to configure notifications and email templates in Azure API Management
 API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
@@ -26,7 +25,7 @@ To configure notifications, click **Publisher portal** in the Azure Portal for y
 ![Publisher portal][api-management-management-console]
 
 > [!NOTE] 
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
 Click **Notifications** from the **API Management** menu on the left to view the available notifications.
 
@@ -114,5 +113,5 @@ To save the changes to the email template, click **Save**, or to cancel the chan
 [How to create and use groups]: ./api-management-howto-create-groups.md
 [How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: ./api-management-get-started.md
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

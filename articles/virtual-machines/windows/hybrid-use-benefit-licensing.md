@@ -83,6 +83,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 > If you don't see the option to toggle "Azure hybrid benefit" under "Configuration", it is because the conversion isn't supported yet for the selected VM type (for example a VM built from custom image or from an image that has additional paid software like SQL Sever or Azure Marketplace third-party software).
 >
 
+<a name="upload-a-windows-vhd"></a>
 ## Upload a Windows Server VHD
 To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](upload-generalized-managed.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
 
@@ -100,6 +101,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 
 You can also read more about [uploading the VHD to Azure process](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
 
+<a name="deploy-a-vm-via-resource-manager"></a>
 ## Deploy a VM via Resource Manager Template
 Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 
@@ -110,7 +112,7 @@ Within your Resource Manager templates, an additional parameter `licenseType` mu
         "vmSize": "[variables('vmSize')]"
    }
 ```
-
+<a name="detailed-powershell-deployment-walkthrough"></a>
 ## Deploy a VM via PowerShell quickstart
 When deploying your Windows Server VM via PowerShell, you have an additional parameter `-LicenseType`. Once you have your VHD uploaded to Azure, you create a VM using `New-AzureRmVM` and specify the licensing type as follows:
 
@@ -187,7 +189,7 @@ Learn more about [Using Resource Manager templates](../../azure-resource-manager
 
 Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-Learn more about [Windows 10 on Azure with Multitenant Hosting Right](/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+<!-- Not Available on [Windows 10 on Azure with Multitenant Hosting Right](/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) -->
 
 <!-- Not Available on Read more about [Frequently asked questions](https://www.azure.cn/pricing/hybrid-use-benefit/faq/)-->
 <!-- Update_Description: new articles on hybrid user benefit licensing -->

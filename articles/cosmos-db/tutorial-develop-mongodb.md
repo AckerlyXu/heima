@@ -54,6 +54,7 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 3. Choose your platform (*.NET driver*, *Node.js driver*, *MongoDB Shell*, *Java driver*, *Python driver*). If you don't see your driver or tool listed, don't worry, we continuously document more connection code snippets. 
 4. Copy and paste the code snippet into your MongoDB app, and you are ready to go.
 
+<a name="SetupVS"></a>
 ## Set up your MongoDB app
 
 You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
