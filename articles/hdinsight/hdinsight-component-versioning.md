@@ -1,5 +1,5 @@
 ---
-title: Hadoop components and versions - Azure HDInsight | Azure
+title: Hadoop components and versions 
 description: Learn the Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of Hortonworks Data Platform.
 keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to check hadoop version
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/15/2018
+origin.date: 01/09/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -74,25 +74,78 @@ For Windows clusters, another way to check the component version is to log in to
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## Supported HDInsight versions
-The following table lists the versions of HDInsight that are currently available on the Azure portal. The HDP versions that correspond to each HDInsight version are listed along with the product release dates. The support expiration and retirement dates are also provided, when they're known.
+The following tables list the versions of HDInsight. The HDP versions that correspond to each HDInsight version are listed along with the product release dates. The support expiration and retirement dates are also provided, when they're known.
+
+### Available versions
+
+The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployement methods like PowerShell and .NET SDK.
+
+| HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | | |Yes |Yes |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |May 31, 2018 |Yes |Yes |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |December 2, 2015 |June 27, 2016 |July 31, 2018 |Yes |No |
 
 > [!NOTE]
 > After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until the version retirement date.
 > 
+### Retired versions
+
+The following table lists the versions of HDInsight that are **not** available in the Azure Portal.
+
+| HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |March 29, 2016 |December 29, 2016 |January 9, 2018 |Yes |No |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |December 2, 2015 |June 27, 2016 |July 31, 2017 |Yes |No |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012 R2 |February 18, 2015 |March 1, 2016 |April 1, 2017 |Yes |No |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |June 24, 2014 |May 18, 2015 |June 30, 2016 |Yes |No |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |February 11, 2014 |September 17, 2014 |June 30, 2015 |Yes |No |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |October 28, 2013 |May 12, 2014 |May 31, 2015 |Yes |No |
+| HDInsight 1.6 |HDP 1.1 | |October 28, 2013 |April 26, 2014 |May 31, 2015 |No |No |
+
+> [!NOTE]
 > Highly available clusters with two head nodes are deployed by default for HDInsight version 2.1 and later. They are not available for HDInsight version 1.6 clusters.
 
-| HDInsight version | HDP version | VM OS | High availability | Release date | Availability on the Azure portal | Support expiration date | Retirement date |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Yes |April 4, 2017 |Yes | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Yes |September 30, 2016 |Yes |September 5, 2017 |May 31, 2018 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |March 29, 2016 |Yes |December 29, 2016 |January 9, 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2018 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2017 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012 R2 |Yes |February 18, 2015 |No |March 1, 2016 |April 1, 2017 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Yes |June 24, 2014 |No |May 18, 2015 |June 30, 2016 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Yes |February 11, 2014 |No |September 17, 2014 |June 30, 2015 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Yes |October 28, 2013 |No |May 12, 2014 |May 31, 2015 |
-| HDInsight 1.6 |HDP 1.1 | |No |October 28, 2013 |No |April 26, 2014 |May 31, 2015 |
+## Enterprise Security Package for HDInsight
+
+Azure HDInsight is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
+
+- Integration with Active Directory for authentication.
+
+    In the past, you can only create HDInsight clusters with a local admin user and a local SSH user. The local admin user can access all the files, folders, tables, and columns.  With the Enterprise Security Package, you can enable role-based access control by integrating HDInsight clusters with your own Active Directory, which include on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on IaaS virtual machine. Domain administrator on the cluster can grant users to use their own corporate (domain) user-name and password to access the cluster. 
+
+    For more information, see:
+
+    - [An introduction to Hadoop security with domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md)
+    - [Plan Azure domain-joined Hadoop clusters in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
+    - [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Authorization for data
+
+    - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
+    - You can set access control on files and folders.
+
+    For more information, see:
+
+    - [Configure Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+
+- View the audit logs to monitor accesses and the configured policies. 
+
+### Supported cluster types
+
+Currently, only the following cluster types support the Enterprise Security Package:
+
+- Hadoop (HDInsight 3.6 only)
+- Spark
+- Interactive Query
+
+### Support for Azure Data Lake Store
+
+The Enterprise Security Package supports using Azure Data Lake Store as both the primary storage and the add-on storage.
+
+### Pricing and SLA
+For information on pricing and SLA for the Enterprise Security Package, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## HDInsight Windows retirement
 Azure HDInsight version 3.3 was the last version of HDInsight on Windows. The retirement date for HDInsight on Windows is July 31, 2018. If you have any HDInsight clusters on Windows 3.3 or earlier, you must migrate to HDInsight on Linux (HDInsight version 3.5 or later) before July 31, 2018. Migrating to the Linux OS enables you to retain the ability to create or resize your HDInsight clusters. Support for HDInsight version 3.3 on Windows expired on June 27, 2016.
@@ -102,7 +155,7 @@ Starting with HDInsight version 3.4, Microsoft has released HDInsight only on th
 ## FAQs
 
 ### What is the timeline for retiring HDInsight on Windows?
-July 31, 2018, is the retirement date for HDInsight on Windows. If the planned retirement date is different for your region, you will be notified separately. 
+July 31, 2018, is the retirement date for HDInsight on Windows. If the planned retirement date is different for your region, you are notified separately. 
 
 ### What is the impact of retiring HDInsight on Windows for existing customers?
 After HDInsight on Windows is retired, you can't create a new HDInsight Windows cluster, or resize an existing HDInsight Windows cluster. Support for HDInsight version 3.3 expired on June 27, 2016. Therefore, there is no support or bug fixes for HDInsight 3.3 or earlier versions. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows.
@@ -129,7 +182,7 @@ As of July 3, 2017, only existing HDInsight Windows customers can create new HDI
 No, the pricing is the same for HDInsight on either OS. 
 
 ### What are the customer advantages associated with the move to only using HDInsight on Linux?
-* Faster time-to-market for open source big data technologies through the HDInsight service
+* Faster time-to-market for open-source big data technologies through the HDInsight service
 * A large community and ecosystem for support
 * Ability to exercise active development by the open source community for Hadoop and other big data technologies
 

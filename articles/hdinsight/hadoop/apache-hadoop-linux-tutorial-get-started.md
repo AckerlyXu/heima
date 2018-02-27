@@ -1,5 +1,5 @@
 ---
-title: Get started with Hadoop and Hive in Azure HDInsight | Azure
+title: Get started with Hadoop and Hive in Azure HDInsight 
 description: Learn how to create HDInsight clusters, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/23/2017
-ms.date: 01/15/2018
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---

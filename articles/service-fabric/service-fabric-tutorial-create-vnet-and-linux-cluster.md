@@ -102,7 +102,8 @@ az group deployment create \
     --template-file network.json \
     --parameters @network.parameters.json
 ```
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+<a name="createvaultandcert"></a>
+<a name="createvaultandcert_anchor"></a>
 ## Deploy the Service Fabric cluster
 Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  For more information, see [Create a cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). For this tutorial series, the template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.  
 

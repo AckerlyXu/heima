@@ -10,7 +10,6 @@
 # Get started
 ## [Get started with Azure AD](get-started-azure-ad.md)
 ## [Add a custom domain name](add-custom-domain.md)
-## [Configure company branding](customize-branding.md)
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 
 
@@ -26,7 +25,7 @@
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
 
-## [Manage groups and members](active-directory-manage-groups.md)
+## Manage groups and members
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)

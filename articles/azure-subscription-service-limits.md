@@ -112,6 +112,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 #### Application Gateway limits
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
+#### Network Watcher limits
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
+
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 

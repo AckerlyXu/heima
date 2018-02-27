@@ -72,7 +72,8 @@ DnsSettings              : {
 
 ### Service Fabric template
 
-In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
+<!-- URL is correct on [five-node Service Fabric cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) -->
 
 <a id="existingvnet"></a>
 ## Existing virtual network or subnet

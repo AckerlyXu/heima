@@ -103,7 +103,7 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## Next steps
-* [Azure Storage Client Library for .NET reference](https://docs.microsoft.com/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [Azure Storage Client Library for .NET reference](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
 <!--Update_Description: update code to use async await pattern-->

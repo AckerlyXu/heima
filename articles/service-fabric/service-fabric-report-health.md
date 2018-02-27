@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/19/2017
-ms.date: 09/11/2017
+origin.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -262,7 +262,6 @@ PS C:\> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where
 PS C:\> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
 
 PS C:\> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
-
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 ReplicaId             : 130740415594605869

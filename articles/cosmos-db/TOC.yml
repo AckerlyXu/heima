@@ -73,7 +73,8 @@
       href: tutorial-query-mongodb.md
     - name: Table
       href: tutorial-query-table.md
-  - name: 4 - Distribute globally
+  - name: 4 - Distribute multiple-region
+### Notice: globally to multiple-region
     items:
     - name: SQL
       href: tutorial-global-distribution-sql-api.md
@@ -97,7 +98,8 @@
 - name: Concepts
   items:
 ### serverless-computing-database.md invalid due to serverless 
-  - name: Global distribution
+  - name: Multiple-region distribution
+### Notice: Global to Multiple-region
     href: distribute-data-globally.md
   - name: Partitioning
     href: partition-data.md

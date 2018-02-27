@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/28/2017
-ms.date: 09/25/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,7 @@ The default time window is 5 minutes. The minimum value is 1, the maximum 15. Th
 <!-- Not Available ## Capture data to an Azure Data Lake Store account-->
 ## Add or configure Capture on an existing event hub
 
-You can configure Capture on existing event hubs that are in Event Hubs namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** screen, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open page and then edit the Capture settings, as shown in the following figures:
+You can configure Capture on existing event hubs that are in Event Hubs namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the overview screen, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Capture** option on the left side of the open page and then edit the settings, as shown in the following figures:
 
 ### Azure Blob Storage
 

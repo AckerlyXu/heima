@@ -39,11 +39,11 @@ The following administrator roles are available:
 
 * **Device Administrators**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
-* **Directory Readers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
+* **Directory Readers**: This is a legacy role that is to be assigned to applications that do not support the Consent Framework. It should not be assigned to any users.
 
 * **Directory Synchronization Accounts**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 
-* **Directory Writers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
+* **Directory Writers**: This is a legacy role that is to be assigned to applications that do not support the Consent Framework. It should not be assigned to any users.
 
 * **Exchange Service Administrator**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 

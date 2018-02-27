@@ -1,5 +1,5 @@
 ---
-title: Run Apache Sqoop jobs with Azure HDInsight (Hadoop) | Azure
+title: Run Apache Sqoop jobs with Azure HDInsight (Hadoop)
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database.
 editor: cgronlun
 manager: jhubbard
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 12/18/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -229,7 +229,7 @@ The PowerShell sample performs the following steps:
    > Other than connection string information, the steps in this section should work for an Azure SQL database or for SQL Server. These steps were tested by using the following configuration:
    > 
    > * **Azure virtual network point-to-site configuration**: A virtual network connected the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](../../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
-   > * **Azure HDInsight 3.1**: See [Create Hadoop clusters in HDInsight using custom options](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster on a virtual network.
+   > * **Azure HDInsight**: See [Create Hadoop clusters in HDInsight using custom options](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster on a virtual network.
    > * **SQL Server 2014**: Configured to allow authentication and running the VPN client configuration package to connect securely to the virtual network.
    > 
    > 
@@ -634,6 +634,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
         -DisplayOutputType StandardOutput
 
     #endregion
+```
 
 [azure-management-portal]: https://portal.azure.cn/
 

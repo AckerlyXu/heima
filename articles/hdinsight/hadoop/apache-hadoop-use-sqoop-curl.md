@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Sqoop with Curl in HDInsight - Azure | Azure
+title: Use Hadoop Sqoop with Curl in HDInsight
 description: Learn how to remotely submit Sqoop jobs to HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/22/2017
-ms.date: 12/18/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -47,7 +47,7 @@ To complete the steps in this article, you will need the following:
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
     ```bash   
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
     ```
 
     You should receive a response similar to the following:

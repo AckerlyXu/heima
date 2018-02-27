@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/19/2017
-ms.date: 01/01/2018
+origin.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -119,11 +119,14 @@ sudo apt-get install servicefabricsdkcommon
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
-At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
+     At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
 
-> [!NOTE]
-> Standalone clusters aren't supported in Linux.
->
+    > [!NOTE]
+    > Standalone clusters aren't supported in Linux.
+    >
+
+    > [!TIP]
+    If you have an SSD disk avaiable, it is recommended to pass an SSD folder path using `--clusterdataroot` with devclustersetup.sh for superior performance.
 
 ## Set up the Service Fabric CLI
 
@@ -234,4 +237,4 @@ sudo apt-get install -f
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
 
-<!--Update_Description: update meta properties, wording udpate, update link -->
+<!--Update_Description: update meta properties, wording udpate  -->

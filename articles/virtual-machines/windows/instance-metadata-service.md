@@ -34,11 +34,11 @@ The service is available in all generally available all Azure regions. Not all A
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://www.azure.cn/support/service-dashboard/)     | Generally Available   | 2017-04-02, 2017-08-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02
 [Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02
-
+<!-- [All Generally Available Global Azure Regions] Should be https://azure.microsoft.com/regions/ -->
 This table is updated when there are service updates and or new supported versions are available
 
 To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](http://portal.azure.cn) in the above regions and follow the examples below.

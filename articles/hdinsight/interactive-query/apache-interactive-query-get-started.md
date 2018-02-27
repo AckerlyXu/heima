@@ -1,5 +1,5 @@
 ---
-title: Use Interactive Query with Azure HDInsight | Microsoft Docs
+title: Use Interactive Query with Azure HDInsight 
 description: Learn how to use Interactive Query (Hive LLAP) with HDInsight.
 keywords: ''
 services: hdinsight
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -41,6 +41,7 @@ To execute Hive queries, you have the following options:
 
 * Use Power BI
 
+    See [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md)
     See [Visualize big data with Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
 
 * Use Zeppelin
@@ -68,7 +69,7 @@ To execute Hive queries, you have the following options:
 
 To find the Java Database Connectivity (JDBC) connection string:
 
-1. Sign in to Ambari by using the following URL: https://\<cluster name\>.AzureHDInsight.net.
+1. Sign in to Ambari by using the following URL: https://\<cluster name\>.AzureHDInsight.cn.
 2. In the left menu, select **Hive**.
 3. To copy the URL, select the clipboard icon:
    

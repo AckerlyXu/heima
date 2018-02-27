@@ -1,5 +1,5 @@
 ---
-title: Submit Hadoop jobs in HDInsight | Azure
+title: Submit Hadoop jobs in HDInsight
 description: Learn how to submit Hadoop jobs in Azure HDInsight.
 editor: cgronlun
 manager: jhubbard
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---

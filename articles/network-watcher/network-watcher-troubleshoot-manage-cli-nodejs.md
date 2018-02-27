@@ -36,7 +36,8 @@ This article uses cross-platform Azure CLI 1.0, which is available for Windows, 
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
-For a list of supported gateway types visit, [Supported Gateway types](/network-watcher-troubleshoot-overview.md#supported-gateway-types).
+For a list of supported gateway types visit, [Supported Gateway types](./network-watcher-troubleshoot-overview.md#supported-gateway-types).
+<!-- URL is should be add . [Supported Gateway types](./network-watcher-troubleshoot-overview.md#supported-gateway-types) -->
 
 ## Overview
 

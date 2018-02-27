@@ -24,7 +24,7 @@ Ongoing access management, usage evaluation, and reporting continue to be a chal
 ## How does Azure Active Directory help?
  Azure AD supports extensive access management for configured applications, enabling organizations to easily achieve the right access policies ranging from automatic, attribute-based assignment (ABAC or RBAC scenarios) through delegation and including administrator management. With Azure AD you can easily achieve complex policies, combining multiple management models for a single application and can even re-use management rules across applications with the same audiences.
 
-- [Adding new or existing applications](active-directory-sso-integrate-saas-apps.md)
+- Adding new or existing applications
 
  Azure AD's application assignment focuses following assignment mode:
 
