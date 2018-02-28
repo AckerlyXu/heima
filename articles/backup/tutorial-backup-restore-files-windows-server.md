@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/20/2017
-ms.date: 01/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
 
@@ -69,7 +69,7 @@ A helpful user interface wizard named Azure Backup is installed with the Azure R
 
     ![Backup pending](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.	Click **Yes** to confirm that you want to unmount the volume.
+4. Click **Yes** to confirm that you want to unmount the volume.
 
     Once the snapshot is unmounted, **Job Completed** appears in the **Jobs** pane in the agent console.
 

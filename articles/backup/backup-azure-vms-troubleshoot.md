@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2017
-ms.date: 02/08/2018
+origin.date: 01/21/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 
 ---
@@ -26,7 +26,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ### Error: The specified Disk Configuration is not supported
 
 > [!NOTE]
-> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> We have a private preview to support backups for VMs with >1TB disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -168,4 +168,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 >
 >
 
-<!-- Update_Description: link update -->
+<!--Update_Description: wording update -->

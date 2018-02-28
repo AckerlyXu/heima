@@ -1,21 +1,21 @@
 ---
 title: Azure Quickstart - Back up a VM with the Azure portal | Microsoft Docs
 description: Learn how to back up your virtual machines with the Azure portal
-services: backup, virtual-machines-windows
+services: backup
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: saurabhsensharma
+manager: shivamg
 editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
-ms.service: backup, virtual-machines-windows
+ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 01/12/2018
-ms.date: 02/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
 ---
@@ -98,4 +98,4 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 > [!div class="nextstepaction"]
 > [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
 
-<!-- Update_Description: wording update -->
+<!--Update_Description: update metedata properties -->
