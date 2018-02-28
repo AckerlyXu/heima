@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -237,6 +237,34 @@ For example, given the following original query: ```find({x:{$regex: /^abc$/})``
 The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. 
 The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents whin which field 'x' has value that begins with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### Update operators
+
+#### Field update operators
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### Array update operators
+- $addToSet
+- $pop
+- $pullAll
+- $pull  (Note: $pull with condition is not supported)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### Bitwise update operator
+- $bit
+
 ### Geospatial operators
 
 Operator | Example 
@@ -301,5 +329,4 @@ Azure Cosmos DB supports automatic, server-side sharding. Azure Cosmos DB does n
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with an API for MongoDB database.
 - Explore Azure Cosmos DB with protocol support for MongoDB [samples](mongodb-samples.md).
 
-<!-- Update_Description: update meta properties -->
-<!-- ONLY UPDATE META, NO NEED TO OVERWRITE TO ZH-CN LIVE BRANCH -->
+<!-- Update_Description: update meta properties, add content of Update operators section -->

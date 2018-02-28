@@ -12,9 +12,9 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage
+ms.workload: data-services
 origin.date: 11/03/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -1553,4 +1553,4 @@ We would also like to thank the following Microsoft MVP's for their valuable fee
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -48,17 +48,17 @@ The following table lists the throughput available for containers:
 ## To set the throughput by using the Azure portal
 
 1. In a new window, open the [Azure portal](https://portal.azure.cn).
-2. On the left bar, click **Azure Cosmos DB**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
+2. On the left bar, click **Azure Cosmos DB**, or click **All services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
 3. Select your Cosmos DB account.
 4. In the new window, click **Data Explorer** in the navigation menu.
 5. In the new window, expand your database and container and then click **Scale & Settings**.
 6. In the new window, type the new throughput value in the **Throughput** box, and then click **Save**.
 
-<a id="set-throughput-sdk"></a>
+<a name="set-throughput-sdk"></a>
 
 ## To set the throughput by using the SQL API for .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -72,7 +72,7 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-<a id="set-throughput-java"></a>
+<a name="set-throughput-java"></a>
 
 ## To set the throughput by using the SQL API for Java
 
@@ -108,4 +108,4 @@ There's no MongoDB API extension to set throughput. The recommendation is to use
 
 To learn more about provisioning and going multiple-region scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
 <!-- Notice: 全球 to 多个区域 -->
-<!-- Update_Description: udpate meta properties, wording update, add the content of Set the throughtput by using SQL API for java  -->
+<!-- Update_Description: udpate meta properties, wording update -->

@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Create a Ruby application
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## Configure your application to access Storage
 To use Azure Storage, you need to download and use the Ruby azure package which includes a set of convenience libraries that communicate with the Storage REST services.
@@ -54,6 +54,7 @@ Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 Azure.config.storage_endpoint_suffix = "core.chinacloudapi.cn"
 ```
+<!-- Add Azure.config.strage_endpoint_suffix configuration -->
 
 To obtain these values from a classic or Resource Manager storage account in the Azure portal:
 
@@ -162,6 +163,6 @@ azure_table_service.delete_table("testtable")
 ## Next steps
 
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+* [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

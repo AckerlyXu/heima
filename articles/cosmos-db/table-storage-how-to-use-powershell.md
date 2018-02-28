@@ -1,20 +1,20 @@
 ---
 title: Perform Azure Table storage operations with PowerShell | Azure
 description: Perform Azure Table storage operations with PowerShell
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 origin.date: 11/02/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
@@ -155,4 +155,4 @@ For more information, see the following articles
 
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-<!-- Update_Description: new articles on cosmos db table storage how to use powershell -->
+<!-- Update_Description: update meta properties -->
