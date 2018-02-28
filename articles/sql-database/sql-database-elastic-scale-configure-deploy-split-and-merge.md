@@ -35,10 +35,10 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 ## Prerequisites
 1. Create an Azure SQL DB database that will be used as the split-merge status database. Go to the [Azure portal](https://portal.azure.cn). Create a new **SQL Database**. Give the database a name and create a new administrator and password. Be sure to record the name and password for later use.
 2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
-
+   
    ![Allowed services][1]
-3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure Portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
-4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure Portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
+3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure portal. In the left bar, click **Create a resource**, click **Data + Storage**, then **Storage**.
+4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure portal. In the left bar, click **Create a resource**, then **Compute**, **Cloud Service**, and **Create**. 
 
 ## Configure your Split-Merge service
 ### Split-Merge service configuration

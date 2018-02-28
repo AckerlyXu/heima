@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 11/06/2017
+ms.date: 2/28/2018
 ms.author: v-johch
 
 ---
@@ -30,7 +30,7 @@ To view and apply performance recommendations, you need the correct [role-based 
 Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
-2. Go to **More services** > **SQL databases**, and select your database.
+2. Go to **All services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
@@ -44,6 +44,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 | High |High impact recommendations should provide the most significant performance impact. |
 | Medium |Medium impact recommendations should improve performance, but not substantially. |
 | Low |Low impact recommendations should provide better performance than without, but improvements might not be significant. |
+
 
 > [!NOTE]
 > Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not currently available, the **Performance recommendation** page provides a message explaining why.
@@ -100,7 +101,7 @@ You can set the Azure SQL Database to implement recommendations automatically. A
    
     ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
 2. Select actions to automate:
-
+   
     ![Recommended Indexes](./media/sql-database-advisor-portal/automation.png)
 
 ### Manually run the recommended T-SQL script
