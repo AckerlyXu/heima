@@ -36,9 +36,9 @@
         href: storage-upload-process-images.md
   - name: Design for high availability in cloud storage
     items:
-      - name: Make your application highly available
+      - name: 1 - Make your application highly available
         href: storage-create-geo-redundant-storage.md
-      - name: Simulate a failure with RA-GRS storage
+      - name: 2 - Simulate a failure with RA-GRS storage
         href: storage-simulate-failure-ragrs-account-app.md
   - name: Migrate on-premises data to cloud with AzCopy
     href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fstorage%2fblobs%2ftoc.json    
@@ -52,10 +52,6 @@
     href: storage-samples-blobs-powershell.md 
   - name: Azure CLI 
     href: storage-samples-blobs-cli.md
-  - name: .NET
-    href: ../common/storage-samples-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
-  - name: Java
-    href: ../common/storage-samples-java.md?toc=%2fstorage%2fblobs%2ftoc.json
     
 - name: Concepts
   items:
@@ -75,6 +71,8 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Move data to and from Storage
       href: ../common/storage-moving-data.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: Page blob features
+      href: storage-blob-pageblob-overview.md
     - name: Premium Storage
       items:
         - name: Linux
@@ -161,8 +159,6 @@
       href: storage-how-to-use-blobs-powershell.md 
     - name: Azure CLI 2.0
       href: storage-how-to-use-blobs-cli.md      
-    - name: REST
-      href: ../common/storage-rest-api-auth.md?toc=%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Storage
@@ -311,7 +307,7 @@
   - name: PHP
     href: http://azure.github.io/azure-storage-php/
   - name: Python
-    href: https://azure-storage.readthedocs.io/en/latest/index.html
+    href: http://azure.github.io/azure-storage-python/
   - name: C++
     href: http://azure.github.io/azure-storage-cpp
   - name: iOS
@@ -344,6 +340,8 @@
       href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: Storage Explorer accessibility
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fblobs%2ftoc.json 
   - name: NuGet packages
     items:
     - name: Azure Storage Client Library for .NET

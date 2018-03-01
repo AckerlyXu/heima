@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
+ms.date: 3/5/2018
 ms.author: v-johch
 
 ---
@@ -160,8 +160,14 @@ Drives are mounted per user. If your application or service is running under a d
 
 Use one of the following solutions:
 
-- Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
+-	Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
 - Pass the storage account name and key in the user name and password parameters of the net use command.
+- Use the cmdkey command to add the credentials into Credential Manager. Perform this from a command line under the service account context, either through an interactive login or by using runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.chinacloudapi.cn /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Map the share directly without using a mapped drive letter. Some applications may not reconnect to the drive letter properly, so using the full UNC path may be more reliable. 
+
+  `net use * \\storage-account-name.file.core.chinacloudapi.cn\share`
 
 After you follow these instructions, you might receive the following error message when you run net use for the system/network service account: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated." If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.chinacloudapi.cn").
 

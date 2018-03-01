@@ -2,16 +2,11 @@
 title: Perform operations on Azure Blob storage (object storage) with PowerShell | Microsoft Docs
 description: Tutorial - Perform operations on Azure Blob storage (object storage) with PowerShell
 services: storage
-documentationcenter: storage
 author: forester123
 manager: digimobile
-editor: tysonn
 
-ms.assetid: 
+
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/14/2017
 ms.date: 1/29/2018

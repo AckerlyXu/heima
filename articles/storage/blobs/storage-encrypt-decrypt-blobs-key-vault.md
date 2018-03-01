@@ -1,21 +1,15 @@
 ---
 title: 'Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vault | Azure'
-description: How to encrypt and decrypt a blob using client-side encryption for Azure Storage with Azure Key Vault.
+description: How to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
 services: storage
-documentationcenter: ''
-author: adhurwit
-manager: jasonsav
-editor: tysonn
+author: yunan2016
+manager: digimobile
 
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 origin.date: 01/23/2017
 ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.author: v-nany
 
 ---
 # Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vault
@@ -84,7 +78,7 @@ Add AppSettings to the App.Config.
 </appSettings>
 ```
 
-Add the following `using` statements and make sure to add a reference to System.Configuration to the project.
+Add the following `using` directives and make sure to add a reference to System.Configuration to the project.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -93,7 +87,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.Azure.KeyVault;
-using System.Threading;		
+using System.Threading;        
 using System.IO;
 ```
 
@@ -142,6 +136,8 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > The Key Vault Client interacts with the REST API and understands JSON Web Keys and secrets for the two kinds of things that are contained in Key Vault.
 > 
 > The Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage. They contain an interface for keys (IKey) and classes based on the concept of a Key Resolver. There are two implementations of IKey that you need to know: RSAKey and SymmetricKey. Now they happen to coincide with the things that are contained in a Key Vault, but at this point they are independent classes (so the Key and Secret retrieved by the Key Vault Client do not implement IKey).
+> 
+> 
 
 ## Encrypt blob and upload
 Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
@@ -164,9 +160,10 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-
 > [!NOTE]
 > If you look at the BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver. Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.
+> 
+> 
 
 ## Decrypt blob and download
 Decryption is really when using the Resolver classes make sense. The ID of the key used for encryption is associated with the blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob. You just have to make sure that the key remains in Key Vault.   
@@ -187,6 +184,8 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 > [!NOTE]
 > There are a couple of other kinds of resolvers to make key management easier, including: AggregateKeyResolver and CachingKeyResolver.
+> 
+> 
 
 ## Use Key Vault secrets
 The way to use a secret with client-side encryption is via the SymmetricKey class because a secret is essentially a symmetric key. But, as noted above, a secret in Key Vault does not map exactly to a SymmetricKey. There are a few things to understand:
@@ -200,8 +199,8 @@ Please note that the hard coded value, $key, is for demonstration purpose only. 
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.
-// The characters are in the ASCII range of UTF8 so they are
-// each 1 byte. 16 x 8 = 128.
+//     The characters are in the ASCII range of UTF8 so they are
+//    each 1 byte. 16 x 8 = 128.
 $key = "qwertyuiopasdfgh"
 $b = [System.Text.Encoding]::UTF8.GetBytes($key)
 $enc = [System.Convert]::ToBase64String($b)

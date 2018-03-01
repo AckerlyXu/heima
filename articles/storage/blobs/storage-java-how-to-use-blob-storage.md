@@ -2,16 +2,11 @@
 title: How to use Azure Blob storage (object storage) from Java | Azure
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
-documentationcenter: java
 author: forester123
 manager: digimobile
-editor: tysonn
 
-ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
+
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: java
 ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/23/2017

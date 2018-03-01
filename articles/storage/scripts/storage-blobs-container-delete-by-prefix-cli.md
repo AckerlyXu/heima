@@ -70,11 +70,11 @@ This script uses the following commands to delete containers based on container 
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.azure.cn/cli/storage/account#create) | Creates an Azure Storage account in the specified resource group. |
-| [az storage container create](https://docs.azure.cn/cli/storage/container#create) | Creates a container in Azure Blob storage. |
-| [az storage container list](https://docs.azure.cn/cli/storage/container#list) | Lists the containers in an Azure Storage account. |
-| [az storage container delete](https://docs.azure.cn/cli/storage/container#delete) | Deletes containers in an Azure Storage account. |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | Creates an Azure Storage account in the specified resource group. |
+| [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) | Creates a container in Azure Blob storage. |
+| [az storage container list](https://docs.azure.cn/cli/storage/container#az_storage_container_list) | Lists the containers in an Azure Storage account. |
+| [az storage container delete](https://docs.azure.cn/cli/storage/container#az_storage_container_delete) | Deletes containers in an Azure Storage account. |
 
 ## Next steps
 

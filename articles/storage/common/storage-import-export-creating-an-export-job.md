@@ -52,7 +52,7 @@ Creating an export job for the Azure Import/Export service using the REST API in
  For more information about specifying blobs to export, see the [Put Job](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation.
 
 ## Obtaining your shipping location
-Before creating an export job, you need to obtain a shipping location name and address by calling the [Get Location](https://portal.azure.cn) or [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/listlocations) operation. `List Locations` will return a list of locations and their mailing addresses. You can select a location from the returned list and ship your hard drives to that address. You can also use the `Get Location` operation to obtain the shipping address for a specific location directly.
+Before creating an export job, you need to obtain a shipping location name and address by calling the [Get Location](https://portal.azure.cn) or [List Locations](https://docs.microsoft.com/en-us/rest/api/storageimportexport/locations/list) operation. `List Locations` will return a list of locations and their mailing addresses. You can select a location from the returned list and ship your hard drives to that address. You can also use the `Get Location` operation to obtain the shipping address for a specific location directly.
 
 Follow the steps below to obtain the shipping location:
 
