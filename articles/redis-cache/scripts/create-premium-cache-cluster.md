@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create a Premium Azure Redis Cache with cluster
 description: Azure CLI Script Sample - Create a Premium tier Azure Redis Cache with clustering
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 10/10/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
 ---
 
@@ -33,11 +33,10 @@ In this scenario, you learn how to create a 6 GB Premium tier Azure Redis Cache 
 # Creates a Resource Group named contosoGroup, and creates a Premium Redis Cache with clustering in that group named contosoCache
 
 # Create a Resource Group 
-az group create --name contosoGroup --location chinaeast
+az group create --name contosoGroup --location chinanorth
 
-# Create a Redis Cache
-az redis create --name contosoCache --resource-group contosoGroup --location chinaeast --sku-capacity 1 --sku-family P --sku-name Premium --shard-count 2
-
+# Create a Premium P1 (6 GB) Redis Cache with clustering enabled and 2 shards (for a total of 12 GB)
+az redis create --name contosoCache --resource-group contosoGroup --location chinanorth --vm-size P1 --sku Premium --shard-count 2
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
@@ -58,4 +57,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](/cli/overvi
 
 Additional Azure Redis Cache CLI script samples can be found in the [Azure Redis Cache documentation](../cli-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->

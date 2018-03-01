@@ -3,8 +3,8 @@ title: Configure a Virtual Network for a Premium Azure Redis Cache | Microsoft D
 description: Learn how to create and manage Virtual Network support for your Premium tier Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 09/14/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
 
 ---
@@ -29,7 +29,7 @@ Azure Redis Cache has different cache offerings, which provide flexibility in th
 For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
 ## Why VNet?
-[Azure Virtual Network (VNet)](/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access.
+[Azure Virtual Network (VNet)](https://www.azure.cn/home/features/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access.
 
 ## Virtual network support
 Virtual Network (VNet) support is configured on the **New Redis Cache** blade during cache creation. 
@@ -58,7 +58,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > 
 > 
 
-After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings**.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
 
 ![Virtual network][redis-cache-vnet-info]
 
@@ -115,6 +115,7 @@ There are seven outbound port requirements.
 | 20226 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 13000-13999 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 15000-15999 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
+| 6379-6380 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
 
 ### Inbound port requirements
@@ -123,7 +124,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
 | 10221-10231 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer |
@@ -144,7 +145,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 ### How can I verify that my cache is working in a VNET?
 
 >[!IMPORTANT]
->When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET, including any test applications or diagnostic pinging tools.
+>When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled. This includes any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, Network security groups must be configured such that the client’s network traffic is allowed to reach the Redis instance.
 >
 >
 
@@ -180,7 +181,7 @@ When your cache is part of a VNET, only clients in the VNET can access the cache
 - Redis Console - Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
 
 ## Use ExpressRoute with Azure Redis Cache
-Customers can connect an [Azure ExpressRoute](/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
+Customers can connect an [Azure ExpressRoute](https://www.azure.cn/home/features/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
 
 By default, a newly created ExpressRoute circuit does not perform forced tunneling (advertisement of a default route, 0.0.0.0/0) on a VNET. As a result, outbound Internet connectivity is allowed directly from the VNET and client applications are able to connect to other Azure endpoints including Azure Redis Cache.
 
@@ -222,4 +223,4 @@ Learn how to use more premium cache features.
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update -->

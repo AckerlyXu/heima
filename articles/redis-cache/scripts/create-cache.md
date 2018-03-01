@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create an Azure Redis Cache | Microsoft Docs
 description: Azure CLI Script Sample - Create an Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 10/10/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
 ---
 
@@ -33,11 +33,10 @@ In this scenario, you learn how to create an Azure Redis Cache.
 # Creates a Resource Group named contosoGroup, and creates a Redis Cache in that group named contosoCache
 
 # Create a Resource Group 
-az group create --name contosoGroup --location chinaeast
+az group create --name contosoGroup --location chinanorth
 
-# Create a Redis Cache
-az redis create --name contosoCache --resource-group contosoGroup --location chinaeast --sku-capacity 0 --sku-family C --sku-name Basic
-
+# Create a Basic C0 (256 MB) Redis Cache
+az redis create --name contosoCache --resource-group contosoGroup --location chinanorth --sku Basic --vm-size C0
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
@@ -58,4 +57,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](/cli/overvi
 
 Additional Azure Redis Cache CLI script samples can be found in the [Azure Redis Cache documentation](../cli-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->
