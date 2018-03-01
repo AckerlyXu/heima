@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date: 09/25/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,13 @@ Captured data is written in [Apache Avro][Apache Avro] format: a compact, fast, 
 Event Hubs Capture enables you to set up a window to control capturing. This window is a minimum size and time configuration with a "first wins policy," meaning that the first trigger encountered causes a capture operation. If you have a fifteen-minute, 100 MB capture window and send 1 MB per second, the size window triggers before the time window. Each partition captures independently and writes a completed block blob at the time of capture, named for the time at which the capture interval was encountered. The storage naming convention is as follows:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Note that the date values are padded with zeroes; an example filename might be:
+
+```
+https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### Scaling to throughput units
@@ -67,7 +73,7 @@ The files produced by Event Hubs Capture have the following Avro schema:
 An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
 
 ```
-java -jar avro-tools-1.8.2.jar getschema \<name of capture file\>
+java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 This command returns

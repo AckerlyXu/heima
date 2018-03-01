@@ -1,5 +1,5 @@
 ---
-title: Get started with an HBase example on HDInsight - Azure | Azure
+title: Get started with an HBase example on HDInsight 
 description: Follow this Apache HBase example to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: hbasecommand,hbase example 
 services: hdinsight
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/03/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -36,7 +36,7 @@ Before you begin trying this HBase example, you must have the following items:
 ## Create HBase cluster
 The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
+1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

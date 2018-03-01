@@ -41,7 +41,7 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
         </a>
     </li>
     <li>
-        <a href="/active-directory/active-directory-howto-tenant">
+        <a href="/active-directory/develop/active-directory-howto-tenant">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

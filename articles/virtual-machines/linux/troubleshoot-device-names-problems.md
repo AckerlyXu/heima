@@ -148,7 +148,7 @@ To get the latest Azure Storage rules, run the following commands:
 For more information, see the following articles:
 
 - [Ubuntu: Using UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+<!-- Not Avaiable on - [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
 - [Linux: What UUIDs can do for you](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev: Introduction to device management in a modern Linux system](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 <!--Update_Description: update meta properties，-->

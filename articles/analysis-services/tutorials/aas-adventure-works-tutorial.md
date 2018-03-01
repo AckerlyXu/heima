@@ -14,23 +14,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ---
 # Azure Analysis Services - Adventure Works tutorial
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using Visual Studio with [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
+If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model by usign Visual Studio. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
 
 ## What you learn   
 
--   How to create a new tabular model project at the **1400 compatibility level** in SSDT.
+-   How to create a new tabular model project at the **1400 compatibility level** in Visual Studio with SSDT.
 
--   How to import data from a relational database into a tabular model project.  
+-   How to import data from a relational database into a tabular model project workspace database.  
 
 -   How to create and manage relationships between tables in the model.  
 
@@ -47,14 +45,13 @@ If you're new to Analysis Services and tabular modeling, completing this tutoria
 ## Prerequisites  
 To complete this tutorial, you need:  
 
--   An Azure Analysis Services or SQL Server 2017 Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://www.azure.cn/home/features/analysis-services/) and [create a server](../analysis-services-create-server.md). 
-<!-- Not Available on [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp) -->
+-   An Azure Analysis Services server. Sign up for a free [Azure Analysis Services trial](https://www.azure.cn/home/features/analysis-services/) and [create a server](../analysis-services-create-server.md). 
 
--   A SQL Server Data Warehouse or Azure SQL Data Warehouse with the [AdventureWorksDW2014 sample database](http://go.microsoft.com/fwlink/?LinkID=335807). This sample database includes the data necessary to complete this tutorial. Download [SQL Server free editions](https://www.microsoft.com/sql-server/sql-server-downloads). Or, sign up for a free [Azure SQL Database trial](https://www.azure.cn/home/features/sql-database/). 
+-   An [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) with the **sample AdventureWorksDW database**, or a SQL Server Data Warehouse with the [Adventure Works sample database](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Important:** If you install the sample database on an on-premises SQL Server, and you deploy your model to an Azure Analysis Services server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
+    **Important:** If you install the sample database to an on-premises SQL Server Data Warehouse, and deploy your model to an Azure Analysis Services server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
 
--   The latest version of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   The latest version of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) for Visual Studio.
 
 -   The latest version of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 
@@ -100,4 +97,4 @@ These lessons are not required to complete the tutorial, but can be helpful in b
 ## Next steps  
 To get started, see [Lesson 1: Create a New Tabular Model Project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update, update link -->

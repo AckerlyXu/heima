@@ -1,5 +1,5 @@
 ---
-title: Use Apache Phoenix and SQLLine with HBase in Azure HDInsight | Microsoft Docs
+title: Use Apache Phoenix and SQLLine with HBase in Azure HDInsight
 description: Learn how to use Apache Phoenix in HDInsight. Also, learn how to install and set up SQLLine on your computer to connect to an HBase cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/22/2017
-ms.date: 01/15/2018
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -75,18 +75,12 @@ In this article, you learned how to use Apache Phoenix in HDInsight. To learn mo
   With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications, so applications can communicate directly with HBase.
 * [Configure HBase replication in HDInsight](apache-hbase-replication.md). Learn how to set up HBase replication across two Azure datacenters.
 
-[azure-portal]: https://portal.azure.cn
-[vnet-point-to-site-connectivity]: ../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md
 
+[azure-portal]: https://portal.azure.cn
+[vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 
-[hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
-[img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png
-[img-vnet-diagram]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vnet-point-to-site.png
-[img-squirrel-driver]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-driver.png
-[img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
-[img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
-[img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
+

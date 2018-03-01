@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/18/2017
-ms.date: 12/04/2017
+origin.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -838,5 +838,5 @@ System.Hosting reports a warning if node capacities are not defined in the clust
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-<!--Update_Description: add rebulid content, wording update -->
+<!--Update_Description: wording update -->
 

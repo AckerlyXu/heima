@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -703,4 +703,4 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
 
-<!--Update_Description: add content of Cluster and server certificate , wording update-->
+<!--Update_Description: update meta properties, wording update -->

@@ -7,15 +7,16 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: event-hubs
 ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
+
 ---
 
 # Send events to Azure Event Hubs using Java
@@ -30,7 +31,7 @@ This tutorial shows how to send events to an event hub by using a console applic
 In order to complete this tutorial, you will need the following:
 
 * A Java development environment. For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
-* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Trial</a>.
+* An active Azure account. <br/>If you don't have an account, you can create a trial account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
 
 ## Send messages to Event Hubs
 The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). You can reference this library using the following dependency declaration inside your Maven project file:    
@@ -43,7 +44,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
 </dependency>
 ```
 
-For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) or from [the release distribution point on GitHub](https://github.com/Azure/azure-event-hubs/releases).  
+For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22).  
 
 For a simple event publisher, import the *com.microsoft.azure.eventhubs* package for the Event Hubs client classes and the *com.microsoft.azure.servicebus* package for utility classes such as common exceptions that are shared with the Azure Service Bus messaging client. 
 
@@ -84,6 +85,9 @@ Then, create a singular event by transforming a string into its UTF-8 byte encod
 
     EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
     ehClient.sendSync(sendEvent);
+
+    // close the client at the end of your program
+    ehClient.closeSync();
     }
 }
 

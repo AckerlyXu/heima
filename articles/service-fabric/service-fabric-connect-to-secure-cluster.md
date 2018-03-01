@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/29/2017
-ms.date: 11/13/2017
+origin.date: 01/10/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -133,7 +133,7 @@ The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/do
 To connect to a remote unsecured cluster, create a FabricClient instance and provide the cluster address:
 
 ```csharp
-FabricClient fabricClient = new FabricClient("clustername.chinanorth.chinacloudapp.cn:19000");
+FabricClient fabricClient = new FabricClient("clustername.chinanorth.cloudapp.chinacloudapi.cn:19000");
 ```
 
 For code that is running from within a cluster, for example, in a Reliable Service, create a FabricClient *without* specifying the cluster address. FabricClient connects to the local management gateway on the node the code is currently running on, avoiding an extra network hop.

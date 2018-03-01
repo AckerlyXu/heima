@@ -2,19 +2,19 @@
 title: Create an Azure Service Fabric container application on Linux | Azure
 description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
-documentationcenter: .net
+documentationcenter: linux
 author: rockboyfor
 manager: digimobile
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/05/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -65,7 +65,7 @@ For information about creating your own cluster, see [Create a Service Fabric cl
 > The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using a Party cluster, this port is open.
 >
 
-### Deploy the application manifests 
+### Install Service Fabric Command Line Interface and Connect to your cluster
 Install the [Service Fabric CLI (sfctl)](service-fabric-cli.md) in your CLI environment
 
 ```azurecli
@@ -78,17 +78,27 @@ Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint
 sfctl cluster select --endpoint http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080
 ```
 
+### Deploy the Service Fabric application 
+Service Fabric container applications can be deployed using the described Service Fabric application package or Docker Compose. 
+
+#### Deploy using Service Fabric application package
 Use the install script provided to copy the Voting application definition to the cluster, register the application type, and create an instance of the application.
 
 ```azurecli
 ./install.sh
 ```
 
+#### Deploy the application using Docker compose
+Deploy and install the application on the Service Fabric cluster using Docker Compose with the following command.
+```azurecli
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
+```
+
 Open a browser and navigate to Service Fabric Explorer at http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - for example, `http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer`. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
 
 ![Service Fabric Explorer][sfx]
 
-Connect to the running container.  Open a web browser pointing to the URL of your cluster  - for example,`http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80`. You should see the Voting application in the browser.
+Connect to the running container.  Open a web browser pointing to the URL of your cluster  - for example, `http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80`. You should see the Voting application in the browser.
 
 ![quickstartpic][quickstartpic]
 
@@ -149,4 +159,4 @@ In this quickstart, you learned how to:
 [containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
 [containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

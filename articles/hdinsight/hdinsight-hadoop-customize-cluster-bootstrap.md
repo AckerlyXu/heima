@@ -1,5 +1,5 @@
 ---
-title: Customize HDInsight Clusters using bootstrap - Azure | Azure
+title: Customize HDInsight Clusters using bootstrap
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/21/2017
-ms.date: 12/25/2017
+origin.date: 01/03/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -76,9 +76,10 @@ $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.5" `
+    	-Version "3.6" `
         -HttpCredential $httpCredential `
         -Config $config 
+```
 
 A complete working PowerShell script can be found in [Appendix](#appendix-powershell-sample).
 
@@ -247,7 +248,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config

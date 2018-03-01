@@ -1,5 +1,5 @@
 ---
-title: Analyze and process JSON documents with Apache Hive in Azure HDInsight | Microsoft Docs
+title: Analyze and process JSON documents with Apache Hive in Azure HDInsight
 description: Learn how to use JSON documents and analyze them by using apache Hive in Azure HDInsight
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -58,7 +58,7 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
         ]
     }
 
-The file can be found at wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](../shdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
+The file can be found at wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
 In this tutorial, you use the Hive console. For instructions on how to open the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](apache-hadoop-use-hive-remote-desktop.md).
 

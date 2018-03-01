@@ -86,7 +86,8 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 ## Mount the attached data disk
 
 > [!NOTE]
-> The following examples detail the steps required on an Ubuntu VM. If you are using a different Linux distro, such as Red Hat Enterprise Linux or SUSE, the log file locations and `mount` commands may be a little different. Refer to the documentation for your specific distro for the appropriate changes in commands.
+> The following examples detail the steps required on an Ubuntu VM. If you are using a different Linux distro, such as CentOS or SUSE, the log file locations and `mount` commands may be a little different. Refer to the documentation for your specific distro for the appropriate changes in commands.
+<!-- Change Red Hat to CentOS -->
 
 1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, the disk is likely connected to `/dev/sdc`. Use `dmseg` to view attached disks:
 

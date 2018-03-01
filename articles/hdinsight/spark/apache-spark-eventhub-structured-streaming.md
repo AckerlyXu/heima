@@ -1,10 +1,10 @@
 ---
-title: Use Apache Spark structured streaming with Event Hubs in Azure HDInsight | Microsoft Docs
+title: Use Apache Spark structured streaming with Event Hubs in Azure HDInsight
 description: Build an Apache Spark streaming sample on how to send a data stream to Azure Event Hub and then receive those events in HDInsight Spark cluster using a scala application.
 keywords: apache spark streaming,spark streaming,spark sample,apache spark streaming example,event hub azure sample,spark sample
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -83,7 +83,7 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
 
 5. The application you build requires the Spark Streaming Event Hubs package. To run the Spark Shell so that it automatically retrieves this dependency from [Maven Central](https://search.maven.org), be sure the supply the packages switch with the Maven coordinates as follows:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Once the Spark Shell is finished loading, you should see:
 
@@ -91,10 +91,10 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -112,8 +112,12 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. If you look at your EventHub-compatible endpoint in the following form, the part that reads `iothub-xxxxxxxxxx` is your EventHub-compatible Namespace name, and can be used for `eventhubs.namespace`. The field `SharedAccessKeyName` can be used for `eventhubs.policyname`, and `SharedAccessKey` for `eventhubs.policykey`: 
 
-8. Paste the modified snippet into the waiting scala> prompt and press return. You should see output similar to:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.chinacloudapi.cn/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Paste the modified snippet into the waiting scala> prompt and press return. You should see output similar to:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",

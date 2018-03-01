@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs Management Libraries | Azure
+title: Azure Event Hubs management libraries | Azure
 description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
@@ -7,20 +7,21 @@ documentationcenter: na
 author: rockboyfor
 manager: digimobile
 
-ms.assetid: ''
+ms.assetid:
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
+
 ---
 
 # Event Hubs management libraries
 
-The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This enables complex deployments and messaging scenarios, so that you can programmatically determine what entities to provision. These libraries are currently available for .NET.
+The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This dynamic nature enables complex deployments and messaging scenarios, so that you can programmatically determine what entities to provision. These libraries are currently available for .NET.
 
 ## Supported functionality
 
@@ -52,8 +53,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
     );
     ```
 
-2. Create the `EventHubManagementClient` object.
-
+1. Create the `EventHubManagementClient` object.
     ```csharp
     var creds = new TokenCredentials(token);
     var ehClient = new EventHubManagementClient(creds)
@@ -62,8 +62,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
     };
     ```
 
-3. Set the `CreateOrUpdate` parameters to your specified values.
-
+1. Set the `CreateOrUpdate` parameters to your specified values.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -71,8 +70,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
     };
     ```
 
-4. Execute the call.
-
+1. Execute the call.
     ```csharp
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```

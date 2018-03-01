@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/30/2017
-ms.date: 09/25/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -116,4 +116,4 @@ To learn more about Event Hubs, visit the following topics:
 [Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Overview of Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->
