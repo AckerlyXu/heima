@@ -5,8 +5,8 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 08/01/2018
-ms.date: 01/22/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
@@ -138,5 +138,4 @@ replicating to Azure again as follows:
 
 After the reprotection finishes, the VM replicates back to Azure, and you can run a failover as
 required.
-<!-- Update_Description: new articles on physical to azure failover and failback -->
-<!-- ms.date: 01/19/2018 -->
+<!-- Update_Description: update meta propeties -->

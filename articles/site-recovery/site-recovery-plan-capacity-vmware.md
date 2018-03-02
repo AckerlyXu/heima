@@ -2,29 +2,22 @@
 title: Plan capacity and scaling for VMware replication to Azure with Azure Site Recovery | Azure
 description: Use this article to plan capacity and scale when replicating VMware VMs to Azure with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-
 ---
+
 # Plan capacity and scaling for VMware replication with Azure Site Recovery
 
 Use this article to figure out planning for capacity and scaling, when replicating on-premises VMware VMs and physical servers to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
 ## How do I start capacity planning?
 
-Gather information about your replication environment by running the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) for VMware replication. [Learn more](site-recovery-deployment-planner.md) about this tool. You'll gather information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also covers network bandwidth requirements, and the Azure infrastructure needed for successful replication and test failover.
+Gather information about your replication environment by running the [Azure Site Recovery Deployment Planner](/site-recovery/site-recovery-deployment-planner) for VMware replication. [Learn more](site-recovery-deployment-planner.md) about this tool. You'll gather information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also covers network bandwidth requirements, and the Azure infrastructure needed for successful replication and test failover.
 
 ## Capacity considerations
 
@@ -140,4 +133,4 @@ If you have to scale out your deployment beyond 200 source machines, or you have
 
 Download and run the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

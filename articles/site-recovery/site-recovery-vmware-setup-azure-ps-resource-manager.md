@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/23/2017
-ms.date: 01/01/2018
+origin.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
@@ -76,4 +76,4 @@ During failback, it is recommended to deploy process server in Azure if there is
 ## Unregistering the process server (running in Azure) from a Configuration Server (running on-premises)
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-<!-- Update_Description: update link -->
+<!-- Update_Description: update meta properties, update link -->

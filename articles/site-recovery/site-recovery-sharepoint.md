@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/31/2017
-ms.date: 11/20/2017
+origin.date: 12/23/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -61,6 +61,7 @@ For creating this article, VMware virtual machines with Windows Server 2012 R2 E
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
+**Azure** | NA | Yes
 
 ### SharePoint Versions
 The following SharePoint server versions are supported.
@@ -199,4 +200,4 @@ Follow [this guidance](site-recovery-failover.md) for doing a failover.
 ## Next steps
 You can learn more about [replicating other applications](site-recovery-workload.md) using Site Recovery.
 
-<!-- Update_Description: new articles on site recovery sharepoint -->
+<!-- Update_Description: update meta properties, wording update -->

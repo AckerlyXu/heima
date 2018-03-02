@@ -2,24 +2,18 @@
 title: Remove servers and disable protection | Azure
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 10/03/2017
-ms.date: 11/20/2017
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
 
 # Remove servers and disable protection
+
 This article describes how to unregister servers from a Recovery Services vault, and how to disable protection for machines protected by Site Recovery.
 
 ## Unregister a  configuration server

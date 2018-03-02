@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-origin.date: 06/29/2017
-ms.date: 09/11/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
@@ -145,4 +145,4 @@ It can take up-to 15 minutes for the Process Server deletion to reflect in the A
 |8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12-GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
 |12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24-GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
 
-<!--Update_Description: new articles on vmware to azure manage scale out process server in site recovery -->
+<!--Update_Description: update meta properties, wording update -->

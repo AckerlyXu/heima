@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/22/2017
-ms.date: 01/01/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -346,6 +346,7 @@ That's it. You have now successfully deployed and registered the Mobility servic
 
 After the management server detects the successful deployment, you can configure protection and enable replication on the machine by using Site Recovery.
 
+<a name="use-dsc-in-disconnected-environments"></a>
 ## Use DSC in disconnected environments
 If your machines aren't connected to the Internet, you can still rely on DSC to deploy and configure the Mobility service on the workloads that you want to protect.
 

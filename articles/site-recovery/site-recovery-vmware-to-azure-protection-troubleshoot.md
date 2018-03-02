@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/21/2017
-ms.date: 01/01/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -57,7 +57,7 @@ If not then go to Control Panel > Services, check if the following services are 
      * Azure Recovery Services Agent
      * Azure Site Recovery Service
      * tmansvc
-
+     *
 (Re)Start any service, which is not running and check if the problem still exists.
 
 * **Check if Process server is able to connect to Azure Public IP address using port 443**
@@ -112,5 +112,5 @@ Open it and click on Action > Change Properties. Under Proxy Configuration tab, 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
 
 ##Next steps
-<!-- Not Available on  [ASR forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr). -->
+If you need more help, then post your query to [Azure Site Recovery forum](https://www.azure.cn/support/forums/) We have an active community and one of our engineers will be able to assist you.
 <!--Update_Description: update meta properties, wording update -->
