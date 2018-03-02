@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 10/09/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
 
 ---
@@ -166,7 +166,7 @@ When two caches are linked together, you can't delete either cache or the resour
 
 ### What region should I use for my secondary linked cache? <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>
 
-In general, it is recommended for your cache to exist in the same Azure region as the application that accesses it. If your application has a primary and fallback region, then your primary and secondary caches should exist in those same regions. For more information about paired regions, see [Best Practices - Azure Paired regions](../best-practices-availability-paired-regions.md).
+In general, it is recommended for your cache to exist in the same Azure region as the application that accesses it. If your application has a primary and fallback region, then your primary and secondary caches should exist in those same regions. 
 
 ### How does failing over to the secondary linked cache work? <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>
 
@@ -179,4 +179,4 @@ Currently, to initiate the failover, you need to remove the Geo-replication link
 
 Learn more about the [Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

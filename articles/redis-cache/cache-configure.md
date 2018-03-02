@@ -3,8 +3,8 @@ title: How to configure Azure Redis Cache | Microsoft Docs
 description: Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances
 services: redis-cache
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 10/09/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
 
 ---
@@ -39,6 +39,7 @@ You can view and configure the following settings using the **Resource Menu**.
 - [Activity log](#activity-log)
 - [Access control (IAM)](#access-control-iam)
 - [Tags](#tags)
+- [Diagnose and solve problems](#diagnose-and-solve-problems)
 - [Settings](#settings)
  - [Access keys](#access-keys)
  - [Advanced settings](#advanced-settings)
@@ -60,6 +61,8 @@ You can view and configure the following settings using the **Resource Menu**.
 - [Monitoring](#monitoring)
  - [Redis metrics](#redis-metrics)
  - [Diagnostics](#diagnostics)
+- [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+ - [New support request](#new-support-request)
 
 
 ## Overview
@@ -78,6 +81,10 @@ The **Access control (IAM)** section provides support for role-based access cont
 
 The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
+
+### Diagnose and solve problems
+
+Click **Diagnose and solve problems** to be provided with common issues and strategies for resolving them.
 
 
 
@@ -117,9 +124,8 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
-#### Memory policies <a name="memory-policies"></a>
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
-
+#### Memory policies <a name="memory-policies"></a>
 The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
@@ -339,6 +345,25 @@ Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-met
 ### Diagnostics
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
+
+>[!NOTE]
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>
+>
+
+## Support & troubleshooting settings
+The settings in the **Support + troubleshooting** section provide you with options for resolving issues with your cache.
+
+![Support + troubleshooting](./media/cache-configure/redis-cache-support-troubleshooting.png)
+
+- [New support request](#new-support-request)
+
+### New support request
+Click **New support request** to open a support request for your cache.
+
+
+
+
 
 ## Default Redis server configuration
 New Azure Redis Cache instances are configured with the following default Redis configuration values.

@@ -3,8 +3,8 @@ title: Manage Azure Redis Cache using Azure CLI | Microsoft Docs
 description: Learn how to install the Azure CLI on any platform, how to use it to connect to your Azure account, and how to create and manage a Redis cache from the Azure CLI.
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 12/29/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
 
 ---
@@ -37,7 +37,7 @@ To create and manage Azure Redis Cache instances using Azure CLI, you must compl
 
 * You must have an Azure account. If you don't have one, you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few moments.
 * [Install the Azure CLI](../cli-install-nodejs.md).
-* Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login -e AzureChinaCloud` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
+* Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login -e AzureChinaCloud` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/authenticate-azure-cli).
 * Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
 ## Redis Cache properties
@@ -270,4 +270,4 @@ For more information about this command, run the `azure rediscache list-keys -h`
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-<!--Update_Description: update metedata properties -->
+<!--Update_Description: link update -->

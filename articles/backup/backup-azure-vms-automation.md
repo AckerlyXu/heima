@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 12/20/2017
-ms.date: 02/08/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -284,7 +284,7 @@ There is a key difference between the restoring a VM using the Azure portal and 
 >
 >
 
-To create a virtual machine from disk, see the section, [Create the VM from stored disks](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). The basic steps to restore an Azure VM are:
+To create a virtual machine from disk, see the section, [Create the VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). The basic steps to restore an Azure VM are:
 
 - Select the VM
 - Choose a recovery point
@@ -591,4 +591,4 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ## Next steps
 If you prefer to use PowerShell to engage with your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). If you manage DPM backups, see the article, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

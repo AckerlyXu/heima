@@ -26,9 +26,9 @@ It's critical to first understand how Notification Hubs pushes notifications to 
 
 ![Notification Hubs architecture][0]
 
-In a typical send notification flow, the message is sent from the *application back end* to Notification Hubs. Notification Hubs does some processing on all the registrations. The processing takes into account the configured tags and tag expressions to determine "targets." Targets are all the registrations that need to receive the push notification. These registrations can span any or all our supported platforms: iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android.
+In a typical send notification flow, the message is sent from the *application back end* to Notification Hubs. Notification Hubs does some processing on all the registrations. The processing takes into account the configured tags and tag expressions to determine "targets." Targets are all the registrations that need to receive the push notification. These registrations can span any or all our supported platforms: iOS, Windows, Windows Phone, Kindle, and Baidu for China Android.
 
-With the targets established, Notification Hubs pushes notifications to the *push notification service* for the device platform. Examples include the Apple Push Notification service (APNs) for Apple and Firebase Cloud Messaging (FCM) for Google. Notification Hubs pushes notifications split across multiple batches of registrations. Notification Hubs authenticates with the respective push notification service based on the credentials that you set in the Azure portal, under **Configure Notification Hub**. The push notification service then forwards the notifications to the respective *client devices*. 
+With the targets established, Notification Hubs pushes notifications to the *push notification service* for the device platform. Examples include the Apple Push Notification service (APNs) for Apple. Notification Hubs pushes notifications split across multiple batches of registrations. Notification Hubs authenticates with the respective push notification service based on the credentials that you set in the Azure portal, under **Configure Notification Hub**. The push notification service then forwards the notifications to the respective *client devices*. 
 
 Note that the final leg of notification delivery takes place between the platform push notification service and the device. Any of the four major components in the push notification process (client, application back end, Notification Hubs, and the platform push notification service) might cause notifications to be dropped. For more information about the Notification Hubs architecture, see [Notification Hubs overview].
 
@@ -37,7 +37,7 @@ Failure to deliver notifications might occur during the initial test/staging pha
 The next section looks at scenarios in which notifications might be dropped, ranging from common to more rare.
 
 ## Notification Hubs misconfiguration
-To successfully send notifications to the respective push notification service, Notification Hubs needs to authenticate itself in the context of the developer's application. For this to occur, the developer creates a developer account with the respective platform (Google, Apple, Windows, and so on). Then, the developer registers their application with the platform where they get credentials. 
+To successfully send notifications to the respective push notification service, Notification Hubs needs to authenticate itself in the context of the developer's application. For this to occur, the developer creates a developer account with the respective platform (Apple, Windows, and so on). Then, the developer registers their application with the platform where they get credentials. 
 
 You must add platform credentials to the Azure portal. If no notifications are reaching the device, the first step should be to ensure that the correct credentials are configured in Notification Hubs. The credentials must match the application that is created under a platform-specific developer account. 
 
@@ -97,7 +97,7 @@ Because platform notification services are robust, notifications tend to reach d
 
 If a push notification service attempts to deliver a notification but the device is offline, the notification is stored by the push notification service for a limited period of time. The notification is delivered to the device when the device becomes available. 
 
-For each app, only one recent notification is stored. If multiple notifications are sent while a device is offline, each new notification causes the prior notification to be discarded. Keeping only the newest notification is referred to as *coalescing notifications* in APNs, and *collapsing* in FCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for the device  are discarded. For more information, see [APNs overview] and [About FCM messages].
+For each app, only one recent notification is stored. If multiple notifications are sent while a device is offline, each new notification causes the prior notification to be discarded. Keeping only the newest notification is referred to as *coalescing notifications* in APNs. If the device remains offline for a long time, any notifications that were being stored for the device  are discarded. For more information, see [APNs overview].
 
 With Azure Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API. For example, for the .NET SDK, you'd use **SendNotificationAsync**. The SendNotification API also takes HTTP headers that are passed as-is to the respective push notification service. 
 
@@ -254,7 +254,6 @@ This message indicates that either invalid credentials are configured in Notific
 [Get started with Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a

@@ -1,10 +1,10 @@
 ---
-title: Azure Redis Cache samples | Azure
+title: Azure Redis Cache samples | Microsoft Docs
 description: Learn how to use Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 02/28/2018
+ms.author: v-junlch
 
 ---
 # Azure Redis Cache samples
@@ -66,3 +66,5 @@ The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello 
 
 ## Bandwidth monitor
 The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.
+
+<!--Update_Description: update metedata properties -->

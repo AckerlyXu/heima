@@ -3,8 +3,8 @@ title: Azure Redis Cache FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/27/2017
-ms.date: 09/14/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
 
 ---
@@ -85,11 +85,12 @@ Azure Redis Cache is based on the popular open-source [Redis cache](http://redis
 There are several ways you can get started with Azure Redis Cache.
 
 - You can check out one of our tutorials available for [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), and [Python](cache-python-get-started.md).
+- You can watch [How to Build High-Performance Apps Using Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
 - You can check out the client documentation for the clients that match the development language of your project to see how to use Redis. There are many Redis clients that can be used with Azure Redis Cache. For a list of Redis clients, see [http://redis.io/clients](http://redis.io/clients).
 
 If you don't already have an Azure account, you can:
 
-- [Open an Azure trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero). 
+- [Open an Azure trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
 <a name="cache-size"></a>
 
@@ -98,15 +99,15 @@ Each Azure Redis Cache offering provides different levels of **size**, **bandwid
 
 The following are considerations for choosing a Cache offering.
 
-- **Memory**: The Basic and Standard tiers offer 250 MB - 53 GB. The Premium tier offers up to 530 GB. For more information, see [Azure Redis Cache Pricing](https://www.azure.cn/pricing/details/cache/).
+- **Memory**: The Basic and Standard tiers offer 250 MB - 53 GB. The Premium tier offers up to 530 GB. For more information, see [Azure Redis Cache Pricing](https://www.azure.cn/pricing/details/redis-cache/).
 - **Network Performance**: If you have a workload that requires high throughput, the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier, larger size caches have more bandwidth because of the underlying VM that hosts the cache. See the [following table](#cache-performance) for more information.
 - **Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you may receive timeouts on the client side. For more information, see the following table.
-- **High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium cache is available at least 99.9% of the time. To learn more about our SLA, see [Azure Redis Cache Pricing](https://www.azure.cn/support/sla/redis-cache/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
+- **High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium cache is available at least 99.9% of the time. To learn more about our SLA, see [Azure Redis Cache Pricing](https://www.azure.cn/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
 - **Redis Data Persistence**: The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache, all the data is stored only in memory. If there are underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in Redis persistence. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 - **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 - **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 - **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
-- **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. For more information, see [Azure Redis Cache pricing](https://www.azure.cn/pricing/details/cache/).
+- **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. For more information, see [Azure Redis Cache pricing](https://www.azure.cn/pricing/details/redis-cache/).
 - **Dedicated Core for Redis Server**: In the Premium tier, all cache sizes have a dedicated core for Redis. In the Basic/Standard tiers, the C1 size and above have a dedicated core for Redis server.
 - **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you receive timeouts on the client side.
 - **Performance improvements**: Caches in the Premium tier are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
@@ -114,36 +115,36 @@ The following are considerations for choosing a Cache offering.
 <a name="cache-performance"></a>
 
 ### Azure Redis Cache performance
-The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. 
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Redis Cache endpoint.
 
 >[!NOTE] 
 >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
->
+>These numbers might change as we post newer results periodically.
 >
 
 From this table, we can draw the following conclusions:
 
-- Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 RPS as compared to 49,000 for C3.
+- Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 RPS as compared to 100,000 for C3.
 - With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 400,000 *10 = 4 Million RPS.
 - Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
-| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
-| --- | --- | --- | --- | --- |
-| **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
-| C0 |250 MB |Shared |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2.5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS), per shard** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |
+| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size | 1 KB value size |
+| --- | --- | --- | --- | --- | --- |
+| **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS) Non-SSL** |**Requests per second (RPS) SSL** |
+| C0 |250 MB |Shared |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2.5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS) Non-SSL, per shard** |**Requests per second (RPS) SSL, per shard** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
+For instructions on setting up stunnel or downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
 <a name="cache-region"></a>
 
@@ -393,6 +394,10 @@ For more information about the different connections limits for each tier, see [
 ### How do I monitor the health and performance of my cache?
 Azure Redis Cache instances can be monitored in the [Azure portal](https://portal.azure.cn). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
+The Redis Cache **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
+
+- **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
+- **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
 
@@ -421,7 +426,7 @@ The following are some common reason for a cache disconnect.
 
 ### Which Azure Cache offering is right for me?
 > [!IMPORTANT]
-> As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service **have been retired** on November 30, 2016. Our recommendation is to use [Azure Redis Cache](/redis-cache/). For information on migrating, see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
+> As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service **have been retired** on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache). For information on migrating, see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
 >
 >
 
