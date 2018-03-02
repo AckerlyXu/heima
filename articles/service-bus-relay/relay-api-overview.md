@@ -1,5 +1,5 @@
 ---
-title: Azure Relay API overview | Azure
+title: Azure Relay API overview
 description: Overview of available Azure Relay APIs
 services: event-hubs
 documentationcenter: na
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ---
 
 # Available Relay APIs
@@ -32,10 +32,11 @@ The [additional information](#additional-information) section contains more info
 | .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
 | Node | Hybrid Connections | [`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
-### <a name="additional-information"></a> Additional information
+### Additional information
 
 #### .NET
-The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](/dotnet/articles/standard/frameworks#framework-versions).
 
 ## Next steps
 To learn more about Azure Relay, visit these links:

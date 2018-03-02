@@ -78,7 +78,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 4. Click **OK** to create the **ProductsServer** project.
 5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
 6. In Solution Explorer, right-click the **ProductsServer** project, then click **Manage NuGet Packages**.
-7. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Select the **WindowsAzure.ServiceBus** package.
+7. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package.
 8. Click **Install**, and accept the terms of use.
 
    ![][13]
@@ -212,7 +212,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
     ```
 14. Press **Ctrl+Shift+B** or from the **Build** menu, click **Build Solution** to build the application and verify the accuracy of your work so far.
 
-## <a name="create-an-aspnet-application"></a> Create an ASP.NET application
+## Create an ASP.NET application
 
 In this section you will build a simple ASP.NET application that displays data retrieved from your product service.
 
@@ -233,7 +233,7 @@ In this section you will build a simple ASP.NET application that displays data r
     ![][18]
 
 7. Back in the **New ASP.NET Web Application** dialog, click **OK** to create the MVC app.
-8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Then, return to this tutorial and proceed to the next step.
+8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.

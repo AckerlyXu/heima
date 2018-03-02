@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -49,10 +49,10 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.cn/).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure portal](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### Monitor your web app
-This option enables you to find out if your application is having any issues. In your web app¡¯s blade, click the **Requests and errors** tile. The **Metric** blade shows you all the metrics you can add.
+This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade shows you all the metrics you can add.
 
 Some of the metrics that you might want to monitor for your web app are
 
@@ -80,9 +80,13 @@ To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
-You can also monitor your application performance by using *site extensions*.
+You can also monitor your application performance by using a *site extension*.
 
-Each App Service web app provides an extensible management end point that allows you to use a powerful set of tools deployed as site extensions. These tools range from source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) to management tools for connected resources such as a MySQL database connected to a web app.
+Each App Service web app provides an extensible management end point that allows you to use a powerful set of tools deployed as site extensions. Extensions include: 
+
+- Source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Management tools for connected resources such as a MySQL database connected to a web app.
+
 
 <a name="collect" />
 
@@ -99,6 +103,8 @@ You can enable or disable the following kinds of logs:
 #### Enable application diagnostics
 There are several options to collect application performance data from Web Apps, profile your application live from Visual Studio, or modify your application code to log more information and traces. You can choose the options based on how much access you have to the application and what you observed from the monitoring tools.
 
+##### Set up diagnostic traces manually
+If you have access to the web application source code, Application diagnostics enables you to capture information produced by a web application. ASP.NET applications can use the `System.Diagnostics.Trace` class to log information to the application diagnostics log. However, you need to change the code and redeploy your application. This method is recommended if your app is running on a testing environment.
 For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
 
 #### Use the Azure App Service Support Portal

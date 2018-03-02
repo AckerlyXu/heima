@@ -9,3 +9,5 @@ az group create --name myResourceGroup --location chinanorth
 ```
 
 You generally create your resource group and the resources in a region near you. 
+
+When the command finishes, a JSON output shows you the resource group properties.

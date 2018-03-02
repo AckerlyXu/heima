@@ -1,5 +1,5 @@
 ---
-title: Create a PHP web app in Azure | Azure
+title: Create a PHP web app in Azure
 description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 01/02/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -26,13 +26,13 @@ ms.custom: mvc
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this quickstart:
 
 * <a href="https://php.net" target="_blank">Install PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample locally
 

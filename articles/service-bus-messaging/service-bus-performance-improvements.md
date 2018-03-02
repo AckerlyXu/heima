@@ -1,8 +1,8 @@
 ---
-title: Best practices for improving performance using Azure Service Bus | Microsoft Azure
-description: Describes how to use Service Bus to optimize performance when exchanging brokered messages. 
+title: Best practices for improving performance using Azure Service Bus
+description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 services: service-bus
-documentationCenter: na
+documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/12/2017
+origin.date: 01/31/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
+ms.date: 03/12/2018
 ---
 # Best Practices for performance improvements using Service Bus Messaging
-This article describes how to use [Azure Service Bus Messaging](../service-bus-messaging/index.md) to optimize performance when exchanging brokered messages. The first part of this article describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
+This article describes how to use [Azure Service Bus Messaging](index.md) to optimize performance when exchanging brokered messages. The first part of this article describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
 
 Throughout this topic, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue or topic client that sends messages to a Service Bus queue or topic subscription. The term "receiver" refers to a Service Bus queue or subscription client that receives messages from a Service Bus queue or subscription.
 
@@ -100,7 +100,13 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support batching.
 
 ## Batching store access
-To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20ms. Additional store operations that occur during this interval are added to the batch. Batched store access only affects **Send** and **Complete** operations; receive operations are not affected. Batched store access is a property on an entity. Batching occurs across all entities that enable batched store access.
+
+To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20ms. 
+
+> [!NOTE]
+> There is no risk of losing messages with batching, even if there is a Service Bus failure at the end of a 20ms batching interval. 
+
+Additional store operations that occur during this interval are added to the batch. Batched store access only affects **Send** and **Complete** operations; receive operations are not affected. Batched store access is a property on an entity. Batching occurs across all entities that enable batched store access.
 
 When creating a new queue, topic or subscription, batched store access is enabled by default. To disable batched store access, set the [EnableBatchedOperations][EnableBatchedOperations] property to **false** before creating the entity. For example:
 
@@ -279,16 +285,16 @@ To maximize throughput, do the following:
 ## Next steps
 To learn more about optimizing Service Bus performance, see [Partitioned messaging entities][Partitioned messaging entities].
 
-[QueueClient]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient
-[MessageSender]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.core.messagesender
-[MessagingFactory]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[PeekLock]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.receivemode
-[ReceiveAndDelete]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.receivemode
-[BatchFlushInterval]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
-[EnableBatchedOperations]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
-[QueueClient.PrefetchCount]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
-[SubscriptionClient.PrefetchCount]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
-[ForcePersistence]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
-[EnablePartitioning]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing

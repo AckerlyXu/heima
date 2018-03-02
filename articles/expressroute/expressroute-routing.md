@@ -1,5 +1,5 @@
 ---
-title: Routing requirements for ExpressRoute | Azure
+title: Routing requirements for Azure ExpressRoute
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationCenter: na
 services: expressroute
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ---
 # ExpressRoute routing requirements
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:
@@ -68,6 +68,8 @@ You can choose to use public or private IPv4 addresses for private peering. We p
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpessRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Azure. Connectivity to Azure services on public peering is always initiated from your network into the network. You must use Public IP addresses for the traffic destined to Microsoft network.
 
 
+
+A Private AS Number is allowed with Public Peering.
 ## Dynamic route exchange
 
 Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](./expressroute-howto-routing-classic.md) and [Circuit provisioning workflows and circuit states](./expressroute-workflows.md) for information about configuring BGP sessions.
@@ -130,6 +132,8 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | West Europe |12076:51002 |
 | UK South | 12076:51024 |
 | UK West | 12076:51025 |
+| France Central | 12076:51030 |
+| France South | 12076:51031 |
 | **Asia Pacific** | |
 | East Asia |12076:51010 |
 | Southeast Asia |12076:51011 |

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/14/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ---
 
 # Service Bus FAQ
@@ -46,8 +46,6 @@ See [Best practices for performance improvements using Service Bus][Best practic
 
 ### What should I know before creating entities?
 The following properties of a queue and topic are immutable. Consider this limitation when you provision your entities, as these properties cannot be modified without creating a new replacement entity.
-
--   Size
 
 -   Partitioning
 

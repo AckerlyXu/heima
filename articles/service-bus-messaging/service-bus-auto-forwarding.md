@@ -1,5 +1,5 @@
 ---
-title: Auto-forwarding Service Bus messaging entities | Azure
+title: Auto-forwarding Azure Service Bus messaging entities
 description: How to chain a Service Bus queue or subscription to another queue or topic.
 services: service-bus
 documentationCenter: na
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2017
+origin.date: 02/22/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ---
 # Chaining Service Bus entities with auto-forwarding
 
@@ -32,7 +32,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 The destination entity must exist at the time the source entity is created. If the destination entity does not exist, Service Bus returns an exception when asked to create the source entity.
 
-You can use auto-forwarding to scale out an individual topic. Service Bus limits the [number of subscriptions on a given topic](./service-bus-quotas.md) to 2,000. You can accommodate additional subscriptions by creating second-level topics. Note that even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
+You can use auto-forwarding to scale out an individual topic. Service Bus limits the [number of subscriptions on a given topic](service-bus-quotas.md) to 2,000. You can accommodate additional subscriptions by creating second-level topics. Even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
 
 ![Auto-forwarding scenario][0]
 
@@ -44,7 +44,7 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 
 ## Auto-forwarding considerations
 
-If the destination entity accumulates too many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](./service-bus-dead-letter-queues.md) until there is space in the destination (or the entity is re-enabled). Those messages will continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.
+If the destination entity accumulates too many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](service-bus-dead-letter-queues.md) until there is space in the destination (or the entity is re-enabled). Those messages continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.
 
 When chaining together individual topics to obtain a composite topic with many subscriptions, it is recommended that you have a moderate number of subscriptions on the first-level topic and many subscriptions on the second-level topics. For example, a first-level topic with 20 subscriptions, each of them chained to a second-level topic with 200 subscriptions, allows for higher throughput than a first-level topic with 200 subscriptions, each chained to a second-level topic with 20 subscriptions.
 
@@ -65,10 +65,10 @@ To learn more about Service Bus performance improvements, see
 - [Best Practices for performance improvements using Service Bus Messaging](./service-bus-performance-improvements.md)
 - [Partitioned messaging entities][Partitioned messaging entities].
 
-  [QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-  [SubscriptionDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
-  [QueueDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
-  [SubscriptionDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
-  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
-  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Partitioned messaging entities]: ./service-bus-partitioning.md
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
+[SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
+[0]: ./media/service-bus-auto-forwarding/IC628631.gif
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif
+[Partitioned messaging entities]: service-bus-partitioning.md
