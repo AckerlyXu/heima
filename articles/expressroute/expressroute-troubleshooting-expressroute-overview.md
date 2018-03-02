@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
+ms.date: 03/12/2018
 
 ---
 
@@ -96,7 +96,8 @@ To list all the ExpressRoute circuits in a Resource Group, use the following com
 	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->You can get your resource group name through the Azure portal. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
+>You can get your resource group name through the Azure 
+>. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
 >
 >
 
@@ -231,11 +232,13 @@ ProvisioningState          : Succeeded
 
 To get the Azure public peering configuration details, use the following commands:
 
-```
-$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
-```
+	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
+To get the Microsoft peering configuration details, use the following commands:
+
+	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+	 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 If a peering is not configured, there would be an error message. A sample response, when the stated peering (Azure Public peering in this example) is not configured within the circuit:
 

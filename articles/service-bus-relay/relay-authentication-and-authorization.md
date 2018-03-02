@@ -1,5 +1,5 @@
 ---
-title: Azure Relay authentication and authorization | Azure
+title: Azure Relay authentication and authorization
 description: Overview of Shared Access Signature (SAS) authentication in Azure Relay
 services: service-bus-relay
 documentationcenter: na
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ---
 # Azure Relay authentication and authorization
 
@@ -28,18 +28,18 @@ You can configure keys for SAS on a Relay namespace. Unlike Service Bus messagin
 
 ![][0]
 
-To use SAS, you can configure a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Relay namespace that consists of the following:
+To use SAS, you can configure a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Relay namespace that consists of the following:
 
 * *KeyName* that identifies the rule.
 * *PrimaryKey* is a cryptographic key used to sign/validate SAS tokens.
 * *SecondaryKey* is a cryptographic key used to sign/validate SAS tokens.
 * *Rights* representing the collection of Listen, Send, or Manage rights granted.
 
-Authorization rules configured at the namespace level can grant access to all relay connections in a namespace for clients with tokens signed using the corresponding key. Up to 12 such authorization rules can be configured on a Relay namespace. By default, a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) with all rights is configured for every namespace when it is first provisioned.
+Authorization rules configured at the namespace level can grant access to all relay connections in a namespace for clients with tokens signed using the corresponding key. Up to 12 such authorization rules can be configured on a Relay namespace. By default, a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) with all rights is configured for every namespace when it is first provisioned.
 
-To access an entity, the client requires a SAS token generated using a specific [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
+To access an entity, the client requires a SAS token generated using a specific [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
 
-SAS authentication support for Azure Relay is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). All APIs that accept a connection string as a parameter include support for SAS connection strings.
+SAS authentication support for Azure Relay is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). All APIs that accept a connection string as a parameter include support for SAS connection strings.
 
 ## Next steps
 - Continue reading [Service Bus authentication with Shared Access Signatures](../service-bus-messaging/service-bus-sas.md) for more details about SAS.

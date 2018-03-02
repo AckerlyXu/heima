@@ -1,5 +1,5 @@
 ---
-title: Advanced monitoring in remote monitoring solution - Azure | Microsoft Docs
+title: Advanced monitoring in remote monitoring solution
 description: This tutorial shows you how to monitor devices with the remote monitoring solution dashboard.
 services: ''
 suite: iot-suite
@@ -7,8 +7,8 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA

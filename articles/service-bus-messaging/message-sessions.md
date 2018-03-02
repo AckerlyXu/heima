@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -22,15 +22,15 @@ ms.author: v-yiso
 
 Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. To realize a FIFO guarantee in Service Bus, use Sessions. Service Bus is not prescriptive about the nature of the relationship between the messages, and also does not define a particular model for determining where a message sequence starts or ends.
 
-Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
+Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
-On session-aware queues or subscriptions, sessions come into existence when there is at least one message with the session's [SessionId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Once a session exists, there is no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the **SessionId** matches, the session is the same from the Service Bus perspective.
+On session-aware queues or subscriptions, sessions come into existence when there is at least one message with the session's [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Once a session exists, there is no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the **SessionId** matches, the session is the same from the Service Bus perspective.
 
 Typically, however, an application has a clear notion of where a set of related messages starts and ends. Service Bus does not set any specific rules.
 
 An example of how to delineate a sequence for transferring a file is to set the **Label** property for the first message to **start**, for intermediate messages to **content**, and for the last message to **end**. The relative position of the content messages can be computed as the current message *SequenceNumber* delta from the **start** message *SequenceNumber*.
 
-The session feature in Service Bus enables a specific receive operation, in the form of [MessageSession](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession) in the C# and Java APIs. You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. This is required before you attempt to use the related API operations.
+The session feature in Service Bus enables a specific receive operation, in the form of [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) in the C# and Java APIs. You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. This is required before you attempt to use the related API operations.
 
 In the portal, set the flag with the following check box:
 
@@ -44,9 +44,9 @@ Sessions provide concurrent de-multiplexing of interleaved message streams while
 
 ![][1]
 
-A [MessageSession](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession) receiver is created by the client accepting a session. The client calls [QueueClient.AcceptMessageSession](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) or [QueueClient.AcceptMessageSessionAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In the reactive callback model, it registers a session handler, as discussed later.
+A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) receiver is created by the client accepting a session. The client calls [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) or [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In the reactive callback model, it registers a session handler.
 
-When the [MessageSession](https://docs.microsoft.com/en-us//dotnet/api/microsoft.servicebus.messaging.messagesession) object is accepted and while it is held by a client, that client holds an exclusive lock on all messages with that session's [SessionId](https://docs.microsoft.com/en-us//en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) that exist in the queue or subscription, and also on all messages with that **SessionId** that still arrive while the session is held.
+When the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is accepted and while it is held by a client, that client holds an exclusive lock on all messages with that session's [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) that exist in the queue or subscription, and also on all messages with that **SessionId** that still arrive while the session is held.
 
 The lock is released when **Close** or **CloseAsync** are called, or when the lock expires in cases in which the application is unable to perform the close operation. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or does not expect any further messages.
 
@@ -70,9 +70,11 @@ The session state facility enables an application-defined annotation of a messag
 
 From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 1 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
 
-The APIs for managing session state, [SetState](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) and [GetState](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), can be found on the [MessageSession](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession) object in both the C# and Java APIs. A session that had previously no session state set returns a **null** reference for **GetState**. Clearing the previously set session state is done with [SetState(null)](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+The APIs for managing session state, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) and [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), can be found on the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object in both the C# and Java APIs. A session that had previously no session state set returns a **null** reference for **GetState**. Clearing the previously set session state is done with [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
 
-All existing sessions in a queue or subscription can be enumerated with the **SessionBrowser** method in the Java API and with [GetMessageSessions](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) on the [QueueClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient) and [SubscriptionClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient) in the .NET client.
+Note that session state remains as long as it is not cleared up (returning **null**), even if all messages in a session are consumed.
+
+All existing sessions in a queue or subscription can be enumerated with the **SessionBrowser** method in the Java API and with [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) on the [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) and [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) in the .NET client.
 
 The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it is therefore recommended for the application to clean up its retained state to avoid external management cost.
 

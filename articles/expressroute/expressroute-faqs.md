@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute FAQ | Microsoft Docs
+title: Azure ExpressRoute FAQ
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details.
 documentationcenter: na
 services: expressroute
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/01/2017
+origin.date: 01/17/2018
 ms.author: v-yiso
-ms.date: 01/08/2018
+ms.date: 03/12/2018
 ---
 
 # ExpressRoute FAQ
@@ -93,7 +93,7 @@ You will not lose connectivity if one of the cross connections fails. A redundan
 
 ## How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting multiple ExpressRoute circuits in different peering locations to your virtual network. For example, if one ExpressRoute site goes down, connectivity will fail over to another ExpressRoute site. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one connection to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
+You can achieve high availability by connecting ExpressRoute circuits in different peering locations to your virtual network.If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -112,9 +112,12 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit is associated with one service provider only. 
 
-### Can I have multiple ExpressRoute circuits in the same location?
+### I see two ExpressRoute peering locations in the same metro, e.g. Singapore and Singapore2. Which peering location should I choose to create my ExpressRoute circuit?
+If your service provider offers ExpressRoute at both sites, you can work with your provider and pick either site to set up ExpressRoute. 
 
-Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However, you can't link more than one ExpressRoute circuit to the same virtual network from the same location.
+### Can I have multiple ExpressRoute circuits in the same metro? Can I link them to the same virtual network?
+
+Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at various peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can’t link them to the same virtual network.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 
@@ -292,8 +295,6 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
 
-### Can Dynamics AX Online be accessed over an ExpressRoute connection?
-No, it is not supported.
 
 
 <!--Update_Description:update meta properties and wording-->

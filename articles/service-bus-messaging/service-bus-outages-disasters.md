@@ -1,5 +1,5 @@
 ---
-title: Insulating Azure Service Bus applications against outages and disasters | Azure
+title: Insulating Azure Service Bus applications against outages and disasters
 description: Techniques to protect applications against a potential Service Bus outage.
 services: service-bus
 documentationcenter: na
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/06/2017
+origin.date: 01/30/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
+ms.date: 03/12/2018
 ---
 # Best practices for insulating applications against Service Bus outages and disasters
 Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
@@ -27,12 +27,7 @@ A disaster is defined as the permanent loss of a Service Bus scale unit or datac
 ## Current architecture
 Service Bus uses multiple messaging stores to store messages that are sent to queues or topics. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail.
 
-All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus does not enable automatic geo-replication of data, nor does it allow a namespace to span multiple datacenters.
-
-## Protecting against ACS outages
-If you are using ACS credentials, and ACS becomes unavailable, clients can no longer obtain tokens. Clients that have a token at the time ACS goes down can continue to use Service Bus until the tokens expire. The default token lifetime is 3 hours.
-
-To protect against ACS outages, use Shared Access Signature (SAS) tokens. In this case, the client authenticates directly with Service Bus by signing a self-minted token with a secret key. Calls to ACS are no longer required. For more information about SAS tokens, see [Service Bus authentication][Service Bus authentication].
+All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus now supports [*Geo-disaster recovery* and *Geo-replication*](service-bus-geo-dr.md) at the namespace level.
 
 ## Protecting queues and topics against messaging store failures
 A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
@@ -89,8 +84,8 @@ To learn more about disaster recovery, see these articles:
   [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: ./service-bus-partitioning.md
   [Asynchronous messaging patterns and high availability]: ./service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-  [BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-  [BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
+[BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
   [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
   [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
