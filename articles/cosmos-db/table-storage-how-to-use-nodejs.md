@@ -9,12 +9,12 @@ editor: tysonn
 
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -451,4 +451,4 @@ For more information, see the following resources.
 * [Node.js Developer Center](/develop/nodejs/)
 * [Create and deploy a Node.js application to an Azure website](../app-service/app-service-web-get-started-nodejs.md)
 
-<!--Update_Description: update meta properties，update link, wording update -->
+<!--Update_Description: update meta properties -->

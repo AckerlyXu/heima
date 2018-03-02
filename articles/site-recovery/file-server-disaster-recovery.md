@@ -10,8 +10,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/23/2017
-ms.date: 01/01/2018
+origin.date: 02/06/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -22,8 +22,7 @@ The [Azure Site Recovery](site-recovery-overview.md) service contributes to your
 This article describes how to protect a File Server using Azure Site Recovery and other recommendations to suit various environments.     
 
 - [Replicate Azure IaaS file server machines](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
-- [Replicate on-premises file server using Azure Site Recovery](#replicate-an-on-premises-file-server-using-azure-site-recovery)
-<!-- Archor should be replicate-an-on-premises contain - -->
+- [Replicate on-premises file server using Azure Site Recovery](#replicate-an-onpremises-file-server-using-azure-site-recovery)
 
 ## File Server architecture
 The aim of an open distributed file sharing system is to provide an environment where a group of geographically distributed users can collaborate to efficiently work on files and be guaranteed that their integrity requirements are enforced. A typical on-premises File Server ecosystem that supports a high number of concurrent users and a large number of content items use Distributed File System Replication (DFSR) for replication scheduling and bandwidth throttling. DFSR uses a compression algorithm known as Remote Differential Compression (RDC), that can be used to efficiently update files over a limited-bandwidth network. It detects insertions, removals, and rearrangements of data in files, enabling DFSR to replicate only the changed file blocks when files are updated. There are also File Server environments, where daily backups are taken in non-peak timings, which cater to disaster needs and there is no implementation of DFSR.
@@ -54,10 +53,10 @@ Following diagram, gives a pictorial representation aimed at easing out the deci
 
 |Environment  |Recommendation  |Points to consider |
 |---------|---------|---------|
-|File Server environment with/without DFSR|   [Use Azure Site Recovery for replication](#replicate-an-on-premises-file-server-using-azure-site-recovery)   |    Site Recovery does not support shared disk cluster, NAS. If your environment uses any of these configurations, use any of the other approaches as appropriate. <br> Azure Site Recovery doesn't support SMB 3.0, which means that only when the changes made to the files are updated in original location of the file will the replicated VM incorporate the changes.
+|File Server environment with/without DFSR|   [Use Azure Site Recovery for replication](#replicate-an-onpremises-file-server-using-azure-site-recovery)   |    Site Recovery does not support shared disk cluster, NAS. If your environment uses any of these configurations, use any of the other approaches as appropriate. <br> Azure Site Recovery doesn't support SMB 3.0, which means that only when the changes made to the files are updated in original location of the file will the replicated VM incorporate the changes.
 |File Server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine:](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in extremely bandwidth crunched environments, this approach however requires to have an Azure VM up and running all the time. The cost of the VM needs to be accounted for in your planning.         |
 |Azure Iaas VM     |     [Azure File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     In a DR scenario if you are using Azure File Sync, during failover manual actions need to be taken to ensure that the file shares as accessible in a transparent way to the client machine. AFS requires port 445 to be open from the client machine.     |
-<!-- URL should be replicate-an-on-premises-file-server  ON-PREMISES-FILE-SERVER  -->
+<!-- URL should be replicate-an-onpremises-file-server without servers  -->
 
 ### Site Recovery support
 As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold true for the following scenarios:

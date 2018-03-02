@@ -9,12 +9,12 @@ editor: tysonn
 
 ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-yeche
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Microsoft Azure Storage SDK for Java][Microsoft Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Microsoft Azure Storage SDK for Java][Microsoft Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#Next-Steps) section.
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Microsoft Azure Storage SDK for Android][Microsoft Azure Storage SDK for Android].
@@ -59,6 +59,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key;" +
     "EndpointSuffix=core.chinacloudapi.cn";
 ```
+<!-- Add EndpointSuffix configuration -->
 
 In an application running within a role in Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
 
@@ -578,7 +579,7 @@ catch (Exception e)
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage Team Blog][Azure Storage Team Blog]
 
-For more information, visit [Azure for Java developers](https://docs.azure.cn/java).
+For more information, visit [Azure for Java developers](https://docs.azure.cn/java/).
 
 [Azure SDK for Java]: /develop/java/
 [Microsoft Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

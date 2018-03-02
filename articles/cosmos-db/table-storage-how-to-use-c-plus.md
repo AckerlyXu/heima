@@ -9,12 +9,12 @@ editor: tysonn
 
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -455,4 +455,5 @@ Now that you've learned the basics of table storage, follow these links to learn
 * [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](/storage/)
 
-<!-- Update_Description: update meta properties, update link -->
+<!--The parent file of includes file of storage-table-concepts-include.md-->
+<!--ms.date:03/05/2018-->

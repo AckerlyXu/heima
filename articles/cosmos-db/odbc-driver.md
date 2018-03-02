@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 07/17/2017
+origin.date: 01/16/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -33,13 +33,16 @@ This is where the ODBC driver comes in. By using the ODBC driver, you can now re
 
 Now lets get started with the ODBC driver.
 
-## <a id="install"></a>Step 1: Install the Azure Cosmos DB ODBC driver
+<a name="install"></a>
+## Step 1: Install the Azure Cosmos DB ODBC driver
 
 1. Download the drivers for your environment:
 
-    * [Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows
-    * [Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) for 32-bit on 64-bit Windows
-    * [Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows
+    | Installer | Supported operating systems| 
+    |---|---| 
+    |[Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows| 64 bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.| 
+    |[Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) for 32-bit on 64-bit Windows| 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2003.| 
+    |[Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows|32-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, and Windows Vista.|
 
     Run the msi file locally, which starts the **Azure Cosmos DB ODBC Driver Installation Wizard**. 
 2. Complete the installation wizard using the default input to install the ODBC driver.
@@ -48,7 +51,8 @@ Now lets get started with the ODBC driver.
 
     ![Azure Cosmos DB ODBC Data Source Administrator](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Step 2: Connect to your Azure Cosmos DB database
+<a name="connect"></a>
+## Step 2: Connect to your Azure Cosmos DB database
 
 1. After [Installing the Azure Cosmos DB ODBC driver](#install), in the **ODBC Data Source Administrator** window, click **Add**. You can create a User or System DSN. In this example, we are creating a User DSN.
 2. In the **Create New Data Source** window, select **Azure Cosmos DB ODBC Driver**, and then click **Finish**.
@@ -57,16 +61,16 @@ Now lets get started with the ODBC driver.
     ![Azure Cosmos DB ODBC Driver DSN Setup window](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Data Source Name**: Your own friendly name for the ODBC DSN. This name is unique to your Azure Cosmos DB account, so name it appropriately if you have multiple accounts.
     - **Description**: A brief description of the data source.
-    - **Host**: URI for your Azure Cosmos DB account. You can retrieve this from the Azure Cosmos DB Keys blade in the Azure portal, as shown in the following screenshot. 
-    - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB Keys blade in the Azure portal as shown in the following screenshot. We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
-    ![Azure Cosmos DB Keys blade](./media/odbc-driver/odbc-driver-keys.png)
+    - **Host**: URI for your Azure Cosmos DB account. You can retrieve this from the Azure Cosmos DB Keys page in the Azure portal, as shown in the following screenshot. 
+    - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB Keys page in the Azure portal as shown in the following screenshot. We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
+    ![Azure Cosmos DB Keys page](./media/odbc-driver/odbc-driver-keys.png)
     - **Encrypt Access Key for**: Select the best choice based on the users of this machine. 
 4. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 5. Click **Advanced Options** and set the following values:
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
     - **Schema File**: You have a number of options here.
-        - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher start up time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
+        - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
         - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
         - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the [Schema Editor](#schema-editor) information. Upon creating the new schema file, please remember to go back to the **Advanced Options** window to include the newly created schema file.
 
@@ -74,7 +78,8 @@ Now lets get started with the ODBC driver.
 
     ![New Azure Cosmos DB ODBC DSN on the User DSN tab](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a>Step 3: Create a schema definition using the collection mapping method
+<a name="#collection-mapping"></a>
+## Step 3: Create a schema definition using the collection mapping method
 
 There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. The steps below create a schema for the data in one or more collections using the collection mapping method. This sampling method retrieves the data in the page of a collection to determine the structure of the data. It transposes a collection to a table on the ODBC side. This sampling method is efficient and fast when the data in a collection is homogenous. If a collection contains heterogenous type of data, we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the collection. 
 
@@ -93,7 +98,8 @@ There are two types of sampling methods that you can use: **collection mapping**
     If in the future you want to use this schema with a DSN, open the Azure Cosmos DB ODBC Driver DSN Setup window (via the ODBC Data Source Administrator), click Advanced Options, and then in the Schema File box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
 
 <a name="schema-editor"></a>
-## <a id="table-mapping"></a>Step 4: Create a schema definition using the table-delimiters mapping method
+<a name="table-mapping">
+## </a>Step 4: Create a schema definition using the table-delimiters mapping method
 
 There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. 
 
@@ -148,4 +154,5 @@ If you receive the following error, ensure the **Host** and **Access Key** value
 
 ## Next steps
 
-To learn more about Azure Cosmos DB, see [What is Azure Cosmos DB?](introduction.md).
+To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
+<!-- Update_Description: update meta properties, wording update -->

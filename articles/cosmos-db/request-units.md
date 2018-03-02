@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/02/2017
-ms.date: 01/29/2018
+origin.date: 02/23/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -28,8 +28,9 @@ Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.
 <!-- Not Available on Graph -->
 <!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB supports a number of APIs with different operations ranging from simple reads and writes to complex graph queries. Since not all requests are equal, they are assigned a normalized quantity of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
+Azure Cosmos DB supports a number of APIs with different operations ranging from simple reads and writes to complex queries. Since not all requests are equal, they are assigned a normalized quantity of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
 <!-- Notice: 全球 to 多个区域 -->
+<!-- Notice: Not Avaiable on Graph -->
 
 To provide predictable performance, you need to reserve throughput in units of 100 RU/second. 
 
@@ -46,7 +47,7 @@ As Azure Cosmos DB is a multi-model database, it is important to note that this 
 ## Request units and request charges
 Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
 
-With Azure Cosmos DB, reserved throughput is specified in terms of request units processing per second. You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in Azure Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors that impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The query explorer is also a wonderful tool to test the core of a query.
+With Azure Cosmos DB, reserved throughput is specified in terms of request units processing per second. You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in Azure Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors that impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The Data Explorer in the Azure portal is also a wonderful tool to test the core of a query.
 <!-- Not Available > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]-->
 
 ## Specifying request unit capacity in Azure Cosmos DB
@@ -190,9 +191,7 @@ Using the tool is simple:
 > 
 
 ### Use the Azure Cosmos DB request charge response header
-Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the Azure Cosmos DB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the Azure Cosmos DB Query Explorer in the Azure portal provides request charge information for executed queries.
-
-![Examining RU charges in the Query Explorer][1]
+Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the Azure Cosmos DB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the Azure Cosmos DB Data Explorer in the Azure portal provides request charge information for executed queries.
 
 With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item used by your application and then estimating the number of operations you anticipate performing each second.  Be sure to measure and include typical queries and Azure Cosmos DB script usage as well.
 
@@ -210,7 +209,8 @@ For example:
 5. Record the request unit charge of any custom scripts (stored procedures, triggers, user-defined functions) leveraged by the application
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
-## <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
+<a name="GetLastRequestStatistics"></a>
+## Use API for MongoDB's GetLastRequestStatistics command
 API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
 
 For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
@@ -334,7 +334,8 @@ With this information, you can estimate the RU requirements for this application
 
 In this case, you expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, you would provision 1,300 RU/s for this application's collection.
 
-## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in Azure Cosmos DB
+<a name="RequestRateTooLarge"></a>
+## Exceeding reserved throughput limits in Azure Cosmos DB
 Recall that request unit consumption is evaluated as a rate per second if the budget is empty. For applications that exceed the provisioned request unit rate for a container, requests to that collection are throttled until the rate drops below the reserved level. When a throttle occurs, the server preemptively ends the request with RequestRateTooLargeException (HTTP status code 429) and returns the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
     HTTP Status 429
@@ -345,7 +346,8 @@ If you are using the .NET Client SDK and LINQ queries, then most of the time you
 
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a DocumentClientException with status code 429 to the application. In cases such as this, you may consider handling retry behavior and logic in your application's error handling routines or increasing the reserved throughput for the container.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in API for MongoDB
+<a name="RequestRateTooLargeAPIforMongoDB"></a>
+## Exceeding reserved throughput limits in API for MongoDB
 Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](set-throughput.md).
 
 ## Next steps
@@ -358,11 +360,10 @@ To learn more about Azure Cosmos DB, see the Azure Cosmos DB [documentation](/co
 
 To get started with scale and performance testing with Azure Cosmos DB, see [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update link, wording update, update meta properties -->

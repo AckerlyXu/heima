@@ -95,6 +95,8 @@
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
+  - name: Azure Resource Manager templates
+    href: https://github.com/Azure/azure-quickstart-templates/?term=cosmos+db&pageNumber=1
 - name: Concepts
   items:
 ### serverless-computing-database.md invalid due to serverless 
@@ -188,6 +190,8 @@
         items:
         - name: .NET samples
           href: sql-api-dotnet-samples.md
+        - name: Java samples
+          href: sql-api-java-samples.md
         - name: Node.js samples
           href: sql-api-nodejs-samples.md
         - name: Python samples
@@ -208,7 +212,7 @@
       items:
       - name: Connect to your MongoDB account
         href: connect-mongodb-account.md
-      - name: Using MongoChef
+      - name: Using Studio 3T
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
@@ -295,8 +299,10 @@
 ### logging.md invalid
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Access control
+      href: access-control.md
     - name: Azure Storage Explorer
-      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+      href: storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -307,14 +313,13 @@
         href: secure-access-to-data.md
   - name: Integrate
     items:
+    - name: Implement a lambda architecture with HDInsight
+      href: lambda-architecture.md
     - name: Connect to Spark
       href: spark-connector.md
     - name: Deploy a website with Azure App Service
       href: create-website.md
-    - name: Analyze data with Hadoop
-      href: run-hadoop-with-hdinsight.md
-    - name: Analyze real-time data with Azure Stream Analytics
-      href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
+### Not Available on href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Process sensor data in real time
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
     - name: Visualize your data with Power BI
@@ -364,4 +369,4 @@
     href: faq.md
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-### ms.date: 01/29/2018
+### ms.date: 03/05/2018

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -66,7 +66,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>Step 2: Set up your Node.js application
+<a name="SetupNode"></a>
+## Step 2: Set up your Node.js application
 1. Open your favorite terminal.
 2. Locate the folder or directory where you'd like to save your Node.js application.
 3. Create two empty JavaScript files with the following commands:
@@ -81,7 +82,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 Great! Now that you've finished setting up, let's start writing some code.
 
-## <a id="Config"></a>Step 3: Set your app's configurations
+<a name="Config"></a>
+## Step 3: Set your app's configurations
 Open ```config.js``` in your favorite text editor.
 
 Then, copy and paste the code snippet below and set properties ```config.endpoint``` and ```config.primaryKey``` to your Azure Cosmos DB endpoint uri and primary key. Both these configurations can be found in the [Azure portal](https://portal.azure.cn).
@@ -177,7 +179,8 @@ Finally, export your ```config``` object, so that you can reference it within th
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a> Step 4: Connect to an Azure Cosmos DB account
+<a name="Connect"></a>
+## Step 4: Connect to an Azure Cosmos DB account
 Open your empty ```app.js``` file in the text editor. Copy and paste the code below to import the ```documentdb``` module and your newly created ```config``` module.
 
     // ADD THIS PART TO YOUR CODE
@@ -261,7 +264,8 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully created an Azure Cosmos DB database.
 
-## <a id="CreateColl"></a>Step 6: Create a collection
+<a name="CreateColl"></a>
+## Step 6: Create a collection
 > [!WARNING]
 > **createCollection** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://www.azure.cn/pricing/details/cosmos-db/).
 > 
@@ -315,7 +319,8 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully created an Azure Cosmos DB collection.
 
-## <a id="CreateDoc"></a>Step 7: Create a document
+<a name="CreateDoc"></a>
+## Step 7: Create a document
 A [document](sql-api-resources.md#documents) can be created by using the [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. You can now insert a document into Azure Cosmos DB.
 
 Copy and paste the **getFamilyDocument** function underneath the **getCollection** function for creating the documents containing the JSON data saved in the ```config``` object. Again, we'll check to make sure a document with the same id does not already exist.
@@ -333,7 +338,7 @@ Copy and paste the **getFamilyDocument** function underneath the **getCollection
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {
@@ -369,7 +374,8 @@ Congratulations! You have successfully created an Azure Cosmos DB document.
 
 ![Node.js tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents - Node database](./media/sql-api-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
-## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
+<a name="Query"></a>
+## Step 8: Query Azure Cosmos DB resources
 Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your collection.
 
 Copy and paste the **queryCollection** function underneath the **getFamilyDocument** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
@@ -425,7 +431,8 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully queried Azure Cosmos DB documents.
 
-## <a id="ReplaceDocument"></a>Step 9: Replace a document
+<a name="ReplaceDocument"></a>
+## Step 9: Replace a document
 Azure Cosmos DB supports replacing JSON documents.
 
 Copy and paste the **replaceFamilyDocument** function underneath the **queryCollection** function in the app.js file.
@@ -472,7 +479,8 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully replaced an Azure Cosmos DB document.
 
-## <a id="DeleteDocument"></a>Step 10: Delete a document
+<a name="DeleteDocument"></a>
+## Step 10: Delete a document
 Azure Cosmos DB supports deleting JSON documents.
 
 Copy and paste the **deleteFamilyDocument** function underneath the **replaceFamilyDocument** function.
@@ -516,7 +524,8 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully deleted an Azure Cosmos DB document.
 
-## <a id="DeleteDatabase"></a>Step 11: Delete the Node database
+<a name="DeleteDatabase"></a>
+## Step 11: Delete the Node database
 Deleting the created database will remove the database and all children resources (collections, documents, etc.).
 
 Copy and paste the **cleanup** function underneath the **deleteFamilyDocument** function to remove the database and all the children resources.
@@ -551,7 +560,8 @@ Copy and paste the code below the call to **deleteFamilyDocument** to execute th
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a id="Run"></a>Step 12: Run your Node.js application all together!
+<a name="Run"></a>
+## Step 12: Run your Node.js application all together!
 Altogether, the sequence for calling your functions should look like this:
 
     getDatabase()
@@ -602,7 +612,8 @@ You should see the output of your get started app. The output should match the e
 
 Congratulations! You've created you've completed the Node.js tutorial and have your first Azure Cosmos DB console application!
 
-## <a id="GetSolution"></a>Get the complete Node.js tutorial solution
+<a name="GetSolution"></a>
+## Get the complete Node.js tutorial solution
 If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 To run the GetStarted solution that contains all the samples in this article, you will need the following:
@@ -627,4 +638,4 @@ That's it, build it and you're on your way!
 
 [create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png
-<!-- Update_Description: new articles on SQL api nodejs started -->
+<!-- Update_Description: update meta properties, wording update -->

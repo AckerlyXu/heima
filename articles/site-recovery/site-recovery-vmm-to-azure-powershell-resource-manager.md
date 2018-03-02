@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 01/22/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -228,6 +228,7 @@ Note that multiple Virtual Machine networks can be mapped to a single Azure netw
 2. The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
         $Networks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+
 3. The third command gets Azure virtual networks, and then that value in the $AzureVmNetworks variable.
 
         $AzureVmNetworks =  Get-AzureRmVirtualNetwork
@@ -281,6 +282,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
+
 <a name="monitor"></a>
 ## Monitor Activity
 Use the following commands to monitor the activity. Note that you have to wait in between jobs for the processing to finish.
@@ -302,4 +304,4 @@ Use the following commands to monitor the activity. Note that you have to wait i
 
 ## Next steps
 [Read more](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/#recovery) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

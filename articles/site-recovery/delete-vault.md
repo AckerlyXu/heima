@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 07/04/2017
-ms.date: 11/20/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -73,4 +73,4 @@ To delete the Site Recovery vault even if there are protected items, use these c
 
     Remove-AzureRmSiteRecoveryVault -Vault $vault
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

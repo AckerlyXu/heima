@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/18/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -54,12 +54,12 @@ If you currently use Azure Table storage, you gain the following benefits with A
 - 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://www.azure.cn/support/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
-This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/tableapinuget) from NuGet.
+This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can download the [Azure Cosmos DB Table API .NET SDK](https://aka.ms/tableapinuget) from NuGet.
 
 To learn more about complex Azure Table storage tasks, see:
 
 * [Introduction to Azure Cosmos DB Table API](table-introduction.md)
-* The Table service reference documentation for complete details about available APIs [Azure Cosmos DB Table API .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+* The Table service reference documentation for complete details about available APIs [Azure Cosmos DB Table API .NET SDK](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb/client?view=azure-dotnet)
 
 ### About this tutorial
 This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md) and shows how to take advantage of additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account, and then build and deploy a Table application. We also walk through .NET examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ Encryption at rest is a phrase that commonly refers to the encryption of data on
 
 As a PaaS service, Cosmos DB is very easy to use. Because all user data stored in Cosmos DB is encrypted at rest and in transport, you don't have to take any action. Another way to put this is that encryption at rest is "on" by default. There are no controls to turn it off or on. We provide this feature while we continue to meet our [availability and performance SLAs](https://www.azure.cn/support/sla/cosmos-db).
 
-## Implement encryption at rest
+## Implementation of encryption at rest for Azure Cosmos DB
 
 Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Systems that decrypt and process data have to communicate with systems that manage keys. The diagram shows how storage of encrypted data and the management of keys is separated. 
 
@@ -66,4 +66,6 @@ A: The emulator is a standalone dev/test tool and does not use the key managemen
 ## Next steps
 
 For an overview of Cosmos DB security and the latest improvements, see [Azure Cosmos DB database security](database-security.md).
-For more information about Microsoft certifications, see the [Azure Trust Center](https://www.azure.cn/support/trust-center/).
+For more information about Microsoft certifications, see the [Azure Trust Center](https://www.trustcenter.cn/).
+
+<!-- Update_Description: update meta properties, wording update, update link -->

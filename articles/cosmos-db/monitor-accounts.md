@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -24,7 +24,7 @@ You can monitor your Azure Cosmos DB accounts in the [Azure portal](https://port
 Metrics can be reviewed on the Account page, the new Metrics page, or in Azure Monitor.
 
 ## View performance metrics on the Metrics page
-1. In the [Azure portal](https://portal.azure.cn/), click **More Services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
+1. In the [Azure portal](https://portal.azure.cn/), click **All services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
 2. When the new page loads, in the resource menu, under **Monitoring**, click **Metrics**.
 3. When the Metrics page opens, select the collection to review from the **Collection(s)** drop-down.
 
@@ -34,7 +34,7 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
 
 <!--Not Available ## View performance metrics by using Azure Monitoring-->
 ## View performance metrics on the account page
-1. In the [Azure portal](https://portal.azure.cn/), click **More Services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
+1. In the [Azure portal](https://portal.azure.cn/), click **All services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
 2. The **Monitoring** lens displays the following tiles by default:
 
    * Total requests for the current day.
@@ -45,7 +45,7 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
 4. The **Metric** page shows you details about the total requests. 
 
 ## Set up alerts in the portal
-1. In the [Azure portal](https://portal.azure.cn/), click **More Services**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to set up performance metric alerts.
+1. In the [Azure portal](https://portal.azure.cn/), click **All services**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to set up performance metric alerts.
 2. In the resource menu, click **Alert Rules** to open the Alert rules page.  
    ![Screen shot of the Alert rules part selected](./media/monitor-accounts/madocdb10.5.png)
 3. In the **Alert rules** page, click **Add alert**.  

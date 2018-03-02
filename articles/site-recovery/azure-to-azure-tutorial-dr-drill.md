@@ -4,14 +4,10 @@ description: Learn how to run a disaster recovery drill for Azure VMs to a secon
 services: site-recovery
 author: rockboyfor
 manager: digimobile
-
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.topic: tutorial
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---

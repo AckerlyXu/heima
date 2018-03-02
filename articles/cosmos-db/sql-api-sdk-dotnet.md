@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 11/17/2017
-ms.date: 12/25/2017
+origin.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -39,7 +39,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
+<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
 
@@ -59,4 +59,4 @@ ms.custom: H1Hack27Feb2017
 
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
-<!-- Update_Description: new articles on SQL api sdk dotnet -->
+<!-- Update_Description: update meta properties, wording update, update link -->
