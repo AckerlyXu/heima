@@ -14,16 +14,16 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
-origin.date: 08/25/2017
-ms.date: 11/06/2017
+ms.workload: "Active"
+origin.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: v-johch
 
 ---
 
 # Design your first Azure SQL database
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal
@@ -52,11 +52,11 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a blank SQL database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
-    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
 
@@ -76,15 +76,15 @@ Follow these steps to create a blank SQL database.
    | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | Any valid location | China East and China North |
 
-    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
-    
+   ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
+
 5. Click **Select**.
 
 6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the number of DTUs and storage that is available to you for each service tier. 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
-    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 8. Accept the preview terms to use the **Add-on Storage** option. 
 
@@ -114,11 +114,11 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
 
-    ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
 3. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens. 
 
-    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -200,18 +200,18 @@ The following diagram shows how these tables are related to each other. Some of 
    LastName   NVARCHAR(128) NOT NULL,
    DateOfBirth   DATE NOT NULL
    )
-
+   
    -- Create Student table
-
+ 
    CREATE TABLE Student
    (
    StudentId INT IDENTITY PRIMARY KEY,
    PersonId  INT REFERENCES Person (PersonId),
    Email   NVARCHAR(256)
    )
-
+   
    -- Create Course table
-
+ 
    CREATE TABLE Course
    (
    CourseId  INT IDENTITY PRIMARY KEY,
@@ -220,7 +220,7 @@ The following diagram shows how these tables are related to each other. Some of 
    ) 
 
    -- Create Credit table
-
+ 
    CREATE TABLE Credit
    (
    StudentId   INT REFERENCES Student (StudentId),
@@ -254,7 +254,7 @@ The following diagram shows how these tables are related to each other. Some of 
 3. Open a command prompt window and navigate to the SampleTableData folder.
 
 4. Execute the following commands to insert sample data into the tables replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
-
+  
    ```bcp
    bcp Course in SampleCourseData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    bcp Person in SamplePersonData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
@@ -310,12 +310,12 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
    ![restore](./media/sql-database-design-first-database/restore.png)
 
 2. Fill out the **Restore** form with the required information:
-    * Database name: Provide a database name 
-    * Point-in-time: Select the **Point-in-time** tab on the Restore form 
-    * Restore point: Select a time that occurs before the database was changed
-    * Target server: You cannot change this value when restoring a database 
-    * Elastic database pool: Select **None**  
-    * Pricing tier: Select **20 DTUs** and **40 GB** of storage.
+	* Database name: Provide a database name 
+	* Point-in-time: Select the **Point-in-time** tab on the Restore form 
+	* Restore point: Select a time that occurs before the database was changed
+	* Target server: You cannot change this value when restoring a database 
+	* Elastic database pool: Select **None**  
+	* Pricing tier: Select **20 DTUs** and **40 GB** of storage.
 
    ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 

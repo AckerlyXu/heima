@@ -40,33 +40,33 @@ Figure 1. Provisioning lifecycle for Umbraco as a Service (UaaS)
 With Azure SQL Database and other Azure services, Umbraco customers can self-provision their environments, and Umbraco can easily monitor and manage databases as part of an intuitive workflow:
 
 1. Provision
-
+   
    Umbraco maintains a capacity of 200 available pre-provisioned databases from elastic pools. When a new customer signs up for UaaS, Umbraco provides the customer with a new CMS environment in near real time by assigning them a database from the availability pool.
-
+   
    When an availability pool reaches its threshold, a new elastic pool is created, and new databases are pre-provisioned to be assigned to customers as needed.
-
+   
    Implementation is fully automated using C# management libraries and Azure Service Bus queues.
 2. Utilize
-
+   
    Customers use one to three environments (for production, staging, and/or development), each with its own database. Customer databases are in elastic pools, which enables Umbraco to provide efficient scaling without having to over-provision.
-
+   
    ![Umbraco project overview](./media/sql-database-implementation-umbraco/figure2.png)
-
+   
    ![Umbraco project detail](./media/sql-database-implementation-umbraco/figure3.png)
-
+   
    Figure 2. Umbraco-as-a-Service (UaaS) customer website, showing project overview and details
-
+   
    Azure SQL Database uses Database Transaction Units (DTUs) to represent the relative power required for real-world database transactions. For UaaS customers, databases typically operate at about 10 DTUs, but each has the elasticity to scale on demand. That means UaaS can ensure that customers always have necessary resources, even during peak times. For example, during a recent Sunday night sports event, one UaaS customer experienced database peaks up to 100 DTUs for the duration of the game. Azure elastic pools made it possible for Umbraco to support that high demand without performance degradation.
 3. Monitor
-
+   
    Umbraco monitors database activity using dashboards within the Azure portal, along with custom email alerts.
 4. Disaster recovery
-
-   Azure provides two disaster-recovery (DR) options: Active Geo-Replication and Geo-Restore. The DR option that a company should select depends on its [business-continuity objectives](sql-database-business-continuity.md).
-
-   Active Geo-Replication provides the fastest level of response in the event of downtime. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions, and you can then initiate failover to any of the secondaries in the event of a failure.
-
-   Umbraco doesn't require Geo-Replication, but it does take advantage of Azure Geo-Restore to help ensure minimum downtime in the event of an outage. Geo-Restore relies on database backups in geo-redundant Azure storage. That allows users to restore from a backup copy when there is an outage in the primary region.
+   
+   Azure provides two disaster-recovery (DR) options: active geo-replication and geo-restore. The DR option that a company should select depends on its [business-continuity objectives](sql-database-business-continuity.md).
+   
+   active geo-replication provides the fastest level of response in the event of downtime. Using active geo-replication, you can create up to four readable secondaries on servers in different regions, and you can then initiate failover to any of the secondaries in the event of a failure.
+   
+   Umbraco doesn't require geo-replication, but it does take advantage of Azure geo-restore to help ensure minimum downtime in the event of an outage. geo-restore relies on database backups in geo-redundant Azure storage. That allows users to restore from a backup copy when there is an outage in the primary region.
 5. De-provision
 
    When a project environment is deleted, any associated databases (development, staging, or live) are removed during Azure Service Bus queue cleanup. This automated process restores the unused databases to Umbraco's elastic database-availability pool, making them available for future provisioning while maintaining maximum utilization.

@@ -16,12 +16,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 09/20/2017
-ms.date: 01/08/2018
+ms.date: 2/28/2018
 ms.author: v-johch
 ---
 # What is the Azure SQL Database service? 
 
 SQL Database is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
+SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
+> [!IMPORTANT]
+> To understand the feature differences between SQL Database and SQL Server, see [SQL features](sql-database-features.md). 
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure.
 
 > [!NOTE]
@@ -34,7 +37,7 @@ With SQL Database, each database is isolated from each other and portable, each 
 
 ### Adjust performance and scale without downtime
 
-SQL Database offers four service tiers to support lightweight to heavyweight database workloads: Basic, Standard, Premium, and Premium RS. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+SQL Database offers three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
    ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

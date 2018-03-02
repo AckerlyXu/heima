@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
 origin.date: 10/11/2017
-ms.date: 11/06/2017
+ms.date: 2/28/2018
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
@@ -81,9 +81,9 @@ $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $e
 [Console]::Write("Exporting")
 while ($exportStatus.Status -eq "InProgress")
 {
-    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
-    [Console]::Write(".")
     Start-Sleep -s 10
+    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+    [Console]::Write(".")   
 }
 [Console]::WriteLine("")
 $exportStatus

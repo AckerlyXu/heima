@@ -25,7 +25,8 @@ ms.author: v-johch
 This Azure CLI script example creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli). 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli). 
 
 ## Sample script
 
@@ -85,11 +86,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.azure.cn/cli/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az sql server firewall create](https://docs.azure.cn/cli/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [az sql db create](https://docs.azure.cn/cli/sql/db#create) | Creates the SQL Database in the logical server. |
-| [az group delete](https://docs.azure.cn/cli/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](https://docs.azure.cn/cli/sql/server#az_sql_server_create) | Creates a logical server that hosts the SQL Database. |
+| [az sql server firewall create](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
+| [az sql db create](https://docs.azure.cn/cli/sql/db#az_sql_db_create) | Creates the SQL Database in the logical server. |
+| [az group delete](https://docs.azure.cn/cli/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
