@@ -2,13 +2,13 @@
 title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Azure environment.
 services: key-vault
-author: alexchen2016
-manager: digimobile
+author: lleonard-msft
+manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 origin.date: 10/12/2017
-ms.date: 12/22/2017
+ms.date: 03/04/2018
 ms.author: v-junlch
 ---
 # Azure Key Vault Developer's Guide
@@ -31,7 +31,7 @@ Periodically, we release a public preview of a new Key Vault feature. Try out th
 >[!NOTE]
 >For this update of Azure Key Vault only the **Storage Account Keys** feature is in preview.
 
-This preview includes our new Storage Account Keys feature, available through these interfaces; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+This preview includes our new Storage Account Keys feature, available through these interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
 For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
 
@@ -63,7 +63,7 @@ All of your Key Vault resources are accessible through the REST interface; vault
 
 #### .NET
 
-[.NET API refence for Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[.NET API refence for Key Vault](/dotnet/api/microsoft.azure.keyvault) 
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
@@ -140,6 +140,6 @@ These articles are about other scenarios and services that use or integrate with
 - [Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) provides **IKey** and **IKeyResolver** interfaces for locating keys from identifiers and performing operations with keys.
 - [Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) provides extended capabilities for Azure Key Vault.
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
 
 
