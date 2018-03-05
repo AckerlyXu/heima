@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/16/2017
-ms.date: 01/30/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 
 ---
@@ -174,7 +174,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/network/public-ip#show) as follows:
+To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/network/public-ip#az_network_public_ip_show) as follows:
 
 ```azurecli
 az network public-ip list \
@@ -212,10 +212,10 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/group#delete) to remove the resource group, scale set, and all related resources as follows:
+When no longer needed, you can use [az group delete](/cli/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows:
 
 ```azurecli 
 az group delete --name myResourceGroup
 ```
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

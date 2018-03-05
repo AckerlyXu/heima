@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/01/2017
-ms.date: 01/31/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -90,7 +90,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 - **Connect to VMs by using a "jumpbox"**: If you create a scale set and a standalone VM in the same virtual network, the standalone VM and the scale set VM can connect to one another by using their internal IP addresses, as defined by the virtual network or subnet. If you create a public IP address and assign it to the standalone VM, you can use RDP or SSH to connect to the standalone VM. You can then connect from that machine to your scale set instances. You might notice at this point that a simple scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
   
    For example, [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox) deploys a simple scale set with a standalone VM. 
-- **Load balancing to scale set instances**: If you want to deliver work to a compute cluster of VMs by using a round-robin approach, you can configure an Azure load balancer with layer-4 load-balancing rules accordingly. You can define probes to verify that your application is running by pinging ports with a specified protocol, interval, and request path. [Azure Application Gateway](/application-gateway/) also supports scale sets, along with layer-7 and more sophisticated load-balancing scenarios.
+- **Load balancing to scale set instances**: If you want to deliver work to a compute cluster of VMs by using a round-robin approach, you can configure an Azure load balancer with layer-4 load-balancing rules accordingly. You can define probes to verify that your application is running by pinging ports with a specified protocol, interval, and request path. [Azure Application Gateway](https://www.azure.cn/home/features/application-gateway/) also supports scale sets, along with layer-7 and more sophisticated load-balancing scenarios.
   
    [This example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) creates a scale set that runs Apache web servers, and it uses a load balancer to balance the load that each VM receives. (Look at the Microsoft.Network/loadBalancers resource type and networkProfile and extensionProfile in virtualMachineScaleSet.)
 
@@ -98,7 +98,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 - **Deploying a scale set as a compute cluster in a PaaS cluster manager**: Scale sets are sometimes described as a next-generation worker role. Though a valid description, it does run the risk of confusing scale set features with Azure Cloud Services features. In a sense, scale sets provide a true worker role or worker resource. They are a generalized compute resource that is platform/runtime independent, is customizable, and integrates into Azure Resource Manager IaaS.
   
-   A Cloud Services worker role is limited in terms of platform/runtime support (Windows platform images only). But it also includes services such as VIP swap, configurable upgrade settings, and runtime/app deployment-specific settings. These services are not *yet* available in scale sets, or they're delivered by other higher-level PaaS services like Azure Service Fabric. You can look at scale sets as an infrastructure that supports PaaS. PaaS solutions like [Service Fabric](/service-fabric/) build on this infrastructure.
+   A Cloud Services worker role is limited in terms of platform/runtime support (Windows platform images only). But it also includes services such as VIP swap, configurable upgrade settings, and runtime/app deployment-specific settings. These services are not *yet* available in scale sets, or they're delivered by other higher-level PaaS services like Azure Service Fabric. You can look at scale sets as an infrastructure that supports PaaS. PaaS solutions like [Service Fabric](https://www.azure.cn/home/features/service-fabric/) build on this infrastructure.
   
 
 ## Scale set performance and scale guidance
@@ -148,4 +148,4 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 You can find more answers to questions about scale sets in the [Azure virtual machine scale sets FAQ](virtual-machine-scale-sets-faq.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->
