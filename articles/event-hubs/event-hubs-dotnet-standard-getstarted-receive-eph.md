@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/28/2017
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -41,7 +41,7 @@ The first step is to use the [Azure portal](https://portal.azure.cn) to create a
 ## Create an Azure Storage account  
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).  
-2. In the left navigation pane of the portal, click **New**, click **Storage**, and then click **Storage Account**.  
+2. In the left navigation pane of the portal, click **Create a resource**, click **Storage**, and then click **Storage Account**.  
 3. Complete the fields in the storage account window, and then click **Create**.
 
     ![Create storage account][1]
@@ -131,7 +131,7 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
     private const string StorageAccountKey = "{Storage account key}";
 
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
-    ```
+    ```   
 
 3. Add a new method named `MainAsync` to the `Program` class, as follows:
 
@@ -223,4 +223,4 @@ You can learn more about Event Hubs by visiting the following links:
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->
