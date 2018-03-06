@@ -2,9 +2,9 @@
 title: How to use Azure diagnostics (.NET) with Cloud Services | Azure
 description: Using Azure diagnostics to gather data from Azure cloud Services for debugging, measuring performance, monitoring, traffic analysis, and more.
 services: cloud-services
-documentationCenter: .net
-authors: rboucher
-manager: jwhit
+documentationcenter: .net
+author: thraka
+manager: timlt
 editor: ''
 
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 ---
 
@@ -195,6 +195,7 @@ The Diagnostics configuration file defines values that are used to initialize di
 If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) for help with common problems.
 
 ## Next Steps
+[See a list of related Azure virtual-machine diagnostic articles](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
 [EventSource Class]: http://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

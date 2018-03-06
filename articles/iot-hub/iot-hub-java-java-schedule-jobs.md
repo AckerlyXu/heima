@@ -1,5 +1,5 @@
 ---
-title: Schedule jobs with Azure IoT Hub (Java) | Microsoft Docs
+title: Schedule jobs with Azure IoT Hub (Java)
 description: How to schedule an Azure IoT Hub job to invoke a direct method and set a desired property on multiple devices. You use the Azure IoT device SDK for Java to implement the simulated device apps and the Azure IoT service SDK for Java to implement a service app to run the job.
 services: iot-hub
 documentationcenter: java
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 03/19/2018
 ---
 # Schedule and broadcast jobs (Java)
 
@@ -42,7 +42,7 @@ At the end of this tutorial, you have a java console device app and a java conso
 
 **simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
 
-**schedule-jobs that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
+**schedule-jobs** that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -59,7 +59,7 @@ To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-If you prefer to create the device identity programmatically, read the corresponding section in the [Connect your device to your IoT hub using Java](iot-hub-java-java-getstarted.md#create-a-device-identity) article. You can also use the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to add a device to your IoT hub.
+If you prefer to create the device identity programmatically, read the corresponding section in the [Connect your device to your IoT hub using Java](iot-hub-java-java-getstarted.md#create-a-device-identity) article. You can also use the [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) tool to add a device to your IoT hub.
 
 ## Create the service app
 

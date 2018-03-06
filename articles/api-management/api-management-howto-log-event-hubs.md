@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2016
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
@@ -23,25 +23,8 @@ Azure Event Hubs is a highly scalable data ingress service that can ingest milli
 This article describes how to log API Management events using Azure Event Hubs.
 
 ## Create an Azure Event Hub
-To create a new Event Hub, sign-in to the [Azure classic management portal](https://manage.windowsazure.cn) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
 
-![Create event hub][create-event-hub]
-
-Next, navigate to the **Configure** tab for your new Event Hub and create two **shared access policies**. Name the first one **Sending** and give it **Send** permissions.
-
-![Sending policy][sending-policy]
-
-Name the second one **Receiving**, give it **Listen** permissions, and click **Save**.
-
-![Receiving policy][receiving-policy]
-
-Each shared access policy allows applications to send and receive events to and from the Event Hub. To access the connection strings for these policies, navigate to the **Dashboard** tab of the Event Hub and click **Connection information**.
-
-![Connection string][event-hub-dashboard]
-
-The **Sending** connection string is used when logging events, and the **Receiving** connection string is used when downloading events from the Event Hub.
-
-![Connection string][event-hub-connection-string]
+For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
 
 ## Create an API Management logger
 Now that you have an Event Hub, the next step is to configure a [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in your API Management service so that it can log events to the Event Hub.
@@ -53,7 +36,7 @@ To create a logger, make an HTTP PUT request using the following URL template.
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Replace `{your service}` with the name of your API Management service instance.
-* Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+* Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
 
 Add the following headers to the request.
 
@@ -81,24 +64,22 @@ Specify the request body using the following template.
 When you make the request, if the logger is created a status code of `201 Created` is returned.
 
 > [!NOTE]
-> For other possible return codes and their reasons, see [Create a Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entity documentation.
+> For other possible return codes and their reasons, see [Create a Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). To see how to perform other operations such as list, update, and delete, see the [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entity documentation.
 >
 >
 
 ## Configure log-to-eventhubs policies
 Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
 
-To configure policies, sign-in to the [Azure portal](https://portal.azure.cn), navigate to your API Management service, and click **Publisher portal** to access the publisher portal.
-
-![Publisher portal][publisher-portal]
-
-Click **Policies** in the API Management menu on the left, select the desired product and API, and click **Add policy**. In this example we're adding a policy to the **Echo API** in the **Unlimited** product.
-
-![Add policy][add-policy]
-
-Position your cursor in the `inbound` policy section and click the **Log to EventHub** policy to insert the `log-to-eventhub` policy statement template.
-
-![Policy editor][event-hub-policy]
+1. Browse to your APIM instance.
+2. Select the API tab.
+3. Select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
+4. Select **All operations**.
+5. On the top of the screen, select the Design tab.
+6. In the Inbound or Outbound processing window, click the triangle (next to the pencil).
+7. Select the Code editor. For more information, see [How to set or edit policies](set-edit-policies.md).
+8. Position your cursor in the `inbound` or `outbound` policy section.
+9. In the window on the right, select **Advanced policies** > **Log to EventHub**. This inserts the `log-to-eventhub` policy statement template.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>

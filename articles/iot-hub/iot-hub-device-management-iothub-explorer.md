@@ -1,10 +1,10 @@
 ---
 title: Azure IoT device management with iothub-explorer | Azure
-description: Use the iothub-explorer CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
+description: Use the iothub-explorer CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot device management, azure iot hub device management, device management iot, iot hub device management'
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/12/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 03/19/2018
 ---
 # Use iothub-explorer for Azure IoT Hub device management
 
@@ -27,7 +27,7 @@ ms.date: 08/14/2017
 [iothub-explorer](https://github.com/azure/iothub-explorer) is a CLI tool that you run on a host computer to manage device identities in your IoT hub registry. It comes with management options that you can use to perform various tasks.
 
 | Management option          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                        |
 | Twin desired properties    | Put a device into certain states, such as setting an LED to green or setting the telemetry send interval to 30 minutes.         |
 | Twin reported properties   | Get the reported state of a device. For example, the device reports the LED is blinking now.                                    |
@@ -79,7 +79,7 @@ Invoke the `stop` method in the device app to stop sending messages to your IoT 
 iothub-explorer device-method <your device Id> stop
 ```
 
-## Use iothub-explorer with twin’s desired properties
+## Use iothub-explorer with twin's desired properties
 
 Set a desired property interval = 3000 by running the following command:
 
@@ -89,7 +89,7 @@ iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"int
 
 This property can be read by your device.
 
-## Use iothub-explorer with twin’s reported properties
+## Use iothub-explorer with twin's reported properties
 
 Get the reported properties of the device by running the following command:
 
@@ -99,7 +99,7 @@ iothub-explorer get-twin <your device id>
 
 One of the properties is $metadata.$lastUpdated which shows the last time this device sends or receives a message.
 
-## Use iothub-explorer with twin’s tags
+## Use iothub-explorer with twin's tags
 
 Display the tags and properties of the device by running the following command:
 
