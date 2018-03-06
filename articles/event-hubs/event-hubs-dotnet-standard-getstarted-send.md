@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/10/2017
-ms.date: 11/20/2017
+origin.date: 02/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,7 @@ This tutorial shows how to write a .NET Core console application that sends a se
 * An Azure subscription.
 * An event hub namespace.
 
-To send messages to an event hub, we will use Visual Studio to write a C# console application.
+To send messages to an event hub, this tutorial uses Visual Studio to write a C# console application.
 
 ## Create an Event Hubs namespace and an event hub
 
@@ -54,7 +54,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 
 ## Write some code to send messages to the event hub
 
-1. Add the following `using` statements to the top of the Program.cs file.
+1. Add the following `using` statements to the top of the Program.cs file:
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -76,8 +76,8 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -120,7 +120,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     }
     ```
 
-5. Add the following code to the `Main` method in the `Program` class.
+5. Add the following code to the `Main` method in the `Program` class:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -150,8 +150,8 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -197,7 +197,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
-You can learn more about Event Hubs by visiting the following links:
+You can learn more about Event Hubs at the following links:
 
 * [Receive events from Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
