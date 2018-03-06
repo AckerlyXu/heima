@@ -15,10 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 11/29/2016
-ms.date: 07/17/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
----
 
+---
 # Migrate your data warehouse to premium storage
 Azure SQL Data Warehouse recently introduced [premium storage for greater performance predictability][premium storage for greater performance predictability]. Existing data warehouses currently on standard storage can now be migrated to premium storage. You can take advantage of automatic migration, or if you prefer to control when to migrate (which does involve some downtime), you can do the migration yourself.
 
@@ -153,10 +153,10 @@ If you encounter any issues with your data warehouse, [create a support ticket][
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn
+[create a support ticket]: https://support.windowsazure.cn/support/support-azure
 
 <!-- Not Available on [main documentation site]: services/sql-data-warehouse.md -->
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
@@ -167,3 +167,4 @@ If you encounter any issues with your data warehouse, [create a support ticket][
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.cn
+<!-- Update_Description: update meta properties, wording update -->

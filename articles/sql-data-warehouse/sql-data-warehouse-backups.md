@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.custom: backup-restore
 origin.date: 10/23/2017
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -41,8 +41,7 @@ order by run_id desc
 SQL Data Warehouse performs a geo-backup once per day to a paired data center. The RPO for a geo-restore is 24 hours. You can restore the geo-backup to the server in the geo-paired region. geo-backup ensures you can restore data warehouse in case you cannot access the snapshots in your primary region.
 <!-- Not Available on (../best-practices-availability-paired-regions.md) -->
 
-Geo-backups are on by default. If your data warehouse is optimized for elasticity, you can [opt out](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups with the optimized for compute performance tier.
-<!-- Opt Out is Correct for https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy-->
+Geo-backups are on by default. If your data warehouse is optimized for elasticity, you can [opt out](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups with the optimized for compute performance tier.
 
 ## Backup costs
 You will notice the Azure bill has a line item for Azure Premium Storage and a line item for geo-redundant storage. The Premium Storage charge is the total cost for storing your data in the primary region, which includes snapshots.  The geo-redundant charge covers the cost for storing the geo-backups.  
@@ -77,4 +76,4 @@ To restore a SQL data warehouse, see [Restore a SQL data warehouse](sql-data-war
 
 For a business continuity overview, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
 
-<!--Update_Description: wording update, add content of Snapshot retention when a data warehouse is paused, add content of restore a dropped data warehouse -->
+<!--Update_Description: update meta properties, wording update -->
