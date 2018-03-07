@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 02/26/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -222,4 +222,4 @@ To provision the package, use external provision, which requires the download UR
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!--Update_Description: update meta properties， wording update, add content of Create an sfpkg -->
+<!--Update_Description: update meta properties -->

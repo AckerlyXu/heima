@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/05/2017
-ms.date: 01/01/2018
+origin.date: 01/19/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -44,7 +44,7 @@ After an application is deployed and an instance is running in the cluster, you 
 If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
 
 ## Connect to the cluster
-Connect to the cluster by creating a [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following:
+Connect to the cluster by creating a [FabricClient](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following:
 
 ```csharp
 // Connect to the local cluster.
@@ -56,7 +56,7 @@ Suppose you build and package an application named *MyApplication* in Visual Stu
 
 Uploading the application package puts it in a location that's accessible by the internal Service Fabric components. Service Fabric verifies the application package during the registration of the application package. However, if you want to verify the application package locally (i.e., before uploading), use the [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
-The [CopyApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API uploads the application package to the cluster image store. 
+The [CopyApplicationPackage](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage?view=azure-dotnet) API uploads the application package to the cluster image store. 
 
 If the application package is large and/or has many files, you can [compress it](service-fabric-package-apps.md#compress-a-package) and copy it to the image store using PowerShell. The compression reduces the size and the number of files.
 
@@ -65,37 +65,37 @@ See [Understand the image store connection string](service-fabric-image-store-co
 ## Register the application package
 The application type and version declared in the application manifest become available for use when the application package is registered. The system reads the package uploaded in the previous step, verifies the package, processes the package contents, and copies the processed package to an internal system location.  
 
-The [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API registers the application type in the cluster and make it available for deployment.
+The [ProvisionApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync?view=azure-dotnet) API registers the application type in the cluster and make it available for deployment.
 
-The [GetApplicationTypeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API provides information about all successfully registered application types. You can use this API to determine when the registration is done.
+The [GetApplicationTypeListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync?view=azure-dotnet) API provides information about all successfully registered application types. You can use this API to determine when the registration is done.
 
 ## Remove an application package from the image store
-It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues. Delete the application package from the image store using the [RemoveApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API.
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues. Delete the application package from the image store using the [RemoveApplicationPackage](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage?view=azure-dotnet) API.
 
 ## Create an application instance
-You can instantiate an application from any application type that has been registered successfully by using the [CreateApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API. The name of each application must start with the *"fabric:"* scheme and must be unique for each application instance (within a cluster). Any default services defined in the application manifest of the target application type are also created.
+You can instantiate an application from any application type that has been registered successfully by using the [CreateApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync?view=azure-dotnet) API. The name of each application must start with the *"fabric:"* scheme and must be unique for each application instance (within a cluster). Any default services defined in the application manifest of the target application type are also created.
 
 Multiple application instances can be created for any given version of a registered application type. Each application instance runs in isolation, with its own working directory and set of processes.
 
-To see which named applications and services are running in the cluster, run the [GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) and [GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) APIs.
+To see which named applications and services are running in the cluster, run the [GetApplicationListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync?view=azure-dotnet) and [GetServiceListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync?view=azure-dotnet) APIs.
 
 ## Create a service instance
-You can instantiate a service from a service type using the [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  If the service is declared as a default service in the application manifest, the service is instantiated when the application is instantiated.  Calling the [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API for a service that is already instantiated will return an exception of type FabricException containing an error code with a value of FabricErrorCode.ServiceAlreadyExists.
+You can instantiate a service from a service type using the [CreateServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) API.  If the service is declared as a default service in the application manifest, the service is instantiated when the application is instantiated.  Calling the [CreateServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) API for a service that is already instantiated will return an exception of type FabricException containing an error code with a value of FabricErrorCode.ServiceAlreadyExists.
 
 ## Remove a service instance
-When a service instance is no longer needed, you can remove it from the running application instance by calling the [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
+When a service instance is no longer needed, you can remove it from the running application instance by calling the [DeleteServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync?view=azure-dotnet) API.  
 
 > [!WARNING]
 > This operation cannot be reversed, and service state cannot be recovered.
 
 ## Remove an application instance
-When an application instance is no longer needed, you can permanently remove it by name using the [DeleteApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) API. [DeleteApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) automatically removes all services that belong to the application as well, permanently removing all service state.
+When an application instance is no longer needed, you can permanently remove it by name using the [DeleteApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync?view=azure-dotnet) API. [DeleteApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync?view=azure-dotnet) automatically removes all services that belong to the application as well, permanently removing all service state.
 
 > [!WARNING]
 > This operation cannot be reversed, and application state cannot be recovered.
 
 ## Unregister an application type
-When a particular version of an application type is no longer needed, you should unregister that particular version of the application type using the [Unregister-ServiceFabricApplicationType](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Unregistering unused versions of application types releases storage space used by the image store. A version of an application type can be unregistered as long as no applications are instantiated against that version of the application type and no pending application upgrades are referencing that version of the application type.
+When a particular version of an application type is no longer needed, you should unregister that particular version of the application type using the [Unregister-ServiceFabricApplicationType](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync?view=azure-dotnet) API. Unregistering unused versions of application types releases storage space used by the image store. A version of an application type can be unregistered as long as no applications are instantiated against that version of the application type and no pending application upgrades are referencing that version of the application type.
 
 ## Troubleshooting
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
@@ -128,24 +128,24 @@ The ImageStoreConnectionString is found in the cluster manifest:
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
 ### Deploy large application package
-Issue: [CopyApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API times out for a large application package (order of GB).
+Issue: [CopyApplicationPackage](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage?view=azure-dotnet) API times out for a large application package (order of GB).
 Try:
-- Specify a larger timeout for [CopyApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) method, with `timeout` parameter. By default, the timeout is 30 minutes.
+- Specify a larger timeout for [CopyApplicationPackage](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage?view=azure-dotnet) method, with `timeout` parameter. By default, the timeout is 30 minutes.
 - Check the network connection between your source machine and cluster. If the connection is slow, consider using a machine with a better network connection.
 If the client machine is in another region than the cluster, consider using a client machine in a closer or same region as the cluster.
 - Check if you are hitting external throttling. For example, when the image store is configured to use azure storage, upload may be throttled.
 
-Issue: Upload package completed successfully, but [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API times out.
+Issue: Upload package completed successfully, but [ProvisionApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync?view=azure-dotnet) API times out.
 Try:
 - [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store.
 The compression reduces the size and the number of files, which in turn reduces the amount of traffic and work that Service Fabric must perform. The upload operation may be slower (especially if you include the compression time), but register and un-register the application type are faster.
-- Specify a larger timeout for [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API with `timeout` parameter.
+- Specify a larger timeout for [ProvisionApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync?view=azure-dotnet) API with `timeout` parameter.
 
 ### Deploy application package with many files
-Issue: [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) times out for an application package with many files (order of thousands).
+Issue: [ProvisionApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync?view=azure-dotnet) times out for an application package with many files (order of thousands).
 Try:
 - [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store. The compression reduces the number of files.
-- Specify a larger timeout for [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) with `timeout` parameter.
+- Specify a larger timeout for [ProvisionApplicationAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync?view=azure-dotnet) with `timeout` parameter.
 
 ## Code example
 The following example copies an application package to the image store, provisions the application type, creates an application instance, creates a service instance, removes the application instance, un-provisions the application type, and deletes the application package from the image store.
@@ -341,4 +341,4 @@ static void Main(string[] args)
 [10]: service-fabric-package-apps.md
 [11]: service-fabric-application-upgrade.md
 
-<!--Update_Description: update link -->
+<!--Update_Description: update meta properties, update link -->

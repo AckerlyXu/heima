@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/28/2017
-ms.date: 01/01/2018
+origin.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -40,9 +40,10 @@ The following operating system versions are supported for development:
 * Windows 10
 
 > [!NOTE]
-> Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
-> 
-> 
+> Windows 7 support:
+> - Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
+> - Service Fabric Reverse Proxy is not available on Windows 7.
+>
 
 ## Install the SDK and tools
 ### To use Visual Studio 2017
@@ -61,11 +62,10 @@ If you only need the SDK, you can install this package:
 * [Install the Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK 2.8.232
-* Service Fabric runtime 6.0.232
-* Service Fabric Tools for Visual Studio 2015 1.8.51024.1
-* Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
-* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
+* Service Fabric SDK and Tools 3.0.456
+* Service Fabric runtime 6.1.456
+* Service Fabric Tools for Visual Studio 2015 2.0.10124.2
+* Visual Studio 2017 15.5.6 includes Service Fabric Tools for Visual Studio 2.0.20180124.2 
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 
@@ -87,6 +87,7 @@ Now that you've finished setting up your development environment, start building
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 <!-- Not Avaialble * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)-->
 * Learn about [Service Fabric support options](service-fabric-support.md)
+* [Automate operating system patching on your Cluster](service-fabric-patch-orchestration-application.md)
 
 <!-- Not Available on [1]: https://www.azure.cn/home/features/service-fabric "Service Fabric campaign page" -->
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
@@ -95,4 +96,4 @@ Now that you've finished setting up your development environment, start building
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
 [powershell5-download]:https://www.microsoft.com/download/details.aspx?id=50395
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -23,7 +23,7 @@ Use PowerShell to pause compute for an Azure SQL Data Warehouse to save costs. [
 
 If you don't have an Azure subscription, create a [free](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
-This tutorial requires Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps.md). 
+This tutorial requires Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
 
 ## Before you begin
 
@@ -68,7 +68,7 @@ Follow these steps to find location information for your data warehouse.
 ## Pause compute
 To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day. There is no charge for compute resources while the database is paused. However, you continue to be charged for storage. 
 
-To pause a database, use the [Suspend-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. The following example pauses a data warehouse named **mySampleDataWarehouse** hosted on a server named **newserver-20171113**. The server is in an Azure resource group named **myResourceGroup**.
+To pause a database, use the [Suspend-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet. The following example pauses a data warehouse named **mySampleDataWarehouse** hosted on a server named **newserver-20171113**. The server is in an Azure resource group named **myResourceGroup**.
 
 ```Powershell
 Suspend-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
@@ -92,7 +92,7 @@ Resume-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 -ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/resume-azurermsqldatabase.md) and stores the results in $resultDatabase. The final command shows the results.
+A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/resume-azurermsqldatabase) and stores the results in $resultDatabase. The final command shows the results.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
