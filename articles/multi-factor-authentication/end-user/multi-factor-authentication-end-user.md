@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 01/16/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: richagi
 ms.custom: end-user
@@ -42,6 +42,8 @@ Select one of these topics to get started.
 | [Setup Experience](multi-factor-authentication-end-user-first-time.md) |Describes the process of setting up multi-factor authentication for the first time. |
 | [Sign-in experience](multi-factor-authentication-end-user-signin.md) |Shows what you can expect from signing in using the various methods such as phone or app. |
 | [Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Shows you how you can change your settings such as phone number or preferred enrollment method. |
-| [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 
 <!-- Update_Description: wording update -->
+
+<!--Update_Description: wording update -->

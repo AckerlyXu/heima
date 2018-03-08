@@ -2,13 +2,13 @@
 title: Provision Azure Batch pool in a virtual network | Microsoft Docs
 description: You can create a Batch pool in a virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-origin.date: 10/16/2017
-ms.date: 12/04/2017
+origin.date: 02/05/2018
+ms.date: 03/07/2018
 ms.author: v-junlch
 ---
 
@@ -70,3 +70,4 @@ When you add a user-defined route, define the route for each related Batch IP ad
 - For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
 - For more about creating a user-defined route, see [Create a user-defined route - Azure portal](../virtual-network/create-user-defined-route-portal.md).
 
+<!--Update_Description: update metedata properties -->

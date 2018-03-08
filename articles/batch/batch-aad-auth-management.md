@@ -3,8 +3,8 @@ title: Use Azure Active Directory to authenticate Batch Management solutions | M
 description: Applications built with Azure resource manager and the Batch resource provider authenticate with Azure AD.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: tamram
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 04/27/2017
-ms.date: 12/04/2017
+ms.date: 03/07/2018
 ms.author: v-junlch
 ---
 
@@ -47,7 +47,7 @@ Next, you'll need to delegate access to your application to the Azure Resource M
 
 Follow these steps in the Azure portal:
 
-1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**, and click **Add**.
+1. In the left-hand navigation pane of the Azure portal, choose **All services**, click **App Registrations**, and click **Add**.
 2. Search for the name of your application in the list of app registrations:
 
     ![Search for your application name](./media/batch-aad-auth-management/search-app-registration.png)
@@ -137,3 +137,4 @@ To authenticate Batch service applications using Azure AD, see [Authenticate Bat
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
+<!--Update_Description: wording update -->

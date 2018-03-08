@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: get-started-article
 origin.date: 12/19/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ---
 
@@ -28,13 +28,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Create a scale set
-Before you can create a scale set, create a resource group with [az group create](/cli/group#create). The following example creates a resource group named *myResourceGroup* in the *chinanorth* location:
+Before you can create a scale set, create a resource group with [az group create](/cli/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *chinanorth* location:
 
 ```azurecli 
 az group create --name myResourceGroup --location chinanorth
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/vmss#create). The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
+Now create a virtual machine scale set with [az vmss create](/cli/vmss#az_vmss_create). The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
 
 ```azurecli 
 az vmss create \
@@ -66,7 +66,7 @@ az vmss extension set \
 
 
 ## Allow web traffic
-To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb*:
+To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/network/lb/rule#az_network_lb_rule_create). The following example creates a rule named *myLoadBalancerRuleWeb*:
 
 ```azurecli 
 az network lb rule create \
@@ -82,7 +82,7 @@ az network lb rule create \
 
 
 ## Test your web server
-To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli 
 az network public-ip show \
@@ -98,7 +98,7 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/group#delete) to remove the resource group, scale set, and all related resources as follows:
+When no longer needed, you can use [az group delete](/cli/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows:
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -111,3 +111,4 @@ In this getting started article, you created a basic scale set and used the Cust
 - [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
 - Automatically scale with the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 
+<!--Update_Description: link update -->
