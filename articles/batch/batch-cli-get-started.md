@@ -3,8 +3,8 @@ title: Get started with Azure CLI for Batch | Microsoft Docs
 description: Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources
 services: batch
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 09/28/2017
-ms.date: 11/02/2017
+ms.date: 03/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -67,7 +67,7 @@ There are a few different ways to log into Azure, described in detail in [Log in
 1. [Log in interactively](/cli/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Log in interactively when you are running Azure CLI commands yourself from the command line.
 2. [Log in with a service principal](/cli/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Log in with a service principal when you are running Azure CLI commands from a script or an application.
 
-For the purposes of this article, we show how to log into Azure interactively. Type [az login](/cli/#login) on the command line:
+For the purposes of this article, we show how to log into Azure interactively. Type [az login](/cli/#az_login) on the command line:
 
 ```azurecli
 # Log in to Azure China and authenticate interactively.
@@ -95,7 +95,7 @@ You have two options for authenticating against your Batch account:
 
     An advantage of Azure AD is that it offers role-based access control (RBAC). With RBAC, a user's access depends on their assigned role, rather than whether or not they possess the account keys. Instead of managing account keys, you can manage RBAC roles, and let Azure AD handle access and authentication.  
 
-        To log in to your Batch account using Azure AD, call the [az batch account login](/cli/batch/account#az_batch_account_login) command: 
+     To log in to your Batch account using Azure AD, call the [az batch account login](/cli/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -119,16 +119,9 @@ The examples listed in the [Sample shell scripts](#sample-shell-scripts) section
 
 You can use the Azure CLI to run Batch jobs end-to-end without writing code. Batch template files support creating pools, jobs, and tasks with the Azure CLI. You can also use the Azure CLI to upload job input files to the Azure Storage account associated with the Batch account, and download job output files from it. For more information, see [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md).
 
-## Sample shell scripts
+## Script examples
 
-The sample scripts listed in the following table show how to use Azure CLI commands with the Batch service and Batch Management service to accomplish common tasks. These sample scripts cover many of the commands available in the Azure CLI for Batch. 
-
-| Script | Notes |
-|---|---|
-| [Create a Batch account](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account and associates it with a storage account. |
-| [Add an application](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
-| [Manage Batch pools](./scripts/batch-cli-sample-manage-pool.md) | Demonstrates creating, resizing, and managing pools. |
-| [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
+See the [CLI script examples](cli-samples.md) for Batch to accomplish common tasks. These examples cover many of the commands available in the Azure CLI for Batch to create and manage accounts, pools, jobs, and tasks. 
 
 ## JSON files for resource creation
 
