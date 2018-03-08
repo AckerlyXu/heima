@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/22/2017
-ms.date: 01/01/2018
+origin.date: 01/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -34,6 +34,7 @@ Learn more about:
 - [Microsoft premier support](https://support.microsoft.com/premier).
 
 <a name="getlivesitesupportonprem"></a>
+
 ## Report production issues or request paid support for standalone Service Fabric clusters
 
 For reporting issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Azure support portal](https://www.azure.cn/support/support-ticket-form).
@@ -54,7 +55,6 @@ Report Azure Service Fabric Issues on [Service-Fabric-issues git repo](https://g
 The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] are best used for asking questions about how the platform works and how you might accomplish certain tasks with it.
 
 ### Azure Feedback forum
-
 The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting big feature ideas you have for the product as we review the most popular requests are part of our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
 
 <a name="releasesuport"></a>
@@ -77,7 +77,8 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 5.5.* | 5.4.164.* |Less than or equal to version  2.5 |August 10,2017    |
 | 5.6.* | 5.4.164.* |Less than or equal to version  2.6 |October 13,2017   |
 | 5.7.* | 5.4.164.* |Less than or equal to version  2.7 |December 15,2017  |
-| 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |Current version and so no end date |
+| 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |March 30,2018     | 
+| 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |Current version and so no end date |
 
 <a name="previewversion"></a>
 ## Service Fabric Preview Versions - unsupported for production use.
@@ -91,7 +92,7 @@ There is no paid support option for these preview releases. Use one of the optio
 - [Upgrade Service Fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[msdn-forum]: https://www.azure.cn/support/forums/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 <!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml -->

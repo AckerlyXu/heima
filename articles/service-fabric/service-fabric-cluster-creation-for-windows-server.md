@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -28,18 +28,16 @@ This article walks you through the steps for creating a Service Fabric standalon
 > 
 > 
 
-<a id="getsupport"></a>
-
+<a name="getsupport"></a>
 ## Get support for the Service Fabric for Windows Server package
-* Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric?).
-* Open a ticket for [Professional Support for Service Fabric](https://www.azure.cn/support/support-ticket-form).
-<!-- Not Available on Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0).-->
+* Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://www.azure.cn/support/forums/)
+* Open a ticket for [Professional Support for Service Fabric](https://www.azure.cn/support/support-ticket-form).  
+<!-- Not Avaiable on [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0) -->
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/premier).
 * For more details, please see [Azure Service Fabric support options](/service-fabric/service-fabric-support).
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
 
-<a id="downloadpackage"></a>
-
+<a name="downloadpackage"></a>
 ## Download the Service Fabric for Windows Server package
 To create the cluster, use the Service Fabric for Windows Server package (Windows Server 2012 R2 and newer) found here: <br>
 [Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
@@ -52,8 +50,7 @@ The Service Fabric runtime package is automatically downloaded at time of cluste
 Find Standalone Cluster Configuration samples at: <br>
 [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-<a id="createcluster"></a>
-
+<a name="createcluster"></a>
 ## Create the cluster
 Service Fabric can be deployed to a one-machine development cluster by using the *ClusterConfig.Unsecure.DevCluster.json* file included in [Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
@@ -151,7 +148,7 @@ This script can be run on any machine that has administrator access to all the m
 .\CleanFabric.ps1
 ```
 
-<a id="telemetry"></a>
+<a name="telemetry"></a>
 
 ## Telemetry data collected and how to opt out of it
 As a default, the product collects telemetry on the Service Fabric usage to improve the product. The Best Practice Analyzer that runs as a part of the setup checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). If it is not reachable, the setup fails unless you opt out of telemetry.
@@ -205,4 +202,4 @@ None.
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update -->

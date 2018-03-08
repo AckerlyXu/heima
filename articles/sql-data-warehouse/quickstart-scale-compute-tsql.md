@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free](https://www.azure.cn/pr
 
 ## Before you begin
 
-Download and install the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Download and install the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 This assumes you have completed [Quickstart: create and Connect - portal](create-data-warehouse-portal.md). After completing the Create and Connect quickstart you know how to connect to :
  created a data warehouse named **mySampleDataWarehouse**, created a firewall rule that allows our client to access the server, installed.
@@ -37,7 +37,7 @@ Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) t
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 

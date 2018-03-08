@@ -8,7 +8,7 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: get-started-article
 origin.date: 10/20/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,8 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=3)  | Latest (~=6.0)            |
+| Latest (~=4)  | Latest (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 You can optionally specify a target version of the CLI to install by suffixing the `pip install` command with `==<version>`. For example, for version 1.1.0 the syntax would be:
@@ -105,6 +106,7 @@ If the installation on Windows subsystem for Linux fails with incorrect folder p
 ```bash
 sudo pip3 install sfctl
 ```
+<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
 
 <a name = "cli-mac"></a>
 ### MacOS

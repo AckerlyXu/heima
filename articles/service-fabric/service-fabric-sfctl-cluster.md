@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -141,7 +141,7 @@ If connecting to secure cluster, specify a cert (.crt) and key file (.key) or a 
 ## sfctl cluster unprovision
 Unprovision the code or configuration packages of a Service Fabric cluster.
 
-Unprovision the code or configuration packages of a Service Fabric cluster.
+Unprovision the code or configuration packages of a Service Fabric cluster. It is supported  to unprovision code and configuration separately.
 
 ### Arguments
 |Argument|Description|
@@ -200,4 +200,4 @@ Validate the supplied upgrade parameters and start upgrading the code or configu
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/service-fabric/scripts/sfctl-upgrade-application).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 09/11/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,7 @@ Monitoring, detecting, diagnosing, and troubleshooting allow for services to con
 
 ## Debugging Service Fabric Java applications
 
-For Java applications, [multiple logging frameworks](http://en.wikipedia.org/wiki/Java_logging_framework) are available. Since `java.util.logging` is the default option with the JRE, it is also used for the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  The following discussion explains how to configure the `java.util.logging` framework.
+For Java applications, [multiple logging frameworks](http://en.wikipedia.org/wiki/Java_logging_framework) are available. Since `java.util.logging` is the default option with the JRE, it is also used for the [code examples in github](https://github.com/Azure-Samples/service-fabric-java-getting-started).  The following discussion explains how to configure the `java.util.logging` framework.
 
 Using java.util.logging you can redirect your application logs to memory, output streams, console files, or sockets. For each of these options, there are default handlers already provided in the framework. You can create a `app.properties` file to configure the file handler for your application to redirect all logs to a local file.
 
@@ -59,7 +59,7 @@ This configuration results in logs being collected in a rotating fashion at `/tm
 
 By default if no handler is explicitly configured, the console handler is registered. One can view the logs in syslog under /var/log/syslog.
 
-For more information, see the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+For more information, see the [code examples in github](https://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 ## Debugging Service Fabric C# applications
 
@@ -134,4 +134,4 @@ The samples at [C# Samples](https://github.com/Azure-Samples/service-fabric-dotn
 The same tracing code added to your application also works with the diagnostics of your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how to set them up.
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->
