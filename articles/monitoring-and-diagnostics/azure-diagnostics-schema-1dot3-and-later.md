@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostics extension 1.3 and later configuration schema | Microsoft Docs
+title: Azure Diagnostics extension 1.3 and later configuration schema
 description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK 2.4 and later.
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -409,7 +409,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attributes|Description|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 5120 MB.<br />
+| **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|  
 
 <br /> <br />

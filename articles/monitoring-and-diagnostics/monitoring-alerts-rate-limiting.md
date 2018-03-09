@@ -1,7 +1,7 @@
 ---
 title: Rate limiting for SMS, emails, Azure App push notifications and webhooks
 description: Understand how Azure limits the number of possible SMS, email, Azure App push or webhook notifications from an action group.
-author: dukek
+author: dkamstra
 manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/8/2017
-ms.date: 02/26/2018
+origin.date: 02/16/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -25,9 +25,9 @@ Rate limiting is a suspension of notifications that occurs when too many notific
 The rate limit thresholds are:
 
  - **SMS**: No more than 1 SMS every 5 minutes.
- - **Email**: 100 messages in an hour.
- - **Azure App Push Notifications**: There is no rate limiting for push notifications.
- - **Webhooks**: There is no rate limiting for webhooks.
+ - **Email**: No more than 100 emails in an hour.
+ 
+ Other actions are not rate limited.
 
 ## Rate limit rules
 - A particular phone number or email is rate limited when it receives more messages than the threshold allows.

@@ -12,7 +12,7 @@ ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 11/28/2017
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 ---
 
@@ -32,7 +32,7 @@ Log in to the Azure portal at http://portal.azure.cn.
 
 ## Create a new service
 
-1. In the [Azure portal](https://portal.azure.cn/), select **New** > **Enterprise Integration** > **API management**.
+1. In the [Azure portal](https://portal.azure.cn/), select **Create a resource** > **Enterprise Integration** > **API management**.
 
     Alternatively, choose **New**, type `API management` in the search box, and press Enter. Click **Create**.
 

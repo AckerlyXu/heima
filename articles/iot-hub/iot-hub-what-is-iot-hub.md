@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/14/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 10/16/2017
+ms.date: 03/12/2018
 
 ---
 
@@ -59,15 +59,23 @@ In addition to the requirements above, any IoT solution must also deliver scale,
 Azure IoT Hub offers a rich set of [device-to-cloud][lnk-d2c-guidance] and [cloud-to-device][lnk-c2d-guidance] communication options. Additionally, Azure IoT Hub addresses the challenges that come with reliably and securely connecting to devices in the following ways:
 
 * **Device twins**. Using [Device twins][lnk-twins], you can store, synchronize, and query device metadata and state information. Device twins are JSON documents that store device state information like metadata, configurations, and conditions. IoT Hub maintains a device twin for each device that you connect to IoT Hub.
-- **Per-device authentication and secure connectivity**. You can provision each device with its own [security key][lnk-devguide-security] to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can add individual devices to allow or deny lists to enable complete control over device access.
-- **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on routing rules to control where your hub sends device-to-cloud messages. Routing rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
-* **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This monitoring capability enables your IoT solution to identify connectivity issues. Use these logs to identify devices that provide wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
-- **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
-* **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to support custom protocols by:
 
-  * Creating a field gateway with [Azure IoT Edge][lnk-iot-edge] that converts your custom protocol to one of the three protocols understood by IoT Hub.
-  * Customizing the [Azure IoT protocol gateway][protocol-gateway], an open source component that runs in the cloud.
-- **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
+* **Per-device authentication and secure connectivity**. You can provision each device with its own [security key][lnk-devguide-security] to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can add individual devices to allow or deny lists to enable complete control over device access.
+
+* **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on routing rules to control where your hub sends device-to-cloud messages. Routing rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
+
+* **Integrate IoT Hub events into your business applications**. IoT Hub integrates with Azure Event Grid. Use this integration to configure other Azure services or third-party applications to listen for IoT Hub events. Azure Event Grid enables you to react quickly to critical events in a reliable, scalable, and secure manner.
+
+* **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This monitoring capability enables your IoT solution to identify connectivity issues. Use these logs to identify devices that provide wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
+
+* **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
+
+* **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTPS 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to support custom protocols by:
+
+  * Creating a field gateway with [Azure IoT Edge][lnk-iot-edge] that converts your custom protocol to a protocol understood by IoT Hub.
+  * Customizing the [Azure IoT protocol gateway][protocol-gateway], an open-source component that runs in the cloud.
+
+* **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
 
 ## Gateways
 
@@ -79,12 +87,12 @@ A solution may include both protocol and field gateways.
 
 ## How does IoT Hub work?
 
-Azure IoT Hub implements the [service-assisted communication][lnk-service-assisted-pattern] pattern to mediate the interactions between your devices and your solution back end. The goal of service-assisted communication is to establish trustworthy, bidirectional communication paths between a control system, such as IoT Hub, and special-purpose devices in untrusted physical space. The pattern establishes the following principles:
+Azure IoT Hub implements the [service-assisted communication][lnk-service-assisted-pattern] pattern to mediate the interactions between your devices and your solution back end. The intent of the pattern is to establish trustworthy, bidirectional communication paths between a control system, such as IoT Hub, and special-purpose devices in untrusted physical space. The pattern establishes the following principles:
 
 - Security takes precedence over all other capabilities.
 - Devices do not accept unsolicited network information. A device establishes all connections and routes in an outbound-only fashion. For a device to receive a command from the solution back end, the device must regularly initiate a connection to check for any pending commands to process.
 - Devices should only connect to or establish routes to well-known services they are peered with, such as IoT Hub.
-- The communication path between device and service or between device and gateway is secured at the application protocol layer.
+- The communication path between the device and the service or gateway is secured at the application protocol layer.
 - System-level authorization and authentication are based on per-device identities. They make access credentials and permissions nearly instantly revocable.
 * For devices that connect sporadically due to power or connectivity concerns, bidirectional communication works by holding commands and notifications until a device connects to receive them. IoT Hub maintains device-specific queues for the commands it sends.
 - Application payload data is secured separately for protected transit through gateways to a particular service.
@@ -94,13 +102,14 @@ The mobile industry has used the service-assisted communication pattern to imple
 IoT Hub is supported over ExpressRoute's public peering path.
 
 ## Next steps
+
+To get started writing some code and running some samples, see the [Get started with IoT Hub][lnk-get-started] tutorial.
+
 To learn how to send messages from a device and receive them from IoT Hub, as well as how to configure message routes, see [Send and receive messages with IoT Hub][lnk-send-messages].
 
 To learn how IoT Hub enables standards-based device management for you to remotely manage, configure, and update your devices, see [Overview of device management with IoT Hub][lnk-device-management].
 
 To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the Azure IoT device SDKs. The device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device messages. When you use the device SDKs, you can choose from various network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
-
-To get started writing some code and running some samples, see the [Get started with IoT Hub][lnk-get-started] tutorial.
 
 [img-architecture]: ./media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
