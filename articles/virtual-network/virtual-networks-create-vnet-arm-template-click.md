@@ -3,8 +3,8 @@ title: Create a virtual network | Azure Resource Manager template | Azure
 description: Learn how to create a virtual network using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 03/12/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017 
 
 ---
@@ -29,17 +29,17 @@ Azure has two deployment models: Azure Resource Manager and classic. Azure recom
 This article explains how to create a VNet through the Resource Manager deployment model using an Azure Resource Manager template. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
->- [Portal](virtual-networks-create-vnet-arm-pportal.md)
->- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
->- [CLI](virtual-networks-create-vnet-arm-cli.md)
->- [Template](virtual-networks-create-vnet-arm-template-click.md)
->- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
->- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
->- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+- [Portal](virtual-networks-create-vnet-arm-pportal.md)
+- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+- [CLI](virtual-networks-create-vnet-arm-cli.md)
+- [Template](virtual-networks-create-vnet-arm-template-click.md)
+- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
-You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
+Learn how to download and modify and existing Azure Resource Manager template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
-If you are simply deploying the ARM template directly from GitHub, without any changes, skip to [deploy a template from github](#deploy-the-arm-template-by-using-click-to-deploy).
+If you are simply deploying the Azure Resource Manager template directly from GitHub, without any changes, skip to [deploy a template from github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -50,11 +50,11 @@ You can download the existing template for creating a VNet and two subnets from 
 2. Click **azuredeploy.json**, and then click **RAW**.
 3. Save the file to a a local folder on your computer.
 4. If you are familiar with templates, skip to step 7.
-5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
+5. Open the file you saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
    | Parameter | Description |
    | --- | --- |
-   | **location** |Azure region where the VNet will be created |
+   | **location** |Azure region where the VNet is created |
    | **vnetName** |Name for the new VNet |
    | **addressPrefix** |Address space for the VNet, in CIDR format |
    | **subnet1Name** |Name for the first VNet |
@@ -69,7 +69,7 @@ You can download the existing template for creating a VNet and two subnets from 
 6. Check the content under **resources** and notice the following:
 
    * **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
-   * **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
+   * **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name provided as input by the user or a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
 7. Navigate back to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
@@ -207,9 +207,12 @@ Complete the following steps to deploy the template you downloaded by using Powe
 
 You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub repository maintained by Microsoft and open to the community. These templates can be deployed straight out of GitHub, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, complete the following steps:
 
-3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
+1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
 
-    [![deploybutton.png](./media/virtual-networks-create-vnet-arm-template-click-include/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vnet-two-subnets%2Fazuredeploy.json)
+    ![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+
+3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
 4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The following figure shows the values for the scenario:
 
     ![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
@@ -220,12 +223,12 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
 
 6. If necessary, change the **Subscription** and **Location** settings for your VNet.
 7. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-8. Click **Legal terms**, read the terms, and click **Purchase** to agree. 
+8. Click **Legal terms**, read the terms, and click **Buy** to agree. 
 9. Click **Create** to create the VNet.
 
     ![Submitting deployment tile in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Once the deployment is complete, in the Azure portal click **More services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
+10. Once the deployment is complete, in the Azure portal click **All services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
 
      ![Create VNet in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
@@ -236,3 +239,5 @@ Learn how to connect:
 - A virtual machine (VM) to a virtual network by reading the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) articles. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
 - The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) article.
 - The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-arm.md) articles.
+
+<!-- Update_Description: update meta properties, wording update -->

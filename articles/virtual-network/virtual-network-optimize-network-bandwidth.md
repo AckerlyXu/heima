@@ -14,18 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/15/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
 
 # Optimize network throughput for Azure virtual machines
 
-Azure virtual machines (VM) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
+Azure virtual machines (VM) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Azure Windows and Linux VMs, including major distributions such as Ubuntu, and CentOS.
+<!-- Not Avaiable on Red Hat -->
 
 ## Windows VM
 
-A VM using Receive Side Scaling (RSS) can reach higher maximal throughput than a VM without RSS. RSS may be disabled by default in a Windows VM. Complete the following steps to determine whether RSS is enabled and to enable it if it's disabled.
+For all other Windows VMs, using Receive Side Scaling (RSS) can reach higher maximal throughput than a VM without RSS. RSS may be disabled by default in a Windows VM. To determine whether RSS is enabled, and enable it if it's currently disabled, complete the following steps:
 <!-- Not Avaialable virtual-network-create-vm-accelerated-networking.md -->
 
 1. See if RSS is enabled for a network adapter with the `Get-NetAdapterRss` PowerShell command. In the following example output returned from the `Get-NetAdapterRss`, RSS is not enabled.
@@ -129,33 +130,11 @@ sudo reboot
 sudo yum install microsoft-hyper-v
 ```
 
-### Red Hat
-
-In order to get the optimizations, it is best to create a VM with the latest supported version by specifying the following parameters:
-
-```json
-"Publisher": "RedHat"
-"Offer": "RHEL"
-"Sku": "7-RAW"
-"Version": "latest"
-```
-
-New and existing VMs can benefit from installing the latest Linux Integration Services (LIS). The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
-
-```bash
-mkdir lis4.2.3-1
-cd lis4.2.3-1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
-tar xvzf lis-rpms-4.2.3-1.tar.gz
-cd LISISO
-install.sh #or upgrade.sh if prior LIS was previously installed
-```
-
-Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=55106).
+<!-- Not Avaiable on ### Red Hat -->
 
 ## Next steps
 * See the optimized result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
 * Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
 
-<!--Update_Description: wording update，update link, update meta properties -->
+<!--Update_Description: update meta properties, wording update，update link  -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -37,7 +37,7 @@ To learn more about the following Azure Virtual Network capabilities, click the 
 <a name="isolation"></a>
 ## Network isolation and segmentation
 
-You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json). Each virtual network is isolated from other virtual networks. For each virtual network you can:
+You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region). Each virtual network is isolated from other virtual networks. For each virtual network you can:
 - Specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space you assign.
 <!-- Not Available on #region -->
 - Segment the virtual network into one or more subnets and allocate a portion of the virtual network's address space to each subnet.
@@ -46,7 +46,7 @@ You can implement multiple virtual networks within each Azure [subscription](../
 
 <a name="internet"></a>
 ## Internet communication
-All resources in a virtual network can communicate outbound to the Internet. By default, the private IP address of the resource is source network address translated (SNAT) to a public IP address selected by the Azure infrastructure. To learn more about outbound Internet connectivity, read the [Understanding outbound connections in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) article. To prevent outbound Internet connectivity, you can implement custom routes or traffic filtering.
+All resources in a virtual network can communicate outbound to the Internet. By default, the private IP address of the resource is source network address translated (SNAT) to a public IP address selected by the Azure infrastructure. To learn more about outbound Internet connectivity, read the [Understanding outbound connections in Azure](..\load-balancer\load-balancer-outbound-connections.md) article. To prevent outbound Internet connectivity, you can implement custom routes or traffic filtering.
 
 To communicate inbound to Azure resources from the Internet, or to communicate outbound to the Internet without SNAT, a resource must be assigned a public IP address. To learn more about public IP addresses, read the [Public IP addresses](virtual-network-public-ip-address.md) article.
 
@@ -76,7 +76,7 @@ To learn more about all the previous connection options, see [Connection topolog
 ## <a name="filtering"></a>Filter network traffic
 You can filter network traffic between subnets using either or both of the following options:
 - **Network security groups:** A network security group can contain multiple inbound and outbound security rules that enable you to filter traffic by source and destination IP address, port, and protocol. You can apply a network security group to each network interface in a virtual machine. You can also apply a network security group to the subnet a network interface, or other Azure resource, is in. To learn more about network security groups, see [Network security groups](security-overview.md#network-security-groups).
-- **Network virtual appliances:** A network virtual appliance is a virtual machine running software that performs a network function, such as a firewall. View a list of available network virtual appliances in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Network virtual appliances are also available that provide WAN optimization and other network traffic functions. Network virtual appliances are typically used with user-defined or BGP routes. You can also use a network virtual appliance to filter traffic between virtual networks.
+- **Network virtual appliances:** A network virtual appliance is a virtual machine running software that performs a network function, such as a firewall. View a list of available network virtual appliances in the [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking?page=1&subcategories=appliances). Network virtual appliances are also available that provide WAN optimization and other network traffic functions. Network virtual appliances are typically used with user-defined or BGP routes. You can also use a network virtual appliance to filter traffic between virtual networks.
 
 ## <a name="routing"></a>Route network traffic
 
@@ -94,7 +94,7 @@ To review frequently asked questions about Azure Virtual Network, see the [Virtu
 
 ## <a name="next-steps"></a>Next steps
 
-- Create your first virtual network, and deploy a few virtual machines into it, by completing the steps in [Create your first virtual network](virtual-network-get-started-vnet-subnet.md).
+- Create your first virtual network, and deploy a few virtual machines into it, by completing the steps in [Create your first virtual network](quick-create-portal.md).
 - Create a point-to-site connection to a virtual network by completing the steps in [Configure a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json).
 <!-- Not Available [network capabilities](../networking/networking-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 

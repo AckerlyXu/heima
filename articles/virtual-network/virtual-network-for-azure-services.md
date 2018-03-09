@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -57,7 +57,7 @@ Each service directly deployed into virtual network has specific requirements fo
 - [Application Gateway (internal)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fvirtual-network%2ftoc.json)
 <!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json) -->
 <!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json) -->
-- [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json): Virtual network (classic) only
+- [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Cloud services](https://msdn.microsoft.com/library/azure/jj156091): Virtual network (classic) only
 
 You can deploy an [internal Azure load balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fvirtual-network%2ftoc.json) to load balance many of the resources in the previous list. In some cases, the service automatically creates and deploys a load balancer, when you create a resource.
@@ -73,3 +73,5 @@ Some Azure services can't be deployed in virtual networks. You can restrict acce
 ## Virtual network integration across multiple Azure services
 
 You can deploy an Azure service into a subnet in a virtual network and secure critical service resources to that subnet. For example, you can deploy HDInsight into your virtual network and secure a storage account to the HDInsight subnet.
+
+<!-- Update_Description: update meta properties, wording update -->

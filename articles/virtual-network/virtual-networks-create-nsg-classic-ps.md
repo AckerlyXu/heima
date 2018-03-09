@@ -3,8 +3,8 @@ title: Create network security groups (Classic) in Azure - PowerShell| Azure
 description: Learn how to create and deploy NSGs in classic mode using PowerShell
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
+ms.date: 03/12/2018
+ms.author: v-yeche
 
 ---
 # How to create NSGs (classic) in PowerShell
@@ -33,7 +33,7 @@ This article covers the classic deployment model. You can also [create NSGs in t
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by [creating a VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## How to create the NSG for the front-end subnet
-To create an NSG named named **NSG-FrontEnd** based on the scenario above, follow the steps below:
+To create an NSG named **NSG-FrontEnd** based on the scenario above, follow the steps below:
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Create a network security group named **NSG-FrontEnd**.
@@ -203,3 +203,4 @@ To create an NSG named named **NSG-FrontEnd** based on the scenario above, follo
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *
+<!-- Update_Description: update meta properties, wording update -->

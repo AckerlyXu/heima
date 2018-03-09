@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/15/2017
-ms.date: 02/26/2018
+origin.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: 
 ---
@@ -59,8 +59,8 @@ During preview, Vnet service endpoints feature is supported for specific regions
 
 1. Open [Azure portal](https://portal.azure.cn/).
 Log in to Azure using your Azure account. If you don't have an Azure account, you can sign up for a trial. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
-2. Click +New > Networking > Virtual network > +Add.
-3. On "Create virtual network", enter the following values, and then click Create:
+2. Click **Create a resource** > **Networking** > **Virtual network** > **+Add**.
+3. On "Create virtual network", enter the following values, and then click **Create**:
 
 Setting | Value
 ------- | -----
@@ -72,7 +72,7 @@ Resource group|Leave Create new selected, and then enter a name.
 Location|Any supported region, say, Australia East
 Subscription|Select your subscription.
 __ServiceEndpoints__|Enabled
-__Services__ | Select one or all of the available services. At the time of preview, supported services: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Services__ | Select one or all of the available services. Supported services: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Select services for endpoints: 
 ![Select Service Endpoint Services](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
@@ -227,7 +227,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## Azure CLI
 
 Set-up pre-requisites:
-- Log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest).
+- Log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest).
  - The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
  For full list of commands for virtual networks, see [Azure CLI Virtual Network commands](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest)
@@ -385,7 +385,7 @@ To secure Azure service resources to a VNet, the user must have permission to "M
 
 Learn more about [built-in roles](/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](/active-directory/role-based-access-control-custom-roles).
 
-VNets and Azure service resources can be in the same or different subscriptions. If these are in different subscriptions, the resources should be under the same Active Directory (AD) tenant, at the time of this preview.
+VNets and Azure service resources can be in the same or different subscriptions. If these are in different subscriptions, the resources should be under the same Active Directory (AD) tenant.
 
 ## Next Steps
 
@@ -395,4 +395,4 @@ For more instructions to secure service resource to VNets, refer to below links:
 
 [Securing Azure SQL to Virtual networks](/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-<!-- Update_Description: new articles on virtual network endpoints configure -->
+<!-- Update_Description: update meta properties, update link -->
