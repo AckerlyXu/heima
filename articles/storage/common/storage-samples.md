@@ -22,18 +22,8 @@ ms.author: v-haiqya
 
 Use the links below to view and download Azure Storage sample code and applications.
 
->[!IMPORTANT]
-> To use the samples provided in this article, please replace endpoint `windows.net` with `chinacloudapi.cn` if it exists.
-
 ## Azure Code Samples library
-The [Azure Code Samples](https://github.com/Azure-Samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
-
-<!--## Getting started samples-->
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
-* [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
--->
+The [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 ## .NET samples
 To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](/downloads/).

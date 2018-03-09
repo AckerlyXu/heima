@@ -56,8 +56,6 @@
         href: ../common/storage-samples-java.md?toc=%2fstorage%2ffiles%2ftoc.json 
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fstorage%2ffiles%2ftoc.json 
-    - name: Using the Azure Storage REST API
-      href: ../common/storage-rest-api-auth.md?toc=%2fstorage%2ffiles%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Files
@@ -139,7 +137,7 @@
   - name: PHP
     href: http://azure.github.io/azure-storage-php/
   - name: Python
-    href: https://azure-storage.readthedocs.io/en/latest/index.html
+    href: http://azure.github.io/azure-storage-python/
   - name: C++
     href: http://azure.github.io/azure-storage-cpp
   - name: iOS
@@ -172,6 +170,8 @@
       href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2ffiles%2ftoc.json 
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json 
+    - name: Storage Explorer accessibility
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2ffiles%2ftoc.json 
   - name: NuGet packages
     items:
     - name: Azure Storage Client Library for .NET

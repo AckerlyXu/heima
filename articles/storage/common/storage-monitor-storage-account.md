@@ -27,7 +27,6 @@ ms.author: v-johch
 >
 > Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
 >
-> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) currently do not have the metrics or logging capability enabled.
 > 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -142,7 +141,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
-
+    
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)

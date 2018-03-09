@@ -3,7 +3,7 @@ title: Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
 documentationcenter: ''
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: '10/30/2017'
-ms.author: v-johch
+ms.date: '3/5/2018'
+ms.author: v-nany
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
@@ -24,7 +24,7 @@ Azure provides several features in Azure Storage for storing and accessing your 
 
 ## Scenarios
 
-The following table compares Files, Blobs, and Data Disks, and shows example scenarios appropriate for each.
+The following table compares Files, Blobs, and Disks, and shows example scenarios appropriate for each.
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
@@ -39,7 +39,7 @@ The following table compares Azure Files with Azure Blobs.
 ||||  
 |-|-|-|  
 |**Attribute**|**Azure Blobs**|**Azure Files**|  
-|Durability options|LRS, ZRS, GRS (and RA-GRS for higher availability)|LRS, GRS|  
+|Durability options|LRS, GRS, RA-GRS|LRS, GRS|  
 |Accessibility|REST APIs|REST APIs<br /><br /> SMB 2.1 and SMB 3.0 (standard file system APIs)|  
 |Connectivity|REST APIs -- Worldwide|REST APIs - Worldwide<br /><br /> SMB 2.1 -- Within region<br /><br /> SMB 3.0 -- Worldwide|  
 |Endpoints|`http://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob`|`\\myaccount.file.core.chinacloudapi.cn\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.chinacloudapi.cn/myshare/myfile.txt`|  
@@ -76,6 +76,6 @@ When making decisions about how your data is stored and accessed, you should als
   
 Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
-For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/classic/attach-disk.md).
+For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).
 
 <!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->

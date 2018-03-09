@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 10/30/2017
+ms.date: 3/5/2018
 ms.author: v-johch
 
 ---
@@ -75,9 +75,8 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [Appendix 2: Using Wireshark to capture network traffic]
   * [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
   * [Appendix 4: Using Excel to view metrics and log data]
-<!-- Not applicable
   * [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
--->
+
 ## <a name="introduction"></a>Introduction
 This guide shows you how to use features such as Azure Storage Analytics, client-side logging in the Azure Storage Client Library, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage related issues.
 
@@ -234,30 +233,30 @@ In many cases, the log data from Storage Logging and the Storage Client Library 
 End-to-end tracing using a variety of log files is a useful technique for investigating potential issues. You can use the date/time information from your metrics data as an indication of where to start looking in the log files for the detailed information that will help you troubleshoot the issue.
 
 ### <a name="correlating-log-data"></a>Correlating log data
-When viewing logs from client applications, network traces, and server-side storage logging it is critical to be able to correlate requests across the different log files. The log files include a number of different fields that are useful as correlation identifiers. The client request id is the most useful field to use to correlate entries in the different logs. However sometimes, it can be useful to use either the server request id or timestamps. The following sections provide more details about these options.
+When viewing logs from client applications, network traces, and server-side storage logging it is critical to be able to correlate requests across the different log files. The log files include a number of different fields that are useful as correlation identifiers. The client request ID is the most useful field to use to correlate entries in the different logs. However sometimes, it can be useful to use either the server request ID or timestamps. The following sections provide more details about these options.
 
 ### <a name="client-request-id"></a>Client request ID
-The Storage Client Library automatically generates a unique client request id for every request.
+The Storage Client Library automatically generates a unique client request ID for every request.
 
-* In the client-side log that the Storage Client Library creates, the client request id appears in the **Client Request ID** field of every log entry relating to the request.
-* In a network trace such as one captured by Fiddler, the client request id is visible in request messages as the **x-ms-client-request-id** HTTP header value.
-* In the server-side Storage Logging log, the client request id appears in the Client request ID column.
+* In the client-side log that the Storage Client Library creates, the client request ID appears in the **Client Request ID** field of every log entry relating to the request.
+* In a network trace such as one captured by Fiddler, the client request ID is visible in request messages as the **x-ms-client-request-id** HTTP header value.
+* In the server-side Storage Logging log, the client request ID appears in the Client request ID column.
 
 > [!NOTE]
-> It is possible for multiple requests to share the same client request id because the client can assign this value (although the Storage Client Library assigns a
-> new value automatically). In the case of retries from the client, all attempts share the same client request id. In the case of a batch sent from the client, the batch has a single client request id.
+> It is possible for multiple requests to share the same client request ID because the client can assign this value (although the Storage Client Library assigns a
+> new value automatically). In the case of retries from the client, all attempts share the same client request ID. In the case of a batch sent from the client, the batch has a single client request ID.
 > 
 > 
 
 ### <a name="server-request-id"></a>Server request ID
 The storage service automatically generates server request ids.
 
-* In the server-side Storage Logging log, the server request id appears the **Request ID header** column.
-* In a network trace such as one captured by Fiddler, the server request id appears in response messages as the **x-ms-request-id** HTTP header value.
-* In the client-side log that the Storage Client Library creates, the server request id appears in the **Operation Text** column for the log entry showing details of the server response.
+* In the server-side Storage Logging log, the server request ID appears the **Request ID header** column.
+* In a network trace such as one captured by Fiddler, the server request ID appears in response messages as the **x-ms-request-id** HTTP header value.
+* In the client-side log that the Storage Client Library creates, the server request ID appears in the **Operation Text** column for the log entry showing details of the server response.
 
 > [!NOTE]
-> The storage service always assigns a unique server request id to every request it receives, so every retry attempt from the client and every operation included in a batch has a unique server request id.
+> The storage service always assigns a unique server request ID to every request it receives, so every retry attempt from the client and every operation included in a batch has a unique server request ID.
 > 
 > 
 
@@ -807,15 +806,15 @@ To import your Storage Logging data into Excel after you download it from blob s
 * On step 1 of the **Text Import Wizard**, select **Delimited**.
 
 On step 1 of the **Text Import Wizard**, select **Semicolon** as the only delimiter and choose double-quote as the **Text qualifier**. Then click **Finish** and choose where to place the data in your workbook.
-<!-- Not applicable
+
 ### <a name="appendix-5"></a>Appendix 5: Monitoring with Application Insights for Visual Studio Team Services
 You can also use the Application Insights feature for Visual Studio Team Services as part of your performance and availability monitoring. This tool can:
 
 * Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
 * Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, we can send you an email. You can monitor both .NET and Java web services.
 
-You can find more information at [What is Application Insights?](../../application-insights/app-insights-overview.md).
--->
+
+
 <!--Anchors-->
 [Introduction]: #introduction
 [How this guide is organized]: #how-this-guide-is-organized

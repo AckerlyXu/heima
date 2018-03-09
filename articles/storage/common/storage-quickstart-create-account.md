@@ -8,12 +8,12 @@ manager: digimobile
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 12/12/2017
-ms.date: 01/29/2018
+origin.date: 01/19/2018
+ms.date: 3/5/2018
 ms.author: v-nany
 ---
 
-# Create a new storage account
+# Create a storage account
 
 An Azure storage account provides a unique namespace in the cloud to store and access your data objects in Azure Storage. A storage account contains any blobs, files, queues, tables, and disks that you create under that account. 
 
@@ -119,7 +119,7 @@ $location = "chinaeast"
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/group#create) command. 
+To create a new resource group with Azure CLI, use the [az group create](/cli/group#az_group_create) command. 
 
 ```azurecli
 az group create \
@@ -127,7 +127,7 @@ az group create \
     --location westus
 ```
 
-If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/account#list) command.
+If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/account#az_account_list) command.
 
 ```azurecli
 az account list-locations \
@@ -137,9 +137,19 @@ az account list-locations \
 
 ---
 
-# Create a general-purpose storage account
+## Create a general-purpose storage account
 
-A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default). For more information about storage account options, see [Introduction to Azure Storage](storage-introduction.md).
+A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default).
+
+Azure Storage offers two types of general-purpose storage accounts:
+
+- General-purpose v2 accounts 
+- General-purpose v1 accounts. 
+
+> [!NOTE]
+> It's recommended that you create new storage accounts as **general-purpose v2 accounts**, to take advantage of newer features available to those accounts.  
+
+For more information about storage account types, see [Azure Storage account options](storage-account-options.md).
 
 When naming your storage account, keep these rules in mind:
 
@@ -148,33 +158,43 @@ When naming your storage account, keep these rules in mind:
 
 # [Portal](#tab/portal)
 
-To create a general-purpose storage account in the Azure portal, follow these steps:
+To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
-3. Leave these fields set to their defaults: **Deployment model**, **Account kind**, **Performance**, **Replication**, **Secure transfer required**.
-4. Choose the subscription in which you want to create the storage account.
-5. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
-6. Choose the location for your new storage account.
-7. Click **Create** to create the storage account.      
+3. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
+4. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. Alternately, you can chooose **Geo-redundant storage (GRS)**, or **Read-access geo-redundant storage (RA-GRS)**.
+5. Leave these fields set to their defaults: **Deployment model**, **Performance**, **Secure transfer required**.
+6. Choose the subscription in which you want to create the storage account.
+7. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
+8. Choose the location for your new storage account.
+9. Click **Create** to create the storage account.      
 
 ![Screen shot showing storage account creation in the Azure portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # [PowerShell](#tab/powershell)
 
-To create a general-purpose storage account from PowerShell, use the [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
+To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+To create a general-purpose v2 storage account with geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **SkuName** parameter. 
+
+|Replication option  |SkuName parameter  |
+|---------|---------|
+|Locally-redundant storage (LRS)     |Standard_LRS         |
+|Geo-redundant storage (GRS)     |Standard_GRS         |
+|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a general-purpose storage account from the Azure CLI, use the [az storage account create](/cli/storage/account#create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/storage/account#az_storage_account_create) command.
 
 ```azurecli
 az storage account create \
@@ -182,9 +202,19 @@ az storage account create \
     --resource-group storage-quickstart-resource-group \
     --location chinaeast \
     --sku Standard_LRS 
+    --kind StorageV2
 ```
 
+To create a general-purpose v2 storage account with geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **sku** parameter. 
+
+|Replication option  |sku parameter  |
+|---------|---------|
+|Locally-redundant storage (LRS)     |Standard_LRS         |
+|Geo-redundant storage (GRS)     |Standard_GRS         |
+|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
+
 ---
+For more information about the different types of replication available, see [Storage replication options](storage-redundancy.md).
 
 ## Clean up resources
 
@@ -208,7 +238,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/group#delete) command.
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/group#az_group_delete) command.
 
 ```azurecli
 az group delete --name myResourceGroup
