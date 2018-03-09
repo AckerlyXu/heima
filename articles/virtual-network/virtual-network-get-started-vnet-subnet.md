@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2016
-ms.date: 09/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -40,11 +40,7 @@ You will have a basic understanding of how you can use a VNet after completing t
 To create a virtual network with two subnets, complete the steps that follow. Different subnets are typically used to control the flow of traffic between subnets.
 
 1. Log in to the [Azure portal](<https://portal.azure.cn>). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial). 
-2. In the **Favorites** pane, of the portal, click **New**.
-3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
-
-    ![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
-
+2. Click **Create a resource** > **Networking** > **Virtual network**.
 4.  In the **Virtual network** blade, leave *Resource Manager* selected as the deployment model, and click **Create**.
 5.  In the **Create virtual network blade** that appears, enter the following values, then click **Create**:
 
@@ -84,8 +80,8 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 To create the web server VM, complete the following steps:
 
-1. In the Azure portal favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
-2. In the **Windows Server 2016 Datacenter** blade, click **Create**.
+1. In the [Azure portal](https://portal.azure.cn), click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
+2. Click **Create**.
 3. In the **Basics** blade that appears, enter or select the following values and click **OK**:
 
     |**Setting**| **Value**|**Details**|
@@ -118,8 +114,8 @@ To create the web server VM, complete the following steps:
 
 To create the database server VM, complete the following steps:
 
-1.  In the Favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
-2.  In the **Windows Server 2016 Datacenter** blade, click **Create**.
+1.  In the [Azure portal](https://portal.azure.cn), click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
+2.  Click **Create**.
 3.  In the **Basics blade**, enter or select the following values, then click **OK**:
 
     |**Setting**|**Value**|**Details**|
@@ -150,8 +146,8 @@ To create the database server VM, complete the following steps:
 
 Though you created one VNet and two VMs, the Azure portal created several additional resources for you in the MyRG resource group. Review the contents of the MyRG resource group by completing the following steps:
 
-1. In the **Favorites** pane, click **More services**.
-2. In the **More services** pane, type *Resource groups* in the box that has the word *Filter* in it. Click **Resource groups** when you see it in the filtered list.
+1. In the [Azure portal](https://portal.azure.cn), click **All services**.
+2. Type *Resource groups* in the box that has the word *Filter* in it. Click **Resource groups** when you see it in the filtered list.
 3. In the **Resource groups** pane, click the *MyRG* resource group. If you have many existing resource groups in your subscription, you can type *MyRG* in the box that contains the text *Filter by name…* to quickly access the MyRG resource group.
 4.  In the **MyRG** blade, you see that the resource group contains 12 resources, as shown in the following picture:
 
@@ -251,4 +247,4 @@ In this exercise, you created a VNet and two VMs. You specified come custom sett
 - [Network security groups](virtual-networks-nsg.md)
 - [Virtual machines](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)
 
-<!--Update_Description: update reference link-->
+<!--Update_Description: wording update, update reference link-->

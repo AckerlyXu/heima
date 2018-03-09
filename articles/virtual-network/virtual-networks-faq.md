@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/18/2017
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -45,7 +45,7 @@ Yes. You can use a VNet without using hybrid connectivity. This is particularly 
 
 ### Can I perform WAN optimization between VNets or a VNet and my on-premises data center?
 
-Yes. You can deploy a [WAN optimization network virtual appliance](https://azure.microsoft.com/marketplace/?term=wan+optimization) from several vendors through the Azure Marketplace.
+Yes. You can deploy a [WAN optimization network virtual appliance](https://market.azure.cn/zh-cn/marketplace/?term=wan+optimization) from several vendors through the Azure Marketplace.
 
 ## <a name="configuration"></a>Configuration
 
@@ -64,7 +64,7 @@ Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). 
 Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.
 
 ### Is there a limit to the number of subnets in my VNet?
-Yes. Subnet address spaces cannot overlap one another.
+Yes. Read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 Yes. Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
@@ -82,7 +82,7 @@ Yes. You can use User Defined Routing (UDR). For more information about UDR, vis
 No. We do not support multicast or broadcast.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
+You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DCHP) via Unicast (source port UDP/68 / destination port UDP/67). Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
 ### Can I ping my default routers within a VNet?
 No.
@@ -120,6 +120,9 @@ Use the decision table on the [Name Resolution for VMs and Role Instances](virtu
 
 ### Can I specify DNS servers for a VNet?
 Yes. You can specify DNS server IP addresses in the VNet settings. This will be applied as the default DNS server(s) for all VMs in the VNet.
+
+### How many DNS servers can I specify?
+Reference the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details.
 
 ### Can I modify my DNS servers after I have created the network?
 Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.
@@ -176,8 +179,8 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ### Can I use Azure App Service Web Apps with a VNet?
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following articles:
 
-* [Integrate your app with an Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md)
-* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service-web/web-sites-integrate-with-vnet.md)
+* [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md)
+* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service/web-sites-integrate-with-vnet.md)
 <!-- Not Avaialble hybrid-connections-and-app-service-environments-->
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
@@ -198,7 +201,7 @@ VNets are completely isolated from one another, and other services hosted in the
 Yes. You can apply [Network Security Groups](virtual-networks-nsg.md) to individual subnets within a VNet, NICs attached to a VNet, or both.
 
 ### Can I implement a firewall between VNet-connected resources?
-Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
+Yes. You can deploy a [firewall network virtual appliance](https://market.azure.cn/zh-cn/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
 
 ### Is there information available about securing VNets?
 Yes. See the [Azure Network Security Overview](../security/security-network-overview.md) article for details.
@@ -211,8 +214,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msd
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/?view=azurermps-5.2.0) and [classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
-<!-- URL is Correct on [Resource Manager](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/?view=azurermps-5.2.0) -->
+- PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) and [classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.
 
 <!--Update_Description: wording update, update reference link-->
