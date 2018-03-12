@@ -173,8 +173,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 ```
 
 ## Next Steps
-
-[Log analytics for Azure Load Balance](load-balancer-monitor-log.md)
+<!-- Not Avaible on [Log analytics for Azure Load Balance](load-balancer-monitor-log.md) -->
 
 [Internet facing load balancer overview](load-balancer-internet-overview.md)
 

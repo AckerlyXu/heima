@@ -132,6 +132,6 @@ To achieve the scenario outlined in this article complete the following steps:
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+<!-- Not Avaible on  [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) -->
 
 <!--Update_Description: update link, wording update -->

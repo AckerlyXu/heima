@@ -35,7 +35,7 @@ This topic requires that you are running the Azure CLI version 2.0 or later. Run
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 
 # Create a resource group
@@ -47,7 +47,7 @@ az group create \
 az cosmosdb create \
     --name $name \
     --kind GlobalDocumentDB \
-    --locations "China East"=0 "China North"=1 \
+    --locations chinanorth=0 chinaeast=1 \
     --resource-group $resourceGroupName \
     --max-interval 10 \
     --max-staleness-prefix 200
@@ -64,6 +64,9 @@ az documentdb regenerate-key \
     --key-kind secondary
 
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
 
 ## Clean up deployment
 

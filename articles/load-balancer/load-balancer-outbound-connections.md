@@ -40,7 +40,10 @@ In this scenario, the VM is not part of an Azure Load Balancer pool and does not
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP. For multiple flows to the same destination IP address and port, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address and port. Multiple flows, each to a different destination IP address and port, share a single SNAT port. The destination IP address and port makes the flows unique.
 
-You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) to monitor health of outbound connections. When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Review [VM with an Instance Level Public IP address (with or without Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) the following section as well as [Managing SNAT exhaustion](#snatexhaust).
+<!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md) -->
+<!-- Not Available on [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) -->
+
+ When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Review [VM with an Instance Level Public IP address (with or without Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) the following section as well as [Managing SNAT exhaustion](#snatexhaust).
 
 ## Load-balanced VM with no Instance Level Public IP address
 
@@ -50,7 +53,10 @@ When the load-balanced VM creates an outbound flow, Azure translates the private
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP address and port. For multiple flows to the same destination IP address and port, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address and port. Multiple flows, each to a different destination IP address and port, share a single SNAT port. The destination IP address and port makes the flows unique.
 
-You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) to monitor health of outbound connections. When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Review the following section as well as [Managing SNAT exhaustion](#snatexhaust).
+<!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md) -->
+<!-- Not Available on [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) -->
+
+When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Review the following section as well as [Managing SNAT exhaustion](#snatexhaust).
 
 ## VM with an Instance Level Public IP address (with or without Load Balancer)
 
