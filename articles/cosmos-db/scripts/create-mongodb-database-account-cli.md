@@ -49,7 +49,7 @@ az group create \
 az cosmosdb create \
     --name $name \
     --kind MongoDB \
-    --locations "China North"=0 "China East"=1 \
+    --locations chinanorth=0 chinaeast=1 \
     --resource-group $resourceGroupName \
     --max-interval 10 \
     --max-staleness-prefix 200
@@ -67,6 +67,9 @@ az cosmosdb collection create \
     --db-name $databaseName \
     --resource-group $resourceGroupName
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
 
 ## Clean up deployment
 

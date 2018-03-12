@@ -67,6 +67,7 @@ az cosmosdb collection create \
     --resource-group $resourceGroupName
 
 ```
+<!-- location ADVISE TO chinanorth -->
 
 ## Clean up deployment
 
