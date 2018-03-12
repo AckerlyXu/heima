@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date:  12/06/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
 
 
@@ -56,7 +56,7 @@ There is not much difference between installing a domain controller on Azure ver
 ## Create VMs to run the domain controller and DNS server roles
 Repeat the following steps to create VMs to host the DC role as needed. You should deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network includes at least two DCs that are similarly configured (that is, they are both GCs, run DNS server, and neither holds any FSMO role, and so on) then place the VMs that run those DCs in an availability set for improved fault tolerance.
 
-To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+To create the VMs by using Windows PowerShell instead of the UI, see the [Create a virtual machine with PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md) sample.
 
 1. In the Azure portal, select **New** > **Compute**, and then select a virtual machine. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
 
@@ -66,9 +66,9 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
    |  **Virtual Machine Configuration** |<p>Virtual Machine Name: Type a single label name (such as AzureDC1).</p><p>New User Name: Type the name of a user. This user will be a member of the local Administrators group on the VM. You will need this name to sign in to the VM for the first time. The built-in account named Administrator will not work.</p><p>New Password/Confirm: Type a password</p> |
    |  **Virtual Machine Configuration** |<p>Cloud Service: Choose <b>Create a new cloud service</b> for the first VM and select that same cloud service name when you create more VMs that will host the DC role.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose <b>Use an automatically generated storage account</b> for the first VM and then select that same storage account name when you create more VMs that will host the DC role.</p><p>Availability Set: Choose <b>Create an availability set</b>.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p> |
    |  **Virtual Machine Configuration** |<p>Select <b>Install the VM Agent</b> and any other extensions you need.</p> |
-2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/attach-managed-disk-portal.md).
 3. After you first sign in to the VM, open **Server Manager** > **File and Storage Services** to create a volume on this disk using NTFS.
-4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) and run the Set-AzureStaticVNetIP cmdlet. For example:
+4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and run the Set-AzureStaticVNetIP cmdlet. For example:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -102,7 +102,7 @@ After the DC installation finishes, connect to the VM again and log on to the DC
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx) and [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](https://docs.microsoft.com/powershell/azure/overview) and [Azure Cmdlet Reference](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## See Also
 - [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
@@ -111,9 +111,9 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 - [Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 - [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-- [How to install and configure Azure PowerShell](../powershell-install-configure.md)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Azure Cmdlet Reference](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure Cmdlet Reference](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 - [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 - [How to assign Static IP to Azure VM](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 - [Install a New Active Directory Forest](https://technet.microsoft.com/library/jj574166.aspx)

@@ -18,7 +18,6 @@ origin.date: 12/14/2017
 ms.date: 1/1/2018
 ms.author: v-nany
 
-
 ---
 # Azure Active Directory FAQ
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
@@ -29,7 +28,7 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 ## Access Azure and Azure Active Directory
 **Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure portal?**
 
-**A:** To access the Azure  Portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) or a paid subscription.
+**A:** To access the Azure  portal, each user needs permissions with an Azure subscription. . Otherwise, you will need to activate a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) or a paid subscription.
 
 For more information, see:
 

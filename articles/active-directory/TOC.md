@@ -37,6 +37,7 @@
 
 
 ## Manage passwords
+### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 ### IT Admins: Reset passwords

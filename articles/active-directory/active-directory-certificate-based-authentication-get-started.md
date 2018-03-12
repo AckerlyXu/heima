@@ -72,8 +72,8 @@ The related information exists for the following device platforms:
 
 To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
 
-- The public portion of the certificate, in *.cer* format
-- The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
+* The public portion of the certificate, in *.cer* format
+* The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
 
 The schema for a certificate authority looks as follows:
 

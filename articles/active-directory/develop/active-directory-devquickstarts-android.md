@@ -50,8 +50,8 @@ We're assuming that you're registering the TODO REST API referenced earlier. But
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
-4. Click **App registrations**, and then select **New application registration**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
+4. Click **App registrations**, and then select **Add**.
 5. Enter a friendly name for the application (for example, **TodoListService**), select **Web Application and/or Web API**, and click **Next**.
 6. For the sign-on URL, enter the base URL for the sample. By default, this is `https://localhost:8080`.
 7. Click **OK** to complete the registration.
@@ -68,9 +68,9 @@ We're assuming that you're registering the sample application referenced earlier
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
-4. Click **App registrations**, and then select **New application registration**.
-5. Enter a friendly name for the application (for example, **TodoListClient-Android**), select **Native** Application, and click **Next**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
+4. Click **App registrations**, and then select **Add**.
+5. Enter a friendly name for the application (for example, **TodoListClient-Android**), select **Native Client Application**, and click **Next**.
 6. For the redirect URI, enter `http://TodoListClient`. Click **Finish**.
 7. From the application page, find the application ID value and copy it. You'll need this later when configuring your application.
 8. From the **Settings** page, select **Required Permissions** and select **Add**.  Locate and select TodoListService, add the **Access TodoListService** permission under **Delegated Permissions**, and click **Done**.
