@@ -405,6 +405,7 @@ After the deployment is complete, you should see a response similar to the follo
   WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.chinacloudapi.cn/.
 ```
+<!-- Notice: http://tasklist.cloudapp.net/ convert to http://tasklist.chinacloudapp.cn/ -->
 
 By specifying the **-launch** option in the previous cmdlet, the browser opens and displays your application running in Azure when publishing is completed.
 

@@ -72,6 +72,7 @@ Make sure you have these prerequisites in place:
 * Learn more about setting up VMM clouds:
   * Read more about private VMM clouds in [What's New in Private Cloud with System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) and in [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
   * Learn about [Configuring the VMM cloud fabric](site-recovery-support-matrix-to-azure.md#BKMK_Fabric)
+<!-- Not Available on #BKMK_Fabric -->
   * After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
 
 ### Hyper-V prerequisites

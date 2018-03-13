@@ -446,7 +446,8 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ## Next steps
 For more information, see the following resources.
 
-* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+<!-- Notice: Remove from Microsoft -->
 * [Microsoft Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
 * [Node.js Developer Center](/develop/nodejs/)
 * [Create and deploy a Node.js application to an Azure website](../app-service/app-service-web-get-started-nodejs.md)

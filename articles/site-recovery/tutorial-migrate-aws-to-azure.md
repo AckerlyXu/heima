@@ -76,7 +76,9 @@ When the Azure VMs are created after the migration (failover), they're joined to
 
 ## Prepare the EC2 instances
 
-You need one or more VMs that you want to migrate. These EC2 instance should be running the 64-bit version of Windows Server 2008 R2 SP1 or later, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, or Red Hat Enterprise Linux 6.7 (HVM virtualized instances only). The server must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers aren't supported.
+You need one or more VMs that you want to migrate. These EC2 instance should be running the 64-bit version of Windows Server 2008 R2 SP1 or later, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. The server must have only Citrix PV or AWS PV drivers.
+<!-- Not Avaiable on Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) -->
+<!-- Not Avaiable on Instances running RedHat PV drivers aren't supported -->
 
 The Mobility service must be installed on each VM you want to replicate. Site Recovery installs this service automatically when you enable replication for the VM. For automatic installation, you need to prepare an account on the EC2 instances that Site Recovery will use to access the VM.
 
