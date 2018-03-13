@@ -232,14 +232,16 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 > If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 >
 >
-| Cluster type | Hadoop | HBase | Storm | Spark |
-| --- | --- | --- | --- | --- |
-| Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |
-| Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |
-| Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |
-| Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-| ZooKeeper: default VM size | |A3 |A2 | |
-| ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | |
+  | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | Head: default VM size |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |
+  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |
+  | Worker: default VM size |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: default VM size | |A3 | |A2 | |
+  | ZooKeeper: recommended VM sizes | |A3, A4, A5 | | A2, A3, A4 | |
+  | Edge: default VM size | | | | | |
+  | Edge: recommended VM size | | | | | |
 
 > [!NOTE]
 > - Head is known as *Nimbus* for the Storm cluster type.

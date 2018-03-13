@@ -15,8 +15,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/08/2017
-ms.date: 12/18/2017
+origin.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -68,7 +68,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

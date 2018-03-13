@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/20/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -149,7 +149,6 @@ For related articles, see:
 
 * [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
 * [Analyze flight delay data by using Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Run a Hadoop job by using Azure Cosmos DB and HDInsight](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

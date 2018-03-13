@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -33,8 +33,6 @@ In this article, you learn to process real-time telemetry using Spark Structured
 * An Azure subscription. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-
-* An Azure Event Hubs namespace. See [Create an Azure Event Hubs namespace](apache-spark-eventhub-streaming.md#create-an-azure-event-hub) for more information.
 
 * Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/25/2017
-ms.date: 01/15/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -66,6 +66,27 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](../../az
 6. To view the resources (for example, storage accounts) that are associated with the cluster, you can further expand a cluster-name node.
    
     ![An expanded cluster-name node](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
+
+## Link a cluster
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com). 
+1. Click **Link a cluster** from **Azure Explorer**.
+
+   ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Username and Password. You need to check the username and password if get the authentication failure.
+   
+   ![link cluster dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   
+3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
+
+   ![linked cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. You also can unlink a cluster from **Azure Explorer**.
+   
+   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 ## Run a Spark Scala application on an HDInsight Spark cluster
 
@@ -167,7 +188,7 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](../../az
       To learn how to access the job output, see the "Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ" section later in this article.
 
 ## Debug Spark applications locally or remotely on an HDInsight cluster 
-We also recommend another way of submitting the Spark application to the cluster. You can do also by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Debug Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Debug Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ
 You can perform various operations by using Azure Toolkit for IntelliJ.
@@ -262,7 +283,6 @@ If you have any suggestions or feedback, or if you encounter any problems when y
 * [Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight to build real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Creating and running applications

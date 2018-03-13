@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 09/18/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 
@@ -517,7 +517,7 @@ implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
 //Map method.
 //@param offset samples starting from the (offset+1)th sample.
 //@param size the number of samples for this map
-//@param out output {ture->numInside, false->numOutside}
+//@param out output {true->numInside, false->numOutside}
 //@param reporter
 public void map(LongWritable offset,
 LongWritable size,

@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/10/2017
-ms.date: 12/25/2017
+origin.date: 02/07/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
@@ -55,8 +55,14 @@ Linux, Unix, and macOS systems provide the `ssh` and `scp` commands. The `ssh` c
 
 Microsoft Windows does not install any SSH clients by default. The `ssh` and `scp` clients are available for Windows through the following packages:
 
+* OpenSSH Client (Beta): In the Fall Creators Update, go to __Settings__ > __Apps & features__ > __Manage optional features__ > __Add a feature__ and select the __OpenSSH Client__. 
+
+    > [!NOTE]
+    > If the `ssh` and `scp` commands are not available in PowerShell after enabling this feature, log out and back in.
+
 * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about): The `ssh` and `scp` commands are available through the Bash on Windows command line.
 
+* [OpenSSH client (beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): This is an optional feature introduced in the Windows 10 Fall Creators Update.
 * [Git (https://git-scm.com/)](https://git-scm.com/): The `ssh` and `scp` commands are available through the GitBash command line.
 
 There are also several graphical SSH clients, such as [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). While these clients can be used to connect to HDInsight, the process of connecting is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
@@ -121,6 +127,11 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 
 For information on changing the SSH user account password, see the __Change passwords__ section of the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
+## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
+
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+
+For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 
 ## Connect to nodes
 
