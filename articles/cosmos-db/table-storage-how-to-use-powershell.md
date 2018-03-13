@@ -153,6 +153,6 @@ For more information, see the following articles
 
 * [Working with Azure Storage Tables from PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 
-* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-
+* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+<!-- Notice: Remove from Microsoft -->
 <!-- Update_Description: update meta properties -->

@@ -20,7 +20,8 @@ ms.author: v-yeche
 ---
 # MongoDB API support for MongoDB features and syntax
 
-Azure Cosmos DB is 21Vianet's globally distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+<!-- Notice: globally to multiple-region -->
 
 By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of Azure Cosmos DB's enterprise capabilities: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 

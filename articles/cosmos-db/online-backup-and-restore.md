@@ -29,22 +29,16 @@ Cosmos DB is designed to be [globally distributed](distribute-data-globally.md) 
 
 As illustrated in the following diagram, a single Cosmos DB container is [horizontally partitioned](partition-data.md). A "partition" is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions - China East, China North and Central India). The "partition set" is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and Cosmos DB will transparently failover to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
 
-The following image illustrates the high degree of redundancy with Cosmos DB.
-
-![High degree of redundancy with Cosmos DB](./media/online-backup-and-restore/redundancy.png)
-
-![High degree of redundancy with Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
+<!-- Not Available on the Demo -->
 
 ## Full, automatic, online backups
 Oops, I deleted my container or database! With Cosmos DB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These automated backups are currently taken approximately every four hours and latest 2 backups are stored at all times. If the data is accidentally dropped or corrupted, please [contact Azure support](https://www.azure.cn/support/contact/) within eight hours. 
 
 The backups are taken without affecting the performance or availability of your database operations. Cosmos DB takes the backup in the background without consuming your provisioned RUs or affecting the performance and without affecting the availability of your database. 
 
-Unlike your data that is stored inside Cosmos DB, the automatic backups are stored in Azure Blob Storage service. To guarantee the low latency/efficient upload, the snapshot of your backup is uploaded to an instance of Azure Blob storage in the same region as the current write region of your Cosmos DB database account. For resiliency against regional disaster, each snapshot of your backup data in Azure Blob Storage is again replicated via geo-redundant storage (GRS) to another region. The following diagram shows that the entire Cosmos DB container (with all three primary partitions in China North, in this example) is backed up in a remote Azure Blob Storage account in China North and then GRS replicated to China East. 
+Unlike your data that is stored inside Cosmos DB, the automatic backups are stored in Azure Blob Storage service. To guarantee the low latency/efficient upload, the snapshot of your backup is uploaded to an instance of Azure Blob storage in the same region as the current write region of your Cosmos DB database account. For resiliency against regional disaster, each snapshot of your backup data in Azure Blob Storage is again replicated via geo-redundant storage (GRS) to another region. 
 
-The following image illustrates periodic full backups of all Cosmos DB entities in GRS Azure Storage.
-
-![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
+<!-- Not Avaiable on the Demo -->
 
 ## Backup retention period
 As described above, Azure Cosmos DB takes snapshots of your data every four hours at the partition level. At any given time, only the last two snapshots are retained. However, if the collection/database is deleted, we retain the existing snapshots for all of the deleted partitions within the given collection/database for 30 days.
