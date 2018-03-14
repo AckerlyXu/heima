@@ -425,7 +425,7 @@ To get started, do the following steps:
 2.	Run the Connect command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 	
 	 ``` powershell
-	Connect-AzureAD -Confirm
+	Connect-AzureAD  -AzureEnvironment AzureChinaCloud  -Confirm 
 	
 	```
 3.	To see all policies that have been created in your organization, run the following command. We recommend that you run this command after most operations in the following scenarios, to check that your policies are being created as expected.

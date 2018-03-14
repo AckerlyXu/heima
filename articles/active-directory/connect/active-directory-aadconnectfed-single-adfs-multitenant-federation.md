@@ -43,7 +43,7 @@ The default issuer set for a single domain federated to AD FS is "http://ADFSSer
 On the AD FS server, open Azure AD PowerShell and perform the following steps:
  
 Connect to the Azure Active Directory that contains the domain contoso.com
-    Connect-MsolService
+    Connect-MsolService -AzureEnvironment AzureChinaCloud
 Update the federation settings for contoso.com
     Update-MsolFederatedDomain -DomainName contoso.com -SupportMultipleDomain
  
