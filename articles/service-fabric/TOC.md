@@ -302,13 +302,13 @@ The az acr is not support in MC
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
-## Monitor and diagnose
+<!-- Not Avaiable on ## Monitor and diagnose -->
 <!-- Not Avaiable on ### OMS -->
 <!-- Not Avaiable on #### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)  -->
 <!-- Not Avaiable on #### [Add the OMS Agent](service-fabric-diagnostics-oms-agent.md)  -->
 <!-- Not Avaiable on #### [Monitor containers](service-fabric-diagnostics-oms-containers.md)  -->
-### Performance monitoring
-#### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md)
+<!-- Not Avaiable on ### Performance monitoring -->
+<!-- Not Avaiable on #### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) -->
 
 # Reference
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/)
