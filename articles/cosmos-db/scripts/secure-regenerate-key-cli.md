@@ -84,7 +84,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | Updates an Azure Cosmos DB account. |
-| [az cosmosdb regenerate-key](https://docs.azure.cn/zh-cn/cli/cosmosdb/regenerate-key?view=azure-cli-latest) | Regeneratates Azure Cosmos DB account keys. |
+| [az cosmosdb regenerate-key](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_regenerate_key) | Regeneratates Azure Cosmos DB account keys. |
 | [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
