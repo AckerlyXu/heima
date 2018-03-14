@@ -3,8 +3,8 @@ title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Mi
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: chadmath
+manager: cshepard
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: v-junlch
 ---
 
@@ -85,12 +85,12 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
--	Verify that the subnets match exactly between the Azure virtual network and on-premises definitions for the Azure virtual network.
+-	Verify that the virtual network address space(s) match exactly between the Azure virtual network and on-premises definitions.
 -	Verify that the subnets match exactly between the **Local Network Gateway** and on-premises definitions for the on-premises network.
 
 ### Step 7. Verify the Azure gateway health probe
 
-1. Go to the [health probe](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Go to the health probe.
 
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:
@@ -107,4 +107,4 @@ The perfect forward secrecy feature can cause disconnection problems. If the VPN
 -	[Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -	[Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
-<!--Update_Description: update metadata properties-->
+<!--Update_Description: wording update -->
