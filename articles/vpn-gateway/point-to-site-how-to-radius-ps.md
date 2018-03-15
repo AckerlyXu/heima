@@ -1,10 +1,10 @@
 ---
 title: 'Connect a computer to a virtual network using Point-to-Site and RADIUS authentication: PowerShell | Azure'
-description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection that uses RADIUS authentication.
+description: Connect Windows and Mac OS X clients securely to a virtual netowrk using P2S and RADIUS authentication.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/04/2017
-ms.date: 12/29/2017
+origin.date: 02/12/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-junlch
 
 This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the Resource Manager deployment model.
 
-A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
+A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such as when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
 A P2S VPN connection is started from Windows and Mac devices. Connecting clients can use the following authentication methods:
 
@@ -234,6 +234,8 @@ From the Network dialog box, locate the client profile that you want to use, the
       NetBIOS over Tcpip..............: Enabled
   ```
 
+To troubleshoot a P2S connection, see [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+
 ## <a name="connectVM"></a>To connect to a virtual machine
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
@@ -248,4 +250,4 @@ This FAQ applies to P2S using RADIUS authentication
 
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
 
-<!--Update_Description: code update-->
+<!--Update_Description: wording update-->

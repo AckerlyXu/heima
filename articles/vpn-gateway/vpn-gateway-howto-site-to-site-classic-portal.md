@@ -1,10 +1,10 @@
 ---
 title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN (classic): Portal | Microsoft Docs'
-description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
+description: Create an IPsec connection from your on-premises network to classic Azure virtual network over the public Internet.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/05/2017
-ms.date: 12/29/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 
 ---
@@ -226,4 +226,4 @@ For the steps to change a gateway SKU, see [Resize a gateway SKU](vpn-gateway-ab
 - Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).
 - For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-about-forced-tunneling.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metedata properties-->
