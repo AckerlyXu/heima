@@ -45,6 +45,7 @@
 ### [Azure portal](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md)
+## [Configure end-to-end SSL](application-gateway-end-to-end-ssl-powershell.md) 
 ## Troubleshoot
 ### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
