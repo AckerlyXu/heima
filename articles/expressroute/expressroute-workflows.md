@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/12/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 03/26/2018
 ---
 
 # ExpressRoute workflows for circuit provisioning and circuit states
@@ -35,7 +35,7 @@ The following figure and corresponding steps show the tasks you must follow in o
 
     -  Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks.
     -  Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
-
+    -  Enable Microsoft peering - You must enable this to access Office 365 and Dynamics 365. 
     >[!IMPORTANT]
     > You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
     > 
