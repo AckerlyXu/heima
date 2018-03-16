@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -36,7 +36,7 @@ To create the VM, you can use the Azure portal or the Azure Command-Line Interfa
 
 ### Azure portal
 1. Sign into the [Azure portal](https://portal.azure.cn)
-2. Click **New**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
+2. Click **Create a resource**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
 3. In the Basics blade, supply values for the required fields: Name (for the VM), User name, Authentication type and the corresponding credentials, Azure subscription, Resource group, and Location.
 
    ![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
@@ -140,7 +140,7 @@ To use Azure services from your Ruby application, see:
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:/develop/ruby/app-services/
 [tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
-[vm-instructions]:createportal.md
+[vm-instructions]:createportal-classic.md
 
 <!-- External Links -->
 [rails-guides]:http://guides.rubyonrails.org/
@@ -154,5 +154,4 @@ To use Azure services from your Ruby application, see:
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!-- Update_Description: new articles on network watcher -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->

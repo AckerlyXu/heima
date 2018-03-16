@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 10/30/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---                    
@@ -30,9 +30,9 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fvirtual-ma
 
 ## Prerequisites
 
--   Install [Azure CLI 2.0](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)
+-   Install [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)
 
--   Sign in to an Azure account with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+-   Sign in to an Azure account with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
 -   Have an Azure VM to use as the source for your copy.
 
@@ -40,7 +40,7 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fvirtual-ma
 
 ## Step 1: Stop the source VM
 
-Deallocate the source VM by using [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate).
+Deallocate the source VM by using [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate).
 The following example deallocates the VM named **myVM** in the resource group
 **myResourceGroup**:
 
@@ -60,7 +60,7 @@ For more information about Azure Managed Disks, see [Azure Managed Disks
 overview](../windows/managed-disks-overview.md). 
 
 1.  List each VM and the name of its OS disk with [az vm
-    list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#list). The following example lists all VMs in the
+    list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list). The following example lists all VMs in the
     resource group named **myResourceGroup**:
 
     ```azurecli
@@ -78,7 +78,7 @@ overview](../windows/managed-disks-overview.md).
     ```
 
 1.  Copy the disk by creating a new managed disk using [az disk
-    create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#create). The following example creates a disk named
+    create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create). The following example creates a disk named
     **myCopiedDisk** from the managed disk named **myDisk**:
 
     ```azurecli
@@ -87,7 +87,7 @@ overview](../windows/managed-disks-overview.md).
     ``` 
 
 1.  Verify the managed disks now in your resource group by using [az disk
-    list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#list). The following example lists the managed disks
+    list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_list). The following example lists the managed disks
     in the resource group named **myResourceGroup**:
 
     ```azurecli
@@ -107,7 +107,7 @@ follow the next few steps. If you don't want to create a virtual network, skip
 to [Step 4: Create a VM](#step-4-create-a-vm).
 
 1.  Create the virtual network by using [az network vnet
-    create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#create). The following example creates a
+    create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az_network_vnet_create). The following example creates a
     virtual network named **myVnet** and a subnet named **mySubnet**:
 
     ```azurecli
@@ -119,7 +119,7 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
     ```
 
 1.  Create a public IP by using [az network public-ip
-    create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#create). The following example creates
+    create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_create). The following example creates
     a public IP named **myPublicIP** with the DNS name of **mypublicdns**. (The DNS
     name must be unique, so provide a unique name.)
 
@@ -129,7 +129,7 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
         --allocation-method static --idle-timeout 4
     ```
 
-1.  Create the NIC using [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create).
+1.  Create the NIC using [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create).
     The following example creates a NIC named **myNic** that's attached to the
     **mySubnet** subnet:
 
@@ -142,7 +142,7 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
 
 ## Step 4: Create a VM
 
-You can now create a VM by using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create).
+You can now create a VM by using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create).
 
 Specify the copied managed disk to use as the OS disk (--attach-os-disk), as
 follows:
@@ -159,4 +159,4 @@ az vm create --resource-group myResourceGroup \
 To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for
 the Azure Resource Manager](../azure-cli-arm-commands.md).
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties, update link, wording update-->

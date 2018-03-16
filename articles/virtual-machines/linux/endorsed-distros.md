@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/21/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
 # Linux on distributions endorsed by Azure
-Partners provide Linux images in the Azure Marketplace. We are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Creating and uploading a virtual hard disk that contains the Linux operating system](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Partners provide Linux images in the Azure Marketplace. We are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](/virtual-machines/linux/create-upload-generic).
 
 ## Supported distributions and versions
 The following table lists the Linux distributions and versions that are supported on Azure. Refer to [Support for Linux images in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) for more detailed information about support for Linux and open source technology in Azure.
@@ -36,9 +36,9 @@ The Azure Linux Agent is already pre-installed on the Azure Marketplace images a
 | Debian |Debian 7.9+, 8.2+ |In kernel |Package: In repo under "waagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES for SAP<br>11 SP4<br>12 SP1+|In kernel |Package:<p> for 11 in [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>for 12 included in "Public Cloud" Module under "python-azure-agent"<br/>Source code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2+ |In kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04+* |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
-*For Ubuntu 12.04 support on Azure please refer to the [EOL notice](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+  - **<sup>1</sup>** For Ubuntu 12.04 support on Azure please refer to the [EOL notice](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
 <!--Not Available on Oracle Linux, Red Hat Enterprise Linux -->
 
 ## Partners

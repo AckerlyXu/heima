@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -209,12 +209,13 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **CentOS**
 
     ```bash
     sudo yum install util-linux
     sudo fstrim /datadrive
     ```
+<!-- Not Available on RHEL on Line 212 -->
 
 ## Troubleshooting
 [!INCLUDE [virtual-machines-linux-lunzero](../../../../includes/virtual-machines-linux-lunzero.md)]
@@ -223,7 +224,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 You can read more about using your Linux VM in the following articles:
 
 * [How to log on to a virtual machine running Linux][Logon]
-* [How to detach a disk from a Linux virtual machine](detach-disk.md)
+* [How to detach a disk from a Linux virtual machine](detach-disk-classic.md)
 * [Using the Azure CLI with the Classic deployment model](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 * [Configure RAID on a Linux VM in Azure](../configure-raid.md)
 * [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
@@ -232,6 +233,5 @@ You can read more about using your Linux VM in the following articles:
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
 
-<!-- Update_Description: new articles on attach disk classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->
 

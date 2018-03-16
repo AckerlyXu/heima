@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -97,7 +97,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    azure vm image list
    ```
 
-   On the [Azure portal](http://portal.azure.cn), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
+   On the [Azure portal](http://portal.azure.cn), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking **All services** at the top of the Azure service list, and then looking in the **Compute** services.   
 
    ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 
@@ -109,9 +109,8 @@ Alternatively, use the [Azure portal](http://portal.azure.cn) to create a custom
 **See also:** [Azure Linux Agent User Guide](../agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]:create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
-[How to Create a Linux Virtual Machine]:create-custom.md
+[How to Create a Custom Virtual Machine]:create-custom-classic.md
+[How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
+[How to Create a Linux Virtual Machine]:create-custom-classic.md
 
-<!-- Update_Description: new article on capture image classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->

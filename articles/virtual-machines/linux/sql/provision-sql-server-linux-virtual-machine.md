@@ -6,7 +6,7 @@ author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
 origin.date: 10/25/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -34,14 +34,14 @@ In this tutorial, you will:
 
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
-<a id="create"></a>
+<a name="create"></a>
 ## Create a Linux VM with SQL Server installed
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
 
-1. In the left pane, click **New**.
+1. In the left pane, click **Create a resource**.
 
-1. In the **New** pane, click **Compute**.
+1. In the **Create a resource** pane, click **Compute**.
 
 1. Click **See all** next to the **Featured** heading.
 
@@ -84,7 +84,7 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 
 1. On the **Summary** page, click **Purchase** to create the VM.
 
-<a id="connect"></a>
+<a name="connect"></a>
 ## Connect to the Linux VM
 
 If you already use a BASH shell, connect to the Azure VM using the **ssh** command. In the following command, replace the VM user name and IP address to connect to your Linux VM.
@@ -109,7 +109,7 @@ If you are running on Windows and do not have a BASH shell, you can install an S
 
 For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
 
-<a id="password"></a>
+<a name="password"></a>
 ## Change the SA password
 
 The new virtual machine installs SQL Server with a random SA password. You must reset this password before you can connect to SQL Server with the SA login.
@@ -142,7 +142,7 @@ Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#pack
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
    source ~/.bashrc
    ```
-<a id="remote"></a>
+<a name="remote"></a>
 ## Configure for remote connections
 
 If you need to remotely connect to SQL Server on the Azure VM, you must configure an inbound rule on the network security group. The rule allows traffic on the port on which SQL Server listens (default of 1433). The following steps show how to use the Azure portal for this step. 
@@ -162,7 +162,7 @@ If you need to remotely connect to SQL Server on the Azure VM, you must configur
 1. Click **OK** to save the rule for your VM.
 
 ### Open the firewall on Ubuntu
-<!-- Replace RHEL to Ubuntu -->
+<!-- Replace RHEL to Ubuntu due to the Azure China only support Ubuntu image currently -->
 
 This tutorial directed you to create a Ubuntu VM. If you want to connect remotely to Ubuntu VMs, you also have to open up port 1433 on the Linux firewall.
 <!-- Replace RHEL to Ubuntu -->
@@ -178,7 +178,7 @@ This tutorial directed you to create a Ubuntu VM. If you want to connect remotel
     sudo ufw reload
     sudo ufw status
     ```
-<!-- Replace the RHEL to Ubuntu -->
+<!-- Replace the shell command to replace RHEL with Ubuntu -->
 
 
 ## Next steps
@@ -188,4 +188,4 @@ Now that you have a SQL Server 2017 virtual machine in Azure, you can connect lo
 If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of how to connect remotely to SQL Server on Linux from Windows, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms). To connect with Visual Studio Code, see [Use Visual Studio Code to create and run Transact-SQL scripts for SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)
 
 For more general information about SQL Server on Linux, see the [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md).
-<!-- Update_Description: new article about provision sql server on linux virtual machine -->
+<!-- Update_Description: update meta propreties, wording update -->

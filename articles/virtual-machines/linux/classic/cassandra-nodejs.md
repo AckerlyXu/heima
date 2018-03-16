@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -293,7 +293,7 @@ Log into the virtual machine using the hostname (hk-cas-template.chinacloudapp.c
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command "sudo waagent -deprovision+user" to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image.md) to Use as a Template more details on the image capture process.
+Use the command "sudo waagent -deprovision+user" to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image-classic.md) to Use as a Template more details on the image capture process.
 
 ##### 2: Shut down the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.
@@ -468,7 +468,8 @@ You should see something like the following results:
 
 The keyspace created in step 4 uses SimpleStrategy with a  replication_factor of 3. SimpleStrategy is recommended for single data center deployments whereas NetworkTopologyStrategy for multi-data center deployments. A replication_factor of 3 gives tolerance for node failures.
 
-## <a id="tworegion"> </a>Multi-Region Deployment Process
+<a name="tworegion"></a>
+## Multi-Region Deployment Process
 You leverage the single region deployment completed and repeat the same process for installing the second region. The key difference between the single and multiple region deployment is the VPN tunnel setup for inter-region communication; you start with the network installation, provision the VMs and configure Cassandra.
 
 ### Step 1: Create the Virtual Network at the 2nd Region
