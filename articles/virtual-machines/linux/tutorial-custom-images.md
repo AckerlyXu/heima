@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -70,13 +70,13 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate). 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
+Finally, set the state of the VM as generalized with [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
 
 ```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -84,7 +84,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### Create the image
 
-Now you can create an image of the VM by using [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#create). The following example creates an image named *myImage* from a VM named *myVM*.
+Now you can create an image of the VM by using [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az_image_create). The following example creates an image named *myImage* from a VM named *myVM*.
 
 ```azurecli 
 az image create \
@@ -95,7 +95,7 @@ az image create \
 
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli 
 az vm create \
@@ -141,4 +141,4 @@ Advance to the next tutorial to learn about highly available virtual machines.
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md).
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update link, wording update-->

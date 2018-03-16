@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # Secure a web server with SSL certificates on a Linux virtual machine in Azure
-To secure web servers, a Secure Sockets Later (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
+To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Key Vault
@@ -40,13 +40,13 @@ Azure Key Vault safeguards cryptographic keys and secrets, such certificates or 
 Rather than using a custom VM image that includes certificates baked-in, you inject certificates into a running VM. This process ensures that the most up-to-date certificates are installed on a web server during deployment. If you renew or replace a certificate, you don't also have to create a new custom VM image. The latest certificates are automatically injected as you create additional VMs. During the whole process, the certificates never leave the Azure platform or are exposed in a script, command-line history, or template.
 
 ## Create an Azure Key Vault
-Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *chinanorth* location:
+Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *chinanorth* location:
 
 ```azurecli 
 az group create --name myResourceGroupSecureWeb --location chinanorth
 ```
 
-Next, create a Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
 ```azurecli 
 keyvault_name=<mykeyvault>
@@ -67,7 +67,7 @@ az keyvault certificate create \
 ```
 
 ### Prepare a certificate for use with a VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions). Convert the certificate with [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#az_keyvault_secret_list_versions). Convert the certificate with [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_format_secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -107,7 +107,7 @@ runcmd:
 ```
 
 ### Create a secure VM
-Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
+Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
 
 ```azurecli 
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access your site in a web browser.
 
-To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port):
+To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port):
 
 ```azurecli 
 az vm open-port \
@@ -153,6 +153,6 @@ In this tutorial, you secured an NGINX web server with an SSL certificate stored
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Windows virtual machine script samples](./cli-samples.md)
+> [Linux virtual machine script samples](./cli-samples.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update link, wording update-->

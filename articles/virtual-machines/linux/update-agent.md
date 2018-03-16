@@ -1,9 +1,9 @@
 ---
 title: Update the Azure Linux Agent from GitHub | Azure
-description: Learn how to the update Azure Linux Agent for your Linux VM in Azure to the lateset version from GitHub
+description: Learn how to update Azure Linux Agent for your Linux VM in Azure to the latest version from GitHub
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # How to update the Azure Linux Agent on a VM
@@ -27,6 +27,9 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 - A connection to that Linux VM using SSH.
 
 You should always check for a package in the Linux distro repository first. It is possible the package available may not be the latest version, however, enabling autoupdate will ensure the Linux Agent will always get the latest update. Should you have issues installing from the package managers, you should seek support from the distro vendor.
+
+## Minimum virtual machine agent support in Azure
+Verify the [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) before proceeding.
 
 ## Updating the Azure Linux Agent
 
@@ -87,7 +90,7 @@ systemctl restart walinuxagent.service
 
 ## Debian
 
-### Debian 7 “Wheezy”
+### Debian 7 "Wheezy"
 
 #### Check your current package version
 
@@ -110,7 +113,7 @@ sudo apt-get install waagent
 #### Enable agent auto update
 This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate is not available for it. The output from the above command will show you if the package is up-to-date.
 
-### Debian 8 “Jessie” / Debian 9 “Stretch”
+### Debian 8 "Jessie" / Debian 9 "Stretch"
 
 #### Check your current package version
 
@@ -386,7 +389,6 @@ sudo yum update WALinuxAgent
 
 Typically this is all you need, but if for some reason you need to install it from https://github.com directly, use the following steps.
 
-
 ## Update the Linux Agent when no agent package exists for distribution
 
 Install wget (there are some distros that don't install it by default, such as Redhat, CentOS, and Oracle Linux versions 6.4 and 6.5) by typing `sudo yum install wget` on the command line.
@@ -459,7 +461,7 @@ sudo systemctl restart waagent
 ```
 
 ### 4. Confirm the Azure Linux Agent version
-    
+
 ```bash
 waagent -version
 ```
@@ -469,4 +471,4 @@ For CoreOS, the above command may not work.
 You will see that the Azure Linux Agent version has been updated to the new version.
 
 For more information regarding the Azure Linux Agent, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
-<!--Update_Description: whole content update-->
+<!--Update_Description: update meta properties, wording update-->

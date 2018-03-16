@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/13/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -24,7 +24,7 @@ ms.custom: mvc
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart details using the Azure CLI to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
@@ -67,7 +67,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) command to open the desired port.  
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) command to open the desired port.  
 
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -75,7 +75,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-Use the following command to create an SSH session with the virtual machine. Make sure to replace *<publicIpAddress>* with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
+Use the following command to create an SSH session with the virtual machine. Make sure to replace **publicIpAddress** with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -101,7 +101,7 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -114,4 +114,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, update link  -->

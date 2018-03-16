@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -36,6 +36,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 |CoreOS |CoreOS |Stable |latest |yes |
 |OpenLogic |CentOS |7-CI |latest |preview |
 <!-- Not Available on Red Hat -->
+During preview Azure Stack will not support the provisioning of CentOS 7.4 using cloud-init.
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 
@@ -47,7 +48,7 @@ WALA configurations of VMs are time-constrained to work within the maximum VM pr
 ## Deploying a cloud-init enabled Virtual Machine
 Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
 
-The first step in deploying this image is to create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+The first step in deploying this image is to create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -96,4 +97,4 @@ For cloud-init examples of configuration changes, see the following documents:
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

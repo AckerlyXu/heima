@@ -3,8 +3,8 @@ title: Configure the Always On availability group on an Azure VM by using PowerS
 description: This tutorial uses resources that were created with the classic deployment model. You use PowerShell to create an Always On availability group in Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -566,3 +566,4 @@ Finally, you're ready to configure the availability group. You'll use the SQL Se
 You've now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](../classic/ps-sql-int-listener.md).
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+<!-- Update_Description: wording update -->

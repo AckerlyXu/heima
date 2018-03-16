@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ---
 
@@ -44,7 +44,7 @@ Each virtual machine extension might have its own set of prerequisites. For inst
 
 The Azure VM agent manages interactions between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed manually on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](../windows/classic/agents-and-extensions.md).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](agent-user-guide.md).
 
 ## Discover VM extensions
 
@@ -240,4 +240,4 @@ You can remove an extension by using the following steps in the Azure portal:
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update link -->

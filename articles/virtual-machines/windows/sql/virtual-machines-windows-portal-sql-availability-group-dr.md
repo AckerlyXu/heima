@@ -3,7 +3,7 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recove
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
 documentationCenter: na
-authors: hayley244
+author: rockboyfor
 manager: digimobile
 editor: monicar
 tags: azure-service-management
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: "05/02/2017"
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 
@@ -54,7 +54,8 @@ The following diagram shows how the networks communicate between data centers.
 ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->This architecture incurs outbound data charges for data replicated between Azure regions.  
+>This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://www.azure.cn/pricing/details/data-transfer/).  
+<!-- URL is correct on [Bandwidth Pricing](https://www.azure.cn/pricing/details/data-transfer/) -->
 
 ## Create remote replica
 
@@ -125,7 +126,7 @@ To create a replica in a remote data center, do the following steps:
 
 Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
 
-```PowerShell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
    $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
@@ -134,7 +135,7 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-```
+   ```
 
 ## Set connection for multiple subnets
 
@@ -181,3 +182,4 @@ For more information, see the following topics:
 * [Azure Virtual Machines](/virtual-machines/windows/)
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure Availability Sets](../manage-availability.md)
+<!-- Update_Description: wording update, update link -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -57,7 +57,7 @@ For installation instructions, see [How to install and configure Azure PowerShel
 To perform this migration, you must be added as a co-administrator for the subscription in the [Azure portal](https://portal.azure.cn).
 
 1. Sign into the [Azure portal](https://portal.azure.cn).
-2. On the Hub menu, select **Subscription**. If you don't see it, select **More services**.
+2. On the Hub menu, select **Subscription**. If you don't see it, select **All services**.
 3. Find the appropriate subscription entry, then look at the **MY ROLE** field. For a co-administrator, the value should be _Account admin_.
 
 If you are not able to add a co-administrator, then contact a service administrator or co-administrator for the subscription to get yourself added.   
@@ -125,7 +125,7 @@ Set your Azure subscription for the current session. This example sets the defau
 <br>
 
 ## Step 5: Make sure you have enough Azure Resource Manager Virtual Machine vCPUs in the Azure region of your current deployment or VNET
-You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager.
+You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
 
 This example checks the availability in the **China North** region. Replace the example region name with your own.
 

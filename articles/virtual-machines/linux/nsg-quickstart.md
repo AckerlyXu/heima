@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
 # Open ports and endpoints to a Linux VM with the Azure CLI
 You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic. Let's use a common example of web traffic on port 80. This article shows you how to open a port to a VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](nsg-quickstart-nodejs.md).
 
-To create a Network Security Group and rules you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+To create a Network Security Group and rules you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -37,7 +37,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 80
 For more control over the rules, such as defining a source IP address range, continue with the additional steps in this article.
 
 ## Create a Network Security Group and rules
-Create the network security group with [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#create). The following example creates a network security group named *myNetworkSecurityGroup* in the *chinaeast* location:
+Create the network security group with [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup* in the *chinaeast* location:
 
 ```azurecli
 az network nsg create \
@@ -46,7 +46,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Add a rule with [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named *myNetworkSecurityGroupRule* to allow TCP traffic on port 80:
+Add a rule with [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named *myNetworkSecurityGroupRule* to allow TCP traffic on port 80:
 
 ```azurecli
 az network nsg rule create \
@@ -59,7 +59,7 @@ az network nsg rule create \
 ```
 
 ## Apply Network Security Group to VM
-Associate the Network Security Group with your VM's network interface (NIC) with [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#update). The following example associates an existing NIC named *myNic* with the Network Security Group named *myNetworkSecurityGroup*:
+Associate the Network Security Group with your VM's network interface (NIC) with [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_update). The following example associates an existing NIC named *myNic* with the Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -68,7 +68,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Alternatively, you can associate your Network Security Group with a virtual network subnet with [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update) rather than just to the network interface on a single VM. The following example associates an existing subnet named *mySubnet* in the *myVnet* virtual network with the Network Security Group named *myNetworkSecurityGroup*:
+Alternatively, you can associate your Network Security Group with a virtual network subnet with [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) rather than just to the network interface on a single VM. The following example associates an existing subnet named *mySubnet* in the *myVnet* virtual network with the Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \
@@ -89,4 +89,4 @@ In this example, you created a simple rule to allow HTTP traffic. You can find i
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
 * [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
 
-<!--Update_Description: update meta properties， wording updat， add open-port cmdlet content-->
+<!--Update_Description: update meta properties， update link -->

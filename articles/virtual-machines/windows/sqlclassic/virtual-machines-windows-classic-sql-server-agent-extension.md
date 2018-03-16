@@ -3,8 +3,8 @@ title: Automate management tasks on SQL VMs (Classic) | Azure
 description: This topic describes how to manage the SQL Server agent extension, which automates specific SQL Server administration tasks. These include Automated Backup, Automated Patching, and Azure Key Vault Integration. This topic uses the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Classic)
@@ -56,7 +56,7 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 ### Azure PowerShell:
 [Download and configure the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/overview).
 
-Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount** command.
+Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount -Environment AzureChinaCloud** command.
 
     Add-AzureAccount -Environment AzureChinaCloud
 
@@ -103,4 +103,4 @@ Begin using one of the services supported by the extension. For more details, se
 
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!--Update_Description: add sql server 2016-->
+<!-- Update_Description: update meta properties, wording update -->

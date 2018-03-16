@@ -3,7 +3,7 @@ title: Create a SQL Server Virtual Machine in Azure PowerShell (Classic) | Azure
 description: Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images. This topic uses the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: na
-author: hayley244
+author: rockboyfor
 manager: digimobile
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
@@ -13,8 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/07/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 03/19/2018
+ms.author: v-yeche
 ---
 # Provision a SQL Server virtual machine using Azure PowerShell (Classic)
 
@@ -28,13 +28,14 @@ For the Resource Manager version of this topic, see [Provision a SQL Server virt
 ### Install and configure PowerShell:
 1. If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 2. [Download and install the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/overview).
-3. Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount** command.
+3. Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount -Environment AzureChinaCloud** command.
 
    ```powershell
-   Add-AzureAccount -EnvironmentName AzureChinaCloud
+   Add-AzureAccount -Environment AzureChinaCloud
    ```
 
 ## Determine your target Azure region
+
 Your SQL Server Virtual Machine will be hosted in a cloud service that resides a specific Azure region. The following steps help you to determine your region, storage account, and cloud service that will be used for the rest of the tutorial.
 
 1. Determine the data center that you want to use to host your SQL Server VM. The following PowerShell command displays a list of available region names.
@@ -50,6 +51,7 @@ Your SQL Server Virtual Machine will be hosted in a cloud service that resides a
    ```
 
 ## Set your subscription and storage account
+
 1. Determine the Azure subscription you will use for the new virtual machine.
 
    ```powershell
@@ -60,7 +62,7 @@ Your SQL Server Virtual Machine will be hosted in a cloud service that resides a
 
    ```powershell
    $subscr="<subscription name>"
-   Select-AzureSubscription -SubscriptionName $subscr –Current
+   Select-AzureSubscription -SubscriptionName $subscr -Current
    ```
 
 3. Then check for existing storage accounts. The following script displays all storage accounts that exist in your chosen region:
@@ -80,6 +82,7 @@ Your SQL Server Virtual Machine will be hosted in a cloud service that resides a
    ```
 
 ## Select a SQL Server virtual machine image
+
 1. Find out the list of available SQL Server virtual machines images from the gallery. These images all have an **ImageFamily** property that starts with "SQL". The following query displays the image family available to you that have SQL Server preinstalled.
 
    ```powershell
@@ -97,6 +100,7 @@ Your SQL Server Virtual Machine will be hosted in a cloud service that resides a
    ```
 
 ## Create the virtual machine
+
 Finally, create the virtual machine with PowerShell:
 
 1. Create a cloud service to host the new VM. Note that it is also possible to use an existing cloud service instead. Create a new variable **$svcname** with the short name of the cloud service.
@@ -124,7 +128,7 @@ Finally, create the virtual machine with PowerShell:
 4. Run the following script to create the virtual machine.
 
    ```powershell
-   New-AzureVM –ServiceName $svcname -VMs $vm1
+   New-AzureVM -ServiceName $svcname -VMs $vm1
    ```
 
 > [!NOTE]
@@ -148,7 +152,7 @@ $vmsize="A5"
 
 # Set the current subscription and storage account
 # Comment out the New-AzureStorageAccount line if the account already exists
-Select-AzureSubscription -SubscriptionName $subscr –Current
+Select-AzureSubscription -SubscriptionName $subscr -Current
 New-AzureStorageAccount -StorageAccountName $staccount -Location $dcLocation
 Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
@@ -166,7 +170,7 @@ $cred=Get-Credential -Message "Type the name and password of the local administr
 $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 # Create the SQL Server VM:
-New-AzureVM –ServiceName $svcname -VMs $vm1
+New-AzureVM -ServiceName $svcname -VMs $vm1
 ```
 
 ## Connect with remote desktop
@@ -186,7 +190,8 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
    ```
 
 ## Complete the configuration of the SQL Server Machine for remote access
-After logging onto the machine with remote desktop, configure SQL Server based on the instructions in [Steps for configuring SQL Server connectivity in an Azure VM](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+
+After logging on to the machine with remote desktop, configure SQL Server based on the instructions in [Steps for configuring SQL Server connectivity in an Azure VM](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 ## Next steps
 
@@ -197,3 +202,4 @@ In many cases, the next step is to migrate your databases to this new SQL Server
 If you're also interested in using the Azure portal to create SQL Virtual Machines, see [Provisioning a SQL Server Virtual Machine on Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Note that the tutorial that walks you through the portal creates VMs using the recommended Resource Manager model, rather than the classic model used in this PowerShell topic.
 
 In addition to these resources, we recommend that you review [other topics related to running SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+<!-- Update_Description: wording update, update link -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 03/16/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -42,7 +42,7 @@ The completed installation results in Tomcat running on a virtual machine.
 
 ## To create a virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.cn).  
-2. Click **New**, click **Compute**, then click **See all** in the **Featured apps**.
+2. Click **Create a resource**, click **Compute**, then click **See all** in the **Featured apps**.
 3. Click **JDK**, click **JDK 8** in the **JDK** pane.  
    Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
 4. In the JDK 8 pane, select **Classic**, then click **Create**.
@@ -120,6 +120,7 @@ To see Tomcat running from external machines, you need to create an endpoint and
     ![New inbound rule name][NewRuleName]
 
 At this point, your Tomcat website should be viewable from an external browser. In the browser's address window, type a URL of the form **http://*your\_DNS\_name*.chinacloudapp.cn**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.
+<!-- URL cloudapp.net Convert to chinacloudapp.cn -->
 
 ## Application lifecycle considerations
 * You could create your own web application archive (WAR) and add it to the **webapps** folder. For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file. Next, copy the WAR to the Apache Tomcat **webapps** folder on the virtual machine, then run it in a browser.
@@ -148,4 +149,4 @@ You can learn about other services (such as Azure Storage, service bus, and SQL 
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: wording update -->

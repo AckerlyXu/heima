@@ -3,8 +3,8 @@ title: Automated Patching for SQL Server VMs (Classic) | Azure
 description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # Automated Patching for SQL Server in Azure Virtual Machines (Classic)
@@ -90,4 +90,4 @@ For information about other available automation tasks, see [SQL Server IaaS Age
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!--Update_Description: add sql server 2016-->
+<!-- Update_Description: update meta properties, wording update -->
