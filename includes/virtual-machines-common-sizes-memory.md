@@ -7,10 +7,33 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
-<!-- Not Available ## ESv3-series -->
+
+<!--PENDIND ON Esv3-series, Updte carefully -->
+
+## Esv3-series <sup>1</sup>
+
+ACU: 160-190
+
+ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. Ev3-series instances are ideal for memory-intensive enterprise applications.
+
+| Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Standard_E2s_v3  | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / 1,000                                   |
+| Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
+| Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / 4,000                                       |
+| Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
+| Standard_E64s_v3 <sup>2,3</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
+
+<sup>1</sup> Esv3-series VM's feature Intel® Hyper-Threading Technology
+
+<sup>2</sup> Constrained core sizes available 
+
+<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
+<!--PENDIND ON Esv3-series, Updte carefully -->
 
 <!--PENDIND ON Ev3-series, Updte carefully -->
-## Ev3-series *
+## Ev3-series <sup>1</sup>
 
 ACU: 160 - 190 
 
@@ -25,15 +48,17 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
-| Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| Standard_E64_v3<sup>2</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
-*Ev3-series VM's feature Intel® Hyper-Threading Technology
+<sup>1</sup> Ev3-series VM's feature Intel® Hyper-Threading Technology
+
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+
 <!--PENDIND ON Ev3-series, Updte carefully -->
-
 <!-- Not Available ## M-series* -->
 <!-- Not Available ## GS-series*-->
 <!-- Not Available ## G-series-->
-## DSv2-series*
+## DSv2-series <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -43,14 +68,14 @@ ACU: 210 - 250
 | Standard_DS12_v2 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 192 |4 / 3000 |
 | Standard_DS13_v2 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 384 |8 / 6000 |
 | Standard_DS14_v2 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
-| Standard_DS15_v2** |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000***|
+| Standard_DS15_v2 <sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000 <sup>3</sup> |
 <!-- Please acknowledge that DSv2 Max Disk Count are 8,16,32,64,64 -->
 
-*The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
-**Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer. 
 
-***25000 Mbps with Accelerated Networking.
+<sup>3</sup> 25000 Mbps with Accelerated Networking.
 
 <br>
 
@@ -64,16 +89,16 @@ ACU: 210 - 250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
-| Standard_D15_v2*  | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000** |
+| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 <!-- Please acknowledge that Dv2 Max Disk Count are 8,16,32,64,64 -->
 
-*Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer. 
 
-**25000 Mbps with Accelerated Networking.
+<sup>2</sup> 25000 Mbps with Accelerated Networking.
 
 <br>
 
-## DS-series*
+## DS-series <sup>1</sup>
 
 ACU: 160
 
@@ -85,7 +110,7 @@ ACU: 160
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 <!-- Please acknowledge that DS Max Disk Count are 8,16,32,64 -->
 
-*The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
 ## D-series
 
@@ -101,5 +126,5 @@ ACU: 160
 
 <br>
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 03/19/2018-->
 <!--PENDING to EV3 configuration list-->

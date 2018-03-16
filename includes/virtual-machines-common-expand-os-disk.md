@@ -1,5 +1,5 @@
 ## Overview
-When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
+When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it's possible to add data disks to the VM (how many depending upon the SKU you've chosen) and moreover it's recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
 
 1. Support legacy applications that install components on OS drive.
 2. Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
@@ -8,6 +8,9 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Azure recommends that most new deployments use the Resource Manager model.
 > 
 > 
+> [!WARNING]
+> Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
+>
 
 ## Resize the OS drive
 In this article we'll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). We will show resizing the OS drive for both Unamanged and Managed disks since the approach to resize disks differs between both disk types.
@@ -119,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Managed Disks:
 
 ```Powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud -EnvironmentName AzureChinaCloud
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -156,6 +159,4 @@ Manged Disk:
 ```
 
 If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-
-<!--Update_Description: wording update, update cmdlet-->
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 03/19/2018-->

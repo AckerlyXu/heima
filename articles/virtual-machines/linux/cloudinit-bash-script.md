@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ With cloud-init you do not need to convert your existing scripts into a cloud-co
 
 If you have been using the Linux Custom Script Azure Extension to run your scripts, you can migrate them to use cloud-init. However, Azure Extensions have integrated reporting to alert to script failures, a cloud-init image deployment will NOT fail if the script fails.
 
-To see this functionality in action, create a simple bash script for testing. Like the cloud-init `#cloud-config` file, this script must be local to where you will be running the AzureCLI commands to provision your virtual machine. You can use any editor you wish. Enter `sensible-editor simple_bash.sh` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+To see this functionality in action, create a simple bash script for testing. Like the cloud-init `#cloud-config` file, this script must be local to where you will be running the AzureCLI commands to provision your virtual machine. For this example, create the file in your local machine. You can use any editor you wish. Enter `sensible-editor simple_bash.sh` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
 <!-- Not Available on Cloud Shell -->
 
 ```bash
@@ -34,13 +34,13 @@ To see this functionality in action, create a simple bash script for testing. Li
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Before deploying this image, you need to create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
+Before deploying this image, you need to create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-Now, create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) and specify the bash script file with `--custom-data simple_bash.sh` as follows:
+Now, create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) and specify the bash script file with `--custom-data simple_bash.sh` as follows:
 
 ```azurecli 
 az vm create \
@@ -70,5 +70,4 @@ For additional cloud-init examples of configuration changes, see the following:
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)
-<!-- Update_Description: new articles on using cloudinit bash scripts -->
-<!-- ms.date: 01/08/2018 -->
+<!-- Update_Description: update link, wording update -->

@@ -3,8 +3,8 @@ title: Configure an ILB listener for Always On availability groups in Azure | Az
 description: This tutorial uses resources created with the classic deployment model, and it creates an Always On availability group listener in Azure that uses an internal load balancer.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # Configure an ILB listener for Always On availability groups in Azure
@@ -57,7 +57,7 @@ Create a load-balanced endpoint for each VM that hosts an Azure replica. If you 
 
 3. Verify that the **Name** and **Public Port** of the listener endpoint that you want to use are not already in use. In the example in this section, the name is *MyEndpoint*, and the port is *1433*.
 
-4. On your local client, download and install the latest [PowerShell module](/downloads/).
+4. On your local client, download and install the latest [PowerShell module](https://www.azure.cn/downloads/).
 
 5. Start Azure PowerShell.  
     A new PowerShell session opens, with the Azure administrative modules loaded.
@@ -164,3 +164,4 @@ Create the availability group listener in two steps. First, create the client ac
 
 ## Next steps
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
+<!-- Update_Description: wording update, update link -->

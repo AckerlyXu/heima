@@ -1,9 +1,15 @@
 <!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
-**Last document update**: January 12, 3:00 PM PST.
+**Last document update**: January 22, 3:00 PM PST.
 
-The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
+The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
 The infrastructure that runs Azure and isolates customer workloads from each other is protected.  This means that other customers running on Azure cannot attack your application using these vulnerabilities.
+
+> [!NOTE] 
+> Azure mitigations previously announced on Jan 3, 2018 are unaffected by the recent [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
+>
+> We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
+>
 
 ## Keeping your Operating Systems up-to-date
 
@@ -22,7 +28,7 @@ In the following offerings, here are our recommended actions to update your Oper
 <td>Azure Linux Virtual Machines</td> <td>Install updates from your operating system provider when available. </td>
 </tr>
 <tr>
-<td>Azure Windows Virtual Machines </td> <td>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information.<p> Install the [January security rollup](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002). </p></td>
+<td>Azure Windows Virtual Machines </td> <td>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information.<p> Install the [January security rollup](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Other Azure PaaS Services</td> <td>There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. </td>
@@ -46,6 +52,6 @@ We will continue to update these best practices as we receive microcode updates 
 
 To learn more, see [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
 <!--Update_Description: update the update notice message for Linux -->
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 03/19/2018-->
 <!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
 

@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2018
-ms.date: 01/29/2018
+origin.date: 01/22/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -23,5 +23,4 @@ ms.author: v-yeche
 
 [!INCLUDE [virtual-machines-common-accelerated-maintenance](../../../includes/virtual-machines-common-accelerated-maintenance.md)]
 
-<!--Update_Description: new article of accelerated maintenance for windows VM-->
-<!--ms.date: 01/29/2018-->
+<!--Update_Description: update meta properties -->

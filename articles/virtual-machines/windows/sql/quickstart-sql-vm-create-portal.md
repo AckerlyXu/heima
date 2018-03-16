@@ -1,5 +1,5 @@
 ---
-title: Create SQL Server Windows VM in the Azure portal | Azure
+title: Create a SQL Server Windows VM in the portal | Azure
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ---
 
-# Create a SQL Server 2017 Windows virtual machine in the Azure portal
+# Quickstart: Create a SQL Server 2017 Windows virtual machine in the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -24,13 +24,17 @@ ms.author: v-yeche
 
 This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
 
+> [!TIP]
+> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
-## <a id="select"></a> Select a SQL Server VM image
+<a name="select"></a>
+## Select a SQL Server VM image
 
 1. Log in to the [Azure portal](https://portal.azure.cn) using your account.
 
-1. On the Azure portal, click **New**. The portal opens the **New** window.
+1. On the Azure portal, click **Create a resource**. 
 
 1. In the search field, type **SQL Server 2017 Developer on Windows Server 2016**, and press ENTER.
 
@@ -43,7 +47,8 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 
 1. Click **Create**.
 
-## <a id="configure"></a> Provide basic details
+<a name="configure"></a>
+## Provide basic details
 
 On the **Basics** window, provide the following information:
 
@@ -120,7 +125,8 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 
     ![ssms connect](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Log in to the VM remotely
+<a name="remotedesktop"></a>
+## Log in to the VM remotely
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 
@@ -141,7 +147,4 @@ In this quickstart, you created a SQL Server 2017 virtual machine in the Azure P
 > [!div class="nextstepaction"]
 > [Migrate a database to a SQL VM](virtual-machines-windows-migrate-sql.md)
 
-<!--The parent file of includes file of virtual-machines-sql-server-remote-desktop-connect.md-->
-<!--ms.date:01/08/2018-->
-
-<!-- Update_Description: new articles on creating SQL Server 2017 on Server 2016 in portal -->
+<!-- Update_Description: wording update -->
