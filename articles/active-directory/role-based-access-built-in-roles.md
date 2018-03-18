@@ -7,18 +7,17 @@ author: alexchen2016
 manager: digimobile
 editor: ''
 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang:
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm:
 ms.workload: identity
-origin.date: 06/28/2017
-ms.date: 07/28/2017
+origin.date: 02/23/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer:
 
-ms.custom: H1Hack27Feb2017
+ms.custom: it-pro
 ---
 # Built-in roles for Azure role-based access control
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
@@ -50,6 +49,7 @@ This article only addresses the different roles that exist today. When you assig
 | [BizTalk Contributor](#biztalk-contributor) |Can manage BizTalk services |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) |Can manage everything except access. |
+| [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) |Can read Azure Cosmos DB account data |
 | [Data Factory Contributor](#data-factory-contributor) |Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
@@ -60,13 +60,14 @@ This article only addresses the different roles that exist today. When you assig
 | [Monitoring Reader](#monitoring-reader) |Can read all monitoring data |
 | [Monitoring Contributor](#monitoring-contributor) |Can read monitoring data and edit monitoring settings |
 | [Network Contributor](#network-contributor) |Can manage all network resources |
-| [New Relic APM Account Contributor](#new-relic-apm-account-contributor) |Can manage New Relic Application Performance Management accounts and applications |
 | [Owner](#owner) |Can manage everything, including access |
 | [Reader](#reader) |Can view everything, but can't make changes |
 | [Redis Cache Contributor](#redis-cache-contributor) |Can manage Redis caches |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) |Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) |Can manage search services |
-| [Security Manager](#security-manager) |Can manage security components, security policies, and virtual machines |
+| [Security Admin](#security-administrator) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
+| [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
+| [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes |
 | [Site Recovery Contributor](#site-recovery-contributor) | Can manage Site Recovery in Recovery Services vault |
 | [Site Recovery Operator](#site-recovery-operator) | Can manage failover and failback operations Site Recovery in Recovery Services vault |
 | [Site Recovery Reader](#site-recovery-reader) | Can view all Site Recovery management operations  |
@@ -263,7 +264,7 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
 
-## Billing Reader <a name="billing-reader"></a>
+### Billing Reader <a name="billing-reader"></a>
 Can view all Billing information
 
 | **Actions** |  |
@@ -310,7 +311,20 @@ Can manage everything except access
 | Microsoft.Authorization/*/Delete |Can’t delete roles and role assignments |
 | Microsoft.Authorization/*/Write |Can’t create roles and role assignments |
 
-### Data Factory Contributor <a name="data-factory-contributor"></a>
+### Cosmos DB Account Reader Role<a name="cosmos-db-account-reader-role"></a>
+Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts.
+
+| **Actions** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Read roles and role assignments, can read permissions given to each user|
+|Microsoft.DocumentDB/*/read|Read any collection|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Read the readonly keys pane|
+|Microsoft.Insights/Metrics/read|Read account metrics|
+|Microsoft.Insights/MetricDefinitions/read|Read metrics definitions|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Read resource groups|
+|Microsoft.Support/*|Create and manage support tickets|
+
+### Data Factory Contributor<a name="data-factory-contributor"></a>
 Create and manage data factories, and child resources within them.
 
 | **Actions** |  |
@@ -369,13 +383,13 @@ Can manage DNS zones and records.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/\* |Create and manage Support tickets |
 
-### Azure Cosmos DB Account Contributor <a name="documentdb-account-contributor"></a>
-Can manage Azure Cosmos DB accounts
+### DocumentDB Account Contributor<a name="documentdb-account-contributor"></a>
+Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB.
 
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Read roles and role Assignments |
-| Microsoft.DocumentDb/databaseAccounts/* |Create and manage DocumentDB accounts |
+| Microsoft.DocumentDb/databaseAccounts/* |Create and manage Azure Cosmos DB accounts |
 | Microsoft.Insights/alertRules/* |Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
@@ -396,7 +410,7 @@ Can manage Intelligent Systems accounts
 | Microsoft.Support/* |Create and manage support tickets |
 
 ### Monitoring Reader <a name="monitoring-reader"></a>
-Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+Can read all monitoring data (metrics, logs, etc.). 
 
 | **Actions** |  |
 | --- | --- |
@@ -405,7 +419,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 | Microsoft.Support/* |Create and manage support tickets |
 
 ### Monitoring Contributor <a name="monitoring-contributor"></a>
-Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+Can read all monitoring data and edit monitoring settings. 
 
 | **Actions** |  |
 | --- | --- |
@@ -438,20 +452,7 @@ Can manage all network resources
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/* |Create and manage support tickets |
 
-### New Relic APM Account Contributor <a name="new-relic-apm-account-contributor"></a>
-Can manage New Relic Application Performance Management accounts and applications
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Read roles and role Assignments |
-| Microsoft.Insights/alertRules/* |Create and manage alert rules |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
-| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
-| Microsoft.Support/* |Create and manage support tickets |
-| NewRelic.APM/accounts/* |Create and manage New Relic application performance management accounts |
-
-### Owner <a name="owner"></a>
+### Owner
 Can manage everything, including access
 
 | **Actions** |  |
@@ -504,21 +505,50 @@ Can manage Search services
 | Microsoft.Search/searchServices/* |Create and manage search services |
 | Microsoft.Support/* |Create and manage support tickets |
 
+### Security Administrator
+In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.Authorization/policyAssignments/* | Create and manage policy assignments |
+| Microsoft.Authorization/policySetDefinitions/* | Create and manage policy sets |
+| Microsoft.Authorization/policyDefinitions/* | Create and manage policy definitions |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
+| Microsoft.Security/*/read | Read security components and policies |
+| Microsoft.Support/* |Create and manage support tickets |
+
 ### Security Manager
 Can manage security components, security policies, and virtual machines
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Read roles and role Assignments |
-| Microsoft.ClassicCompute/*/read |Read configuration information classic compute virtual machines |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Write configuration for virtual machines |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.ClassicCompute/*/read |Read configuration information classic virtual machines |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Write configuration for classic virtual machines |
 | Microsoft.ClassicNetwork/*/read |Read configuration information about classic network |
-| Microsoft.Insights/alertRules/* |Create and manage alert rules |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Security/* |Create and manage security components and policies |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Security reader
+In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
+| Microsoft.Security/*/read | Read security components and policies |
+| Microsoft.Support/* |Create and manage support tickets |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 
 ### Site Recovery Contributor
 Can manage all Site Recovery management actions, except creating Recovery Services vault and assigning access rights to other users

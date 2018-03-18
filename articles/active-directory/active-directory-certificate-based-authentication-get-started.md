@@ -72,8 +72,8 @@ The related information exists for the following device platforms:
 
 To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
 
-- The public portion of the certificate, in *.cer* format
-- The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
+* The public portion of the certificate, in *.cer* format
+* The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
 
 The schema for a certificate authority looks as follows:
 
@@ -110,9 +110,9 @@ As a first configuration step, you need to establish a connection with your tena
 
 ### Connect
 
-To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
+To establish a connection with your tenant, use the [Connect-AzureAD -AzureEnvironment AzureChinaCloud](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
 
-    Connect-AzureAD
+    Connect-AzureAD -AzureEnvironment AzureChinaCloud
 
 
 ### Retrieve
@@ -166,7 +166,7 @@ The following steps outline the process for updating and invalidating the author
 1. Connect with admin credentials to the MSOL service:
 
         $msolcred = get-credential
-        connect-msolservice -credential $msolcred
+        connect-msolservice -credential $msolcred -AzureEnvironment AzureChinaCloud
 
 2. Retrieve the current StsRefreshTokensValidFrom value for a user:
 

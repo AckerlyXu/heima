@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure RBAC | Microsoft Docs
+title: Troubleshoot role-based access control Azure RBAC | Azure
 description: Get help with issues or questions about Role Based Access Control resources.
 services: azure-portal
 documentationcenter: na
@@ -16,8 +16,9 @@ origin.date: 07/12/2017
 ms.date: 08/22/2017
 ms.author: v-junlch
 ms.reviewer: rqureshi
+ms.custom: seohack1
 ---
-# Role-Based Access Control troubleshooting
+# Troubleshooting Azure role-based access control 
 
 This document article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
 

@@ -33,17 +33,19 @@ The installation shows the following attributes, which are valid candidates:
 
 
 >[!NOTE]
-> While Azure AD Connect supports synchronizing multi-valued AD attributes to Azure AD as multi-valued directory extensions, there are currently no features in Azure AD that support the use of multi-valued directory extensions.
+> Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions. But no features in Azure AD currently support the use of multi-valued directory extensions.
 
-The list of attributes is read from the schema cache created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, then the [schema must be refreshed](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
+The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
-An object in Azure AD can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, then it is truncated by the sync engine.
+An object in Azure AD can have up to 100 attributes for directory extensions. The maximum length is 250 characters. If an attribute value is longer, the sync engine truncates it.
 
-During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal.  
-![Schema Extension App](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
+During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal.
 
+![Schema extension app](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
+
+The attributes are prefixed with the extension \_{AppClientId}\_. AppClientId has the same value for all attributes in your Azure AD tenant.
 These attributes are now available through Graph:  
-![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+![Azure AD Graph Explorer](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
 The attributes are prefixed with extension\_{AppClientId}\_. The AppClientId has the same value for all attributes in your Azure AD tenant.
 

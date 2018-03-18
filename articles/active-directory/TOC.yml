@@ -1,10 +1,14 @@
+- name: Manage access overview
+  href: manage-access-to-azure-resources.md
 - name: Resource access in Azure
   href: active-directory-understanding-resource-access.md
 - name: Role-Based Access Control (RBAC)
   href: role-based-access-control-what-is.md
   items:
   - name: Manage access assignments
-    items:    
+    items:
+    - name: By user
+      href: role-based-access-control-manage-assignments.md
     - name: By resource
       href: role-based-access-control-configure.md
   - name: Built-in roles

@@ -45,11 +45,11 @@ To enable your app to get tokens, you'll first need to register it in your Azure
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
-4. Click on **App registrations** and choose **New application registration**.
-5. Create a new **Native** application.
-    - The **Name** of the application will describe your application to end-users.
-    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a value specific to your application, e.g. `http://DirectorySearcher`.
+3. Click on **All services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Native Client Application**.
+  * The **Name** of the application will describe your application to end-users
+  * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a value specific to your application, e.g. `http://DirectorySearcher`.
 6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 7. From the **Settings** page, choose **Required Permissions** and choose **Add**. Select the **Microsoft Graph** as the API and add the **Read Directory Data** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
@@ -70,92 +70,92 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - In the `DirectorySearcher` project, open `MainWindow.xaml.cs` and locate the `MainWindow()` method.  The first step is to initialize your app's `AuthenticationContext` - ADAL's primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
 
-    ```C#
-    public MainWindow()
-    {
-        InitializeComponent();
+```csharp
+public MainWindow()
+{
+    InitializeComponent();
 
-        authContext = new AuthenticationContext(authority, new FileCache());
+    authContext = new AuthenticationContext(authority, new FileCache());
 
-        CheckForCachedToken();
-    }
-    ```
+    CheckForCachedToken();
+}
+```
 
 - Now locate the `Search(...)` method, which will be invoked when the user clicks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
 
-    ```C#
-    private async void Search(object sender, RoutedEventArgs e)
+```csharp
+private async void Search(object sender, RoutedEventArgs e)
+{
+    // Validate the Input String
+    if (string.IsNullOrEmpty(SearchText.Text))
     {
-        // Validate the Input String
-        if (string.IsNullOrEmpty(SearchText.Text))
-        {
-            MessageBox.Show("Please enter a value for the To Do item name");
-            return;
-        }
-
-        // Get an Access Token for the Graph API
-        AuthenticationResult result = null;
-        try
-        {
-            result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Auto));
-            UserNameLabel.Content = result.UserInfo.DisplayableId;
-            SignOutButton.Visibility = Visibility.Visible;
-        }
-        catch (AdalException ex)
-        {
-            // An unexpected error occurred, or user canceled the sign in.
-            if (ex.ErrorCode != "access_denied")
-                MessageBox.Show(ex.Message);
-
-            return;
-        }
-
-        ...
+        MessageBox.Show("Please enter a value for the To Do item name");
+        return;
     }
-    ```
+
+    // Get an Access Token for the Graph API
+    AuthenticationResult result = null;
+    try
+    {
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Auto));
+        UserNameLabel.Content = result.UserInfo.DisplayableId;
+        SignOutButton.Visibility = Visibility.Visible;
+    }
+    catch (AdalException ex)
+    {
+        // An unexpected error occurred, or user canceled the sign in.
+        if (ex.ErrorCode != "access_denied")
+            MessageBox.Show(ex.Message);
+
+        return;
+    }
+
+    ...
+}
+```
 
 - When your app requests a token by calling `AcquireTokenAsync(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a login dialog, collect the user's credentials, and return a token upon successful authentication.  If ADAL is unable to return a token for any reason, it will throw an `AdalException`.
 - Notice that the `AuthenticationResult` object contains a `UserInfo` object that can be used to collect information your app may need.  In the DirectorySearcher, `UserInfo` is used to customize the app's UI with the user's id.
 - When the user clicks the "Sign Out" button, we want to ensure that the next call to `AcquireTokenAsync(...)` will ask the user to sign in.  With ADAL, this is as easy as clearing the token cache:
 
-    ```C#
-    private void SignOut(object sender = null, RoutedEventArgs args = null)
-    {
-        // Clear the token cache
-        authContext.TokenCache.Clear();
+```csharp
+private void SignOut(object sender = null, RoutedEventArgs args = null)
+{
+    // Clear the token cache
+    authContext.TokenCache.Clear();
 
-        ...
-    }
-    ```
+    ...
+}
+```
 
 - However, if the user does not click the "Sign Out" button, you will want to maintain the user's session for the next time they run the DirectorySearcher.  When the app launches, you can check ADAL's token cache for an existing token and update the UI accordingly.  In the `CheckForCachedToken()` method, make another call to `AcquireTokenAsync(...)`, this time passing in the `PromptBehavior.Never` parameter.  `PromptBehavior.Never` will tell ADAL that the user should not be prompted for sign in, and ADAL should instead throw an exception if it is unable to return a token.
 
-    ```C#
-    public async void CheckForCachedToken() 
+```csharp
+public async void CheckForCachedToken() 
+{
+    // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.
+    AuthenticationResult result = null;
+    try
     {
-        // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.
-        AuthenticationResult result = null;
-        try
-        {
-            result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Never));
-        }
-        catch (AdalException ex)
-        {
-            if (ex.ErrorCode != "user_interaction_required")
-            {
-                // An unexpected error occurred.
-                MessageBox.Show(ex.Message);
-            }
-
-            // If user interaction is required, proceed to main page without singing the user in.
-            return;
-        }
-
-        // A valid token is in the cache
-        SignOutButton.Visibility = Visibility.Visible;
-        UserNameLabel.Content = result.UserInfo.DisplayableId;
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Never));
     }
-    ```
+    catch (AdalException ex)
+    {
+        if (ex.ErrorCode != "user_interaction_required")
+        {
+            // An unexpected error occurred.
+            MessageBox.Show(ex.Message);
+        }
+
+        // If user interaction is required, proceed to main page without singing the user in.
+        return;
+    }
+
+    // A valid token is in the cache
+    SignOutButton.Visibility = Visibility.Visible;
+    UserNameLabel.Content = result.UserInfo.DisplayableId;
+}
+```
 
 Congratulations! You now have a working .NET WPF application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your DirectorySearcher app, and sign in with one of those users.  Search for other users based on their UPN.  Close the app, and re-run it.  Notice how the user's session remains intact.  Sign out, and sign back in as another user.
 

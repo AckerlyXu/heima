@@ -30,7 +30,7 @@ ms.author: v-junlch
 ## I don't know how to create and configure a multi-tenant application
   The following documents can help you to resolve some of the most common issues in this category.
 
-  - [I don’t know how to set up a multi-tenant application](application-dev-setup-multi-tenant-app.md)
+  - [I don't know how to set up a multi-tenant application](application-dev-setup-multi-tenant-app.md)
 
 ## I don't know how to select or manage permissions for my application
   The following documents can help you to resolve some of the most common issues in this category.

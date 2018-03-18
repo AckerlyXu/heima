@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
 
 
@@ -41,16 +41,16 @@ For information about password reset in Azure Active Directory, see the topic [A
 
 ## Azure AD password protections
 
-Azure AD uses industry proven approaches to ensure secure protection of user and administrator passwords including:
+Azure AD and the Microsoft Account System use industry proven approaches to ensure secure protection of user and administrator passwords including:
 
 * Dynamically banned passwords
 * Smart Password Lockout
 
-For information about password management based on current research, see the whitepaper [Password Guidance](http://aka.ms/passwordguidance).
+For information about password management based on current research, see the whitepaper [Password Guidance](https://aka.ms/passwordguidance).
 
 ### Dynamically banned passwords
 
-Azure AD safeguards password protection by dynamically banning commonly used passwords. The Azure AD Identity Protection team routinely analyzes banned password lists, preventing users from selecting commonly used passwords. This service is available to Azure AD  Service customers.
+Azure AD  account safeguard password protection by dynamically banning commonly used passwords. The Azure AD Identity Protection team routinely analyzes banned password lists, preventing users from selecting commonly used passwords. This service is available to Azure AD and the Microsoft Account Service customers.
 
 When creating passwords, it is important for administrators to encourage users to choose password phrases that include a unique combination of letters, numbers, characters, or words. This approach helps to make user passwords nearly impossible to be compromised but easier for users to remember.
 
