@@ -1,5 +1,5 @@
 ---
-title: SQLRuleAction syntax reference in Azure | Microsoft Docs
+title: SQLRuleAction syntax reference in Azure
 description: Details about SQLRuleAction grammar.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/07/2017
-ms.date: 02/05/2018
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ---
 
 # SQLRuleAction syntax
 
-A *SqlRuleAction* is an instance of the [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
-
+A *SqlRuleAction* is an instance of the [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+  
 This article lists details about the SQL rule action grammar.  
 
 ```  
@@ -61,9 +61,9 @@ This article lists details about the SQL rule action grammar.
 ``` 
 
 ## Arguments  
-
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
-
+  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+  
 ### Remarks  
 
 An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property is not an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
@@ -215,9 +215,9 @@ The `property(name)` function returns the value of the property referenced by `n
 - SET performs implicit conversion if possible when the expression type and the existing property type are different.
 - Action fails if non-existent system properties were referenced.
 - Action does not fail if non-existent user properties were referenced.
-- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
+- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
 
 ## Next steps
 
-- [SQLRuleAction class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

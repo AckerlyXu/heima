@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -83,7 +83,7 @@ Any Azure resources you create in either virtual network are now able to communi
 
 The following script:
 
-- Requires the Azure CLI version 2.0.4 or later. To find the version, run the `az --version` command. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
+- Requires the Azure CLI version 2.0.4 or later. To find the version, run the `az --version` command. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest).
 - Works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -169,7 +169,7 @@ The following script:
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview).
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
 3. In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 4. Create a resource group and two virtual networks. To execute the script, copy the following script, paste it into PowerShell, and then press `Enter` after the last line appears on the screen:
@@ -273,13 +273,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 <!--PENDING ## <a name="register"></a>Register for the global virtual network peering preview-->
 ## <a name="register"></a>Register for the global virtual network peering preview
 
-The ability to peer virtual networks in different regions is currently in preview. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2). Virtual network peerings created between virtual networks in different regions may not have the same level of availability and reliability as a peering between virtual networks in the same region. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://www.azure.cn/what-is-new/) page.
-
-To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell, or the Azure CLI:
+Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://www.azure.cn/what-is-new/) for available regions. To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
 
 ### PowerShell
 
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session and log in to Azure using the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command.
 3. Register the subscription that each virtual network you want to peer is in for the preview by entering the following commands:
 
@@ -303,7 +301,7 @@ To peer virtual networks across regions, you must first register for the preview
 
 ### Azure CLI
 
-1. [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+1. [Install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2Fvirtual-network%2Ftoc.json?view=azure-cli-latest).
 2. Ensure you are using version 2.0.18 or higher of the Azure CLI by entering the `az --version` command. If you are not, install the most recent version.
 3. Log in to Azure with the `az login` command.
 4. Register for the preview by entering the following commands:
@@ -325,6 +323,6 @@ To peer virtual networks across regions, you must first register for the preview
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
-- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#vnet-peering) with virtual network peering.
+- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

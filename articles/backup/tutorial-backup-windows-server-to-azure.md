@@ -1,7 +1,7 @@
 ---
 title: Back up Windows Server to Azure | Microsoft Docs
 description: This tutorial details backing up on-premises Windows Servers to a Recovery Services vault.
-services: back up
+services: backup
 documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
@@ -9,13 +9,13 @@ editor: ''
 keywords: windows server back up; back up windows server; back up and disaster recovery
 
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/23/2017
-ms.date: 01/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
 
@@ -157,4 +157,4 @@ Continue to the next tutorial to recover files from Azure to Windows Server
 > [Restore files from Azure to Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update metedata properties -->

@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 02/26/2018
+origin.date: 01/24/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -51,7 +51,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
@@ -59,14 +58,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
-|Microsoft.DataFactory/factories|ActivityRuns|Pipeline activity runs log|
-|Microsoft.DataFactory/factories|PipelineRuns|Pipeline runs log|
-|Microsoft.DataFactory/factories|TriggerRuns|Trigger runs log|
-|Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
-|Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
-|Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
-|Microsoft.DataLakeStore/accounts|Requests|Request Logs|
 |Microsoft.Devices/IotHubs|Connections|Connections|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D Commands|
@@ -86,8 +79,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
 |Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
-|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
@@ -109,6 +100,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
@@ -118,6 +111,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Sql/servers/databases|Timeouts|Timeouts|
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Audit|Audit Logs|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 

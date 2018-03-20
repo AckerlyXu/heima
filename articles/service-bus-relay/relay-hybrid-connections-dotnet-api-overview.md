@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
+title: Overview of Azure Relay .NET Standard APIs
 description: Azure Relay .NET Standard API overview
 services: service-bus-relay
 documentationcenter: na
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
-This article summarizes some of the key Azure Relay Hybrid Connections .NET Standard [client APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay).
+
+This article summarizes some of the key Azure Relay Hybrid Connections .NET Standard [client APIs](/dotnet/api/microsoft.azure.relay).
   
-## Relay Connection String Builder
+## Relay Connection String Builder class
 
 The [RelayConnectionStringBuilder][RelayConnectionStringBuilder] class formats connection strings that are specific to Relay Hybrid Connections. You can use it to verify the format of a connection string, or to build a connection string from scratch. See the following code for an example:
 
 ```csharp
-var endpoint = "{Relay namespace}";
-var entityPath = "{Name of the Hybrid Connection}";
-var sharedAccessKeyName = "{SAS key name}";
-var sharedAccessKey = "{SAS key value}";
+var endpoint = "[Relay namespace]";
+var entityPath = "[Name of the Hybrid Connection]";
+var sharedAccessKeyName = "[SAS key name]";
+var sharedAccessKey = "[SAS key value]";
 
 var connectionStringBuilder = new RelayConnectionStringBuilder()
 {
@@ -43,7 +44,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 You can also pass a connection string directly to the `RelayConnectionStringBuilder` method. This operation enables you to verify that the connection string is in a valid format. If any of the parameters are invalid, the constructor generates an `ArgumentException`.
 
 ```csharp
-var myConnectionString = "{RelayConnectionString}";
+var myConnectionString = "[RelayConnectionString]";
 // Declare the connectionStringBuilder so that it can be used outside of the loop if needed
 RelayConnectionStringBuilder connectionStringBuilder;
 try
@@ -63,7 +64,8 @@ The [HybridConnectionStream][HCStream] class is the primary object used to send 
 ### Getting a Hybrid connection stream
 
 #### Listener
-Using a [HybridConnectionListener][HCListener], you can obtain a `HybridConnectionStream` object as follows:
+
+Using a [HybridConnectionListener][HCListener] object, you can obtain a `HybridConnectionStream` object as follows:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -75,7 +77,8 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### Client
-Using a [HybridConnectionClient][HCClient], you can obtain a `HybridConnectionStream` object as follows:
+
+Using a [HybridConnectionClient][HCClient] object, you can obtain a `HybridConnectionStream` object as follows:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -85,7 +88,8 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### Receiving data
-The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you may also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
+
+The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you might also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
 
 The following code reads individual lines of text from the stream until a cancellation is requested:
 
@@ -129,7 +133,7 @@ await textWriter.WriteLineAsync("hello");
 ## Next steps
 To learn more about Azure Relay, visit these links:
 
-* [Microsoft.Azure.Relay reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)
+* [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)
 * [What is Azure Relay?](./relay-what-is-it.md)
 * [Available Relay APIs](./relay-api-overview.md)
 

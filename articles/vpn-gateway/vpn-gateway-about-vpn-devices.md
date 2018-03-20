@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 01/23/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 
 ---
@@ -55,6 +55,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Configuration guide*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Configuration samples**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/A |Not compatible |Not compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and above |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuration guide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -101,8 +102,8 @@ After you download the provided VPN device configuration sample, you'll need to 
 | &lt;SP_AzureNetworkSubnetMask&gt; |Specify subnet mask. Example: 255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |Specify on-premises range. Example: 10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |Specify on-premises subnet mask. Example: 255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |This information specific to your virtual network as **Gateway IP address**. |
-| &lt;SP_PresharedKey&gt; |This information is specific to your virtual network as Manage Key. |
+| &lt;SP_AzureGatewayIpAddress&gt; |This information specific to your virtual network and is located in the Management Portal as **Gateway IP address**. |
+| &lt;SP_PresharedKey&gt; |This information is specific to your virtual network and is located in the Management Portal as Manage Key. |
 
 ## <a name="ipsec"></a>IPsec/IKE parameters
 

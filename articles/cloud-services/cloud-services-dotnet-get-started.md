@@ -2,8 +2,8 @@
 title: Get started with Azure Cloud Services and ASP.NET | Azure
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 services: cloud-services, storage
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 ---
 
@@ -27,8 +27,7 @@ This tutorial shows how to create a multi-tier .NET application with an ASP.NET 
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
 
 ## Contoso Ads application
-
-The application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full size image when they select an ad to see the details.
+The application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full-size image when they select an ad to see the details.
 
 ![Ad list](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -132,7 +131,7 @@ You'll do the following steps to run the application in the cloud:
 An Azure cloud service is the environment the application will run in.
 
 1. In your browser, open the [Azure portal](https://portal.azure.cn).
-2. Click **New > Compute > Cloud Service**.
+2. Click **Create a resource > Compute > Cloud Service**.
 
 3. In the DNS name input box, enter a URL prefix for the cloud service.
 
@@ -152,7 +151,7 @@ An Azure cloud service is the environment the application will run in.
 
 When the app runs in the cloud, it will use a cloud-based database.
 
-1. In the [Azure portal](https://portal.azure.cn), click **New > Databases > SQL Database**.
+1. In the [Azure portal](https://portal.azure.cn), click **Create a resource > Databases > SQL Database**.
 2. In the **Database Name** box, enter *contosoads*.
 3. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 4. In the following image, click **Server - Configure required settings** and **Create a new server**.
@@ -180,7 +179,7 @@ An Azure storage account provides resources for storing queue and blob data in t
 
 In a real-world application, you would typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial, you'll use just one account.
 
-1. In the [Azure portal](https://portal.azure.cn), click **New > Storage > Storage account - blob, file, table, queue**.
+1. In the [Azure portal](https://portal.azure.cn), click **Create a resource > Storage > Storage account - blob, file, table, queue**.
 2. In the **Name** box, enter a URL prefix.
 
     This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.

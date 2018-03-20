@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/19/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,8 @@ This tutorial provides two ways to retrieve connection string information:
 - An Azure account. If you don't have an Azure account, create a [trial Azure account](https://www.azure.cn/pricing/1rmb-trial/) now. 
 - An Azure Cosmos DB account. For instructions, see [Build a MongoDB API web app with .NET and the Azure portal](create-mongodb-dotnet.md).
 
-## <a id="QuickstartConnection"></a>Get the MongoDB connection string by using the quick start
+<a name="QuickstartConnection"></a>
+## Get the MongoDB connection string by using the quick start
 1. In an Internet browser, sign in to the [Azure portal](https://portal.azure.cn).
 2. In the **Azure Cosmos DB** blade, select the API for MongoDB account. 
 3. In the left pane of the account blade, click **Quick start**. 
@@ -42,7 +43,8 @@ This tutorial provides two ways to retrieve connection string information:
 
     ![Quick start blade](./media/connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a> Get the MongoDB connection string to customize
+<a name="GetCustomConnection"></a>
+## Get the MongoDB connection string to customize
 1. In an Internet browser, sign in to the [Azure portal](https://portal.azure.cn).
 2. In the **Azure Cosmos DB** blade, select the API for MongoDB account. 
 3. In the left pane of the account blade, click **Connection String**. 
@@ -74,7 +76,7 @@ For example, consider the account shown in the **Connection String** blade. A va
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.cn:10255/mydatabase?ssl=true
 
 ## Next steps
-* Learn how to [use MongoChef](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
+* Learn how to [use Studio 3T (MongoChef)](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
 * Explore the Azure Cosmos DB API for MongoDB by viewing [samples](mongodb-samples.md).
 
 <!--Update_Description: update meta properties, wording update-->

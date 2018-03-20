@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -36,7 +36,7 @@ The following diagram illustrates what you build in the tutorial.
 This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 ## Create an Azure account
-You need an Azure account. You can [open a trial Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) or [activate Visual Studio subscriber benefits](https://www.azure.cn/support/legal/offer-rate-plans/?WT.mc_id=A261C142F).
+You need an Azure account. You can [open a trial Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) or [activate Visual Studio subscriber benefits](https://www.azure.cn/support/legal/offer-rate-plans).
 
 ## Create a resource group
 1. Sign in to the [Azure portal](http://portal.azure.cn).
@@ -460,7 +460,8 @@ To add Failover Clustering features, do the following on both SQL Server VMs:
 
 Repeat the steps on the other SQL Server VM.
 
-## <a name="endpoint-firewall"></a> Configure the firewall on each SQL Server VM
+<a name="endpoint-firewall"></a>
+## Configure the firewall on each SQL Server VM
 
 The solution requires the following TCP ports to be open in the firewall:
 

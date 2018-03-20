@@ -1,5 +1,5 @@
 ---
-title: Scale up an app in Azure | Azure
+title: Scale up an app in Azure
 description: Learn how to scale up an app in Azure App Service to add capacity and features.
 services: app-service
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2016
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -73,15 +73,13 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 
     ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
 
+<a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
 ## Compare pricing tiers
 For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://www.azure.cn/pricing/details/web-sites/).
 
-<a name="OtherFeatures"></a>
-
-## Learn about other features
-* For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](https://www.azure.cn/pricing/details/app-service/).
+For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
 
 <a name="Next Steps"></a>
 
@@ -98,6 +96,7 @@ For detailed information, such as VM sizes for each pricing tier, see [App Servi
 
     [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]
 
+* For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/

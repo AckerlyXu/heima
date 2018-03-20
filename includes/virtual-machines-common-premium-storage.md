@@ -291,7 +291,7 @@ For detailed information about pricing for Premium Storage, Premium Storage-supp
 
 * [Azure Storage pricing](https://www.azure.cn/pricing/details/storage/)
 * [Virtual Machines pricing](https://www.azure.cn/pricing/details/virtual-machines/)
-<!-- Not Available on * [Managed disks pricing](https://www.azure.cn/pricing/details/managed-disks/) -->
+* [Managed disks pricing](https://www.azure.cn/pricing/details/storage/)
 
 ## Azure Backup support 
 
@@ -315,4 +315,4 @@ For more information about Premium Storage, see the following articles.
 
 <!--Update_Description: wording update-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 03/19/2018-->

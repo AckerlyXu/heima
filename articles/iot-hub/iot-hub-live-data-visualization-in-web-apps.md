@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 03/19/2018
 ---
 # Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service
 
@@ -46,8 +46,8 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 ## Create a web app
 
-1. In the [Azure Portal](https://portal.azure.cn/), click **New** > **Web + Mobile** > **Web App**.
-1. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
+1. In the [Azure portal](https://portal.azure.cn/), click **Create a resource** > **Web + Mobile** > **Web App**.
+2. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
 
    We recommend that you select the same location as that of your resource group. Doing so assists with processing speed and reduces the cost of data transfer.
 

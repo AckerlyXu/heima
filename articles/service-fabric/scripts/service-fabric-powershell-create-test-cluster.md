@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 12/12/2017
-ms.date: 01/01/2018
+origin.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ This sample script creates a three-node test Service Fabric cluster secured with
 
 The command creates a self-signed certificate and uploads it to a new key vault, which is created in the same resource group as the cluster. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview) and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview) and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
 
 ## Sample script
 
@@ -82,4 +82,4 @@ This script uses the following commands. Each command in the table links to comm
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
-<!-- Update_Description: new articles on creating service fabric test cluster with powershell -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -3,7 +3,7 @@ title: Azure IoT Hub communication protocols and ports | Azure
 description: Developer guide - describes the supported communication protocols for device-to-cloud and cloud-to-device communications and the port numbers that must be open.
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/31/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 03/19/2018
 ---
 # Reference - choose a communication protocol
 

@@ -1,10 +1,10 @@
 ---
-title: How to use Azure Redis Cache with Python | Azure
+title: How to use Azure Redis Cache with Python | Microsoft Docs
 description: Get started with Azure Redis Cache using Python
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
@@ -14,8 +14,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 02/10/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 02/28/2018
+ms.author: v-junlch
 
 ---
 # How to use Azure Redis Cache with Python
@@ -60,3 +60,5 @@ Replace `<name>` with your cache name and `key` with your access key.
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
+
+<!--Update_Description: update metedata properties -->

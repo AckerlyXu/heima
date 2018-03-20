@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ---
 
@@ -25,14 +25,13 @@ Each virtual machine (VM) in Azure is created from an image that defines the Lin
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
+Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az group create -n myResourceGroup -l chinaeast
 ```
-
 
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
@@ -53,7 +52,7 @@ An example of the output from the preceding commands is as follows:
 }
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -116,6 +115,7 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
   }]
 }
 ```
+<!-- Notice: SHOULD ADD "cloud_environment_name": "AzureChinaCloud" in json file -->
 
 This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovisions the VM.
 
@@ -196,7 +196,7 @@ ManagedImageLocation: chinaeast
 It takes a few minutes for Packer to build the VM, run the provisioners, and clean up the deployment.
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
 
 ```azurecli
 az vm create \
@@ -227,4 +227,4 @@ Now you can open a web browser and enter `http://publicIpAddress` in the address
 In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Ansible, Chef, or Puppet.
 
 For additional example Packer templates for other Linux distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

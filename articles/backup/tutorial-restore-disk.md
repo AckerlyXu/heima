@@ -1,21 +1,21 @@
 ---
 title: Restore a VM disk with Azure Backup | Microsoft Docs
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
-services: backup, virtual-machines
+services: backup
 documentationcenter: virtual-machines
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 09/28/2017
-ms.date: 10/31/2017
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
 ---
@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Prerequisites
-This tutorial requires a Linux VM that has been protected with Azure Backup. To simulate an accidental VM deletion and recovery process, you create a VM from a disk in a recovery point.If you need a Linux VM that has been protected with Azure Backup, see [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md).
+This tutorial requires a Linux VM that has been protected with Azure Backup. To simulate an accidental VM deletion and recovery process, you create a VM from a disk in a recovery point. If you need a Linux VM that has been protected with Azure Backup, see [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md).
 
 
 ## Backup overview
@@ -179,3 +179,4 @@ Advance to the next tutorial to learn about restoring individual files from a re
 > [Restore files to a virtual machine in Azure](tutorial-restore-files.md)
 
 
+<!--Update_Description: update metedata properties -->

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/07/2017
-ms.date: 01/01/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -181,4 +181,4 @@ For more information about other features supported by application manifests, re
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
 
-<!-- Update_Description: new articles service fabric application and service manifests -->
+<!-- Update_Description: update meta properties -->

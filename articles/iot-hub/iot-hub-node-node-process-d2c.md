@@ -1,5 +1,5 @@
 ---
-title: Routing messages with Azure IoT Hub (Node) | Microsoft Docs
+title: Routing messages with Azure IoT Hub (Node)
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: node
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/17/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -87,7 +87,7 @@ In this section, you modify the device app you created in the [Get started with 
     };
     ```
    
-    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application supports routing messages based on message body.
    
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
@@ -102,6 +102,9 @@ In this section, you modify the device app you created in the [Get started with 
 In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node].
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-node]. Make a note of the namespace and queue name.
+
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
@@ -248,7 +251,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-sb-queues-node]: ../service-bus-messaging/service-bus-nodejs-how-to-use-queues.md
 
 [Azure Storage]: /storage/
-[Azure Service Bus]: /service-bus/
+[Azure Service Bus]: /service-bus-messaging/
 
 [IoT Hub developer guide]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

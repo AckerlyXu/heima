@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 
 ---
 # Stream Azure monitoring data to an event hub for consumption by an external tool
@@ -36,7 +36,7 @@ Before you begin, you need to [create an Event Hubs namespace and event hub](../
 ## How do I set up Azure platform monitoring data to be streamed to an event hub?
 
 Azure platform monitoring data comes from two main sources:
-1. The [Azure activity log](./monitoring-overview-activity-logs.md), which contains the create, update, and delete operations from Resource Manager, the changes in Azure service health that may impact resources in your subscription, the [resource health](../service-health/resource-health-overview.md) state transitions, and several other types of subscription-level events. [This article details all categories of events that appear in the Azure activity log](./monitoring-activity-log-schema.md).
+1. The [Azure activity log](./monitoring-overview-activity-logs.md), which contains the create, update, and delete operations from Resource Manager, the changes in [Azure service health](../service-health/service-health-overview.md) that may impact resources in your subscription, the [resource health](../service-health/resource-health-overview.md) state transitions, and several other types of subscription-level events. [This article details all categories of events that appear in the Azure activity log](./monitoring-activity-log-schema.md).
 2. [Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant. It is not yet possible to stream Azure Active Directory data into an event hub.
 
 ### Stream Azure activity log data into an event hub
@@ -80,7 +80,9 @@ The [Windows Azure Diagnostic agent](./azure-diagnostics.md) can be used to send
 Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools. Most tools require the event hub connection string and certain permissions to your Azure subscription to read data from the event hub. Here is a non-exhaustive list of tools with Azure Monitor integration:
 
 * **IBM QRadar** - The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](http://www.ibm.com/support). You can [learn more about the integration with Azure here](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** - [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **Splunk** - Depending on your Splunk setup, there are two approaches:
+    1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## Next Steps

@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/28/2017
-ms.date: 12/25/2017
+origin.date: 02/21/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -50,10 +50,15 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 	* From the **Subscription** drop-down, select the Azure subscription that is used for the cluster.
 
 	* Click **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. For **Operating system**, click **Linux** and then select a version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-             > [!IMPORTANT]
-             > HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
-             > 
-             > 
+
+        For Hadoop, Spark, and Interactive Query cluster types, you can also select to install the **Enterprise Security Package**. Enterprise Security Package enables security features such as Azure Active Directory integration and Apache Ranger for the clusters. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+        ![Enable Enterprise Security Package](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Enable Enterprise Security Package")
+     
+    	> [!IMPORTANT]
+    	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
+    	> 
+    	> 
 		
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
@@ -162,5 +167,4 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](spark/apache-spark-eventhub-streaming.md)
 

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -65,6 +65,7 @@ Additional data disks can be added for installing applications and storing data.
 | [General purpose](sizes-general.md) | A and D series | 32 |
 | [Compute optimized](sizes-compute.md) | F series | 32 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D series | 64 |
+<!-- Not Available on L, N, A and H series-->
 
 ## VM disk types
 
@@ -101,7 +102,7 @@ Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/c
 az group create --name myResourceGroupDisk --location chinaeast
 ```
 
-Create a VM using the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli 
 az vm create \
@@ -115,7 +116,7 @@ az vm create \
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -200,13 +201,13 @@ Before increasing disk size, the Id or name of the disk is needed. Use the [az d
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-The VM must also be deallocated. Use the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) command to stop and deallocate the VM.
+The VM must also be deallocated. Use the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate) command to stop and deallocate the VM.
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Use the [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
+Use the [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
 
 ```azurecli 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -294,4 +295,4 @@ Advance to the next tutorial to learn about automating VM configuration.
 > [!div class="nextstepaction"]
 > [Automate VM configuration](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update link, wording update -->

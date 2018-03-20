@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Diagnostic Logs | Microsoft Docs
+title: Overview of Azure Diagnostic Logs
 description: Learn what Azure diagnostic logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
 manager: orenr
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/21/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -161,7 +161,7 @@ Ensure that all of your resources are set up with diagnostic settings. Navigate 
 
 ![Diagnostic Logs blade in the portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-You may have to click "More services" to find the Monitor section.
+You may have to click "All services" to find the Monitor section.
 
 Here you can view and filter all resources that support diagnostic settings to see if they have diagnostics enabled. You can also drill down to see if multiple settings are set on a resource and check which storage account, Event Hubs namespace, and/or Log Analytics workspace that data are flowing to.
 

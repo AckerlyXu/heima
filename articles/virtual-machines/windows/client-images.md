@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/15/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
 # Use Windows client in Azure for dev/test scenarios
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. This article outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+You can use Windows 7, Windows 8, or Windows 10 Enterprise (x64) in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. This article outlines the eligibility requirements for running Windows 7, Windows 8.1, Windows 10 Enterprise in Azure and use of the following Azure Gallery images.
 
 ## Subscription eligibility
 Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client for development and testing purposes. Windows client can be used on your own hardware and Azure virtual machines running in any type of Azure subscription. Windows client may not be deployed to or used on Azure for normal production use, or used by people who are not active Visual Studio subscribers.
@@ -50,5 +50,4 @@ You can also view the offer ID from the ['Subscriptions' tab](http://account.win
 
 ## Next steps
 You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-<!--Update_Description: new articles on vm client images -->
-<!--ms.date: 01/08/2018-->
+<!--Update_Description: update meta properties, wording update  -->

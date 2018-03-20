@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -22,9 +22,9 @@ ms.author: v-yeche
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure a specific hostname on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Set the hostname with cloud-init
-By default, the hostname is the same as the VM name when you create a new virtual machine in Azure.  To run a cloud-init script to change this default hostname when you create a VM in Azure with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create), specify the cloud-init file with the `--custom-data` switch.  
+By default, the hostname is the same as the VM name when you create a new virtual machine in Azure.  To run a cloud-init script to change this default hostname when you create a VM in Azure with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create), specify the cloud-init file with the `--custom-data` switch.  
 
-To see upgrade process in action, create a file in your current shell named *cloud_init_hostname.txt* and paste the following configuration. You can use any editor you wish. Enter `sensible-editor cloud_init_hostname.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+To see upgrade process in action, create a file in your current shell named *cloud_init_hostname.txt* and paste the following configuration. For this example, create the file in  your local machine. You can use any editor you wish. Enter `sensible-editor cloud_init_hostname.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
 <!-- Not Available on Cloud Shell -->
 
 ```yaml
@@ -32,13 +32,13 @@ To see upgrade process in action, create a file in your current shell named *clo
 hostname: myhostname
 ```
 
-Before deploying this image, you need to create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
+Before deploying this image, you need to create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-Now, create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) and specify the cloud-init file with `--custom-data cloud_init_hostname.txt` as follows:
+Now, create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) and specify the cloud-init file with `--custom-data cloud_init_hostname.txt` as follows:
 
 ```azurecli 
 az vm create \
@@ -74,5 +74,4 @@ For additional cloud-init examples of configuration changes, see the following:
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)
-<!-- Update_Description: new articles on using cloudinit to update VM hostname -->
-<!-- ms.date: 01/08/2018 -->
+<!-- Update_Description: wording update, update link -->

@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/14/2017
-ms.date: 01/23/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -62,11 +62,18 @@ When you try to connect to an Azure virtual network by using the VPN client, you
 
 ### Cause
 
-This problem occurs if the root certificate public key is not uploaded into the Azure VPN gateway. It can also occur if the key is corrupted or expired.
+This problem occurs if one of the following conditions is true:
+
+- The use user-defined routes (UDR) with default route on the Gateway Subnet is set incorrectly.
+- The root certificate public key is not uploaded into the Azure VPN gateway. 
+- The key is corrupted or expired.
 
 ### Solution
 
-To resolve this problem, check the status of the root certificate in the Azure portal to see whether it was revoked. If it is not revoked, try to delete the root certificate and reupload. For more information, see [Create certificates](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+To resolve this problem, follow these steps:
+
+1. Remove UDR on the Gateway Subnet. Make sure UDR forwards all traffic properly.
+2. Check the status of the root certificate in the Azure portal to see whether it was revoked. If it is not revoked, try to delete the root certificate and reupload. For more information, see [Create certificates](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## VPN client error: A certificate chain processed but terminated 
 
@@ -196,7 +203,7 @@ When you try to download the VPN client configuration package, you receive the f
 
 This error can be caused by a temporary network problem. Try to download the VPN package again after a few minutes.
 
-## Azure VPN Gateway upgrade: All P2S clients are unable to connect
+## Azure VPN Gateway upgrade: All Point to Site clients are unable to connect
 
 ### Cause
 
@@ -204,7 +211,7 @@ If the certificate is more than 50 percent through its lifetime, the certificate
 
 ### Solution
 
-To resolve this problem, create and redistribute new certificates to the VPN clients. 
+To resolve this problem, redeploy the Point to Site package on all clients.
 
 ## Too many VPN clients connected at once
 
@@ -231,6 +238,10 @@ If address belongs to class A --> apply /8
 If address belongs to class B --> apply /16
 
 If address belongs to class C --> apply /24
+
+### Solution
+
+Have routes for other networks be injected in the routing table with longest prefix match or lower metric (hence higher priority) than the Point to Site. 
 
 ## VPN client cannot access network file shares
 
@@ -259,7 +270,7 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 
 ### Solution
 
-To resolve the problem, delete the old VPN client configuration files from **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, and then run the VPN client installer again.
+To resolve the problem, delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
 
 ## Point-to-site VPN client cannot resolve the FQDN of the resources in the local domain
 
@@ -300,4 +311,46 @@ Check the proxy server settings, make sure that the client can access http://crl
 
 Root certificate had not been installed. The root certificate is installed in the client's **Trusted certificates** store.
 
-<!-- Update_Description: wording update -->
+## VPN Client Error: The remote connection was not made because the attempted VPN tunnels failed. (Error 800) 
+
+### Cause
+
+The NIC driver is outdated.
+
+### Solution
+
+Update the NIC driver:
+
+1. Click **Start**, type **Device Manager**, and select it from the list of results. If you're prompted for an administrator password or confirmation, type the password or provide confirmation.
+2. In the **Network adapters ** categories, find the NIC that you want to update.  
+3. Double-click the device name, select **Update driver**, select **Search automatically for updated driver software**.
+4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
+5. Restart the computer and try the connection again.
+
+## Error: 'File download error Target URI is not specified'
+
+### Cause
+
+This is caused by an incorrect gateway type is configured.
+
+### Solution
+
+The Azure VPN gateway type must be VPN and the VPN type must be **RouteBased**.
+
+## VPN package installer doesn’t complete
+
+### Cause
+
+This problem can be caused by the previous VPN client installations. 
+
+### Solution
+
+Delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
+
+## The VPN client hibernates or sleep after some time
+
+### Solution
+
+Check the sleep and hibernate settings in the computer that the VPN client is running on.
+
+<!--Update_Description: wording update -->

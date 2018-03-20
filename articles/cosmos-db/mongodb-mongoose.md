@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
-ms.workload: 
+ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 01/08/2018
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -182,7 +182,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 1. Now, going into the Azure portal, you notice two collections created in Azure Cosmos DB.
 
-    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
+    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with multiple collection names highlighted - Node database][mutiple-coll]
 
 1. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads are the same as any other reads with Mongoose.
 
@@ -287,7 +287,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
 
 1. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
-    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][mutiple-coll]
+    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
 
 1. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
 
@@ -311,4 +311,4 @@ Learn more about the MongoDB operations, operators, stages, commands and options
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
-<!-- Update_Description: new articles on mongodb mongoose sample -->
+<!-- Update_Description: update meta properties, wording update, update link -->

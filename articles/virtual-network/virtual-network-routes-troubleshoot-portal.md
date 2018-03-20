@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -53,7 +53,7 @@ While the example uses only system routes, the same steps can be used to determi
 To see the aggregate routes that are applied to a VM, complete the following steps:
 
 1. Login to the Azure portal at https://portal.azure.cn. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions).
-2. Click **More services**, then click **Virtual machines** in the list that appears.
+2. Click **All services**, then click **Virtual machines** in the list that appears.
 3. Select a VM to troubleshoot from the list that appears and a VM blade with options appears.
 4. Click **Diagnose & solve problems** and then select a common problem. For this example, **I can't connect to my Windows VM** is selected.
 
@@ -95,7 +95,7 @@ For more troubleshooting scenarios for forced-tunneling and route evaluation, re
 If network traffic flow is impacted for a particular network interface (NIC), you can view a full list of effective routes on a NIC directly. To see the aggregate routes that are applied to a NIC, complete the following steps:
 
 1. Login to the Azure portal at https://portal.azure.cn.
-2. Click **More services**, then click **Network interfaces**
+2. Click **All services**, then click **Network interfaces**
 3. Search the list for the name of a NIC, or select it from the list that appears. In this example, **VM1-NIC1** is selected.
 4. Select **Effective routes** in the **Network interface** blade, as shown in the following picture:
 
@@ -115,7 +115,7 @@ For this example, a UDR (*UDRoute*) is specified in a route table (*UDRouteTable
 To see the aggregate routes for a route table, complete the following steps:
 
 1. Login to the Azure portal at https://portal.azure.cn.
-2. Click **More services**, then click **Route tables**
+2. Click **All services**, then click **Route tables**
 3. Search the list for the route table you want to see aggregate routes for and select it. In this example, **UDRouteTable** is selected. A blade for the selected route table appears, as shown in the following picture:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)
@@ -149,4 +149,4 @@ A few things to keep in mind when reviewing the list of routes returned:
   * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
   * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-portal.md) article.
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

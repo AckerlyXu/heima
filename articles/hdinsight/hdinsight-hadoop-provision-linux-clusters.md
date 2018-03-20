@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/14/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -85,6 +85,15 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+### Enterprise security package
+
+For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Direcotry. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md).
+
+
 ## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
@@ -112,6 +121,8 @@ During configuration, for the default storage endpoint you specify a blob contai
 
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
+
+For more information, see [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > When you create a custom metastore, don't use dashes, hyphens, or spaces in the database name. This can cause the cluster creation process to fail.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
+ms.date: 03/19/2018
 
 ---
 # Schedule and broadcast jobs (.NET/Node.js)
@@ -78,6 +78,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 1. Add the following `using` statement if not already present in the default statements.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 

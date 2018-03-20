@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/05/2018
-ms.date: 02/26/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
+
 ---
 # Specify resources in a service manifest
 ## Overview
@@ -209,4 +210,4 @@ And the Port1 and Protocol1 value for Application parameters is null or empty. T
 Suppose you specify a wrong value. Like for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error :
 The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

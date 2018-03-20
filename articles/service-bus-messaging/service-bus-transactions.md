@@ -1,5 +1,5 @@
 ---
-title: Overview of transaction processing in Azure Service Bus | Azure
+title: Overview of transaction processing in Azure Service Bus
 description: Overview of Azure Service Bus atomic transactions and send via
 services: service-bus
 documentationCenter: .net
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/12/2017
-ms.date: 11/13/2017
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ---
 

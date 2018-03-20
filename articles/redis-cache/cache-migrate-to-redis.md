@@ -3,8 +3,8 @@ title: Migrate Managed Cache Service applications to Redis - Azure | Microsoft D
 description: Learn how to migrate Managed Cache Service and In-Role Cache applications to Azure Redis Cache
 services: redis-cache
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 05/30/2017
-ms.date: 09/14/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
 
 ---
@@ -123,7 +123,7 @@ In Managed Cache Service, connections to the cache were handled by the `DataCach
 
 Add the following using statement to the top of any file from which you want to access the cache.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -136,7 +136,7 @@ If this namespace doesn’t resolve, be sure that you have added the StackExchan
 
 To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the endpoint and key. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This provides a thread-safe way to initialize only a single connected `ConnectionMultiplexer` instance. In this example `abortConnect` is set to false, which means that the call will succeed even if a connection to the cache is not established. One key feature of `ConnectionMultiplexer` is that it will automatically restore connectivity to the cache once the network issue or other causes are resolved.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=...");
@@ -155,7 +155,7 @@ The cache endpoint, keys, and ports can be obtained from the **Redis Cache** bla
 
 Once the connection is established, return a reference to the Redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -176,7 +176,7 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
 
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 
@@ -189,3 +189,4 @@ Azure Redis Cache has providers for both ASP.NET Session State and Page Output c
 Explore the [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) for tutorials, samples, videos, and more.
 
 
+<!--Update_Description: wording update -->

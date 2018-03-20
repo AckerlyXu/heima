@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -34,7 +34,7 @@ You will learn:
 * How to prepare the virtual machine for Tomcat7.
 * How to install Tomcat7.
 
-It is assumed that you already have an Azure subscription.  If not, you can sign up for a trial at [the Azure website](https://www.azure.cn/).
+It is assumed that you already have an Azure subscription.  If not, you can sign up for a trial at [the Azure website](https://www.azure.cn/). If you have an MSDN subscription, see [Azure Special Pricing: MSDN Benefits](https://www.azure.cn/offers/ms-mc-arz-msdn/). To learn more about Azure, see [What is Azure?](https://www.azure.cn/home/features/what-is-azure/).
 
 This article assumes that you have a basic working knowledge of Tomcat and Linux.  
 
@@ -60,7 +60,7 @@ Follow these steps to generate the SSH authentication key.
 6. Click **Save private key**, and save it in a file named privateKey.ppk.
 
 ### Step 2: Create the image in the Azure portal
-1. In the [portal](https://portal.azure.cn/), click **New** in the task bar to create an image. Then choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
+1. In the [portal](https://portal.azure.cn/), click **Create a resource** in the task bar to create an image. Then, choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
 ![Screenshot of the portal that shows the New button][3]
 
 2. For **Host Name**, specify the name for the URL that you and Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example, tomcatdemo. Azure will then generate the URL as tomcatdemo.chinacloudapp.cn.  
@@ -325,4 +325,4 @@ The following command only changes the permission of the folder directory. The f
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!-- Update_Description: Add classic portal migration notice. -->
+<!-- Update_Description: update meta properties, update link, wording update -->

@@ -4,4 +4,5 @@
 > If you are using the storage emulator, see the [client library README](https://github.com/Azure/azure-storage-net/blob/master/README.md) for version requirements. In order to use the Storage Client Library for .NET with the storage emulator, a corresponding minimum version of the Azure storage emulator must be used.
 > 
 > 
-
+<!-- Update_Description: wording update, update link -->
+<!--ms.date: 03/05/2018-->

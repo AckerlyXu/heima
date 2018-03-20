@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/10/2016
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ---
 
@@ -25,7 +25,7 @@ ms.author: v-yiso
 ## Overview
 In this tutorial, you add push notifications to the [iOS quick start] project so that a push notification is sent to the device every time a record is inserted.
 
-If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
+If you do not use the downloaded quickstart server project, you will need the push notification extension package. For more information, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
 
 The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). You need a physical iOS device and an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 

@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 11/13/2017
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -27,9 +27,9 @@ Create, delete, and manage Docker Compose deployments.
 | --- | --- |
 |    create| Deploy a Service Fabric application from a Compose file.|
 |    list  | Gets the list of compose deployments created in the Service Fabric cluster.|
-|   remove| Deletes an existing Service Fabric compose deployment from cluster.|
-|   status| Gets information about a Service Fabric compose deployment.|
-|upgrade       | Starts upgrading a compose deployment in the Service Fabric cluster.|
+|    remove| Deletes an existing Service Fabric compose deployment from cluster.|
+|    status| Gets information about a Service Fabric compose deployment.|
+|    upgrade       | Starts upgrading a compose deployment in the Service Fabric cluster.|
 |    upgrade-status| Gets details for the latest upgrade performed on this Service Fabric compose deployment.|
 
 ## sfctl compose create
@@ -40,11 +40,11 @@ Creates a Service Fabric compose deployment.
 |Argument|Description|
 | --- | --- |
 | --file-path [Required]| Path to the target Docker Compose file.|
- |   --deployment-name  [Required]| The name of the deployment.|
+|    --deployment-name  [Required]| The name of the deployment.|
 |    --encrypted-pass             | Rather than prompting for a container registry password, use an already encrypted passphrase.|
 |    --has-pass                   | Prompts for a password to the container registry.|
 |    --timeout -t                 | Server time-out in seconds.  Default: 60.|
- |   --user                       | User name to connect to container registry.|
+|    --user                       | User name to connect to container registry.|
 
 ### Global Arguments
 
@@ -52,7 +52,7 @@ Creates a Service Fabric compose deployment.
 | --- | --- |
 | --debug                 | Increase logging verbosity to show all debug logs.|
 | --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
+| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv. Default: json.|
 | --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
@@ -68,8 +68,8 @@ Gets the status about the compose deployments that were created or are in the pr
 
 |Argument|Description|
 | --- | --- |
-| --continuation-token| The continuation token parameter is used to obtain next set of results. A      continuation token with a non empty value is included in the response of      the API when the results from the system do not fit in a single response.      When this value is passed to the next API call, the API returns next set      of results. If there are no further results, then the continuation token      does not contain a value. The value of this parameter should not be URL      encoded.|
-| --max-results    | The maximum number of results to be returned as part of the paged queries.      This parameter defines the upper bound on the number of results returned.      If      they do not fit in the message as per the max message size restrictions      defined in the configuration, the results returned can be less than the specified maximum results. If this parameter is zero or not specified,      the paged queries include as many results as possible that fit in the      return message.|
+| --continuation-token| The continuation token parameter is used to obtain next set of results. A continuation token with a non empty value is included in the response of the API when the results from the system do not fit in a single response. When this value is passed to the next API call, the API returns next set of results. If there are no further results, then the continuation token does not contain a value. The value of this parameter should not be URL encoded.|
+| --max-results    | The maximum number of results to be returned as part of the paged queries. This parameter defines the upper bound on the number of results returned. If they do not fit in the message as per the max message size restrictions defined in the configuration, the results returned can be less than the specified maximum results. If this parameter is zero or not specified, the paged queries include as many results as possible that fit in the return message.|
 | --timeout -t     | Server time-out in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -91,8 +91,8 @@ Deletes an existing Service Fabric compose deployment.
 
 |Argument|Description|
 | --- | --- |
-| --deployment-name [Required]| The identity of the deployment. This is typically the full name of             the application without the 'fabric:' URI scheme.|
-| --timeout -t            | Server time-out in seconds.  Default: 60.|
+| --deployment-name [Required]| The identity of the deployment. This is typically the full name of the application without the 'fabric:' URI scheme.|
+| --timeout -t            | Server time-out in seconds. Default: 60.|
 
 ### Global Arguments
 
@@ -100,7 +100,7 @@ Deletes an existing Service Fabric compose deployment.
 | --- | --- |
 | --debug                 | Increase logging verbosity to show all debug logs.|
 | --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
+| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv. Default: json.|
 | --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
@@ -124,7 +124,7 @@ Returns the status of compose deployment that was created or in the process of b
 | --- | --- |
 | --debug                 | Increase logging verbosity to show all debug logs.|
 | --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
+| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv. Default: json.|
 | --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
@@ -140,9 +140,9 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 |    --deployment-name  [Required]| The name of the deployment.|
 |    --default-svc-type-health-map| JSON encoded dictionary that describes the health policy used to                                   evaluate the health of services.|
 |    --encrypted-pass             | Rather than prompting for a container registry password, use an                                   already encrypted passphrase.|
- |   --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.|
+|    --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.|
 |    --force-restart              | Force restart.|
- |   --has-pass                   | Prompts for a password to the container registry.|
+|    --has-pass                   | Prompts for a password to the container registry.|
 |    --health-check-retry         | Health check retry time-out measured in milliseconds.|
 |    --health-check-stable        | Health check stable duration measured in milliseconds.|
 |    --health-check-wait          | Health check wait duration measured in milliseconds.|
@@ -161,14 +161,13 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
  |Argument|Description|
 | --- | --- |
 |   --debug                      | Increase logging verbosity to show all debug logs.|
-|    --help -h                    | Show this help message and exit.|
- |   --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv.
-                                   Default: json.|
- |   --query                      | JMESPath query string. See http://jmespath.org/ for more                                   information and examples.|
- |   --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
+|   --help -h                    | Show this help message and exit.|
+|   --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv. Default: json.|
+|   --query                      | JMESPath query string. See http://jmespath.org/ for more.|                                information and examples.|
+|   --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/service-fabric/scripts/sfctl-upgrade-application).
 
-<!--Update_Description: new articles on service fabric sfctl compose -->
+<!--Update_Description: update meta properties, wording update -->

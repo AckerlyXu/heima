@@ -1,1 +1,2 @@
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and CSDN](https://www.azure.cn/support/forums/). You can post your issue on these forums. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://www.azure.cn/support/contact/) site.
+If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and CSDN](https://www.azure.cn/support/forums/). You can post your issue on these forums. You also can submit an Azure support request. To submit a support request, on the [Azure support](https://www.azure.cn/support/contact/) page.
+<!--ms.date: 03/19/2018 -->

@@ -33,13 +33,15 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor and update VMs
+  - name: 10 - Govern VMs
+    href: tutorial-govern-resources.md
+  - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 11 - Team Services CI/CD
+  - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 12 - Install a SQL\IIS\.NET stack
+  - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 13 - Secure web server with SSL
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -113,7 +115,11 @@
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk
-      href: create-vm-specialized.md
+      items:
+      - name: Portal
+        href: create-vm-specialized-portal.md
+      - name: PowerShell
+        href: create-vm-specialized.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
@@ -126,6 +132,8 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
+    - name: Use Azure Hybrid Benefit license
+      href: hybrid-use-benefit-licensing.md
   - name: Secure VMs
     items:
     - name: Encrypt
@@ -143,6 +151,8 @@
     items:
       - name: Back up a single VM
         items:
+        - name: Azure portal
+          href: ../../backup/quick-backup-vm-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Azure PowerShell
           href: ../../backup/quick-backup-vm-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
       - name: Back up multiple VMs
@@ -170,6 +180,10 @@
       href: agent-user-guide.md
     - name: Planned maintenance
       href: maintenance-notifications.md
+    - name: Mitigating speculative execution
+      href: mitigate-se.md
+    - name: Accelerated maintenance FAQ
+      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -242,6 +256,8 @@
       href: convert-disk-storage.md
     - name: Migrate to Premium storage with Azure Site Recovery
       href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Find unattached disks
+      href: find-unattached-disks.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
@@ -270,6 +286,8 @@
       href: multiple-nics.md
     - name: Assign public DNS name
       href: portal-create-fqdn.md
+    - name: DNS resolution
+      href: ../../dns/dns-for-azure-services.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Use VM extensions
     items:
     - name: VM extensions overview
@@ -293,6 +311,8 @@
       href: extensions-troubleshoot.md
     - name: Monitoring and Diagnostics Extension
       href: extensions-diagnostics-template.md
+    - name: Network Watcher Agent
+      href: extensions-nwa.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -361,6 +381,8 @@
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
 ### troubleshoot-vm-by-use-nested-virtualization.md is invalid
+    - name: Install the VM agent in offline mode
+      href: install-vm-agent-offline.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -388,5 +410,5 @@
     href: https://www.azure.cn/pricing/details/virtual-machines/
   - name: FAQ
     href: faq.md
-### ms.date: 02/05/2018
+### ms.date: 03/19/2018
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -187,7 +187,7 @@ Reliable Collections can store any .NET type, including your custom types, with 
 The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
 ### Transactional and asynchronous operations
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
@@ -227,4 +227,4 @@ After the services start running, you can view the generated Event Tracing for W
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update， update meta properties -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/11/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -67,7 +67,7 @@ When one of the previous conditions happen, **System.FM** or **System.FMM** flag
 * **Next steps**: Investigate the network connection between the nodes, as well as the state of any specific nodes that are listed on the description of the health report.
 
 ## Node system health reports
-**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync?view=azure-dotnet).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -626,6 +626,20 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
 
+### Replicator system health reports
+**Replication queue full:**
+**System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
+
+* **SourceId**: System.Replicator
+* **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
+* **Next steps**: If the report is on the primary, check the connection between the nodes in the cluster. If all connections are healthy, there could be at least one slow secondary with a high disk latency to apply operations. If the report is on the secondary, check the disk usage and performance on the node first and then the outgoing connection from the slow node to the primary.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** on the primary replica reports a warning when the connection to a secondary (remote) replicator is not healthy. Remote replicator's address is shown in the report's message, making it more convenient to detect if a wrong config has been passed in or there are network issues between the replicators.
+
+* **SourceId**: System.Replicator
+* **Property**: **RemoteReplicatorConnectionStatus**
+* **Next steps**: Check the error message and make sure the remote replicator address is configured correctly (for example, if remote replicator is opened with "localhost" listen address, it is not reachable from the outside). If address looks correct, check the connection between the primary node and the remote address to find any potential network issues.
 ### Replication queue full
 **System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
 
@@ -633,7 +647,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 * **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
 
 ### Slow Naming operations
-**System.NamingService** reports the health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient, for example under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** reports the health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) or [DeleteServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync?view=azure-dotnet). More methods can be found under FabricClient, for example under [service management methods](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient?view=azure-dotnet) or [property management methods](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.propertymanagementclient?view=azure-dotnet).
 
 > [!NOTE]
 > The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. It's a Service Fabric partitioned-persisted service. One of the partitions represents the *Authority Owner*, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called *Name Owner* partitions, so the service is extensible. Read more about the [Naming service](service-fabric-architecture.md).
@@ -838,5 +852,5 @@ System.Hosting reports a warning if node capacities are not defined in the clust
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, update link, wording update -->
 

@@ -1,5 +1,5 @@
 1. In a new browser window, sign in to the [Azure portal](https://portal.azure.cn/).
-2. In the left menu, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**. 
+2. In the left menu, click **Create a resource**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**. 
 
    ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -15,7 +15,7 @@
     Enable geo-redundancy| Leave blank | This creates a replicated version of your database in a second (paired) region. Leave this blank.  
     Pin to dashboard | Select | Select this box so that your new database account is added to your portal dashboard for easy access.
 
-    Then click **Create**.  
+    Then, click **Create**.  
 
     ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -25,4 +25,4 @@
 
     Once the account is created, the **Congratulations! Your Azure Cosmos DB account was created** page is displayed.
 <!--Update_Description: wording update-->
-<!--ms.date: 11/27/2017-->
+<!--ms.date: 03/05/2018-->

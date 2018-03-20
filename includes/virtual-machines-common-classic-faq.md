@@ -13,7 +13,7 @@ All subscribers can run server software on an Azure virtual machine. You can run
 
 • For Linux VMs -- [Linux on Azure-Endorsed Distributions](/virtual-machines/linux/endorsed-distros)
 
-For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev subscribers, for development and test tasks.
+For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks.
 <!-- Not Available on Mooncake [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog//2014/05/29/windows-client-images-on-azure/)-->
 
 ## Why are affinity groups being deprecated?
@@ -31,7 +31,7 @@ An Azure storage account provides storage for the operating system disk and any 
 ## Which virtual hard disk types can I use?
 Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
 
-* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 * For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Are these virtual machines the same as Hyper-V virtual machines?
@@ -126,4 +126,5 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 [Create and Manage Linux VMs with the Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Create and Manage Windows VMs with Azure PowerShell ](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->
+<!--ms.date: 03/19/2018 -->

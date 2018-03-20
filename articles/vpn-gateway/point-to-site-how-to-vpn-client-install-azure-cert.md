@@ -1,10 +1,10 @@
 ---
 title: 'Install a P2S client certificate | Azure'
-description: This article helps you install a client cert for P2S certificate authentication.
+description: Install a Mac or Windows client cert for P2S certificate authentication.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager, azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/24/2017
-ms.date: 11/07/2017
+origin.date: 02/12/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 
 ---
@@ -49,3 +49,4 @@ Continue with the Point-to-Site configuration steps.
 - [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 
+<!--Update_Description: update metedata properties -->

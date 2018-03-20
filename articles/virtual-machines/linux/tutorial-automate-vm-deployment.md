@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -46,11 +46,12 @@ We are working with our partners to get cloud-init included and working in the i
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
 | CoreOS |CoreOS |CoreOS |Stable |latest |
+| | OpenLogic | CentOS | 7-CI | latest |
 
 ## Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
-In your current shell, create a file named *cloud-init.txt* and paste the following configuration. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+In your current shell, create a file named *cloud-init.txt* and paste the following configuration. You can use any editor you wish. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 <!-- Not Avaialble cloud shell-->
 
 ```yaml
@@ -98,13 +99,13 @@ runcmd:
 For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## Create virtual machine
-Before you can create a VM, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroupAutomate* in the *chinaeast* location:
+Before you can create a VM, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group named *myResourceGroupAutomate* in the *chinaeast* location:
 
 ```azurecli 
 az group create --name myResourceGroupAutomate --location chinaeast
 ```
 
-Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
+Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
 
 ```azurecli 
 az vm create \
@@ -118,7 +119,7 @@ az vm create \
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
 
-To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port):
+To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port):
 
 ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
@@ -142,7 +143,7 @@ The following steps show how you can:
 - Create a VM and inject the certificate
 
 ### Create an Azure Key Vault
-First, create a Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *mykeyvault* in the following example with your own unique Key Vault name:
+First, create a Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *mykeyvault* in the following example with your own unique Key Vault name:
 
 ```azurecli 
 keyvault_name=mykeyvault
@@ -153,7 +154,7 @@ az keyvault create \
 ```
 
 ### Generate certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#create) that uses the default certificate policy:
+For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_create) that uses the default certificate policy:
 
 ```azurecli 
 az keyvault certificate create \
@@ -163,7 +164,7 @@ az keyvault certificate create \
 ```
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#az_keyvault_secret_list_versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_format_secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -176,7 +177,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### Create cloud-init config to secure NGINX
 When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can use an updated cloud-init config from the previous example.
 
-Create a file named *cloud-init-secured.txt* and paste the following configuration. Again, Make sure that the whole cloud-init file is copied correctly, especially the first line:
+Create a file named *cloud-init-secured.txt* and paste the following configuration. Again, Use `sensible-editor cloud-init-secured.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -228,7 +229,7 @@ runcmd:
 ```
 
 ### Create secure VM
-Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). The certificate data is injected from Key Vault with the `--secrets` parameter. As in the previous example, you also pass in the cloud-init config with the `--custom-data` parameter:
+Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). The certificate data is injected from Key Vault with the `--secrets` parameter. As in the previous example, you also pass in the cloud-init config with the `--custom-data` parameter:
 
 ```azurecli 
 az vm create \
@@ -243,7 +244,7 @@ az vm create \
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
 
-To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port):
+To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port):
 
 ```azurecli 
 az vm open-port \
@@ -276,4 +277,4 @@ Advance to the next tutorial to learn how to create custom VM images.
 > [!div class="nextstepaction"]
 > [Create custom VM images](./tutorial-custom-images.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update link, wording update-->

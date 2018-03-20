@@ -15,22 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/05/2018
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
 # Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Classic](../classic/sql-automated-patching.md)
-> 
-> 
+> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this rescriction ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](../classic/sql-automated-patching.md).
+To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## Prerequisites
 To use Automated Patching, consider the following prerequisites:
@@ -104,7 +102,7 @@ In the following example, PowerShell is used to configure Automated Patching on 
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 

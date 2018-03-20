@@ -33,20 +33,22 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor and update VMs
+  - name: 10 - Govern VMs
+    href: tutorial-govern-resources.md
+  - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
 ### Not Available href: tutorial-azure-security.md
-  - name: 11 - Deploy Jenkins
+  - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 12 - CI/CD with Team Services
+  - name: 13 - CI/CD with Team Services
     href: tutorial-build-deploy-jenkins.md
-  - name: 13a - Create LAMP stack
+  - name: 14a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 13b - Create LEMP stack
+  - name: 14b - Create LEMP stack
     href: tutorial-lemp-stack.md
-  - name: 13c - Create MEAN stack
+  - name: 14c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 14 - Secure web server with SSL
+  - name: 15 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -164,8 +166,6 @@
       href: change-vm-size.md
     - name: Tag a VM
       href: tag.md
-    - name: Use cloud-init
-      href: using-cloud-init.md
     - name: Run scripts on a VM
       href: extensions-customscript.md
     - name: Use Remote Desktop
@@ -184,6 +184,8 @@
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
+    - name: Accelerated maintenance FAQ
+      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -226,6 +228,7 @@
       href: manage-availability.md
   - name: Use automation tools
     items:
+### Not Available on - name: Ansible
     - name: Terraform
       items:
       - name: Install and configure
@@ -259,12 +262,16 @@
   - name: Run applications
     items:
 ### Not Available - name: OpenShift which based on Ansible 
+    - name: Elasticsearch
+      href: tutorial-elasticsearch.md
     - name: FreeBSD Packet Filter
       href: freebsd-pf-nat.md
     - name: Databases
       items:
       - name: MySQL
         href: mysql-install.md
+      - name: MySQL on SUSE
+        href: mysql-on-opensuse.md   
       - name: MongoDB
         href: install-mongodb.md
       - name: PostgreSQL
@@ -297,6 +304,8 @@
       href: copy-files-to-linux-vm-using-scp.md
     - name: Migrate to Premium storage with Azure Site Recovery
       href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Find unattached disks
+      href: find-unattached-disks.md
     - name: Use File storage
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
@@ -419,5 +428,5 @@
     href: https://www.azure.cn/support/service-dashboard/
   - name: FAQ
     href: faq.md
-### ms.date: 02/05/2018
+### ms.date: 03/19/2018
 

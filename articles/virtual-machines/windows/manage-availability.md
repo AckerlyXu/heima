@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/06/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -24,10 +24,10 @@ ms.custom: H1Hack27Feb2017
 
 Learn ways to set up and manage multiple virtual machines to ensure high availability for your Windows application in Azure. You can also [manage the availability of Linux virtual machines](../linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-For instructions on creating and using availability sets when using the classic deployment model, see [How to Configure an Availability Set](classic/configure-availability.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For instructions on creating and using availability sets when using the classic deployment model, see [How to Configure an Availability Set](classic/configure-availability-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## Next steps
 To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, update link -->

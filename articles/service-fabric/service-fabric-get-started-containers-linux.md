@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/09/2018
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -290,10 +290,12 @@ Here are the complete service and application manifests used in this article.
   <!-- Code package is your service executable. -->
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
-      <!-- Follow this link for more information about deploying Windows containers 
+      <!-- Follow this link for more information about deploying containers 
       to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
         <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
@@ -363,37 +365,44 @@ To add another container service to an application already created using yeoman,
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfcontainer:AddService`
 
-<a id="manually"></a>
+<a name="manually"></a>
 
 ## Configure time interval before container is force terminated
 
 You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
 	      ...
-          }
         ]
 }
 ```
+
 The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
 ## Configure the runtime to remove unused container images
 
 You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-	        "PruneContainerImages": "True",
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
-	      ...
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
+          ...
           }
         ]
 } 
@@ -441,4 +450,4 @@ Any containers retained using this feature must be manually removed.
 [2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
 [3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
 
-<!--Update_Description: wording update, add content of Configure container image download time -->
+<!--Update_Description: wording update, update meta properties -->

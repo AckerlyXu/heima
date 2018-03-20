@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/02/2018
-ms.date: 01/29/2018
+origin.date: 01/12/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -24,12 +24,12 @@ ms.author: v-yeche
 ## Azure Cosmos DB fundamentals
 ### What is Azure Cosmos DB?
 
-Azure Cosmos DB is a multiple-region replicated, multi-model database service that that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development. It's all achieved through a managed platform that's backed by the power and reach of Azure. 
-<!-- GLOBALLY to multiple-region -->
+Azure Cosmos DB is a multiple-region replicated, multi-model database service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development. It's all achieved through a managed platform that's backed by the power and reach of Azure. 
+<!-- Notice: GLOBALLY to multiple-region -->
 
 Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. It delivers schema flexibility and rich indexing, and it includes multi-document transactional support with integrated JavaScript. 
 
-For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page]((https://docs.azure.cn/cosmos-db/).
+For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](/cosmos-db/).
 
 ### What happened to the DocumentDB API?
 
@@ -77,8 +77,16 @@ If you are new to Azure, you can sign up for an [Azure trial account](https://ww
 You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 ### How can I get additional help with Azure Cosmos DB?
-If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) , or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [Azure Support](https://www.azure.cn/support/contact/). 
 
+To ask a technical question, you can post to one of these two question and answer forums:
+* [MSDN forum](https://www.azure.cn/support/forums/)
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask). 
+
+To request new features, create a new request on [Uservoice](https://www.azure.cn/support/support-azure/).
+To fix an issue with your account, file a [support request](https://www.azure.cn/support/support-azure/) in the Azure portal.
+<!-- Not Avaiable on newsupportrequest in (https://www.azure.cn/support/support-azure/newsupportrequest) -->
+
+Other questions can be submitted to the team at [Azure Support](https://www.azure.cn/support/forums/); however this is not a technical support alias. 
 <!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
@@ -221,9 +229,9 @@ If any of these differences are a problem for your project please contact [Azure
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
 
-* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Uservoice](https://www.azure.cn/support/support-azure/)
+* [MSDN forum](https://www.azure.cn/support/contact/)
+<!-- Not Avaialble on * [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) -->
 
 ### What is the connection string that I need to use to connect to the Table API?
 The connection string is:
@@ -301,6 +309,7 @@ Yes, for information about how to benefit from the distributed nature of Azure C
 
 ### When global distribution is enabled, how long does it take to replicate the data?
 Azure Cosmos DB commits the data durably in the local region and pushes the data to other regions immediately in a matter of milliseconds. This replication is dependent only on the round-trip time (RTT) of the datacenter. To learn more about the global-distribution capability of Azure Cosmos DB, see [Azure Cosmos DB: A multiple-region distributed database service on Azure](distribute-data-globally.md).
+<!-- Notice: 全球 to 多个区域 -->
 
 ### Can the read request consistency level be changed?
 With Azure Cosmos DB, you can set the consistency level at the container level (on the table). By using the .NET SDK, you can change the level by providing the value for TableConsistencyLevel key in the app.config file. The possible values are: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. For more information, see [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md). The key idea is that you cannot set the request consistency level at more than the setting for the table. For example, you cannot set the consistency level for the table at Eventual and the request consistency level at Strong. 

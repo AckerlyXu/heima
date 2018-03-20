@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/20/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -27,7 +27,6 @@ Linux-based Service Fabric clusters do not run natively on Windows. To run a loc
 
 * At least 4-GB RAM
 * Latest version of [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Access to Service Fabric One-box Docker container [image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
 >[!TIP]
 > * You can follow the steps mentioned in the official Docker [documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) to install Docker on your Windows. 
@@ -39,7 +38,7 @@ To set up a local Docker container and have a service fabric cluster running on 
 1. Pull the image from Docker hub repository:
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Update the Docker daemon configuration on your host with the following and restart the Docker daemon: 
@@ -55,11 +54,11 @@ To set up a local Docker container and have a service fabric cluster running on 
 3. Start a Service Fabric One-box container instance with the image:
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * By specifying a name for your container instance, you can handle it in a more readable manner. 
-    > * If your application is listening on certain ports, it must be specified using additional -p tags. For example, if your application is listening on port 8080, run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
+    > * If your application is listening on certain ports, it must be specified using additional -p tags. For example, if your application is listening on port 8080, run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox
 
 4. Log in to the Docker container in interactive ssh mode:
 
@@ -87,4 +86,4 @@ To set up a local Docker container and have a service fabric cluster running on 
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
-<!-- Update_Description: new articles of service fabric local linux cluster in windows server. -->
+<!-- Update_Description: update meta properties, update cmdlet -->

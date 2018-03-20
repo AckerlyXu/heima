@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
-ms.date: 01/25/2018
+ms.date: 03/16/2018
 ms.author: v-junlch
 
 ---
@@ -63,6 +63,7 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Monitor](#monitor-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Networking](#networking-limits)
+- [Network Watcher](#network-watcher-limits)
 - [Notification Hub Service](#notification-hub-service-limits)
 - [Resource Group](#resource-group-limits)
 - [Scheduler](#scheduler-limits)
@@ -243,3 +244,4 @@ For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
 
+<!--Update_Description: wording update -->

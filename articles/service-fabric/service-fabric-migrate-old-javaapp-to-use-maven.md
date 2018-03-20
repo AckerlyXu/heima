@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/23/2017
-ms.date: 10/02/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -475,4 +475,4 @@ task copyDeps<< {
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Interact with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
 
-<!--Update_Description: new articles to migrate old javaapp to maven framework-->
+<!--Update_Description: update meta properties -->

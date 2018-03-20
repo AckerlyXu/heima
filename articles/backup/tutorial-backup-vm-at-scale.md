@@ -5,8 +5,8 @@ services: backup
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: markgalioto
 ms.author: v-junlch
-origin.date: 09/16/2017
-ms.date: 01/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
