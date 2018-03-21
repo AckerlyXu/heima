@@ -7,7 +7,6 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: 1d0960db-5dcf-4a08-b1dc-6c5d3d5a616d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -34,7 +33,7 @@ For more management tips, head over to the [Management overview][Management over
 
 <!--Article references-->
 [Find long-running queries]: sql-data-warehouse-manage-monitor.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Concurrency and workload management]: resource-classes-for-workload-management.md
 [Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->

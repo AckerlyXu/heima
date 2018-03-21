@@ -44,7 +44,7 @@ To see which subscription you are using, run [Get-AzureRmSubscription](https://d
 Get-AzureRmSubscription
 ```
 
-If you need to use a different subscription than the default, run [Select-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/select-azurermsubscription).
+If you need to use a different subscription than the default, run [Select-AzureRmSubscription](https://docs.microsoft.com/en-us/powershell/module/azure/select-azuresubscription?view=azuresmps-4.0.0).
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
@@ -62,7 +62,7 @@ Follow these steps to find location information for your data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name which will be used as the database name. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
+4. Write down the data warehouse name, which will be used as the database name. Remember, a data warehouse is one type of database. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
 5. If your server is foo.database.chinacloudapi.cn, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.chinacloudapi.cn. We use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Scale compute
@@ -75,12 +75,13 @@ To change data warehouse units, use the [Set-AzureRmSqlDatabase](https://docs.mi
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## Check database state
+## Check data warehouse state
 
 To see the current state of the data warehouse, use the [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet. This gets the state of the **mySampleDataWarehouse** database in ResourceGroup **myResourceGroup** and server **mynewserver-20171113.database.chinacloudapi.cn**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Which will result in something like this:
@@ -111,7 +112,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-You can then check to see the **Status** of the database. In this case, you can see that this database is online.  When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused.
+You can see the **Status** of the database in the output. In this case, you can see that this database is online.  When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused. 
+
+To see the status by itself, use the following command:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## Next steps
 You have now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.

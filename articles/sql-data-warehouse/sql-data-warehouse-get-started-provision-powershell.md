@@ -92,7 +92,6 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [load]: ./sql-data-warehouse-load-with-bcp.md
 [loading sample data]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [How to install and configure Azure PowerShell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 <!-- Not Available on [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md -->

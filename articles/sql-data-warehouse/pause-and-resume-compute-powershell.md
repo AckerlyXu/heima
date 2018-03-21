@@ -43,7 +43,7 @@ To see which subscription you are using, run [Get-AzureRmSubscription](https://d
 Get-AzureRmSubscription
 ```
 
-If you need to use a different subscription than the default, run [Select-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/select-azurermsubscription).
+If you need to use a different subscription than the default, run [Select-AzureRmSubscription](https://docs.microsoft.com/en-us/powershell/module/azure/select-azuresubscription?view=azuresmps-4.0.0).
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
