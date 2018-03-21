@@ -11,6 +11,7 @@ The Fs-series provides all the advantages of the F-series, in addition to Premiu
 <!-- Not Available ## Fsv2-series -->
 ## Fs-series <sup>1</sup>
 
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 ACU: 210 - 250
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
@@ -40,7 +41,7 @@ ACU: 210 - 250
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
 | Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
-
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 <br>
 <!-- ms.date: 03/19/2018 -->
 <!-- Update_Description: wording update -->

@@ -59,7 +59,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 <!-- Not Available ## GS-series*-->
 <!-- Not Available ## G-series-->
 ## DSv2-series <sup>1</sup>
-
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 ACU: 210 - 250
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
@@ -123,6 +123,7 @@ ACU: 160
 | Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 <!-- Please acknowledge that D-series Max Disk Count are 8,16,32,64-->
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 
 <br>
 <!--Update_Description: wording update, update link -->

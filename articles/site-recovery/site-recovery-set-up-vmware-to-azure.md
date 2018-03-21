@@ -13,6 +13,7 @@ ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
+<a name="set-up-the-source-environment"></a>
 # Set up the source environment (VMware to Azure)
 > [!div class="op_single_selector"]
 > * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
