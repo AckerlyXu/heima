@@ -68,7 +68,8 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
     ```powershell
     New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
     ```
-If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.
+If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshotConfig command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.
+<!-- Notice: -AccountType Premium_LRS 只能用于 New-AzureRmSnapshotConfig 命令,而不是 New-AzureRmSnapshot 命令 -->
 
 ## Next steps
 

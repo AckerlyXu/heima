@@ -25,6 +25,7 @@ Learn about managing compute resources in Azure SQL Data Warehouse. Lower costs 
 ## What is compute management?
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://www.azure.cn/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
 
+<a name="scale-compute"><a/>
 ## Scaling compute
 You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. SQL Data Warehouse offers [service levels](performance-tiers.md#service-levels) for data warehouse units that ensure a noticeable change in performance when you scale out or back. 
 
@@ -76,6 +77,8 @@ Recommendations for when to scale out data warehouse units:
 
 Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance). 
 
+<a name="pause-compute-bk"><a/>
+<a name="resume-compute-bk"><a/>
 ## Pausing and resuming compute
 Pausing compute causes the storage layer to detach from the Compute nodes. The Compute resources are released from your account. You are not charged for compute while compute is paused. Resuming compute reattaches storage to the Compute nodes, and resumes charges for Compute. 
 When you pause a data warehouse:
