@@ -2,18 +2,13 @@
 title: Role-based access control in Azure Automation | Microsoft Docs
 description: Role-based access control (RBAC) enables access management for Azure resources. This article describes how to set up RBAC in Azure Automation.
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
 keywords: automation rbac, role based access control, azure rbac
 
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 02/05/2018
 ms.date: 2/27/2018
 ms.author: v-nany

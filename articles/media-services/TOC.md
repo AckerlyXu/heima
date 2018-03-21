@@ -1,3 +1,5 @@
+# [Media Services Documentation](index.md)
+
 # [Overview](media-services-overview.md)
 ## [Scenarios and availability](scenarios-and-availability.md)
 ## [Concepts](media-services-concepts.md)
@@ -39,7 +41,6 @@
 ### [On-demand streaming collection](postman-collection.md)
 ### [Live streaming collection](postman-live-streaming-collection.md)
 ### [Environment](postman-environment.md)
-### [Collection](postman-collection.md)
 ## Upload content
 ### Upload files into an account
 #### [Azure portal](media-services-portal-upload-files.md)
@@ -123,14 +124,20 @@
 ### [Offline PlayReady for Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
 ### [Offline Fairplay for iOS](media-services-protect-hls-with-offline-fairplay.md)
 ### [Configure in Azure portal](media-services-portal-protect-content.md)
+### [Deliver DRM licenses](media-services-deliver-keys-and-licenses.md)
 ### Create ContentKeys
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
+### License template overviews
+#### [PlayReady license template](media-services-playready-license-template-overview.md)
+### Configure asset delivery policies
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Configure content key authorization policy
 #### [Azure portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
-### [Play AES-encrypted HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [Pass authentication tokens to AMS](media-services-pass-authentication-tokens.md)
 
 ## [Analyze](media-services-analytics-overview.md)
 ### [Analyze media using Azure portal](media-services-portal-analyze.md)
@@ -196,6 +203,9 @@
 ## [Azure PowerShell (Service Management)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
+## Specifications
+### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # Resources
 ## [Release notes](media-services-release-notes.md)

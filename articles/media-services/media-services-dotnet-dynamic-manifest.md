@@ -45,6 +45,7 @@ The following types are used when creating filters:
 ## Create/Update/Read/Delete global filters
 The following code shows how to use .NET to create, update, read, and delete asset filters.
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -69,11 +70,12 @@ The following code shows how to use .NET to create, update, read, and delete ass
 
     // Delete
     filter.Delete();
-
+```
 
 ## Create/Update/Read/Delete asset filters
 The following code shows how to use .NET to create, update, read, and delete asset filters.
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -99,7 +101,7 @@ The following code shows how to use .NET to create, update, read, and delete ass
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## Build streaming URLs that use filters

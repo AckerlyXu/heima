@@ -45,7 +45,7 @@ Once your content is in your Media Services account, you will need to construct 
 The following is an example of a conformant configuration file in XML and JSON:
 
 **XML preset:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -55,9 +55,10 @@ The following is an example of a conformant configuration file in XML and JSON:
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **JSON preset:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -71,6 +72,7 @@ The following is an example of a conformant configuration file in XML and JSON:
             "Stabilize":false
         }
     }
+```
 
 ### <a id="sample_code"></a> Microsoft Hyperlapse with the AMS .NET SDK
 The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.
@@ -83,6 +85,7 @@ The following method uploads a media file as an asset and creates a job with the
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -195,6 +198,7 @@ The following method uploads a media file as an asset and creates a job with the
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Supported File types
 * MP4

@@ -2,17 +2,11 @@
 title: My first Python runbook in Azure Automation | Microsoft Docs
 description:  Tutorial that walks you through the creation, testing, and publishing of a simple Python runbook.
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-
-editor: tysonn
-
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 07/25/2017
 ms.date: 01/11/2018
 ms.author: v-nany

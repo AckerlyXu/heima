@@ -95,6 +95,7 @@ The **Main** function calls methods that will be defined further in this section
 > [!NOTE]
 > You will be getting compilation errors until you add definitions for all the functions that are defined later in this article.
 
+```csharp
 	class Program
 	{
 	    // Read values from the App.config file.
@@ -111,41 +112,41 @@ The **Main** function calls methods that will be defined further in this section
 
 	    static void Main(string[] args)
 	    {
-            	try
-        	{
-            	     AzureAdTokenCredentials tokenCredentials = 
-                		new AzureAdTokenCredentials(_AADTenantDomain,
-                    		new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    		AzureEnvironments.AzureCloudEnvironment);
+        try
+        {
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-                     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-		    // Add calls to methods defined in this section.
-		    // Make sure to update the file name and path to where you have your media file.
-		    IAsset inputAsset =
-			UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+            // Add calls to methods defined in this section.
+            // Make sure to update the file name and path to where you have your media file.
+            IAsset inputAsset =
+            UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
-		    IAsset encodedAsset =
-			EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+            IAsset encodedAsset =
+            EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-		    PublishAssetGetURLs(encodedAsset);
-		}
-		catch (Exception exception)
-		{
-		    // Parse the XML error message in the Media Services response and create a new
-		    // exception with its content.
-		    exception = MediaServicesExceptionParser.Parse(exception);
+            PublishAssetGetURLs(encodedAsset);
+        }
+        catch (Exception exception)
+        {
+            // Parse the XML error message in the Media Services response and create a new
+            // exception with its content.
+            exception = MediaServicesExceptionParser.Parse(exception);
 
-		    Console.Error.WriteLine(exception.Message);
-		}
-		finally
-		{
-		    Console.ReadLine();
-		}
+            Console.Error.WriteLine(exception.Message);
+        }
+        finally
+        {
+            Console.ReadLine();
+        }
 	    }
-	}
+```
 
 ## Create a new asset and upload a video file
 
@@ -167,6 +168,7 @@ In the following example, we specify **None** for the asset options.
 
 Add the following method to the Program class.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -181,7 +183,7 @@ Add the following method to the Program class.
 
         return inputAsset;
     }
-
+```
 
 ## Encode the source file into a set of adaptive bitrate MP4 files
 After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is composed of atomic Tasks that do the actual work on the Asset file.
@@ -196,6 +198,7 @@ Once the job is completed, you would be able to stream your asset or progressive
 
 Add the following method to the Program class.
 
+```csharp
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
@@ -229,10 +232,11 @@ Add the following method to the Program class.
 
         return outputAsset;
     }
+```
 
 ## Publish the asset and get URLs for streaming and progressive download
 
-To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files (for more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
+To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
 ### Some details about URL formats
 
@@ -240,27 +244,20 @@ After you create the locators, you can build the URLs that would be used to stre
 
 #### A streaming URL for MPEG DASH has the following format:
 
-
  {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest**(format=mpd-time-csf)**
-
 
 #### A streaming URL for HLS has the following format:
 
-
  {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest**(format=m3u8-aapl)**
- 
 
 #### A streaming URL for Smooth Streaming has the following format:
-
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
 
 
 #### A SAS URL used to download files has the following format:
 
-
 {blob container name}/{asset name}/{file name}/{SAS signature}
-
 
 Media Services .NET SDK extensions provide convenient helper methods that return formatted URLs for the published asset.
 
@@ -268,6 +265,7 @@ The following code uses .NET SDK Extensions to create locators and to get stream
 
 Add the following method to the Program class.
 
+```csharp
     static public void PublishAssetGetURLs(IAsset asset)
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
@@ -331,6 +329,7 @@ Add the following method to the Program class.
 
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
+```
 
 ## Test by playing your content
 
@@ -340,24 +339,17 @@ Adaptive streaming URLs:
 
 Smooth Streaming
 
-
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
-
 
 HLS
 
-
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
-
 
 MPEG DASH
 
-
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
-
 Progressive download URLs (audio and video).
-
 
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 

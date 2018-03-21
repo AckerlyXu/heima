@@ -2,17 +2,11 @@
 title: Editing textual runbooks in Azure Automation
 description: This article provides different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor.
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: tysonn
-
-ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
 ms.service: automation
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 02/23/2016
 ms.date: 01/11/2018
 ms.author: v-nany

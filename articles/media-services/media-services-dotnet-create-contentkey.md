@@ -41,6 +41,7 @@ Encrypted assets have to be associated with **ContentKey**s. This article descri
 ## ContentKeyType
 One of the values that you must set when create a content key is the content key type. Choose from one of the following values. 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -64,10 +65,12 @@ One of the values that you must set when create a content key is the content key
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>Create envelope type ContentKey
 The following code snippet creates a content key of the envelope encryption type. It then associates the key with the specified asset.
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -99,12 +102,13 @@ The following code snippet creates a content key of the envelope encryption type
 call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>Create common type ContentKey
 The following code snippet creates a content key of the common encryption type. It then associates the key with the specified asset.
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -135,7 +139,7 @@ The following code snippet creates a content key of the common encryption type. 
 
         return returnValue;
     }
-    
 call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+```

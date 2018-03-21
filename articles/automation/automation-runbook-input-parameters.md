@@ -2,17 +2,13 @@
 title: Runbook input parameters| Azure
 description: Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to a runbook when it is started. This article describes different scenarios where input parameters are used in runbooks.
 services: automation
-documentationcenter: ''
 author: MGoedtel
 manager: jwhit
 editor: tysonn
 
-ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 10/11/2016
 ms.date: 03/28/2017
 ms.author: v-dazen

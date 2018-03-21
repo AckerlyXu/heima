@@ -39,12 +39,13 @@ A Media Services account is associated with a Reserved Unit Type, which determin
 
 In addition to specifying the reserved unit type, you can specify to provision your account with **Reserved Units** (RUs). The number of provisioned RUs determines the number of media tasks that can be processed concurrently in a given account.
 
-> [!NOTE]
-> RUs work for parallelizing all media processing, including indexing jobs using Azure Media Indexer. However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
+>[!NOTE]
+>RUs work for parallelizing all media processing, including indexing jobs using Azure Media Indexer. However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 
 > [!IMPORTANT]
 > Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
->
+> 
+> 
 
 ## Scale media processing
 
@@ -52,12 +53,11 @@ To change the reserved unit type and the number of reserved units, do the follow
 
 1. In the [Azure portal](https://portal.azure.cn/), select your Azure Media Services account.
 2. In the **Settings** window, select **Media reserved units**.
-
-    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider.
-
-    To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
-
-    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
+   
+    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider at the top of the screen.
+   
+    To change the **RESERVED UNIT TYPE**, click on the **Speed of reserved processing units** bar. Then, select the pricing tier you need: S1, S2, or S3.
+   
 3. Press the SAVE button to save your changes.
 
     The new reserved units are allocated when you press SAVE.

@@ -47,7 +47,7 @@ The example also shows how the client might use this class.
 
 ### ChannelOperations class definition
 
-```
+```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -192,22 +192,22 @@ public class ChannelOperations
 
 ### The client code
 
-```
+```csharp
 ChannelOperations channelOperations = new ChannelOperations();
 string opId = channelOperations.StartChannelCreation("MyChannel001");
 
-    string channelId = null;
-    bool isCompleted = false;
+string channelId = null;
+bool isCompleted = false;
 
-    while (isCompleted == false)
-    {
-        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
-        isCompleted = channelOperations.IsCompleted(opId, out channelId);
-    }
+while (isCompleted == false)
+{
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+    isCompleted = channelOperations.IsCompleted(opId, out channelId);
+}
 
-    // If we got here, we should have the newly created channel id.
-    Console.WriteLine(channelId);
-
+// If we got here, we should have the newly created channel id.
+Console.WriteLine(channelId);
+```
 
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

@@ -2,11 +2,8 @@
 title: Pass a JSON object to an Azure Automation runbook | Azure
 description: How to pass parameters to a runbook as a JSON object
 services: automation
-documentationcenter: dev-center-name
 author: yunan2016
 manager: digimobile
-keywords: powershell,  runbook, json, azure automation
-
 ms.service: automation
 ms.devlang: NA
 ms.topic: article
