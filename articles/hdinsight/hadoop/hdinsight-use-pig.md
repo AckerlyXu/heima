@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/18/2017
+origin.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
 # Use Pig with Hadoop on HDInsight
 
-Learn how to use [Apache Pig](http://pig.apache.org/) with HDInsight...
+Learn how to use [Apache Pig](http://pig.apache.org/) with HDInsight.
 
 Pig is a platform for creating programs for Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
 
@@ -32,7 +32,6 @@ Pig is a platform for creating programs for Hadoop by using a procedural languag
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux or Windows |Windows (for now) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Remote Desktop](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -102,7 +101,6 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux or Windows |Windows (for now) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Remote Desktop](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 

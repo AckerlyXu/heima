@@ -66,6 +66,23 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
   * Multi-factor Authentication
   * Traffic Manager
 
+### Microsoft peering
+
+* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* Dynamics 365 Customer Engagement applications (formerly known as CRM Online)
+  * Dynamics 365 for Sales
+  * Dynamics 365 for Customer Service
+  * Dynamics 365 for Field Service
+  * Dynamics 365 for Project Service
+* Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
+  * Power BI
+  * Dynamics 365 for Finance and Operations
+  * Most of the Azure services, with the following few exceptions :
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
+
 ## Data and connections
 
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
@@ -89,9 +106,10 @@ See [ExpressRoute prerequisites page](expressroute-prerequisites.md) for require
 Yes. Each Express Route circuit has a redundant pair of cross connections configured to provide high availability.
 
 ### Will I lose connectivity if one of my ExpressRoute links fail?
-You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
 
-## How do I ensure high availability on a virtual network connected to ExpressRoute?
+You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network and provide high availability of your ExpressRoute circuit. You can additionally create a circuit in a different peering location to achieve circuit-level resilience.
+
+### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
 You can achieve high availability by connecting ExpressRoute circuits in different peering locations to your virtual network.If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
 
@@ -185,11 +203,12 @@ The public IP address is used for internal management only. This public IP addre
 You must establish an ExpressRoute circuit and configure routes for public peering.
 
 ### Are there limits on the number of routes I can advertise?
-Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
+
+Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We do not accept private prefixes (RFC1918) in the public peering BGP session.
+We do not accept private prefixes (RFC1918) in the public and Microsoft peering BGP session.
 
 ### What happens if I exceed the BGP limits?
 BGP sessions will be dropped. They will be reset once the prefix count goes below the limit.
@@ -277,6 +296,9 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 > 
 > 
 
+### Do I need to enable Azure public peering to connect to Office 365 services and Dynamics 365?
+
+No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD is sent through Microsoft Peering. 
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
 
@@ -286,7 +308,7 @@ Yes. Your existing ExpressRoute circuit can be configured to support connectivit
 Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
 
 ### How much does ExpressRoute for Office 365 services and Dynamics 365 cost?
-Office 365 services and Dynamics 365 requires premium add-on to be enabled. See the [pricing details page](https://www.azure.cn/pricing/details/expressroute/) for costs.
+Office 365 services and Dynamics 365 require premium add-on to be enabled. See the [pricing details page](https://www.azure.cn/pricing/details/expressroute/) for costs.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 
@@ -298,3 +320,26 @@ Yes. Office 365 service endpoints are reachable through the internet even though
 
 
 <!--Update_Description:update meta properties and wording-->
+## Route filters for Microsoft peering
+
+### I am turning on Microsoft peering for the first time, what routes will I see?
+
+You will not see any routes. You have to attach a route filter to your circuit to start prefix advertisements. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+
+### I turned on Microsoft peering and now I am trying to select Exchange Online, but it is giving me an error that I am not authorized to do it.
+
+When using route filters, any customer can turn on Microsoft peering. However, for consuming Office 365 services, you still need to get authorized by Office 365.
+
+### Do I need to get authorization for turning on Dynamics 365 over Microsoft peering?
+
+No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
+
+### I enabled Microsoft peering prior to August 1st, 2017, how can I take advantage of route filters?
+
+Your existing circuit will continue advertising the prefixes for Office 365 and Dynamics 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need and Dynamics 365), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+
+### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
+
+* Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined.
+
+* Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.

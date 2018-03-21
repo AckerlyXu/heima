@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/14/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 ---
 # Extract, transform, and load (ETL) at scale
@@ -124,4 +124,4 @@ Once data exists in the chosen location, you need to clean it, combine it, or pr
 ## Next steps
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Using Apache Hive as an ETL Tool](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
