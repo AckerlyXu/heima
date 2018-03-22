@@ -85,9 +85,9 @@ This script uses the following commands to calculate the size of the Blob storag
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage blob upload](https://docs.azure.cn/cli/storage/account#create) | Uploads local files to an Azure Blob storage container. |
-| [az storage blob list](https://docs.azure.cn/cli/storage/account/keys#list) | Lists the blobs in an Azure Blob storage container. |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage blob upload](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | Uploads local files to an Azure Blob storage container. |
+| [az storage blob list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) | Lists the blobs in an Azure Blob storage container. |
 
 ## Next steps
 

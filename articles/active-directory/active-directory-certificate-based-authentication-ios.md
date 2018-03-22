@@ -20,10 +20,10 @@ ms.reviewer: nigu
 ---
 # Azure Active Directory certificate-based authentication on iOS
 
-Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
+Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to:
 
-- Office mobile applications such as Microsoft Outlook and Microsoft Word   
-- Exchange ActiveSync (EAS) clients 
+* Office mobile applications such as Microsoft Outlook and Microsoft Word   
+* Exchange ActiveSync (EAS) clients
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
 
@@ -34,11 +34,12 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 
 
 
-## Office mobile applications support
+## Microsoft mobile applications support
 
 | Apps | Support |
 | --- | --- |
 | Azure Information Protection app |![Check][1] |
+| Intune Company Portal |![Check][1] |
 | Microsoft Teams |![Check][1] |
 | OneNote |![Check][1] |
 | OneDrive |![Check][1] |
@@ -49,9 +50,9 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | Yammer |![Check][1] |
 
 
-## Requirements 
+## Requirements
 
-The device OS version must be iOS 9 and above 
+The device OS version must be iOS 9 and above
 
 A federation server must be configured.  
 
@@ -59,17 +60,17 @@ Microsoft Authenticator is required for Office applications on iOS.
 
 For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
 
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (The serial number of the client certificate) 
-- `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (The string for the issuer of the client certificate) 
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
+  (The serial number of the client certificate)
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
+  (The string for the issuer of the client certificate)
 
-Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
+Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation.
 
 As a best practice, you should update the ADFS error pages with the following:
 
-- The requirement for installing the Microsoft Authenticator on iOS
-- Instructions on how to get a user certificate. 
+* The requirement for installing the Microsoft Authenticator on iOS
+* Instructions on how to get a user certificate.
 
 For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
 

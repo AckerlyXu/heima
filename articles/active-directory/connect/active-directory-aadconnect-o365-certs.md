@@ -154,7 +154,7 @@ Update Office 365 with the new token signing certificates to be used for the tru
 
 1. Open the Azure Active Directory Module for Windows PowerShell.
 2. Run $cred=Get-Credential. When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.
-3. Run Connect-MsolService -Credential $cred. This cmdlet connects you to the cloud service. Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.
+3. Run Connect-MsolService -Credential $cred -AzureEnvironment AzureChinaCloud. This cmdlet connects you to the cloud service. Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.
 4. If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer <AD FS primary server>, where <AD FS primary server> is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.
 5. Run Update-MSOLFederatedDomain -DomainName <domain>. This cmdlet updates the settings from AD FS into the cloud service, and configures the trust relationship between the two.
 

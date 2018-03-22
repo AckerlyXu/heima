@@ -37,6 +37,7 @@
 
 
 ## Manage passwords
+### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 ### IT Admins: Reset passwords
@@ -103,6 +104,10 @@
 
 
 
+## Deploy AD DS on Azure VMs
+### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
+### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
+### [New forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 
 ## [Deploy AD FS in Azure](./connect/active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)

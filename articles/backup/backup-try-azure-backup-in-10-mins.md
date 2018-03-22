@@ -3,8 +3,8 @@ title: Back up Windows files and folders to Azure (Resource Manager) | Microsoft
 description: Learn to back up Windows files and folders to Azure in a Resource Manager deployment.
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 keywords: how to backup; how to back up; backup files and folders
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 02/27/2018
 ms.author: v-junlch
 
 ---
@@ -164,9 +164,11 @@ The agent is now installed and your machine is registered to the vault. You're r
 ## Network and Connectivity Requirements
 
 If your machine/proxy has limited internet access, ensure that firewall settings on the mcahine/proxy are configured to allow the following URLs: <br>
-    1. *.Microsoft.com
-    2. *.WindowsAzure.cn
-    3. *.microsoftonline.cn
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.cn
+    4. *.microsoftonline.cn
+    5. *.chinacloudapi.cn
 
 ## Back up your files and folders
 The initial backup includes two key tasks:

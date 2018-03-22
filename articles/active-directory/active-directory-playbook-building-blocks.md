@@ -68,12 +68,12 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 ### Considerations
 
 1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
-   - Create test users in the production domain. Make sure you don't synchronize any other account
-   - Move to an UAT environment
+   * Create test users in the production domain. Make sure you don't synchronize any other account
+   * Move to an UAT environment
 2.	If you want to pursue federation, it is worthwhile to understand the costs associated a federated solution with on-premises Identity Provider beyond the POC and measure that against the benefits you are looking for:
-    - It is in the critical path so you have to design for high availability
-    - It is an on-premises service you need to capacity plan
-    - It is an on-premises service you need to monitor/maintain/patch
+    * It is in the critical path so you have to design for high availability
+    * It is an on-premises service you need to capacity plan
+    * It is an on-premises service you need to monitor/maintain/patch
 
 Learn more: [Understanding Office 365 identity and Azure Active Directory - Federated Identity](https://support.office.com/article/Understanding-Office-365-identity-and-Azure-Active-Directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9#bk_federated)
 
@@ -82,7 +82,7 @@ Learn more: [Understanding Office 365 identity and Azure Active Directory - Fede
 Approximate time to Complete: 60 minutes
 
 > [!IMPORTANT]
-> This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/zh-cn/premier).
+> This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
 
 ### Pre-requisites
 
@@ -160,6 +160,8 @@ Approximate time to complete: 20 minutes
 ### Considerations
 
 To learn more about caveats of this deployment visit: [ADFS: Certificate Authentication with Azure AD & Office 365](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)
+
+
 
 > [!NOTE]
 > Possession of user certificate should be guarded. Either by managing devices or with PIN in case of smart cards.

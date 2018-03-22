@@ -61,7 +61,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 ## Next steps
 
-* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 * For more details on pricing, please see the [SQL Database Pricing page](https://www.azure.cn/pricing/details/sql-database/)  
 * For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)

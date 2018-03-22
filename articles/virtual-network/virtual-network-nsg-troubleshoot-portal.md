@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -45,7 +45,7 @@ Complete the following steps to troubleshoot NSGs for a VM:
 You can view full list of the effective security rules on a NIC, from the VM itself. You can also add, modify, and delete both NIC and subnet NSG rules from the effective rules blade, if you have permissions to perform these operations.
 
 1. Login to the Azure portal at https://portal.azure.cn with an Azure account. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions).
-2. Click **More services**, then click **Virtual machines** in the list that appears.
+2. Click **All services**, then click **Virtual machines** in the list that appears.
 3. Select a VM to troubleshoot from the list that appears and a VM blade with options appears.
 4. Click **Diagnose & solve problems** and then select a common problem. For this example, **I can't connect to my Windows VM** is selected. 
 
@@ -94,7 +94,7 @@ You can view full list of the effective security rules on a NIC, from the VM its
 If your VM traffic flow is impacted for a specific NIC, you can view a full list of the effective rules for the NIC from the network interfaces context by completing the following steps:
 
 1. Login to the Azure portal at https://portal.azure.cn.
-2. Click **More services**, then click **Network interfaces** in the list that appears.
+2. Click **All services**, then click **Network interfaces** in the list that appears.
 3. Select a network interface. In the following picture, a NIC named *VM1-NIC1* is selected.
 
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ When modifying NSG rules, you may want to review the impact of the rules being a
 To troubleshoot effective rules within an NSG, complete the following steps:
 
 1. Login to the Azure portal at https://portal.azure.cn.
-2. Click **More services**, then click **Network security groups** in the list that appears.
+2. Click **All services**, then click **Network security groups** in the list that appears.
 3. Select an NSG. In the following picture, an NSG named VM1-nsg was selected.
 
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)
@@ -148,4 +148,4 @@ Consider the following points when troubleshooting connectivity problems:
 * If you have peered VNets, by default, the VIRTUAL_NETWORK tag will automatically expand to include prefixes for peered VNets. You can view these prefixes in the **ExpandedAddressPrefix** list, to troubleshoot any issues related to VNet peering connectivity. 
 * Effective security rules are only shown if there is an NSG associated with the VM's NIC and or subnet. 
 * If there are no NSGs associated with the NIC or subnet and you have a public IP address assigned to your VM, all ports will be open for inbound and outbound access. If the VM has a public IP address, applying NSGs to the NIC or subnet is strongly recommended.
-<!-- Update_Description: update meta properties, wording update, update link  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

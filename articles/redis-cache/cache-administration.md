@@ -1,10 +1,10 @@
 ---
-title: How to administer Azure Redis Cache | Azure
+title: How to administer Azure Redis Cache | Microsoft Docs
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Redis Cache
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
@@ -14,17 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 07/05/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 03/01/2018
+ms.author: v-junlch
 
 ---
 # How to administer Azure Redis Cache
 This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Redis Cache instances.
-
-> [!IMPORTANT]
-> The settings and features described in this article are only available for Premium tier caches.
-> 
-> 
 
 ## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
@@ -43,22 +38,22 @@ To reboot one or more nodes of your cache, select the desired nodes and click **
 
 The impact on client applications varies depending on which nodes that you reboot.
 
-* **Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master. During this failover, there may be a short interval in which connections may fail to the cache.
-* **Slave** - When the slave node is rebooted, there is typically no impact to cache clients.
-* **Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup is restored when the cache comes back online, but any cache writes that occurred after the most recent backup are lost.
-* **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a non-clustered cache.
+- **Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master. During this failover, there may be a short interval in which connections may fail to the cache.
+- **Slave** - When the slave node is rebooted, there is typically no impact to cache clients.
+- **Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup is restored when the cache comes back online, but any cache writes that occurred after the most recent backup are lost.
+- **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a non-clustered cache.
 
 > [!IMPORTANT]
-> Reboot is only available for Premium tier caches.
+> Reboot is now available for all pricing tiers.
 > 
 > 
 
 ## Reboot FAQ
-* [Which node should I reboot to test my application?](#which-node-should-i-reboot-to-test-my-application)
-* [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
-* [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
-* [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [What pricing tiers can use the reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
+- [Which node should I reboot to test my application?](#which-node-should-i-reboot-to-test-my-application)
+- [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
+- [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
+- [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
+- [What pricing tiers can use the reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
 ### Which node should I reboot to test my application?
 To test the resiliency of your application against failure of the primary node of your cache, reboot the **Master** node. To test the resiliency of your application against failure of the secondary node, reboot the **Slave** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
@@ -80,7 +75,7 @@ If you reboot just one of the nodes, data is not typically lost, but it still ma
 Yes, for PowerShell instructions see [To reboot a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### What pricing tiers can use the reboot functionality?
-Reboot is available only in the premium pricing tier.
+Reboot is available for all pricing tiers.
 
 ## Schedule updates
 The **Schedule updates** blade allows you to designate a maintenance window for your Premium tier cache. When the maintenance window is specified, any Redis server updates are made during this window. 
@@ -100,10 +95,10 @@ To specify a maintenance window, check the desired days and specify the maintena
 > 
 
 ## Schedule updates FAQ
-* [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
-* [What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
-* [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [What pricing tiers can use the schedule updates functionality?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
+- [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
+- [What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+- [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+- [What pricing tiers can use the schedule updates functionality?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### When do updates occur if I don't use the schedule updates feature?
 If you don't specify a maintenance window, updates can be made at any time.
@@ -111,18 +106,18 @@ If you don't specify a maintenance window, updates can be made at any time.
 ### What type of updates are made during the scheduled maintenance window?
 Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
 
-### Can I manage scheduled updates using PowerShell, CLI, or other management tools?
+### Can I managed scheduled updates using PowerShell, CLI, or other management tools?
 Yes, you can manage your scheduled updates using the following PowerShell cmdlets:
 
-* [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+- [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
+- [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
+- [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
+- [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
 ### What pricing tiers can use the schedule updates functionality?
 The **Schedule updates** feature is only available in the premium pricing tier.
 
 ## Next steps
-* Explore more [Azure Redis Cache premium tier](cache-premium-tier-intro.md) features.
+- Explore more [Azure Redis Cache premium tier](cache-premium-tier-intro.md) features.
 
 <!--Update_Description: wording update-->

@@ -174,7 +174,7 @@ The following procedure walks you through converting an existing standard domain
 ## Configuring a domain in your Azure AD Directory for federation
 
 
-1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService .
+1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService -AzureEnvironment AzureChinaCloud.
 2. Configure your desired Office 365 domain to use federation with SAML 2.0:
   
     ```
@@ -217,7 +217,7 @@ Windows PowerShell can also be used to automate adding new users to Azure AD and
 This procedure shows how to add a single user to Azure AD.
 
 
-1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
+1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService -AzureEnvironment AzureChinaCloud.
 2. Create a new user principal:
 
 	` New-MsolUser

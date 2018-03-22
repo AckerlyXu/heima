@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
+title: Azure IoT Hub high availability and disaster recovery
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/13/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 ---
 
@@ -32,6 +32,8 @@ In addition to intra-region HA, IoT Hub implements failover mechanisms for disas
 | Operations monitoring messages |All unread messages are lost |
 | Cloud-to-device messages |0-5 mins data loss |
 | Cloud-to-device feedback queue |All unread messages are lost |
+| Device twin data |0-5 mins data loss |
+| Parent and device jobs |0-5 mins data loss |
 
 ## Regional failover with IoT Hub
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.
@@ -51,7 +53,7 @@ Follow these links to learn more about Azure IoT Hub:
 * [What is Azure IoT Hub?][What is Azure IoT Hub?]
 
 [Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Azure Traffic Manager]: ../traffic-manager/index.md
+[Azure Traffic Manager]: /traffic-manager/
 [IoT Hub Developer Guide - identity registry]: ./iot-hub-devguide-identity-registry.md
 
 [lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md

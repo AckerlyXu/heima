@@ -28,15 +28,15 @@ Before you begin, you need to [create a storage account](../storage/common/stora
 To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## Archive the Activity Log using the portal
-1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
-
-    ![Navigate to Activity Log blade](./media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **All Services** link first.
+   
+    ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. At the top of the blade, click **Export**.
-
-    ![Click the Export button](./media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+   
+    ![Click the Export button](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
 3. In the blade that appears, check the box for **Export to a storage account** and select a storage account.
-
-    ![Set a storage account](./media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+   
+    ![Set a storage account](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
 4. Using the slider or text box, define a number of days for which Activity Log events should be kept in your storage account. If you prefer to have your data persisted in the storage account indefinitely, set this number to zero.
 5. Click **Save**.
 
@@ -48,7 +48,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Property         | Required | Description                                                                                                                                                                                                                                                                                       |
 | --- | --- | --- |
 | StorageAccountId | No       | Resource ID of the Storage Account to which Activity Logs should be saved.                                                                                                                                                                                                                        |
-| Locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx). |
+| Locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions by using [the Azure Management REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx). |
 | RetentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever).                                                                                                                                                                                             |
 | Categories       | Yes      | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                                                                                                                                                                 |
 ## Archive the Activity Log via CLI

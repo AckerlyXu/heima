@@ -42,7 +42,11 @@ Normally, Azure planned maintenance events are rolled out to paired regions one 
 The Azure platform services including web & mobile, data services, IoT, etc. have addressed the vulnerability. There is no action needed for customers using these services.
 <!-- Not Available on serverless feature -->
 
+## Intel released additional guidance on January 22, 2018 related to the security vulnerabilities.  Will this guidance cause any additional maintenance activities by Azure?  
+
+Azure mitigations previously announced on Jan 3, 2018 are unaffected by the [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
+
 ## Next steps
 
 To learn more, see [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
-<!--ms.date: 01/29/2018 -->
+<!--ms.date: 03/19/2018 -->

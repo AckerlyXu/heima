@@ -3,8 +3,8 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Azur
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 
@@ -52,7 +52,6 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear - H2's appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-
 ## Create the cluster
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
@@ -494,3 +493,4 @@ The SQLCMD connection automatically connects to whichever instance of SQL Server
 ## Next steps
 
 - [Add an IP address to a load balancer for a second availability group](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
+<!-- Update_Description: wording update -->

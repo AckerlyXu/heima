@@ -3,8 +3,8 @@ title: Configure an external Listener for Always On Availability Groups | Azure
 description: This tutorial walks you through steps of creating an Always On Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # Configure an external listener for Always On Availability Groups in Azure
@@ -55,7 +55,7 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
 1. In the Azure portal, navigate to each VM hosting a replica and view the details.
 2. Click the **Endpoints** tab for each of the VMs.
 3. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is "MyEndpoint" and the port is "1433".
-4. On your local client, download and install [the latest PowerShell module](/downloads/).
+4. On your local client, download and install [the latest PowerShell module](https://www.azure.cn/downloads/).
 5. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
 6. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
 7. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
@@ -130,3 +130,4 @@ If the Always On replicas are in different subnets, clients must specify **Multi
 
 ## Next steps
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
+<!-- Update_Description: wording update, update link -->

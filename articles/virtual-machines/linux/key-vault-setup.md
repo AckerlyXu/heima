@@ -3,8 +3,8 @@ title: Set up Azure Key Vault for Linux VMs | Azure
 description: How to set up Key Vault for use with an Azure Resource Manager virtual machine with the CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -16,27 +16,27 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # How to set up Key Vault for virtual machines with the Azure CLI 2.0
 
 In the Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by Key Vault. To learn more about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md) In order for Key Vault to be used with Azure Resource Manager VMs, the *EnabledForDeployment* property on Key Vault must be set to true. This article shows you how to set up Key Vault for use with Azure virtual machines (VMs) using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-To perform these steps, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+To perform these steps, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Create a Key Vault
-Create a key vault and assign the deployment policy with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Create a key vault and assign the deployment policy with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault create -l chinanorth -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## Update a Key Vault for use with VMs
-Set the deployment policy on an existing key vault with [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Set the deployment policy on an existing key vault with [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
@@ -64,3 +64,5 @@ For other options that you can configure when you create a Key Vault by using te
 
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+
+<!-- Update_Description: update link, wording update -->

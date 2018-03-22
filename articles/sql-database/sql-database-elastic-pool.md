@@ -46,7 +46,7 @@ Within the pool, individual databases are given the flexibility to auto-scale wi
 
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
-The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
+The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases. 
 
 The following sections help you understand how to assess if your specific collection of databases can benefit from being in a pool. The examples use Standard pools but the same principles also apply to Basic and Premium pools.
 
@@ -70,11 +70,11 @@ The aggregate DTU utilization across all 20 databases is illustrated by the blac
 
 This example is ideal for the following reasons:
 
-* There are large differences between peak utilization and average utilization per database.  
+* There are large differences between peak utilization and average utilization per database. 
 * The peak utilization for each database occurs at different points in time.
 * eDTUs are shared between many databases.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide. 
 
 The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
 
@@ -143,7 +143,7 @@ Creating an elastic pool from an existing server page in the portal is the easie
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
->  
+> 
 
 The pool's pricing tier determines the features available to the elastics in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see [Resource limits for elastic pools](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
@@ -157,11 +157,11 @@ If the databases you're working with have enough historical usage telemetry, the
 
 The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
-![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
 
 The pool recommendation comprises:
 
-- A pricing tier for the pool (Basic, Standard, Premium, or Premium RS)
+- A pricing tier for the pool (Basic, Standard, or Premium)
 - Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool
@@ -182,9 +182,9 @@ In the Azure portal, you can monitor the utilization of an elastic pool and the 
 
 The following graphic shows an example elastic pool. The view includes:
 
-*  Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool.
-*  The **Configure** pool button to make changes to the elastic pool.
-*  The **Create database** button that creates a database and adds it to the current elastic pool.
+* Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool.
+* The **Configure** pool button to make changes to the elastic pool.
+* The **Create database** button that creates a database and adds it to the current elastic pool.
 
 ![Pool view](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
@@ -236,6 +236,7 @@ In the database list on the **Database Resource Utilization** page, you can find
 
 ![Search for databases to monitor](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
+
 ### Add an alert to an elastic pool resource
 
 You can add rules to an elastic pool that send email to people or alert strings to URL endpoints when the elastic pool hits a utilization threshold that you set up.
@@ -246,7 +247,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 2. Type a **Name** and **Description** that identifies the alert to you and the recipients.
 3. Choose a **Metric** that you want to alert from the list.
 
-    The chart dynamically shows resource utilization for that metric to help you choose a threshold.
+   The chart dynamically shows resource utilization for that metric to help you choose a threshold.
 
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
 5. Choose a **Period** of time that the metric rule must be satisfied before the alert triggers.
@@ -258,7 +259,7 @@ For more information, see [create SQL Database alerts in Azure portal](sql-datab
 
 You can add or remove databases from an existing pool. The databases can be in other pools. However, you can only add databases that are on the same logical server.
 
-![Click Configure pool](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
+ ![Click Configure pool](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
 ![Click Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 

@@ -1,8 +1,8 @@
 ---
 title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/15/2017
-ms.date: 02/26/2018
+origin.date: 02/16/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-yiso
 ## Overview
 This article shows you how to create and manage action groups in the Azure portal.
 
-You can configure a list of actions with action groups. These groups then can be used when you define activity log alerts. These groups can then be reused by each activity log alert you define, ensuring that the same actions are taken each time the activity log alert is triggered.
+You can configure a list of actions with action groups. These groups can then be used by each alert you define, ensuring that the same actions are taken each time an alert is triggered.
 
 An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
@@ -57,9 +57,9 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select SMS, email, webhook, Azure app, or Automation Runbook.
+    b. **Action Type**: Select Email/SMS/Azure app, Webhook, ITSM, or Automation Runbook.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, or Automation runbook. 
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
 
 8. Select **OK** to create the action group.
 

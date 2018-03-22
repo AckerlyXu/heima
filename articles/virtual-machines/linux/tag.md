@@ -3,8 +3,8 @@ title: How to tag an Azure Linux virtual machine | Azure
 description: Learn about tagging an Azure Linux virtual machine created in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mmccrory
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/28/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # How to tag a Linux virtual machine in Azure
@@ -25,7 +25,7 @@ This article describes different ways to tag a Linux virtual machine in Azure th
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## Tagging with Azure CLI
-To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -49,7 +49,12 @@ Now that we have applied tags to our resources Azure CLI and the Portal, let's t
 
 ## Next steps
 * To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
+* To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill][Understanding your Azure Bill].
+<!-- Not Available on [Gain insights into your Azure resource consumption][Gain insights into your Azure resource consumption] -->
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../../billing-understand-your-bill.md
+<!-- Notice correct : [Understanding your Azure Bill]: ../../billing-understand-your-bill.md -->
+<!-- Update_Description: wording update, update link -->

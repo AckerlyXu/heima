@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 09/26/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -116,7 +116,7 @@ With these prerequisites in place, you can proceed with building your failover c
       >[!IMPORTANT]
       >You cannot set or change availability set after a virtual machine has been created.
 
-   Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key.
 
@@ -127,7 +127,12 @@ With these prerequisites in place, you can proceed with building your failover c
       - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
 
-<!--Not Available    - **Bring-your-own-license (BYOL)**-->
+   - **Bring-your-own-license (BYOL)**
+
+      - **{BYOL} SQL Server 2016 SP1 Enterprise on Windows Server 2016**
+      - **{BYOL} SQL Server 2016 SP1 Standard on Windows Server 2016**
+<!-- Notice: SHOUD be SP1 and Windows Sever 2016 -->      
+
    >[!IMPORTANT]
    >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and S2D.
 
@@ -230,9 +235,9 @@ The **Validate a Configuration Wizard** runs the validation tests.
 
 To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-```PowerShell
+   ```PowerShell
    Test-Cluster -Node ("<node1>","<node2>") -Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
-```
+   ```
 
 After you validate the cluster, create the failover cluster.
 
@@ -422,7 +427,7 @@ Set the cluster probe port parameter in PowerShell.
 
 To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
-```PowerShell
+   ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" 
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>"
    $ILBIP = "<10.0.0.x>"
@@ -431,7 +436,7 @@ To set the cluster probe port parameter, update variables in the following scrip
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-```
+   ```
 
 In the preceding script, set the values for your environment. The following list describes the values:
 
@@ -486,4 +491,4 @@ On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) i
 
 [SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, update link, wording update -->

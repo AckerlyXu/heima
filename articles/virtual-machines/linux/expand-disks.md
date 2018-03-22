@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ---
 
@@ -25,7 +25,7 @@ The default virtual hard disk size for the operating system (OS) is typically 30
 > Always make sure that you back up your data before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md).
 
 ## Expand Azure Managed Disk
-Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
 This article requires an existing VM in Azure with at least one data disk attached and prepared. If you do not already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
 
@@ -34,7 +34,7 @@ This article requires an existing VM in Azure with at least one data disk attach
 
 In the following samples, replace example parameter names with your own values. Example parameter names include *myResourceGroup* and *myVM*.
 
-1. Operations on virtual hard disks cannot be performed with the VM running. Deallocate your VM with [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
+1. Operations on virtual hard disks cannot be performed with the VM running. Deallocate your VM with [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -43,7 +43,7 @@ In the following samples, replace example parameter names with your own values. 
     > [!NOTE]
     > The VM must be deallocated to expand the virtual hard disk. `az vm stop` does not release the compute resources. To release compute resources, use `az vm deallocate`.
 
-2. View a list of managed disks in a resource group with [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#list). The following example displays a list of managed disks in the resource group named *myResourceGroup*:
+2. View a list of managed disks in a resource group with [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_list). The following example displays a list of managed disks in the resource group named *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -52,7 +52,7 @@ In the following samples, replace example parameter names with your own values. 
         --output table
     ```
 
-    Expand the required disk with [az disk update](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#update). The following example expands the managed disk named *myDataDisk* to be *200*Gb in size:
+    Expand the required disk with [az disk update](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_update). The following example expands the managed disk named *myDataDisk* to be *200*Gb in size:
 
     ```azurecli
     az disk update \
@@ -64,7 +64,7 @@ In the following samples, replace example parameter names with your own values. 
     > [!NOTE]
     > When you expand a managed disk, the updated size is mapped to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Start your VM with [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#start). The following example starts the VM named *myVM* in the resource group named *myResourceGroup*:
+3. Start your VM with [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_start). The following example starts the VM named *myVM* in the resource group named *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -73,7 +73,7 @@ In the following samples, replace example parameter names with your own values. 
 ## Expand disk partition and filesystem
 To use the expanded disk, you need to expand the underlying partition and filesystem.
 
-1. SSH to your VM with the appropriate credentials. You can obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
+1. SSH to your VM with the appropriate credentials. You can obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -147,4 +147,4 @@ To use the expanded disk, you need to expand the underlying partition and filesy
 
 ## Next steps
 If you need additional storage, you also [add data disks to a Linux VM](add-disk.md). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md).
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, update link -->

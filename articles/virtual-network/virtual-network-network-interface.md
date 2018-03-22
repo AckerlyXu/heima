@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -34,6 +34,7 @@ Complete the following tasks before completing any steps in any section of this 
 - Log in to the Azure [portal](https://portal.azure.cn), Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+<!-- Not Avaiable on Azure Cloud Shell -->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -68,7 +69,7 @@ The portal doesn't provide the option to assign a public IP address to the netwo
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
+|CLI|[az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_create)|
 |PowerShell|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json#create)|
 
 <a name="view-nics"></a>
@@ -96,7 +97,7 @@ You can view and change most settings for a network interface after it's created
 <!-- Not Available IPv6 -->
 |Tool|Command|
 |---|---|
-|CLI|[az network nic list](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#list) to view network interfaces in the subscription; [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show) to view settings for a network interface|
+|CLI|[az network nic list](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_list) to view network interfaces in the subscription; [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_show) to view settings for a network interface|
 |PowerShell|[Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json) to view network interfaces in the subscription or view settings for a network interface|
 
 <a name="dns"></a>
@@ -117,16 +118,17 @@ The DNS server is assigned by the Azure DHCP server to the network interface wit
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
+|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="ip-forwarding"></a>
 ## Enable or disable IP forwarding
+
 IP forwarding enables the virtual machine a network interface is attached to:
 - Receive network traffic not destined for one of the IP addresses assigned to any of the IP configurations assigned to the network interface.
 - Send network traffic with a different source IP address than the one assigned to one of a network interface's IP configurations.
 
-The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a virtual machine is running network applications, the virtual machine is often referred to as a network virtual appliance. You can view a list of ready to deploy network virtual appliances in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.
+The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a virtual machine is running network applications, the virtual machine is often referred to as a network virtual appliance. You can view a list of ready to deploy network virtual appliances in the [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking?page=1&subcategories=appliances). IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.
 
 1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
@@ -139,7 +141,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
+|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="subnet"></a>
@@ -152,7 +154,7 @@ You can change the subnet, but not the virtual network, that a network interface
 3. In the **Network interfaces** blade that appears, click the network interface you want to view or change settings for.
 4. Click **IP configurations** under **SETTINGS** in the blade for the network interface you selected. If any private IP addresses for any IP configurations listed have **(Static)** next to them, you must change the IP address assignment method to dynamic by completing the steps that follow. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the network interface. If the addresses are assigned with the dynamic method, continue to step five. If any IPv4 addresses are assigned with the static assignment method, complete the following steps to change the assignment method to dynamic:
     - Click the IP configuration you want to change the IPv4 address assignment method for from the list of IP configurations.
-    - In the blade that appears for the IP configuration, click **Dynamic** for the **Assignment** method.
+    - In the blade that appears for the IP configuration, click **Dynamic** for the **Assignment** method. You cannot assign an IPv6 address with the static assignment method.
     - Click **Save**.
 5. Select the subnet you want to connect the network interface to from the **Subnet** drop-down list.
 6. Click **Save**. New dynamic addresses are assigned from the subnet address range for the new subnet. After assigning the network interface to a new subnet, you can assign a static IPv4 address from the new subnet address range if you choose. To learn more about adding, changing, and removing IP addresses for a network interface, read the [Manage IP addresses](virtual-network-network-interface-addresses.md) article.
@@ -161,7 +163,7 @@ You can change the subnet, but not the virtual network, that a network interface
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
+|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="delete-nic"></a>
@@ -180,7 +182,7 @@ When you delete a network interface, any MAC or IP addresses assigned to it are 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic delete](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete)|
+|CLI|[az network nic delete](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps
@@ -192,5 +194,6 @@ To create a virtual machine with multiple network interfaces or IP addresses, re
 |---|---|
 |Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+<!-- Not Avaiable on LoadBalancer IPV6 -->
 
 <!--Update_Description: update meta properties, update reference link, wording update -->

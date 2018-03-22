@@ -3,8 +3,8 @@ title: Security Considerations for SQL Server in Azure | Azure
 description: This topic provides general guidance for securing SQL Server running in an Azure Virtual Machine.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/02/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # Security Considerations for SQL Server in Azure Virtual Machines
@@ -97,3 +97,4 @@ In addition to the practices described in this topic, we recommend that you revi
 If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
+<!-- Update_Description: wording update, update link -->

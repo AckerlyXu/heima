@@ -94,13 +94,10 @@ ms.author: v-nany
 **Is it possible to specify read-only or write-only permissions on folders within the share?**  
     If you mount the file share by using SMB, you don't have folder-level control over permissions. However, if you create a shared access signature by using the REST API or client libraries, you can specify read-only or write-only permissions on folders within the share.
 
-* <a id="ip-restrictions"></a>
-**Can I implement IP restrictions for an Azure file share?**  
-    Yes. Access to your Azure file share can be restricted at the storage account level. For more information, see [Configure Azure Storage Firewalls and Virtual Networks](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="data-compliance-policies"></a>
 **What data compliance policies does Azure Files support?**  
-   Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can download and refer to the [ Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), and go to the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+   Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can download and refer to the [ Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), and go to the [Azure Trust Center](https://www.azure.cn/support/trust-center/).
 
 ## On-premises access
 * <a id="expressroute-not-required"></a>
@@ -111,10 +108,6 @@ ms.author: v-nany
 **How can I mount an Azure file share on my local machine?**  
     You can mount the file share by using the SMB protocol if port 445 (TCP outbound) is open and your client supports the SMB 3.0 protocol (for example, if you're using Windows 10 or Windows Server 2016). If port 445 is blocked by your organization's policy or by your ISP, you can use Azure File Sync to access your Azure file share.
 
-## Backup
-* <a id="backup-share"></a>
-**How do I back up my Azure file share?**  
-    You can use periodic [share snapshots (preview)](storage-how-to-use-files-snapshots.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. 
 
 
 ## Billing and pricing
@@ -149,9 +142,6 @@ ms.author: v-nany
 **Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
     Currently, this configuration is not supported for an Azure file share. For more information about how to set this up for Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
-* <a id="containers"></a>
-**Can I mount an Azure file share on an Azure Container instance?**  
-    Yes, Azure file shares are a good option when you want to persist information beyond the lifetime of a container instance. For more information, see [Mount an Azure file share with Azure Container instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
 
 * <a id="rest-rename"></a>
 **Is there a rename operation in the REST API?**  
@@ -168,4 +158,3 @@ ms.author: v-nany
 ## See also
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md)

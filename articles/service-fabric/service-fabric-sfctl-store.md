@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 11/13/2017
+origin.date: 12/22/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -25,9 +25,9 @@ Perform basic file level operations on the cluster image store.
 
 |Command|Description|
 | --- | --- |
-|    delete| Deletes existing image store content.|
-|    root-info| Gets the content information at the root of the image store.|
-|    stat  | Gets the image store content information.|
+| delete| Deletes existing image store content.|
+| root-info| Gets the content information at the root of the image store.|
+| stat  | Gets the image store content information.|
 
 ## sfctl store delete
 Deletes existing image store content.
@@ -39,7 +39,7 @@ Deletes existing image store content being found within the given image store re
 |Argument|Description|
 | --- | --- |
 | --content-path [Required]| Relative path to file or folder in the image store from its root.|
-| --timeout -t          | Server timeout in seconds.  Default: 60.|
+| --timeout -t          | Server timeout in seconds. Default: 60.|
 
 ### Global Arguments
 
@@ -47,7 +47,7 @@ Deletes existing image store content being found within the given image store re
 | --- | --- |
 | --debug               | Increase logging verbosity to show all debug logs.|
 | --help -h             | Show this help message and exit.|
-| --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
+| --output -o           | Output format. Allowed values: json, jsonc, table, tsv. Default: json.|
 | --query               | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
 
@@ -62,7 +62,7 @@ Returns the information about the image store content at the specified contentPa
 |Argument|Description|
 | --- | --- |
 | --content-path [Required]| Relative path to file or folder in the image store from its root.|
-| --timeout -t          | Server timeout in seconds.  Default: 60.|
+| --timeout -t          | Server timeout in seconds. Default: 60.|
 
 ### Global Arguments
 
@@ -70,8 +70,8 @@ Returns the information about the image store content at the specified contentPa
 | --- | --- |
 | --debug               | Increase logging verbosity to show all debug logs.|
 | --help -h             | Show this help message and exit.|
-| --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
-| --query               | JMESPath query string. See http://jmespath.org/ for more information           and examples.|
+| --output -o           | Output format. Allowed values: json, jsonc, table, tsv. Default: json.|
+| --query               | JMESPath query string. See http://jmespath.org/ for more information and examples.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## Next steps
@@ -79,4 +79,4 @@ Returns the information about the image store content at the specified contentPa
 - Learn how to use the Service Fabric CLI using the [sample scripts](/service-fabric/scripts/sfctl-upgrade-application).
 
 
-<!--Update_Description: new articles on service fabric sfctl store -->
+<!--Update_Description: update meta properties -->

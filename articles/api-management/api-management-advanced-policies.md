@@ -103,7 +103,7 @@ This topic provides a reference for the following API Management policies. For i
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -625,7 +625,7 @@ status code and media type. If no example or schema found, the content is empty.
         <!-- Check active property in response -->  
         <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
             <!-- Return 401 Unauthorized with http-problem payload -->  
-            <return-response response-variable-name="existing response variable">  
+            <return-response>  
                 <set-status code="401" reason="Unauthorized" />  
                 <set-header name="WWW-Authenticate" exists-action="override">  
                     <value>Bearer error="invalid_token"</value>  

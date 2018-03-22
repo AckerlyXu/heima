@@ -4,17 +4,17 @@ If you place your virtual machines in a virtual network, you can decide how many
 
 ![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription.
+Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
 
 ## Connect VMs in a virtual network
 To connect virtual machines in a virtual network:
 
 1. Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) and specify 'classic deployment'.
-2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **New > Compute > Cloud service** for each cloud service.
+2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **Create a resource > Compute > Cloud service** for each cloud service.
 
   As you fill out the cloud service details, choose the same _resource group_ used with the virtual network.
 
-3. To create each new virtual machine, click **New > Compute**, then select the appropriate VM image from the **Featured apps**.
+3. To create each new virtual machine, click **Create a resource > Compute**, then select the appropriate VM image from the **Featured apps**.
 
   In the VM **Basics** blade, choose the same _resource group_ used with the virtual network.
 
@@ -37,3 +37,4 @@ To connect virtual machines in a standalone cloud service:
 3.  As you fill out the VM details, choose the name of cloud service created in the first step.
 
   ![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+<!--ms.date: 03/19/2018 -->

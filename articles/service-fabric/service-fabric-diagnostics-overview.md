@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/10/2018
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -41,6 +41,7 @@ In a Service Fabric cluster, monitoring and diagnostics data comes from three le
 This section discusses key scenarios for monitoring a Service Fabric cluster - application, cluster, performance, and health monitoring. For each scenario, the intent and overall approach for monitoring is discussed. More details on these and other general monitoring recommendations for Azure resources can be found at [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
 
 These scenarios are also loosely mapped to the three levels of monitoring and diagnostics data as discussed above, i.e. for each scenario to be appropriately handled in the cluster, you should have monitoring and diagnostics data coming in at the corresponding level. The health monitoring scenario is an exception, since it spans the cluster and everything running in it.
+
 ## Application monitoring
 Application monitoring tracks how features and components of an application that you have built, are being used. You want to monitor your applications to make sure issues that impact users are caught. Monitoring your applications can be useful in:
 * determining application load and user traffic - do you need to scale your services to meet user demands or address a potential bottleneck in your application?
@@ -117,8 +118,8 @@ In the case that you want to use just one of these, here are some key points to 
 ## Event analysis
 
 There are several great platforms that exist in the market when it comes to the analysis and visualization of monitoring and diagnostics data. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), or any other platform of your preference. 
-<!-- Not Available on  [OMS](service-fabric-diagnostics-event-analysis-oms.md)-->
-<!-- Not Available on  [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Abailable on [OMS](service-fabric-diagnostics-event-analysis-oms.md)  -->
+<!-- Noy Abailable on [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
 The key points for any platform you choose should include how comfortable you are with the user interface and querying options, the ability to visualize data and create easily readable dashboards, and the additional tools they provide to enhance your monitoring, such as automated alerting.
 
@@ -130,14 +131,14 @@ You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md
 
 ![Azure portal view of collected metric information](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-To customize the charts, follow the instructions in [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Azure Monitor supports only one subscription. 
-<!-- Not Avaialble [Log Analytics](/log-analytics/) -->
-<!-- Remove on (../monitoring-and-diagnostics/insights-alerts-portal.md). -->
-<!-- Remove on (../monitoring-and-diagnostics/insights-webhooks-alerts.md) -->
+To customize the charts, follow the instructions in [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+<!-- Not Avaialble on [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/monitoring-overview-alerts.md) -->
+
 
 ## Next steps
 
 * Learn more about monitoring the platform and the events Service Fabric provides for you at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md)
 * For getting started with instrumenting your applications, see [Application level event and log generation](service-fabric-diagnostics-event-generation-app.md)
-* Go through the tutorial on [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
-<!--Update_Description: update meta properties, wording update -->
+<!-- Not Avaiable on * Go through the steps to set up AI for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md) -->
+<!-- Not Avaiable on * Learn how to set up OMS Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md) -->
+<!-- Update_Description: update meta properties, wording update -->

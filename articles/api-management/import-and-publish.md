@@ -70,9 +70,7 @@ Operations can be called directly from the Azure portal, which provides a conven
     ![Test API](./media/api-management-get-started/test-api.png)
     
 3. Click on **GetSpeakers**.
-
-    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically. 
-    
+    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
 4. Press **Send**.
 
     Backend responds with **200 OK** and some data.

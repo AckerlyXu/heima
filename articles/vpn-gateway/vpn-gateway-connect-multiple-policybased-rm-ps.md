@@ -1,10 +1,10 @@
 ---
 title: 'Connect Azure VPN gateways to multiple on-premises policy-based VPN devices: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: This article walks you through configuring Azure route-based VPN gateway to multiple policy-based VPN devices using Azure Resource Manager and PowerShell.
+description: Configure an Azure route-based VPN gateway to multiple policy-based VPN devices using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: yushwang
+manager: rossort
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/27/2017
-ms.date: 11/07/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 
 ---
@@ -215,4 +215,4 @@ Once your connection is complete, you can add virtual machines to your virtual n
 
 Also review [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) for more details on custom IPsec/IKE policies.
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metedata properties -->

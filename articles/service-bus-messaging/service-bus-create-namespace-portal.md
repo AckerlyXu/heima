@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus namespace in the Azure portal | Azure
+title: How to create a Service Bus namespace in the Azure portal
 description: Create a Service Bus namespace using the Azure portal.
 services: service-bus
 documentationCenter: .net
@@ -13,9 +13,9 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 10/16/2017
+origin.date: 02/22/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ---
 
 # Create a Service Bus namespace using the Azure portal

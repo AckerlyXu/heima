@@ -1,10 +1,10 @@
 ---
 title: 'Create a connection between VNets: classic: Azure portal | Microsoft Docs'
-description: How to connect Azure virtual networks together using PowerShell and the Azure portal.
+description: Connect Azure virtual networks together using PowerShell and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: infrastructure-services
-origin.date: 12/05/2017
-ms.date: 12/29/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-junlch
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the classic deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article helps you create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the classic deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -236,6 +236,11 @@ In the following steps, you will connect to your Azure account and download and 
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
     ```
 
+    Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+
+    ```powershell
+    Add-AzureAccount -Environment AzureChinaCloud
+    ```
 3. Export and view the network configuration file. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to **C:\AzureNet**.
 
     ```powershell

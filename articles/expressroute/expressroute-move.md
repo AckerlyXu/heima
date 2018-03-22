@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/02/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 03/26/2018
 ---
 
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model
@@ -45,6 +45,11 @@ You can enable ExpressRoute circuits that are created in the Resource Manager de
 - An ExpressRoute circuit always has access to the Resource Manager deployment model, regardless of whether it was created in the Resource Manager or classic deployment model. This means that you can create connections to virtual networks created in the Resource Manager deployment model by following instructions on [how to link virtual networks](./expressroute-howto-linkvnet-arm.md).
 - Access to the classic deployment model is controlled by the **allowClassicOperations** parameter in the ExpressRoute circuit.
 
+> [!IMPORTANT]
+> All quotas that are documented on the [service limits](../azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
+> 
+> 
+
 ## Controlling access to the classic deployment model
 
 You can enable a single ExpressRoute circuit to link to virtual networks in both deployment models by setting the **allowClassicOperations** parameter of the ExpressRoute circuit.
@@ -63,8 +68,8 @@ The following classic operations are supported on an ExpressRoute circuit when *
 
 You cannot perform the following classic operations when **allowClassicOperations** is set to TRUE:
 
- - Create/update/get/delete Border Gateway Protocol (BGP) peerings for Azure private, Azure public peerings
- - Delete ExpressRoute circuits
+* Create/update/get/delete Border Gateway Protocol (BGP) peerings for Azure private, Azure public, and Microsoft peerings
+* Delete ExpressRoute circuits
 
 ## Communication between the classic and the Resource Manager deployment models
 
@@ -72,9 +77,8 @@ The ExpressRoute circuit acts like a bridge between the classic and the Resource
 
 Aggregate throughput is limited by the throughput capacity of the virtual network gateway. Traffic does not enter the connectivity provider's networks or your networks in such cases. Traffic flow between the virtual networks is fully contained within the Microsoft network.
 
-## Access to Azure public peering resources
-
-You can continue to access resources that are typically accessible through Azure public peering without any disruption.  
+## Access to Azure public and Microsoft peering resources
+You can continue to access resources that are typically accessible through Azure public peering and Microsoft peering without any disruption.  
 
 ## What's supported
 

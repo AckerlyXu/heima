@@ -91,8 +91,8 @@ TCP and HTTP probes are considered healthy and mark the role instance as healthy
 > [!NOTE]
 > If the health of a role instance fluctuates, the load balancer waits longer before it puts the role instance back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
 
-## Use log analytics for a load balancer
+<!-- Not Avaible ## Use log analytics for a load balancer -->
 
-You can use [log analytics](load-balancer-monitor-log.md) to check on the load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+<!-- Not Avaible [log analytics](load-balancer-monitor-log.md) -->
 
 <!-- Update_Description: update meta properties, wording update -->

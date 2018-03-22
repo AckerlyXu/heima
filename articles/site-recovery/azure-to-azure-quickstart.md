@@ -4,14 +4,17 @@ description: This quickstart provides the steps required to replicate an Azure V
 services: site-recovery
 author: rockboyfor
 manager: digimobile
-
 ms.service: site-recovery
+ms.topic: quickstart
+origin.date: 02/07/2018
+ms.date: 03/05/2018
+ms.author: v-yeche
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/08/2017
-ms.date: 01/01/2018
+ms.topic: quickstart
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---

@@ -3,8 +3,8 @@ title: Import and Export data in Azure Redis Cache | Microsoft Docs
 description: Learn how to import and export data to and from blob storage with your premium Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/31/2017
-ms.date: 09/14/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
 
 ---
@@ -75,7 +75,7 @@ Export allows you to export the data stored in Azure Redis Cache to Redis compat
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
 
    > [!IMPORTANT]
-   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts, but are not supported by [Blob storage accounts](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts) at this time.
+   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts, but are not supported by [Blob storage accounts](../storage/common/storage-account-options.md#blob-storage-accounts) at this time.
    >
    >
 
@@ -153,7 +153,7 @@ If you remain on the **Import data** or **Export data** blade for longer than 15
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
-Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including blob storage accounts with hot and cool tiers. For more information, see [Blob storage accounts](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts).
+Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including blob storage accounts with hot and cool tiers. For more information, see [Blob storage accounts](../storage/common/storage-account-options.md#blob-storage-accounts).
 
 ## Next steps
 Learn how to use more premium cache features.
@@ -174,4 +174,4 @@ Learn how to use more premium cache features.
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

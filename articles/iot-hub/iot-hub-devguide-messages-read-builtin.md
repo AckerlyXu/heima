@@ -3,7 +3,7 @@ title: Understand the Azure IoT Hub built-in endpoint | Azure
 description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint toread device-to-cloud messages.
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -12,9 +12,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/13/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ---
 # Read device-to-cloud messages from the built-in endpoint
 
@@ -29,7 +29,7 @@ IoT Hub also enables you to manage consumer groups on the built-in device-to-clo
 
 By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this fallback route, messages that do not explicitly match any message routing rules are dropped.
 
-You can modify the retention time, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
+You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or with the [Azure portal][lnk-management-portal].
 
 IoT Hub exposes the **messages/events** built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hub-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
@@ -37,7 +37,7 @@ IoT Hub exposes the **messages/events** built-in endpoint for your back-end serv
 
 When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
 
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from your IoT hub settings:
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name:
 
 1. Sign in to the [Azure portal][lnk-management-portal] and navigate to your IoT hub.
 1. Click **Endpoints**.
@@ -48,7 +48,7 @@ When you use SDKs (or product integrations) that are unaware of IoT Hub, you mus
 
 The IoT Hub SDK requires the IoT Hub endpoint name, which is **messages/events** as shown under **Endpoints**.
 
-If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn**. The **Namespace** would be **iothub-ns-myiothub-1234**.
 
 You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
@@ -59,8 +59,8 @@ If you need to build an Event Hub connection string by using the previous inform
 The SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes includes the items in the following list:
 
 * [Java Event Hubs client](https://github.com/Azure/azure-event-hubs-java).
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
+* [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
+* [Apache Spark integration](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
 ## Next steps
 

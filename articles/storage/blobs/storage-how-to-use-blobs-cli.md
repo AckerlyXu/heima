@@ -2,16 +2,11 @@
 title: Perform operations on Azure Blob storage (object storage) with the Azure CLI | Microsoft Docs
 description: Learn how to upload and download blobs in Azure Blob storage, as well as construct a shared access signature (SAS) to manage access to a blob in your storage account.
 services: storage
-documentationcenter: na
 author: forester123
 manager: digimobile
-editor: tysonn
 
-ms.assetid:
+
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/15/2017
 ms.date: 1/29/2018
@@ -34,7 +29,7 @@ Azure Blob storage is a service for storing large amounts of unstructured object
 
 This tutorial requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli). 
 
-
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
@@ -42,9 +37,9 @@ This tutorial requires Azure CLI version 2.0.4 or later. Run `az --version` to f
 
 Containers are similar to directories on your computer, allowing you to organize groups of blobs in a container like you organize files in a directory. A storage account can have any number of containers. You can store up to 500 TB of blob data in a container, which is the maximum amount of data in a storage account.
 
-Create a container for storing blobs with the [az storage container create](https://docs.azure.cn/cli/storage/container#create) command.
+Create a container for storing blobs with the [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) command.
 
-```cli
+```azurecli-interactive
 az storage container create --name mystoragecontainer
 ```
 
@@ -62,9 +57,9 @@ A newly created container is private by default. That is, nobody can access the 
 
 When you set public access to `blob` or `container`, you enable read-only access for anyone on the Internet. For example, if you want to display images stored as blobs on your website, you need to enable public read access. If you want to enable read/write access, you must instead use a [shared access signature (SAS)](#create-a-shared-access-signature-sas).
 
-Enable public read access for your container with the [az storage container set-permission](https://docs.azure.cn/cli/storage/container#create) command.
+Enable public read access for your container with the [az storage container set-permission](https://docs.azure.cn/cli/storage/container#az_storage_container_create) command.
 
-```cli
+```azurecli-interactive
 az storage container set-permission \
     --name mystoragecontainer \
     --public-access container
@@ -74,9 +69,9 @@ az storage container set-permission \
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most common type of blob stored in Azure Storage. Append blobs are used when data must be added to an existing blob without modifying its existing content, such as for logging. Page blobs back the VHD files of IaaS virtual machines.
 
-In this example, we upload a blob into the container we created in the last step with the [az storage blob upload](https://docs.azure.cn/cli/storage/blob#upload) command.
+In this example, we upload a blob into the container we created in the last step with the [az storage blob upload](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload) command.
 
-```cli
+```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
     --name blobName \
@@ -87,9 +82,9 @@ This operation creates the blob if it doesn't already exist, and overwrites it i
 
 ## List the blobs in a container
 
-List the blobs in the container with the [az storage blob list](https://docs.azure.cn/cli/storage/blob#list) command.
+List the blobs in the container with the [az storage blob list](https://docs.azure.cn/cli/storage/blob#az_storage_blob_list) command.
 
-```cli
+```azurecli-interactive
 az storage blob list \
     --container-name mystoragecontainer \
     --output table
@@ -109,9 +104,9 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## Download a blob
 
-Download the blob you uploaded in a previous step using the [az storage blob download](https://docs.azure.cn/cli/storage/blob#download) command.
+Download the blob you uploaded in a previous step using the [az storage blob download](https://docs.azure.cn/cli/storage/blob#az_storage_blob_download) command.
 
-```cli
+```azurecli-interactive
 az storage blob download \
     --container-name mystoragecontainer \
     --name blobName \
@@ -153,9 +148,9 @@ az storage blob copy start \
 
 ## Delete a blob
 
-Delete the blob from the container using the [az storage blob delete](https://docs.azure.cn/cli/storage/blob#delete) command.
+Delete the blob from the container using the [az storage blob delete](https://docs.azure.cn/cli/storage/blob#az_storage_blob_delete) command.
 
-```cli
+```azurecli-interactive
 az storage blob delete \
     --container-name mystoragecontainer \
     --name blobName
@@ -175,11 +170,11 @@ az storage blob update
 
 ## Display and modify blob properties and metadata
 
-Each blob has several service-defined properties you can display with the [az storage blob show](https://docs.azure.cn/cli/storage/blob#show) command, including its name, type, length, and others. You can also configure a blob with your own properties and their values by using the [az storage blob metadata update](https://docs.azure.cn/cli/storage/blob/metadata#update) command.
+Each blob has several service-defined properties you can display with the [az storage blob show](https://docs.azure.cn/cli/storage/blob#az_storage_blob_show) command, including its name, type, length, and others. You can also configure a blob with your own properties and their values by using the [az storage blob metadata update](https://docs.azure.cn/cli/storage/blob/metadata#az_storage_blob_metadata_update) command.
 
-In this example, we first display the service-defined properties of a blob, then update the blob with two of our own metadata properties. Finally, we display the blob's metadata properties and their values with the [az storage blob metadata show](https://docs.azure.cn/cli/storage/blob/metadata#show) command.
+In this example, we first display the service-defined properties of a blob, then update the blob with two of our own metadata properties. Finally, we display the blob's metadata properties and their values with the [az storage blob metadata show](https://docs.azure.cn/cli/storage/blob/metadata#az_storage_blob_metadata_show) command.
 
-```cli
+```azurecli-interactive
 # Show properties of a blob
 az storage blob show \
     --container-name mystoragecontainer \
@@ -208,7 +203,7 @@ In the following steps, you'll disable public access to your container, test the
 
 First, set the access level of the container to `off`. This designates that there is no access to the container or its blobs without either a shared access signature or a storage account access key.
 
-```cli
+```azurecli-interactive
 az storage container set-permission \
     --name mystoragecontainer \
     --public-access off
@@ -216,9 +211,9 @@ az storage container set-permission \
 
 ### Verify private access
 
-To verify that there is no public read access to the blobs in that container, get the URL for one of its blobs with the [az storage blob url](https://docs.azure.cn/cli/storage/blob#url) command.
+To verify that there is no public read access to the blobs in that container, get the URL for one of its blobs with the [az storage blob url](https://docs.azure.cn/cli/storage/blob#az_storage_blob_url) command.
 
-```cli
+```azurecli-interactive
 az storage blob url \
     --container-name mystoragecontainer \
     --name blobName \
@@ -229,9 +224,9 @@ Navigate to the blob's URL in a private browser window. You're presented with a 
 
 ### Create a SAS URI
 
-Now we'll create a SAS URI that permits access to the blob. In the following example, we first populate a variable with the URL for the blob with [az storage blob url](https://docs.azure.cn/cli/storage/blob#url), then populate another variable with a SAS token generated with the [az storage blob generate-sas](https://docs.azure.cn/cli/storage/blob#generate-sas) command. Finally, we output the full SAS URI for blob by concatenating the two, separated by the `?` query string separator.
+Now we'll create a SAS URI that permits access to the blob. In the following example, we first populate a variable with the URL for the blob with [az storage blob url](https://docs.azure.cn/cli/storage/blob#az_storage_blob_url), then populate another variable with a SAS token generated with the [az storage blob generate-sas](https://docs.azure.cn/cli/storage/blob#az_storage_blob_generate_sas) command. Finally, we output the full SAS URI for blob by concatenating the two, separated by the `?` query string separator.
 
-```cli
+```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
 sas_start=`date -u +'%Y-%m-%dT%H:%M:%SZ'`
 sas_expiry=`date -u +'%Y-%m-%dT%H:%M:%SZ' -d '+2 minute'`
@@ -264,9 +259,9 @@ Wait long enough for the URL to expire (two minutes in this example), then navig
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created and any blobs you've uploaded in this tutorial, delete the resource group with the [az group delete](https://docs.azure.cn/cli/group#delete) command.
+If you no longer need any of the resources in your resource group, including the storage account you created and any blobs you've uploaded in this tutorial, delete the resource group with the [az group delete](https://docs.azure.cn/cli/group#az_group_delete) command.
 
-```cli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

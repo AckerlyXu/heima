@@ -14,8 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/19/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
+
 ---
 
 # Event Hubs samples 
@@ -45,7 +46,7 @@ The [Get started receiving with the Event Processor Host](https://github.com/Azu
 
 ## .NET Framework	
 
-These samples demonstrate various other features of Azure Event Hubs, targeting the [.NET Framework library](https://docs.microsoft.com/dotnet/framework/index).
+These samples demonstrate various other features of Azure Event Hubs, targeting the [.NET Framework library](https://docs.microsoft.com/dotnet/framework/index?view=azure-dotnet).
 
 ### Notify users of events received
 
@@ -59,10 +60,7 @@ The [Event Hubs Getting Started](https://code.msdn.microsoft.com/Service-Bus-Eve
 
 The [Scale out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample demonstrates how to use the [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) to distribute the workload of Event Hubs stream consumption. It shows how to implement the **EventProcessor** and **EventProcessorFactory** objects to manage the event stream. 
 
-###  Pull data from SQL into an event hub
-
-The [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) sample shows how to pull data from a SQL table and push it to an event hub, to use as an input in downstream analytical applications.
-
+<!-- Remove on Globle site ### Pull web data into an event hub  -->
 <!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a> Pull web data into an event hub  -->
 <!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
 <!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
@@ -72,7 +70,7 @@ The [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import
 Learn more about .NET Framework versions by visiting the following links:
 
 - [Frameworks and targets](https://docs.microsoft.com/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 and 4.5](https://docs.microsoft.com/dotnet/framework/index)
+- [.NET Framework 4.6 and 4.5](https://docs.microsoft.com/dotnet/framework/index?view=azure-dotnet)
 
 You can learn more about Event Hubs in the following articles:
 

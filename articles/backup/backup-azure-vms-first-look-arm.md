@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 01/05/2018
-ms.date: 02/08/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -50,7 +50,7 @@ Use the following steps to configure the backup job from the virtual machine man
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
 2. On the Hub menu, click **More Services** and in the Filter dialog, type **Virtual machines**. As you type, the list of resources filters. When you see Virtual machines, select it.
 
-    ![On Hub menu, click More Services to open text dialog, and type Virtual machines](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Screenshot that shows how to navigate to virtual machines from All services](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
     The list of virtual machines (VM) in the subscription, appears.
 
@@ -310,7 +310,7 @@ To run the initial backup job:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Install the VM Agent on the virtual machine
-This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the following table). If you create a custom VM, [ensure the **Install the VM Agent** check box is selected](../virtual-machines/windows/classic/agents-and-extensions.md) before the virtual machine is provisioned.
+This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the following table). If you create a custom VM, install the VM Agent before the virtual machine is provisioned.
 
 Learn about the [VM Agent](/virtual-machines/windows/extensions-features) and [how to install it](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

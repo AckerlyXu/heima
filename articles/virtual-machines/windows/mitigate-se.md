@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2018
-ms.date: 02/05/2018
+origin.date: 01/22/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -23,3 +23,4 @@ ms.author: v-yeche
 # Guidance for mitigating speculative execution side-channel vulnerabilities in Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
+<!-- Update_Description: update meta properties -->

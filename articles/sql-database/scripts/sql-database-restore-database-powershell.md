@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 10/02/2017
+ms.date: 2/28/2018
 ms.author: v-johch
 ---
 
@@ -24,7 +24,7 @@ ms.author: v-johch
 
 This PowerShell script example restores an Azure SQL database from a geo-redundant backup, restores a deleted Azure SQL database to its latest backup, and restores an Azure SQL database to a specific point in time.  
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount -EnviroumentName AzureChina` cmdlet.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 

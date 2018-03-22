@@ -1,5 +1,5 @@
 ---
-title: Routing messages with Azure IoT Hub (.Net) | Microsoft Docs
+title: Routing messages with Azure IoT Hub (.Net)
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: .net
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/25/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 ---
 # Routing messages with IoT Hub (.NET)
@@ -98,7 +98,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application supports routing messages based on message body.
 
 > [!NOTE]
 > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
@@ -181,6 +181,30 @@ Now you are ready to run the applications.
 
    ![Three console apps][50]
 
+## (Optional) Add Storage Container to your IoT hub and route messages to it
+
+In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the account based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > If you are not limited to one **Endpoint**, you may setup the **StorageContainer** in addition to the **CriticalQueue** and run both simulatneously.
+
+1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
+
+2. In the Azure portal, open your IoT hub and click **Endpoints**.
+
+3. In the **Endpoints** blade, select the **CriticalQueue** endpoint, and click **Delete**. Click **Yes**, and then click **Add**. Name the endpoint **StorageContainer** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom. 
+
+ > [!NOTE]
+   > If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
+
+4. Click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageContainer** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
+
+    Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
+
+1. Make sure your previous applications are still running. 
+
+1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
+
 ## Next steps
 In this tutorial, you learned how to reliably dispatch device-to-cloud messages by using the message routing functionality of IoT Hub.
 
@@ -202,7 +226,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 <!-- Links -->
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [Azure Storage]: /storage/
-[Azure Service Bus]: /service-bus/
+[Azure Service Bus]: /service-bus-messaging/
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

@@ -3,8 +3,8 @@ title: Provision Web App with Redis Cache
 description: Use Azure Resource Manager template to deploy web app with Redis Cache.
 services: app-service
 documentationcenter: ''
-author: steved0x
-manager: erickson-doug
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
+ms.date: 02/28/2018
+ms.author: v-junlch
 
 ---
 # Create a Web App plus Redis Cache using a template
@@ -29,15 +29,12 @@ For the complete template, see [Web App with Redis Cache template](https://githu
 ## What you will deploy
 In this template, you will deploy:
 
-* Azure Web App
-* Azure Redis Cache.
+- Azure Web App
+- Azure Redis Cache.
 
 To run the deployment automatically, click the following button:
 
 [![Deploy to Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
-
->[!NOTE]
-> Templates you are deploying from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn".
 
 ## Parameters to specify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
@@ -53,6 +50,7 @@ resource group id.
       "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
       "cacheName": "[concat('cache', uniqueString(resourceGroup().id))]"
     },
+
 
 ## Resources to deploy
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
@@ -79,6 +77,7 @@ The template creates the cache in the same location as the resource group.
         }
       }
     }
+
 
 ### Web app
 Creates the web app with name specified in the **webSiteName** variable.
@@ -126,3 +125,5 @@ Notice that the web app is configured with app setting properties that enable it
 
 ### Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
+<!--Update_Description: wording update -->

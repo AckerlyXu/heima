@@ -9,7 +9,7 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ Log in to the [Azure portal](https://portal.azure.cn/).
 
 ## Create a network security group
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Networking**, select **Network security group**.
 

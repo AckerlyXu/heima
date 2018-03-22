@@ -3,8 +3,8 @@ title: Create and upload a SUSE Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/24/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 # Prepare a SLES or openSUSE virtual machine for Azure
@@ -79,26 +79,26 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 11. It is recommended to edit the file "/etc/sysconfig/network/dhcp" and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
 
-     DHCLIENT_SET_HOSTNAME="no"
+        DHCLIENT_SET_HOSTNAME="no"
 12. In "/etc/sudoers", comment out or remove the following lines if they exist:
 
-     Defaults targetpw   # ask for the password of the target user i.e. root
-     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+        Defaults targetpw   # ask for the password of the target user i.e. root
+        ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
 13. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 14. Do not create swap space on the OS disk.
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
-     ResourceDisk.Format=y
-     ResourceDisk.Filesystem=ext4
-     ResourceDisk.MountPoint=/mnt/resource
-     ResourceDisk.EnableSwap=y
-     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 - - -
@@ -136,7 +136,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-   This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
+    This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
 
         libata.atapi_enabled=0 reserve=0x1f0,0x8
 7. It is recommended to edit the file "/etc/sysconfig/network/dhcp" and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
@@ -151,20 +151,21 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
-     ResourceDisk.Format=y
-     ResourceDisk.Filesystem=ext4
-     ResourceDisk.MountPoint=/mnt/resource
-     ResourceDisk.EnableSwap=y
-     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 11. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Ensure the Azure Linux Agent runs at startup:
 
         # sudo systemctl enable waagent.service
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps
-You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
+<!-- Update_Description: wording update, update link -->

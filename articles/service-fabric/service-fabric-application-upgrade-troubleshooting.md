@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/03/2017
-ms.date: 11/13/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -222,4 +222,4 @@ Make your application upgrades compatible by learning how to use [Data Serializa
 
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

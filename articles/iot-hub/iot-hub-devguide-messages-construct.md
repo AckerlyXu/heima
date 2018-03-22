@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 01/15/2018
+ms.date: 03/19/2018
 
 ---
 # Create and read IoT Hub messages

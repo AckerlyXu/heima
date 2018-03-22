@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/22/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ---
 # Azure IoT Hub get started tutorials
 

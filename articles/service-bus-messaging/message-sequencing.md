@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus message sequencing and timestamps | Microsoft Docs
+title: Azure Service Bus message sequencing and timestamps
 description: Preserve Service Bus message sequence and order with timestamps
 services: service-bus
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/28/2017
-ms.date: 11/13/2017
+origin.date: 01/25/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
 
 # Message sequencing and timestamps
 
-Sequencing and timestamping are two features that are always enabled on all Service Bus entities and surface through the [Sequence​Number](https://docs.microsoft.com/en-us//dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) and [EnqueuedTimeUtc](https://docs.microsoft.com/en-us//dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) properties of received or browsed messages.
+Sequencing and timestamping are two features that are always enabled on all Service Bus entities and surface through the [Sequence​Number](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) and [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) properties of received or browsed messages.
 
 For those cases in which absolute order of messages is significant and/or in which a consumer needs a trustworthy unique identifier for messages, the broker stamps messages with a gap-free, increasing sequence number relative to the queue or topic. For partitioned entities, the sequence number is issued relative to the partition.
 
@@ -38,7 +38,7 @@ You can submit messages to a queue or topic for delayed processing; for example,
 
 Scheduled messages do not materialize in the queue until the defined enqueue time. Before that time, scheduled messages can be canceled. Cancellation deletes the message.
 
-You can schedule messages either by setting the [Scheduled​Enqueue​Time​Utc](https://docs.microsoft.com/en-us//dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) property when sending a message through the regular send path, or explicitly with the [ScheduleMessageAsync](https://docs.microsoft.com/en-us//dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) API. The latter immediately returns the scheduled message's **SequenceNumber**, which you can later use to cancel the scheduled message if needed. Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
+You can schedule messages either by setting the [Scheduled​Enqueue​Time​Utc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) property when sending a message through the regular send path, or explicitly with the [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) API. The latter immediately returns the scheduled message's **SequenceNumber**, which you can later use to cancel the scheduled message if needed. Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
 
 The **SequenceNumber** for a scheduled message is only valid while the message is in this state. As the message transitions to the active state, the message is appended to the queue as if had been enqueued at the current instant, which includes assigning a new **SequenceNumber**.
 

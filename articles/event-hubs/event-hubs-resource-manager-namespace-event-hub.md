@@ -13,17 +13,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 11/20/2017
+origin.date: 01/30/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
 
 # Create an Event Hubs namespace with event hub and consumer group using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one event hub and one consumer group. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template to create a namespace of type [Event Hubs](event-hubs-what-is-event-hubs.md), with one event hub and one consumer group. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
+For information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
 For the complete template, see the [Event hub and consumer group template][Event Hub and consumer group template] on GitHub.
 
@@ -34,9 +34,7 @@ For the complete template, see the [Event hub and consumer group template][Event
 
 ## What will you deploy?
 
-With this template, you will deploy an Event Hubs namespace with an event hub and a consumer group.
-
-[Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
+With this template, you deploy an Event Hubs namespace with an event hub and a consumer group.
 
 To run the deployment automatically, click the following button:
 
@@ -44,7 +42,7 @@ To run the deployment automatically, click the following button:
 
 ## Parameters
 
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for those values that will vary, based on the project you are deploying or based on the environment to which you are deploying. Do not define parameters for values that always stay the same. Each parameter value in the template defines the resources that are deployed.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for values that will vary, based on the project you are deploying or based on the environment to which you are deploying. Do not define parameters for values that always stay the same. Each parameter value in the template defines the resources that are deployed.
 
 The template defines the following parameters:
 
@@ -90,7 +88,7 @@ The API version of the template.
 
 ## Resources to deploy
 
-Creates a namespace of type **EventHubs**, with an event hub and a consumer group.
+Creates a namespace of type **EventHubs**, with an event hub and a consumer group:
 
 ```json
 "resources":[  
@@ -152,6 +150,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## Next steps
+
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)

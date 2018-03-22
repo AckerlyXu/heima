@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -274,13 +274,12 @@ When you've finished this tutorial, you might want to delete the resources you c
 <!-- PENDING ## <a name="register"></a>Register for the global virtual network peering preview -->
 ## <a name="register"></a>Register for the global virtual network peering preview
 
-The ability to peer virtual networks in different regions is currently in preview. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2). Virtual network peerings created between virtual networks in different regions may not have the same level of availability and reliability as a peering between virtual networks in the same region. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://www.azure.cn/what-is-new/) page.
-
-To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
+Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
+<!-- Not Avaiable on [Virtual network updates](https://www.azure.cn/updates/?product=virtual-network) -->
 
 ### PowerShell
 
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session and log in to Azure using the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command.
 3. Register the subscription that each virtual network you want to peer is in for the preview by entering the following commands:
 
@@ -304,7 +303,7 @@ To peer virtual networks across regions, you must first register for the preview
 
 ### Azure CLI
 
-1. [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+1. [Install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json?view=azure-cli-latest).
 2. Ensure you are using version 2.0.18 or higher of the Azure CLI by entering the `az --version` command. If you are not, install the most recent version.
 3. Log in to Azure with the `az login` command.
 4. Register for the preview by entering the following commands:

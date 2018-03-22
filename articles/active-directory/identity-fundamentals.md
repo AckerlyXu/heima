@@ -2,7 +2,7 @@
 # required metadata
 
 title: Fundamentals of Azure identity management | Microsoft Docs
-description:
+description: Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 keywords:
 author: jeffgilb
 manager: femila
@@ -14,12 +14,20 @@ ms.prod:
 ms.service: azure
 ms.technology:
 ms.assetid:
-ms.date: 06/20/2017
-ms.author: v-junlch
+
+# optional metadata
+
+#ROBOTS:
+#audience:
+#ms.devlang:
+#ms.suite:
+#ms.tgt_pltfrm:
+ms.custom: it-pro
 
 ---
 # Fundamentals of Azure identity management
-As more and more of a company’s digital resources live outside the corporate network, in the cloud and on devices, a great cloud-based identity and access management solution is the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
+
+As more and more company digital resources live outside the corporate network, in the cloud and on devices, a great cloud-based identity and access management solution is becoming a necessity. Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 
 Microsoft has been securing cloud-based identities for over a decade and now, with [Azure Active Directory (AD)](active-directory-editions.md), these same protection systems are available to you. With Azure AD, enterprise administrators can easily ensure user and administrator accountability with better security and governance than ever before.
 
@@ -27,8 +35,6 @@ Azure AD Premium is a cloud-based identity and access management solution with a
 
 Microsoft not only provides an identity that takes you everywhere, but also a set of tools to automate, help secure, and manage IT within your organization. Even after the advent of cloud computing, there is still demand to manage and control IT tasks like helpdesk calls to reset user passwords, user group management, and application requests. Complicating things further, employees are now bringing their personal devices to work and using readily available SaaS applications. This makes maintaining control over their applications across corporate datacenters and public cloud platforms a significant challenge.
 
-> [!Note]
-> The capabilities described in this article require an Azure Active Directory P1 or P2 subscription either purchased separately or as part of an [Enterprise Mobility + Security E3 or E5](https://docs.microsoft.com/enterprise-mobility-security/solutions/learn-about-ems) subscription.
 
 ## Increase productivity and reduce helpdesk costs with self-service and single sign-on experiences
 
@@ -36,16 +42,13 @@ Employees are more productive when they have a single username and password to r
 
 Azure AD [extends on-premises Active Directory](connect/active-directory-aadconnect.md) into the cloud, enabling users to use their primary organizational account for both their domain-joined devices and company resources and all of the web and SaaS applications they need to use to get their jobs done. In addition to not having to remember multiple sets of usernames and passwords, users' application access can also be automatically provisioned (or de-provisioned) based on their organization group memberships and their status as an employee. 
 
-## Manage and control access to corporate resources
-Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as [multi-factor authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md).
 
 ## Benefits of Azure Identity
 
 With Azure identity management, you can:
 
--   Create and manage a single identity for each user across your hybrid enterprise, keeping users, groups and devices in sync with [Azure Active Directory Connect](connect/active-directory-aadconnect.md).
+-   Create and manage a single identity for each user across your entire enterprise, keeping users, groups and devices in sync with [Azure Active Directory Connect](connect/active-directory-aadconnect.md).
 
--   Enable application access security by enforcing rules-based [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md) for both on-premises and cloud applications.
 
 -   Improve user productivity with [self-service password reset](active-directory-passwords.md).
 

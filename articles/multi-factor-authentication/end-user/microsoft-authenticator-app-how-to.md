@@ -3,8 +3,8 @@ title: Microsoft Authenticator app for mobile phones | Microsoft Docs
 description: Learn how to upgrade to the latest version of Azure Authenticator.
 services: multi-factor-authentication
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: barlanmsft
+manager: mtillman
 
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
-ms.date: 11/29/2017
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
@@ -40,7 +40,7 @@ For a personal account, you need to set up two-step verification for yourself. I
 You can also use the Microsoft Authenticator with non-Microsoft accounts. They may call the feature something other than two-step verification, but you should be able to find it under security or sign-in settings.
 
 ## Install the app
-The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## Add accounts to the app
 For each account that you want to add to the Microsoft Authenticator app, use one of the following procedures:

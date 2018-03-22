@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/14/2017
-ms.date: 02/26/2018
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,7 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
 
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
-<a id="#server-metrics"></a>
+<a name="server-metrics"></a>
 ## Server metrics
 Use this table to determine which metrics are best for your monitoring scenario. Only metrics of the same unit can be shown on the same chart.
 
@@ -90,4 +90,4 @@ Use this table to determine which metrics are best for your monitoring scenario.
 [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Metrics in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

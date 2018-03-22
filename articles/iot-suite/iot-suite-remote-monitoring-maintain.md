@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot devices in remote monitoring solution - Azure | Microsoft Docs
+title: Troubleshoot devices in remote monitoring solution
 description: This tutorial shows you how to troubleshoot and remediate device issues in the remote monitoring solution.
 services: ''
 suite: iot-suite
@@ -7,8 +7,8 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -55,6 +55,8 @@ To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowle
 
 ![Acknowledge the alarms](./media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+When you acknowledge the alarm, the status of the occurrence changes to **Acknowledged**.
+
 In the list, you can see the **Prototype** device responsible for firing the temperature alarm:
 
 ![List the devices causing the alarm](./media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -81,7 +83,7 @@ To view the details of a specific job or method call, choose it in the list in t
 
 ## Next steps
 
-In this tutorial, we showed you how to:
+In this tutorial, you saw how to:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

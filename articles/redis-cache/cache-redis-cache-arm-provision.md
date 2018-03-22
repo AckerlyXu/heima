@@ -1,10 +1,10 @@
 ---
-title: Provision a Redis Cache using Azure Resource Manager | Azure
+title: Provision a Redis Cache using Azure Resource Manager | Microsoft Docs
 description: Use Azure Resource Manager template to deploy an Azure Redis Cache.
 services: app-service
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 02/28/2018
+ms.author: v-junlch
 
 ---
 # Create a Redis Cache using a template
@@ -31,11 +31,11 @@ For the complete template, see [Redis Cache template](https://github.com/Azure/a
 > [!NOTE]
 > Resource Manager templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
 > 
-> * [Create a Premium Redis Cache with clustering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-cluster-diagnostics/)
-> * [Create Premium Redis Cache with data persistence](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-persistence/)
-> * [Create Premium Redis Cache with VNet and optional clustering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Create a Premium Redis Cache with clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Create Premium Redis Cache with data persistence](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+> * [Create Premium Redis Cache with VNet and optional clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
-> To check for the latest templates, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/) and search for `Redis Cache`.
+> To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Redis Cache`.
 > 
 > 
 
@@ -45,9 +45,6 @@ In this template, you will deploy an Azure Redis Cache that uses an existing sto
 To run the deployment automatically, click the following button:
 
 [![Deploy to Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
-
->[!NOTE]
-> Templates you are deploying from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn".
 
 ## Parameters
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
@@ -123,11 +120,16 @@ Creates the Azure Redis Cache.
       ]
     }
 
+
+
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateFile path/to/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
 ### Azure CLI
-    azure group deployment create --template-file path/to/azuredeploy.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
+
+<!--Update_Description: wording update -->

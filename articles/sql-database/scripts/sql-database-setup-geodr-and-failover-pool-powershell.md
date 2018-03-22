@@ -29,7 +29,7 @@ This PowerShell script example configures active geo-replication for an Azure SQ
 ## Sample scripts
 
 ```powershell
-# Login-AzureRmAccount
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your serverw
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
 $secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"

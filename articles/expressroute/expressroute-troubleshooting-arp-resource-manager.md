@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/30/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 03/26/2018
 ---
 
 # Getting ARP tables in the Resource Manager deployment model
@@ -57,10 +57,10 @@ The following section provides information on how you can view the ARP tables se
 
 Ensure that you have the following before you progress further
 
- - A Valid ExpressRoute circuit configured with at least one peering. The circuit must be fully configured by the connectivity provider. You (or your connectivity provider) must have configured at least one of the peerings (Azure private and Azure public) on this circuit.
- - IP address ranges used for configuring the peerings (Azure private and Azure public). Review the ip address assignment examples in the [ExpressRoute routing requirements page](./expressroute-routing.md) to get an understanding of how ip addresses are mapped to interfaces on your side and on the ExpressRoute side. You can get information on the peering configuration by reviewing the [ExpressRoute peering configuration page](./expressroute-howto-routing-arm.md).
- - Information from your networking team / connectivity provider on the MAC addresses of interfaces used with these IP addresses.
- - You must have the latest PowerShell module for Azure (version 1.50 or newer).
+* A Valid ExpressRoute circuit configured with at least one peering. The circuit must be fully configured by the connectivity provider. You (or your connectivity provider) must have configured at least one of the peerings (Azure private, Azure public and Microsoft) on this circuit.
+* IP address ranges used for configuring the peerings (Azure private, Azure public and Microsoft). Review the ip address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how ip addresses are mapped to interfaces on your side and on the ExpressRoute side. You can get information on the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-arm.md).
+* Information from your networking team / connectivity provider on the MAC addresses of interfaces used with these IP addresses.
+* You must have the latest PowerShell module for Azure (version 1.50 or newer).
 
 ## Getting the ARP tables for your ExpressRoute circuit
 This section provides instructions on how you can view the ARP tables per peering using PowerShell. You or your connectivity provider must have configured the peering before progressing further. Each circuit has two paths (primary and secondary). You can check the ARP table for each path independently.
@@ -112,6 +112,28 @@ Sample output is shown below for one of the paths
      10 On-Prem           64.0.0.1 ffff.eeee.dddd
       0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
 ```
+
+### ARP tables for Microsoft peering
+The following cmdlet provides the ARP tables for Microsoft peering
+
+        # Required Variables
+        $RG = "<Your Resource Group Name Here>"
+        $Name = "<Your ExpressRoute Circuit Name Here>"
+
+        # ARP table for Microsoft peering - Primary path
+        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
+
+        # ARP table for Microsoft peering - Secodary path
+        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+
+
+Sample output is shown below for one of the paths
+
+        Age InterfaceProperty IpAddress  MacAddress    
+        --- ----------------- ---------  ----------    
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 ## How to use this information
 The ARP table of a peering can be used to determine validate layer 2 configuration and connectivity. This section provides an overview of how ARP tables will look under different scenarios.

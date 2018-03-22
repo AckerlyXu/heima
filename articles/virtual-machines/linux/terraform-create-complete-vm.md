@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ---
 
@@ -342,11 +342,11 @@ resource "random_id" "randomId" {
 
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "mystorageaccount" {
-    name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    location            = "China East"
-    account_tier = "Standard"           # account_tier = "Standard" is Correct
-    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    name                        = "diag${random_id.randomId.hex}"
+    resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
+    location                    = "China East"
+    account_tier                = "Standard"        # account_tier = "Standard" is Correct
+    account_replication_type    = "LRS"             # account_replication_type = "LRS" is Correct  
 
     tags {
         environment = "Terraform Demo"
@@ -446,7 +446,7 @@ If everything looks correct and you ready to build the infrastructure in Azure, 
 terraform apply
 ```
 
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
+Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -461,4 +461,4 @@ ssh azureuser@<publicIps>
 ## Next steps
 You have created basic infrastructure in Azure by using Terraform. For more complex scenarios, including examples that use load balancers and virtual machine scale sets, see numerous [Terraform examples for Azure](https://github.com/hashicorp/terraform/tree/master/examples). For an up-to-date list of supported Azure providers, see the [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update link, wording update -->

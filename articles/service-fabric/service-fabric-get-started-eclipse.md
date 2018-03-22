@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/21/2016
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -175,4 +175,4 @@ We have recently moved Service Fabric Java libraries from Service Fabric Java SD
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

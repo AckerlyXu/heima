@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/29/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -38,7 +38,7 @@ When replicating VMware virtual machines:
 * Environment changes on the virtual machine (such as VMware tools installation) can take 15 minutes or more to be updated in the portal.
 * You can check the last discovered time for VMware VMs in the **Last Contact At** field for the vCenter server/vSphere host, on the **Configuration Servers** page.
 * To add machines for replication without waiting for the scheduled discovery, highlight the configuration server (don't click it), and click the **Refresh** button.
-* When you enable replication, if the machine is prepared, the process server automatically installs the Mobility service on it.
+* When you enable replication, if the machine is prepared, the process server automatically installs the Mobility Service on it.
 
 ### Enable replication as follows
 
@@ -122,6 +122,8 @@ Microsoft Software Assurance customers can use Azure Hybrid Use Benefit to save 
 - Save settings for the replicated machine.
 
 <!-- Not Available on [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing). -->
+<!-- Redirect https://aka.ms/azure-hybrid-use-benefit-pricing TO https://azure.microsoft.com/en-us/pricing/hybrid-benefit/ -->
+
 ## Common issues
 
 * Each disk should be less than 1 TB in size.

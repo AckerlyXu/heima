@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/05/2018
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ---
 
@@ -136,7 +136,8 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
 > [!IMPORTANT]
 > If the extension is not already installed, installing the extension restarts the SQL Server service.
 
-### <a id="verifysettings"></a> Verify current settings
+<a name="verifysettings"></a>
+### Verify current settings
 
 If you enabled automated backup during provisioning, you can use PowerShell to check your current configuration. Run the **Get-AzureRmVMSqlServerExtension** command and examine the **AutoBackupSettings** property:
 
@@ -277,4 +278,4 @@ For information about other available automation tasks, see [SQL Server IaaS Age
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!--Update_Description: update meta properties, add sql server 2016, update link-->
+<!--Update_Description: update meta properties, update link-->

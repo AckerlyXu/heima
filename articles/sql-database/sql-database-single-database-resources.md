@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-origin.date: 12/14/2017
-ms.date: 01/08/2018
+origin.date: 02/12/2018
+ms.date: 02/28/2018
 ms.author: v-nany
 
 
@@ -34,7 +34,9 @@ To set or change the service tier, performance level, or storage amount for a ne
 
 ![Configure service tier and performance level](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Click **Overview** to monitor and/or cancel an ongoing operation.
 
+![Cancel operation](./media/sql-database-single-database-resources/cancel-operation.png)
 ## Manage single database resources using PowerShell
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount using PowerShell, use these PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 

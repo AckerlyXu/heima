@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB DocumentDB API account, database, and collection | Azure
-description: Azure CLI Script Sample - Create an Azure Cosmos DB DocumentDB API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB SQL API account, database, and collection | Azure
+description: Azure CLI Script Sample - Create an Azure Cosmos DB SQL API account, database, and collection
 services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
@@ -16,32 +16,29 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/06/2017
-ms.date: 08/07/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
-# Azure Cosmos DB: Create an DocumentDB API account using CLI
+# Azure Cosmos DB: Create an SQL API account using CLI
 
-This sample CLI script creates an Azure Cosmos DB DocumentDB API account, database, and collection.  
+This sample CLI script creates an Azure Cosmos DB SQL API account, database, and collection.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-<!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Sample script
 
 ```azurecli-interactive
 #!/bin/bash
 
-# Set variables for the new account, database, collection and url 
-# It is mandatory to set url parameter when try to create the database and collection in Azure China. 
+# Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 databaseName='docdb-test-database'
 collectionName='docdb-test-collection'
-url='https://'${databaseName}'-'${location}'.documents.azure.cn:443/'
 
 # Create a resource group
 az group create \
@@ -60,24 +57,23 @@ az cosmosdb create \
 az cosmosdb database create \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName \
-    --url-connection $url
+    --resource-group $resourceGroupName
 
 # Create a collection
 az cosmosdb collection create \
     --collection-name $collectionName \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName \
-    --url-connection $url
+    --resource-group $resourceGroupName
 
 ```
+<!-- location ADVISE TO chinanorth -->
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -87,13 +83,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Creates an Azure Cosmos DB account. |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).
 

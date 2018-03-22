@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/21/2017
-ms.date: 11/22/2017
+origin.date: 01/26/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 

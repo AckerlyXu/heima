@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/27/2017
-ms.date: 12/11/2017
+origin.date: 01/25/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
 
 # Message transfers, locks, and settlement
 
-The most central capability of a message broker such as Service Bus is to accept messages into a queue or topic and hold them available for later retrieval. *Send* is the term that is commonly used for the transfer of a message into the message broker. *Receive* is the term commonly used for the transfer of a message to a retrieving client.
+The central capability of a message broker such as Service Bus is to accept messages into a queue or topic and hold them available for later retrieval. *Send* is the term that is commonly used for the transfer of a message into the message broker. *Receive* is the term commonly used for the transfer of a message to a retrieving client.
 
 When a client sends a message, it usually wants to know whether the message has been properly transferred to and accepted by the broker or whether some sort of error occurred. This positive or negative acknowledgment settles the client and the broker understanding about the transfer state of the message and is thus referred to as *settlement*.
 
@@ -63,7 +63,7 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks.ToArray());
 ```
 
-It is important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When [SendAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) or **Send** (Java) return, the send task is queued up in that work queue but the protocol gesture only commences once it is the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
+It is important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) or **Send** (Java) return, the send task is queued up in that work queue but the protocol gesture only commences once it is the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
 
 Semaphores, as shown in the following code snippet in C#, are synchronization objects that enable such application-level throttling when needed. This use of a semaphore allows for at most 10 messages to be in flight at once. One of the 10 available semaphore locks is taken before the send and it is released as the send completes. The 11th pass through the loop waits until at least one of the prior sends has completed, and then makes its lock available:
 
@@ -96,21 +96,21 @@ With a low-level AMQP client, Service Bus also accepts "pre-settled" transfers. 
 
 For receive operations, the Service Bus API clients enable two different explicit modes: *Receive-and-Delete* and *Peek-Lock*.
 
-The [Receive-and-Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode) mode tells the broker to consider all messages it sends to the receiving client as settled when sent. That means that the message is considered consumed as soon as the broker has put it onto the wire. If the message transfer fails, the message is lost.
+The [Receive-and-Delete](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode tells the broker to consider all messages it sends to the receiving client as settled when sent. That means that the message is considered consumed as soon as the broker has put it onto the wire. If the message transfer fails, the message is lost.
 
 The upside of this mode is that the receiver does not need to take further action on the message and is also not slowed by waiting for the outcome of the settlement. If the data contained in the individual messages have low value and/or are only meaningful for a very short time, this mode is a reasonable choice.
 
-The [Peek-Lock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode) mode tells the broker that the receiving client wants to settle received messages explicitly. The message is made available for the receiver to process, while held under an exclusive lock in the service so that other, competing receivers cannot see it. The duration of the lock is initially defined at the queue or subscription level and can be extended by the client owning the lock, via the [RenewLock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) operation.
+The [Peek-Lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode tells the broker that the receiving client wants to settle received messages explicitly. The message is made available for the receiver to process, while held under an exclusive lock in the service so that other, competing receivers cannot see it. The duration of the lock is initially defined at the queue or subscription level and can be extended by the client owning the lock, via the [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) operation.
 
 When a message is locked, other clients receiving from the same queue or subscription can take on locks and retrieve the next available messages not under active lock. When the lock on a message is explicitly released or when the lock expires, the message pops back up at or near the front of the retrieval order for redelivery.
 
-When the message is repeatedly released by receivers or they let the lock elapse for a defined number of times ([maxDeliveryCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), the message is automatically removed from the queue or subscription and placed into the associated dead-letter queue.
+When the message is repeatedly released by receivers or they let the lock elapse for a defined number of times ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), the message is automatically removed from the queue or subscription and placed into the associated dead-letter queue.
 
-The receiving client initiates settlement of a received message with a positive acknowledgment when it calls [Complete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) at the API level. This indicates to the broker that the message has been successfully processed and the message is removed from the queue or subscription. The broker replies to the receiver's settlement intent with a reply that indicates whether the settlement could be performed.
+The receiving client initiates settlement of a received message with a positive acknowledgment when it calls [Complete](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) at the API level. This indicates to the broker that the message has been successfully processed and the message is removed from the queue or subscription. The broker replies to the receiver's settlement intent with a reply that indicates whether the settlement could be performed.
 
-When the receiving client fails to process a message but wants the message to be redelivered, it can explicitly ask for the message to be released and unlocked instantly by calling [Abandon](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) or it can do nothing and let the lock elapse.
+When the receiving client fails to process a message but wants the message to be redelivered, it can explicitly ask for the message to be released and unlocked instantly by calling [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) or it can do nothing and let the lock elapse.
 
-If a receiving client fails to process a message and knows that redelivering the message and retrying the operation will not help, it can reject the message, which moves it into the dead-letter queue by calling [DeadLetter](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), which also allows setting a custom property including a reason code that can be retrieved with the message from the dead-letter queue.
+If a receiving client fails to process a message and knows that redelivering the message and retrying the operation will not help, it can reject the message, which moves it into the dead-letter queue by calling [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), which also allows setting a custom property including a reason code that can be retrieved with the message from the dead-letter queue.
 
 A special case of settlement is deferral, which is discussed in a separate article.
 

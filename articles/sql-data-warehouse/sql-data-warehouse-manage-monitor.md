@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 12/14/2017
-ms.date: 01/15/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -267,7 +267,6 @@ FROM sys.dm_pdw_nodes_os_performance_counters
 WHERE 
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
-AND counter_name = 'Target Server Memory (KB)'
 ```
 ## Monitor transaction log rollback
 If your queries are failing or taking a long time to proceed, you can check and monitor if you have any transactions rolling back.

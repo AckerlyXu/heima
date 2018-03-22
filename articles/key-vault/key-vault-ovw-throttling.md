@@ -2,11 +2,11 @@
 ms.assetid: 
 title: Azure Key Vault throttling guidance | Microsoft Docs
 ms.service: key-vault
-author: alexchen2016
+author: lleonard-msft
 ms.author: v-junlch
-manager: digimobile
+manager: mbaldwin
 origin.date: 06/21/2017
-ms.date: 08/02/2017
+ms.date: 03/04/2018
 ---
 # Azure Key Vault throttling guidance
 
@@ -43,3 +43,8 @@ On HTTP error code 429, begin throttling your client using an exponential backof
 
 At this point, you should not be getting HTTP 429 response codes.
 
+## See also
+
+For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+
+<!--Update_Description: wording update -->

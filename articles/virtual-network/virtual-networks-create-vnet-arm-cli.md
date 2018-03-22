@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -43,11 +43,11 @@ You can also create a virtual network through Resource Manager using other tools
 
 To create a virtual network using the Azure CLI, complete the following steps:
 
-1. Install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+1. Install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-2. Create a resource group for your VNet using the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command with the `--name` and `--location` arguments:
+2. Create a resource group for your VNet using the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command with the `--name` and `--location` arguments:
 
     ```azurecli
     az group create --name TestRG --location chinaeast

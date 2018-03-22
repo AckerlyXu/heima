@@ -3,8 +3,8 @@ title: Deploy an application to an Azure virtual machine scale set | Microsoft D
 description: Learn how to deploy applications to Linux and Windows virtual machine instances in a scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: v-junlch
 ---
 
@@ -101,7 +101,7 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/vmss/extension#set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
+Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/vmss/extension#az_vmss_extension_set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```azurecli
 az vmss extension set \
@@ -170,7 +170,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 
 For more information, including an example *cloud-init.txt* file, see [Use cloud-init to customize Azure VMs](../virtual-machines/linux/using-cloud-init.md).
 
-To create a scale set and use a cloud-init file, add the `--custom-data` parameter to the [az vmss create](/cli/vmss#create) command and specify the name of a cloud-init file. The following example creates a scale set named *myScaleSet* in *myResourceGroup* and configures VM instances with a file named *cloud-init.txt*. Enter your own names as follows:
+To create a scale set and use a cloud-init file, add the `--custom-data` parameter to the [az vmss create](/cli/vmss#az_vmss_create) command and specify the name of a cloud-init file. The following example creates a scale set named *myScaleSet* in *myResourceGroup* and configures VM instances with a file named *cloud-init.txt*. Enter your own names as follows:
 
 ```azurecli
 az vmss create \
@@ -223,3 +223,4 @@ If you use a custom VM image with the application pre-installed, you could integ
 ## Next steps
 As you build and deploy applications to your scale sets, you can review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md). For more information on how to manage your scale set, see [Use PowerShell to manage your scale set](virtual-machine-scale-sets-windows-manage.md).
 
+<!--Update_Description: link update -->

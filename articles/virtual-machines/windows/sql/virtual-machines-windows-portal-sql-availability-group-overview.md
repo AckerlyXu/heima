@@ -3,8 +3,8 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Overview | Azur
 description: "This article introduces SQL Server Availability Groups on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: "01/13/2017"
-ms.date: 03/20/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 
 ---
 
@@ -34,9 +34,9 @@ The key difference for an Availability Group in Azure Virtual Machines is that t
 
 When you are ready to build a SQL Server availability aroup on Azure Virtual Machines, refer to these tutorials.
 
-## Manually create an availability group
+## Automatically create an availability group from a template
 
-[Configure Always On availability group in Azure VM manually - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+[Configure Always On availability group in Azure VM automatically - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
 ## Manually create an availability group in Azure portal
 
@@ -49,3 +49,4 @@ You can also create the virtual machines yourself without the template. First, c
 ## Next steps
 
 [Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](virtual-machines-windows-portal-sql-availability-group-dr.md).
+<!-- Update_Description: wording update, update link -->
