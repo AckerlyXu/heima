@@ -145,6 +145,6 @@ The are currently no plans to open-source the Service Fabric runtime.
 
 ## Next steps
 
-- [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+<!-- Not Available on  [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965) -->
 
 <!--Update_Description: update meta properties, wording update, update link -->

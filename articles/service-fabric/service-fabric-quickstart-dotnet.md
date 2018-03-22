@@ -128,7 +128,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
 2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`.
-<!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
+    <!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 

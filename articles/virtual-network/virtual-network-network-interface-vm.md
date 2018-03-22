@@ -89,6 +89,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 |CLI|[az vm show](https://docs.azure.cn/zh-cn/cli/vm?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_vm_show)|
 |PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
 
+<a name="vm-remove-nic"></a>
 ## Remove a network interface from a VM
 
 1. Sign in to the Azure portal.
@@ -130,6 +131,6 @@ To create a VM with multiple network interfaces or IP addresses, read the follow
 |---|---|
 |Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)|
+<!-- Not Avaiable on |Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)| -->
 
 <!--Update_Description: update meta properties, wording udpate, update link -->

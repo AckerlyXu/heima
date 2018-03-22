@@ -118,8 +118,8 @@ In the case that you want to use just one of these, here are some key points to 
 ## Event analysis
 
 There are several great platforms that exist in the market when it comes to the analysis and visualization of monitoring and diagnostics data. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), or any other platform of your preference. 
-<!-- Not Abailable on [OMS](service-fabric-diagnostics-event-analysis-oms.md)  -->
-<!-- Noy Abailable on [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on [OMS](service-fabric-diagnostics-event-analysis-oms.md)  -->
+<!-- Not Available on [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
 The key points for any platform you choose should include how comfortable you are with the user interface and querying options, the ability to visualize data and create easily readable dashboards, and the additional tools they provide to enhance your monitoring, such as automated alerting.
 
