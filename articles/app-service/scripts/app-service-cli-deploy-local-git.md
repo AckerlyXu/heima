@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -64,9 +64,8 @@ git push azure master
 
 # When prompted for password, use the value of $password that you specified
 
-# Browse to the deployed web app.
-az webapp browse --name $webappname --resource-group myResourceGroup
-
+# Copy the result of the following command into a browser to see the web app.
+echo http://$webappname.chinacloudsites.cn
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

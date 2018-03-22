@@ -1,11 +1,10 @@
-Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) command.
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-The following example creates a resource group named *myResourceGroup* in the *chinanorth* location. To see all supported locations for App Service, run the `az appservice list-locations` command.
+Create a resource group with the [`az group create`](/cli/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *China North* location. To see all supported locations for App Service in **Free** tier, run the [`az appservice list-locations --sku F1`](/cli/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location "China North"
 ```
 
 You generally create your resource group and the resources in a region near you. 
