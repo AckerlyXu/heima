@@ -142,7 +142,5 @@ In-development builds will provide the following benefits:
 - New features
 - Other improvements
 
-## Next steps
-[Azure Stack deployment prerequisites](azure-stack-deploy.md)
 
 
