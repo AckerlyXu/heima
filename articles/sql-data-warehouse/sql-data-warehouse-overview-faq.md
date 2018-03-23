@@ -102,7 +102,6 @@ For more information on SQL Data Warehouse as a whole, see our [Overview] page.
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Connection Strings]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Security]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md

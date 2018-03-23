@@ -2,16 +2,11 @@
 title: Introduction to Azure Storage | Azure
 description: Introduction to Azure Storage, Microsoft's data storage in the cloud.
 services: storage
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: tysonn
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 origin.date: 01/21/2018
 ms.date: 3/5/2018
@@ -134,7 +129,7 @@ There are two basic kinds of encryption available for the Storage services. For 
 ### Encryption at rest
 
 
-You can enable Storage Service Encryption (SSE) for Blob storage or for Azure Files (preview). If enabled, all data written to the specific service is encrypted before it is written. When you read the data, it is decrypted before it is returned.
+SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
 
 For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 

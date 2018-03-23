@@ -5,12 +5,10 @@ services: storage
 documentationcenter: 
 author: forester123
 manager: digimobile
-editor: ''
 
-ms.service: storage
-ms.workload: web
+ms.service: storage 
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: ''
 ms.topic: tutorial
 origin.date: 12/23/2017
 ms.date: 03/05/2018
@@ -32,6 +30,7 @@ In part two of the series, you learn how to:
 > * Run and pause the application
 > * Simulate a failure with [fiddler](#simulate-a-failure-with-fiddler) or [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simulate primary endpoint restoration
+
 
 ## Prerequisites
 
@@ -162,7 +161,7 @@ route del <destination_ip> gw <gateway_ip>
 
 # [Windows](#tab/windows)
 
-route delete <destination_ip> <gateway_ip>
+route delete <destination_ip>
 
 ---
 

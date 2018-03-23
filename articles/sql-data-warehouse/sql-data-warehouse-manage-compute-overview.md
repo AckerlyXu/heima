@@ -106,12 +106,6 @@ When you pause or scale your SQL Data Warehouse, behind the scenes your queries 
 
 See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), and [Optimizing transactions][Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
-## Automating compute management
-To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).
-
-Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the data warehouse state through various endpoints allows you to correctly implement automation of such operations. 
-
-To check the data warehouse state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) quickstart. You can also check the data warehouse state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 ## Permissions
 

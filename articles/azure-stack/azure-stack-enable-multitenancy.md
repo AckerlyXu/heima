@@ -3,8 +3,8 @@ title: Enable multi-tenancy in Azure Stack | Microsoft Docs
 description: Learn how to support multiple Azure Active Directory directories in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/02/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 
 ---
@@ -97,3 +97,5 @@ Mary will direct any [foreign principals](../active-directory/active-directory-u
 - [Manage delegated providers](azure-stack-delegated-provider.md)
 - [Azure Stack key concepts](azure-stack-key-features.md)
 
+
+<!-- Update_Description: update metedata properties -->

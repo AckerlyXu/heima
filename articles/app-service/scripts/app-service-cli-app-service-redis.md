@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/02/2018/2017
+ms.date: 04/02/2018/
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -28,33 +28,38 @@ This sample script creates an Azure redis cache and an Azure web app. It then li
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/install-azure-cli).
 ## Sample script
 
 ```azurecli
 #/bin/bash
 
 # Variables
-resourceGroupName="myResourceGroup$RANDOM"
 appName="webappwithredis$RANDOM"
-storageName="webappredis$RANDOM"
 location="chinanorth"
 
 # Create a Resource Group 
-az group create --name $resourceGroupName --location $location
+az group create --name myResourceGroup --location $location
 
 # Create an App Service Plan
-az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az webapp create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
+az webapp create --name $appName --plan myAppServicePlan --resource-group myResourceGroup 
 
 # Create a Redis Cache
-redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
+redis=($(az redis create --name $appName --resource-group myResourceGroup \
+--location $location --vm-size C0 --sku Basic --query [hostName,sslPort] --output tsv))
+
+# Get access key
+key=$(az redis list-keys --name $appName --resource-group myResourceGroup \
+--query primaryKey --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az webapp config appsettings set --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
-```
-
+az webapp config appsettings set --name $appName --resource-group myResourceGroup \
+ --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=$key"
+``` 
+ 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
@@ -64,10 +69,10 @@ This script uses the following commands to create a resource group, web app, red
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.azure.cn/zh-cn/cli/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az appservice plan create](https://docs.azure.cn/zh-cn/cli/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
+| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Creates an App Service plan. |
 | [az webapp create](https://docs.azure.cn/zh-cn/cli/webapp#az_webapp_create) | Creates an Azure web app. |
-| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Create new Redis Cache instance. This is where the data will be stored. |
-| [az redis list-keys](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Lists the access keys for the redis cache instance. |
+| [`az redis create`](/cli/redis?view=azure-cli-latest#az_redis_create) | Create new Redis Cache instance. |
+| [`az redis list-keys`](/cli/redis?view=azure-cli-latest#az_redis_list_keys) | Lists the access keys for the redis cache instance. |
 | [az webapp config appsettings set](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps

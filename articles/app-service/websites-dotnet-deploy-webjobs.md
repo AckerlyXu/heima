@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/12/2016
-ms.date: 10/30/2017
+ms.date: 04/02/2018
 ms.author: v-yiso
 
 ---
@@ -28,7 +28,7 @@ This topic explains how to use Visual Studio to deploy a Console Application pro
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
 * Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs, *App_Data/jobs/triggered* for scheduled and on-demand WebJobs).
-* Sets up [Azure Scheduler jobs](#scheduler) for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
+* Sets up [Azure Scheduler](#scheduler) jobs for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
 
 A WebJobs-enabled project has the following items added to it:
 

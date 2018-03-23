@@ -12,8 +12,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+origin.date: 03/08/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: alfredo
 
 ---
@@ -62,4 +63,6 @@ The following terms and concepts are used for usage and billing in Azure Stack:
 ## Next steps
 
  - To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).
+
+<!-- Update_Description: wording update -->

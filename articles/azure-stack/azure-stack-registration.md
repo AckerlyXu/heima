@@ -101,6 +101,7 @@ Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
     -BillingModel PayAsYouUse
+    -ResourceGroupLocation "ChinaEast" 
 ```
 
 |Parameter|Description|

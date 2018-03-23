@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -27,9 +27,11 @@ This sample script creates an Azure Cosmos DB account with the MongoDB API and a
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
+
 If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 
 ## Sample script
 
@@ -37,25 +39,27 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 #/bin/bash
 
 # Variables
-appName="webappwithcosmosdb$random"
-storageName="webappwithcosmosdb$random"
+appName="webappwithcosmosdb$RANDOM"
 location="ChinaNorth"
 
 # Create a Resource Group 
 az group create --name myResourceGroup --location $location
 
 # Create an App Service Plan
-az appservice plan create --name WebAppWithCosmosDBPlan --resource-group myResourceGroup --location $location
-
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --location $location
 # Create a Web App
-az webapp create --name $appName --plan WebAppWithCosmosDBPlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan myAppServicePlan --resource-group myResourceGroup 
 
-# Create a Cosmos DB
-cosmosdb=$(az cosmosdb create --name $appName --resource-group myResourceGroup --query documentEndpoint --output tsv)
-cosmosCreds=$(az cosmosdb list-keys --name $appName --resource-group myResourceGroup --query primaryMasterKey --output tsv)
+# Create a Cosmos DB with MongoDB API
+az cosmosdb create --name $appName --resource-group myResourceGroup --kind MongoDB
+
+# Get the MongoDB URL
+connectionString=$(az cosmosdb list-connection-strings --name $appName --resource-group myResourceGroup \
+--query connectionStrings[0].connectionString --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_KEY=$cosmosCreds" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --name $appName --resource-group myResourceGroup \
+--settings "MONGODB_URL=$connectionString" 
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
