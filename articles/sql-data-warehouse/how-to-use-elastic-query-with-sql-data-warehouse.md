@@ -134,7 +134,7 @@ A: There is no hard cap on how many databases can be used for Elastic Query. How
 
 Q: Are there DTU limits involved with Elastic Query?
 
-A: DTU limits are not imposed any differently with Elastic Query. The standard policy is such that logical servers have DTU limits in place to prevent customers from accidental overspending. If you are enabling several databases for elastic query alongside a SQL Data Warehouse instance, you may hit the cap unexpectedly. If this occurs, submit a request to increase DTU limit on your logical server. You can increase your quota by [creating a support ticket](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and selecting *Quota* as the request type
+A: DTU limits are not imposed any differently with Elastic Query. The standard policy is such that logical servers have DTU limits in place to prevent customers from accidental overspending. If you are enabling several databases for elastic query alongside a SQL Data Warehouse instance, you may hit the cap unexpectedly. If this occurs, submit a request to increase DTU limit on your logical server. 
 
 Q: Can I use row level security/Dynamic Data Masking with Elastic Query?
 
