@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 09/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 
@@ -88,14 +88,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Updates an Azure Cosmos DB account. |
-| [az cosmosdb list-connection-strings](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Gets the connection string for the account.|
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_update) | Updates an Azure Cosmos DB account. |
+| [az cosmosdb list-connection-strings](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_connection_strings) | Gets the connection string for the account.|
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).
 

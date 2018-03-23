@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -45,7 +45,7 @@ To use this example, you must:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
+    var url = 'mongodb://<username>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {

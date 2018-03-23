@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/05/2017
-ms.date: 12/25/2017
+origin.date: 03/07/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -24,11 +24,13 @@ ms.author: v-yeche
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
@@ -47,4 +49,4 @@ ms.author: v-yeche
 
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
-<!-- Update_Description: new articles on SQL api sdk dotnet changfeed -->
+<!-- Update_Description: update meta properties, wording update  -->

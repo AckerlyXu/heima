@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
 
-# Azure Cosmos DB: How to query using SQL?
+# Tutorial: Query Azure Cosmos DB by using the SQL API
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
@@ -146,4 +146,4 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-sql-api.md)
-<!-- Update_Description: new articles on tutorial query SQL api -->
+<!-- Update_Description: wording update -->

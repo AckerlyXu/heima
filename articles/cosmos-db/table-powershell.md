@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
@@ -115,4 +115,5 @@ For more information, see the following articles:
 
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-<!-- Update_Description: new articles on table powershell  -->
+<!--The parent file of includes file of storage-table-entities-powershell-include.md-->
+<!--ms.date:03/26/2018-->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 02/08/2018
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -40,8 +40,9 @@ While working through the scenarios in this tutorial, you may want to refer to t
 You need the following to complete this tutorial successfully:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
-- [Azure Cosmos DB Table SDK 1.01 for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
-- [Azure Storage account](/storage/common/storage-create-storage-account#create-a-storage-account) or [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/)
+- [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
+- [Azure Storage account](/storage/common/storage-create-storage-account#create-a-storage-account)
+<!-- Not Avaiable on  [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/) -->
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -87,7 +88,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey',endpo
 To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object using your copied connection string:
 
 ```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;TableEndpoint=https://myaccount.documents.azure.cn')
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=https://myaccount.documents.azure.cn')
 ```
 
 ## Create a table
@@ -215,8 +216,7 @@ for task in tasks:
 
 ## Delete an entity
 
-Delete an entity by passing its PartitionKey and RowKey to the delete_entity method.
-<!-- Not Available on  [py_delete_entity] -->
+Delete an entity by passing its **PartitionKey** and **RowKey** to the [delete_entity][py_delete_entity] method.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -224,8 +224,7 @@ table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 
 ## Delete a table
 
-If you no longer need a table or any of the entities within it, call the delete_table method to permanently delete the table from Azure Storage.
-<!-- Not Available on  [py_delete_table] -->
+If you no longer need a table or any of the entities within it, call the [delete_table][py_delete_table] method to permanently delete the table from Azure Storage.
 
 ```python
 table_service.delete_table('tasktable')
