@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2018
-ms.date: 03/02/2018
+origin.date: 02/26/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ---
 # Run a validation test for Azure Stack
@@ -62,7 +62,7 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 | ServiceAdminCredentials | PSCredential    | No       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   |
 | AdminCredential         | PSCredential    | No       | NA      |
-| StorageConnectionString | String          | No       | NA      |
+<!-- | StorageConnectionString | String          | No       | NA      | not supported in 1802 -->
 | List                    | SwitchParameter | No       | FALSE   |
 | Ignore                  | String          | No       | NA      |
 | Include                 | String          | No       | NA      |
@@ -170,3 +170,4 @@ The following table summarizes the validation tests run by Test-AzureStack.
  - To learn more about Azure Stack diagnostics tools and issue logging, see [ Azure Stack diagnostics tools](azure-stack-diagnostics.md).
  - To learn more about troubleshooting, see [Azure Stack troubleshooting](azure-stack-troubleshooting.md)
 
+<!-- Update_Description: wording update -->
