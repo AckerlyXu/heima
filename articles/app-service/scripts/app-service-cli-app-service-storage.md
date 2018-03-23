@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -44,10 +44,10 @@ location="ChinaNorth"
 az group create --name myResourceGroup --location $location
 
 # Create an App Service Plan
-az appservice plan create --name WebAppWithStoragePlan --resource-group myResourceGroup --location $location
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az webapp create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan myAppServicePlan --resource-group myResourceGroup 
 
 # Create a Storage Account
 az storage account create --name $storageName --resource-group myResourceGroup --location $location --sku Standard_LRS
@@ -56,7 +56,8 @@ az storage account create --name $storageName --resource-group myResourceGroup -
 connstr=$(az storage account show-connection-string --name $storageName --resource-group myResourceGroup --query connectionString --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az webapp config appsettings set --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --name $appName --resource-group myResourceGroup \
+--settings "STORAGE_CONNSTR=$connstr"
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

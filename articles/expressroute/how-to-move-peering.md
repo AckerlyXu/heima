@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/09/2017
+origin.date: 03/12/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 
 ---
 # Move a public peering to Microsoft peering
@@ -71,6 +71,10 @@ After verifying that the Microsoft peering is configured and the prefixes you wi
   * [Delete Azure public peering using Azure portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Delete Azure public peering using Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Delete Azure public peering using CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. View peerings
+  
+You can see a list of all ExpressRoute circuits and peerings in the Azure portal. For more information, see [View Microsoft peering details](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## Next Steps
 

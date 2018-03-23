@@ -1,5 +1,5 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure| Microsoft Docs'
+title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
 services: expressroute
 documentationcenter: na
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/25/2017
+origin.date: 03/08/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
+ms.date: 04/02/2018
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI
@@ -41,6 +41,8 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
   * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [Configure a virtual network gateway for ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Be sure to use `--gateway-type ExpressRoute`.
 
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
+
+* A single VNet can be linked to up to four ExpressRoute circuits. Use the process below to create a new connection object for each ExpressRoute circuit you are connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
 
 * If you enable the ExpressRoute premium add-on, you can link a virtual network outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit. For more information about the premium add-on, see the [FAQ](expressroute-faqs.md).
 
