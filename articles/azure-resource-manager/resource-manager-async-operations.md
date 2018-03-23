@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/11/2017
-ms.date: 01/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 
@@ -192,5 +192,6 @@ If the request is still running, you receive a status code 202. If the request h
 ## Next steps
 
 * For documentation about each REST operation, see [REST API documentation](https://docs.microsoft.com/rest/api/).
-* For information about managing resources through the Resource Manager REST API, see [Using the Resource Manager REST API](./resource-manager-rest-api.md).
-* for information about deploying templates through the Resource Manager REST API, see [Deploy resources with Resource Manager templates and Resource Manager REST API](./resource-group-template-deploy-rest.md).
+* for information about deploying templates through the Resource Manager REST API, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
+
+<!-- Update_Description: update meta properties, wording update, update link -->

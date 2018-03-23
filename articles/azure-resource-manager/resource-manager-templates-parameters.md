@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/11/2017
-ms.date: 12/25/2017
+origin.date: 01/19/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -129,6 +129,7 @@ Define the parameter in your template and specify a JSON object instead of a sin
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "chinaeast",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -158,7 +159,7 @@ Then, reference the subproperties of the parameter by using the dot operator.
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -235,7 +236,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Whenever possible, don't use a parameter to specify location. Instead, use the **location** property of the resource group. By using the **resourceGroup().location** expression for all your resources, resources in the template are deployed in the same location as the resource group:
+* Use a parameter to specify location, and share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information. If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template, or add another location parameter. When an organization limits the allowed regions for its users, the **resourceGroup().location** expression might prevent a user from being able to deploy the template. For example, one user creates a resource group in a region. A second user must deploy to that resource group but does not have access to the region. 
 
    ```json
    "resources": [
@@ -243,13 +244,12 @@ The following information can be helpful when you work with parameters:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
 
-   If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template. If you must use a **location** parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information.
 * Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. IntelliSense in a code editor cannot determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
 * Avoid specifying a parameter name in your template that matches a parameter in the deployment command. Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. During deployment, you are prompted to provide a value for **ResourceGroupNameFromTemplate**.
 
@@ -269,4 +269,4 @@ These example templates demonstrate some scenarios for using parameters. Deploy 
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * For information about using a parameter object, see [Use an object as a parameter in an Azure Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-<!-- Update_Description: new articles about resource manager templates parameters -->
+<!-- Update_Description: update meta properties, wording update -->

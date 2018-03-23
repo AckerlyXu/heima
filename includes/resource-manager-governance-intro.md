@@ -7,8 +7,7 @@
  ms.service: azure-resource-manager
  ms.topic: include
  origin.date: 02/19/2018
- origin.date: 03/05/2018
- ms.date: ''
+ ms.date: 03/26/2018
  ms.author: v-yeche
  ms.custom: include file
 ---
@@ -30,5 +29,4 @@ This article addresses those questions. Specifically, you:
 
 This article focuses on the tasks you take to implement governance.
 <!-- Not Avaiable on  [Governance in Azure](../articles/security/governance-in-azure.md) -->
-<!-- Update_Description: new articles on resource manager governance introduce  -->
-<!--ms.date: 03/19/2018-->
+<!--ms.date: 03/26/2018-->

@@ -13,18 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/02/2017
-ms.date: 03/05/2018
+origin.date: 03/14/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
->[!NOTE]
->Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table storage, but this article is specific to Azure Table storage. If you are using Azure Cosmos DB Table API, see [Azure Cosmos DB Table API operations with Azure PowerShell](table-powershell.md).
->
-
-Azure Table storage is a NoSQL datastore which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
+Azure Table storage is a NoSQL datastore that you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
 
 This how-to article covers common Azure Table storage operations. You learn how to: 
 
@@ -36,7 +33,7 @@ This how-to article covers common Azure Table storage operations. You learn how 
 > * Delete table entities
 > * Delete a table
 
-This how-to article shows you how to create a new storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing storage account, you can do that instead.
+This how-to article shows you how to create a new Azure Storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing Storage account, you can do that instead.
 
 The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
 
@@ -103,7 +100,7 @@ New-AzureStorageTable -Name $tableName -Context $ctx
 Retrieve a list of tables in the storage account using [Get-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable -Context $ctx | select Name
+Get-AzureStorageTable -Context $ctx | select Name
 ```
 
 ## Retrieve a reference to a specific table
@@ -155,4 +152,4 @@ For more information, see the following articles
 
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 <!-- Notice: Remove from Microsoft -->
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

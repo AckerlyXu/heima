@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2018
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -226,4 +226,4 @@ For a sample application used to evaluate Azure Cosmos DB for high-performance s
 
 Also, to learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

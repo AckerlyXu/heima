@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/19/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -67,7 +67,7 @@ The application will try to connect to a MongoDB source and fail, go ahead and e
 
 ## Log in to Azure
 
-If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) command and follow the on-screen directions.
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az cloud set -n AzureChinaCloud

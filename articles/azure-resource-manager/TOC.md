@@ -1,3 +1,5 @@
+# [Azure Resource Manager Documentation](index.md)
+
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
@@ -20,7 +22,6 @@
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
 ### [Update resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 
 ## Deploy
 ### Azure PowerShell
@@ -43,12 +44,9 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure portal](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
-<!-- Not Avaialble ### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure-resource-manager%2ftoc.json) -->
 ### [Governance examples](resource-manager-subscription-examples.md)
-<!-- Not Avaialble ### [Managed applications](../managed-applications/overview.md) -->
 
 ## Control Access
 ### Create service principal
@@ -63,21 +61,20 @@
 ### [View deployment operations](resource-manager-deployment-operations.md)
 
 ## Troubleshoot
-### [Common deployment errors](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
-#### [Linux deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
-#### [NotFound](resource-manager-not-found-errors.md)
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [Troubleshoot deployment errors](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+### [Linux deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+### [NotFound](resource-manager-not-found-errors.md)
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 <!-- Not Avaible #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-#### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
+### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
 ## [Template format](https://docs.microsoft.com/en-us/azure/templates/)
@@ -104,4 +101,4 @@
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!--ms.date: 01/29/2018 -->
+<!--ms.date: 03/26/2018 -->

@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/18/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
 # Azure Resource Manager template functions
-This topic describes all the functions you can use in an Azure Resource Manager template.
+This article describes all the functions you can use in an Azure Resource Manager template.
 
 You add functions in your templates by enclosing them within brackets: `[` and `]`, respectively. The expression is evaluated during deployment. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array, object, or integer. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
 
@@ -35,6 +35,7 @@ Template functions and their parameters are case-insensitive. For example, Resou
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -91,6 +92,21 @@ Resource Manager provides the following functions for getting values from sectio
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## Logical functions
+Resource Manager provides the following functions for working with logical conditions:
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -101,15 +117,6 @@ Resource Manager provides the following functions for getting values from sectio
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## Logical functions
-Resource Manager provides the following functions for working with logical conditions:
-
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
 
 ## Numeric functions
 Resource Manager provides the following functions for working with integers:
@@ -153,6 +160,7 @@ Resource Manager provides the following functions for getting resource values:
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />
@@ -213,4 +221,4 @@ Resource Manager provides the following functions for working with strings:
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
 
-<!--Update_Description: update meta properties, add guid link in String function content block-->
+<!--Update_Description: update meta properties, update link, wording update -->

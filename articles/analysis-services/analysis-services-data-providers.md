@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 02/22/2018
-ms.date: 03/12/2018
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -26,21 +26,21 @@ Client libraries are necessary for client applications and tools to connect to A
 
 ## Download the latest client libraries (Windows Installer)  
 
-|Download  |Version  | 
+|Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
 
 ## AMO and ADOMD (NuGet packages)
 
 Analysis Services Management Objects (AMO) and ADOMD client libraries are available as installable packages from [NuGet.org](https://www.nuget.org/). It's recommended you migrate to NuGet references instead of using Windows Installer. 
 
-|Package  |Version  | 
+|Package  | Product version  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
 
 NuGet package assemblies AssemblyVersion follow semantic versioning: MAJOR.MINOR.PATCH. NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). PATCH is incremented for each release. AMO and ADOMD versions are kept in-sync.
 
@@ -96,4 +96,4 @@ Client libraries for client connections are different from data providers requir
 [Connect with Excel](analysis-services-connect-excel.md)    
 [Connect with Power BI](analysis-services-connect-pbi.md)
 
-<!--Update_Description: update meta properties, add content of AMO and ADOMD (NuGet packages), updaate wording -->
+<!--Update_Description: update meta properties, wording update,  -->

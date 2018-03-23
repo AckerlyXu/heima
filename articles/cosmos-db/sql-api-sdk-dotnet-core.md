@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/21/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -25,13 +25,15 @@ ms.custom: H1Hack27Feb2017
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > 
 > 
+<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 

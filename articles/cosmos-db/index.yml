@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 02/14/2018
-  ms.date: 03/05/2018
+  ms.date: 03/26/2018
   ms.author: v-yeche
 abstract:
   description: Azure Cosmos DB is a multiple-region distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, and wide-column by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefitting from comprehensive SLAs. 
@@ -82,4 +82,4 @@ sections:
     - html: <a href="/cosmos-db/cli-samples">Azure CLI</a>
     - html: <a href="/cosmos-db/powershell-samples">Azure PowerShell</a>
 ### Not Available - title: Reference
-### ms.date: 03/05/2018
+### ms.date: 03/26/2018

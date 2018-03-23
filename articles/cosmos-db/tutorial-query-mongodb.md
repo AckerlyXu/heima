@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 05/10/2017
-ms.date: 12/25/2017
+origin.date: 03/16/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
 
 ---
 
-# Azure Cosmos DB: How to query with API for MongoDB?
+# Tutorial: Query Azure Cosmos DB by using the MongoDB API
 
 The Azure Cosmos DB [API for MongoDB](mongodb-introduction.md) supports [MongoDB shell queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
@@ -118,7 +118,7 @@ The next query returns all the children in the family.
 
 **Query**
 
-    db.familes.find( { id: "WakefieldFamily" }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **Results**
 
@@ -312,4 +312,4 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update link -->

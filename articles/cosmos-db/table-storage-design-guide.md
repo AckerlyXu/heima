@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 11/03/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -236,7 +236,7 @@ For examples of client-side code that can handle multiple entity types stored in
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ### Choosing an appropriate PartitionKey
-Your choice of **PartitionKey** should balance the need to enables the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
+Your choice of **PartitionKey** should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
 
 At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition, which would be highly scalable and which enables the table service to load-balance requests, but which would prevent you from using entity group transactions.  
 
@@ -1553,4 +1553,4 @@ We would also like to thank the following Microsoft MVP's for their valuable fee
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

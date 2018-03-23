@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 10/06/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 
 # Use the Azure CLI to manage Azure resources and resource groups
 
-In this article, you learn how to manage your solutions with Azure CLI and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
+In this article, you learn how to manage your solutions with Azure CLI and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This article focuses on management tasks. You will:
 
 1. Create a resource group
 2. Add a resource to the resource group
@@ -227,4 +227,4 @@ For both commands, you are asked to confirm that you wish to remove the resource
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
-<!--Update_Description: update meta properties, update azure CLI and powershell command-->
+<!--Update_Description: wording update -->
