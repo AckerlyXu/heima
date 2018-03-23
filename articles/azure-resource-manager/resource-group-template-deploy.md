@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ The Resource Manager template you deploy can either be a local file on your mach
 
 If needed, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 
-<a id="deploy-local-template"></a> 
+<a name="deploy-local-template"></a> 
 ## <a name="deploy-a-template-from-your-local-machine"></a>Deploy a template from your local machine
 
 When deploying resources to Azure, you:
@@ -75,7 +75,11 @@ New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
 ```
 
-## Parameter files
+## Deploy to more than one resource group or subscription
+
+Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. You can deploy to only five resource groups in a single deployment. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
+
+## <a name="parameter-file"></a>Parameter files
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be in the following format:
 

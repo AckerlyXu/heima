@@ -12,8 +12,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -38,6 +38,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider.
+
 ## Cause
 
 You receive these errors for one of three reasons:
@@ -46,11 +48,7 @@ You receive these errors for one of three reasons:
 1. API version not supported for the resource type
 1. Location not supported for the resource type
 
-## Solution
-
-The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider. You can discover more about resource providers through PowerShell or Azure CLI.
-
-### Solution 1
+## Solution 1 - PowerShell
 
 For PowerShell, use **Get-AzureRmResourceProvider** to see your registration status.
 
@@ -76,9 +74,7 @@ To get the supported API versions for a particular type of resource, use:
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### Solution 2
-
-**Azure CLI**
+## Solution 2 - Azure CLI
 
 To see whether the provider is registered, use the `az provider list` command.
 
@@ -98,7 +94,7 @@ To see the supported locations and API versions for a resource type, use:
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### Solution 3
+## Solution 3 - Azure portal
 
 You can see the registration status and register a resource provider namespace through the portal.
 
@@ -110,4 +106,4 @@ You can see the registration status and register a resource provider namespace t
 
    ![list resource providers](./media/resource-manager-register-provider-errors/list-resource-providers.png)
 
-<!--Update_Description: new articles on resource manager register provider errors-->
+<!--Update_Description: update meta properties, wording update-->
