@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -33,7 +33,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Prerequisite
-If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login). 
+If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login). 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -344,4 +344,4 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
 <!--Not Available ## Next steps-->
 <!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update link, wording update -->
