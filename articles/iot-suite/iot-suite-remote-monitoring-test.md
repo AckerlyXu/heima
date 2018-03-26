@@ -95,7 +95,7 @@ Complete the following tasks to prepare your development environment for adding 
 
 ### Configure SSH access to the solution virtual machine in Azure
 
-When you created your remote monitoring solution at [www.azureiotsuite.com](https://www.azureiotsuite.cn, you chose a solution name. The solution name becomes the name of the Azure resource group that contains the various deployed resources that the solution uses. The following commands use a resource group named **Contoso-01**, you should replace **Contoso-01** with the name of your resource group.
+When you created your remote monitoring solution at [www.azureiotsuite.com](https://www.azureiotsuite.cn), you chose a solution name. The solution name becomes the name of the Azure resource group that contains the various deployed resources that the solution uses. The following commands use a resource group named **Contoso-01**, you should replace **Contoso-01** with the name of your resource group.
 
 The following commands use the `az` command from [Azure CLI 2.0](/cli/azure/overview?view=azure-cli-latest). You can install the Azure CLI 2.0 on your development machine. The Azure CLI 2.0 is pre-installed in the Cloud Shell.
 
