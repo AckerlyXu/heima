@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 02/26/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -54,15 +54,13 @@ For the following sample, first create a new Maven project for a console/shell a
 import java.io.IOException;
 import java.nio.charset.*;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 import com.microsoft.azure.eventhubs.*;
-import com.microsoft.azure.servicebus.*;
 
 public class Send
 {
     public static void main(String[] args) 
-            throws ServiceBusException, ExecutionException, InterruptedException, IOException
+            throws EventHubException, IOException
     {
 ```
 
