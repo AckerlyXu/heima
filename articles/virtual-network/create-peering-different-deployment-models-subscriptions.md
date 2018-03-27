@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -27,7 +27,7 @@ The steps to create a virtual network peering are different, depending on whethe
 
 |Azure deployment model  | Azure subscription  |
 |--------- |---------|
-|[Both Resource Manager](virtual-network-create-peering.md) |Same|
+|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Same|
 |[Both Resource Manager](create-peering-different-subscriptions.md) |Different|
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 
@@ -108,7 +108,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
 5. The remaining steps must be completed using a bash shell with the Azure CLI 2.0.4 or later [installed](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest). For options on running bash CLI scripts on a Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
-
+    <!-- Not Available on Azure Cloud Shell -->
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
     
 6. Copy the following script to a text editor on your PC. Replace `<SubscriptionB-Id>` with your subscription ID. If you don't know your subscription Id, enter the `az account show` command. The value for **id** in the output is your subscription Id. Copy the modified script, paste it in to your CLI 2.0 session, and then press `Enter`. 
@@ -346,4 +346,4 @@ When you've finished this tutorial, you might want to delete the resources you c
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
 - Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
-<!--Update_Description: update meta properties, wording update, update cmdlet parameter. -->
+<!--Update_Description: update meta properties, wording update, update link -->

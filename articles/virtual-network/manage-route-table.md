@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/09/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ---
 
 # Create, change, or delete a route table
 
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](create-user-defined-route-portal.md) tutorial, before completing tasks in this article.
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](tutorial-create-route-table-portal.md) tutorial, before completing tasks in this article.
 
 ## Before you begin
 
@@ -31,14 +31,15 @@ Complete the following tasks before completing steps in any section of this arti
 - If using the portal, open https://portal.azure.cn, and log in with your Azure account.
 - If using PowerShell commands to complete tasks in this article, by running PowerShell from your computer. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+<!-- Not Available on Azure Cloud Shell -->
 
 ## Create a route table
 
 There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. In the top-left corner of the portal, select **+ New**.
+1. In the top-left corner of the portal, select **+ Create a resource**.
 2. Select **Networking**, then select **Route table**.
-3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated to an Azure virtual network via BGP. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*. 
+3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated via BGP to the network interfaces in any subnet that the route table is associated to. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*.
 
 **Commands**
 
@@ -243,5 +244,4 @@ To perform tasks on route tables and routes, your account must be assigned to th
 
 The *Join route table* operation is required to associate a route table to a subnet.
 
-<!-- Update_Description: new articles on manage route table -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: wording update, update link -->

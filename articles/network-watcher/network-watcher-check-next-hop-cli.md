@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 12/25/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -48,7 +48,7 @@ The scenario covered in this article uses Next Hop, a feature of Network Watcher
 
 To get the next hop we call the `az network watcher show-next-hop` cmdlet. We pass the cmdlet the Network Watcher resource group, the NetworkWatcher, virtual machine Id, source IP address, and destination IP address. In this example, the destination IP address is to a VM in another virtual network. There is a virtual network gateway between the two virtual networks.
 
-If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). Then run the following command:
+If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login). Then run the following command:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -88,4 +88,4 @@ The following list shows the currently available NextHopType values:
 
 Learn how to review your network security group settings programmatically by visiting [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update, update link  -->
