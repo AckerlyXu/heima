@@ -18,43 +18,107 @@
       - name: Privileged Identity Management
         tocHref: /active-directory/privileged-identity-management/
         topicHref: /active-directory/privileged-identity-management/
+      - name: Managed Service Identity
+        tocHref: /active-directory/managed-service-identity/
+        topicHref: /active-directory/managed-service-identity/
+  - name: Active Directory B2C
+    tocHref: /active-directory-b2c/
+    topicHref: /active-directory-b2c/
+  - name: Active Directory Domain Services
+    tocHref: /active-directory-domain-services/
+    topicHref: /active-directory-domain-services/
   - name: Analysis Services
     tocHref: /analysis-services/
     topicHref: /analysis-services/
   - name: API Management
     tocHref: /api-management/
     topicHref: /api-management/
+    items:
+    - name: Policies
+      tocHref: /api-management/policies/
+      topicHref: /api-management/policy-samples/
+    - name: Azure PowerShell
+      tocHref: /api-management/scripts/
+      topicHref: /api-management/powershell-samples/
   - name: App Service
     tocHref: /app-service/
     topicHref: /app-service/
     items:
+    - name: App Service on Linux
+      tocHref: /app-service/containers/
+      topicHref: /app-service/containers/
+    - name: App Service Environments
+      tocHref: /app-service/environment/
+      topicHref: /app-service/environment/
     - name: Web Apps
-      tocHref: /app-service-web/
-      topicHref: /app-service-web/
+      tocHref: /app-service/
+      topicHref: /app-service/
     - name: Mobile Apps
       tocHref: /app-service-mobile/
       topicHref: /app-service-mobile/
-    - name: API Apps
-      tocHref: /app-service-api/
-      topicHref: /app-service-api/
+  - name: Advisor
+    tocHref: /advisor/
+    topicHref: /advisor/
   - name: Application Gateway
     tocHref: /application-gateway/
     topicHref: /application-gateway/
+  - name: Application Insights
+    tocHref: /application-insights/
+    topicHref: /application-insights/
   - name: Automation
     tocHref: /automation/
     topicHref: /automation/
-  - name: Portal
+  - name: Azure Databricks
+    tocHref: /azure-databricks/
+    topicHref: /azure-databricks/
+  - name: Container Registry
+    tocHref: /container-registry/
+    topicHref: /container-registry/
+  - name: Cost Management
+    tocHref: /cost-management/
+    topicHref: /cost-management/
+  - name: Functions
+    tocHref: /azure-functions/
+    topicHref: /azure-functions/
+  - name: Azure Government
+    tocHref: /azure-government/
+    topicHref: /azure-government/
+  - name: Azure Germany
+    tocHref: /germany/
+    topicHref: /germany/
+  - name: Azure China 21Vianet
+    tocHref: /china/
+    topicHref: /china/
+  - name: Azure portal
     tocHref: /azure-portal/
     topicHref: /azure-portal/
   - name: Resource Manager
     tocHref: /azure-resource-manager/
     topicHref: /azure-resource-manager/
+  - name: Azure Stack
+    tocHref: /azure-stack/
+    topicHref: /azure-stack/
+  - name: Azure Stack User
+    tocHref: /azure-stack/user/
+    topicHref: /azure-stack/user/
+  - name: Supportability
+    tocHref: /azure-supportability/
+    topicHref: /azure-supportability/
   - name: Backup
     tocHref: /backup/
     topicHref: /backup/
   - name: Batch
     tocHref: /batch/
     topicHref: /batch/
+  - name: Batch AI
+    tocHref: /batch-ai/
+    topicHref: /batch-ai/
+  - name: Billing
+    tocHref: /billing/
+    topicHref: /billing/
+  - name: Biztalk Services
+    tocHref: /biztalk-services/
+    topicHref: /biztalk-services/
   - name: Cache
     tocHref: /cache/
     topicHref: /cache/
@@ -65,42 +129,174 @@
     tocHref: /cloud-services/
     topicHref: /cloud-services/
   - name: Cognitive Services
-    tocHref: /cognitive-services/
-    topicHref: /cognitive-services/
+    tocHref: /#pivot=products&panel=ai
+    topicHref: /#pivot=products&panel=ai
     items:
+    - name: Bing Custom Search
+      tocHref: /cognitive-services/bing-custom-search/
+      topicHref: /cognitive-services/bing-custom-search/
+    - name: Bing Web Search
+      tocHref: /cognitive-services/bing-web-search/
+      topicHref: /cognitive-services/bing-web-search/
+    - name: Speech
+      tocHref: /cognitive-services/Speech/
+      topicHref: /cognitive-services/Speech/
     - name: Computer Vision
       tocHref: /cognitive-services/computer-vision/
       topicHref: /cognitive-services/computer-vision/
+    - name: Custom Speech Service
+      tocHref: /cognitive-services/custom-speech-service/
+      topicHref: /cognitive-services/custom-speech-service/
+    - name: Custom Vision Service
+      tocHref: /cognitive-services/custom-vision-service/
+      topicHref: /cognitive-services/custom-vision-service/
     - name: Face
       tocHref: /cognitive-services/face/
       topicHref: /cognitive-services/face/
+    - name: Language Understanding (LUIS)
+      tocHref: /cognitive-services/LUIS/
+      topicHref: /cognitive-services/LUIS/
+    - name: Text Analytics
+      tocHref: /cognitive-services/text-analytics/
+      topicHref: /cognitive-services/text-analytics/overview
+    - name: Video Indexer
+      tocHref: /cognitive-services/video-indexer/video-indexer-overview
+      topicHref: /cognitive-services/video-indexer/video-indexer-overview
+  - name: Connectors
+    tocHref: /connectors/
+    topicHref: /connectors/
+  - name: Container Instances
+    tocHref: /container-instances/
+    topicHref: /container-instances/
+  - name: AKS
+    tocHref: /aks/
+    topicHref: /aks/
+  - name: Container Service
+    tocHref: /container-service/
+    topicHref: /container-service/
+    items: 
+    - name: DC/OS and Swarm
+      tocHref: /container-service/dcos-swarm/
+      topicHref: /container-service/dcos-swarm/
+    - name: Kubernetes
+      tocHref: /container-service/kubernetes/
+      topicHref: /container-service/kubernetes/
   - name: CosmosDB
     tocHref: /cosmos-db/
     topicHref: /cosmos-db/
+  - name: Data Catalog
+    tocHref: /data-catalog/
+    topicHref: /data-catalog/
+  - name: Data Factory
+    tocHref: /data-factory/
+    topicHref: /data-factory/
+  - name: Data Lake Analytics
+    tocHref: /data-lake-analytics/
+    topicHref: /data-lake-analytics/
+  - name: Data Lake Store
+    tocHref: /data-lake-store/
+    topicHref: /data-lake-store/
+  - name: Devtest Lab
+    tocHref: /devtest-lab/
+    topicHref: /devtest-lab/
+  - name: DNS
+    tocHref: /dns/
+    topicHref: /dns/
+  - name: Event Grid
+    tocHref: /event-grid/
+    topicHref: /event-grid
   - name: Event Hubs
     tocHref: /event-hubs/
     topicHref: /event-hubs/
   - name: Expressroute
     tocHref: /expressroute/
     topicHref: /expressroute/
+  - name: Guidance
+    tocHref: /guidance/
+    topicHref: /guidance/
   - name: HDInsight
     tocHref: /hdinsight/
     topicHref: /hdinsight/
+    items:
+      - name: Hadoop
+        tocHref: /hdinsight/hadoop
+        topicHref: /hdinsight/hadoop/apache-hadoop-introduction
+      - name: HBase
+        tocHref: /hdinsight/hbase
+        topicHref: /hdinsight/hbase/apache-hbase-overview
+      - name: Interactive Query
+        tocHref: /hdinsight/interactive-query
+        topicHref: /hdinsight/interactive-query/apache-interactive-query-get-started
+      - name: Kafka
+        tocHref: /hdinsight/kafka
+        topicHref: /hdinsight/kafka/apache-kafka-introduction
+      - name: Enterprise Security
+        tocHref: /hdinsight/domain-joined
+        topicHref: /hdinsight/domain-joined/apache-domain-joined-introduction
+      - name: R Server
+        tocHref: /hdinsight/r-server
+        topicHref: /hdinsight/r-server-overview
+      - name: Spark
+        tocHref: /hdinsight/spark
+        topicHref: /hdinsight/spark/apache-spark-overview
+      - name: Storm
+        tocHref: /hdinsight/storm
+        topicHref: /hdinsight/storm/apache-storm-overview
+  - name: IoT Edge
+    tocHref: /iot-edge/
+    topicHref: /iot-edge/      
   - name: IoT Hub
     tocHref: /iot-hub/
     topicHref: /iot-hub/
   - name: IoT Suite
     tocHref: /iot-suite/
     topicHref: /iot-suite/
+  - name: Jenkins
+    tocHref: /jenkins/
+    topicHref: /jenkins/
   - name: Key Vault
     tocHref: /key-vault/
     topicHref: /key-vault/
+  - name: Location Based Services
+    tocHref: /location-based-services/
+    topicHref: /location-based-services/
   - name: Load Balancer
     tocHref: /load-balancer/
     topicHref: /load-balancer/
+  - name: Log Analytics
+    tocHref: /log-analytics/
+    topicHref: /log-analytics/
+  - name: Logic Apps
+    tocHref: /logic-apps/
+    topicHref: /logic-apps/
+  - name: Machine Learning
+    tocHref: /machine-learning/
+    topicHref: /machine-learning/
+    items:
+      - name: Services (preview)
+        tocHref: /machine-learning/preview
+        topicHref: /machine-learning/preview/
+      - name: Studio
+        tocHref: /machine-learning/studio
+        topicHref: /machine-learning/studio/
+      - name: Team Data Science Process
+        tocHref: /machine-learning/team-data-science-process
+        topicHref: /machine-learning/team-data-science-process/overview
+      - name: Data Science Virtual Machine
+        tocHref: /machine-learning/data-science-virtual-machine
+        topicHref: /machine-learning/data-science-virtual-machine/virtual-machine-overview
+  - name: Marketplace Consumer
+    tocHref: /marketplace-consumer/
+    topicHref: /marketplace-consumer/
+  - name: Marketplace Publishing
+    tocHref: /marketplace-publishing/
+    topicHref: /marketplace-publishing/
   - name: Media Services
     tocHref: /media-services/
     topicHref: /media-services/
+  - name: Mobile Engagement
+    tocHref: /mobile-engagement/
+    topicHref: /mobile-engagement/
   - name: Mobile Services
     tocHref: /mobile-services/
     topicHref: /mobile-services/
@@ -114,9 +310,49 @@
       - name: User Guide
         tocHref: /multi-factor-authentication/end-user/
         topicHref: /multi-factor-authentication/end-user/
+  - name: MySQL
+    tocHref: /mysql/
+    topicHref: /mysql/
+  - name: Network Watcher
+    tocHref: /network-watcher/
+    topicHref: /network-watcher/
+  - name: Networking
+    tocHref: /networking/
+    topicHref: /networking/networking-overview
   - name: Notification Hubs
     tocHref: /notification-hubs/
     topicHref: /notification-hubs/
+  - name: Operations Management Suite
+    tocHref: /operations-management-suite/
+    topicHref: /operations-management-suite/
+  - name: Policy documentation
+    tocHref: /azure-policy/
+    topicHref: /azure-policy/
+    items:
+      - name: Overview of Azure Policy
+        tocHref: /azure-policy/azure-policy-introduction/
+        topicHref: /azureazure-policy/azure-policy-introduction/
+      - name: Assign a policy - Portal
+        tocHref: /azure-policy/assign-policy-definition/
+        topicHref: /azureazure-policy/assign-policy-definition/
+      - name: Assign a policy - PowerShell
+        tocHref: /azure-policy/assign-policy-definition-ps/
+        topicHref: /azureazure-policy/assign-policy-definition-ps/
+      - name: Assign a policy - Azure CLI
+        tocHref: /azure-policy/assign-policy-definition-cli/
+        topicHref: /azureazure-policy/assign-policy-definition-cli/
+      - name: Create and manage Azure Policy
+        tocHref: /azure-policy/create-manage-polic/
+        topicHref: /azureazure-policy/create-manage-polic/
+      - name: Policy templates
+        tocHref: /azure-policy/json-samples/
+        topicHref: /azureazure-policy/json-samples/
+      - name: Azure Policy definition structure
+        tocHref: /azure-policy/policy-definition/
+        topicHref: /azureazure-policy/policy-definition/
+  - name: PostgreSQL
+    tocHref: /postgresql/
+    topicHref: /postgresql/
   - name: Power BI Embedded
     tocHref: /power-bi-embedded/
     topicHref: /power-bi-embedded/
@@ -126,15 +362,27 @@
   - name: Redis Cache
     tocHref: /redis-cache/
     topicHref: /redis-cache/
+  - name: Remoteapp
+    tocHref: /remoteapp/
+    topicHref: /remoteapp/
   - name: Resiliency
     tocHref: /resiliency/
     topicHref: /resiliency/
+  - name: Service Health
+    tocHref: /service-health/
+    topicHref: /service-health/
   - name: Scheduler
     tocHref: /scheduler/
     topicHref: /scheduler/
+  - name: Search
+    tocHref: /search/
+    topicHref: /search/
   - name: Security
     tocHref: /security/
     topicHref: /security/
+  - name: Security Center
+    tocHref: /security-center/
+    topicHref: /security-center/
   - name: Service Bus
     tocHref: /service-bus/
     topicHref: /service-bus/
@@ -172,9 +420,15 @@
       - name: Queues
         tocHref: /storage/queues/
         topicHref: /storage/queues/storage-queues-introduction
+  - name: StorSimple
+    tocHref: /storsimple/
+    topicHref: /storsimple/
   - name: Stream Analytics
     tocHref: /stream-analytics/
     topicHref: /stream-analytics/
+  - name: Time Series Insights
+    tocHref: /time-series-insights/
+    topicHref: /time-series-insights/
   - name: Traffic Manager
     tocHref: /traffic-manager/
     topicHref: /traffic-manager/
