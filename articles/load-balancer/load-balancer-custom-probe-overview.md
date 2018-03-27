@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 12/25/2017
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ---
 
@@ -23,9 +23,9 @@ ms.author: v-yeche
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Azure Load Balancer offers the capability to monitor the health of server instances by using probes. When a probe fails to respond, Load Balancer stops sending new connections to the unhealthy instance. The existing connections are not affected, and new connections are sent to healthy instances.
+Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance and existing flows on that instance are unaffected.  When all backend pool instances probe down, all existing flows will time out on all instances in the backend pool.
 
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom probes must be configured when you use VMs behind Load Balancer.
+Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom health probes must be configured when you use VMs behind Load Balancer.
 
 ## Understand probe count and timeout
 

@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/25/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
 ---
 
@@ -52,10 +52,10 @@ You can get more information about load balancer components with Azure Resource 
 ## Set up a load balancer in Azure portal
 
 > [!IMPORTANT]
-> This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to create VMs.
+> This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to create VMs.
 
 1. From a browser navigate to the Azure portal: [http://portal.azure.cn](http://portal.azure.cn) and login with your Azure account.
-2. On the top left-hand side of the screen select **New** > **Networking** > **Load Balancer.**
+2. On the top left-hand side of the screen select **Create a resource** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called **myLoadBalancer**.
 4. Under **Type**, select **Public**.
 5. Under **Public IP address**, create a new public IP called **myPublicIP**.
@@ -111,4 +111,4 @@ To delete a load balancer, select the load balancer you want to remove. In the *
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->
