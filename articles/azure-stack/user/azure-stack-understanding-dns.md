@@ -3,8 +3,8 @@ title: Understanding DNS in Azure Stack | Microsoft Docs
 description: Understanding DNS features and capabilities in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: darmour
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -57,7 +57,7 @@ which you create the public IP address.
 ![Screenshot of DNS name label](./media/azure-stack-understanding-dns-in-tp2/image3.png)
 
 In the image above, Azure will create an “A” record in DNS for the DNS
-name label specified under the zone. The
+name label specified under the zone **chinanorth.chinacloudapp.cn**. The
 prefix and the suffix together compose a Fully Qualified Domain Name
 (FQDN) that can be resolved from anywhere on the public Internet.
 
@@ -71,3 +71,4 @@ registration, so it cannot do the following:
 - Support the purchase of domain names.
 
 
+<!-- Update_Description: wording update -->

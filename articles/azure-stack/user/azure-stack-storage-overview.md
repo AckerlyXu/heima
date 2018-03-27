@@ -3,9 +3,8 @@ title: Introduction to Azure Stack storage
 description: Learn about Azure Stack storage
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager:
-editor: ''
+author: mattbriggs
+manager: femila
 
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
@@ -13,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/29/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -88,3 +87,4 @@ A storage account can contain any number of queues, and a queue can contain any 
 - To learn more about Azure Storage, see [Introduction to Azure Storage](../../storage/common/storage-introduction.md)
 
 
+<!-- Update_Description: update metedata properties -->

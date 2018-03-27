@@ -3,8 +3,8 @@ title: Using databases provided by the SQL Adapter RP on Azure Stack | Microsoft
 description: How to create and manage SQL databases provisioned using the SQL Adapter Resource Provider
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/10/2017
-ms.date: 03/04/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -61,3 +61,4 @@ AlwaysOn databases should show as synchronized and available on all instances an
 
 ![Verify AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
+<!-- Update_Description: update metedata properties -->
