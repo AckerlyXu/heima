@@ -168,4 +168,4 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 ## Next steps
 To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: update meta properties， wording update, restore the file -->

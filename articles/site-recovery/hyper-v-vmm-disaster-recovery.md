@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -30,9 +30,8 @@ This article shows you how to set up disaster recovery to a secondary site, for 
 To complete this scenario:
 
 - Review the [scenario architecture and components](hyper-v-vmm-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
-- Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
-- Check that VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Make sure that VMM servers and Hyper-V hosts comply with [support requirements](hyper-v-vmm-secondary-support-matrix.md).
+- Check that VMs you want to replicate comply with [replicated machine support](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Prepare VMM servers for network mapping.
 
 ### Prepare for network mapping
@@ -147,6 +146,4 @@ You can track progress of the **Enable Protection** action in **Jobs** > **Site 
 
 [Run a disaster recovery drill](hyper-v-vmm-test-failover.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
-<!--The parent file of includes file of site-recovery-create-vault.md-->
-<!--ms.date:03/05/2018-->
+<!-- Update_Description: update meta properties, wording update -->

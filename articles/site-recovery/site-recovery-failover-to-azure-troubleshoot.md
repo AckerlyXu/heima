@@ -7,14 +7,14 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/22/2017
-ms.date: 01/01/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -29,7 +29,7 @@ Site Recovery was not able to create a failed over virtual machine in Azure. It 
 
 * You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to Compute and Network settings of the virtual machine and then retry failover.
 
-* There is a policy on the subscription that prevents creation of a virtual machine. Change the policy to allow creation of a virtual machine and then retry failover. 
+* There is a policy on the subscription that prevents creation of a virtual machine. Change the policy to allow creation of a virtual machine and then retry failover.
 
 ## Failover failed with Error ID 28092
 
@@ -39,7 +39,7 @@ Site Recovery was not able to create a network interface for the failed over vir
 
 Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because:
 
-* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover. 
+* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
 ## Next steps
 

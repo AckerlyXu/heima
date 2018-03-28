@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 12/04/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -90,18 +90,18 @@ The tool has two main phases: profiling and report generation. There is also a t
 >
 
 ## Download and extract the deployment planner tool
-1. Download the latest version of [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner). 
+1. Download the latest version of [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
 The tool is packaged in a .zip folder. The current version of the tool supports only the VMware to Azure scenario.
 
-2. Copy the .zip folder to the Windows server from which you want to run the tool. 
+2. Copy the .zip folder to the Windows server from which you want to run the tool.
 You can run the tool from Windows Server 2012 R2 if the server has network access to connect to the vCenter server/vSphere ESXi host that holds the VMs to be profiled. However, we recommend that you run the tool on a server whose hardware configuration meets the [configuration server sizing guidelines](https://aka.ms/asr-v2a-on-prem-components). If you already deployed Site Recovery components on-premises, run the tool from the configuration server.
 
     We recommend that you have the same hardware configuration as the configuration server (which has an in-built process server) on the server where you run the tool. Such a configuration ensures that the achieved throughput that the tool reports matches the actual throughput that Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (such as CPU and storage) of the server. If you run the tool from any other server, the throughput is calculated from that server to Azure. Also, because the hardware configuration of the server might differ from that of the configuration server, the achieved throughput that the tool reports might be inaccurate.
 
-3. Extract the .zip folder. 
+3. Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-    Example: 
+    Example:
     Copy the .zip file to E:\ drive and extract it.
     E:\ASR Deployment Planner_v2.1zip
 
@@ -124,4 +124,4 @@ See the [Site Recovery Deployment Planner version history](https://social.techne
 
 ## Next steps
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

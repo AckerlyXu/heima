@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/07/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ---
 
@@ -133,4 +133,4 @@ If you have to scale out your deployment beyond 200 source machines, or you have
 
 Download and run the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

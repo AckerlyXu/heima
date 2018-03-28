@@ -13,8 +13,8 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -117,5 +117,4 @@ For more information, see [Failover in Site Recovery](site-recovery-failover.md)
 * To learn more about building a disaster recovery solution for SAP NetWeaver deployments by using Site Recovery, see the downloadable white paper [SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery](http://aka.ms/asr-sap). The white paper discusses recommendations for various SAP architectures, lists supported applications and VM types for SAP on Azure, and describes testing plan options for your disaster recovery solution.
 * Learn more about [replicating other workloads](site-recovery-workload.md) by using Site Recovery.
 
-<!-- Update_Description: new articles on site recovery SAP -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties -->
