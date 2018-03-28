@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 12/04/2017
-ms.date: 01/22/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -139,11 +139,11 @@ You can view the cost either monthly or yearly.
 The total DR cost is divided into four components: Compute, Storage, Network, and Azure Site Recovery license cost. The cost is calculated based on the consumption that will be incurred during replication and at DR drill time for compute, storage (premium and standard), ExpressRoute/VPN that is configured between the on-premises site and Azure, and Azure Site Recovery license.
 
 **Cost by states**
-The total disaster recovery (DR) cost is categories based on two different states - Replication and DR drill. 
+The total disaster recovery (DR) cost is categories based on two different states - Replication and DR drill.
 
-**Replication cost**:  The cost that will be incurred during replication. It covers the cost of storage, network, and Azure Site Recovery license. 
+**Replication cost**:  The cost that will be incurred during replication. It covers the cost of storage, network, and Azure Site Recovery license.
 
-**DR-Drill cost**: The cost that will be incurred during test failovers. Azure Site Recovery spins up VMs during test failover. The DR drill cost covers the running VMs' compute and storage cost. 
+**DR-Drill cost**: The cost that will be incurred during test failovers. Azure Site Recovery spins up VMs during test failover. The DR drill cost covers the running VMs' compute and storage cost.
 
 **Azure storage cost per Month/Year**
 It shows the total storage cost that will be incurred for premium and standard storage for replication and DR drill.
@@ -185,7 +185,7 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 
 **VM Name**: The VM name or IP address that's used in the VMListFile when a report is generated. This column also lists the disks (VMDKs) that are attached to the VMs. To distinguish vCenter VMs with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the VM was placed when the tool discovered during the profiling period.
 
-**VM Compatibility**: Values are **Yes** and **Yes**\*. **Yes**\* is for instances in which the VM is a fit for [Azure Premium Storage](https://aka.ms/premium-storage-workload). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
+**VM Compatibility**: Values are **Yes** and **Yes**\*. **Yes**\* is for instances in which the VM is a fit for [Azure Premium Storage](/virtual-machines/windows/premium-storage). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 256 GB is a P15
 * 256 GB to 512 GB is a P20.
@@ -268,7 +268,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Boot Type**: Boot type of the VM. It can be either BIOS or EFI.  Currently Azure Site Recovery supports Windows Server EFI VMs (Windows Server 2012, 2012 R2 and 2016) provided the number of partitions in the boot disk is less than 4 and boot sector size is 512 bytes. To protect EFI VMs, Azure Site Recovery mobility service version must be 9.13 or above. Only failover is supported for EFI VMs. Failback is not supported.
 
-**OS Type**:  It is OS type of the VM. It can be either Windows or Linux or other based on the chosen template from VMware vSphere while creating the VM. 
+**OS Type**:  It is OS type of the VM. It can be either Windows or Linux or other based on the chosen template from VMware vSphere while creating the VM.
 
 ## Azure Site Recovery limits
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by issuing a test failover to get the true performance picture of the application.
@@ -284,15 +284,15 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per d
 
 **Source data churn** | **Maximium Limit**
 ---|---
-Average data churn per VM| 25 MB/s 
+Average data churn per VM| 25 MB/s
 Peak data churn across all disks on a VM | 54 MB/s
-Maximum data churn per day supported by a Process Server | 2 TB 
+Maximum data churn per day supported by a Process Server | 2 TB
 
 These are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
 ## Cost estimation
-Learn more about [cost estimation](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Learn more about [cost estimation](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ## Next steps
 Learn more about [cost estimation](site-recovery-vmware-deployment-planner-cost-estimation.md).
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

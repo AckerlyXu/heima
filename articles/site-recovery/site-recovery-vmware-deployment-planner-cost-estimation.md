@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 08/28/2017
-ms.date: 01/01/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -158,5 +158,4 @@ To manually add VMs:
 
 ## Next steps
 Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](/site-recovery/tutorial-vmware-to-azure).
-<!-- Update_Description: new articles on site recovery vmware deployment planner cost estimation -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta properties, wording update -->

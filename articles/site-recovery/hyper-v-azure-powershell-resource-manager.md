@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -36,7 +36,7 @@ Make sure you have these prerequisites in place:
 In addition, the specific example described in this article has the following prerequisites:
 
 * A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more VMs. Hyper-V servers should be connected to the Internet, either directly or through a proxy.
-* The VMs you want to replicate should conform with [these prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* The VMs you want to replicate should conform with [these prerequisites](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## Step 1: Sign in to your Azure account
 
@@ -201,5 +201,4 @@ Before you start, note that the storage account specified should be in the same 
 
 ## Next steps
 [Learn more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
-<!-- Update_Description: new articles on hyper-v to azure failback with powershell and azure resource manager -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties, update link, wording update -->

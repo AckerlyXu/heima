@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/15/2017
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -63,7 +63,7 @@ If network mapping has already occurred, you can't change the target virtual net
 >
 
 ## Subnet selection
-The subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If a subnet that has the same name as the source virtual machine is available in the target network, that subnet is set for the target virtual machine. If a subnet with the same name doesn't exist in the target network, the alphabetically first subnet is set as the target subnet. 
+The subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If a subnet that has the same name as the source virtual machine is available in the target network, that subnet is set for the target virtual machine. If a subnet with the same name doesn't exist in the target network, the alphabetically first subnet is set as the target subnet.
 
 To modify the subnet, go to the **Compute and Network** settings for the virtual machine.
 
@@ -92,4 +92,4 @@ To modify the target IP on each network interface, go to the **Compute and Netwo
 ## Next steps
 
 * Review [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

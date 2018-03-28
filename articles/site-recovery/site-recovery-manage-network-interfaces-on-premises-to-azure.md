@@ -1,26 +1,19 @@
 ---
-title: Manage network interfaces in Azure Site Recovery for on-premises to Azure scenarios | Azure
-description: Describes how to manage network interfaces for on-premises to Azure scenarios with Azure Site Recovery
+title: Manage network interfaces in Azure Site Recovery for on-premises to Azure replication | Azure
+description: Describes how to manage network interfaces for on-premises to Azure replication with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 12/22/2017
-ms.date: 01/22/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
-# Manage virtual machine network interfaces for on-premises to Azure scenarios
+# Manage virtual machine network interfaces for on-premises to Azure replication
 
-A virtual machine (VM) in Azure must have at least one network interface attached to it. It can have as many network interfaces attached to it as the VM size supports. 
+A virtual machine (VM) in Azure must have at least one network interface attached to it. It can have as many network interfaces attached to it as the VM size supports.
 
 By default, the first network interface attached to an Azure virtual machine is defined as the primary network interface. All other network interfaces in the virtual machine are secondary network interfaces. Also by default, all outbound traffic from the virtual machine is sent out the IP address that's assigned to the primary IP configuration of the primary network interface.
 
@@ -74,5 +67,4 @@ You can modify the subnet and IP address for a replicated item's network interfa
 
 ## Next steps
   [Learn more](../virtual-network/virtual-network-network-interface-vm.md) about network interfaces for Azure virtual machines.
-<!-- Update_Description: new articles on site recovery manage network interfaces on premises to azure -->
-<!-- ms.date: 01/19/2018 -->
+<!-- Update_Description: wording update  -->

@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -86,7 +86,7 @@ VPN Gateways utilize public IP addresses and gateway hops to establish connectio
 
 This feature is currently in public preview and is being expanded to more support regions—enabling direct VM-to-VM connectivity without any public internet involvement or any extra hops.
 
-For more information, refer to the [peering documentation](../virtual-network/virtual-network-create-peering.md#register) and [pricing](https://www.azure.cn/pricing/details/networking/).
+For more information, refer to the [peering documentation](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) and [pricing](https://www.azure.cn/pricing/details/networking/).
 
 ## On-premises-to-Azure connectivity
 
@@ -119,5 +119,4 @@ To achieve application resiliency, it is recommended that each application is ho
 ## Next steps
 - Learn more about [recovery plans](site-recovery-create-recovery-plans.md).
 
-<!-- Update_Description: new articles on site recovery retain IP azure VM failover -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: wording update, update link -->

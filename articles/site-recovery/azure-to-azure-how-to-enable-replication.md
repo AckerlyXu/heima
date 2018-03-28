@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -67,8 +67,8 @@ You can modify the default target settings used by Site Recovery.
 2. Click **Create target resource** > **Enable Replication**.
 3. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
->[!NOTE]
->During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
+> [!NOTE]
+> During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 >
 
 # Next steps

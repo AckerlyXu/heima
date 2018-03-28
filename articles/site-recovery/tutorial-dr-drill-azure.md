@@ -3,11 +3,10 @@ title: Run a disaster recovery drill for on-premises machines to Azure with Azur
 description: Learn about running disaster recovery drill from on-premises to Azure, with Azure Site Recovery
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 12/31/2017
-ms.date: 01/22/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -31,8 +30,7 @@ tasks in the previous tutorials.
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VM properties, and make sure that the VM complies with
-[Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Before you run a test failover, verify the VM properties, and make sure that the Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM or physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
@@ -82,6 +80,6 @@ storvsc, vmbus, storflt, intelide, atapi.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a failover and failback for on-premises VMware VMs](tutorial-vmware-to-azure-failover-failback.md).
+> [Run a failover and failback for on-premises VMware VMs](vmware-azure-tutorial-failover-failback.md).
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

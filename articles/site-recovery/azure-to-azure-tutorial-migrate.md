@@ -5,9 +5,10 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/07/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
+ms.custom: MVC
 ---
 
 # Migrate Azure VMs to another region
@@ -108,7 +109,8 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 2. In **Failover**, select **Latest**. The encryption key setting isn't relevant for this scenario.
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, and stops replication for the VM.
+5. In **Replicated items**, right-click the VM > **Commit**. This finishes the migration process,
+6. After the commit finishes, click **Disable Replication**.  This stops replication for the VM.
 
 ## Next steps
 

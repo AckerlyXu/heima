@@ -1,12 +1,12 @@
 ---
-title: About Azure Site Recovery? | Azure
+title: About Azure Site Recovery | Azure
 description: Provides an overview of the Azure Site Recovery service, and summarizes deployment scenarios.
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: overview
-origin.date: 01/07/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: MVC
 ---
@@ -50,8 +50,8 @@ Site Recovery can manage replication for:
 --- | ---
 **Replication scenarios** | Replicate Azure VMs from one Azure region to another.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
 **Regions** | Review [supported regions](https://www.azure.cn/support/service-dashboard/services/) for Site Recovery. |
-**Replicated machines** | Review the replication requirements for [Azure VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [on-premises VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and [physical servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
-**VMware servers/hosts** | VMware VMs you want to replicate can be located on [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+**Replicated machines** | Review the replication requirements for [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) replication, [on-premises VMware VMs and physical servers](vmware-physical-azure-support-matrix.md#replicated-machines), and [on-premises Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms).
+**VMware servers/hosts** | VMware VMs you want to replicate can be located on [supported host and virtualization servers](vmware-physical-azure-support-matrix.md).
 **Workloads** | You can replicate any workload running on a machine that's supported for replication. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
 
 ## Next steps
