@@ -3,18 +3,16 @@
 ## [Event Hubs features](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Receive events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
-<!-- Not Available ### [Apache Storm](event-hubs-storm-getstarted-receive.md)-->
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Capture events
 ### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
 <!-- Not Available ### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) -->
@@ -28,8 +26,11 @@
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
-<!-- Not Available ### [Automatically scale throughput units](event-hubs-auto-inflate.md) -->
+### [Automatically scale throughput units](event-hubs-auto-inflate.md)
+<!-- Not Available ### [Integrating Apache Spark with Event Hubs](event-hubs-spark-connector.md)-->
 ## Develop
+### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -50,11 +51,11 @@
 ### [com.microsoft.azure.eventhubs](https://docs.azure.cn/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](https://docs.azure.cn/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
-### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
-### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
-### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.ServiceBus.Messaging.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
+### [Microsoft.Azure.EventHubs](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs?view=azure-dotnet)
+### [Microsoft.Azure.EventHubs.Processor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet)
+### [Microsoft.ServiceBus.Messaging](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging?view=azure-dotnet)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost?view=azure-dotnet)
+### [Microsoft.Azure.Management.EventHub](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.eventhub?view=azure-dotnet)
 ## [REST](https://docs.microsoft.com/rest/api/eventhub)
 ## [Exceptions](event-hubs-messaging-exceptions.md)
 ## [Quotas](event-hubs-quotas.md)
@@ -69,4 +70,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub) -->
 
 <!--Update_Description: update link-->
-<!--ms.date: 02/26/2018 -->
+<!--ms.date: 04/02/2018 -->

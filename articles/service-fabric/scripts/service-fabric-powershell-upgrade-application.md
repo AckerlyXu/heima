@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 09/29/2017
-ms.date: 11/13/2017
+origin.date: 01/18/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -144,4 +144,4 @@ For more information on the Service Fabric PowerShell module, see [Azure PowerSh
 
 Additional Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
 
-<!--Update_Description: add new cmdlet of Removing the application package to free system resources.  -->
+<!--Update_Description: update meta properties  -->

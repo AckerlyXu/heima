@@ -3,10 +3,11 @@ title: 'Azure Stack Networking: Differences and considerations'
 description: Learn about differences and considerations when working with networking in Azure Stack.
 services: azure-stack
 keywords: 
-author: ScottNapolitan
+author: mattbriggs
+manager: femila
 ms.author: v-junlch
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: azure-stack
 
@@ -47,3 +48,4 @@ This article provides an overview of the unique considerations for Networking an
 
 [DNS in Azure Stack](azure-stack-dns.md)
 
+<!-- Update_Description: update metedata properties -->

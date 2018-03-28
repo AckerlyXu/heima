@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a MongoDB API console app with Java and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 <!-- Not Available on Graph -->
+<!-- Notice: Convert globally to multple-region -->
 
 This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
@@ -57,11 +58,11 @@ Now let's clone a MongoDB API app from github, set the connection string, and ru
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
+3. Then open the code in your favorite editor. 
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `Program.cs` file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.java` file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The DocumentClient is initialized.
 
@@ -127,4 +128,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, reference link -->
+<!--Update_Description: update meta properties, reference link, wording update -->

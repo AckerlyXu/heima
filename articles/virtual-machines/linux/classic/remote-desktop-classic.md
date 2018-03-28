@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -32,7 +32,7 @@ This guidance will give you the answer! It will help you to install and config x
 The xrdp tool is an open source RDP server that allows you to connect your Linux server with Remote Desktop from a Windows machine. RDP has better performance than VNC (Virtual Network Computing). VNC renders using JPEG-quality graphics and can be slow, whereas RDP is fast and crystal clear.
 
 > [!NOTE]
-> You must already have an Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](createportal.md).
+> You must already have an Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](createportal-classic.md).
 > 
 > 
 
@@ -127,5 +127,4 @@ Log in with the user name and password of your Linux VM.
 ## Next steps
 For more information about using xrdp, see [http://www.xrdp.org/](http://www.xrdp.org/).
 
-<!-- Update_Description: new articles on remote desktop classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -27,16 +27,16 @@ If you need to quickly accomplish the task, the following section details the ba
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myKey*, and *myVM*.
+You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login). In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myKey*, and *myVM*.
 
-First, enable the Azure Key Vault provider within your Azure subscription with [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#register) and create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group name *myResourceGroup* in the *chinaeast* location:
+First, enable the Azure Key Vault provider within your Azure subscription with [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_register) and create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group name *myResourceGroup* in the *chinaeast* location:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location chinaeast
 ```
 
-Create an Azure Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyvault_name* as follows:
+Create an Azure Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyvault_name* as follows:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -47,21 +47,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Create a cryptographic key in your Key Vault with [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#create). The following example creates a key named *myKey*:
+Create a cryptographic key in your Key Vault with [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#az_keyvault_key_create). The following example creates a key named *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac). The service principal handles the authentication and exchange of cryptographic keys from Key Vault. The following example reads in the values for the service principal ID and password for use in later commands:
+Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac). The service principal handles the authentication and exchange of cryptographic keys from Key Vault. The following example reads in the values for the service principal ID and password for use in later commands:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-The password is only output when you create the service principal. If desired, view and record the password (`echo $sp_password`). You can list your service principals with [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#list) and view additional information about a specific service principal with [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#show).
+The password is only output when you create the service principal. If desired, view and record the password (`echo $sp_password`). You can list your service principals with [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_list) and view additional information about a specific service principal with [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_show).
 
-Set permissions on your Key Vault with [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#set-policy). In the following example, the service principal ID is supplied from the preceding command:
+Set permissions on your Key Vault with [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_set_policy). In the following example, the service principal ID is supplied from the preceding command:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named *myVM* using a *CentOS 7.2n* image:
+Create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named *myVM* using a *CentOS 7.2n* image:
 
 ```azurecli
 az vm create \
@@ -83,7 +83,7 @@ az vm create \
 
 SSH to your VM using the *publicIpAddress* shown in the output of the preceding command. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
-Encrypt your VM with [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#enable). The following example uses the *$sp_id* and *$sp_password* variables from the preceding `ad sp create-for-rbac` command:
+Encrypt your VM with [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_enable). The following example uses the *$sp_id* and *$sp_password* variables from the preceding `ad sp create-for-rbac` command:
 
 ```azurecli
 az vm encryption enable \
@@ -96,19 +96,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#show):
+It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-The status shows **EncryptionInProgress**. Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#restart):
+The status shows **EncryptionInProgress**. Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-The disk encryption process is finalized during the boot process, so wait a few minutes before checking the status of encryption again with [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#show):
+The disk encryption process is finalized during the boot process, so wait a few minutes before checking the status of encryption again with [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -158,18 +158,18 @@ Disk encryption is not currently supported in the following scenarios:
 For more information on supported scenarios and limitations, see [Azure Disk Encryption for IaaS VMs](../../security/azure-security-disk-encryption.md)
 
 ## Create Azure Key Vault and keys
-You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myKey*, and *myVM*.
+You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login). In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myKey*, and *myVM*.
 
 The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks.
 
-Enable the Azure Key Vault provider within your Azure subscription with [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#register) and create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group name *myResourceGroup* in the `chinaeast` location:
+Enable the Azure Key Vault provider within your Azure subscription with [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_register) and create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group name *myResourceGroup* in the `chinaeast` location:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location chinaeast
 ```
 
-The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyvault_name* as follows:
+The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyvault_name* as follows:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -182,7 +182,7 @@ az keyvault create \
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since you created a standard Key Vault.
 
-For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#create). The following example creates a key named *myKey*:
+For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#az_keyvault_key_create). The following example creates a key named *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -191,15 +191,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## Create the Azure Active Directory service principal
 When virtual disks are encrypted or decrypted, you specify an account to handle the authentication and exchanging of cryptographic keys from Key Vault. This account, an Azure Active Directory service principal, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
 
-Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac). The following example reads in the values for the service principal Id and password for use in later commands:
+Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac). The following example reads in the values for the service principal Id and password for use in later commands:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-The password is only displayed when you create the service principal. If desired, view and record the password (`echo $sp_password`). You can list your service principals with [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#list) and view additional information about a specific service principal with [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#show).
+The password is only displayed when you create the service principal. If desired, view and record the password (`echo $sp_password`). You can list your service principals with [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_list) and view additional information about a specific service principal with [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_show).
 
-To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#set-policy). In the following example, the service principal ID is supplied from the preceding command:
+To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_set_policy). In the following example, the service principal ID is supplied from the preceding command:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -208,7 +208,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 ```
 
 ## Create virtual machine
-Create a VM to encrypt with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named *myVM* using a *CentOS 7.2n* image:
+Create a VM to encrypt with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named *myVM* using a *CentOS 7.2n* image:
 
 ```azurecli
 az vm create \
@@ -230,7 +230,7 @@ To encrypt the virtual disks, you bring together all the previous components:
 3. Specify the cryptographic keys to use for the actual encryption and decryption.
 4. Specify whether you want to encrypt the OS disk, the data disks, or all.
 
-Encrypt your VM with [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#enable). The following example uses the *$sp_id* and *$sp_password* variables from the preceding [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) command:
+Encrypt your VM with [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_enable). The following example uses the *$sp_id* and *$sp_password* variables from the preceding [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac) command:
 
 ```azurecli
 az vm encryption enable \
@@ -243,7 +243,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#show):
+It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -258,7 +258,7 @@ The output is similar to the following truncated example:
 ]
 ```
 
-Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#restart):
+Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

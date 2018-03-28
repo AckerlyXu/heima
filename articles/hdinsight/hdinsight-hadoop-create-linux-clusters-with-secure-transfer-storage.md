@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/25/2017
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -42,7 +42,7 @@ In this section, you create a Hadoop cluster in HDInsight using an [Azure Resour
 
 2. Follow the instructions to create the cluster with the following specifications: 
 
-    - Specify HDInsight version 3.6.  The default version is 3.5. Version 3.6 or newer is required.
+    - Specify HDInsight version 3.6.  Version 3.6 or newer is required.
     - Specify a secure transfer enabled storage account.
     - Use short name for the storage account.
     - Both the storage account and the blob container must be created beforehand. 

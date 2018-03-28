@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/05/2017
-ms.date: 02/26/2018
+origin.date: 01/19/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -370,4 +370,4 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 [10]: service-fabric-package-apps.md
 [11]: service-fabric-application-upgrade.md
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update -->

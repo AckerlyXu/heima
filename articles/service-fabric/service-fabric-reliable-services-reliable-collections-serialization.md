@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 05/08/2017
-ms.date: 07/17/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -54,11 +54,11 @@ Reliable State Manager has built-in serializer for following types:
 Custom serializers are commonly used to increase performance or to encrypt the data over the wire and on disk. 
 Among other reasons, custom serializers are commonly more efficient than generic serializer since they don't need to serialize information about the type. 
 
-<!-- URL is corrrect https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer -->
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) is used to register a custom serializer for the given type T.
+<!-- URL is Correct on [IReliableStateManager.TryAddStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) -->
+[IReliableStateManager.TryAddStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) is used to register a custom serializer for the given type T.
 This registration should happen in the construction of the StatefulServiceBase to ensure that before recovery starts, all Reliable Collections have access to the relevant serializer to read their persisted data.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -75,7 +75,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### How to implement a custom serializer
 
-A custom serializer needs to implement the [IStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
+A custom serializer needs to implement the [IStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.istateserializer-1?view=azure-dotnet) interface.
 
 > [!NOTE]
 > IStateSerializer<T> includes an overload for Write and Read that takes in an additional T called base value. 
@@ -85,7 +85,7 @@ A custom serializer needs to implement the [IStateSerializer<T>](https://docs.mi
 
 Following is an example custom type called OrderKey that contains four properties
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -104,7 +104,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 Following is an example implementation of IStateSerializer<OrderKey>.
 Note that Read and Write overloads that take in baseValue, call their respective overload for forwards compatibility.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)
@@ -125,7 +125,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
       writer.Write(value.Customer);
       writer.Write(value.Order);
   }
-  
+
   // Read overload for differential de-serialization
   OrderKey IStateSerializer<OrderKey>.Read(OrderKey baseValue, BinaryReader reader)
   {
@@ -166,3 +166,4 @@ This way each version can read as much it can and jump over the remaining part o
   * Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
   * Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
   * Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
+<!-- Update_Description: update meta properties, wording update -->

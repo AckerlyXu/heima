@@ -2,23 +2,16 @@
 title: Fail over and fail back VMware VMs and physical servers replicated to Azure with Site Recovery | Azure
 description: Learn how to fail over VMware VMs and physical servers to Azure, and fail back to the on-premises site, with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.topic: tutorial
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-
 ---
+
 # Fail over and fail back VMware VMs and physical servers replicated to Azure
 
 This tutorial describes how to fail over a VMware VM to Azure. After you've failed over, you fail
@@ -201,4 +194,4 @@ replicating to Azure again as follows:
 After the reprotection finishes, the VM replicates back to Azure, and you can run a failover as
 required.
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

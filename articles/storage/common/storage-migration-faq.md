@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 origin.date: 11/16/2017
-ms.date: 01/01/2018
+ms.date: 3/5/2018
 ms.author: v-nany
 
 
@@ -332,4 +332,6 @@ There is no way to access a storage account directly by using FTP. However, you 
 
 If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
 
+**How do I migrate Blobs from one storage account to another?**
 
+ You can do this using our [Blob migration script](../scripts/storage-common-transfer-between-storage-accounts.md).

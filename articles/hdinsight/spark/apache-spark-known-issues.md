@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/28/2017
-ms.date: 01/15/2018
+origin.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -25,11 +25,11 @@ ms.author: v-yiso
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ## Livy leaks interactive session
-When Livy is restarted (from Ambari or due to headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
+When Livy is restarted (from Ambari or due to headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session is leaked. Because of this, new jobs can be stuck in the Accepted state, and cannot be started.
 
 **Mitigation:**
 
-Use the following procedure to workaround the issue:
+Use the following procedure to work around the issue:
 
 1. Ssh into headnode. For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -37,12 +37,12 @@ Use the following procedure to workaround the issue:
 
         yarn application -list
 
-    The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified, For the Livy session started by Jupyter notebook, the job name will start with remotesparkmagics_*. 
+    The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified. For the Livy session started by Jupyter notebook, the job name starts with remotesparkmagics_*. 
 3. Run the following command to kill those jobs. 
 
         yarn application -kill <Application ID>
 
-New jobs will start running. 
+New jobs start running. 
 
 ## Spark History Server not started
 Spark History Server is not started automatically after a cluster is created.  
@@ -67,13 +67,13 @@ Currently, the Spark-Phoenix connector is not supported with an HDInsight Spark 
 
 **Mitigation:**
 
-You must use the Spark-HBase connector instead. For instructions see [How to use Spark-HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+You must use the Spark-HBase connector instead. For the instructions, see [How to use Spark-HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## Issues related to Jupyter notebooks
 Following are some known issues related to Jupyter notebooks.
 
 ### Notebooks with non-ASCII characters in filenames
-Jupyter notebooks that can be used in Spark HDInsight clusters should not have non-ASCII characters in filenames. If you try to upload a file through the Jupyter UI which has a non-ASCII filename, it will fail silently (that is, Jupyter won't let you upload the file, but it won't throw a visible error either). 
+Jupyter notebooks that can be used in Spark HDInsight clusters should not have non-ASCII characters in filenames. If you try to upload a file through the Jupyter UI, which has a non-ASCII filename, it fails silently (that is, Jupyter does not let you upload the file, but it does not throw a visible error either). 
 
 ### Error while loading notebooks of larger sizes
 You might see an error **`Error loading notebook`** when you load notebooks that are larger in size.  
@@ -86,7 +86,7 @@ Once you have connected to the cluster using SSH, you can copy your notebooks fr
 
 To prevent this error from happening in the future, you must follow some best practices:
 
-* It is important to keep the notebook size small. Any output from your Spark jobs that is sent back to Jupyter is persisted in the notebook.  It is a best practice with Jupyter in general to avoid running `.collect()` on large RDD's or dataframes; instead, if you want to peek at an RDD's contents, consider running `.take()` or `.sample()` so that your output doesn't get too big.
+* It is important to keep the notebook size small. Any output from your Spark jobs that is sent back to Jupyter is persisted in the notebook.  It is a best practice with Jupyter in general to avoid running `.collect()` on large RDD's or dataframes; instead, if you want to peek at an RDD's contents, consider running `.take()` or `.sample()` so that your output doesn't get too large.
 * Also, when you save a notebook, clear all output cells to reduce the size.
 
 ### Notebook initial startup takes longer than expected
@@ -114,7 +114,6 @@ When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jup
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

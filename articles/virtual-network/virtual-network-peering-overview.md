@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 01/22/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
 # Virtual network peering
 
-Virtual network peering enables you to seemlessly connect two Azure [virtual networks](virtual-networks-overview.md). Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through *private* IP addresses only. 
+Virtual network peering enables you to seamlessly connect two Azure [virtual networks](virtual-networks-overview.md). Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through *private* IP addresses only. 
 
 The benefits of using virtual network peering include:
 
@@ -34,7 +34,7 @@ The benefits of using virtual network peering include:
 
 ## <a name="requirements-constraints"></a>Requirements and constraints
 
-* Peering virtual networks in the same region is generally available. Before peering virtual networks in different regions, you must first  [register your subscription](virtual-network-create-peering.md#register) for the preview. Attempting to create a peering between virtual networks in different regions fails if you haven't completed registration for the preview.
+* Peering virtual networks in the same region is generally available. Before peering virtual networks in different regions, you must first  [register your subscription](tutorial-connect-virtual-networks-powershell.md#register) for the preview. Attempting to create a peering between virtual networks in different regions fails if you haven't completed registration for the preview.
     > [!WARNING]
     > Virtual network peerings created cross-region may not have the same level of availability and reliability as peerings in a general availability release. Virtual network peerings may have constrained capabilities and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://www.azure.cn/what-is-new/) page.
 <!-- PENDING on across Azure regions -->
@@ -112,7 +112,7 @@ When peering two virtual networks created through Resource Manager, a peering mu
 
 To confirm a virtual network peering, you can [check effective routes](virtual-network-routes-troubleshoot-portal.md) for a network interface in any subnet in a virtual network. If a virtual network peering exists, all subnets within the virtual network have routes with next hop type *VNet peering*, for each address space in each peered virtual network.
 
-<!--Not Available [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). -->
+You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). Connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface.
 
 ## Limits
 
@@ -128,7 +128,7 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
     |Azure deployment model  | Subscription  |
     |---------|---------|
-    |Both Resource Manager |[Same](virtual-network-create-peering.md)|
+    |Both Resource Manager |[Same](tutorial-connect-virtual-networks-portal.md)|
     | |[Different](create-peering-different-subscriptions.md)|
     |One Resource Manager, one classic     |[Same](create-peering-different-deployment-models.md)|
     | |[Different](create-peering-different-deployment-models-subscriptions.md)|
@@ -136,4 +136,4 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 * Learn how to create a [hub and spoke network topology.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md)
 
-<!--Update_Description: wording update， update meta properties, Update link -->
+<!--Update_Description: wording update， Update link -->

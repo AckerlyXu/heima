@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
 ---
 # Virtual Network Documentation
@@ -38,7 +38,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/virtual-network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/virtual-network/quick-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/virtual-network/virtual-networks-create-vnet-arm-ps">
+        <a href="/virtual-network/quick-create-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/virtual-network/virtual-networks-create-vnet-arm-cli">
+        <a href="/virtual-network/quick-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

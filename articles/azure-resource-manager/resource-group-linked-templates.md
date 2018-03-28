@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/11/2018
-ms.date: 01/29/2018
+origin.date: 01/17/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -24,8 +24,6 @@ To deploy your solution, you can use either a single template or a main template
 For small to medium solutions, a single template is easier to understand and maintain. You are able to see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
-
-![linked templates](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## Link or nest a template
 
@@ -79,7 +77,10 @@ To nest the template within the main template, use the **template** property and
 ]
 ```
 
-For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
+> [!NOTE]
+> For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
+>
+> You cannot use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 ### External template and external parameters
 

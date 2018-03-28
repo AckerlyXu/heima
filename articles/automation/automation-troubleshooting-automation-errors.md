@@ -164,7 +164,8 @@ Any of the following solutions fix the problem:
 * Make sure that any referenced .dlls are present in the module folder.
 
 ## Next steps
-If you have followed the troubleshooting steps above and can't find the answer, you can review the additional support options below.
+
+If you have followed the preceding troubleshooting steps and can't find the answer, you can review the additional support following options:
 
 * Get help from Azure experts. Submit your issue to the [MSDN Azure or CSDN Azure](https://www.azure.cn/support/forums/).
 * File an Azure support incident. Go to the [Azure Support site](https://www.azure.cn/support/contact/) and click **Get support** under **Technical and billing support**.

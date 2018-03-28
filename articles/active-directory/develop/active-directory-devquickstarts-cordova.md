@@ -87,11 +87,11 @@ Azure AD issues tokens to only known applications. Before you can use Azure AD f
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
-4. Click **App registrations**, and then select **New application registration**.
-5. Create a **Native** Application. (Although Cordova apps are HTML based, we're creating a native client application here or the application won't work.)
-      - **Name** describes your application to users.
-    - **Redirect URI** is the URI that's used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
+4. Click **App registrations**, and then select **Add**.
+5. Follow the prompts and create a **Native Client Application**. (Although Cordova apps are HTML based, we're creating a native client application here. The **Native Client Application** option must be selected, or the application won't work.)
+  * **Name** describes your application to users.
+  * **Redirect URI** is the URI that's used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
 
 After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next sections. You can find it on the application tab of the newly created app.
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ---
 
@@ -24,7 +24,7 @@ ASP.NET Core is a new open-source and cross-platform framework for building mode
 
 This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services using the **Microsoft.ServiceFabric.AspNetCore.*** set of NuGet packages.
 
-For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Building a web front-end for your application using ASP.NET Core](service-fabric-add-a-web-frontend.md).
+For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Create a .NET application](service-fabric-tutorial-create-dotnet-app.md).
 
 The rest of this article assumes you are already familiar with ASP.NET Core. If not, we recommend reading through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -355,4 +355,4 @@ Stateful services that are only called from within the cluster should use dynami
 [3]:./media/service-fabric-reliable-services-communication-aspnetcore/httpsys.png
 [4]:./media/service-fabric-reliable-services-communication-aspnetcore/kestrel.png
 
-<!-- Update_Description: repalce WebLister object with Httpsys in code -->
+<!-- Update_Description: update meta properties -->

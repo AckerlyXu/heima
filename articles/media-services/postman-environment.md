@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2017
-ms.date: 01/22/2018
+origin.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: v-nany
 
 ---
@@ -98,4 +98,3 @@ This article contains a definition of the **Postman** environment variables that
   "_postman_exported_using": "Postman/5.5.0"
 }
 ```
-

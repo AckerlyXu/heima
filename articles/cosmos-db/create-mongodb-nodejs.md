@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/19/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 <!-- Not Available on Graph -->
+<!-- Notice: globally TO multiple-region -->
 
 This quickstart demonstrates how to use an existing [MongoDB](mongodb-introduction.md) app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
@@ -33,9 +34,10 @@ When you are done, you will have a MEAN application (MongoDB, Express, Angular, 
 <!-- Not Available [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)] -->
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+
 ## Prerequisites 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
@@ -65,13 +67,12 @@ The application will try to connect to a MongoDB source and fail, go ahead and e
 
 ## Log in to Azure
 
-If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) command and follow the on-screen directions.
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az cloud set -n AzureChinaCloud
 az login
-#az cloud set -n AzureCloud
-#return to global azure 
+#az cloud set -n AzureCloud  //means return to global azure 
 ``` 
 
 ## Add the Azure Cosmos DB module
@@ -82,19 +83,19 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0](htt
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
-The following example creates a resource group in the China East region. Choose a unique name for the resource group.
+The following example creates a resource group in the China North region. Choose a unique name for the resource group.
 
-If you are using Azure Cloud Shell, click **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
+<!-- Not Avaialbe on Azure Cloud Shell -->
 
 ```azurecli
-az group create --name myResourceGroup --location "China East"
+az group create --name myResourceGroup --location "China North"
 ```
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) command.
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.cn/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
@@ -116,14 +117,14 @@ When the Azure Cosmos DB account is created, the Azure CLI shows information sim
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
 DB/databaseAccounts/<cosmosdb-name>",
   "kind": "MongoDB",
-  "location": "China East",
+  "location": "China North",
   "name": "<cosmosdb-name>",
   "readLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb-name>-chinaeast.documents.azure.cn:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-chinanorth.documents.azure.cn:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb-name>-chinaeast",
-      "locationName": "China East",
+      "id": "<cosmosdb-name>-chinanorth",
+      "locationName": "China North",
       "provisioningState": "Succeeded"
     }
   ],
@@ -131,10 +132,10 @@ DB/databaseAccounts/<cosmosdb-name>",
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "writeLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb-name>-chinaeast.documents.azure.cn:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-chinanorth.documents.azure.cn:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb-name>-chinaeast",
-      "locationName": "China East",
+      "id": "<cosmosdb-name>-chinanorth",
+      "locationName": "China North",
       "provisioningState": "Succeeded"
     }
   ]
@@ -164,7 +165,7 @@ module.exports = {
 
 ## Retrieve the key
 
-In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
@@ -245,4 +246,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

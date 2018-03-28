@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/05/2017
-ms.date: 10/02/2017
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
+
 ---
 # Azure Service Fabric node types and virtual machine scale sets
 Virtual machine scale sets are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Set up a separate scale set for each node type that you define in an Azure Service Fabric cluster. You can independently scale each node type up or down, have different sets of ports open, and use different capacity metrics.
@@ -147,4 +148,4 @@ To change the password for all nodes of a specific node type, complete the follo
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!--Update_Description: update meta properties, wording update, add feature on Change the RDP user name and password for nodes-->
+<!--Update_Description: update meta properties, wording update -->

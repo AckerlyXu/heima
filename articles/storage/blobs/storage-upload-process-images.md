@@ -3,7 +3,7 @@ title: Upload image data in the cloud with Azure Storage | Microsoft Docs
 description: Use Azure blob storage with a web app to store application data
 services: storage
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -12,9 +12,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-origin.date: 09/19/2017
-ms.date: 1/29/2018
-ms.author: v-johch
+origin.date: 02/20/2018
+ms.date: 03/05/2018
+ms.author: v-nany
 ms.custom: mvc
 ---
 
@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group 
 
-Create a resource group with the [az group create](https://docs.azure.cn/cli/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](https://docs.azure.cn/cli/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
  
 The following example creates a resource group named `myResourceGroup`.
  
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## Create a storage account
  
-The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](https://docs.azure.cn/cli/storage/account#create) command. 
+The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) command. 
 
 > [!IMPORTANT] 
 > In part 2 of the tutorial you use Event subscriptions for blob storage. Event subscriptions are currently only supported for Blob storage accounts in the West Central US and West US 2. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.   
@@ -65,9 +65,9 @@ az storage account create --name <blob_storage_account> \
  
 The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. 
 
-Get the storage account key by using the [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](https://docs.azure.cn/cli/storage/container#create) command.  
+Get the storage account key by using the [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) command. You then use this key to create two containers using the [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) command.  
  
-In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ containers public access is set to `off`, the _thumbs_ containers public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
+In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ containers public access is set to `off`, the _thumbnails_ containers public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
  
 ```azurecli 
 blobStorageAccount=<blob_storage_account>
@@ -78,7 +78,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -131,7 +131,7 @@ In the following command, `<blob_storage_account>` is the name of your Blob stor
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -193,15 +193,15 @@ Verify the image is shown in the container.
 
 To test thumbnail viewing, you'll upload an image to the thumbnail container in order to ensure the application can read the thumbnail container.
 
-Sign in to the [Azure portal](https://portal.azure.cn). From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers** under **Blob Service** and select the **thumbs** container. Select **Upload** to open the **Upload blob** pane.
+Sign in to the [Azure portal](https://portal.azure.cn). From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers** under **Blob Service** and select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
 
 Choose a file using the file picker and select **Upload**.
 
-Navigate back to your app to verify that the image uploaded to the **thumbs** container is visible.
+Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
 ![Images container view](media/storage-upload-process-images/figure2.png)
 
-In the **thumbs** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. In part two of the series, you are automating the creation of the thumbnail images, so this test image is not needed.
+In the **thumbnails** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. In part two of the series, you are automating the creation of the thumbnail images, so this test image is not needed.
 ## Next steps
 
 In part one of the series, you learned about configuring a web app interacting with storage such as how to:

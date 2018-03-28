@@ -15,9 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/04/2017
-ms.date: 12/25/2017
+ms.date: 3/5/2018
 ms.author: v-nany
-
 
 ms.custom: H1Hack27Feb2017                          
 
@@ -33,7 +32,7 @@ This article explains how to create and populate a new group in Azure Active Dir
 
 ## How do I create a group?
 1. Sign in to the [Azure portal](https://portal.azure.cn) with an account that's a global admin for the directory.
-2. Select **More services**, enter **User and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **User and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.

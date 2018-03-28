@@ -3,10 +3,11 @@ title: Azure Stack datacenter integration - DNS
 description: Learn how to integrate Azure Stack DNS with your datacenter DNS
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 01/31/2018
-ms.date: 03/02/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords:
@@ -137,3 +138,4 @@ Most DNS registrars require you to provide a minimum of two DNS servers to compl
 
 [Firewall integration](azure-stack-firewall.md)
 
+<!-- Update_Description: update metedata properties -->

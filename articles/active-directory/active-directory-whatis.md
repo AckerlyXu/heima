@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 1/29/2018
+ms.date: 03/05/2018
 ms.custom: it-pro
 
 ---
@@ -51,7 +51,6 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 
 - [Try it out!](./index.md) - you can sign up for a trial today and deploy your first cloud solution using this link
 
-- Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 
 **If you are a developer:**
 

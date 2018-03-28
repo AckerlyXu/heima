@@ -25,8 +25,11 @@ ms.author: v-nany
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
->[!NOTE]
+> 
+> [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F). 
+> 
+> 
 
 ## Overview
 This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
@@ -36,21 +39,23 @@ For more conceptual information related to Channels that are enabled for live en
 ## Common Live Streaming Scenario
 The following steps describe tasks involved in creating common live streaming applications.
 
->[!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
+> [!NOTE]
+> Currently, the max recommended duration of a live event is 8 hours.
+> 
+> 
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-    This step could also be performed after you create your Channel.
+	This step could also be performed after you create your Channel.
 
 2. Create and start a Channel.
 3. Retrieve the Channel ingest URL.
 
-    The ingest URL is used by the live encoder to send the stream to the Channel.
+	The ingest URL is used by the live encoder to send the stream to the Channel.
 
 4. Retrieve the Channel preview URL.
 
-    Use this URL to verify that your channel is properly receiving the live stream.
+	Use this URL to verify that your channel is properly receiving the live stream.
 
 5. Create an asset.
 6. If you want for the asset to be dynamically encrypted during playback, do the following:
@@ -60,8 +65,8 @@ The following steps describe tasks involved in creating common live streaming ap
 10. Create a program and specify to use the asset that you created.
 11. Publish the asset associated with the program by creating an OnDemand locator.
 
-    >[!NOTE]
-    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
+	>[!NOTE]
+	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 12. Start the program when you are ready to start streaming and archiving.
 13. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
@@ -92,7 +97,7 @@ The following are required to complete the tutorial.
 * A webcam and an encoder that can send a single bitrate live stream.
 
 ## Considerations
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. 
 * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 ## Download sample

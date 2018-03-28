@@ -1,3 +1,5 @@
+# [IoT Suite Documentation](index.md)
+
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
 ## [Compare Azure IoT options](iot-suite-options.md)
@@ -26,12 +28,14 @@
 ###### [Simulated data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implement firmware update](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Connect your MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### How-to guides
 #### Connect a simulated device
 ##### [C on Windows](iot-suite-v1-connecting-devices.md)
 ##### [C on Linux](iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Connect a Logic App to the remote monitoring solution](iot-suite-v1-logic-apps-tutorial.md)
 #### [Customize a preconfigured solution](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [Use dynamic telemetry with the remote monitoring solution](iot-suite-v1-dynamic-telemetry.md)
 #### [Create a custom rule in the remote monitoring solution](iot-suite-v1-custom-rule.md)
@@ -44,15 +48,22 @@
 ### [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
 ### [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
 
+## Device simulation
+### [Deploy device simulation](iot-suite-device-simulation-deploy.md)
+### [Explore device simulation](iot-suite-device-simulation-explore.md)
+
 # How-to guides
 ## Remote monitoring
 ### [Perform advanced monitoring](iot-suite-remote-monitoring-monitor.md)
 ### [Use rules to detect issues](iot-suite-remote-monitoring-automate.md)
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
-### [Use simulated devices](iot-suite-remote-monitoring-test.md)
+### [Understand the device model schema](iot-suite-remote-monitoring-device-schema.md)
+### [Understand the device model behavior](iot-suite-remote-monitoring-device-behavior.md)
+### [Create a new simulated device](iot-suite-remote-monitoring-test.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
@@ -80,6 +91,7 @@
 
 # Resources
 ## [FAQ](iot-suite-faq.md)
+## [Remote monitoring FAQ](iot-suite-faq-rm-v2.md)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 

@@ -3,9 +3,8 @@ title: Connect Storage Explorer to an Azure Stack subscription
 description: Learn how to connect Storage Exporer to an  Azure Stack subscription
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager:
-editor: ''
+author: mattbriggs
+manager: femila
 
 ms.assetid:
 ms.service: azure-stack
@@ -13,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -111,3 +110,4 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
 
+<!-- Update_Description: update metedata properties -->

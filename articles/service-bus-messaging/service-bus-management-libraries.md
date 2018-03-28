@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/18/2017
-ms.date: 12/11/2017
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ---
 
@@ -31,7 +31,7 @@ The Azure Service Bus management libraries can dynamically provision Service Bus
 
 ## Prerequisites
 
-To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (AAD) service. AAD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
+To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (Azure AD) service. Azure AD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
 * [Use the Azure Portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
@@ -43,7 +43,7 @@ These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `Client
 
 The pattern to manipulate any Service Bus resource follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library.
+1. Obtain a token from Azure AD using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library:
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -78,4 +78,4 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus API Reference](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Microsoft.Azure.Management.ServiceBus API reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

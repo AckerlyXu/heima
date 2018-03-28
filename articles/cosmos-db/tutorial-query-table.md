@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 11/15/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
 
 ---
 
-# Azure Cosmos DB: How to query table data by using the Table API
+# Tutorial: Query Azure Cosmos DB by using the Table API
 
 The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 
@@ -116,4 +116,4 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-table.md)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->

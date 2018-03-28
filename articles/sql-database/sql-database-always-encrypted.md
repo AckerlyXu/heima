@@ -11,7 +11,7 @@ editor: cgronlun
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -46,12 +46,12 @@ For this tutorial, you'll need:
 
 ## Create a blank SQL database
 1. Sign in to the [Azure Portal](https://portal.azure.cn/).
-2. Click **New** > **Data + Storage** > **SQL Database**.
+2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
 3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure Portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
-You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure Portal.
+You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
 1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
@@ -75,21 +75,20 @@ In this section, you will create a table to hold patient data. This will be a no
 2. Right-click the **Clinic** database and click **New Query**.
 3. Paste the following Transact-SQL (T-SQL) into the new query window and **Execute** it.
 
-    ```
-    CREATE TABLE [dbo].[Patients](
-     [PatientId] [int] IDENTITY(1,1), 
-     [SSN] [char](11) NOT NULL,
-     [FirstName] [nvarchar](50) NULL,
-     [LastName] [nvarchar](50) NULL, 
-     [MiddleName] [nvarchar](50) NULL,
-     [StreetAddress] [nvarchar](50) NULL,
-     [City] [nvarchar](50) NULL,
-     [ZipCode] [char](5) NULL,
-     [State] [char](2) NULL,
-     [BirthDate] [date] NOT NULL
-     PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-     GO
-    ```
+        CREATE TABLE [dbo].[Patients](
+         [PatientId] [int] IDENTITY(1,1),
+         [SSN] [char](11) NOT NULL,
+         [FirstName] [nvarchar](50) NULL,
+         [LastName] [nvarchar](50) NULL,
+         [MiddleName] [nvarchar](50) NULL,
+         [StreetAddress] [nvarchar](50) NULL,
+         [City] [nvarchar](50) NULL,
+         [ZipCode] [char](5) NULL,
+         [State] [char](2) NULL,
+         [BirthDate] [date] NOT NULL
+         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+         GO
+
 
 ## Encrypt columns (configure Always Encrypted)
 SSMS provides a wizard to easily configure Always Encrypted by setting up the CMK, CEK, and encrypted columns for you.
@@ -162,22 +161,20 @@ You can set this directly in the connection string, or you can set it by using a
 ### Enable Always Encrypted in the connection string
 Add the following keyword to your connection string:
 
-```
-Column Encryption Setting=Enabled
-```
+    Column Encryption Setting=Enabled
+
 
 ### Enable Always Encrypted with a SqlConnectionStringBuilder
 The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-```
-// Instantiate a SqlConnectionStringBuilder.
-SqlConnectionStringBuilder connStringBuilder = 
-   new SqlConnectionStringBuilder("replace with your connection string");
+    // Instantiate a SqlConnectionStringBuilder.
+    SqlConnectionStringBuilder connStringBuilder =
+       new SqlConnectionStringBuilder("replace with your connection string");
 
-// Enable Always Encrypted.
-connStringBuilder.ColumnEncryptionSetting = 
-   SqlConnectionColumnEncryptionSetting.Enabled;
-```
+    // Enable Always Encrypted.
+    connStringBuilder.ColumnEncryptionSetting =
+       SqlConnectionColumnEncryptionSetting.Enabled;
+
 
 
 ## Always Encrypted sample console application
@@ -191,284 +188,292 @@ Replace the contents of **Program.cs** with the following code. Replace the conn
 
 Run the app to see Always Encrypted in action.
 
-```
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Data;
+    using System.Data.SqlClient;
 
-namespace AlwaysEncryptedConsoleApp
-{
-class Program
-{
-    // Update this line with your Clinic database connection string from the Azure Portal.
-    static string connectionString = @"Replace with your connection string";
-
-    static void Main(string[] args)
+    namespace AlwaysEncryptedConsoleApp
     {
-        Console.WriteLine("Original connection string copied from the Azure portal:");
-        Console.WriteLine(connectionString);
-
-        // Create a SqlConnectionStringBuilder.
-        SqlConnectionStringBuilder connStringBuilder =
-            new SqlConnectionStringBuilder(connectionString);
-
-        // Enable Always Encrypted for the connection.
-        // This is the only change specific to Always Encrypted 
-        connStringBuilder.ColumnEncryptionSetting =
-            SqlConnectionColumnEncryptionSetting.Enabled;
-
-        Console.WriteLine(Environment.NewLine + "Updated connection string with Always Encrypted enabled:");
-        Console.WriteLine(connStringBuilder.ConnectionString);
-
-        // Update the connection string with a password supplied at runtime.
-        Console.WriteLine(Environment.NewLine + "Enter server password:");
-        connStringBuilder.Password = Console.ReadLine();
-
-        // Assign the updated connection string to our global variable.
-        connectionString = connStringBuilder.ConnectionString;
-
-        // Delete all records to restart this demo app.
-        ResetPatientsTable();
-
-        // Add sample data to the Patients table.
-        Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
-
-        InsertPatient(new Patient() {
-            SSN = "999-99-0001", FirstName = "Orlando", LastName = "Gee", BirthDate = DateTime.Parse("01/04/1964") });
-        InsertPatient(new Patient() {
-            SSN = "999-99-0002", FirstName = "Keith", LastName = "Harris", BirthDate = DateTime.Parse("06/20/1977") });
-        InsertPatient(new Patient() {
-            SSN = "999-99-0003", FirstName = "Donna", LastName = "Carreras", BirthDate = DateTime.Parse("02/09/1973") });
-        InsertPatient(new Patient() {
-            SSN = "999-99-0004", FirstName = "Janet", LastName = "Gates", BirthDate = DateTime.Parse("08/31/1985") });
-        InsertPatient(new Patient() {
-            SSN = "999-99-0005", FirstName = "Lucy", LastName = "Harrington", BirthDate = DateTime.Parse("05/06/1993") });
-
-        // Fetch and display all patients.
-        Console.WriteLine(Environment.NewLine + "All the records currently in the Patients table:");
-
-        foreach (Patient patient in SelectAllPatients())
-        {
-            Console.WriteLine(patient.FirstName + " " + patient.LastName + "\tSSN: " + patient.SSN + "\tBirthdate: " + patient.BirthDate);
-        }
-
-        // Get patients by SSN.
-        Console.WriteLine(Environment.NewLine + "Now let's locate records by searching the encrypted SSN column.");
-
-        string ssn;
-
-        // This very simple validation only checks that the user entered 11 characters.
-        // In production be sure to check all user input and use the best validation for your specific application.
-        do
-        {
-            Console.WriteLine("Please enter a valid SSN (ex. 123-45-6789):");
-            ssn = Console.ReadLine();
-        } while (ssn.Length != 11);
-
-        // The example allows duplicate SSN entries so we will return all records
-        // that match the provided value and store the results in selectedPatients.
-        Patient selectedPatient = SelectPatientBySSN(ssn);
-
-        // Check if any records were returned and display our query results.
-        if (selectedPatient != null)
-        {
-            Console.WriteLine("Patient found with SSN = " + ssn);
-            Console.WriteLine(selectedPatient.FirstName + " " + selectedPatient.LastName + "\tSSN: "
-                + selectedPatient.SSN + "\tBirthdate: " + selectedPatient.BirthDate);
-        }
-        else
-        {
-            Console.WriteLine("No patients found with SSN = " + ssn);
-        }
-
-        Console.WriteLine("Press Enter to exit...");
-        Console.ReadLine();
-    }
-
-    static int InsertPatient(Patient newPatient)
+    class Program
     {
-        int returnValue = 0;
+        // Update this line with your Clinic database connection string from the Azure portal.
+        static string connectionString = @"Replace with your connection string";
 
-        string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
-     VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
-
-        SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
-
-        SqlParameter paramSSN = new SqlParameter(@"@SSN", newPatient.SSN);
-        paramSSN.DbType = DbType.AnsiStringFixedLength;
-        paramSSN.Direction = ParameterDirection.Input;
-        paramSSN.Size = 11;
-
-        SqlParameter paramFirstName = new SqlParameter(@"@FirstName", newPatient.FirstName);
-        paramFirstName.DbType = DbType.String;
-        paramFirstName.Direction = ParameterDirection.Input;
-
-        SqlParameter paramLastName = new SqlParameter(@"@LastName", newPatient.LastName);
-        paramLastName.DbType = DbType.String;
-        paramLastName.Direction = ParameterDirection.Input;
-
-        SqlParameter paramBirthDate = new SqlParameter(@"@BirthDate", newPatient.BirthDate);
-        paramBirthDate.SqlDbType = SqlDbType.Date;
-        paramBirthDate.Direction = ParameterDirection.Input;
-
-        sqlCmd.Parameters.Add(paramSSN);
-        sqlCmd.Parameters.Add(paramFirstName);
-        sqlCmd.Parameters.Add(paramLastName);
-        sqlCmd.Parameters.Add(paramBirthDate);
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
+        static void Main(string[] args)
         {
-            try
+            Console.WriteLine("Original connection string copied from the Azure portal:");
+            Console.WriteLine(connectionString);
+
+            // Create a SqlConnectionStringBuilder.
+            SqlConnectionStringBuilder connStringBuilder =
+                new SqlConnectionStringBuilder(connectionString);
+
+            // Enable Always Encrypted for the connection.
+            // This is the only change specific to Always Encrypted
+            connStringBuilder.ColumnEncryptionSetting =
+                SqlConnectionColumnEncryptionSetting.Enabled;
+
+            Console.WriteLine(Environment.NewLine + "Updated connection string with Always Encrypted enabled:");
+            Console.WriteLine(connStringBuilder.ConnectionString);
+
+            // Update the connection string with a password supplied at runtime.
+            Console.WriteLine(Environment.NewLine + "Enter server password:");
+            connStringBuilder.Password = Console.ReadLine();
+
+
+            // Assign the updated connection string to our global variable.
+            connectionString = connStringBuilder.ConnectionString;
+
+
+            // Delete all records to restart this demo app.
+            ResetPatientsTable();
+
+            // Add sample data to the Patients table.
+            Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
+
+            InsertPatient(new Patient() {
+                SSN = "999-99-0001", FirstName = "Orlando", LastName = "Gee", BirthDate = DateTime.Parse("01/04/1964") });
+            InsertPatient(new Patient() {
+                SSN = "999-99-0002", FirstName = "Keith", LastName = "Harris", BirthDate = DateTime.Parse("06/20/1977") });
+            InsertPatient(new Patient() {
+                SSN = "999-99-0003", FirstName = "Donna", LastName = "Carreras", BirthDate = DateTime.Parse("02/09/1973") });
+            InsertPatient(new Patient() {
+                SSN = "999-99-0004", FirstName = "Janet", LastName = "Gates", BirthDate = DateTime.Parse("08/31/1985") });
+            InsertPatient(new Patient() {
+                SSN = "999-99-0005", FirstName = "Lucy", LastName = "Harrington", BirthDate = DateTime.Parse("05/06/1993") });
+
+
+            // Fetch and display all patients.
+            Console.WriteLine(Environment.NewLine + "All the records currently in the Patients table:");
+
+            foreach (Patient patient in SelectAllPatients())
             {
-                sqlCmd.Connection.Open();
-                sqlCmd.ExecuteNonQuery();
+                Console.WriteLine(patient.FirstName + " " + patient.LastName + "\tSSN: " + patient.SSN + "\tBirthdate: " + patient.BirthDate);
             }
-            catch (Exception ex)
+
+            // Get patients by SSN.
+            Console.WriteLine(Environment.NewLine + "Now let's locate records by searching the encrypted SSN column.");
+
+            string ssn;
+
+            // This very simple validation only checks that the user entered 11 characters.
+            // In production be sure to check all user input and use the best validation for your specific application.
+            do
             {
-                returnValue = 1;
-                Console.WriteLine("The following error was encountered: ");
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(Environment.NewLine + "Press Enter key to exit");
-                Console.ReadLine();
-                Environment.Exit(0);
+                Console.WriteLine("Please enter a valid SSN (ex. 123-45-6789):");
+                ssn = Console.ReadLine();
+            } while (ssn.Length != 11);
+
+            // The example allows duplicate SSN entries so we will return all records
+            // that match the provided value and store the results in selectedPatients.
+            Patient selectedPatient = SelectPatientBySSN(ssn);
+
+            // Check if any records were returned and display our query results.
+            if (selectedPatient != null)
+            {
+                Console.WriteLine("Patient found with SSN = " + ssn);
+                Console.WriteLine(selectedPatient.FirstName + " " + selectedPatient.LastName + "\tSSN: "
+                    + selectedPatient.SSN + "\tBirthdate: " + selectedPatient.BirthDate);
             }
-        }
-        return returnValue;
-    }
-
-    static List<Patient> SelectAllPatients()
-    {
-        List<Patient> patients = new List<Patient>();
-
-        SqlCommand sqlCmd = new SqlCommand(
-          "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients]",
-            new SqlConnection(connectionString));
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
-        {
-            try
+            else
             {
-                sqlCmd.Connection.Open();
-                SqlDataReader reader = sqlCmd.ExecuteReader();
+                Console.WriteLine("No patients found with SSN = " + ssn);
+            }
 
-                if (reader.HasRows)
+            Console.WriteLine("Press Enter to exit...");
+            Console.ReadLine();
+        }
+
+
+        static int InsertPatient(Patient newPatient)
+        {
+            int returnValue = 0;
+
+            string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
+         VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
+
+
+            SqlParameter paramSSN = new SqlParameter(@"@SSN", newPatient.SSN);
+            paramSSN.DbType = DbType.AnsiStringFixedLength;
+            paramSSN.Direction = ParameterDirection.Input;
+            paramSSN.Size = 11;
+
+            SqlParameter paramFirstName = new SqlParameter(@"@FirstName", newPatient.FirstName);
+            paramFirstName.DbType = DbType.String;
+            paramFirstName.Direction = ParameterDirection.Input;
+
+            SqlParameter paramLastName = new SqlParameter(@"@LastName", newPatient.LastName);
+            paramLastName.DbType = DbType.String;
+            paramLastName.Direction = ParameterDirection.Input;
+
+            SqlParameter paramBirthDate = new SqlParameter(@"@BirthDate", newPatient.BirthDate);
+            paramBirthDate.SqlDbType = SqlDbType.Date;
+            paramBirthDate.Direction = ParameterDirection.Input;
+
+            sqlCmd.Parameters.Add(paramSSN);
+            sqlCmd.Parameters.Add(paramFirstName);
+            sqlCmd.Parameters.Add(paramLastName);
+            sqlCmd.Parameters.Add(paramBirthDate);
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    while (reader.Read())
+                    sqlCmd.Connection.Open();
+                    sqlCmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    returnValue = 1;
+                    Console.WriteLine("The following error was encountered: ");
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(Environment.NewLine + "Press Enter key to exit");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                }
+            }
+            return returnValue;
+        }
+
+
+        static List<Patient> SelectAllPatients()
+        {
+            List<Patient> patients = new List<Patient>();
+
+
+            SqlCommand sqlCmd = new SqlCommand(
+              "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients]",
+                new SqlConnection(connectionString));
+
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlCmd.Connection.Open();
+                    SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        patients.Add(new Patient()
+                        while (reader.Read())
                         {
-                            SSN = reader[0].ToString(),
-                            FirstName = reader[1].ToString(),
-                            LastName = reader["LastName"].ToString(),
-                            BirthDate = (DateTime)reader["BirthDate"]
-                        });
+                            patients.Add(new Patient()
+                            {
+                                SSN = reader[0].ToString(),
+                                FirstName = reader[1].ToString(),
+                                LastName = reader["LastName"].ToString(),
+                                BirthDate = (DateTime)reader["BirthDate"]
+                            });
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    throw;
+                }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+
+            return patients;
         }
 
-        return patients;
-    }
 
-    static Patient SelectPatientBySSN(string ssn)
-    {
-        Patient patient = new Patient();
-
-        SqlCommand sqlCmd = new SqlCommand(
-            "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients] WHERE [SSN]=@SSN",
-            new SqlConnection(connectionString));
-
-        SqlParameter paramSSN = new SqlParameter(@"@SSN", ssn);
-        paramSSN.DbType = DbType.AnsiStringFixedLength;
-        paramSSN.Direction = ParameterDirection.Input;
-        paramSSN.Size = 11;
-
-        sqlCmd.Parameters.Add(paramSSN);
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
+        static Patient SelectPatientBySSN(string ssn)
         {
-            try
-            {
-                sqlCmd.Connection.Open();
-                SqlDataReader reader = sqlCmd.ExecuteReader();
+            Patient patient = new Patient();
 
-                if (reader.HasRows)
+            SqlCommand sqlCmd = new SqlCommand(
+                "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients] WHERE [SSN]=@SSN",
+                new SqlConnection(connectionString));
+
+            SqlParameter paramSSN = new SqlParameter(@"@SSN", ssn);
+            paramSSN.DbType = DbType.AnsiStringFixedLength;
+            paramSSN.Direction = ParameterDirection.Input;
+            paramSSN.Size = 11;
+
+            sqlCmd.Parameters.Add(paramSSN);
+
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    while (reader.Read())
+                    sqlCmd.Connection.Open();
+                    SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        patient = new Patient()
+                        while (reader.Read())
                         {
-                            SSN = reader[0].ToString(),
-                            FirstName = reader[1].ToString(),
-                            LastName = reader["LastName"].ToString(),
-                            BirthDate = (DateTime)reader["BirthDate"]
-                        };
+                            patient = new Patient()
+                            {
+                                SSN = reader[0].ToString(),
+                                FirstName = reader[1].ToString(),
+                                LastName = reader["LastName"].ToString(),
+                                BirthDate = (DateTime)reader["BirthDate"]
+                            };
+                        }
+                    }
+                    else
+                    {
+                        patient = null;
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    patient = null;
+                    throw;
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return patient;
         }
-        return patient;
-    }
 
-    // This method simply deletes all records in the Patients table to reset our demo.
-    static int ResetPatientsTable()
-    {
-        int returnValue = 0;
 
-        SqlCommand sqlCmd = new SqlCommand("DELETE FROM Patients");
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
+        // This method simply deletes all records in the Patients table to reset our demo.
+        static int ResetPatientsTable()
         {
-            try
-            {
-                sqlCmd.Connection.Open();
-                sqlCmd.ExecuteNonQuery();
+            int returnValue = 0;
 
-            }
-            catch (Exception ex)
+            SqlCommand sqlCmd = new SqlCommand("DELETE FROM Patients");
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
             {
-                returnValue = 1;
+                try
+                {
+                    sqlCmd.Connection.Open();
+                    sqlCmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    returnValue = 1;
+                }
             }
+            return returnValue;
         }
-        return returnValue;
     }
-}
 
-class Patient
-{
-    public string SSN { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public DateTime BirthDate { get; set; }
-}
-}
-```
+    class Patient
+    {
+        public string SSN { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+    }
+    }
+
 
 ## Verify that the data is encrypted
 You can quickly check that the actual data on the server is encrypted by querying the **Patients** data with SSMS. (Use your current connection where the column encryption setting is not yet enabled.)
 
 Run the following query on the Clinic database.
 
-```
-SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-```
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 You can see that the encrypted columns do not contain any plaintext data.
 
@@ -482,11 +487,9 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
    
     ![New console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 4. Run the following query on the **Clinic** database.
-
-    ```
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-    ```
-
+   
+        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   
      You can now see the plaintext data in the encrypted columns.
 
     ![New console application](./media/sql-database-always-encrypted/ssms-plaintext.png)

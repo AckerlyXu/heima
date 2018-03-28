@@ -3,11 +3,10 @@ title: Migrate on-premises machines to Azure with Azure Site Recovery | Azure
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/07/2018
-ms.date: 01/22/2018
+origin.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
 ---
@@ -40,7 +39,7 @@ Devices exported by paravirtualized drivers aren't supported.
 ## Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.cn) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group **ContosoRG**.
@@ -65,7 +64,7 @@ Select what you want to replicate, and where you want to replicate to.
 
 - [Set up](tutorial-vmware-to-azure.md#set-up-the-source-environment) the source environment for VMware VMs.
 - [Set up](tutorial-physical-to-azure.md#set-up-the-source-environment) the source environment for physical servers.
-- [Set up](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
+- [Set up](hyper-v-azure-tutorial.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
 
 ## Set up the target environment
 
@@ -79,13 +78,13 @@ Select and verify target resources.
 
 - [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
 - [Set up a replication policy](tutorial-physical-to-azure.md#create-a-replication-policy) for physical servers.
-- [Set up a replication policy](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) for Hyper-V VMs.
+- [Set up a replication policy](hyper-v-azure-tutorial.md#set-up-a-replication-policy) for Hyper-V VMs.
 
 ## Enable replication
 
 - [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
 - [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
-- [Enable replication](tutorial-hyper-v-to-azure.md#enable-replication) for Hyper-V VMs.
+- [Enable replication](hyper-v-azure-tutorial.md#enable-replication) for Hyper-V VMs.
 
 ## Run a test migration
 
@@ -114,7 +113,6 @@ In some scenarios, failover requires additional processing that takes around eig
 In this tutorial you migrated on-premises VMs to Azure VMs. Now you can configure disaster recovery for the Azure VMs.
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery](./azure-to-azure/site-recovery-azure-to-azure-after-migration.md) for Azure VMs after migration from an on-premises site.
+> [Set up disaster recovery](site-recovery-azure-to-azure-after-migration.md) for Azure VMs after migration from an on-premises site.
 
-<!-- URL is Correct on [Set up disaster recovery](./azure-to-azure/site-recovery-azure-to-azure-after-migration.md) -->
 <!-- Update_Description: update meta properties, update link -->

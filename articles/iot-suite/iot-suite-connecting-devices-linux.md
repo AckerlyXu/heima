@@ -1,5 +1,5 @@
 ---
-title: Provision Linux devices to Remote Monitoring in C - Azure | Microsoft Docs
+title: Provision Linux devices to Remote Monitoring in C - Azure
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux.
 services: ''
 suite: iot-suite
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/12/2017
+origin.date: 03/14/2018
 ms.author: v-yiso
-ms.date: 01/08/2018
+ms.date: 04/02/2018
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (Linux)
@@ -79,7 +79,7 @@ In a text editor, open the `remote_monitoring.c` file. Add the following `#inclu
 #include "schemaserializer.h"
 #include "azure_c_shared_utility/threadapi.h"
 #include "azure_c_shared_utility/platform.h"
-#include "parson.h"
+#include <string.h>
 ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

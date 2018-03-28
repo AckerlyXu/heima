@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2017
-ms.date: 11/06/2017
+ms.date: 2/28/2018
 ms.author: v-johch
 
 ---
@@ -37,8 +37,11 @@ You can use SQL database auditing to:
 
 You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
 
-Audit logs are written to Azure Blob storage on your Azure subscription.
-
+> [!IMPORTANT]
+> Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+>
+> * **Premium Storage** is currently **not supported** by Append Blobs.
+> * **Storage in VNet** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
@@ -50,15 +53,16 @@ An auditing policy can be defined for a specific database or as a default server
 
 * Enabling blob auditing on the database, in addition to enabling it on the server, does *not* override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.
 
-    > [!NOTE]
-    > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
+   > [!NOTE]
+   > You should avoid enabling both server blob auditing and database blob auditing together, unless:
     > * You want to use a different *storage account* or *retention period* for a specific database.
     > * You want to audit event types or categories for a specific database that differ from the rest of the databases on the server. For example, you might have table inserts that need to be audited only for a specific database.
-   > 
+   >
    > Otherwise, we recommended that you enable only server-level blob auditing and leave the database-level auditing disabled for all databases.
 
+
 ## <a id="subheading-2"></a>Set up auditing for your database
-The following section describes the configuration of auditing using the Azure Portal.
+The following section describes the configuration of auditing using the Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.cn).
 2. Go to the **Settings** blade of the SQL database/SQL server you want to audit. In the **Settings** blade, select **Auditing & Threat detection**.
@@ -74,12 +78,12 @@ The following section describes the configuration of auditing using the Azure Po
 
     ![Navigation pane][3]
 5. To open the **Audit Logs Storage** blade, select **Storage Details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
-   >[!TIP] 
-   >To get the most out of the auditing reports templates, use the same storage account for all audited databases. 
+   >[!TIP]
+   >To get the most out of the auditing reports templates, use the same storage account for all audited databases.
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via PowerShell or the REST API. 
+6. If you want to customize the audited events, you can do this via PowerShell or the REST API.
 7. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 8. Click **Save**.
 
@@ -98,21 +102,22 @@ There are several methods you can use to view blob auditing logs:
 
 * Use the [Azure portal](https://portal.azure.cn).  Open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click **View audit logs**.
 
-    ![Navigation Pane][7]
+    ![Navigation pane][7]
 
     An **Audit records** blade opens, from which you'll be able to view the logs.
 
     - You can view specific dates by clicking **Filter** at the top of the **Audit records** blade.
     - You can switch between audit records that were created by a server policy or database policy audit.
 
-    ![Navigation Pane][8]
+       ![Navigation pane][8]
 
 * Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-* Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):  
+
+* Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):
     1. From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
-        ![Navigation Pane][9]
+        ![Navigation pane][9]
     2. The **Add Audit Files** dialog box opens. Select one of the **Add** options to
      choose whether to merge audit files from a local disk or import them from Azure Storage. You are required to provide your Azure Storage details and account key.
 
@@ -120,7 +125,7 @@ There are several methods you can use to view blob auditing logs:
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file or to a table.
 
-* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Operations Management Suite (OMS) Log Analytics public APIs to push SQL audit logs into OMS. The sync application pushes SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard. 
+* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Operations Management Suite (OMS) Log Analytics public APIs to push SQL audit logs into OMS. The sync application pushes SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard.
 
 * Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
@@ -160,12 +165,12 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 1. Open the **Storage Details** blade. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration blade.
 
-    ![Navigation Pane][5]
+    ![Navigation pane][5]
 2. Go to the storage configuration blade and regenerate the primary access key.
 
-    ![Navigation Pane][6]
+    ![Navigation pane][6]
 3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
-4. Go back to the storage configuration blade and regenerate the secondary Access key (in preparation for the next key's refresh cycle).
+4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
 ## Manage SQL database auditing using Azure PowerShell
 
@@ -174,8 +179,6 @@ In production, you are likely to refresh your storage keys periodically. When re
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 
@@ -198,7 +201,7 @@ In production, you are likely to refresh your storage keys periodically. When re
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation (PowerShell / REST API)]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)  
+[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

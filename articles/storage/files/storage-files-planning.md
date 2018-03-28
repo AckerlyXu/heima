@@ -2,19 +2,14 @@
 title: Planning for an Azure Files deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: jgerend
 
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 10/23/2017
+origin.date: 03/06/2018
+ms.date: 3/20/2018
 ms.author: v-johch
 ---
 
@@ -65,8 +60,8 @@ Azure Files has several built-in options for ensuring data security:
     * Clients which support SMB 3.0 encryption send and receive data over an encrypted channel.
     * Clients which do not support SMB 3.0, can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. Note that clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
     * Clients can communicate over File REST with either HTTP or HTTPS.
-* Encryption at-rest: all data is encrypted with fully-managed keys. Encryption at-rest does not increase storage costs or reduce performance. 
-* Optional requirement of encrypted data in-transit: when selected, Azure Files will not allow access to the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections will be allowed. 
+* Encryption at-rest ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is enabled by default for all storage accounts. Data at-rest is encrypted with fully-managed keys. Encryption at-rest does not increase storage costs or reduce performance. 
+* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed. 
 
     > [!Important]  
     > Requiring secure transfer of data will cause older SMB clients not capable of communicating with SMB 3.0 with encryption to fail. See [Mount on Windows](storage-how-to-use-files-windows.md), [Mount on Linux](storage-how-to-use-files-linux.md), [Mount on macOS](storage-how-to-use-files-mac.md) for more information.

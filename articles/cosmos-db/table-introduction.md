@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/20/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -23,13 +23,14 @@ ms.author: v-yeche
 [Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
 * [Turnkey multiple-region distribution](distribute-data-globally.md).
+* [Dedicated throughput](partition-data.md) multiple-region.
 <!-- Notice: 全球 to 多个区域 -->
-* [Dedicated throughput](partition-data.md) worldwide.
+<!-- Notice: worldwide to multiple-region -->
 * Single-digit millisecond latencies at the 99th percentile.
 * Guaranteed high availability.
 * [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has one client SDK available for .NET.
+Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET, Java, Python, and Node.js.
 
 <!-- Not Available > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]-->
 
@@ -39,7 +40,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 
 | | Azure Table storage | Azure Cosmos DB Table API |
 | --- | --- | --- |
-| Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the world. |
+| Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the multiple-region. |
 | Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
 | multiple-region distribution | Single region with one optional readable secondary read region for high availability. You can't initiate failover. | [Turnkey multiple-region distribution](distribute-data-globally.md) from one to multiple regions. Support for [automatic and manual failovers](regional-failover.md) at any time, anywhere in China. |
 | Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes. | Automatic and complete indexing on all properties, no index management. |

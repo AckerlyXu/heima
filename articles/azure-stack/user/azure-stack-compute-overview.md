@@ -2,12 +2,13 @@
 title: Introduction to Azure Stack virtual machines
 description: Learn about Azure Stack virtual machines
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -130,3 +131,4 @@ You can use the **Connect** button in the Azure Stack portal to connect to your 
 - [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
 
 
+<!-- Update_Description: update metedata properties -->

@@ -2,19 +2,12 @@
 title: Set up disaster recovery to Azure for physical on-premises servers with Azure Site Recovery | Azure
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 09/13/2017
-ms.date: 12/04/2017
+origin.date: 02/26/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -41,6 +34,9 @@ To complete this tutorial:
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
+> [!NOTE]
+> Before you begin, note that after failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+
 ### Set up an Azure account
 
 Get a Microsoft [Azure account](https://www.azure.cn/).
@@ -58,7 +54,7 @@ Make sure your Azure account has permissions for replication of VMs to Azure.
 
 ### Set up an Azure network
 
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Set up an [Azure network](../virtual-network/quick-create-portal.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
@@ -170,6 +166,5 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 ## Next steps
 
-[Run a disaster recovery drill](tutorial-dr-drill-azure.md)
-
+[Run a disaster recovery drill](tutorial-dr-drill-azure.md).
 <!-- Update_Description: update meta properties, update link -->

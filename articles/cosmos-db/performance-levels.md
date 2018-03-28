@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -142,7 +142,7 @@ Another option for changing your collections' performance levels is through the 
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
 
-```C#
+```csharp
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    

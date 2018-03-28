@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/08/2016
-ms.date: 09/04/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
 # Plan and design Azure Virtual Networks
-Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
+Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](quick-create-portal.md) one before proceeding.
 
 <a name="plan"></a>
 ## Plan
@@ -29,7 +29,7 @@ A thorough understanding of Azure subscriptions, regions, and network resources 
 Before answering the planning questions below, consider the following:
 
 * Everything you create in Azure is composed of one or more resources. A virtual machine (VM) is a resource, the network adapter interface (NIC) used by a VM is a resource, the public IP address used by a NIC is a resource, the VNet the NIC is connected to is a resource.
-* You create resources within an Azure region and subscription. resources can only be connected to a virtual network that exists in the same region and subscription the resource is in.
+* You create resources within an [Azure region](https://www.azure.cn/support/service-dashboard/) and subscription. resources can only be connected to a virtual network that exists in the same region and subscription the resource is in.
 * You can connect virtual networks to each other by using:
     * **[Virtual network peering](virtual-network-peering-overview.md)**: The virtual networks must exist in the same Azure region. Bandwidth between resources in peered virtual networks is the same as if the resources were connected to the same virtual network.
     * **An Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: The virtual networks can exist in the same, or different Azure regions. Bandwidth between resources in virtual networks connected through a VPN Gateway is limited by the bandwidth of the VPN Gateway.
@@ -84,7 +84,7 @@ Subnets contain the following properties.
 By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
 
 ### Limits
-Ensure that your design doesn't conflict with any of limits. Some limits can be increased by opening a support ticket.
+Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a support ticket.
 
 ### Role-Based Access Control (RBAC)
 You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs.
@@ -97,7 +97,7 @@ As far as virtual networks are concerned, users in the **Network Contributor** r
 >
 
 ## Design
-Once you know the answers to the questions in the [Plan](#plan) section, review the following before defining your VNets.
+Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
 
 ### Number of subscriptions and VNets
 You should consider creating multiple VNets in the following scenarios:
@@ -112,9 +112,9 @@ The table below shows some common design patterns for using subscriptions and VN
 
 | Scenario | Diagram | Pros | Cons |
 | --- | --- | --- | --- |
-| Single subscription, two VNets per app |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Only one subscription to manage. |Maximum number of VNets per Azure region. You need more subscriptions after that. |
+| Single subscription, two VNets per app |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Only one subscription to manage. |Maximum number of VNets per Azure region. You need more subscriptions after that. Review the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. |
 | One subscription per app, two VNets per app |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Uses only two VNets per subscription. |Harder to manage when there are too many apps. |
-| One subscription per business unit, two VNets per app. |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balance between number of subscriptions and VNets. |Maximum number of VNets per business unit (subscription).  |
+| One subscription per business unit, two VNets per app. |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balance between number of subscriptions and VNets. |Maximum number of VNets per business unit (subscription). Review the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. |
 | One subscription per business unit, two VNets per group of apps. |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balance between number of subscriptions and VNets. |Apps must be isolated by using subnets and NSGs. |
 
 ### Number of subnets
@@ -132,7 +132,7 @@ The table below shows some common design patterns for using subnets.
 | --- | --- | --- | --- |
 | Single subnet, NSGs per application layer, per app |![Single subnet](./media/virtual-network-vnet-plan-design-arm/figure5.png) |Only one subnet to manage. |Multiple NSGs necessary to isolate each application. |
 | One subnet per app, NSGs per application layer |![Subnet per app](./media/virtual-network-vnet-plan-design-arm/figure6.png) |Fewer NSGs to manage. |Multiple subnets to manage. |
-| One subnet per application layer, NSGs per app. |![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Balance between number of subnets and NSGs. |Maximum number of NSGs per subscription. |
+| One subnet per application layer, NSGs per app. |![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Balance between number of subnets and NSGs. |Maximum number of NSGs per subscription. Review the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. |
 | One subnet per application layer, per app, NSGs per subnet |![Subnet per layer per app](./media/virtual-network-vnet-plan-design-arm/figure8.png) |Possibly smaller number of NSGs. |Multiple subnets to manage. |
 
 ## Sample design
@@ -162,7 +162,7 @@ You need to design a virtual network solution that meets the following requireme
 * Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
 
 ### Plan
-You should start your design planning by answering the question in the [Define requirements](#define-requirements) section as shown below.
+You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
 
 1. What Azure locations will you use to host VNets?
 
@@ -240,9 +240,9 @@ The following requirements are related to access control:
 Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
 
 ## Next steps
-* [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
+* [Deploy a virtual network](quick-create-portal.md).
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-* Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
+* Learn more about [network security groups](security-overview.md) an NSG solution.
 * Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
 
 <!--Update_Description: wording update, update reference link-->

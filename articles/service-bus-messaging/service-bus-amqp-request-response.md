@@ -1,5 +1,5 @@
 ---
-title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
+title: AMQP 1.0 in Azure Service Bus request-response-based operations
 description: List of Microsoft Azure Service Bus request/response-based operations.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 
-origin.date: 10/16/2017
+origin.date: 102/22/2018
 ms.author: v-yiso
-ms.date: 02/05/2018
+ms.date: 03/12/2018
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
 
-This topic defines the list of Microsoft Azure Service Bus request/response-based operations. This information is based on the AMQP Management Version 1.0 working draft.  
+This article defines the list of Microsoft Azure Service Bus request/response-based operations. This information is based on the AMQP Management Version 1.0 working draft.  
 
 For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide](./service-bus-amqp-protocol-guide.md).  
 
@@ -29,8 +29,8 @@ For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bu
 
 ### Entity description  
 
-An entity description refers to either a Service Bus [QueueDescription Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
-
+An entity description refers to either a Service Bus [QueueDescription class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
+  
 ### Brokered message  
 
 Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](./service-bus-amqp-protocol-guide.md).  

@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 02/26/2018
+origin.date: 01/24/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -48,25 +48,15 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
 
-## Supported log categories per resource type
+# Supported Diagnostic Log categories
 |Resource Type|Category|Category Display Name|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
-|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
-|Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
-|Microsoft.DataFactory/factories|ActivityRuns|Pipeline activity runs log|
-|Microsoft.DataFactory/factories|PipelineRuns|Pipeline runs log|
-|Microsoft.DataFactory/factories|TriggerRuns|Trigger runs log|
-|Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
-|Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
-|Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
-|Microsoft.DataLakeStore/accounts|Requests|Request Logs|
 |Microsoft.Devices/IotHubs|Connections|Connections|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D Commands|
@@ -78,46 +68,43 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Devices/IotHubs|TwinQueries|Twin Queries|
 |Microsoft.Devices/IotHubs|JobsOperations|Jobs Operations|
 |Microsoft.Devices/IotHubs|DirectMethods|Direct Methods|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E Diagnostics (Preview)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Device Operations|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Service Operations|
-|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
-|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.Devices/ElasticPools/IotHubTenants|Connections|Connections|
+|Microsoft.Devices/ElasticPools/IotHubTenants|DeviceTelemetry|Device Telemetry|
+|Microsoft.Devices/ElasticPools/IotHubTenants|C2DCommands|C2D Commands|
+|Microsoft.Devices/ElasticPools/IotHubTenants|DeviceIdentityOperations|Device Identity Operations|
+|Microsoft.Devices/ElasticPools/IotHubTenants|FileUploadOperations|File Upload Operations|
+|Microsoft.Devices/ElasticPools/IotHubTenants|Routes|Routes|
+|Microsoft.Devices/ElasticPools/IotHubTenants|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/ElasticPools/IotHubTenants|C2DTwinOperations|C2D Twin Operations|
+|Microsoft.Devices/ElasticPools/IotHubTenants|TwinQueries|Twin Queries|
+|Microsoft.Devices/ElasticPools/IotHubTenants|JobsOperations|Jobs Operations|
+|Microsoft.Devices/ElasticPools/IotHubTenants|DirectMethods|Direct Methods|
+|Microsoft.Devices/ElasticPools/IotHubTenants|E2EDiagnostics|E2E Diagnostics (Preview)|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
 |Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
-|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
-|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
-|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
-|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS protection notifications|
-|Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM protection alerts|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Route Diagnostic Logs|
-|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup Reporting Data|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery Events|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
-|Microsoft.Search/searchServices|OperationLogs|Operation Logs|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
-|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
-|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store Wait Statistics|
-|Microsoft.Sql/servers/databases|Errors|Errors|
-|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Database Wait Statistics|
-|Microsoft.Sql/servers/databases|Timeouts|Timeouts|
-|Microsoft.Sql/servers/databases|Blocks|Blocks|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 

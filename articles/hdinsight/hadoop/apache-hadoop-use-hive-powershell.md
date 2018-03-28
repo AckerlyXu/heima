@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/27/2017
-ms.date: 12/18/2017
+origin.date: 01/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -30,36 +30,36 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 > [!NOTE]
 > This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
-**Prerequisites**
+## Prerequisites
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
-* **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
+* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* **A workstation with Azure PowerShell**.
+* A client with Azure PowerShell.
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-## Run Hive queries using Azure PowerShell
+## Run a Hive query
 
 Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries on HDInsight. Internally, the cmdlets make REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) on the HDInsight cluster.
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
 
-* **Add-AzureRmAccount**: Authenticates Azure PowerShell to your Azure subscription.
-* **New-AzureRmHDInsightHiveJobDefinition**: Creates a *job definition* by using the specified HiveQL statements.
-* **Start-AzureRmHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
-* **Wait-AzureRmHDInsightJob**: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
-* **Get-AzureRmHDInsightJobOutput**: Used to retrieve the output of the job.
-* **Invoke-AzureRmHDInsightHiveJob**: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results.
-* **Use-AzureRmHDInsightCluster**: Sets the current cluster to use for the **Invoke-AzureRmHDInsightHiveJob** command.
+* `Add-AzureRmAccount`: Authenticates Azure PowerShell to your Azure subscription.
+* `New-AzureRmHDInsightHiveJobDefinition`: Creates a *job definition* by using the specified HiveQL statements.
+* `Start-AzureRmHDInsightJob`: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
+* `Wait-AzureRmHDInsightJob`: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
+* `Get-AzureRmHDInsightJobOutput`: Used to retrieve the output of the job.
+* `Invoke-AzureRmHDInsightHiveJob`: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results.
+* `Use-AzureRmHDInsightCluster`: Sets the current cluster to use for the `Invoke-AzureRmHDInsightHiveJob` command.
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster:
 
-1. Using an editor, save the following code as **hivejob.ps1**.
+1. Using an editor, save the following code as `hivejob.ps1`.
 
     ```powershell
     # Login to your Azure subscription
@@ -102,7 +102,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         -HttpCredential $creds
     ```
 
-2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
+2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the `hivejob.ps1` file, then use the following command to run the script:
 
         .\hivejob.ps1
 
@@ -115,7 +115,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
         2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
-4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
+4. As mentioned earlier, `Invoke-Hive` can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
 
     ```powershell
     # Login to your Azure subscription

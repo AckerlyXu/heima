@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric Java Application | Azure
-description: Create a Java application for Azure using the Service Fabric quick start sample.
+description: In this quickstart, you create a Java application for Azure using a Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/23/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
 
 ---
 
-# Create a Java Application
+# Quickstart: deploy a Java Service Fabric reliable services application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 This quickstart shows how to deploy your first Java application to Service Fabric using the Eclipse IDE on a Linux developer machine. When you're finished, you have a voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster.
@@ -78,15 +78,16 @@ You can now add a set of voting options, and start taking votes. The application
 ## Deploy the application to Azure
 
 ### Set up your Azure Service Fabric Cluster
-To deploy the application to a cluster in Azure, create your own cluster or use a Party Cluster.
+To deploy the application to a cluster in Azure, create your own cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+<!-- Not Avaiable on Party clusters [follow the instructions](http://aka.ms/tryservicefabric) -->
 
 For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
+> The Spring Boot service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. 
 >
+<!-- Not Avaiable on Party Cluster -->
 
 ### Deploy the application using Eclipse
 Now that the application and your cluster are ready, you can deploy it to the cluster directly from Eclipse.
@@ -120,7 +121,7 @@ Service Fabric Explorer runs in all Service Fabric clusters and can be accessed 
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example, `http://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`.
+1. Open Service Fabric Explorer in your cluster - for example, `https://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -148,4 +149,4 @@ In this quickstart, you learned how to:
 * Learn more about [debugging services on Java using Eclipse](service-fabric-debugging-your-application-java.md)
 <!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 * Checkout other [Java Samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
-<!-- Update_Description: new article of service fabric quickstart of java reliable services -->
+<!-- Update_Description: update meta properties, wording udpate -->

@@ -3,8 +3,8 @@ title: Control routing in an Azure Virtual Network - CLI - Classic | Azure
 description: Learn how to control routing in VNets using the Azure CLI in the classic deployment model
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 04/02/2018
+ms.author: v-yeche
 
 ---
 # Control routing and use virtual appliances (classic) using the Azure CLI
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [Template](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
@@ -32,7 +32,7 @@ ms.author: v-dazen
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](virtual-network-create-udr-arm-cli.md).
+This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](tutorial-create-route-table-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -135,3 +135,4 @@ To create the route table and route needed for the back-end subnet based on the 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
+<!-- Update_Description: update meta properties, wording update, update link -->

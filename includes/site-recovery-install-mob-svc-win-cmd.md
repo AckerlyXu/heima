@@ -22,18 +22,18 @@
 
 ```
 Usage :
-UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform "VmWare" /Silent
 ```
 
 | Parameter|Type|Description|Possible values|
 |-|-|-|-|
-|/Role|Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
-|/InstallLocation|Optional|Location where Mobility Service is installed|Any folder on the computer|
-|/Platform|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Physical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
-|/Silent|Optional|Specifies to run the installer in silent mode| NA|
+|/Role|Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget (MT) should be installed.|MS </br> MT|
+|/InstallLocation|Optional|Location where Mobility Service is installed.|Any folder on the computer|
+|/Platform|Mandatory|Specifies the platform on which Mobility Service is installed. </br> </br>- **VMware**: Use this value if you install Mobility Service on a VM running on *VMware vSphere ESXi hosts*, *Hyper-V hosts*, and *physical servers*. </br> - **Azure**: Use this value if you install an agent on an Azure IaaS VM. | VMware </br> Azure|
+|/Silent|Optional|Specifies to run the installer in silent mode.| N/A|
 
 >[!TIP]
-> The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### Mobility Service registration command-line arguments
 
@@ -45,9 +45,9 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
   | Parameter|Type|Description|Possible values|
   |-|-|-|-|
   |/CSEndPoint |Mandatory|IP address of the configuration server| Any valid IP address|
-  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
+  |/PassphraseFilePath|Mandatory|Location of the pass phrase |Any valid UNC or local file path|
 
 >[!TIP]
-> The AgentConfiguration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
-<!--ms.date: 01/01/2018 -->
-<!-- Update_Description: wording update -->
+> The Agent Configuration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+<!--Update_Description: wording update-->
+<!--ms.date: 03/05/2018-->

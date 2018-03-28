@@ -119,35 +119,35 @@ featureFlags:
                                                 <h3>Develop apps</h3>
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
-													<li>
-														<a class="barLink" href="/dotnet/">
-															<img src="media/index/logo_NET.svg" alt="">
-															.NET</a>
-													</li>
-													<li>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/python/azure/">
-															<img src="media/index/logo_python.svg" alt="">
-															Python</a>
-													</li>
-													<li>
-														<a class="barLink" href="/java/">
-															<img src="media/index/logo_java.svg" alt="">
-															Java</a>
-													</li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
-													<li>
-														<a class="barLink" href="/app-service-web/app-service-web-get-started-php">
-															<img src="media/index/logo_PHP.svg" alt="">
-															PHP</a>
-													</li>
-													<li>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
-															<img src="media/index/logo_nodejs.svg" alt="">
-															Node.js</a>
-													</li>
-												</ul></td></tr></table>
+                                                    <li>
+                                                        <a class="barLink" href="/dotnet/">
+                                                            <img src="media/index/logo_NET.svg" alt="">
+                                                            .NET</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/python/azure/">
+                                                            <img src="media/index/logo_python.svg" alt="">
+                                                            Python</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/java/">
+                                                            <img src="media/index/logo_java.svg" alt="">
+                                                            Java</a>
+                                                    </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/app-service-web/app-service-web-get-started-php">
+                                                            <img src="media/index/logo_PHP.svg" alt="">
+                                                            PHP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/javascript/azure/">
+                                                            <img src="media/index/logo_nodejs.svg" alt="">
+                                                            Node.js</a>
+                                                    </li>
+                                                </ul></td></tr></table>
                                                <h4>App Models</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/app-service-web/">Web apps</a></li>
+                                                    <li><a class="barLink" href="/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/service-fabric/">Microservices with Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -193,7 +193,7 @@ featureFlags:
                                                 <h3>Command-line tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview">
+                                                        <a class="barLink" href="/cli/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
                                                             Azure CLI
                                                         </a>
@@ -422,7 +422,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI + Cognitive Services</h3>
+                                    <h3>AI</h3>
                                     <ul>
                                         <li>
                                             <a href="/cognitive-services/computer-vision/">
@@ -456,19 +456,19 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/storage/blobs/storage-blobs-introduction/">
+                                            <a href="/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
                                                 <p>Blob Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/virtual-machines/disks/">
+                                            <a href="/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/storage/queues/storage-queues-introduction/">
+                                            <a href="/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
                                             </a>
@@ -492,7 +492,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Data + Analytics</h3>
+                                    <h3>Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/hdinsight/">
@@ -562,7 +562,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/event-hubs/">
-                                                <img src="media/index/EventHubs.svg" alt="" />
+                                                <img src="media/index/eventhubs.svg" alt="" />
                                                 <p>Event Hubs</p>
                                             </a>
                                         </li>
@@ -659,7 +659,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Monitoring + Management</h3>
+                                    <h3>Management Tools</h3>
                                     <ul>
                                         <li>
                                             <a href="/monitoring-and-diagnostics/">
@@ -687,7 +687,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/scheduler/">
-                                                <img src="media/index/Scheduler.svg" alt="" />
+                                                <img src="media/index/scheduler.svg" alt="" />
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
@@ -697,6 +697,13 @@ featureFlags:
                                                 <p>Billing</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/service-health/">
+                                                <img src="media/index/resource-health.svg" alt="" />
+                                                <p>Azure Service Health</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
@@ -760,7 +767,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Machine Scale Sets</h3>
-                                                    <p>Manage and scale 10s to 1000s of Linux and Windows virtual machines</p>
+                                                    <p>Manage and scale up to thousands of Linux and Windows virtual machines</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -798,7 +805,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Deploy web apps on Linux using containers</p>
+                                                    <p>Quickly create powerful cloud apps for web and mobile</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -855,7 +862,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>Create highly available, infinitely scalable cloud applications and APIs</p>
+                                                    <p>Create highly-available, infinitely-scalable cloud applications and APIs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -917,10 +924,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-                                                        Layer 7 Load Balancer with built-in HTTP load balancing and delivery
-                                                        control
-                                                    </p>
+                                                    <p>Build secure, scalable, and highly available web front ends in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -977,7 +981,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data centers</p>
+                                                    <p>Ensure secure, reliable content delivery with broad global reach</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1034,7 +1038,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Monitor and diagnose conditions at a network scenario level</p>
+                                                    <p>Network performance monitoring and diagnostics solution</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1077,7 +1081,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Massively scalable object storage for unstructured data</p>
+                                                    <p>REST-based object storage for unstructured data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1096,7 +1100,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disk Storage</h3>
-                                                    <p>Disk storage for VMs</p>
+                                                    <p>Persistent, secured disk options supporting virtual machines</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1115,7 +1119,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>Durable queues for large-volume cloud services</p>
+                                                    <p>Effectively scale apps according to traffic</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1134,7 +1138,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Simple, distributed, cross-platform file system</p>
+                                                    <p>File shares that use the standard SMB 3.0 protocol</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1153,7 +1157,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <p>Protect your data with cloud-based backup as a service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1172,7 +1176,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
+                                                    <p>Orchestrate protection and recovery of private clouds</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1234,7 +1238,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
-                                                    <p>Easily build and consume Cloud API</p>
+                                                    <p>Easily build and consume Cloud APIs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1253,7 +1257,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data centers </p>
+                                                    <p>Ensure secure, reliable content delivery with broad global reach</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1291,7 +1295,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                    <p>Send push notifications to any platform from any back end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1358,7 +1362,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Managed relational database-as-a-service</p>
+                                                    <p>Managed relational SQL Database as a service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1396,7 +1400,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse-as-a-service with enterprise-class features</p>
+                                                    <p>Elastic data warehouse as a service with enterprise-class features</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1453,7 +1457,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Globally distributed, multi-model database for any scale</p>
+                                                    <p>NoSQL key-value store using semi-structured datasets</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1472,7 +1476,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>High throughput, low latency data access to build fast/scalable applications</p>
+                                                    <p>Power applications with high-throughput, low-latency data access</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1482,7 +1486,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Data + Analytics</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/hdinsight/">
@@ -1496,7 +1500,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Provision cloud Hadoop, Spark, R Server, Hbase, and Storm clusters</p>
+                                                    <p>Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1534,7 +1538,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Enterprise-grade data modeling in the cloud</p>
+                                                    <p>Enterprise grade analytics engine as a service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1572,7 +1576,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse-as-a-service with enterprise-class features</p>
+                                                    <p>Elastic data warehouse as a service with enterprise-class features</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1601,8 +1605,8 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI + Cognitive Services</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">AI</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
@@ -1742,7 +1746,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                    <p>Send push notifications to any platform from any back end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1866,7 +1870,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Learn how to manage cryptographic keys and secrets</p>
+                                                    <p>Safeguard and maintain control of keys and other secrets</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1904,7 +1908,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Safeguard access to your data and apps with an extra level of authentication</p>
+                                                    <p>Add security for your data and apps without adding hassles for users</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1957,7 +1961,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Monitoring + Management</a>
+                        <a href="#mgmt">Management Tools</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/monitoring-and-diagnostics/">
@@ -2074,18 +2078,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure-resource-manager/">
+                                <a href="/service-health/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
+                                                        <img src="media/index/resource-health.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
-                                                    <p>Deploy and manage Azure resources</p>
+                                                    <h3>Azure Service Health</h3>
+                                                    <p>Get personalized guidance and support for when issues in Azure services affect you</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2094,6 +2098,7 @@ featureFlags:
                             </li>
                         </ul>
                     </li>
+
                 </ul>
             </li>
             <li>
@@ -2166,13 +2171,13 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/javascript/azure/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/api/overview/azure">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/javascript/api/overview/azure/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2354,14 +2359,12 @@ featureFlags:
                             <li>
                                 <div class="container intro">
                                     <p>
-                                        A set of recommended architectures for cloud applications. Each architecture includes
-                                        recommended practices, prescriptive steps, and an executable component that embodies
-                                        the recommendations.
+                                        The Azure Architecture Center contains guidance for building end-to-end solutions on Azure. Here you will find reference architectures, best practices, design patterns, scenario guides, and reference implementations.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/guide/">
+                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2371,8 +2374,27 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Architecture Center</h3>
+                                                    <p>Guidance for building end-to-end solutions on Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Azure Application Architecture Guide</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you�re new to the cloud or new to Azure, start here.</p>
+                                                    <p>This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2411,28 +2433,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Cloud Design Patterns</h3>
                                                     <p>Design patterns for the cloud. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Best Practices for Cloud Applications</h3>
-                                                    <p>
-                                                        A set of best practices for cloud applications, covering aspects such
-                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

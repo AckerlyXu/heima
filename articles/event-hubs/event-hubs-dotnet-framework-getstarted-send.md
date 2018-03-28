@@ -12,10 +12,11 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 10/10/2017
-ms.date: 11/20/2017
+ms.topic: article
+origin.date: 02/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
+
 ---
 # Send events to Azure Event Hubs using the .NET Framework
 
@@ -36,7 +37,7 @@ The first step is to use the [Azure portal](https://portal.azure.cn) to create a
 
 ## Create a sender console application
 
-In this section, you'll write a Windows console app that sends events to your event hub.
+In this section, you write a Windows console app that sends events to your event hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
 
@@ -102,7 +103,7 @@ Congratulations! You have now sent messages to an event hub.
 Now that you've built a working application that creates an event hub and sends data, you can move on to the following scenarios:
 
 * [Receive events using the Event Processor Host](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-* [Event Processor Host reference](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Event Processor Host reference](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost?view=azure-dotnet)
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 
 <!-- Images. -->
@@ -111,4 +112,4 @@ Now that you've built a working application that creates an event hub and sends 
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

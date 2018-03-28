@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/23/2017
-ms.date: 01/01/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ---
 
@@ -80,3 +80,4 @@ Next step involves [setting up your target environment](./site-recovery-prepare-
 
 <!--Not Available the parent file of includes file of site-recovery-configuration-and-scaleout-process-server-requirements.md-->
 <!--ms.date:01/01/2018-->
+<!-- Update_Description: update meta properties -->

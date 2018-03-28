@@ -1,4 +1,4 @@
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and CSDN Azure](https://www.azure.cn/support/forums/). You can post your issue on these forums. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://www.azure.cn/support/contact/) site.
+If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and CSDN Azure](https://www.azure.cn/support/forums/). You can post your issue on these forums. Also, you can file an Azure support request on the [Azure support](https://www.azure.cn/support/contact/) site.
 
 ## General troubleshooting steps
 ### Troubleshoot common allocation failures in the classic deployment model
@@ -7,7 +7,7 @@ These steps can help resolve many allocation failures in virtual machines:
 * Resize the VM to a different VM size.<br>
     Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 * Delete all VMs from the cloud service and re-create VMs.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **Create a resource** > **Compute** > [virtual machine image].
 
 ### Troubleshoot common allocation failures in the Azure Resource Manager deployment model
 These steps can help resolve many allocation failures in virtual machines:
@@ -207,5 +207,4 @@ Select a new VM size to allocate. If this does not work, please try again later.
 
 "The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
 
-<!--Update_Description: update meta properties, wording update-->
-<!--ms.date: 10/16/2017-->
+<!--ms.date: 03/19/2018 -->

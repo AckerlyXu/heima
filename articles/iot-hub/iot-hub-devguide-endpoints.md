@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/19/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 11/20/2017
+ms.date: 03/19/2018
 ---
 
 # Reference - IoT Hub endpoints
@@ -73,7 +73,12 @@ For the limits on the number of endpoints you can add, see [Quotas and throttlin
 
 ### When using Azure Storage containers
 
-IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob when it reaches either a certain size or after a certain amount of time has elapsed, whichever happens first. IoT Hub will not write an empty blob if there is no data to write.
+IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob whenever:
+
+* The batch reaches a certain size.
+* Or a certain amount of time has elapsed.
+
+IoT Hub will does write an empty blob if there is no data to write.
 
 IoT Hub defaults to the following file naming convention:
 

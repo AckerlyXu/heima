@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus suspend messaging entities | Microsoft Docs
+title: Azure Service Bus suspend messaging entities 
 description: Suspend and reactivate Azure Service Bus message entities.
 services: service-bus
 documentationcenter: ''
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/03/2017
-ms.date: 11/13/2017
+origin.date: 01/26/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -30,7 +30,7 @@ In the portal, the **Properties** section for the respective entity enables chan
 
 ![][1]
 
-The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.namespacemanager) API in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
+The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 
 ## Suspension states
 
@@ -43,7 +43,7 @@ The states that can be set for a queue are:
 
 For subscriptions and topics, only **Active** and **Disabled** can be set.
 
-The [EntityStatus](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.entitystatus) enumeration also defines a set of transitional states that can only be set by the system. The PowerShell command to disable a queue is shown in the following example. The reactivation command is equivalent, setting `Status` to **Active**.
+The [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) enumeration also defines a set of transitional states that can only be set by the system. The PowerShell command to disable a queue is shown in the following example. The reactivation command is equivalent, setting `Status` to **Active**.
 
 ```powershell
 $q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue

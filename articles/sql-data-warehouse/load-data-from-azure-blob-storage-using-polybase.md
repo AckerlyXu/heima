@@ -1,5 +1,5 @@
 ---
-title: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Azure
+title: 'Tutorial: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Azure'
 description: A tutorial that uses the Azure portal and SQL Server Management Studio to load Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
 origin.date: 11/17/2017
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.reviewer: barbkess
 
 ---
 
-# Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
+# Tutorial: Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
 
 PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.cn) and [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 <!-- Not Available on http://XX.XX.filename.md -->
@@ -50,11 +50,11 @@ Log in to the [Azure portal](https://portal.azure.cn/).
 
 ## Create a blank SQL data warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](performance-tiers). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview) and in an [Azure SQL logical server](../sql-database/sql-database-features). 
+An Azure SQL data warehouse is created with a defined set of [compute resources](performance-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL data warehouse. 
 
-1. Click the **New** button in the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 
@@ -172,7 +172,7 @@ This section uses [SQL Server Management Studio](https://docs.microsoft.com/sql/
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
@@ -213,7 +213,7 @@ The first step toward loading data is to login as LoaderRC20.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, but this time enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
 3. Click **Connect**.
 
@@ -621,5 +621,4 @@ Advance to the migration overview to learn how to migrate an existing database t
 
 > [!div class="nextstepaction"]
 >[Learn how to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
-<!-- Update_Description: new articles on load data from azure blob storage using polybase -->
-<!-- ms.date: 01/15/2018 -->
+<!-- Update_Description: update meta properties, wording update -->

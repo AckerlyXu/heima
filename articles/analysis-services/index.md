@@ -10,8 +10,8 @@ ms.service: analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 09/25/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ---
 # Analysis Services Documentation
@@ -58,3 +58,4 @@ Learn how to set up and manage data modeling with Analysis Services. Tutorials a
     </li>    
 </ul>
 
+<!--ms.date: 03/14/2018 -->

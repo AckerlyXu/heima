@@ -16,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 12/25/2017
+ms.date: 3/5/2018
 ms.author: v-nany
-
 
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
@@ -29,7 +28,7 @@ This article explains how to manage the members for a group in Azure Active Dire
 
 ## How do I find the members and manage them?
 1. Sign in to the [Azure portal](https://portal.azure.cn) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-members-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.

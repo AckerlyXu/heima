@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 09/01/2017
-ms.date: 11/06/2017
+origin.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: v-johch
 
 ---
@@ -51,7 +51,7 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a blank SQL database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 

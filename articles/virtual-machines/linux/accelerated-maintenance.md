@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2018
-ms.date: 01/29/2018
+origin.date: 01/22/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -24,6 +24,4 @@ ms.author: v-yeche
 [!INCLUDE [virtual-machines-common-accelerated-maintenance](../../../includes/virtual-machines-common-accelerated-maintenance.md)]
 
 <!--The parent file of includes file of virtual-machines-common-accelerated-maintenance.md-->
-<!--ms.date:01/29/2018-->
-<!--The parent file of includes file of virtual-machines-common-accelerated-maintenance.md-->
-<!--ms.date:02/05/2018-->
+<!--ms.date:03/19/2018-->

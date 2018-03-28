@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -24,7 +24,7 @@ ms.author: v-yeche
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## Prerequisites
-This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to your Azure subscription with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) before you [create a VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to your Azure subscription with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) before you [create a VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -136,4 +136,4 @@ Some useful links to additional resources:
 * [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configure Software RAID on Linux](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update link, wording update -->

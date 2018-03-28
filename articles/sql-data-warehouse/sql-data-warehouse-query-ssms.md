@@ -34,7 +34,8 @@ Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL Data W
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL data warehouse. To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
+* An existing SQL data warehouse.
+<!-- Not Available on  To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
 * SQL Server Management Studio (SSMS) installed. [Install SSMS][Install SSMS] for free if you don't already have it.
 * The fully qualified SQL server name. To find this, see [Connect to SQL Data Warehouse][Connect to SQL Data Warehouse].
 
@@ -83,7 +84,6 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn

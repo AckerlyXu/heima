@@ -61,11 +61,11 @@ To set up your app to get tokens, you first need to register it in your Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
-3. Click **More Services** in the leftmost navigation pane, and then select **Azure Active Directory**.
-4. Click **App registrations**, and then select **New application registration**.
-5. Create a new **Native** Application.
-    - The **Name** of the application describes your application to end users.
-    - The **Redirect Uri** is a scheme and string combination that Azure AD uses to return token responses.  Enter a value that is specific to your application and is based on the previous redirect URI information.
+3. Click **All services** in the leftmost navigation pane, and then select **Azure Active Directory**.
+4. Click **App registrations**, and then select **Add**.
+5. Follow the prompts to create a new **Native Client Application**.
+  * The **Name** of the application describes your application to end users.
+  * The **Redirect Uri** is a scheme and string combination that Azure AD uses to return token responses.  Enter a value that is specific to your application and is based on the previous redirect URI information.
 6. After you've completed the registration, Azure AD assigns your app a unique application ID.  You'll need this value in the next sections, so copy it from the application tab.
 7. From the **Settings** page, select **Required Permissions** and then select **Add**. Select **Microsoft Graph** as the API, and then add the **Read Directory Data** permission under **Delegated Permissions**.  This sets up your application to query the Azure AD Graph API for users.
 

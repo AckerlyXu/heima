@@ -15,8 +15,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 01/10/2018
-ms.date: 1/22/2018
+origin.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: v-nany
 
 ---
@@ -33,11 +33,11 @@ Log in to the [Azure portal](https://portal.azure.cn/).
 
 ## Create a SQL database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
+An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md).
 
-Follow these steps to create a SQL database containing the Adventure Works LT sample data. 
+Follow these steps to create a SQL database containing the Adventure Works LT sample data.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
@@ -54,7 +54,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
    > [!IMPORTANT]
    > You must select the sample database on this form because it is used in the remainder of this quick start.
-   > 
+   >
 
 4. Under **Server**, click **Configure required settings** and fill out the SQL server (logical server) form with the following information, as shown on the following image:   
 
@@ -101,7 +101,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 ## <a name="create-a-server-level-firewall-rule"></a>Create a server-level firewall rule
 
-The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
+The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only.
 
 > [!NOTE]
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
@@ -133,17 +133,13 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Now that you have created a sample database in Azure, let’s use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data.
 
-1. On the SQL Database page for your database, find and click **Data explorer (preview)** in the left-hand menu
+1. On the SQL Database page for your database, click **Query editor (preview)** in the left-hand menu and then click **Login**.
 
-   ![find query editor](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![login](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
+2. Select SQL server authentication, provide the required login information, and then click **OK** to log in.
 
-   ![login](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Click **OK** to log in.
-
-4. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
+3. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -152,11 +148,11 @@ Now that you have created a sample database in Azure, let’s use the built-in q
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Click **Run** and then review the query results in the **Results** pane.
+4. Click **Run** and then review the query results in the **Results** pane.
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Close the **Data explorer** page, click **OK** to discard your unsaved edits.
+5. Close the **Query editor** page, click **OK** to discard your unsaved edits.
 
 ## Clean up resources
 

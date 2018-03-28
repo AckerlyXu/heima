@@ -1,5 +1,5 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Azure 
+title: Set up staging environments for web apps in Azure App Service 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 10/30/2017
+ms.date: 04/02/2018
 ms.author: v-yiso
 
 ---
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, mobile back end, and API app to [App Service](app-service-web-overview.md), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, mobile back end, and API app to [App Service](app-service-web-overview.md), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan tier. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your app's mode supports, see [App Service Pricing](https://www.azure.cn/pricing/details/app-service/).
+Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Pricing](https://www.azure.cn/pricing/details/app-service/).
 
-* When your app has multiple slots, you cannot change the mode.
+* When your app has multiple slots, you cannot change the tier.
 * Scaling is not available for non-production slots.
-* Linked resource management is not supported for non-production slots. In the Azure Portal only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+* Linked resource management is not supported for non-production slots. In the Azure Portal only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan tier. Note that the non-production slot must once again share the same tier with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
 
 ## Add a deployment slot
-The app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.
+The app must be running in the **Standard** or **Premium** tier in order for you to enable multiple deployment slots.
 
 1. In the [Azure Portal](https://portal.azure.cn/), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Choose the **Deployment slots** option, then click **Add Slot**.
@@ -45,7 +45,7 @@ The app must be running in the **Standard** or **Premium** mode in order for you
     ![Add a new deployment slot][QGAddNewDeploymentSlot]
 
    > [!NOTE]
-   > If the app is not already in the **Standard** or **Premium** mode, you will receive a message indicating the supported modes for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your app before continuing.
+   > If the app is not already in the **Standard** or **Premium** tier, you will receive a message indicating the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your app before continuing.
    > 
    > 
 3. In the **Add a slot** blade, give the slot a name, and select whether to clone app configuration from another existing deployment slot. Click the check mark to continue.
@@ -210,7 +210,7 @@ New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] 
 ```
 
 - - -
-### Initiate a swap with review (multi-phase swap) and apply destination slot configuration to source slot
+### Initiate a swap with preview (multi-phase swap) and apply destination slot configuration to source slot
 ```
 $ParametersObject = @{targetSlot  = "[slot name - e.g. "production"]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -251,7 +251,8 @@ The Azure CLI provides cross-platform commands for working with Azure, including
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 > [!NOTE] 
-> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az appservice web deployment slot](https://docs.microsoft.com/cli/azure/webapp/deployment/slot).
+> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](https://docs.azure.cn/zh-cn/cli/webapp/deployment/slot?view=azure-cli-latest
+).
 
 - - -
 ### azure site list

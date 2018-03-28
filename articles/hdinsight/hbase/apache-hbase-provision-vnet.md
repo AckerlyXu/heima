@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/03/2017
-ms.date: 01/15/2018
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -254,7 +254,7 @@ In this tutorial, you learned how to create an HBase cluster. To learn more, see
 * [Get started using HBase with Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
 
-[1]: https://www.azure.cn/home/features/networking/
+[1]: https://www.azure.cn/home/features/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 

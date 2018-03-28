@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 08/04/2017
-ms.date: 10/16/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ There are two ways that you can use the VMAccess Extension on your Linux VMs:
 * Use the Azure CLI 2.0 and the required parameters.
 * [Use raw JSON files that the VMAccess Extension process](#use-json-files-and-the-vmaccess-extension) and then act on.
 
-The following examples use [az vm user](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest) commands. To perform these steps, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+The following examples use [az vm user](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest) commands. To perform these steps, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -87,7 +87,7 @@ az vm user delete \
 ```
 
 ## Use JSON files and the VMAccess Extension
-The following examples use raw JSON files. Use [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#set) to then call your JSON files. These JSON files can also be called from Azure templates. 
+The following examples use raw JSON files. Use [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) to then call your JSON files. These JSON files can also be called from Azure templates. 
 
 ### Reset user access
 If you have lost access to root on your Linux VM, you can launch a VMAccess script to reset a user's SSH key or password.
@@ -232,5 +232,5 @@ Updating Linux using the Azure VMAccess Extension is one method to make changes 
 
 [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->
 

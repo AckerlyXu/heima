@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 
 ---
@@ -105,20 +105,20 @@ If you can create an SSH connection with a VM in the same virtual network, check
 
 To eliminate the endpoint as a source of the problem, remove the current endpoint, create another endpoint, and specify the SSH name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](../windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-<a id="nsg"></a>
+<a name="nsg"></a>
 
 ## Source 4: Network security groups
 Network security groups enable you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
 For more information, see [About network security groups](../../virtual-network/virtual-networks-nsg.md).
 
-<!-- Not Available on [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview) -->
+You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview). 
 
 ## Source 5: Linux-based Azure virtual machine
 The last source of possible problems is the Azure virtual machine itself.
 
 ![Diagram that highlights Linux-based Azure virtual machine](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-If you haven't done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](classic/reset-access.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+If you haven't done so already, follow the instructions [to reset a password Linux-based virtual machines](reset-password.md).
 
 Try connecting from your computer again. If it still fails, the following are some of the possible issues:
 
@@ -131,4 +131,4 @@ Try connecting from your computer again. If it still fails, the following are so
 ## Additional resources
 For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](troubleshoot-app-connection.md)
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: wording update, update link -->

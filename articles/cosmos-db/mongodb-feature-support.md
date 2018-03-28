@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
 # MongoDB API support for MongoDB features and syntax
 
-Azure Cosmos DB is 21Vianet's globally distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+<!-- Notice: globally to multiple-region -->
 
 By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of Azure Cosmos DB's enterprise capabilities: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
@@ -235,7 +236,35 @@ When there's a need to include '$' or '|', it is best to create two (or more) re
 For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. 
-The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents whin which field 'x' has value that begins with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+
+### Update operators
+
+#### Field update operators
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### Array update operators
+- $addToSet
+- $pop
+- $pullAll
+- $pull  (Note: $pull with condition is not supported)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### Bitwise update operator
+- $bit
 
 ### Geospatial operators
 
@@ -301,5 +330,4 @@ Azure Cosmos DB supports automatic, server-side sharding. Azure Cosmos DB does n
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with an API for MongoDB database.
 - Explore Azure Cosmos DB with protocol support for MongoDB [samples](mongodb-samples.md).
 
-<!-- Update_Description: update meta properties -->
-<!-- ONLY UPDATE META, NO NEED TO OVERWRITE TO ZH-CN LIVE BRANCH -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -21,7 +21,7 @@ ms.author: v-johch
 # Create an Azure Media Services account using the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
+> * [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.media)
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]

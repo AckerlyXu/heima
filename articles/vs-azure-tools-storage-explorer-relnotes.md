@@ -14,22 +14,142 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 01/25/2018
+ms.date: 03/16/2018
 ms.author: v-junlch
 
 ---
 # Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.9.3 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.9.6 (Preview) release, as well as release notes for previous versions.
 
 [Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 0.9.3
+## Version 0.9.6
+02/28/2018
 
-### Download Azure Storage Explorer 0.9.3 (Preview)
-- [Azure Storage Explorer 0.9.3 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.3 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.3 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 0.9.6 (Preview)
+- [Azure Storage Explorer 0.9.6 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.6 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.6 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### Fixes
+- An issue prevented expected blobs/files from being listed in the editor. This has been fixed.
+- An issue caused switching between snapshot views to display items incorrectly. This has been fixed.
+
+### Known Issues
+- Storage Explorer does not support ADFS accounts.
+- When targeting Azure Stack, uploading certain files as append blobs may fail.
+- After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+- If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+- The account settings panel may show that you need to reenter credentials to filter subscriptions.
+- Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+- Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+- The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+	```
+	./StorageExplorer.exe --disable-gpu
+	```
+
+- For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+- For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+## Previous releases
+
+- [Version 0.9.5](#version-095)
+- [Version 0.9.4 and 0.9.3](#version-094-and-093)
+- [Version 0.9.2](#version-092)
+- [Version 0.9.1 and 0.9.0](#version-091-and-090)
+- [Version 0.8.16](#version-0816)
+- [Version 0.8.14](#version-0814)
+- [Version 0.8.13](#version-0813)
+- [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
+- [Version 0.8.9 and 0.8.8](#version-089-and-088)
+- [Version 0.8.7](#version-087)
+- [Version 0.8.6](#version-086)
+- [Version 0.8.5](#version-085)
+- [Version 0.8.4](#version-084)
+- [Version 0.8.3](#version-083)
+- [Version 0.8.2](#version-082)
+- [Version 0.8.0](#version-080)
+- [Version 0.7.20160509.0](#version-07201605090)
+- [Version 0.7.20160325.0](#version-07201603250)
+- [Version 0.7.20160129.1](#version-07201601291)
+- [Version 0.7.20160105.0](#version-07201601050)
+- [Version 0.7.20151116.0](#version-07201511160)
+
+## Version 0.9.5
+02/06/2018
+
+### Download Azure Storage Explorer 0.9.5 (Preview)
+- [Azure Storage Explorer 0.9.5 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.5 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.5 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+
+- Support for File Shares snapshots:
+ - Create and manage snapshots for your File Shares.
+ - Easily switch views between snapshots of your File Shares as you explore.
+ - Restore previous versions of your files.
+- Preview support for Azure Data Lake Store:
+ - Connect to your ADLS resources across multiple accounts.
+ - Connect to and share ADLS resources using ADL URIs.
+ - Perform basic file/folder operations recursively.
+ - Pin individual folders to Quick Access.
+ - Display folder statistics.
+
+### Fixes
+- Startup performance improvements.
+- Various bug fixes.
+
+### Known Issues
+- Storage Explorer does not support ADFS accounts.
+- When targeting Azure Stack, uploading certain files as append blobs may fail.
+- After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+- If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+- The account settings panel may show that you need to reenter credentials to filter subscriptions.
+- Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+- Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+- The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+	```
+	./StorageExplorer.exe --disable-gpu
+	```
+
+- For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+- For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+## Version 0.9.4 and 0.9.3
+01/21/2018
+
+### Download Azure Storage Explorer 0.9.4 (Preview)
+- [Download Azure Storage Explorer 0.9.4 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+- [Download Azure Storage Explorer 0.9.4 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+- [Download Azure Storage Explorer 0.9.4 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 - Your existing Storage Explorer window will be re-used when:
@@ -41,6 +161,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
  - For Mac, there is a 'New Window' option under App Menu.
 
 ### Fixes
+- Fixed a security issue. Please upgrade to 0.9.4 at you earliest convenience.
 - Old activities were not appropriately being cleaned up. This affected the performance of long running jobs. They are now being cleaned up correctly.
 - Actions involving large numbers of files and directories would occasionally cause Storage Explorer to freeze. Requests to Azure for File Shares are now trottled to limit system resource use.
 
@@ -73,13 +194,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 	```
 
 ## Version 0.9.2
-
-### Download Azure Storage Explorer 0.9.2 (Preview)
-- [Download Azure Storage Explorer 0.9.2 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-- [Download Azure Storage Explorer 0.9.2 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-- [Download Azure Storage Explorer 0.9.2 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
+11/01/2017
 
 ### Hotfixes
 - Unexpected data changes were possible when editing Edm.DateTime values for table entities depending on the local time zone. The editor now uses a plain text box, giving precise, consistent control over Edm.DateTime values.
@@ -90,7 +205,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 
 ### New
 - Preview support for Azure Cosmos DB:
- - [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+ - Online Documentation
  - Create databases and collections
  - Manipulate data
  - Query, create, or delete documents
@@ -140,37 +255,11 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 	sudo apt-get install libgconf-2-4
 	```
 
-
-
-
-
-
-## Previous releases
-
-- [Version 0.9.1 / 0.9.0](#version-091)
-- [Version 0.8.16](#version-0816)
-- [Version 0.8.14](#version-0814)
-- [Version 0.8.13](#version-0813)
-- [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-- [Version 0.8.9 / 0.8.8](#version-089--088)
-- [Version 0.8.7](#version-087)
-- [Version 0.8.6](#version-086)
-- [Version 0.8.5](#version-085)
-- [Version 0.8.4](#version-084)
-- [Version 0.8.3](#version-083)
-- [Version 0.8.2](#version-082)
-- [Version 0.8.0](#version-080)
-- [Version 0.7.20160509.0](#version-07201605090)
-- [Version 0.7.20160325.0](#version-07201603250)
-- [Version 0.7.20160129.1](#version-07201601291)
-- [Version 0.7.20160105.0](#version-07201601050)
-- [Version 0.7.20151116.0](#version-07201511160)
-
-## Version 0.9.1 / 0.9.0 (Preview)
-
+## Version 0.9.1 and 0.9.0
+10/20/2017
 ### New
 - Preview support for Azure Cosmos DB:
- - [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+ - Online Documentation
  - Create databases and collections
  - Manipulate data
  - Query, create, or delete documents
@@ -221,6 +310,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 	```
 
 ## Version 0.8.16
+8/21/2017
 
 ### New
 - When you open a blob, Storage Explorer will prompt you to upload the downloaded file if a change is detected
@@ -260,7 +350,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 	```
 
 ### Version 0.8.14
-
+06/22/2017
 
 ### New
 
@@ -287,6 +377,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
     ```
 
 ### Version 0.8.13
+05/12/2017
 
 #### New
 
@@ -320,7 +411,8 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
     ```
 
 
-### Version 0.8.12 / 0.8.11 / 0.8.10
+### Version 0.8.12 and 0.8.11 and 0.8.10
+04/07/2017
 
 #### New
 
@@ -362,7 +454,8 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
     ```
 
 
-### Version 0.8.9 / 0.8.8
+### Version 0.8.9 and 0.8.8
+02/23/2017
 
 #### New
 
@@ -389,6 +482,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - It may take Quick Access a few seconds to navigate to the target resource, depending on how many resources you have.
 - Having more than 3 groups of blobs or files uploading at the same time may cause errors.
 
+12/16/2016
 ### Version 0.8.7
 
 #### New
@@ -415,6 +509,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - Search handles searching across roughly 50,000 nodes - after this, performance may be impacted or may cause unhandled exception
 - For the first time using the Storage Explorer on macOS, you might see multiple prompts asking for user's permission to access keychain. We suggest you select Always Allow so the prompt won't show up again
 
+11/18/2016
 ### Version 0.8.6
 
 #### New
@@ -452,6 +547,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - Having more than 3 groups of blobs or files uploading at the same time may cause errors
 - Search handles searching across roughly 50,000 nodes - after this, performance may be impacted or may cause unhandled exception
 
+10/03/2016
 ### Version 0.8.5
 
 #### New
@@ -472,6 +568,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - Search handles searching across roughly 50,000 nodes - after this, performance may be impacted
 - Azure Stack doesn't currently support Files, so trying to expand Files will show an error
 
+09/12/2016
 ### Version 0.8.4
 
 #### New
@@ -490,6 +587,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 
 - Search handles searching across roughly 50,000 nodes - after this, performance may be impacted
 
+08/03/2016
 ### Version 0.8.3
 
 #### New
@@ -513,6 +611,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename
 - Copying or renaming resources does not work within SAS-attached accounts
 
+07/07/2016
 ### Version 0.8.2
 
 #### New
@@ -533,6 +632,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 
 - macOS install may require elevated permissions
 
+06/15/2016
 ### Version 0.8.0
 
 #### New
@@ -555,6 +655,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - $metrics tables are not visible for Blob Storage accounts
 - Queue messages added programmatically may not be displayed correctly if the messages are encoded using Base64 encoding
 
+05/17/2016
 ### Version 0.7.20160509.0
 
 #### New
@@ -568,6 +669,8 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 #### Known Issues
 
 - Tables: Adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an `Edm.String`, the value will come back through the client API as an Edm.Double
+
+03/31/2016
 
 ### Version 0.7.20160325.0
 
@@ -591,11 +694,15 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 - If we are adding, editing, or importing an entity that has a property with an ambiguously numeric value, such as "1" or "1.0", and the user tries to send it as an `Edm.String`, the value will come back through the client API as an Edm.Double
 - When importing CSV files with multiline records, the data may get chopped or scrambled
 
+02/03/2016
+
 ### Version 0.7.20160129.1
 
 #### Fixes
 
 - Improved overall performance when uploading, downloading and copying blobs
+
+01/14/2016
 
 ### Version 0.7.20160105.0
 
@@ -626,6 +733,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
     - `sudo apt-get upgrade`
     - `sudo apt-get dist-upgrade`
 
+11/18/2015
 ### Version 0.7.20151116.0
 
 #### New

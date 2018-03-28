@@ -1,19 +1,31 @@
+# [SQL Data Warehouse Documentation](index.md)
+
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 ## [Cheat sheet](cheat-sheet.md)
-<!-- Not Available # Quickstarts-->
 
-<!-- Not Available ## [Create and connect - portal](create-data-warehouse-portal.md)-->
+# Quickstarts
+
+## [Create and connect - portal](create-data-warehouse-portal.md)
+## Pause and resume compute
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+## Scale compute
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
+
 
 # Tutorials
-## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - Load WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Concepts
 ## Service features
 ### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
 ### [Performance tiers](performance-tiers.md)
 ### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Scale-out, pause, resume](sql-data-warehouse-manage-compute-overview.md)
 ### [Data warehouse backups](sql-data-warehouse-backups.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
@@ -22,6 +34,7 @@
 ## Security
 ### [Overview](sql-data-warehouse-overview-manage-security.md)
 ### [Authentication](sql-data-warehouse-authentication.md)
+
 
 ## Migrate to SQL Data Warehouse
 ### [Overview](sql-data-warehouse-overview-migrate.md)
@@ -33,15 +46,18 @@
 ### [Overview](design-elt-data-loading.md)
 ### [Best practices](guidance-for-loading-data.md)
 
+
 ## Integrate
 ### [Overview](sql-data-warehouse-overview-integrate.md)
 ### [SQL Database elastic query](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
-## Monitor & tune
-### [Guidelines](resource-classes-for-workload-management.md)
+
+## Query performance
+### [Resource classes](resource-classes-for-workload-management.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Monitor](sql-data-warehouse-manage-monitor.md)
-### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+
+## [Monitor](sql-data-warehouse-manage-monitor.md)
+
 
 ## Develop data warehouses
 ### [Overview](sql-data-warehouse-overview-develop.md)
@@ -73,6 +89,8 @@
 #### [Variable assignment](sql-data-warehouse-develop-variable-assignment.md)
 #### [Views](sql-data-warehouse-develop-views.md)
 
+## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+
 # How-to guides
 ## Service features
 ### [Restore a data warehouse - portal](sql-data-warehouse-restore-database-portal.md)
@@ -84,7 +102,9 @@
 ### [Enable encryption - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
+
 ## Load & move data
+### [New York taxi cab data](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 <!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -102,10 +122,7 @@
 ## Monitor & tune
 ### [Analyze your workload](analyze-your-workload.md)
 
-## Scale out
-<!-- Not Available ### [Manage compute - portal](sql-data-warehouse-manage-compute-portal.md) -->
-### [Manage compute - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [Manage compute - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+<!-- Not Avaialble ## Scale out -->
 <!-- Not Available ### [Automate compute levels](manage-compute-with-azure-functions.md)-->
 
 # Reference
@@ -116,6 +133,7 @@
 ### [SQL DW statements](sql-data-warehouse-reference-tsql-statements.md)
 ## [System views](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST APIs](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Resources
 
@@ -124,9 +142,9 @@
 ## [Feature requests](https://www.azure.cn/support/forums/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
 <!-- Not Available  ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) -->
-<!-- Not Available  ## [Support](sql-data-warehouse-get-started-create-support-ticket.md) -->
+## [Support](https://support.windowsazure.cn/support/support-azure)
 <!-- Not Available  ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse) -->
-
+<!-- ms.date: 03/12/2018 -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->

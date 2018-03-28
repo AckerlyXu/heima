@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -43,6 +43,9 @@ The following table summarizes operating system support for machines replicated 
 **VMware/physical server** | **Hyper-V (with VMM)**
 --- | ---
 64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/>  SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+<!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/> -->
+<!-- Not Available on Oracle Enterprise Linux 6.4, 6.5 <br/><br/> -->
+
 
 ## Linux machine storage
 

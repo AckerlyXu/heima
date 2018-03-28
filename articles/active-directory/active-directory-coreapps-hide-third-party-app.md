@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 1/29/2018
+origin.date: 01/04/2018
+ms.date: 03/05/2018
 ms.author: v-nany
 ms.reviewer: asteen
 ms.custom: it-pro
@@ -28,7 +28,7 @@ If you have an application that you do not want to show on users’ access panel
 ### How do I hide a third-party app from user’s access panel and O365 app launchers?
 
 1.	Sign in to the [Azure portal](https://portal.azure.cn) with an account that's a global admin for the directory.
-2.	Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+2.	Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 3.	On the **Azure Active Directory - *directoryname*** screen (that is, the Azure AD screen for the directory you are managing), select **Enterprise applications**.
 ![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.	On the **Enterprise applications** screen, select **All applications**. You see a list of the apps you can manage.

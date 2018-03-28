@@ -1,6 +1,6 @@
 ---
 title: Create a .NET Service Fabric application in Azure | Azure
-description: Create a .NET application for Azure using the Service Fabric quick start sample.
+description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/02/2018
-ms.date: 02/26/2018
+origin.date: 01/25/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
 
 ---
 
-# Create a .NET Service Fabric application in Azure
+# Quickstart: create a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster.
@@ -46,6 +46,10 @@ To complete this quickstart:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+
+>[!NOTE]
+> The sample application in this quickstart uses features that are not available on Windows 7.
+>
 
 ## Download the sample
 In a command window, run the following command to clone the sample app repository to your local machine.
@@ -123,25 +127,28 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`.
+    <!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
 
-2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field and click **Publish**. For example, `winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`.
+    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
     <!-- Not Available on Party cluster -->
+3. Click **Publish**.
 
-3. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:8080`. You should now see the application running in the cluster in Azure.
+4. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:8080`. You should now see the application running in the cluster in Azure.
 
 ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`.
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`. 
 
+<!-- Not Available on Certificate -->
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`.
+1. Open Service Fabric Explorer in your cluster - for example,`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -173,7 +180,7 @@ To upgrade the application, do the following:
 7. In the **Publish Service Fabric Application** dialog, check the Upgrade the Application checkbox, and click **Publish**.
 
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Open your browser and browse to the cluster address on port 19080 - for example, `http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`.
+8. Open your browser and browse to the cluster address on port 19080 - for example, `http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`.
 9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
     ![Upgrade View in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
@@ -197,4 +204,4 @@ To learn more about Service Fabric and .NET, take a look at this tutorial:
 > [!div class="nextstepaction"]
 > [.NET application on Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

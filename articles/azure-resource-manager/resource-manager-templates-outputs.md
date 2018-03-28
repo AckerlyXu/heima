@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/14/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -54,6 +54,8 @@ For example, you can set the IP address on a load balancer by retrieving a value
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+You cannot use the `reference` function in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 ## Available properties
 
@@ -105,4 +107,4 @@ If you use a template to create public IP addresses, include an outputs section 
 * To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
 
-<!-- Update_Description: new articles about resource manager templates outputs -->
+<!-- Update_Description: update meta properties, wording update -->

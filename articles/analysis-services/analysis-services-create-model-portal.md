@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -25,15 +25,19 @@ The Azure Analysis Services web designer (preview) feature in Azure portal provi
 
 Keep in mind, the web designer is **preview**. While new functionality is being added all the time, in preview, functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
 
-## Prerequisites
+## Before you begin
 
 - An Azure Analysis Services server at the Standard or Developer tier. New models created by using the Web designer are DirectQuery, supported only by these tiers.
 - An Azure SQL Database, Azure SQL Data Warehouse, or Power BI Desktop (.pbix) file as a datasource. New models created from Power BI Desktop files support Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources.
 - A SQL Server account and password for connecting to Azure SQL Database or Azure SQL Data Warehouse data sources.
 
+## Sign in to the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.cn/).
+
 ## To create a new tabular model
 
-1. In your server's **Overview** blade > **Web designer**, click **Open**.
+1. In your server **Overview** > **Web designer**, click **Open**.
 
     ![Create a model in Azure portal](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 
@@ -69,4 +73,4 @@ Your new model appears in your browser. From here, you can:
 [Manage database roles and users](analysis-services-database-users.md)  
 [Connect with Excel](analysis-services-connect-excel.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update, update link -->

@@ -1,5 +1,5 @@
 ---
-title: Monitor Apps in Azure App Service | Azure
+title: Monitor Apps in Azure App Service
 description: Learn how to monitor Apps in Azure App Service by using the Azure Portal.
 services: app-service
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 
 ---
@@ -171,7 +171,7 @@ review: (1) the quotas name, (2) its reset interval, (3) its current limit,
 and (4) current value.
 
 ![][metrics]
-**Metrics** can be access directly from the resource page. You can also
+**Metrics** can be accessed directly from the resource page. You can also
 customize the chart by: (1) **click** on it, and select (2) **edit chart**.
 From here you can change the (3) **time range**, (4) **chart type**, and
 (5) **metrics** to display.  

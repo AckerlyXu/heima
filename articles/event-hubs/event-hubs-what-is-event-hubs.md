@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
-ms.date: 11/20/2017
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
 # What is Event Hubs?
 
-Azure Event Hubs is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. With the ability to provide [publish-subscribe capabilities](https://docs.microsoft.com/en-us/biztalk/core/publish-and-subscribe-architecture) with low latency and at massive scale, Event Hubs serves as the "on ramp" for Big Data.
-
-## Why use Event Hubs?
-
-Event Hubs event and telemetry handling capabilities make it especially useful for:
-
-* Application instrumentation
-* User experience or workflow processing
-* Internet of Things (IoT) scenarios
+Azure Event Hubs is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. With the ability to provide [publish-subscribe capabilities](https://docs.microsoft.com/biztalk/core/publish-and-subscribe-architecture) with low latency and at massive scale, Event Hubs serves as the "on ramp" for Big Data.
 
 For example, Event Hubs enables behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines, connected vehicles, or other devices.
 
@@ -42,7 +34,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 ## Event Hubs features
 
-Event Hubs contains the following key elements:
+Event Hubs features the following key elements:
 
 - [**Event producers/publishers**](event-hubs-features.md#event-publishers): An entity that sends data to an event hub. An event is published via AMQP 1.0 or HTTPS.
 - [**Capture**](event-hubs-features.md#capture): Enables you to capture Event Hubs streaming data and store it in an Azure Blob storage account.
@@ -64,4 +56,4 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

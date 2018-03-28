@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/23/2017
-ms.date: 11/13/2017
+origin.date: 01/10/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
@@ -145,4 +145,4 @@ For more information on Service Fabric concepts, see the following article:
 [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
 
 
-<!--Update_Description: new articles on service fabric concepts replica lifecycle -->
+<!--Update_Description: update meta properties -->

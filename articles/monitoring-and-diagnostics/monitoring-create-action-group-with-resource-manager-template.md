@@ -1,8 +1,8 @@
 ---
 title: Create action groups with Resource Manager templates
 description: Learn how to create an action group by using an Azure Resource Manager template.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/31/2017
-ms.date: 02/26/2018
+origin.date: 02/16/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 
 ---
@@ -32,7 +32,7 @@ First, we describe how to create a Resource Manager template for an action group
 
 ## Resource Manager templates for an action group
 
-To create an action group by using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
+To create an action group using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
 
 ```json
 {
@@ -55,7 +55,7 @@ To create an action group by using a Resource Manager template, you create a res
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -125,7 +125,7 @@ To create an action group by using a Resource Manager template, you create a res
     "webhookReceiverName": {
       "type": "string",
       "metadata": {
-        "description": "Webhook receiver service URI."
+        "description": "Webhook receiver service Name."
       }
     },    
     "webhookServiceUri": {
@@ -138,7 +138,7 @@ To create an action group by using a Resource Manager template, you create a res
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

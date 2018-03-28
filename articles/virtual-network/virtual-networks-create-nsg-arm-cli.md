@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/17/2017
-ms.date: 12/11/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -36,9 +36,9 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login). 
 
-2. Create an NSG using the [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#create) command. 
+2. Create an NSG using the [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_create) command. 
 
     ```azurecli
     az network nsg create \
@@ -74,7 +74,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
         Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
         Deny      Deny all outbound traffic                               *                Outbound          65500
 
-3. Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) command.
+3. Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) command.
 
     > [!NOTE]
     > Depending on the shell you are using, you might need to modify the `*` character in the arguments following so as not to expand the argument before execution.
@@ -167,7 +167,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
     }
     ```
 
-5. Bind the NSG to the **FrontEnd** subnet with the [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update) command.
+5. Bind the NSG to the **FrontEnd** subnet with the [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) command.
 
     ```azurecli
     az network vnet subnet update \
@@ -351,4 +351,4 @@ To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the
     }
     ```
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update link, wording update -->

@@ -8,7 +8,7 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ---
 # Manage an Azure Service Fabric application by using Azure Service Fabric CLI
@@ -179,4 +179,4 @@ the `sfctl application upgrade-rollback` to roll back the upgrade.
 * [Getting started with Service Fabric on Linux](service-fabric-get-started-linux.md)
 * [Launching a Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

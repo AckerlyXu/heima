@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (.NET) | Azure
-description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for .NET. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for .NET. Create simulated device and service apps to register your device, send messages, and read messages from your IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/08/2017
-ms.date: 11/20/2017
+origin.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 ---
 # Connect your device to your IoT hub using .NET
@@ -26,9 +26,9 @@ At the end of this tutorial, you have three .NET console apps:
 * **ReadDeviceToCloudMessages**, which displays the telemetry sent by your device app.
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the MQTT protocol.
 
-You can download or clone the Visual Studio solution, which contains the three apps from Github.
+Follow the steps in this tutorial to create the sample apps from scratch. Alternatively, you can [download](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip) or clone a completed Visual Studio solution from Github:
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 

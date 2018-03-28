@@ -61,7 +61,7 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
 2. To add an OWIN Startup class to the project called `Startup.cs`, right-click the project, select **Add**, select **New Item**, and then search for **OWIN**. The OWIN middleware invokes the **Configuration(...)** method when the app starts.
 3. Change the class declaration to `public partial class Startup`. We've already implemented part of this class for you in another file. In the **Configuration(...)** method, make a call to **ConfgureAuth(...)** to set up authentication for the app.  
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -73,7 +73,7 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
 
 4. Open the App_Start\Startup.Auth.cs file, and then implement the **ConfigureAuth(...)** method. The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the app to communicate with Azure AD. You also need to set up cookie authentication, because the OpenID Connect middleware uses cookies in the background.
 
-     ```C#
+    ```csharp
      public void ConfigureAuth(IAppBuilder app)
      {
          app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -109,7 +109,7 @@ The app is now properly configured to communicate with Azure AD by using the Ope
 
 1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About action.
 
-    ```C#
+    ```csharp
     [Authorize]
     public ActionResult About()
     {
@@ -118,7 +118,7 @@ The app is now properly configured to communicate with Azure AD by using the Ope
 
 2. You can also use OWIN to directly issue authentication requests from within your code. To do so, open Controllers\AccountController.cs. Then, in the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests.
 
-    ```C#
+    ```csharp
     public void SignIn()
     {
         // Send an OpenID Connect sign-in request.
@@ -164,7 +164,7 @@ When it authenticates users with OpenID Connect, Azure AD returns an id_token to
 
 1. Open the Controllers\HomeController.cs file. You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
-    ```C#
+    ```csharp
     public ActionResult About()
     {
         ViewBag.Name = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value;

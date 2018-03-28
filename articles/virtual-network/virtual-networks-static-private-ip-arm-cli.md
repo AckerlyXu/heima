@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/16/2017
-ms.date: 12/11/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -33,17 +33,17 @@ This article covers the Resource Manager deployment model. You can also [manage 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> The following sample Azure CLI commands expect an existing simple environment. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
+> The following sample Azure CLI commands expect an existing simple environment. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](quick-create-cli.md).
 
 ## Specify a static private IP address when creating a VM
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login). 
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-2. Create a public IP for the VM with the [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#create) command. The list shown after the output explains the parameters used.
+2. Create a public IP for the VM with the [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) command. The list shown after the output explains the parameters used.
 
     > [!NOTE]
     > You may want or need to use different values for your arguments in this and subsequent steps, depending upon your environment.
@@ -74,7 +74,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    * `--name`: Name of the public IP.
    * `--location`: Azure region in which to create the public IP.
 
-3. Run the [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
+3. Run the [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
 
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     * `--vnet-name`: Name of the VNet in which to create the NIC.
     * `--subnet`: Name of the subnet in which to create the NIC.
 
-4. Run the [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
+4. Run the [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#az_vm_nic_create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
 
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     }
     ```
 
-   Parameters other than the basic [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) parameters.
+   Parameters other than the basic [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) parameters.
 
    * `--nics`: Name of the NIC to which the VM is attached.
 
@@ -272,4 +272,4 @@ To change the NIC for the VM used in the previous commands, complete the followi
 * Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 * Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: wording update, update link -->

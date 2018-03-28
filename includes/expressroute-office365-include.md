@@ -1,2 +1,1 @@
-> [!IMPORTANT]
-> Using ExpressRoute to access Azure is **recommended** for all enterprises. For guidance on using ExpressRoute to access Office 365 please visit [http://aka.ms/ExpressRouteOffice365](http://aka.ms/ExpressRouteOffice365).
+Software as a Service offerings, like Office 365 and Dynamics 365, were created to be accessed securely and reliably via the Internet. Because of this, we recommend ExpressRoute for these applications only for specific scenarios. For information about using ExpressRoute to access Office 365, visit [Azure ExpressRoute for Office 365](http://aka.ms/ExpressRouteOffice365).

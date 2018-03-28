@@ -9,12 +9,12 @@ editor: tysonn
 
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
@@ -403,8 +403,9 @@ After the deployment is complete, you should see a response similar to the follo
   WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
   WARNING: 2:22:48 PM - Initializing...
   WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
-  WARNING: 2:22:50 PM - Created Website URL: http://tasklist.chinacloudapp.cn/.
+  WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.chinacloudapi.cn/.
 ```
+<!-- Notice: http://tasklist.cloudapp.net/ convert to http://tasklist.chinacloudapp.cn/ -->
 
 By specifying the **-launch** option in the previous cmdlet, the browser opens and displays your application running in Azure when publishing is completed.
 
