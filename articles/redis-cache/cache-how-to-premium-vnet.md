@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 02/28/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
 
 ---
@@ -145,7 +145,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 ### How can I verify that my cache is working in a VNET?
 
 >[!IMPORTANT]
->When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled. This includes any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, Network security groups must be configured such that the client’s network traffic is allowed to reach the Redis instance.
+>When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled. This includes any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, Network security groups must be configured such that the client's network traffic is allowed to reach the Redis instance.
 >
 >
 
