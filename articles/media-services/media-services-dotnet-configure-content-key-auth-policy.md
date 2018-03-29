@@ -56,7 +56,7 @@ For more information, see the following articles:
 Open restriction means the system delivers the key to anyone who makes a key request. This restriction might be useful for testing purposes.
 
 The following example creates an open authorization policy and adds it to the content key:
-
+```csharp
 	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
 	{
 		// Create ContentKeyAuthorizationPolicy with Open restrictions
@@ -92,13 +92,13 @@ The following example creates an open authorization policy and adds it to the co
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
     }
-
+```
 
 ### Token restriction
 This section describes how to create a content key authorization policy and associate it with the content key. The authorization policy describes what authorization requirements must be met to determine if the user is authorized to receive the key. For example, does the verification key list contain the key that the token was signed with?
 
 To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the following XML schema:
-
+```csharp
 #### <a id="schema"></a>Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -146,12 +146,12 @@ To configure the token restriction option, you need to use an XML to describe th
       </xs:complexType>
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
-
+```
 When you configure the token-restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the STS that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 When you use the Media Services SDK for .NET, you can use the TokenRestrictionTemplate class to generate the restriction token.
 The following example creates an authorization policy with a token restriction. In this example, the client must present a token that contains a signing key (VerificationKey), a token issuer, and required claims.
-
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -205,10 +205,10 @@ The following example creates an authorization policy with a token restriction. 
 
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
-
+```
 #### <a id="test"></a>Test token
 To get a test token based on the token restriction that was used for the key authorization policy, do the following:
-
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -224,7 +224,7 @@ To get a test token based on the token restriction that was used for the key aut
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
     Console.WriteLine();
-
+```
 
 ## PlayReady dynamic encryption
 You can use Media Services to configure the rights and restrictions that you want the PlayReady DRM runtime to enforce when a user tries to play back protected content. 
@@ -236,6 +236,7 @@ Open restriction means the system delivers the key to anyone who makes a key req
 
 The following example creates an open authorization policy and adds it to the content key:
 
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
 
@@ -272,10 +273,12 @@ The following example creates an open authorization policy and adds it to the co
         contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
         contentKey = contentKey.UpdateAsync().Result;
     }
+```
 
 ### Token restriction
 To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the XML schema shown in the "[Token restriction schema](#token-restriction-schema)" section.
 
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -381,20 +384,25 @@ To configure the token restriction option, you need to use an XML to describe th
 
         return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
     }
-
+```
 
 To get a test token based on the token restriction that was used for the key authorization policy, see the "[Test token](#test-token)" section. 
 
 ## <a id="types"></a>Types used when you define ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
+```csharp
     public enum ContentKeyRestrictionType
     {
         Open = 0,
         TokenRestricted = 1,
         IPRestricted = 2,
     }
+```
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+```csharp 
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -402,16 +410,20 @@ To get a test token based on the token restriction that was used for the key aut
       BaselineHttp = 2,
       Widevine = 3
     }
+```
 
 ### <a id="TokenType"></a>TokenType
+
+```csharp
     public enum TokenType
     {
         Undefined = 0,
         SWT = 1,
         JWT = 2,
     }
+```
 
 
 ## Next steps
-Now that you have configured content key's authorization policy, go to [How to configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
+Now that you have configured the content key's authorization policy, see [Configure an asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 

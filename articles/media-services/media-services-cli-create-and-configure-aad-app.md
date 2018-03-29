@@ -26,6 +26,14 @@ This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azu
 - An Azure account. For details, see [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 - A Media Services account. For more information, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 
+## Use the Azure Cloud Shell
+
+1. Sign in to the [Azure portal](https://portal.azure.cn/).
+2. Launch the Cloud Shell from the upper navigation pane of the portal.
+
+	![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
+
+
 ## Create an Azure AD app and configure access to the media account with CLI 2.0
 
 ```azurecli
@@ -43,10 +51,10 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 In this example, the **scope** is the full resource path for the media services account. However, the **scope** can be at any level.
 
 For example, it could be one of the following levels:
-
-- The **subscription** level.
-- The **resource group** level.
-- The **resource** level (for example, a Media account).
+ 
+* The **subscription** level.
+* The **resource group** level.
+* The **resource** level (for example, a Media account).
 
 For more information, see [Create an Azure service principal with Azure CLI 2.0](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli)
 

@@ -47,9 +47,7 @@ The code example in this section does the following:
 5. Attaches the notification end point to the job and submits the encoding job. You can have multiple notification end points attached to a job.
 6. Passes **NotificationJobState.FinalStatesOnly** to the **AddNew** method. (In this example, we are only interested in final states of the job processing.)
 
-    ```
-    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-    ```
+        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
 7. If you pass **NotificationJobState.All**, you get all of the following state change notifications: queued, scheduled, processing, and finished. However, as noted earlier, Queue storage does not guarantee ordered delivery. To order messages, use the **Timestamp** property (defined on the **EncodingJobMessage** type in the example below). Duplicate messages are possible. To check for duplicates, use the **ETag property** (defined on the **EncodingJobMessage** type). It is also possible that some state change notifications get skipped.
 8. Waits for the job to get to the finished state by checking the queue every 10 seconds. Deletes messages after they have been processed.
 9. Deletes the queue and the notification end point.
@@ -69,7 +67,7 @@ The code example in this section does the following:
 
 ### Code
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;
@@ -153,7 +151,7 @@ namespace JobNotification
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 

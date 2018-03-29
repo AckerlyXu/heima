@@ -2,12 +2,10 @@
 title: Starting an Azure Automation runbook with a webhook | Azure
 description: A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook.
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
 
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
 ms.devlang: na
 ms.topic: article

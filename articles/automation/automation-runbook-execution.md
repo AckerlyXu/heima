@@ -2,17 +2,13 @@
 title: Runbook execution in Azure Automation | Azure
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
 
-ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 11/15/2017
 ms.date: 01/15/2018
 ms.author: v-nany

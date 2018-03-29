@@ -2,12 +2,8 @@
 title: Learning PowerShell Workflow for Azure Automation | Azure
 description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow and concepts applicable to Automation runbooks.
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: tysonn
-
-ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
 ms.devlang: na
 ms.topic: article

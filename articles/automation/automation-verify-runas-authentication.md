@@ -2,12 +2,10 @@
 title: Validate Azure Automation account configuration | Azure
 description: This article describes how to confirm the configuration of your Automation account is setup correctly.  
 services: automation
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: ''
 
-ms.assetid: 
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
