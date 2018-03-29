@@ -5,9 +5,8 @@ services: sql-database
 documentationCenter: na
 authors: hayley244
 manager: digimobile
-editor: ''
-
 ms.service: sql-database
+ms.custom: develop apps
 ms.topic: article
 origin.date: 07/12/2016
 ms.date: 07/31/2017

@@ -2,17 +2,11 @@
 title: Create & manage Azure SQL servers & databases | Microsoft Docs
 description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases.
 services: sql-database
-documentationcenter: na
 author: forester123
 manager: digimobile
-editor: ''
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
@@ -21,32 +15,19 @@ ms.author: v-johch
 
 # Create and manage Azure SQL Database servers and databases
 
-An Azure SQL database is a managed database in Azure that is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region. 
+SQL Database offers two types of databases:
 
-## An Azure SQL database can be a single, pooled, or partitioned database
+- A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
+- A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
 
-An Azure SQL database can be:
+ Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
 
-- A [single database](sql-database-single-database-resources.md) with its own set of resources
-- Part of an [elastic pool](sql-database-elastic-pool.md) that shares a set of resources
-- Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
-
-> [!TIP]
-> For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 
->
-
-- The default database collation used by Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
-- Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later.
-- Only TCP/IP connections are allowed.
 
 ## What is an Azure SQL logical server?
 
-A logical server acts as a central administrative point for multiple databases, including [elastic pools](sql-database-elastic-pool.md) [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server. 
+A logical server acts as a central administrative point for multiple single or [pooled](sql-database-elastic-pool.md) databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server.
 
-
-> [!IMPORTANT]
-> In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features.
-> 
+A logical server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. 
 
 When you create a logical server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database supports SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). Windows Authentication is not supported. 
 
@@ -150,7 +131,7 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 |[az group create](/cli/group#az_group_create)|Creates a resource group|
 |[az sql server create](/cli/sql/server#az_sql_server_create)|Creates a server|
 |[az sql server list](/cli/sql/server#az_sql_server_list)|Lists servers|
-|[az sql server list-usages](/cli/sql/server#az_sql_server_list-usages)|Returns  server usages|
+|[az sql server list-usages](/cli/sql/server#az_sql_server_list_usages)|Returns  server usages|
 |[az sql server show](/cli/sql/server#az_sql_server_show)|Gets a server|
 |[az sql server update](/cli/sql/server#az_sql_server_update)|Updates a server|
 |[az sql server delete](/cli/sql/server#az_sql_server_delete)|Deletes a server|
@@ -195,7 +176,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 ## Manage Azure SQL servers, databases, and firewalls using the REST API
 
-To create and manage Azure SQL server, databases, and firewalls use these REST API requests.
+To create and manage Azure SQL server, databases, and firewalls, use these REST API requests.
 
 | Command | Description |
 | --- | --- |
@@ -205,13 +186,12 @@ To create and manage Azure SQL server, databases, and firewalls use these REST A
 |[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Returns a list of servers.|
 |[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Updates an existing server.|
-|Servers - Sql|Determines whether a resource can be created with the specified name.|
 |[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
 |[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Gets a database.|
 |[Databases - Get By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
 |[Databases - Get By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/getbyrecommendedelasticpool)|Gets a database inside of a recommented elastic pool.|
 |[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
-|[Databases - List By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
+|[Databases - List By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommended elastic pool.|
 |[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
 |[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Updates an existing database.|
 |[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|

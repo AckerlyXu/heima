@@ -2,18 +2,11 @@
 title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
 description: Use auto-failover groups with active geo-replication and enable autoomatic failover in the event of an outage.
 services: sql-database
-documentationcenter: na
 author: forester123
 manager: digimobile
-editor: monicar
-
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: NA
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch

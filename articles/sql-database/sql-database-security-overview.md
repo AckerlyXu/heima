@@ -2,19 +2,12 @@
 title: Azure SQL Database Security Overview | Microsoft Docs
 description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.reviewer: carlrab
-editor: ''
-
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-management
 origin.date: 01/29/2018
 ms.date: 02/28/2018
 ms.author: v-nany
@@ -29,7 +22,7 @@ For a complete overview of security features available on all flavors of SQL, se
 ## Protect data
 
 ### Encryption
-SQL Database secures you data by providing encryption for data in motion with [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest with [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL Database secures your data by providing encryption for data in motion with [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest with [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. 
@@ -84,6 +77,21 @@ Threat Detection complements auditing, by providing an additional layer of secur
  
 ## Compliance
 In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Azure Trust Center](https://www.trustcenter.cn/), where you can find the most current list of [SQL Database compliance certifications](https://www.trustcenter.cn/zh-cn/compliance/default.html).
+
+
+## Security management
+
+SQL Database helps you manage your data security by providing database scans and a centralized security dashboard using [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
+
+**Vulnerability Assessment**: [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (currently in preview) is an easy to configure tool built into Azure SQL Database that can help you discover, track, and remediate potential database vulnerabilities. The assessment executes a vulnerability scan on your database, and generates a report that gives you visibility into your security state, including actionable steps to resolve security issues and enhance your database security. The assessment report can be customized for your environment, by setting an acceptable baseline for permission configurations, feature configurations, and database settings. This can help you to:
+
+- Meet compliance requirements that require database scan reports. 
+
+- Meet data privacy standards. 
+
+- Monitor a dynamic database environment where changes are difficult to track.
+
+For more information, see [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
 
 ## Next steps
 

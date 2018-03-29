@@ -7,14 +7,10 @@ author: Hayley244
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-
-ms.assetid:
 ms.service: sql-database
-ms.custom: sample
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: sql-database
-ms.workload: database
+ms.custom: overview-samples, mvc
+ms.devlang: PowerShell
+ms.topic: sample
 origin.date: 06/23/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya

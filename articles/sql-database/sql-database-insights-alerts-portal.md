@@ -3,16 +3,9 @@ title: Use Azure portal to create SQL Database alerts | Azure
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
 author: forester123
 manager: digimobile
-editor: ''
 services: sql-database
-documentationcenter: ''
-
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.date: 10/02/2017

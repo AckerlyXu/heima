@@ -2,17 +2,11 @@
 title: Manage Azure SQL Databases using Azure Automation | Azure
 description: Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale.
 services: sql-database, automation
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: monicar
 
-ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
 ms.service: sql-database
-ms.custom: overview
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: monitor & tune
 ms.topic: article
 origin.date: 02/03/2017
 ms.date: 07/03/2017

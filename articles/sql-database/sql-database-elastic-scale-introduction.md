@@ -2,17 +2,11 @@
 title: Scaling out with Azure SQL Database | Azure
 description: Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools
 services: sql-database
-documentationCenter: ''
 manager: digimobile
 author: Hayley244
-editor: ''
 
-ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
 ms.date: 07/10/2017

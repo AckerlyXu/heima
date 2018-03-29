@@ -2,19 +2,11 @@
 title: Design your first Azure SQL database | Microsoft Docs
 description: Learn to design your first Azure SQL database in the Azure portal and with SQL Server Management Studio.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop databases
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "Active"
 origin.date: 01/29/2018
 ms.date: 02/28/2018
 ms.author: v-johch
@@ -54,7 +46,7 @@ Follow these steps to create a blank SQL database.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
+2. Select **Databases** from the **New** page and select **Create** under **SQL Database** on the **New** page.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -136,7 +128,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 Get the fully qualified server name for your Azure SQL Database server in the Azure Portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
 1. Log in to the [Azure portal](https://portal.azure.cn/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
+2. Select **SQL Databases** from the left-hand menu and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
    ![connection information](./media/sql-database-get-started-portal/server-name.png)

@@ -2,18 +2,12 @@
 title: Azure SQL Database Azure Case Study - Daxko/CSI | Azure
 description: Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
 
-ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "Inactive"
 origin.date: 01/10/2017
 ms.date: 01/08/2018
 ms.author: v-nany

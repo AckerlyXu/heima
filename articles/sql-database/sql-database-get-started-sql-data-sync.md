@@ -2,17 +2,10 @@
 title: Set up Azure SQL Data Sync (Preview) | Azure
 description: This tutorial shows you how to set up Azure SQL Data Sync (Preview)
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: "Active"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/13/2017
 ms.date: 12/11/2017

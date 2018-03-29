@@ -1,23 +1,21 @@
 ---
-title: Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Azure
+title: Rolling application upgrades - Azure SQL Database | Azure
 description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
 services: sql-database
-documentationCenter: ''
 author: Hayley244
 manager: digimobile
-editor: monicar
 
 ms.service: sql-database
+ms.custom: business continuity
 ms.topic: article
 origin.date: 07/16/2016
 ms.date: 07/03/2017
 ms.author: v-johch
 ---
-
-# Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
-
+# Managing rolling upgrades of cloud applications using SQL Database active geo-replication
 > [!NOTE]
-> [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
+> [Active geo-replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
+> 
 
 Learn how to use [geo-replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end-user experience. 
 
@@ -36,8 +34,9 @@ If your application relies on automatic database backups and uses geo-restore fo
 
 > [!NOTE]
 > Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
+>  
 
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
 
@@ -63,6 +62,8 @@ At this point the application is fully functional and the upgrade steps can be r
 
 > [!NOTE]
 > The rollback does not require changes in WATM profile as it already points to <i>contoso-1.chinacloudsites.cn</i> as the active endpoint.
+> 
+> 
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
@@ -72,8 +73,8 @@ The key **advantage** of this option is that you can upgrade an application in a
 
 If your application leverages Geo-Replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
-+ The application remains protected from catastrophic failures at all times during the upgrade process
-+ The geo-redundant components of the application are upgraded in parallel with the active components
+* The application remains protected from catastrophic failures at all times during the upgrade process
+* The geo-redundant components of the application are upgraded in parallel with the active components
 
 To achieve these goals you will leverage Azure Traffic Manager (WATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.chinacloudsites.cn</i> and <i>contoso-dr.chinacloudsites.cn</i> represent a production slot of the application with full geographic redundancy. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
 
@@ -121,21 +122,9 @@ The key **advantage** of this option is that you can upgrade both the applicatio
 The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
 ## Next steps
+* For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
+* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+* To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md).
+* To learn about faster recovery options, see [active geo-replication](sql-database-geo-replication-overview.md).
 
-- For a business continuity overview and scenarios, see [Business continuity overview](./sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](./sql-database-automated-backups.md)
-- To learn about using automated backups for recovery, see [restore a database from automated backups](./sql-database-recovery-using-backups.md)
-- To learn about faster recovery options, see [Active-Geo-Replication](./sql-database-geo-replication-overview.md)  
-- To learn about using automated backups for archiving, see [database copy](./sql-database-copy.md)
 
-## Additionale Resources
-
-The following pages will help you learn about the specific operations required to implement the upgrade workflow:
-
-- [Add secondary database](https://msdn.microsoft.com/zh-cn/library/azure/mt603689.aspx) 
-- [Failover database to secondary](https://msdn.microsoft.com/zh-cn/library/azure/mt619393.aspx)
-- [Disconnect geo-replication secondary](https://msdn.microsoft.com/zh-cn/library/azure/mt603457.aspx)
-- [Geo-restore database](https://msdn.microsoft.com/zh-cn/library/azure/mt693390.aspx) 
-- [Drop database](https://msdn.microsoft.com/zh-cn/library/azure/mt619368.aspx)
-- [Copy database](https://msdn.microsoft.com/zh-cn/library/azure/mt603644.aspx)
-- [Set database to read-only or read-write mode](https://msdn.microsoft.com/zh-cn/library/bb522682.aspx)

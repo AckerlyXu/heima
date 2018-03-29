@@ -3,17 +3,10 @@ title: 'Azure portal: Create a SQL database | Microsoft Docs'
 description: Create a SQL Database logical server, server-level firewall rule, and database in the Azure portal, and query it. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: quickstart
 origin.date: 02/16/2018
 ms.date: 02/28/2018

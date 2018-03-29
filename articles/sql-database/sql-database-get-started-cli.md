@@ -3,16 +3,10 @@ title: 'Azure CLI: Create a SQL database | Azure'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure CLI. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 10/11/2017

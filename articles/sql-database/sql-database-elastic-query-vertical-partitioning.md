@@ -2,16 +2,11 @@
 title: Query across cloud databases with different schema | Azure
 description: how to set up cross-database queries over vertical partitions
 services: sql-database
-documentationCenter: ''
 manager: digimobile
 author: yunan2016
 
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
 ms.date: 01/08/2018

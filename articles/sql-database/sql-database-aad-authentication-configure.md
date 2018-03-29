@@ -2,19 +2,12 @@
 title: Configure Azure Active Directory authentication - SQL | Azure
 description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication.
 services: sql-database
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: ''
-tags: ''
 
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 01/09/2018
 ms.date: 1/22/2018
 ms.author: v-haiqya
@@ -51,14 +44,14 @@ The following two procedures show you how to provision an Azure Active Directory
 1. In the [Azure portal](https://portal.azure.cn/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)   
     ![choose-ad][8]   
     
-2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, click **Active Directory admin**.   
-3. In the **Active Directory admin** blade, click **Set admin**.   
+2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** page, click **Active Directory admin**.   
+3. In the **Active Directory admin** page, click **Set admin**.   
     ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.   
+4. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.   
     ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. At the top of the **Active Directory admin** blade, click **SAVE**.   
+5. At the top of the **Active Directory admin** page, click **SAVE**.   
     ![save admin](./media/sql-database-aad-authentication/save-admin.png)   
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
@@ -68,7 +61,7 @@ The process of changing the administrator may take several minutes. Then the new
    > 
 
 
-To later remove an Admin, at the top of the **Active Directory admin** blade, click **Remove admin**, and then click **Save**.
+To later remove an Admin, at the top of the **Active Directory admin** page, click **Remove admin**, and then click **Save**.
 
 ### PowerShell
 To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -86,7 +79,7 @@ Cmdlets used to provision and manage Azure AD admin:
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
 | [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
 
-Use PowerShell command get-help to see more details for each of these commands, for example ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+Use PowerShell command get-help to see more information for each of these commands, for example ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
 The following script provisions an Azure AD administrator group named **DBA_Group** (object id `40b79501-b343-44ed-9ce7-da4c8cc7353f`) for the **demo_server** server in a resource group named **Group-23**:
 
@@ -109,7 +102,7 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 ```
 
 > [!NOTE]
-> The Azure AD **ObjectID** is required when the **DisplayName** is not unique. To retrieve the **ObjectID** and **DisplayName** values, use the Active Directory section of Azure  Portal, and view the properties of a user or group.
+> The Azure AD **ObjectID** is required when the **DisplayName** is not unique. To retrieve the **ObjectID** and **DisplayName** values, use the Active Directory section of Azure Classic Portal, and view the properties of a user or group.
 > 
 
 The following example returns information about the current Azure AD admin for Azure SQL server:

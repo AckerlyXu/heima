@@ -1,19 +1,12 @@
 ---
-title: Azure SQL Database Features Overview | Azure
-description: This page provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature.
+title: Azure SQL Database feature comparison | Azure
+description: This article compares the features of Azure SQL Database and Managed Instances with each other and with SQL Server.
 services: sql-database
-documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
+ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/08/2018
 ms.date: 02/28/2018
 ms.author: v-nany

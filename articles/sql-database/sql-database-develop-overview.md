@@ -2,17 +2,11 @@
 title: SQL Database Application Development Overview | Azure
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: genemi
-
-ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2016
 ms.date: 10/02/2017

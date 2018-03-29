@@ -2,19 +2,11 @@
 title: Granting access to Azure SQL Database | Azure
 description: Learn about granting access to Microsoft Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/06/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya

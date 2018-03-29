@@ -9,6 +9,7 @@ ms.topic: "article"
 ms.service: "sql-database"
 author: "yunan2016"
 manager: "digimobile"
+ms.custom: data-sync
 ---
 # Troubleshoot issues with SQL Data Sync (Preview)
 
@@ -129,7 +130,7 @@ You can also turn on logging for all installations that are performed by Windows
 
 You get the following messages when you attempt to use the client agent:
 
-"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more details."
+"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more information."
 
 "Inner exception message: Type 'Microsoft.Synchronization.ChangeBatch' is an invalid collection type since it does not have a default constructor."
 
