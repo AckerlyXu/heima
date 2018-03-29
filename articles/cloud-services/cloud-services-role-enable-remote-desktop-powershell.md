@@ -13,7 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+origin.date: 07/18/2017
+ms.date: 04/02/2018
 ms.author: v-yiso
 
 ---
@@ -23,7 +24,7 @@ ms.author: v-yiso
 > [!div class="op_single_selector"]
 > * [Azure portal](./cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
-> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 >
 >
 
@@ -33,7 +34,7 @@ This article describes how to enable remote desktop on your Cloud Service Roles 
 
 ## Configure Remote Desktop from PowerShell
 
-The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn495117.aspx) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter that accepts a PSCredential object.
+The [Set-AzureServiceRemoteDesktopExtension](https://docs.microsoft.com/en-us/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter that accepts a PSCredential object.
 
 If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/zh-cn/library/hh849815.aspx) cmdlet. 
 
@@ -108,4 +109,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

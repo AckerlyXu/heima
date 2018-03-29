@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 03/19/2018
+ms.date: 04/09/2018
 ms.author: v-yiso
 
 ---
@@ -47,13 +47,13 @@ You can detect this is a Service Health alert by looking at `context.eventSource
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## Creating a direct link to Azure service health for an incident
-You can create a direct link to your personalized Azure Service Health incident on desktop or mobile by generating a specialized URL. Use the `trackingId`, as well as the first and last three digits of your `subscriptionId`, to form:
+## Creating a direct link to the Service Health dashboard for an incident
+You can create a direct link to your Service Health dashboard on desktop or mobile by generating a specialized URL. Use the `trackingId`, as well as the first and last three digits of your `subscriptionId`, to form:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-For example, if your `subscriptionId` is `bba14129-e895-429b-8809-278e836ecdb3` and your `trackingId` is `0DET-URB`, then your personalized Azure Service Health URL is:
+For example, if your `subscriptionId` is `bba14129-e895-429b-8809-278e836ecdb3` and your `trackingId` is `0DET-URB`, then your Service Health URL is:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3

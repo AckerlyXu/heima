@@ -40,7 +40,7 @@
 ## Cache
 ### [Add caching to improve performance](api-management-howto-cache.md)
 ## Secure your backend
-### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
+### [Protect your API with Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
 ### [Connect to an internal virtual network](api-management-using-with-internal-vnet.md)
 ### [Integrate Application Gateway in an internal VNET](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -48,7 +48,7 @@
 ## Customize the developer experience
 ### [Modify page content and layout](api-management-modify-content-layout.md)
 ### [Customize system pages using templates](api-management-developer-portal-templates.md)
-### [Authentication with AAD](api-management-howto-aad.md)
+### [Authentication with Azure AD](api-management-howto-aad.md)
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](api-management-howto-oauth2.md)
@@ -95,6 +95,7 @@
 ## [REST (original)](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 # Resources
 ## [FAQ](api-management-faq.md)
+## [Regional availability](https://www.azure.cn/support/service-dashboard/)
 ## [API design guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [API implementation guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
