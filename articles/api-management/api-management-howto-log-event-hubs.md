@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/09/2018
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
@@ -31,20 +31,20 @@ Now that you have an Event Hub, the next step is to configure a [Logger](https:/
 
 API Management loggers are configured using the [API Management REST API](http://aka.ms/smapi). Before using the REST API for the first time, review the [prerequisites](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) and ensure that you have [enabled access to the REST API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-To create a logger, make an HTTP PUT request using the following URL template.
+To create a logger, make an HTTP PUT request using the following URL template:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.cn/loggers/{new logger name}?api-version=2017-03-01`
 
 * Replace `{your service}` with the name of your API Management service instance.
 * Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
 
-Add the following headers to the request.
+Add the following headers to the request:
 
 * Content-Type : application/json
 * Authorization : SharedAccessSignature 58...
   * For instructions on generating the `SharedAccessSignature` see [Azure API Management REST API Authentication](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-Specify the request body using the following template.
+Specify the request body using the following template:
 
 ```json
 {
@@ -89,7 +89,7 @@ Once your logger is configured in API Management, you can configure your log-to-
 
 Replace `logger-id` with the name of the API Management logger you configured in the previous step.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example a string containing the date and time, service name, request id, request ip address, and operation name is logged.
+You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string containing the date and time, service name, request id, request ip address, and operation name is logged.
 
 Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
 
@@ -99,7 +99,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
-  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitor your APIs with Azure API Management, Event Hubs and Runscope](./api-management-log-to-eventhub-sample.md)    
 

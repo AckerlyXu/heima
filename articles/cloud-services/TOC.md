@@ -1,3 +1,5 @@
+# [Cloud Services Documentation](index.md)
+
 # Overview
 ## [What is Cloud Services?](cloud-services-choose-me.md)
 ## [Cloud service config files and packaging](cloud-services-model-and-package.md)
@@ -16,8 +18,6 @@
 ### [Create PHP web and worker roles](../cloud-services-php-create-web-role.md)
 ### [Build and deploy a Node.js application](cloud-services-nodejs-develop-deploy-app.md)
 ### [Build a Node.js web application using Express](cloud-services-nodejs-develop-deploy-express-app.md)
-### Configure packages for continuous build and deploy
-#### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
@@ -30,6 +30,7 @@
 ### Configure Remote Desktop
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Deploy
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)

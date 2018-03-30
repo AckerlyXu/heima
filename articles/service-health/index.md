@@ -1,5 +1,5 @@
 ---
-title: Azure Service Health | Microsoft Docs
+title: Azure Service Health 
 description: Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you.
 services: Azure Service Health
 author: czeumault
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 07/07/2017
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: v-yiso
 ---
 # Azure Service Health Documentation

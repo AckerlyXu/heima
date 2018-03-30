@@ -1,5 +1,5 @@
 ---
-title: What is a Cloud Service model and package | Microsoft Docs
+title: What is a Cloud Service model and package
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
 documentationcenter: ''
@@ -256,16 +256,16 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Where the variables are defined as follows:
 
-| Variable                  | Value |
-| ------------------------- | ----- |
-| \[DirectoryName\]         | The subdirectory under the root project directory that contains the .csdef file of the Azure project.|
-| \[ServiceDefinition\]     | The name of the service definition file. By default, this file is named ServiceDefinition.csdef.  |
-| \[OutputFileName\]        | The name for the generated package file. Typically, this is set to the name of the application. If no file name is specified, the application package is created as \[ApplicationName\].cspkg.|
-| \[RoleName\]              | The name of the role as defined in the service definition file.|
-| \[RoleBinariesDirectory] | The location of the binary files for the role.|
-| \[VirtualPath\]           | The physical directories for each virtual path defined in the Sites section of the service definition.|
-| \[PhysicalPath\]          | The physical directories of the contents for each virtual path defined in the site node of the service definition.|
-| \[RoleAssemblyName\]      | The name of the binary file for the role.| 
+| Variable | Value |
+| --- | --- |
+| \[DirectoryName\] |The subdirectory under the root project directory that contains the .csdef file of the Azure project. |
+| \[ServiceDefinition\] |The name of the service definition file. By default, this file is named ServiceDefinition.csdef. |
+| \[OutputFileName\] |The name for the generated package file. Typically, this is set to the name of the application. If no file name is specified, the application package is created as \[ApplicationName\].cspkg. |
+| \[RoleName\] |The name of the role as defined in the service definition file. |
+| \[RoleBinariesDirectory] |The location of the binary files for the role. |
+| \[VirtualPath\] |The physical directories for each virtual path defined in the Sites section of the service definition. |
+| \[PhysicalPath\] |The physical directories of the contents for each virtual path defined in the site node of the service definition. |
+| \[RoleAssemblyName\] |The name of the binary file for the role. |
 
 ## Next steps
 
@@ -283,7 +283,7 @@ I am using Visual Studio and I want to...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
