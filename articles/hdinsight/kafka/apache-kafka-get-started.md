@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/20/2018
-ms.date: 03/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 ---
 # Start with Apache Kafka on HDInsight
@@ -36,6 +36,15 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
     * **Cluster Name**: The name of the HDInsight cluster. This name must be unique.
     * **Subscription**: Select the subscription to use.
+    * **Cluster Type**: Select this entry, and then set the following values from **Cluster configuration**:
+
+        * **Cluster Type**: Kafka
+        * **Version**: Kafka 0.10.0 (HDI 3.6)
+
+        Use the **Select** button to save the cluster type settings.
+
+        ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
     * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
     * **Resource Group**: The resource group to create the cluster in.
@@ -46,19 +55,9 @@ To create a Kafka on HDInsight cluster, use the following steps:
    
  ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Select **Cluster type**, and then set the following values from **Cluster configuration**:
+3. Use the __Next__ button to finish basic configuration.
 
-    * **Cluster Type**: Kafka
-
-    * **Version**: Kafka 0.10.0 (HDI 3.6)
-
-    Finally, use the **Select** button to save settings.
-     
- ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
-
-5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
+4. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
 
     ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 

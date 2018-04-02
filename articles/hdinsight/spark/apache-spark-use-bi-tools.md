@@ -165,6 +165,7 @@ The Power BI service allows you to share reports and dashboards across your orga
 
 Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
+<!--
 ## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
@@ -206,6 +207,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
     ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## Next steps
 

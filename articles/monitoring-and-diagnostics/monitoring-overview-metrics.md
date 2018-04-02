@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 04/16/2018
 ms.author: v-yiso
 ---
 
@@ -114,7 +114,7 @@ Metric alerts: They can then notify you via email or fire a webhook that can be 
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Leran more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
+Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Learn more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### Autoscale your Azure resources
