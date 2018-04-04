@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/04/2017
-ms.date: 09/11/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
 ---
 # How to containerize your Service Fabric Reliable Services and Reliable Actors (Preview)
 
 Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services). For more information, see [service fabric containers](service-fabric-containers-overview.md).
 
- This feature is in preview and this article provides the various steps to get your service running inside a container.  
+This feature is in preview and this article provides the various steps to get your service running inside a container.  
 
 > [!NOTE]
-> This feature is in preview and is not supported in production. Currently this feature only works for Windows.
+> This feature is in preview and is not supported in production. Currently this feature only works for Windows. To run containers, the cluster must be running on Windows Server 2016 with Containers.
 
 ## Steps to containerize your Service Fabric Application
 
@@ -110,4 +110,4 @@ You should now have a containerized Service Fabric application running your clus
 * Learn more about running [containers on Service Fabric](service-fabric-get-started-containers.md).
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 
-<!--Update_Description: new articles of inside containerss in service fabric -->
+<!--Update_Description: update meta properties, update link  -->

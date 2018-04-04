@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -95,4 +95,4 @@ Development tooling is also different between Windows and Linux. Visual Studio, 
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties -->

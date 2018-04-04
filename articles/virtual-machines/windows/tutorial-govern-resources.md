@@ -21,7 +21,7 @@ ms.author: v-yeche
 
 [!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 
 If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
 
@@ -72,56 +72,8 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
-
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [Get-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) command:
-
-```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
-```
-
-You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
-
-* Limit the locations for all resources.
-* Limit the SKUs for virtual machines.
-* Audit virtual machines that do not use managed disks.
-
-In the following example, you retrieve three policy definitions based on the display name. You use the [New-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
-
-```azurepowershell-interactive
-# Values to use for parameters
-$locations ="chinaeast", "chinaeast2"
-$skus = "Standard_DS1_v2", "Standard_E2s_v2"
-
-# Get the resource group
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
-
-# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
-
-# Assign policy for allowed locations
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $locationDefinition `
-  -listOfAllowedLocations $locations
-
-# Assign policy for allowed SKUs
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $skuDefinition `
-  -listOfAllowedSKUs $skus
-
-# Assign policy for auditing unmanaged disks
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $auditDefinition
-```
+<!-- Not Avaiable on ## Azure policies -->
+<!-- Not Avaiable on ### Apply policies -->
 
 ## Deploy the virtual machine
 

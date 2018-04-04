@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/11/2017
-ms.date: 02/26/2018
+origin.date: 02/28/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -60,10 +60,10 @@ View of the cluster with Service Fabric Explorer:
 >
 
 ## Health queries
-Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
+Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
 
 > [!NOTE]
-> A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions are not satisfied, the health queries return a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) with [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` that shows why the entity is not returned.
+> A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions are not satisfied, the health queries return a [FabricException](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) with [FabricErrorCode](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricerrorcode?view=azure-dotnet) `FabricHealthEntityNotFound` that shows why the entity is not returned.
 >
 >
 
@@ -92,7 +92,7 @@ Returns the health of the cluster entity and contains the health states of appli
 * [Optional] Filter to include fabric:/System health statistics in the health statistics. Only applicable when the health statistics are not excluded. By default, the health statistics include only statistics for user applications and not the System application.
 
 ### API
-To get cluster health, create a `FabricClient` and call the [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) method on its **HealthManager**.
+To get cluster health, create a `FabricClient` and call the [GetClusterHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync?view=azure-dotnet) method on its **HealthManager**.
 
 The following call gets the cluster health:
 
@@ -100,7 +100,7 @@ The following call gets the cluster health:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-The following code gets the cluster health by using a custom cluster health policy and filters for nodes and applications. It specifies that the health statistics include the fabric:/System statistics. It creates [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), which contains the input information.
+The following code gets the cluster health by using a custom cluster health policy and filters for nodes and applications. It specifies that the health statistics include the fabric:/System statistics. It creates [ClusterHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.clusterhealthquerydescription?view=azure-dotnet), which contains the input information.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -236,7 +236,7 @@ Returns the health of a node entity and contains the health events reported on t
 * [Optional] Filters for events that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). All events are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get node health through the API, create a `FabricClient` and call the [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) method on its HealthManager.
+To get node health through the API, create a `FabricClient` and call the [GetNodeHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync?view=azure-dotnet) method on its HealthManager.
 
 The following code gets the node health for the specified node name:
 
@@ -244,7 +244,7 @@ The following code gets the node health for the specified node name:
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-The following code gets the node health for the specified node name and passes in events filter and custom policy through [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+The following code gets the node health for the specified node name and passes in events filter and custom policy through [NodeHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.nodehealthquerydescription?view=azure-dotnet):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -305,7 +305,7 @@ Returns the health of an application entity. It contains the health states of th
 * [Optional] Filter to exclude the health statistics. If not specified, the health statistics include the ok, warning, and error count for all application children: services, partitions, replicas, deployed applications, and deployed service packages.
 
 ### API
-To get application health, create a `FabricClient` and call the [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) method on its HealthManager.
+To get application health, create a `FabricClient` and call the [GetApplicationHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync?view=azure-dotnet) method on its HealthManager.
 
 The following code gets the application health for the specified application name (URI):
 
@@ -313,7 +313,7 @@ The following code gets the application health for the specified application nam
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-The following code gets the application health for the specified application name (URI), with filters and custom policies specified via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+The following code gets the application health for the specified application name (URI), with filters and custom policies specified via [ApplicationHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.applicationhealthquerydescription?view=azure-dotnet).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -449,7 +449,7 @@ Returns the health of a service entity. It contains the partition health states.
 * [Optional] Filter to exclude health statistics. If not specified, the health statistics show the ok, warning, and error count for all partitions and replicas of the service.
 
 ### API
-To get service health through the API, create a `FabricClient` and call the [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) method on its HealthManager.
+To get service health through the API, create a `FabricClient` and call the [GetServiceHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync?view=azure-dotnet) method on its HealthManager.
 
 The following example gets the health of a service with specified service name (URI):
 
@@ -457,7 +457,7 @@ The following example gets the health of a service with specified service name (
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-The following code gets the service health for the specified service name (URI), specifying filters and custom policy via [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+The following code gets the service health for the specified service name (URI), specifying filters and custom policy via [ServiceHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.servicehealthquerydescription?view=azure-dotnet):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -520,7 +520,7 @@ Returns the health of a partition entity. It contains the replica health states.
 * [Optional] Filter to exclude health statistics. If not specified, the health statistics show how many replicas are in ok, warning, and error states.
 
 ### API
-To get partition health through the API, create a `FabricClient` and call the [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) method on its HealthManager. To specify optional parameters, create [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+To get partition health through the API, create a `FabricClient` and call the [GetPartitionHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync?view=azure-dotnet) method on its HealthManager. To specify optional parameters, create [PartitionHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.partitionhealthquerydescription?view=azure-dotnet).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
@@ -610,7 +610,7 @@ Returns the health of a stateful service replica or a stateless service instance
 * [Optional] Filters for events that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). All events are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get the replica health through the API, create a `FabricClient` and call the [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) method on its HealthManager. To specify advanced parameters, use [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+To get the replica health through the API, create a `FabricClient` and call the [GetReplicaHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync?view=azure-dotnet) method on its HealthManager. To specify advanced parameters, use [ReplicaHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.replicahealthquerydescription?view=azure-dotnet).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
@@ -653,7 +653,7 @@ Returns the health of an application deployed on a node entity. It contains the 
 * [Optional] Filter to exclude health statistics. If not specified, the health statistics show the number of deployed service packages in ok, warning, and error health states.
 
 ### API
-To get the health of an application deployed on a node through the API, create a `FabricClient` and call the [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) method on its HealthManager. To specify optional parameters, use [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+To get the health of an application deployed on a node through the API, create a `FabricClient` and call the [GetDeployedApplicationHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync?view=azure-dotnet) method on its HealthManager. To specify optional parameters, use [DeployedApplicationHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription?view=azure-dotnet).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -710,7 +710,7 @@ Returns the health of a deployed service package entity. Input:
 * [Optional] Filters for events that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). All events are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get the health of a deployed service package through the API, create a `FabricClient` and call the [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) method on its HealthManager. To specify optional parameters, use [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+To get the health of a deployed service package through the API, create a `FabricClient` and call the [GetDeployedServicePackageHealthAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync?view=azure-dotnet) method on its HealthManager. To specify optional parameters, use [DeployedServicePackageHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription?view=azure-dotnet).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -797,14 +797,14 @@ Returns the health of the cluster entity and contains the hierarchical health st
 * [Optional] The cluster health policy used to evaluate the nodes and the cluster events.
 * [Optional] The application health policy map, with the health policies used to override the application manifest policies.
 * [Optional] Filters for nodes and applications that specify which entries are of interest and should be returned in the result. The filters are specific to an entity/group of entities or are applicable to all entities at that level. The list of filters can contain one general filter and/or filters for specific identifiers to fine-grain entities returned by the query. If empty, the children are not returned by default.
-  Read more about the filters at [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) and [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). The application filters can recursively specify advanced filters for children.
+  Read more about the filters at [NodeHealthStateFilter](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.health.nodehealthstatefilter?view=azure-dotnet) and [ApplicationHealthStateFilter](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.health.applicationhealthstatefilter?view=azure-dotnet). The application filters can recursively specify advanced filters for children.
 
 The chunk result includes the children that respect the filters.
 
 Currently, the chunk query does not return unhealthy evaluations or entity events. That extra information can be obtained using the existing cluster health query.
 
 ### API
-To get cluster health chunk, create a `FabricClient` and call the [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) method on its **HealthManager**. You can pass in [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) to describe health policies and advanced filters.
+To get cluster health chunk, create a `FabricClient` and call the [GetClusterHealthChunkAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync?view=azure-dotnet) method on its **HealthManager**. You can pass in [ClusterHealthQueryDescription](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription?view=azure-dotnet) to describe health policies and advanced filters.
 
 The following code gets cluster health chunk with advanced filters.
 
@@ -1010,29 +1010,29 @@ If general queries return an unknown health state for an entity, it's possible t
 The queries that contain **HealthState** for entities are:
 
 * Node list: Returns the list nodes in the cluster (paged).
-  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricNode
 * Application list: Returns the list of applications in the cluster (paged).
-  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricApplication
 * Service list: Returns the list of services in an application (paged).
-  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricService
 * Partition list: Returns the list of partitions in a service (paged).
-  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricPartition
 * Replica list: Returns the list of replicas in a partition (paged).
-  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricReplica
 * Deployed application list: Returns the list of deployed applications on a node.
-  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricDeployedApplication
 * Deployed service package list: Returns the list of service packages in a deployed application.
-  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync?view=azure-dotnet)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Some of the queries return paged results. The return of these queries is a list derived from [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
+> Some of the queries return paged results. The return of these queries is a list derived from [PagedList<T>](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.query.pagedlist-1?view=azure-dotnet). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
 >
 >
 
@@ -1225,4 +1225,4 @@ HealthEvents          :
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/09/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -364,6 +364,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CommonName2Ntlmx509StoreLocation|string, default is L"LocalMachine"| Static|The store location of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
 |CommonName2Ntlmx509StoreName|string, default is L"MY"|Static| The store name of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
 |CommonName2Ntlmx509CommonName|string, default is L""|Static|The common name of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
+|GenerateV1CommonNameAccount| bool, default is TRUE|Static|Specifies whether to generate an account with user name V1 generation algorithm. Starting with Service Fabric version 6.1; an account with v2 generation is always created. The V1 account is necessary for upgrades from/to versions that do not support V2 generation (prior to 6.1).|
 
 ### Section Name: ImageStoreService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -65,7 +65,7 @@ By using Service Fabric's testability tools, you can author a test scenario to t
 
     ```powershell
 
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
 
     ```
 
@@ -92,4 +92,4 @@ In this example, we set `QuorumLossMode` to `QuorumReplicas` to indicate that we
 
 [Learn more about testability scenarios](service-fabric-testability-scenarios.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update cmdlet -->

@@ -5,18 +5,14 @@ documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: ''
-
 ms.service: service-fabric
-
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
-
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-
 ---
 # Service Fabric environment variables
 
@@ -36,7 +32,7 @@ Service Fabric has built-in environment variables set for each service instance.
 | Fabric_NodeId                                | The node ID of the node running the process                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | The IP or FQDN of the node, as specified in the cluster manifest file. | localhost or 10.0.0.1                                                |
 | Fabric_NodeName                              | The node name of the node running the process                          | _Node_0                                                              |
-| Fabric_ServiceName                           | The name of the service, if service is hosted in ExclusiveProcess mode  | MyService                                               |
+| Fabric_ServiceName                           | The name of the service, if service is hosted in ExclusiveProcess mode. This variable value is only available if you create the service with ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | A GUID                                                               |
 | Fabric_ServicePackageName                    | Name of the service package the process is part of                     | Web1Pkg                                                              |
 
@@ -55,5 +51,4 @@ Internal Environment Variables Used by Service Fabric Runtime:
 - FabricActivatorAddress
 - FabricPackageFileName
 - HostedServiceName
-<!-- Update_Description: new articles on service fabric environment variables reference -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: wording update -->

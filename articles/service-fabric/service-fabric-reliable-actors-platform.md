@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/20/2017
-ms.date: 11/13/2017
+origin.date: 03/09/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -39,9 +39,6 @@ In Reliable Services, your service inherits the `StatefulService` class. This cl
 * Service backup and restore.
 * Shared functionality for all actors, for example, a circuit breaker.
 * Remote procedure calls on the actor service itself and on each individual actor.
-
-> [!NOTE]
-> Stateful services are not currently supported in Java/Linux.
 
 ### Using the actor service
 Actor instances have access to the actor service in which they are running. Through the actor service, actor instances can programmatically obtain the service context. The service context has the partition ID, service name, application name, and other Service Fabric platform-specific information:
@@ -402,7 +399,7 @@ This step makes sure Actor Proxy is using Remoting V2 Stack.
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
@@ -411,4 +408,4 @@ This step makes sure Actor Proxy is using Remoting V2 Stack.
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!--Update_Description: update meta properties, add content of Actor using Remoting V2 Stacks-->
+<!--Update_Description: update meta properties -->
