@@ -115,7 +115,7 @@ Here is a small example that connects to the AMS API and lists all available Med
                 AzureAdTokenCredentials tokenCredentials = 
                     new AzureAdTokenCredentials(_AADTenantDomain,
                         new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                        AzureEnvironments.AzureCloudEnvironment);
+                        AzureEnvironments.AzureChinaCloudEnvironment);
 
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

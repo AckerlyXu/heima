@@ -75,7 +75,7 @@ To connect to the Azure Media Service API with the user authentication option, t
 - Media Services (native) application client ID. 
 - Media Services (native) application redirect URI. 
 
-The values for these parameters can be found in **AzureEnvironments.AzureCloudEnvironment**. The **AzureEnvironments.AzureCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
+The values for these parameters can be found in **AzureEnvironments.AzureChinaCloudEnvironment**. The **AzureEnvironments.AzureChinaCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
 
 It contains pre-defined environment settings for accessing Media Services in the public data centers only. For China cloud regions, you can use **AzureChinaCloudEnvironment** .
 

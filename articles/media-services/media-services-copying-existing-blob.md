@@ -119,11 +119,11 @@ namespace CopyExistingBlobsIntoAsset
         {
             AzureAdTokenCredentials tokenCredentials1 = new AzureAdTokenCredentials(_sourceAADTenantDomain,
                    new AzureAdClientSymmetricKey(_sourceClientId, _sourceClientSecret),
-                   AzureEnvironments.AzureCloudEnvironment);
+                   AzureEnvironments.AzureChinaCloudEnvironment);
 
             AzureAdTokenCredentials tokenCredentials2 = new AzureAdTokenCredentials(_destAADTenantDomain,
                    new AzureAdClientSymmetricKey(_destClientId, _destClientSecret),
-                   AzureEnvironments.AzureCloudEnvironment);
+                   AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider1 = new AzureAdTokenProvider(tokenCredentials1);
             var tokenProvider2 = new AzureAdTokenProvider(tokenCredentials2);
@@ -231,7 +231,7 @@ namespace CopyExistingBlobsIntoAsset
         {
             AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
                new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-               AzureEnvironments.AzureCloudEnvironment);
+               AzureEnvironments.AzureChinaCloudEnvironment);
             
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
