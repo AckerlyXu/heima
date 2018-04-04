@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -97,6 +97,12 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 
 Follow the instructions at [Service Fabric CLI](service-fabric-cli.md#cli-mac) to install the Service Fabric CLI (`sfctl`) on your Mac.
 The CLI commands support interacting with Service Fabric entities, including clusters, applications, and services.
+
+1. To connect to the cluster before deploying applications run the command below. 
+
+```bash
+sfctl cluster select --endpoint http://localhost:19080
+```
 
 ## Create your application on your Mac by using Yeoman
 
@@ -187,4 +193,4 @@ The attributes are defined as follows:
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, add cmdlet content -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,7 @@ You can then add your communication listener implementation by returning it in a
 For stateless services:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -74,13 +74,16 @@ public class MyStatelessService extends StatelessService {
 
 For stateful services:
 
-> [!NOTE]
-> Stateful reliable services are not supported in Java yet.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -270,7 +273,7 @@ The communication factory library implements a typical fault-handling retry patt
 The communication client just receives an address and uses it to connect to a service. The client can use whatever protocol it wants.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 
@@ -427,4 +430,4 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: update link, update meta properties -->

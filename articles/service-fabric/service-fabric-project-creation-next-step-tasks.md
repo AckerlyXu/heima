@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,7 @@ The application project consists of:
 * The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder. Learn more about [application and service manifests](service-fabric-application-model.md).
 
 ## Learn more about the programming models
-Service Fabric offers multiple ways to write and manage your services.  Here's overview and conceptual information on [stateless and stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [guest executables](service-fabric-deploy-existing-app.md), and [stateless and stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
+Service Fabric offers multiple ways to write and manage your services.  Here's overview and conceptual information on [stateless and stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [guest executables](service-fabric-guest-executables-introduction.md), and [stateless and stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## Learn about service communication
 A Service Fabric application is composed of different services, where each service performs a specialized task. These services may communicate with each other and there may be client applications outside the cluster that connect to and communicate with services. Learn how to [set up communication with and between your services](service-fabric-connect-and-communicate-with-services.md) in Service Fabric. 

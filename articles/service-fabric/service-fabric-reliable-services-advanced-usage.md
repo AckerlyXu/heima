@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/02/2017
-ms.date: 12/04/2017
+origin.date: 03/09/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -41,11 +41,6 @@ Although `RunAsync` should be sufficient in almost all cases, the open, close, a
     OnAbort is called when the stateless service instance is being forcefully shut down. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
 
 ## <a name="stateful-service-replica-lifecycle" ></a>Stateful service replica lifecycle
-
-> [!NOTE]
-> Stateful reliable services are not supported in Java yet.
->
->
 
 A stateful service replica's lifecycle is much more complex than a stateless service instance. In addition to open, close, and abort events, a stateful service replica undergoes role changes during its lifetime. When a stateful service replica changes role, the `OnChangeRoleAsync` event is triggered:
 

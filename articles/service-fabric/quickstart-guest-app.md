@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ---
 
@@ -134,7 +134,7 @@ Navigate to this address where you will see the `HELLO WORLD` response.
 Do not forget to delete all of the resources you've created for this quickstart, as you are charged for those resources.
 
 ## Next steps
-Read more about [guest executables](service-fabric-deploy-existing-app.md).
+Read more about [guest executables](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->
 
@@ -147,4 +147,4 @@ Read more about [guest executables](service-fabric-deploy-existing-app.md).
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
 [create-account]: https://www.azure.cn/pricing/1rmb-trial
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link, wording update -->
