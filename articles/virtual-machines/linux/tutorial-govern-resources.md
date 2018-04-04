@@ -67,69 +67,8 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
-
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az_policy_definition_list) command:
-
-```azurecli
-az policy definition list --query "[].[displayName, policyType, name]" --output table
-```
-
-You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
-
-* Limit the locations for all resources.
-* Limit the SKUs for virtual machines.
-* Audit virtual machines that do not use managed disks.
-
-In the following example, you retrieve three policy definitions based on the display name. You use the [az policy assignment create](https://docs.azure.cn/zh-cn/cli/policy/assignment?view=azure-cli-latest#az_policy_assignment_create) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
-
-```azurecli
-# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
-locationDefinition=$(az policy definition list --query "[?displayName=='Allowed locations'].name | [0]" --output tsv)
-skuDefinition=$(az policy definition list --query "[?displayName=='Allowed virtual machine SKUs'].name | [0]" --output tsv)
-auditDefinition=$(az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks'].name | [0]" --output tsv)
-
-# Assign policy for allowed locations
-az policy assignment create --name "Set permitted locations" \
-  --resource-group myResourceGroup \
-  --policy $locationDefinition \
-  --params '{ 
-      "listOfAllowedLocations": {
-        "value": [
-          "chinaeast", 
-          "chinaeast2"
-        ]
-      }
-    }'
-
-# Assign policy for allowed SKUs
-az policy assignment create --name "Set permitted VM SKUs" \
-  --resource-group myResourceGroup \
-  --policy $skuDefinition \
-  --params '{ 
-      "listOfAllowedSKUs": {
-        "value": [
-          "Standard_DS1_v2", 
-          "Standard_E2s_v2"
-        ]
-      }
-    }'
-
-# Assign policy for auditing unmanaged disks
-az policy assignment create --name "Audit unmanaged disks" \
-  --resource-group myResourceGroup \
-  --policy $auditDefinition
-```
-
-The preceding example assumes you already know the parameters for a policy. If you need to view the parameters, use:
-
-```azurecli
-az policy definition show --name $locationDefinition --query parameters
-```
+<!-- Not Avaiable on ## Azure policies -->
+<!-- Not Avaiable on ### Apply policies -->
 
 ## Deploy the virtual machine
 
