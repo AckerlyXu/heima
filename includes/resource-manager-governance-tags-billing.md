@@ -7,7 +7,7 @@
  ms.service: azure-resource-manager
  ms.topic: include
  origin.date: 02/19/2018
- ms.date: 03/26/2018
+ ms.date: 04/10/2018
  ms.author: v-yeche
  ms.custom: include file
 ---
@@ -23,4 +23,4 @@ Then, filter by the tag value, and select **Apply**.
 ![View cost by tag](./media/resource-manager-governance-tags-billing/view-costs-by-tag.png)
 
 <!-- Not Available on [Azure Billing APIs](../articles/billing/billing-usage-rate-card-overview.md) -->
-<!--ms.date: 03/26/2018-->
+<!--ms.date: 04/10/2018-->
