@@ -35,7 +35,7 @@ The HBase .NET SDK is provided as a NuGet package, which can be installed from t
 
 To use the SDK, instantiate a new `HBaseClient` object, passing in `ClusterCredentials` composed of the `Uri` to your cluster, and the Hadoop user name and password.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.cn"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -50,7 +50,7 @@ The data is physically stored in *HFiles*. A single HFile contains data for one 
 
 To create a new table, specify a `TableSchema` and columns. The following code checks whether the table 'RestSDKTable` already exists - if not, the table is created.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -68,7 +68,7 @@ This new table has two column families, t1 and t2. Since column families are sto
 
 To delete a table:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -76,7 +76,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 To insert data, you specify a unique row key as the row identifier. All data is stored in a `byte[]` array. The following code defines and adds the `title`, `director`, and `release_date` columns to the t1 column family, as these columns are the most frequently accessed. The `description` and `tagline` columns are added to the t2 column family. You can partition your data into column families as needed.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -124,7 +124,7 @@ HBase implements BigTable, so the data format looks like the following:
 
 To read data from an HBase table, pass the table name and row key to the `GetCellsAsync` method to return the `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -138,7 +138,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 In this case, the code returns only the first matching row, as there should only be one row for a unique key. The returned value is changed into `string` format from the `byte[]` array. You can also convert the value to other types, such as an integer for the movie's release date:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -155,7 +155,7 @@ Console.WriteLine(releaseDate);
 
 HBase uses `scan` to retrieve one or more rows. This example requests multiple rows in batches of 10, and retrieves data whose key values are between 25 and 35. After retrieving all rows, delete the scanner to clean up resources.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

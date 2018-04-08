@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
+ms.date: 04/16/2018
 ---
 
 # Overview of Azure Monitor
@@ -42,6 +42,7 @@ When you open the page, you can select among the subscriptions you have read acc
 
 - **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both metric and activity log alerts. *<Edit: Alerts (Preview) with unified experience also shown for all alerts - events, metrics and logs>*
 - **Activity Log Errors** - If any of your Azure resources log events with error-level severity, you can view a high-level count and click through to the activity log page to investigate each event.
+- **Azure Service Health** - You can see a count of Service Health service issues, planned maintenance events, and health advisories. Azure Service Health provides personalized information when problems in the Azure infrastructure impact your services.  See [Azure Service Health](../service-health/service-health-overview.md) for more information.  
 
 
 ## Azure Monitor Sources - Compute subset

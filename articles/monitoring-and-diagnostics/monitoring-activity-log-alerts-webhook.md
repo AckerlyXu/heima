@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 02/26/218
+ms.date: 04/16/218
 ms.author: v-yiso
 
 ---
@@ -125,7 +125,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
-For specific schema details on service health notification activity log alerts, see [Service health notifications](monitoring-service-notifications.md).
+For specific schema details on service health notification activity log alerts, see [Service health notifications](monitoring-service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../service-health/service-health-alert-webhook-guide.md).
 
 For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](monitoring-overview-activity-logs.md).
 

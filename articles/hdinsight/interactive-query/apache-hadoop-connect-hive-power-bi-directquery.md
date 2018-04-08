@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/19/2017
-ms.date: 02/26/2018
+origin.date: 03/14/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -26,7 +26,7 @@ Learn how to connect Microsoft Power BI to Azure HDInsight Interactive Query clu
 
 ![HDInsight Power BI the map report](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-For how to connect to Hive using ODBC, see [Visualize Hive data with Microsoft Power BI using ODBC in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+You can leverage the [Hive ODBC driver](../hadoop/apache-hadoop-connect-hive-power-bi.md) to do import via the generic ODBC connector in Power BI Desktop. However it is not recommended for BI workloads given non-interactive nature of the Hive query engine. [HDInsight Interactive Query connector](./apache-hadoop-connect-hive-power-bi-directquery.md) is good choice for their performance.
 
 ## Prerequisites
 Before going through this article, you must have the following items:
@@ -42,6 +42,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 2. Click the **Home** tab, click **Get Data** from the **External data** ribbon, and then select **More**.
 
     ![HDInsight Power BI open data](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    
 3. From the **Get Data** pane, type **hdinsight** in the search box. If you don't see **HDInsight Interactive Query (Beta)**, you need to update your Power BI Desktop to the latest version.
 4. Click **HDInsight Interactive Query (Beta)**, and then click **Connect**.
 5. Click **Continue** to close the **Preview connector** warning dialog.
@@ -52,6 +53,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
     - **Data Connectivity mode**: For this tutorial, select **DirectQuery**.
 
     ![HDInsight interactive query power bi directquery connect](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+    
 7. Click **OK**.
 8. Enter the HTTP user credential, and then click **OK**.  The default username is **admin**
 9. From the left pane, select **hivesampletale**, and then click **Load**.
@@ -65,6 +67,7 @@ Continue from the last procedure.
 1. From the Visualizations pane, select **Map**.  It is a globe icon.
 
     ![HDInsight Power BI customizes report](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
+    
 2. From the Fields pane, select **country** and **devicemake**. You can see the data plotted on the map.
 3. Expand the map.
 
@@ -72,9 +75,8 @@ Continue from the last procedure.
 In this article, you learned how to visualize data from HDInsight using Power BI.  To learn more, see the following articles:
 
 * [Visualize Hive data with Microsoft Power BI using ODBC in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
-* [Use Zeppelin to run Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Use Zeppelin to run Hive queries in Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Hadoop by using Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 * [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).
-* [Upload Data to HDInsight](./../hdinsight-upload-data.md).
+* [Upload Data to HDInsight](../hdinsight-upload-data.md).

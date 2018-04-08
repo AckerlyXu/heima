@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Debug applications remotely in HDInsight Spark | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: Debug applications remotely in HDInsight Spark'
 description: Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug Spark applications that run on HDInsight clusters through VPN.
 services: hdinsight
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -269,7 +269,6 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 * [Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight to build real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

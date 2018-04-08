@@ -17,19 +17,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 01/15/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
 # Upload data for Hadoop jobs in HDInsight
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure storage. It is designed as an HDFS extension to provide a seamless experience to customers. It enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure storage, see [Use Azure storage with HDInsight][hdinsight-storage].
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure storage. It is designed as an HDFS extension to provide a seamless experience to customers. It enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure storage is distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure storage, see [Use Azure storage with HDInsight][hdinsight-storage].
 
 ## Prerequisites
 
 Note the following requirements before you begin:
 
 * An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
-* Knowledge of the following article:
+* Knowledge of the following two articles:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]
 

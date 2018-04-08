@@ -222,92 +222,92 @@ In this section, you use the [Add-AzureRmHDInsightScriptAction](https://msdn.mic
 The following script demonstrates how to apply a script action when creating a cluster using PowerShell:
 
 ```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-}
+  # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
 
-# If you have multiple subscriptions, set the one to use
-# $subscriptionID = "<subscription ID to use>"
-# Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    # If you have multiple subscriptions, set the one to use
+    # $subscriptionID = "<subscription ID to use>"
+    # Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
-# Get user input/default values
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$location = Read-Host -Prompt "Enter the Azure region to create resources in"
+    # Get user input/default values
+    $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+    $location = Read-Host -Prompt "Enter the Azure region to create resources in"
 
-# Create the resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    # Create the resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-$defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
+    $defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
 
-# Create an Azure storae account and container
-New-AzureRmStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $defaultStorageAccountName `
-    -Type Standard_LRS `
-    -Location $location
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                -ResourceGroupName $resourceGroupName `
-                                -Name $defaultStorageAccountName)[0].Value
-$defaultStorageContext = New-AzureStorageContext `
-                                -StorageAccountName $defaultStorageAccountName `
-                                -StorageAccountKey $defaultStorageAccountKey
+    # Create an Azure storae account and container
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Type Standard_LRS `
+        -Location $location
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $defaultStorageAccountKey
 
-# Get information for the HDInsight cluster
-$clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
-# Cluster login is used to secure HTTPS services hosted on the cluster
-$httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
-# SSH user is used to remotely connect to the cluster using SSH clients
-$sshCredential = Get-Credential -Message "Enter SSH user credentials"
+    # Get information for the HDInsight cluster
+    $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+    # Cluster login is used to secure HTTPS services hosted on the cluster
+    $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
+    # SSH user is used to remotely connect to the cluster using SSH clients
+    $sshCredential = Get-Credential -Message "Enter SSH user credentials"
 
-# Default cluster size (# of worker nodes), version, type, and OS
-$clusterSizeInNodes = "4"
-$clusterVersion = "3.5"
-$clusterType = "Hadoop"
-$clusterOS = "Linux"
-# Set the storage container name to the cluster name
-$defaultBlobContainerName = $clusterName
+    # Default cluster size (# of worker nodes), version, type, and OS
+    $clusterSizeInNodes = "4"
+    $clusterVersion = "3.5"
+    $clusterType = "Hadoop"
+    $clusterOS = "Linux"
+    # Set the storage container name to the cluster name
+    $defaultBlobContainerName = $clusterName
 
-# Create a blob container. This holds the default data store for the cluster.
-New-AzureStorageContainer `
-    -Name $clusterName -Context $defaultStorageContext
+    # Create a blob container. This holds the default data store for the cluster.
+    New-AzureStorageContainer `
+        -Name $clusterName -Context $defaultStorageContext
 
-# Create an HDInsight configuration object
-$config = New-AzureRmHDInsightClusterConfig
-# Add the script action
-$scriptActionUri="https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh"
-# Add for the head nodes
-$config = Add-AzureRmHDInsightScriptAction `
-    -Config $config `
-    -Name "Install Giraph" `
-    -NodeType HeadNode `
-    -Uri $scriptActionUri
-# Continue adding the script action for any other node types
-# that it must run on.
-$config = Add-AzureRmHDInsightScriptAction `
-    -Config $config `
-    -Name "Install Giraph" `
-    -NodeType WorkerNode `
-    -Uri $scriptActionUri
+    # Create an HDInsight configuration object
+    $config = New-AzureRmHDInsightClusterConfig
+    # Add the script action
+    $scriptActionUri="https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh"
+    # Add for the head nodes
+    $config = Add-AzureRmHDInsightScriptAction `
+        -Config $config `
+        -Name "Install Giraph" `
+        -NodeType HeadNode `
+        -Uri $scriptActionUri
+    # Continue adding the script action for any other node types
+    # that it must run on.
+    $config = Add-AzureRmHDInsightScriptAction `
+        -Config $config `
+        -Name "Install Giraph" `
+        -NodeType WorkerNode `
+        -Uri $scriptActionUri
 
-# Create the cluster using the configuration object
-New-AzureRmHDInsightCluster `
-    -Config $config `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $clusterName `
-    -Location $location `
-    -ClusterSizeInNodes $clusterSizeInNodes `
-    -ClusterType $clusterType `
-    -OSType $clusterOS `
-    -Version $clusterVersion `
-    -HttpCredential $httpCredential `
-    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultStorageContainer $containerName `
-    -SshCredential $sshCredential
+    # Create the cluster using the configuration object
+    New-AzureRmHDInsightCluster `
+        -Config $config `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName `
+        -Location $location `
+        -ClusterSizeInNodes $clusterSizeInNodes `
+        -ClusterType $clusterType `
+        -OSType $clusterOS `
+        -Version $clusterVersion `
+        -HttpCredential $httpCredential `
+        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageAccountKey `
+        -DefaultStorageContainer $containerName `
+        -SshCredential $sshCredential
 ```
 
 It can take several minutes before the cluster is created.

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/14/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ---
 
 # Azure Monitor PowerShell quick start samples
 This article shows you sample PowerShell commands to help you access Azure Monitor features.
 
 > [!NOTE]
-> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the the word "insights."
+> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word "insights."
 > 
 > 
 
