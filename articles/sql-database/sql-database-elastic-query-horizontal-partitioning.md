@@ -6,12 +6,8 @@ documentationCenter: ''
 manager: digimobile
 author: Hayley244
 
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/27/2016
 ms.date: 07/10/2017

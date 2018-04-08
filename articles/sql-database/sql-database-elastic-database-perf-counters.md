@@ -2,17 +2,11 @@
 title: Performance counters for shard map manager
 description: ShardMapManager class and data dependent routing performance counters
 services: sql-database
-documentationCenter: ''
 manager: digimobile
 author: Hayley244
-editor: ''
 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2016
 ms.date: 07/10/2017

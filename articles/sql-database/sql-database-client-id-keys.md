@@ -2,19 +2,11 @@
 title: Get values for app authentication - Azure SQL Database | Azure
 description: Create a service principal for accessing SQL Database from code.
 services: sql-database
-documentationCenter: ''
 author: Hayley244
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 09/30/2016
 ms.date: 07/31/2017
 ms.author: v-haiqya

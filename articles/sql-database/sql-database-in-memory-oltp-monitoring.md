@@ -2,17 +2,10 @@
 title: Monitor XTP in-memory storage | Azure
 description: Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date:  01/16/2018
 ms.date: 02/28/2018

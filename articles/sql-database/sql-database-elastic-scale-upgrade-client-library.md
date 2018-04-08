@@ -2,16 +2,10 @@
 title: Upgrade to the latest elastic database client library | Microsoft Docs
 description: Use Nuget to upgrade elastic database client library.
 services: sql-database
-documentationcenter: ''
 manager: digimobile
 author: forester123
-
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
 ms.date: 11/06/2017
@@ -56,18 +50,16 @@ Performing these steps in order ensures that old versions of the client library 
 
 Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) and [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) as in this example: 
 
-```
-ShardMapManager smm =
-   ShardMapManagerFactory.GetSqlShardMapManager
-   (connStr, ShardMapManagerLoadPolicy.Lazy); 
-smm.UpgradeGlobalStore(); 
+    ShardMapManager smm =
+       ShardMapManagerFactory.GetSqlShardMapManager
+       (connStr, ShardMapManagerLoadPolicy.Lazy); 
+    smm.UpgradeGlobalStore(); 
 
-foreach (ShardLocation loc in
- smm.GetDistinctShardLocations()) 
-{   
-   smm.UpgradeLocalStore(loc); 
-} 
-```
+    foreach (ShardLocation loc in
+     smm.GetDistinctShardLocations()) 
+    {   
+       smm.UpgradeLocalStore(loc); 
+    } 
 
 These techniques for metadata upgrades can be applied multiple times without harm. For example, if an older client version inadvertently creates a shard after you have already updated, you can run upgrade again across all shards to ensure that the latest metadata version is present throughout your infrastructure. 
 

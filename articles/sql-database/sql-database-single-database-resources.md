@@ -2,18 +2,12 @@
 title: Azure SQL Database single database | Microsoft Docs
 description: Manage the service tier, performance level, and amount of storagea for a single Azure SQL database.
 services: sql-database
-documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: ''
 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
 origin.date: 02/12/2018
 ms.date: 02/28/2018
 ms.author: v-nany

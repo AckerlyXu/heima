@@ -1,20 +1,12 @@
 ---
 title: 'VS Code: Connect and query data in Azure SQL Database | Azure'
 description: Learn how to connect to SQL Database on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
 keywords: connect to sql database
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 origin.date: 06/22/2017
 ms.date: 01/08/2018

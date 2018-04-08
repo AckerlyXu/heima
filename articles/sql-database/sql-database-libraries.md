@@ -2,17 +2,10 @@
 title: Connection libraries for SQL Database | Microsoft Docs
 description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. 
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: genemi
-
-ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
 ms.date: 01/22/2018

@@ -5,14 +5,9 @@ services: sql-database
 documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Inactive"
 origin.date: 12/06/2016
 ms.date: 01/08/2018
 ms.author: v-nany

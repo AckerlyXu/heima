@@ -2,19 +2,11 @@
 title: Azure Active Directory auth - Azure SQL (Overview) | Azure
 description: Learn about how to use Azure Active Directory for authentication with SQL Database and SQL Data Warehouse
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 09/12/2017
 ms.date: 11/06/2017
 ms.author: v-johch

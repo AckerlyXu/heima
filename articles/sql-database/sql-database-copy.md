@@ -2,21 +2,14 @@
 title: Copy an Azure SQL database | Microsoft Docs
 description: Create transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: ''
-
-ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 origin.date: 06/15/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.workload: data-management
 ms.topic: article
-ms.tgt_pltfrm: NA
 
 ---
 # Copy an Azure SQL database

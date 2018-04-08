@@ -2,17 +2,11 @@
 title: Building scalable cloud databases | Azure
 description: Build scalable .NET database apps with the elastic database client library
 services: sql-database
-documentationCenter: ''
 manager: digimobile
 author: yunan2016
-editor: ''
 
-ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/12/2016
 ms.date: 01/08/2018

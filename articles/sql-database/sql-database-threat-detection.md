@@ -2,18 +2,12 @@
 title: Threat Detection - Azure SQL Database | Azure
 description: Threat Detection detects anomalous database activities indicating potential security threats to the database. 
 services: sql-database
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: v-romcal
 
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.custom: security-protect
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
 origin.date: 06/19/2017
 ms.date: 01/08/2018
 ms.author: v-johch
@@ -52,7 +46,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
    The email provides information on the suspicious security event including the nature of the anomalous activities, database name, server name, application name, and the event time. In addition, the email provides information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.<br/>
      
     ![Navigation pane][4]
-2. The email alert includes a direct link to the SQL Audit log. Clicking on this link launches the Azure portal and opens the SQL Audit records around the time of the suspicious event. Click on an audit record to view more details on the suspicious database activities, making it easier to find the SQL statements that were executed (who accessed, what they did and when) and determine if the event was legitimate or malicious (e.g. application vulnerability to SQL injection was exploited, someone breached sensitive data, etc.).<br/>
+2. The email alert includes a direct link to the SQL Audit log. Clicking on this link launches the Azure portal and opens the SQL Audit records around the time of the suspicious event. Click on an audit record to view more information on the suspicious database activities, making it easier to find the SQL statements that were executed (who accessed, what they did and when) and determine if the event was legitimate or malicious (e.g. application vulnerability to SQL injection was exploited, someone breached sensitive data, etc.).<br/>
    ![Navigation pane][5]
 
 

@@ -2,18 +2,11 @@
 title: Azure SQL Database dynamic data masking | Microsoft docs
 description: SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users
 services: sql-database
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: ''
-
-ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
 origin.date: 03/09/2017
 ms.date: 07/10/2017
 ms.author: v-johch

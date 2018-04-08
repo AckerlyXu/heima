@@ -2,16 +2,10 @@
 title: Get started with elastic database tools | Microsoft Docs
 description: Basic explanation of the elastic database tools feature of Azure SQL Database, including an easy-to-run sample app.
 services: sql-database
-documentationcenter: ''
 manager: digimobile
 author: yunan2016
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2017
 ms.date: 01/08/2018

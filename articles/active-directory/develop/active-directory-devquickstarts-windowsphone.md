@@ -100,7 +100,7 @@ The basic principle behind ADAL is that whenever your app needs an access token,
         // ADAL for Windows Phone 8.1 builds AuthenticationContext instances through a factory
         authContext = AuthenticationContext.CreateAsync(authority).GetResults();
     }
-    ```
+```
 
 - Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
 
@@ -124,7 +124,7 @@ private async void Search(object sender, RoutedEventArgs e)
             authContext.AcquireTokenAndContinue(graphResourceId, clientId, redirectURI, QueryGraph);
         }
     }
-    ```
+```
 
 - If interactive authentication is necessary, ADAL will use Windows Phone's Web Authentication Broker (WAB) and [continuation model](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) to display the Azure AD sign in page.  When the user signs in, your app needs to pass ADAL the results of the WAB interaction.  This is as simple as implementing the `ContinueWebAuthentication` interface:
 
@@ -155,7 +155,7 @@ private async void QueryGraph(AuthenticationResult result)
 
         ...
     }
-    ```
+```
 
 - You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's id on the page:
 
@@ -172,8 +172,8 @@ private void SignOut()
     authContext.TokenCache.Clear();
 
         ...
-    }
-    ```
+}
+```
 
 Congratulations! You now have a working Windows Phone app that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven’t already, now is the time to populate your tenant with some users.  Run your DirectorySearcher app, and sign in with one of those users.  Search for other users based on their UPN.  Close the app, and re-run it.  Notice how the user’s session remains intact.  Sign out, and sign back in as another user.
 

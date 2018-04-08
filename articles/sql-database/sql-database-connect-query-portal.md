@@ -1,21 +1,13 @@
 ---
 title: 'Azure portal: Query Azure SQL Database using Query Editor | Azure
 description: Learn how to connect to SQL Database in the Azure portal by using the SQL Query Editor. Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
 keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 01/10/2018
 ms.date: 2/28/2018
 ms.author: v-nany

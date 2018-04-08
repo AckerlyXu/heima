@@ -2,18 +2,11 @@
 title: 'Azure portal: SQL Database dynamic data masking | Azure'
 description: How to get started with SQL Database dynamic data masking in the Azure Portal
 services: sql-database
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: 2
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
 origin.date: 11/22/2016
 ms.date: 01/08/2018
 ms.author: v-nany

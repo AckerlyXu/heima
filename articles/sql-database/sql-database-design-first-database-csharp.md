@@ -2,19 +2,11 @@
 title: Design your first Azure SQL database - C# | Azure
 description: Learn to design your first Azure SQL database and connect to it with a C# program using ADO.NET.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: 'CarlRabeler'
-tags: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: develop databases, mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 origin.date: 01/12/2018
 ms.date: 1/22/2018
 ms.author: v-johch

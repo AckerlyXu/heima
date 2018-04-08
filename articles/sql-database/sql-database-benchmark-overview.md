@@ -2,18 +2,12 @@
 title: Azure SQL Database benchmark overview
 description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
 services: sql-database
-documentationCenter: na
 author: Hayley244
 manager: digimobile
-editor: monicar
 
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 06/21/2016
 ms.date: 07/10/2017
 ms.author: v-johch

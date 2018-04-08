@@ -2,19 +2,11 @@
 title: Implement a geo-distributed Azure SQL Database solution| Azure
 description: Learn to configure your Azure SQL Database and application for failover to a replicated database, and test failover.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 origin.date: 05/26/2017
 ms.date: 10/02/2017
 ms.author: v-johch

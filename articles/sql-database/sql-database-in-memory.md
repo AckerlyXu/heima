@@ -2,17 +2,10 @@
 title: Azure SQL Database In-Memory technologies | Microsoft Docs
 description: Azure SQL Database In-Memory technologies greatly improve the performance of transactional and analytics workloads. 
 services: sql-database
-documentationCenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-
-ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2017
 ms.date: 12/11/2017

@@ -2,16 +2,11 @@
 title: Manage historical data in Temporal Tables with retention policy | Azure
 description: Learn how to use temporal retention policy to keep historical data under your control.
 services: sql-database
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: ''
-
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: sql-database
 origin.date: 10/12/2016
 ms.date: 07/03/2017
 ms.author: v-johch
@@ -22,13 +17,13 @@ Temporal Tables may increase database size more than regular tables, especially 
 
 Temporal history retention can be configured at the individual table level, which allows users to create flexible aging polices. Applying temporal retention is simple: it requires only one parameter to be set during table creation or schema change.
 
-After you define retention policy, Azure SQL Database will start checking regularly if there are historical rows that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occur transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup satisfy the following condition:
+After you define retention policy, Azure SQL Database starts checking regularly if there are historical rows that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occur transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup satisfy the following condition:
 
 ```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ```
 
-In the example above we assumed that **ValidTo** column corresponds to the end of SYSTEM_TIME period.
+In the preceding example, we assumed that **ValidTo** column corresponds to the end of SYSTEM_TIME period.
 
 ## How to configure retention policy?
 Before you configure retention policy for a temporal table, check first whether temporal historical retention is enabled *at the database level*.
@@ -142,7 +137,7 @@ When finite retention period is configured for the history table with the cluste
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 ```
 
-An attempt to execute above statement will fail with the following error:
+An attempt to execute above statement fails with the following error:
 
 *Msg 13772, Level 16, State 1 <br></br>
 Cannot create non-clustered index on a temporal history table 'WebsiteUserInfoHistory' since it has finite retention period and clustered columnstore index defined.*
@@ -153,10 +148,10 @@ All queries on the temporal table automatically filter out historical rows match
 The following picture shows the query plan for a simple query:
 
 ```
-SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
+SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 ```
 
-The query plan includes additional filter applied to end of period column (ValidTo) in the "Clustered Index Scan" operator on the history table (highlighted). This example assumes that 1 MONTH retention period was set on WebsiteUserInfo table.
+The query plan includes additional filter applied to end of period column (ValidTo) in the Clustered Index Scan operator on the history table (highlighted). This example assumes that one MONTH retention period was set on WebsiteUserInfo table.
 
 ![Retention query filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 

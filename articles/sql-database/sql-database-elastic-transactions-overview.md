@@ -2,18 +2,12 @@
 title: Distributed transactions across cloud databases
 description: Overview of Elastic Database Transactions with Azure SQL Database
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-
-
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
-ms.custom: scale out apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: sql-database
+ms.custom: scale out apps
+ms.workload: "On Demand"
 origin.date: 05/27/2016
 ms.date: 11/06/2017
 ms.author: v-johch
@@ -45,55 +39,52 @@ Remember that elastic database transactions do not require installing MSDTC. Ins
 ### Multi-database applications
 The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
-```
-using (var scope = new TransactionScope())
-{
-    using (var conn1 = new SqlConnection(connStrDb1))
+    using (var scope = new TransactionScope())
     {
-        conn1.Open();
-        SqlCommand cmd1 = conn1.CreateCommand();
-        cmd1.CommandText = string.Format("insert into T1 values(1)");
-        cmd1.ExecuteNonQuery();
-    }
+        using (var conn1 = new SqlConnection(connStrDb1))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
 
-    using (var conn2 = new SqlConnection(connStrDb2))
-    {
-        conn2.Open();
-        var cmd2 = conn2.CreateCommand();
-        cmd2.CommandText = string.Format("insert into T2 values(2)");
-        cmd2.ExecuteNonQuery();
-    }
+        using (var conn2 = new SqlConnection(connStrDb2))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T2 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
 
-    scope.Complete();
-}
-```
+        scope.Complete();
+    }
 
 ### Sharded database applications
 Elastic database transactions for SQL DB also support coordinating distributed transactions where you use the OpenConnectionForKey method of the elastic database client library to open connections for a scaled out data tier. Consider cases where you need to guarantee transactional consistency for changes across several different sharding key values. Connections to the shards hosting the different sharding key values are brokered using OpenConnectionForKey. In the general case, the connections can be to different shards such that ensuring transactional guarantees requires a distributed transaction. 
 The following code sample illustrates this approach. It assumes that a variable called shardmap is used to represent a shard map from the elastic database client library:
 
-```
-using (var scope = new TransactionScope())
-{
-    using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
+    using (var scope = new TransactionScope())
     {
-        conn1.Open();
-        SqlCommand cmd1 = conn1.CreateCommand();
-        cmd1.CommandText = string.Format("insert into T1 values(1)");
-        cmd1.ExecuteNonQuery();
+        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
+
+        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T1 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
+
+        scope.Complete();
     }
 
-    using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
-    {
-        conn2.Open();
-        var cmd2 = conn2.CreateCommand();
-        cmd2.CommandText = string.Format("insert into T1 values(2)");
-        cmd2.ExecuteNonQuery();
-    }
-
-    scope.Complete();
-}
-```
 
 ## .NET installation for Azure Cloud Services
 Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
@@ -102,26 +93,24 @@ For Azure App Services, upgrades to the guest OS are currently not supported. Fo
 
 Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
-```
-<LocalResources>
-...
-    <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-    <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-</LocalResources>
-<Startup>
-    <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
-        <Environment>
+    <LocalResources>
     ...
-            <Variable name="TEMP">
-                <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
-            </Variable>
-            <Variable name="TMP">
-                <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
-            </Variable>
-        </Environment>
-    </Task>
-</Startup>
-```
+        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Startup>
+        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+            <Environment>
+        ...
+                <Variable name="TEMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+                </Variable>
+                <Variable name="TMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+                </Variable>
+            </Environment>
+        </Task>
+    </Startup>
 
 ## Transactions across multiple servers
 Elastic database transactions are supported across different logical servers in Azure SQL Database. When transactions cross logical server boundaries, the participating servers first need to be entered into a mutual communication relationship. Once the communication relationship has been established, any database in any of the two servers can participate in elastic transactions with databases from the other server. With transactions spanning more than two logical servers, a communication relationship needs to be in place for any pair of logical servers.
@@ -137,9 +126,9 @@ Use Dynamic Management Views (DMVs) in SQL DB to monitor status and progress of 
 
 These DMVs are particularly useful:
 
-* **sys.dm\_tran\_active\_transactions**: Lists currently active transactions and their status. The UOW (Unit Of Work) column can identify the different child transactions that belong to the same distributed transaction. All transactions within the same distributed transaction carry the same UOW value. See the [DMV documentation](https://msdn.microsoft.com/library/ms174302.aspx) for more details.
-* **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. See the [DMV documentation](https://msdn.microsoft.com/library/ms186957.aspx) for more details.
-* **sys.dm\_tran\_locks**: Provides information about the locks that are currently held by ongoing transactions. See the [DMV documentation](https://msdn.microsoft.com/library/ms190345.aspx) for more details.
+* **sys.dm\_tran\_active\_transactions**: Lists currently active transactions and their status. The UOW (Unit Of Work) column can identify the different child transactions that belong to the same distributed transaction. All transactions within the same distributed transaction carry the same UOW value. See the [DMV documentation](https://msdn.microsoft.com/library/ms174302.aspx) for more information.
+* **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. See the [DMV documentation](https://msdn.microsoft.com/library/ms186957.aspx) for more information.
+* **sys.dm\_tran\_locks**: Provides information about the locks that are currently held by ongoing transactions. See the [DMV documentation](https://msdn.microsoft.com/library/ms190345.aspx) for more information.
 
 ## Limitations
 The following limitations currently apply to elastic database transactions in SQL DB:

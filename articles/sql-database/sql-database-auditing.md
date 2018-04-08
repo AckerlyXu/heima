@@ -2,17 +2,10 @@
 title: Get started with Azure SQL database auditing | Microsoft Docs
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: giladm
-
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2017
 ms.date: 2/28/2018

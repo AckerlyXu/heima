@@ -2,18 +2,11 @@
 title: Azure SQL Database Azure Case Study - Umbraco | Azure
 description: Learn about how Umbraco uses SQL Database to quickly provision and scale services for thousands of tenants in the cloud
 services: sql-database
-documentationcenter: ''
 author: Hayley244
 manager: digimobile
-editor: ''
-
-ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch

@@ -2,18 +2,12 @@
 title: Monitoring & performance tuning - Azure SQL Database | Azure
 description: Tips for performance tuning in Azure SQL Database through evaluation and improvement.
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: ''
 keywords: sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning
-
-ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 06/13/2017
 ms.date: 11/06/2017

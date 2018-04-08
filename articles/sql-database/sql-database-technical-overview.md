@@ -3,18 +3,10 @@ title: What is the Azure SQL Database service? | Azure
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
-documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: cgronlun
-
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 09/20/2017
 ms.date: 2/28/2018
 ms.author: v-johch
@@ -120,7 +112,7 @@ SQL Database is the only database system to offer protection of sensitive data i
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA) to increase data and application security while supporting a single sign-in process.
 
 ### Compliance certification
 
