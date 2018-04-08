@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 01/08/2018
+ms.date: 4/10/2018
 ms.author: v-yeche
 
 ---
@@ -74,5 +74,5 @@ If a quota increase is required to either purchase a Single Subscription RI, you
 ## Next steps
 
 For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
-<!-- Update_Description: new articles on network watcher -->
-<!-- ms.date: 01/08/2018 -->
+<!-- Update_Description: update meta propertiessss -->
+<!-- ms.date: 04/10/2018 -->

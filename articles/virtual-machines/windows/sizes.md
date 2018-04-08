@@ -14,9 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 11/08/2017
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+origin.date: 03/01/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 ---
 
@@ -31,6 +30,7 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, DSv2, DS, Dv2, D   | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->
+<!-- Not Available M, Gs, G -->
 <!-- Not Available [Storage optimized] Ls -->
 <!-- Not Available [GPU] NV, NC  -->
 <!-- Not Available [High performance compute] H, A8-11 -->
@@ -38,7 +38,7 @@ This article describes the available sizes and options for the Azure virtual mac
 <br> 
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows). 
-- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md) .
+- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
 - Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 

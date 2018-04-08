@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -158,10 +158,12 @@ A virtual machine size determines the amount of compute resources such as CPU, G
 The following table categorizes sizes into use cases.  
 | Type                     | Common sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](sizes-general.md)        |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+<!-- Pending On DV3, EV3 GA Annoucement-->
+| [General purpose](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
 | [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](sizes-memory.md)    | DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-<!-- Not Available on GS, G Series -->
+| [Memory optimized](sizes-memory.md)    | Esv3, Ev3, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+<!-- Pending On DV3, EV3 GA Annoucement-->
+<!-- Not Available on M, GS, G Series -->
 <!-- Not Available on | Storage optimized       | Ls   -->
 <!-- Not Available on | GPU           | NV, NC         -->
 <!-- Not Available on | High performance | H, A8-11    -->

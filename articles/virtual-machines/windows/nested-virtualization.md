@@ -8,14 +8,14 @@ manager: digimobile
 
 ms.author: v-yeche
 origin.date: 10/09/2017
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+ms.date: 4/10/2018
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 
 ---
+<!-- Update_Description: new article on nested virtualization on Ev3 and Dv3 -->
 # How to enable nested virtualization in an Azure VM
 
 Nested virtualization is supported in the Dv3 and Ev3 series of Azure virtual machines. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments. 
@@ -77,7 +77,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 2. Create an internal switch.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. View the properties of the switch and note the ifIndex for the new adapter.
@@ -178,4 +178,4 @@ In the guest virtual machine, open your browser and navigate to a web page.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
 <!-- Update_Description: new article on nested virtualization on Ev3 and Dv3 -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 04/10/2018-->

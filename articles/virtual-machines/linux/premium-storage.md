@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 02/05/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
+
 <!--The parent file of includes file of virtual-machines-common-premium-storage.md-->
-<!--ms.date:02/05/2018-->
+<!--ms.date: 04/10/2018-->
