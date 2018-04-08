@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 
 ---
@@ -143,7 +143,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 <!-- Not Available on ### View costs by tag values -->
 
-<!-- [!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
+[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## Clean up resources
 
