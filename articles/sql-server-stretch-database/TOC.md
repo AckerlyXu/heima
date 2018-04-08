@@ -1,3 +1,5 @@
+# [SQL Server Stretch Database Documentation](index.md)
+
 # Overview
 ## [What is Stretch Database?](https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database)
 ## [Limitations and blocking issues](https://docs.microsoft.com/sql/sql-server/stretch-database/limitations-for-stretch-database)
@@ -20,7 +22,8 @@
 ### [Disable Stretch Database](https://docs.microsoft.com/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Resources
-## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Pricing](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
+## [Videos](https://www.azure.cn/video-center/)
+<!--ms.date: 04/09/2018 -->
