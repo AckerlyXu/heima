@@ -1,3 +1,5 @@
+# [Traffic Manager Documentation](index.md)
+
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
@@ -18,6 +20,9 @@
 ## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
 ## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
 ## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+<!--Not Available ## Send Real User Measurements to Traffic Manager -->
+<!--Not Available ### [Using Visual Studio SDK](traffic-manager-create-rum-visual-studio.md) -->
+<!--Not Available ### [Using web pages](traffic-manager-create-rum-web-pages.md) -->
 ## [Manage endpoints](traffic-manager-manage-endpoints.md)
 ## [Manage profiles](traffic-manager-manage-profiles.md)
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
@@ -44,11 +49,11 @@
 
 # Resources
 ## [Blog](https://www.azure.cn/blog/tags/网络服务)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN Forum](https://www.azure.cn/support/contact/)
 ## [Pricing](https://www.azure.cn/pricing/details/traffic-manager/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/sla/traffic-manager/)
 ## [Videos](https://www.azure.cn/video-center/)
 
-<!--Update_Description: update link-->
+<!--ms.date: 04/09/2018 -->
