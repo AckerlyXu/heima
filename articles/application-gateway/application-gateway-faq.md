@@ -3,8 +3,8 @@ title: Frequently asked questions for Azure Application Gateway | Microsoft Docs
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: davidmu1
+manager: timlt
 editor: tysonn
 
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 12/29/2017
+ms.date: 04/04/2018
 ms.author: v-junlch
 
 ---
@@ -134,10 +134,6 @@ Custom probes do not support wildcard or regex on response data.
 **Q. How are rules processed?**
 
 Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
-
-**Q. How are rules processed?**
-
-Rules are processed in the order they are created. It is recommended that multi-site rules are configured before basic rules. By configuring multi-site listeners first, this configuration reduces the chance that traffic is routed to the inappropriate backend. This routing issue can occur as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
 
 **Q. What does the Host field for custom probes signify?**
 

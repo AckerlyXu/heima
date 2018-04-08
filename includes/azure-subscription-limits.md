@@ -6,7 +6,7 @@
 | SQL Database servers per subscription |6 |150 |
 | DNS servers per subscription |9 |100 |
 | Reserved IPs per subscription |20 |100 |
-| Hosted service certificates per subscription |400 |400 |
+| Hosted service certificates per subscription |199 |199 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
 
 
@@ -15,4 +15,4 @@
 <sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://www.azure.cn/support/contact/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
 
-<!-- ms.date: 10/26/2017 -->
+<!-- ms.date: 04/08/2018 -->

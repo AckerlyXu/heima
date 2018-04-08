@@ -1,6 +1,8 @@
+# [Key Vault Documentation](index.md)
+
 # Overview
 ## [What is Key Vault?](key-vault-whatis.md)
-## [Service overview](/key-vault/)
+## [Service overview](https://www.azure.cn/home/features/key-vault/)
 
 # Get started
 ## [Get started with Key Vault](key-vault-get-started.md)
@@ -37,7 +39,7 @@
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/keyvault)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
 ### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
