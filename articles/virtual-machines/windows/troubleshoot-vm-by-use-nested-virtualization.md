@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 11/06/2017
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 ---
+
+<!-- Pending On EV3 and DV3 GA Announcement -->
 # Troubleshoot a problem Azure VM by using nested virtualization in Azure
 
 This article shows how to create a nested virtualization environment in Azure, so you can mount the disk of the problem VM on the Hyper-V host (Recovery VM) for troubleshooting purposes.
@@ -138,5 +139,6 @@ You can also use Azure PowerShell to create the VM from the disk. For more infor
 
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
 
+<!-- Pending On EV3 and DV3 GA Announcement -->
 <!-- Update_Description: new article on troubleshoot VM by user nested vitualization -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 04/10/2018-->

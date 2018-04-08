@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 4/10/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -154,7 +154,7 @@ The following table categorizes sizes into use cases.
 | [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
 <!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
-<!-- Not Available Ls, G, NV, H series-->
+<!-- Not Available Ls, G, NV, H, A8-11 series-->
 
 ### Find available VM sizes
 

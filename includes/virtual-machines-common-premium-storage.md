@@ -34,9 +34,10 @@ For information about migrating your existing VMs to Premium Storage, see [Conve
 Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
-
-    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
-<!-- Not Available on GS Series LS Series-->
+    <!-- Pending the Ev3, Esv3 GA Anounce -->
+    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, Fs-series and Esv3-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
+    <!-- Pending the Ev3, Esv3 GA Anounce -->
+    <!-- Not Available on GS Series LS Series-->
 * **Premium page blobs**
 
     Premium Storage supports page blobs. Use page blobs to store persistent, unmanaged disks for VMs in Premium Storage. Unlike standard Azure Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues. Premium page blobs supports six sizes from P10 to P50, and P60 (8191GiB). P60 Premium page blob is not supported to be attached as VM disks. 
@@ -50,7 +51,6 @@ Here are some of the features of Premium Storage:
     * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
     * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
     * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) (version 0.8.10 or a later version)
-    <!-- URL is not contains the .md postfix in https://docs.microsoft.com/powershell/azureps-cmdlets-docs-->
 
     To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
@@ -58,14 +58,14 @@ Here are some of the features of Premium Storage:
 
     A premium storage account supports only locally redundant storage as the replication option. Locally redundant storage keeps three copies of the data within a single region. For regional disaster recovery, you must back up your VM disks in a different region by using [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md). You also must use a geo-redundant storage (GRS) account as the backup vault. 
 
-    Azure uses your storage account as a container for your unmanaged disks. When you create an Azure DS-series, DSv2-series, or Fs-series VM with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
-<!-- Not Available on GS Series -->
+    Azure uses your storage account as a container for your unmanaged disks. When you create an Azure VM that supports Premium Storage with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
+
 <a name="premium-storage-supported-vms"></a>
 ## Supported VMs
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-Premium Storage supports DS-series, DSv2-series, Fs-series and B-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+Premium Storage supports B-series, DS-series, DSv2-series, DSv3-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!-- Not Available on GS Series LS Series -->
+<!-- Not Available on GS Series LS Series M-series -->
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).
 
@@ -315,4 +315,4 @@ For more information about Premium Storage, see the following articles.
 
 <!--Update_Description: wording update-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 03/19/2018-->
+<!--ms.date: 04/10/2018-->

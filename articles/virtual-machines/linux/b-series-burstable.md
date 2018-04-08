@@ -15,8 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/07/2017
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 
 ---
@@ -38,4 +37,4 @@ Learn more about how [Azure compute units (ACU)](acu.md) can help you compare co
 
 <!--The parent file of includes file of virtual-machines-common-b-series-burstable.md-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date:02/05/2018-->
+<!--ms.date: 04/10/2018-->
