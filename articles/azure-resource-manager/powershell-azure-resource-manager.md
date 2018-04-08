@@ -14,14 +14,14 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 origin.date: 02/16/2018
-ms.date: 03/26/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 ---
 # Manage resources with Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
-<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)] 00>
+<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)] -->
 
 If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 
