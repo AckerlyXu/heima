@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/03/2018
 ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: end-user
@@ -108,4 +108,4 @@ If your question wasn't answered here, we want to hear from you. Go to the [Micr
 - [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
 - [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

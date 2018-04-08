@@ -1,5 +1,5 @@
 ---
-title: Introduction to web application firewall (WAF) for Azure Application Gateway | Azure
+title: Introduction to web application firewall (WAF) for Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of web application firewall (WAF) for Application Gateway
 documentationcenter: na
 services: application-gateway
@@ -14,8 +14,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/03/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 04/04/2018
+ms.author: v-junlch
 
 ---
 
@@ -35,19 +35,19 @@ The following are the core benefits that Application Gateway and web application
 
 ### Protection
 
-* Protect your web application from web vulnerabilities and attacks without modification to backend code.
+- Protect your web application from web vulnerabilities and attacks without modification to backend code.
 
-* Protect multiple web applications at the same time behind an application gateway. Application gateway supports hosting up to 20 websites behind a single gateway that could all be protected against web attacks with WAF.
+- Protect multiple web applications at the same time behind an application gateway. Application gateway supports hosting up to 20 websites behind a single gateway that could all be protected against web attacks with WAF.
 
 ### Monitoring
 
-* Monitor your web application against attacks using a real-time WAF log. This log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to track WAF alerts and logs and easily monitor trends.
+- Monitor your web application against attacks using a real-time WAF log. This log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to track WAF alerts and logs and easily monitor trends.
 
-* WAF will be integrated with Azure Security Center soon. Azure Security Center allows for a central view of the security state of all your Azure resources.
+- WAF integrates with Azure Security Center. Azure Security Center allows for a central view of the security state of all your Azure resources.
 
 ### Customization
 
-* The ability to customize WAF rules and rule groups to suit your application requirements and eliminate false positives.
+- The ability to customize WAF rules and rule groups to suit your application requirements and eliminate false positives.
 
 ## Features
 
@@ -113,7 +113,7 @@ Application Gateway WAF can be configured to run in the following two modes:
 
 ### <a name="application-gateway-waf-reports"></a>WAF Monitoring
 
-Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center (coming soon), and Log Analytics.
+Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Log Analytics.
 
 ![diagnostics](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -164,3 +164,6 @@ Billing for WAF starts effectively 5/5/2017, until then the WAF SKU gateways con
 ## Next steps
 
 After learning more about the capabilities of WAF, visit [How to configure web application firewall on Application Gateway](application-gateway-web-application-firewall-portal.md).
+
+
+<!-- Update_Description: wording update -->

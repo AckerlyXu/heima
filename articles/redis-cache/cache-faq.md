@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/27/2017
-ms.date: 03/01/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
 
 ---
@@ -79,7 +79,7 @@ The FAQs in this section cover common monitoring and troubleshooting questions. 
 - [Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 ### What is Azure Redis Cache?
-Azure Redis Cache is based on the popular open-source [Redis cache](http://redis.io). It gives you access to a secure, dedicated Redis cache, managed by Azure.cn, and accessible from any application within Azure. For a more detailed overview, see the [Azure Redis Cache](/redis-cache/) product page on Azure.com.
+Azure Redis Cache is based on the popular open-source [Redis cache](http://redis.io). It gives you access to a secure, dedicated Redis cache, managed by Azure.cn, and accessible from any application within Azure. For a more detailed overview, see the [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/) product page on Azure.com.
 
 ### How can I get started with Azure Redis Cache?
 There are several ways you can get started with Azure Redis Cache.
@@ -224,9 +224,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 - You can also use the Redis command-line tools. To use them, perform the following steps:
 - Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 - Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
-- `redis-cli -h <your cache="" name="">
-  .redis.cache.chinacloudapi.cn -a <key>
-  `
+- `redis-cli -h <redis cache name>.redis.cache.chinacloudapi.cn -a <key>`
 
 > [!NOTE]
 > The Redis command-line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.

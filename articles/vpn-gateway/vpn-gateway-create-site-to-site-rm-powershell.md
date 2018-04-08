@@ -3,8 +3,8 @@ title: 'Connect your on-premises network to an Azure virtual network: Site-to-Si
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using PowerShell.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/12/2017
-ms.date: 12/11/2017
+origin.date: 03/13/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
 
 ---
@@ -55,10 +55,10 @@ The examples in this article use the following values. You can use these values 
 VnetName                = TestVNet1
 ResourceGroup           = TestRG1
 Location                = China North 
-AddressSpace            = 10.0.0.0/16 
+AddressSpace            = 10.11.0.0/16 
 SubnetName              = Subnet1 
-Subnet                  = 10.0.1.0/28 
-GatewaySubnet           = 10.0.0.0/27
+Subnet                  = 10.11.1.0/28 
+GatewaySubnet           = 10.11.0.0/27
 LocalNetworkGatewayName = Site2
 LNG Public IP           = <VPN device IP address> 
 Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
@@ -106,14 +106,14 @@ Create your virtual network.
 1. Set the variables.
 
   ```powershell
-  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27
-  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix 10.0.1.0/28
+  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27
+  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix 10.11.1.0/28
   ```
 2. Create the VNet.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1 `
-  -Location 'China North' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+  -Location 'China North' -AddressPrefix 10.11.0.0/16 -Subnet $subnet1, $subnet2
   ```
 
 ### <a name="gatewaysubnet"></a>To add a gateway subnet to a virtual network you have already created
@@ -126,7 +126,7 @@ Create your virtual network.
 2. Create the gateway subnet.
 
   ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27 -VirtualNetwork $vnet
+  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27 -VirtualNetwork $vnet
   ```
 3. Set the configuration.
 

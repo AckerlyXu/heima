@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/12/2018
-ms.date: 03/12/2018
+origin.date: 03/19/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
 
 ---
@@ -77,6 +77,10 @@ After you create your virtual network, you can add the IP address of a DNS serve
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
+>[!NOTE]
+>The Basic SKU does not support IKEv2 or RADIUS authentication.
+>
+
 ## <a name="generatecert"></a>5. Generate certificates
 
 Certificates are used by Azure to authenticate clients connecting to a VNet over a Point-to-Site VPN connection. Once you obtain a root certificate, you [upload](#uploadfile) the public key information to Azure. The root certificate is then considered 'trusted' by Azure for connection over P2S to the virtual network. You also generate client certificates from the trusted root certificate, and then install them on each client computer. The client certificate is used to authenticate the client when it initiates a connection to the VNet. 
@@ -102,6 +106,10 @@ The client address pool is a range of private IP addresses that you specify. The
 3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
 
   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+  >[!NOTE]
+  >If you don't see Tunnel type or Authentication type in the portal on this page, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication.
+  >
 
 ## <a name="tunneltype"></a>7. Configure tunnel type
 
@@ -167,7 +175,7 @@ The VPN client configuration files contain settings to configure devices to conn
 
 ### To connect from a Mac VPN client
 
-From the Network dialog box, locate the client profile that you want to use, then click **Connect**.
+From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then click **Connect**.
 
   ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -211,7 +219,7 @@ You can add up to 20 trusted root certificate .cer files to Azure. For instructi
 2. In the **Root certificate** section of the page, locate the certificate that you want to remove.
 3. Click the ellipsis next to the certificate, and then click 'Remove'.
 
-## <a name="revokeclient"></a>To Revoke a client certificate
+## <a name="revokeclient"></a>To revoke a client certificate
 
 You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This is different than removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication.
 
