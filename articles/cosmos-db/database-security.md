@@ -102,7 +102,7 @@ The following screenshot shows how you can use audit logging and activity logs t
 
 For more details about master keys and resource tokens, see [Securing access to Azure Cosmos DB data](secure-access-to-data.md).
 
-For more details about audit logging, see [Azure Cosmos DB diagnostic logging](logging.md).
+<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) -->
 
 For more details about Microsoft certifications, see [Azure Trust Center](https://www.trustcenter.cn/).
 

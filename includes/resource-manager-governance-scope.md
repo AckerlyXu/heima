@@ -12,7 +12,8 @@
  ms.custom: include file
 ---
 
-Before creating any items, let's review the concept of scope. Azure provides four levels of management: management groups, subscription, resource group, and resource. [Management groups](../articles/billing/billing-enterprise-mgmt-group-overview.md) are in a preview release. The following image shows an example of these layers.
+Before creating any items, let's review the concept of scope. Azure provides four levels of management: management groups, subscription, resource group, and resource. The following image shows an example of these layers.
+<!-- Not Available on [Management groups](../articles/billing/billing-enterprise-mgmt-group-overview.md) -->
 
 ![Scope](./media/resource-manager-governance-scope/scope-levels.png)
 
