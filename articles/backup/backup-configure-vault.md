@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2018
-ms.date: 02/08/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
 
 ---
@@ -32,7 +32,7 @@ A Recovery Services vault is an entity that stores all the backups and recovery 
 
 ### To create a Recovery Services vault
 1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.cn/) using your Azure subscription.
-2. On the Hub menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
+2. On the Hub menu, click **All services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -92,7 +92,7 @@ When you first create a Recovery Services vault you determine how storage is rep
 
   ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
+  By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy-grs.md) and [locally redundant](../storage/common/storage-redundancy-lrs.md) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, prepare your infrastructure to back up files and folders by downloading and installing the Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
 
@@ -141,6 +141,9 @@ Now that you've created a vault, prepare your infrastructure to back up files an
   The vault credentials download to your Downloads folder. After the vault credentials finish downloading, you see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that attempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step. The vault credentials are in the Downloads folder.   
 
   ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Install and register the agent
 
@@ -258,4 +261,4 @@ For additional information about backing up VMs or other workloads, see:
 - Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
 - If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
 
-<!--Update_Description: remove include file: backup-deployment-models.md -->
+<!-- Update_Description: wording update -->

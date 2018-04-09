@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 12/20/2017
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -43,11 +43,10 @@ To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the
 To begin:
 
 1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (the minimum version required is: 1.4.0)
+
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
-
-    ```
+    ```PS
     PS C:\> Get-Command *azurermrecoveryservices*
-
     CommandType     Name                                               Version    Source
     -----------     ----                                               -------    ------
     Cmdlet          Backup-AzureRmRecoveryServicesBackupItem           1.4.0      AzureRM.RecoveryServices.Backup
@@ -78,37 +77,36 @@ To begin:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-
 3. Sign in to your Azure account using **Login-AzureRmAccount -EnvironmentName AzureChinaCloud**. This cmdlet brings up a web page prompts you for your account credentials: 
     - Alternately, you can include your account credentials as a parameter in the **Login-AzureRmAccount** cmdlet, using the **-Credential** parameter.
     - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Tenant "fabrikam.com"**
-4. Associate the subscription you want to use with the acount, since an account can have several subscriptions:
+4. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
-    ```
+    ```PS
     PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
 5. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
 
-    ```
+    ```PS
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. You can verify that the Providers registered successfully, using the following commands:
-    ```
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```PS
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 In the command output, the **RegistrationState** should set to **Registered**. If not, just re-run the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet shown above.
 
 The following tasks can be automated with PowerShell:
 
-- Create a Recovery Services vault
-- Back up Azure VMs
-- Trigger a backup job
-- Monitor a backup job
-- Restore an Azure VM
+- [Create a Recovery Services vault](backup-azure-vms-automation.md#create-a-recovery-services-vault)
+- [Back up Azure VMs](backup-azure-vms-automation.md#back-up-azure-vms)
+- [Trigger a backup job](backup-azure-vms-automation.md#trigger-a-backup-job)
+- [Monitor a backup job](backup-azure-vms-automation.md#monitoring-a-backup-job)
+- [Restore an Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)
 
 ## <a name="create-a-recovery-services-vault"></a>Create a recovery services vault
 
@@ -116,17 +114,17 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 
 1. The Recovery Services vault is a Resource Manager resource, so you need to place it within a resource group. You can use an existing resource group, or create a resource group with the **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet. When creating a resource group, specify the name and location for the resource group.  
 
-    ```
+    ```PS
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "China North"
     ```
 2. Use the **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** cmdlet to create the Recovery Services vault. Be sure to specify the same location for the vault as was used for the resource group.
 
+    ```PS
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "China North"
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "China North"
-    ```
-3. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testvault is set to GeoRedundant.
+3. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy-lrs.md) or [Geo Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). The following example shows the -BackupStorageRedundancy option for testvault is set to GeoRedundant.
 
-    ```
+    ```PS
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
@@ -591,4 +589,4 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ## Next steps
 If you prefer to use PowerShell to engage with your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). If you manage DPM backups, see the article, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
 
-<!--Update_Description: link update-->
+<!--Update_Description: wording update-->

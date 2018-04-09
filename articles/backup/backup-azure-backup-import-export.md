@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 02/06/2018
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
 
 ---
@@ -44,6 +44,8 @@ Offline Backup is supported for all deployment models of Azure Backup that offsi
 
    > [!NOTE]
    > Offline Backup is not supported for System State backups done using the Azure Backup agent. 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Prerequisites
 Ensure that the following prerequisites are met before initiating the Offline Backup workflow
