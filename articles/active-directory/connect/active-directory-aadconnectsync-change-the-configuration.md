@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/13/2018
-ms.date: 03/05/2018
+origin.date: 03/16/2018
+ms.date: 04/09/2018
 ms.author: v-junlch
 
 ---
@@ -24,7 +24,7 @@ The purpose of this article is to walk you through how to make changes to the de
 The Synchronization Rules Editor is used to see and change the default configuration. You can find it on the **Start** menu under the **Azure AD Connect** group.  
 ![Start menu with Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
-When you open it, you see the default out-of-box rules.
+When you open the editor, you see the default out-of-box rules.
 
 ![Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
 
@@ -242,7 +242,7 @@ By default, the UserType attribute is not imported into the Azure AD Connect Spa
  1. Go to the **Connectors** tab in the Synchronization Service Manager.
  2. Right-click the **Azure AD Connector** and select **Properties**.
  3. In the pop-up dialog box, go to the **Select Attributes** tab.
- 4. Make sure the PreferredDataLocation attribute is checked in the attribute list.
+ 4. Make sure the UserType attribute is checked in the attribute list.
  5. Click **OK** to save.
 
 ![Add source attribute to Azure AD Connector schema](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -290,7 +290,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 ![Create inbound synchronization rule](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### Step 5: Create an outbound synchronization rule to flow the attribute value to Azure AD
-The outbound synchronization rule permits the attribute value to flow from the metaverse to the PreferredDataLocation attribute in Azure AD:
+The outbound synchronization rule permits the attribute value to flow from the metaverse to the UserType attribute in Azure AD:
 
 1. Go to the Synchronization Rules Editor.
 2. Set the search filter **Direction** to be **Outbound**.
