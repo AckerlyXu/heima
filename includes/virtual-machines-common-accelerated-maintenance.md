@@ -27,7 +27,8 @@ This Azure infrastructure update addresses the disclosed vulnerability at the hy
 ## Will there be a performance impact as a result of resolving this update?
 
 The majority of Azure customers have not seen a noticeable performance impact with this update. We've worked to optimize the CPU and disk I/O path and are not seeing noticeable performance impact after the fix has been applied. 
-<!-- Not Available on [Windows](/virtual-network/create-vm-accelerated-networking-powershell) or [Linux](/virtual-network/create-vm-accelerated-networking-cli) -->
+<!-- Not Available on [Windows](/virtual-network/create-vm-accelerated-networking-powershell) -->
+<!-- Not Available on [Linux](/virtual-network/create-vm-accelerated-networking-cli) -->
 
 ## I follow your recommendations for High Availability, will my environment remain highly available during the reboot?
 

@@ -326,8 +326,7 @@
       maintainContext: true
     - name: Deploy a website with Azure App Service
       href: create-website.md
-    - name: Application logging with Logic Apps
-      href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+### Not Available on href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
 ### Not Available on href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Process sensor data in real time
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
