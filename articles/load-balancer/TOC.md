@@ -42,7 +42,7 @@
 ## [Using multiple IP configurations](load-balancer-multiple-ip.md)
 ### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
-## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
+<!-- Not Available ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md) -->
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
 <!-- Not Available ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)-->
 

@@ -113,7 +113,7 @@ If you have to scale out your deployment beyond 200 source machines, or you have
 3. Download the Site Recovery Unified Setup file, and run it to install the process server. This also registers it in the vault.
 4. In **Before you begin**, select **Add additional process servers to scale out deployment**.
 5. Complete the wizard in the same way you did when you set up the configuration server.
-<!-- Anrch not Exist on [set up]()#step-2-set-up-the-source-environment -->
+    <!-- Anrch not Exist on [set up]()#step-2-set-up-the-source-environment -->
 
     ![Screenshot of Azure Site Recovery Unified Setup wizard](./media/site-recovery-vmware-to-azure/add-ps1.png)
 6. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase. To obtain the passphrase, run **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe -n** on the configuration server.
