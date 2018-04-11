@@ -99,7 +99,8 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in Azure Cosmos DB
 Azure Cosmos DB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
 
-You can find information on how to configure read preferences for the [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in their respective linked articles.
+You can find information on how to configure read preferences for the [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), and [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in their respective linked articles.
+<!-- Not Available [Table API](../cosmos-db/tutorial-global-distribution-table.md)-->
 <!-- Not Available [Graph API](../cosmos-db/tutorial-global-distribution-graph.md)-->
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 

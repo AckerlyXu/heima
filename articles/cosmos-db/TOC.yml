@@ -31,16 +31,7 @@
       href: create-mongodb-golang.md
     - name: Python
       href: create-mongodb-flask.md
-  - name: Table
-    items:
-    - name: .NET
-      href: create-table-dotnet.md
-    - name: Java
-      href: create-table-java.md
-    - name: Node.js
-      href: create-table-nodejs.md
-    - name: Python
-      href: create-table-python.md
+### - name: Table is invalid
 ### Cassandra is invalid
 - name: Tutorials
   items:
@@ -53,8 +44,7 @@
     - name: MongoDB with Angular
       href: tutorial-develop-mongodb-nodejs.md
 ### tutorial-develop-mongodb-react.md is only Microsoft VIDEO
-    - name: Table
-      href: tutorial-develop-table-dotnet.md
+### href: tutorial-develop-table-dotnet.md
 ### tutorial-develop-cassandra-java.md invalid
   - name: 2 - Import
     items:
@@ -62,8 +52,7 @@
       href: import-data.md
     - name: MongoDB
       href: mongodb-migrate.md
-    - name: Table
-      href: table-import.md
+### href: table-import.md invalid
 ### cassandra-import-data.md invalid
   - name: 3 - Query
     items:
@@ -71,8 +60,7 @@
       href: tutorial-query-sql-api.md
     - name: MongoDB
       href: tutorial-query-mongodb.md
-    - name: Table
-      href: tutorial-query-table.md
+### href: tutorial-query-table.md invalid
   - name: 4 - Distribute multiple-region
 ### Notice: globally to multiple-region
     items:
@@ -80,8 +68,7 @@
       href: tutorial-global-distribution-sql-api.md
     - name: MongoDB
       href: tutorial-global-distribution-mongodb.md
-    - name: Table
-      href: tutorial-global-distribution-table.md
+### href: tutorial-global-distribution-table.md invalid
   - name: 5 - Develop locally
     items:
     - name: Use the emulator
@@ -117,8 +104,7 @@
       href: sql-api-introduction.md
     - name: MongoDB
       href: mongodb-introduction.md
-    - name: Table
-      href: table-introduction.md
+### href: table-introduction.md invalid
 ### cassandra-introduction.md invalid
   - name: Security
     href: database-security.md
@@ -240,12 +226,10 @@
         items:
         - name: Node.js console app
           href: mongodb-samples.md
-    - name: Table API
+- name: Table API
       items:
-      - name: Table development
-        href: table-support.md
-      - name: Table API operations with PowerShell
-        href: table-powershell.md
+### Not Available on href: table-support.md
+### Not Available on href: table-powershell.md
       - name: Azure Table storage
         items:     
         - name: Table storage overview
@@ -360,16 +344,8 @@
       href: /rest/api/documentdbresourceprovider/
     - name: SQL
       href: sql-api-sql-query-reference.md
-  - name: Table APIs
-    items:
-    - name: .NET
-      href: table-sdk-dotnet.md
-    - name: Java
-      href: table-sdk-java.md
-    - name: Node.js
-      href: table-sdk-nodejs.md
-    - name: Python
-      href: table-sdk-python.md  
+### Not Available on  - name: Table APIs
+
 - name: Resources
   items:
 ###    href: https://www.azure.cn/try/cosmosdb/ is invalid

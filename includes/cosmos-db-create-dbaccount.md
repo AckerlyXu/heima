@@ -9,7 +9,7 @@
     ---|---|---
     ID|*Enter a unique name*|Enter a unique name to identify this Azure Cosmos DB account. Because *documents.azure.cn* is appended to the ID that you provide to create your URI, use a unique but identifiable ID.<br><br>The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
     API|SQL|The API determines the type of account to create. Azure Cosmos DB provides three APIs to suits the needs of your application: SQL (document database), MongoDB (document database) and Azure Table, each which currently require a separate account. <br><br>Select **SQL** because in this quickstart you are creating a document database that is queryable using SQL syntax and accessible with the SQL API.<br><br>[Learn more about the SQL API](../articles/cosmos-db/documentdb-introduction.md)|
-<!-- Not Available on Gremlin (graph database) and Cassandra -->
+    <!-- Not Available on Gremlin (graph database) and Cassandra -->
     Subscription|*Your subscription*|Select Azure subscription that you want to use for this Azure Cosmos DB account. 
     Resource Group|Create new<br><br>*Then enter the same unique name as provided above in ID*|Select **Create New**, then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID. 
     Location|*Select the region closest to your users*|Select geographic location in which to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.

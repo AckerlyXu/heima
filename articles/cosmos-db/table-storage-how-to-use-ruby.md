@@ -18,19 +18,22 @@ ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
-# How to use Azure Table Storage and Azure Cosmos DB Table API with Ruby
+# How to use Azure Table Storage with Ruby
+<!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Azure Table service and Azure Cosmos DB Table API. The samples are written in Ruby and use the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include **creating and deleting a table, and inserting and querying entities in a table**.
+This guide shows you how to perform common scenarios using the Azure Table service. The samples are written in Ruby and use the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include **creating and deleting a table, and inserting and querying entities in a table**.
+<!-- Not Available on Azure Cosmos DB Table API -->
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Add access to Storage or Azure Cosmos DB
-To use Azure Storage or Azure Cosmos DB, you must download and use the Ruby Azure package that includes a set of convenience libraries that communicate with the Table REST services.
+## Add access to Storage
+<!-- Not Available on Azure Cosmos DB -->
+To use Azure Storage, you must download and use the Ruby Azure package that includes a set of convenience libraries that communicate with the Table REST services.
 
 ### Use RubyGems to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
@@ -61,6 +64,7 @@ To obtain these values from a classic or Resource Manager storage account in the
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
 5. Click the copy icon to copy the key to the clipboard.
 
+<!-- Not Available on Azure Cosmos DB Table API
 ## Add an Azure Cosmos DB connection
 To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a **Client** object using your copied connection string. You can pass the **Client** object when you create a **TableService** object:
 
@@ -68,6 +72,7 @@ To connect to Azure Cosmos DB, copy your primary connection string from the Azur
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
 table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
+-->
 
 ## Create a table
 The **Azure::Storage::Table::TableService** object lets you work with tables and entities. To create a table, use the **create_table()** method. The following example creates a table or prints the error if there is any.

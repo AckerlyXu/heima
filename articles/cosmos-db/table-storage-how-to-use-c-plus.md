@@ -18,12 +18,14 @@ ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
-# How to use Azure Table storage and Azure Cosmos DB Table API with C++
+# How to use Azure Table storage with C++
+<!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
+This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
+<!-- Not Available on Azure Cosmos DB Table API -->
 
 > [!NOTE]
 > This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -62,6 +64,7 @@ An Azure Storage client or Cosmos DB client uses a connection string to store en
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
+<!-- Not Available on Table API
 ## Set up an Azure Cosmos DB connection string
 Use the name of your Azure Cosmos DB account, your primary key, and endpoint listed in the [Azure Portal](https://portal.azure.cn) for the *Account Name*, *Primary Key*, and *Endpoint* values. This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
 
@@ -79,7 +82,8 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 To start the Azure storage emulator, click the **Start** button or press the Windows key. Begin typing **Azure Storage Emulator**, and then select **Azure Storage Emulator** from the list of applications.  
 
-The following samples assume that you have used one of these two methods to get the storage connection string.  
+-->
+The following samples assume that you have used this method to get the storage connection string.  
 
 ## Retrieve your connection string
 You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
@@ -470,9 +474,9 @@ if (table.delete_table_if_exists())
   - Set **Conformance mode** to **No**.
 
 ## Next steps
-Follow these links to learn more about Azure Storage and the Table API in Azure Cosmos DB: 
+Follow these links to learn more about Azure Storage in Azure Cosmos DB: 
 
-* [Introduction to the Table API](table-introduction.md)
+<!-- Not Available on * [Introduction to the Table API](table-introduction.md) -->
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 <!-- Notice: Remove from Microsoft -->
 * [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)

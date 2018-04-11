@@ -40,7 +40,8 @@ While working through the scenarios in this tutorial, you may want to refer to t
 You need the following to complete this tutorial successfully:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
-- [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
+- [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with Azure Table storage.
+<!-- Not Available on Azure Cosmos DB Table API -->
 - [Azure Storage account](/storage/common/storage-create-storage-account#create-a-storage-account)
 <!-- Not Avaiable on  [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/) -->
 
@@ -57,9 +58,12 @@ You can also create an Azure storage account by using [Azure PowerShell](../stor
 
 If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
 
+<!--Not Avaiable on Cosmos DB Table API
 ### Create an Azure Cosmos DB Table API account
 
 For instructions on creating an Azure Cosmos DB Table API account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
+
+-->
 
 ## Install the Azure Cosmos DB Table SDK for Python
 
@@ -83,6 +87,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey',endpo
 ```
 <!-- Add the endpoint_suffix configuration -->
 
+<!-- Not Avaiable on 
 ## Connect to Azure Cosmos DB
 
 To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object using your copied connection string:
@@ -90,6 +95,7 @@ To connect to Azure Cosmos DB, copy your primary connection string from the Azur
 ```python
 table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=https://myaccount.documents.azure.cn')
 ```
+-->
 
 ## Create a table
 
@@ -232,7 +238,7 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [FAQ - Develop with the Table API](/cosmos-db/faq#develop-with-the-table-api)
+<!-- Not Available on  [FAQ - Develop with the Table API](/cosmos-db/faq#develop-with-the-table-api) -->
 * [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/)
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
