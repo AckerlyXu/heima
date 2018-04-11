@@ -24,9 +24,10 @@ Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.
 ![Throughput calculator][5]
 
 ## Introduction
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is 21Vianet's multiple-region distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by our top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), and [Table API](table-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is 21Vianet's multiple-region distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by our top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md) and [MongoDB API](mongodb-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
 <!-- Not Available on Graph -->
 <!-- Notice: 全球 to 多个区域 -->
+<!-- Not Available on [Table API](table-introduction.md) -->
 
 Azure Cosmos DB supports a number of APIs with different operations ranging from simple reads and writes to complex queries. Since not all requests are equal, they are assigned a normalized quantity of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
 <!-- Notice: 全球 to 多个区域 -->
@@ -41,8 +42,9 @@ After reading this article, you'll be able to answer the following questions:
 * How do I estimate my application's request unit needs?
 * What happens if I exceed request unit capacity for a container?
 
-As Azure Cosmos DB is a multi-model database, it is important to note that this article refers to a collection/document for a document API and a table/entity for the Table API. This article refers to concept of a collection, or table as a container, and a a document, node, or entity as an item.
+As Azure Cosmos DB is a multi-model database, it is important to note that this article refers to a collection/document for a document API . This article refers to concept of a collection as a container, and a a document, node, or entity as an item.
 <!-- Not Available on Graph API-->
+<!-- Not Available on Table API-->
 
 ## Request units and request charges
 Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.

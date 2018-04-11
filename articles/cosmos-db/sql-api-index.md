@@ -23,8 +23,9 @@ ms.author: v-yeche
 
 This article provides links to all Azure Cosmos DB content specific to the SQL API.
 
-These articles do not apply to the Table API, or MongoDB API. 
+These articles do not apply to the MongoDB API. 
 <!--Not Available on Graph API -->
+<!--Not Available on Table API -->
 
 ## Introduction and concepts
 

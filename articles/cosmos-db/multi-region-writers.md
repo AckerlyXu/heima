@@ -320,5 +320,5 @@ In this article, we described how you can use globally distributed multi-region 
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
 * Develop with multiple regions using the [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
 * Develop with multiple regions using the [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
-* Develop with multiple regions using the [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md)
+<!-- Not Available on [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md) -->
 <!-- Update_Description: update meta properties, wording update, update link -->
