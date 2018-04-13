@@ -34,7 +34,7 @@ When you add this connector to your logic apps, you must sign-in to your Office 
 > 
 > 
 
-After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
+After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this article describes these properties.
 
 ## Connector-specific details
 

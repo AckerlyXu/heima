@@ -3,7 +3,7 @@ title: Use the Slack Connector in your Azure logic apps| Microsoft Docs
 description: Connect to Slack in your logic apps
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/18/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 
 ---
 # Get started with the Slack connector
@@ -31,23 +31,33 @@ To use the Slack connector, you first create a **connection** then provide the d
 | --- | --- | --- |
 | Token |Yes |Provide Slack Credentials |
 
-Follow these steps to sign into Slack, and complete the configuration of the Slack **connection** in your logic app:
+Sign in to Slack using the following steps, and complete the configuration of the Slack **connection** in your logic app:
 
 1. Select **Recurrence**
 2. Select a **Frequency** and enter an **Interval**
 3. Select **Add an action**  
+
    ![Configure Slack][1]  
+   
 4. Enter Slack in the search box and wait for the search to return all entries with Slack in the name
 5. Select **Slack - Post message**
 6. Select **Sign in to Slack**:  
+
    ![Configure Slack][2]
-7. Provide your Slack credentials to sign in to authorize the  application    
+   
+7. Provide your Slack credentials to sign in to authorize the  application  
+  
    ![Configure Slack][3]  
-8. You'll be redirected to your organization's Log in page. **Authorize** Slack to interact with your logic app:      
+   
+8. You'll be redirected to your organization's login page. **Authorize** Slack to interact with your logic app:   
+   
    ![Configure Slack][5] 
-9. After the authorization completes you'll be redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
+   
+9. After authorization completes, you're redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
+
    ![Configure Slack][6]
-10. Save your work by selecting **Save** on the menu bar above.
+   
+10. Save your work by selecting **Save** on the menu (toward the top).
 
 ## Connector-specific details
 
