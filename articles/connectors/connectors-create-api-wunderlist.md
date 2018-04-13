@@ -3,7 +3,7 @@ title: Wunderlist connector i n Azure logic apps
 description: Create a connection to Wunderlist, and use this connection to build your workflow in logic apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 08/18/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 
 ---
 # Get started with the Wunderlist connector
-Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere.
+Wunderlist is a todo list and task manager to help users complete their tasks.  Whether you’re sharing a grocery list, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your list items. Wunderlist instantly syncs between your phone, tablet, and computer, so you can access all your tasks from anywhere.
 
 Get started by creating a logic app now; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
