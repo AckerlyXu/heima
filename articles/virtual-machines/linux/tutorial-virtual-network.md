@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -304,4 +304,4 @@ Advance to the next tutorial to learn about securing data on virtual machines us
 > [!div class="nextstepaction"]
 > [Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->

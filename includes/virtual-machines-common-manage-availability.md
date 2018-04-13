@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 ## Understand VM Reboots - maintenance vs. downtime
 There are three scenarios that can lead to virtual machine in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
 
@@ -71,4 +84,5 @@ If the load balancer is not configured to balance traffic across multiple virtua
 <!-- Not Avaiable on [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets -->
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
 <!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->
-<!--ms.date: 03/19/2018-->
+
+<!-- Update_Description: update meta properties -->

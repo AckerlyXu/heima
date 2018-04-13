@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ You can use various Azure procedures and available images or Resource Manager te
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed.
 
 ### Create Docker host with Azure CLI 2.0
-Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -75,6 +75,7 @@ You see output similar to *docker-compose 1.6.2, build 4d72027*.
 
 > [!TIP]
 > If you used another method to create a Docker host and need to install Compose yourself, see the [Compose documentation](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
+<!-- URL is Correct to append .md posfix -->
 
 ## Create a docker-compose.yml configuration file
 Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](https://docs.docker.com/compose/compose-file/).
@@ -129,6 +130,7 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 ```
 
 You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.chinaeast.cloudapp.chinacloudapi.cn`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
+<!-- URL is correct on http://mypublicdns.chinaeast.cloudapp.chinacloudapi.cn -->
 
 ![WordPress start screen][wordpress_start]
 

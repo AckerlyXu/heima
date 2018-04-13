@@ -6,8 +6,8 @@
  ms.service: virtual-machines
  ms.topic: include
  origin.date: 03/09/2018
- ms.date: 4/10/2018
- ms.author: v-junlch
+ ms.date: 04/16/2018
+ ms.author: v-yeche
  ms.custom: include file
 ---
 <!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
@@ -22,7 +22,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 - Dv3-series, Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 <!--PENDIND ON Dv3-series, Updte carefully -->
 
-- The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see [Sizes for virtual machines](../articles/virtual-machines/windows/sizes.md) and for VM pricing information, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
+- The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines.
 
 <!--PENDIND ON B-series, Updte carefully -->
 ## B-series
@@ -92,7 +92,7 @@ ACU: 210-250
 | Standard_DS3_v2 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 192 |4 / 3000 |
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8 / 12000 |
-<!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DV2-series-->
+<!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DSV2-series-->
 
 ## Dv2-series
 
@@ -196,5 +196,4 @@ In the classic deployment model, some VM size names are slightly different in CL
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 
 <!--Update_Description: wording update-->
-<!--ms.date: 04/10/2018-->
 <!--PENDING TO Dv3-series, Dsv3-series, B-series -->

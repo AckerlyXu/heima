@@ -7,15 +7,14 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
-
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 07/05/2017
-ms.date: 03/19/2018
+origin.date: 03/07/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ---
@@ -37,7 +36,7 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 | Administration feature | Description |
 | --- | --- |
 | **SQL Automated Backup** |Automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. For more information, see [Automated backup for SQL Server in Azure Virtual Machines (Classic)](../classic/sql-automated-backup.md). |
-| **SQL Automated Patching** |Configures a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure Virtual Machines (Classic)](../classic/sql-automated-patching.md). |
+| **SQL Automated Patching** |Configures a maintenance window during which important Windows updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure Virtual Machines (Classic)](../classic/sql-automated-patching.md). |
 | **Azure Key Vault Integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)](../classic/ps-sql-keyvault.md). |
 
 ## Prerequisites
@@ -56,7 +55,7 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 ### Azure PowerShell:
 [Download and configure the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/overview).
 
-Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount -Environment AzureChinaCloud** command.
+Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount -Environment AzureChinaCloud ** command.
 
     Add-AzureAccount -Environment AzureChinaCloud
 

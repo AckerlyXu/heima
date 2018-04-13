@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/11/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.cn.
+Log in to the Azure portal at https://portal.azure.cn.
 
 ## Create virtual machine
 

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 02/02/2017
-ms.date: 03/19/2018
+origin.date: 03/12/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -49,7 +49,7 @@ The rest of this article will focus on general guidance for running your Linux d
 * Linux kernel versions below 2.6.37 do not support NUMA on Hyper-V with larger VM sizes. 
 <!-- Not Available on This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
-* All of the VHDs must have sizes that are multiples of 1 MB.
+* All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. More information can be found in the steps below.
 
 ### Installing kernel modules without Hyper-V
 Azure runs on the Hyper-V hypervisor, so Linux requires that certain kernel modules are installed in order to run in Azure. If you have a VM that was created outside of Hyper-V, the Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running an a Hyper-V environment. When using a different virtualization system (i.e. Virtualbox, KVM, etc.) to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the `hv_vmbus` and `hv_storvsc` kernel modules are available on the initial ramdisk.
@@ -150,8 +150,6 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2
 
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
 
-    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
-
     In addition to the above, it is recommended to *remove* the following parameters if they exist:
 
         rhgb quiet crashkernel=auto
@@ -187,4 +185,4 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2
 
 * You will then need to shut down the virtual machine and upload the VHD to Azure.
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

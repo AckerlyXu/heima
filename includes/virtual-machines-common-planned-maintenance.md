@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
 - If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
@@ -49,5 +62,4 @@ Virtual machine scale sets are an Azure compute resource that enables you to dep
 
 For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for [Windows](../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-<!--Update_Description: wording update-->
-<!--ms.date: 01/08/2018,  NO Changes TO OVERWRITE ON ZH-CN REPOSITORY -->
+<!--Update_Description: update meta properties -->

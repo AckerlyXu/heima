@@ -14,7 +14,7 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
 ---
@@ -26,7 +26,7 @@ If you are familiar with the various features of Amazon's AWS, you can examine t
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
 ## Regions
-Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area.  We have two regions generally available around the China. 
+Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area.  Azure currently (as of November 2017) has 2 regions generally available in china. 
 
 * [Azure China Regions](https://www.azure.cn/support/service-dashboard/)
 
@@ -35,7 +35,7 @@ We announced an industry leading single instance virtual machine Service Level A
 
 ## Managed Disks
 
-Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk  As you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md).
+Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md).
 
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](../linux/managed-disks-overview.md).
 
@@ -71,13 +71,17 @@ Each Azure Subscription has default quota limits in place that could impact the 
 We work closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partners, see the following links:
 
 * Linux on Azure - [Endorsed Distributions](endorsed-distros.md)
-* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://portal.azure.cn/#create/SUSE.SUSELinuxEnterpriseServer12SP2)
-<!-- Not Avaialbe * Redhat -->
-* Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://portal.azure.cn/#create/Canonical.UbuntuServer1604LTS)
-* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://portal.azure.cn/#create/credativ.Debian8)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
-* CoreOS - [Azure Marketplace - CoreOS (Stable)](https://portal.azure.cn/#create/CoreOS.CoreOSStable)
-<!-- Not Avaialbe * RancherOS -->
+* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://market.azure.cn/zh-cn/marketplace/apps?search=%27SUSE%27)
+<!-- Not Available * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
+* Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
+* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)
+* CoreOS - [Azure Marketplace - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
+<!-- Not Avaialbe * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
+* Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
+<!-- Not Avaialbe * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
+<!-- Not Avaialbe * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->
+* Jenkins - [Azure Marketplace - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)
 
 ## Getting started with Linux on Azure
 To begin using Azure, you need an Azure account, the Azure CLI installed, and a pair of SSH public and private keys.

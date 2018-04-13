@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 
 2. Starting in the upper left, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
@@ -53,4 +66,4 @@ The Summary blade lists the settings specified in the previous blades. Click **O
 After the virtual machine is created, the portal lists the new virtual machine under **All resources**, and displays a tile of the virtual machine on the dashboard. The corresponding cloud service and storage account also are created and listed. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
  ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
-<!--ms.date: 03/19/2018 -->
+<!-- Update_Description: update meta properties -->

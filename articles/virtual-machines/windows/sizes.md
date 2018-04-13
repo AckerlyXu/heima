@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/01/2018
-ms.date: 04/10/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 
@@ -30,9 +30,9 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, DSv2, DS, Dv2, D   | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->
-<!-- Not Available M, Gs, G -->
+<!-- Not Available M, Gs, G series -->
 <!-- Not Available [Storage optimized] Ls -->
-<!-- Not Available [GPU] NV, NC  -->
+<!-- Not Available [GPU] NV, NC, N-series  -->
 <!-- Not Available [High performance compute] H, A8-11 -->
 
 <br> 
@@ -60,5 +60,9 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
+<!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
+<!-- Not Available on - [GPU optimized](sizes-gpu.md) -->
+<!-- Not Available on - [High performance compute](sizes-hpc.md)-->
+
 <!--Update_Description: update meta properties, update link -->
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->

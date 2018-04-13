@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 ## Use the portal to move a VM to a different subscription
 You can move a VM and it's associated resources to a different subscription using the portal.
 
@@ -18,5 +31,4 @@ You can move a VM and it's associated resources to another resource group using 
 4. Select each of the resources to move. In most cases, you should move all of the related resources that are listed.
 5. Select an existing **Resource group** or type a name to have a new resource group created.
 6. When you are done, select that you understand that new resource IDs are created and those need to be used with the VM once it is moved, then click **OK**.
-<!--Update_Description: wording update-->
-<!--ms.date: 01/08/2018-->
+<!--Update_Description: update meta properties -->

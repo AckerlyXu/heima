@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 10/30/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -59,4 +59,4 @@ Linux numbers were computed by running [CoreMark](http://www.eembc.org/coremark/
 * For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 * To run the CoreMark scripts on Linux VMs, download the [CoreMark script pack](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

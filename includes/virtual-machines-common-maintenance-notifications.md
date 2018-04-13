@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 ## View VMs scheduled for maintenance in the portal
 
 Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
@@ -51,5 +64,4 @@ Once you start maintenance, your virtual machine will be rebooted and the mainte
 
 If you missed the window where you can start maintenance, you will still be able to see the window when your VM will be rebooted by Azure.
 
-<!--Update_Description: remove the Retry Later status in Line 23-->
-<!--ms.date: 01/29/2018 -->
+<!--Update_Description: update meta properties -->

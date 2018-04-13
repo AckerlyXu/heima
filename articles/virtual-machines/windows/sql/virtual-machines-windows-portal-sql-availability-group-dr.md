@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: "05/02/2017"
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -55,13 +55,12 @@ The following diagram shows how the networks communicate between data centers.
 
 >[!IMPORTANT]
 >This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://www.azure.cn/pricing/details/data-transfer/).  
-<!-- URL is correct on [Bandwidth Pricing](https://www.azure.cn/pricing/details/data-transfer/) -->
 
 ## Create remote replica
 
 To create a replica in a remote data center, do the following steps:
 
-1. [Create a virtual network in the new region](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+1. [Create a virtual network in the new region](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 1. [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 

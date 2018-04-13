@@ -1,5 +1,7 @@
 # Regions and availability for virtual machines in Azure
 Azure operates in two datacenters in China. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
+<!--Notice: multiple TO two -->
+<!--Notice: around the world TO in china -->
 
 ## What are Azure regions?
 You create Azure resources in defined geographic regions like 'China North' or 'China East'. You can review the [list of regions and their locations](https://www.azure.cn/support/service-dashboard/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility as you design applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
@@ -15,8 +17,9 @@ Examples of region pairs include:
 
 | Primary | Secondary |
 |:--- |:--- |
-| China East |China East |
+| China North |China East |
 
+<!-- Not Available on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) -->
 ## Feature availability
 Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or Azure DNS. To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://www.azure.cn/support/service-dashboard/#services). You can also [programmatically query the supported VM sizes and restrictions in each region](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 <!-- URL waiting for release on [Azure DNS](../articles/dns/dns-overview.md) -->
@@ -62,7 +65,7 @@ Prices vary depending on the storage type and availability that you select.
 See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
 ## Availability sets
-An availability set is a logical grouping of VMs within a datacenter that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), the Azure SLA applies for unplanned maintenance events. 
+An availability set is a logical grouping of VMs within a datacenter that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/). There is no cost for the Availability Set itself, you only pay for each VM instance that you create. When a single VM is using [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), the Azure SLA applies for unplanned maintenance events. 
 
 An availability set is composed of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs). You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md) or [Windows VMs](../articles/virtual-machines/windows/manage-availability.md).
 
@@ -80,4 +83,3 @@ For VMs using [Azure Managed Disks](../articles/virtual-machines/windows/faq-for
 You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 12/11/2017-->

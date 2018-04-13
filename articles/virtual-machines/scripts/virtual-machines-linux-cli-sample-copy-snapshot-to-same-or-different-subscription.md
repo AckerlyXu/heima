@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/30/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -63,6 +63,7 @@ az account set --subscription $targetSubscriptionId
 #Copy snapshot to different subscription using the snapshot Id
 az snapshot create --resource-group $targetResourceGroupName --name $snapshotName --source $snapshotId
 
+
 ```
 
 ## Script explanation
@@ -82,4 +83,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->
