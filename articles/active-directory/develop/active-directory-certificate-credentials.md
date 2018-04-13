@@ -22,7 +22,7 @@ ms.date: 06/21/2017
 
 # Certificate credentials for application authentication
 
-Azure Active Directory allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 Client Credentials Grant flow and the On-Behalf-Of flow.
+Azure Active Directory allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 Client Credentials Grant flow([v1](active-directory-protocols-oauth-service-to-service.md) ) and the On-Behalf-Of flow([v1](active-directory-protocols-oauth-on-behalf-of.md) ).
 One form of credential that can be used is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
 
 ## Format of the assertion
@@ -31,7 +31,7 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 #### Header
 
 | Parameter |  Remark |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Should be **RS256** |
 | `typ` | Should be **JWT** |
 | `x5t` | Should be the X.509 Certificate SHA-1 thumbprint |
@@ -39,8 +39,8 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 #### Claims (Payload)
 
 | Parameter |  Remark |
-| --- | --- | --- |
-| `aud` | Audience: Should be **https://login.partner.microsoftonline.cn/*tenant_Id*/oauth2/token** |
+| --- | --- |
+| `aud` | Audience: Should be **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Expiration date: the date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
 | `iss` | Issuer: should be the client_id (Application Id of the client service) |
 | `jti` | GUID: the JWT ID |
@@ -85,7 +85,7 @@ Having hold of a certificate, you need to compute:
 - `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
 - `$base64Value`, which is the base64 encoding of the certificate raw data
 
-you also need to provide a GUID to identify the key in the application manifest (`$keyId`)
+You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
 
 In the Azure app registration for the client application, open the application manifest, and replace the *keyCredentials* property with your new certificate information using the following schema:
 ```
