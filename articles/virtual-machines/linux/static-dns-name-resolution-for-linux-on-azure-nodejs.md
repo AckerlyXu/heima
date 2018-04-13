@@ -3,7 +3,7 @@ title: Using internal DNS for VM name resolution on Azure | Azure
 description: Using internal DNS for VM name resolution on Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 04/16/2018
+ms.author: v-yeche
 
 ---
 
@@ -91,7 +91,7 @@ azure group create myResourceGroup \
 
 ## Create the VNet
 
-The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network](../../virtual-network/manage-virtual-network.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -180,3 +180,5 @@ By using the CLI flags to call out existing resources, we instruct Azure to depl
 ## Next steps
 * [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create a Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!-- Update_Description: update meta properties, update link -->

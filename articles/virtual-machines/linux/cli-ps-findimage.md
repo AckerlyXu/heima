@@ -14,27 +14,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/24/2017
-ms.date: 03/19/2018
+origin.date: 02/28/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
 # How to find Linux VM images in the Azure Marketplace with the Azure CLI
-This topic describes how to use the Azure CLI 2.0 to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Linux VM.
+This topic describes how to use the Azure CLI 2.0 to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
 Make sure that you installed the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and are logged in to an Azure account (`az login`).
 
-## Terminology
-
-Marketplace images are identified in the CLI and other Azure tools according to a hierarchy:
-
-* **Publisher** - The organization that created the image. Example: Canonical
-* **Offer** - A group of related images created by a publisher. Example: Ubuntu Server
-* **SKU** - An instance of an offer, such as a major release of a distribution. Example: 16.04-LTS
-* **Version** - The version number of an image SKU. When specifying the image, you can replace the version number with "latest", which selects the latest version of the distribution.
-
-To specify a Marketplace image, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. 
+[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -46,7 +37,7 @@ Run the [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-c
 az vm image list --output table
 ```
 
-The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the URN alias, such as *UbuntuLTS*.
+The output includes the image URN (the value in the *Urn* column). When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*, a shortened form such as *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -56,7 +47,7 @@ CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
 openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
-RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+<!-- Not Available on RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest-->
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 ...
@@ -70,6 +61,7 @@ For example, the following command displays all Debian offers (remember that wit
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
+
 ```
 
 Partial output: 
@@ -102,9 +94,9 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 
 Apply similar filters with the `--location`, `--publisher`, and `--sku` options. You can even perform partial matches on a filter, such as searching for `--offer Deb` to find all Debian images.
 
-If you don't specify a particular location with the `--location` option, the values for `chinanorth` are returned by default. (Set a different default location by running `az configure --defaults location=<location>`.)
+If you don't specify a particular location with the `--location` option, the values for the default location are returned. (Set a different default location by running `az configure --defaults location=<location>`.)
 
-For example, the following command lists all Debian 8 SKUs in `chinanorth`:
+For example, the following command lists all Debian 8 SKUs in the China North location:
 
 ```azurecli
 az vm image list --location chinanorth --offer Deb --publisher credativ --sku 8 --all --output table
@@ -138,6 +130,8 @@ Another way to find an image in a location is to run the [az vm image list-publi
 2. For a given publisher, list their offers.
 3. For a given offer, list their SKUs.
 
+Then, for a selected SKU, you can choose a version to deploy.
+
 For example, the following command lists the image publishers in the China North location:
 
 ```azurecli
@@ -163,7 +157,7 @@ chinanorth      activeeon
 chinanorth      adatao
 ...
 ```
-Use this information to find offers from a specific publisher. For example, if Canonical is an image publisher in the China North location, find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
+Use this information to find offers from a specific publisher. For example, if *Canonical* is an image publisher in the China North location, find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
 
 ```azurecli
 az vm image list-offers --location chinanorth --publisher Canonical --output table
@@ -182,7 +176,7 @@ chinanorth      Ubuntu_Core
 chinanorth      Ubuntu_Snappy_Core
 chinanorth      Ubuntu_Snappy_Core_Docker
 ```
-You see that in the China North region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you have discovered:
+You see that in the China North region, Canonical publishes the *UbuntuServer* offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you discovered:
 
 ```azurecli
 az vm image list-skus --location chinanorth --publisher Canonical --offer UbuntuServer --output table
@@ -216,7 +210,7 @@ chinanorth      17.04-DAILY
 chinanorth      17.10-DAILY
 ```
 
-Finally, use the `az vm image list` command to find a specific version of the SKU you want, for example, **16.04-LTS**:
+Finally, use the `az vm image list` command to find a specific version of the SKU you want, for example, *16.04-LTS*:
 
 ```azurecli
 az vm image list --location chinanorth --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -253,7 +247,40 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
-## Next steps
-Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
 
-<!--Update_Description: update meta properties, update link -->
+Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. 
+
+If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines).
+
+[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+
+### View plan properties
+To view an image's purchase plan information, run the [az vm image show](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az_image_show) command. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
+
+For example, the Canonical Ubuntu Server 16.04 LTS image doesn't have additional terms, because the `plan` information is `null`:
+
+```azurecli
+az vm image show --location chinanorth --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+```
+
+Output:
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/chinanorth/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "location": "chinanorth",
+  "name": "16.04.201801260",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+<!-- Not Available on Bitnami image on Mooncake -->
+<!-- Not Available on Bitnami ### Accept the terms -->
+<!-- Not Available on Bitnami ### Deploy using purchase plan parameters -->
+## Next steps
+To create a virtual machine quickly by using the image information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
+<!--Update_Description: update meta properties, update link, wording update -->

@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -48,7 +48,7 @@ $location = "China East"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Next, create a Key Vault with [New-​Azure​Rm​Key​Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/new-azurermkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `<mykeyvault>` in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [New-​Azure​Rm​Key​Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/new-azurermkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
 
 ```powershell
 $keyvaultName="mykeyvault"
@@ -73,7 +73,6 @@ Add-AzureKeyVaultCertificate `
     -Name "mycert" `
     -CertificatePolicy $policy 
 ```
-
 
 ## Create a virtual machine
 Set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
@@ -116,7 +115,7 @@ To add the certificate from Key Vault to a VM, obtain the ID of your certificate
 ```powershell
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
-$vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
+$vm=Get-AzureRmVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzureRmKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId
 $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $vaultId -CertificateStore "My" -CertificateUrl $certURL
 

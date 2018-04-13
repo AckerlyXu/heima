@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 4/10/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -320,5 +320,5 @@ Advance to the next tutorial to learn about VM disks.
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties -->
 <!--PENDING FOR Ev3, Dv3 GA ANOUNCEMENT -->

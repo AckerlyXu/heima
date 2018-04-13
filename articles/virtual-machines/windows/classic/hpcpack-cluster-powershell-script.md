@@ -3,8 +3,8 @@ title: PowerShell script to deploy Windows HPC cluster | Azure
 description: Run a PowerShell script to deploy a Windows HPC Pack 2012 R2 cluster in Azure virtual machines
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management,hpc-pack
 
@@ -15,16 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 02/24/2017
-ms.author: v-dazen
+ms.date: 04/16/2018
+ms.author: v-yeche
 
 ---
 # Create a Windows high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script
-Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC Pack 2012 R2 cluster for Windows workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and additional Windows compute resources you specify. You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For examples, see [Create an HPC cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster/) and [Create an HPC cluster with a custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image/).
+Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC Pack 2012 R2 cluster for Windows workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and additional Windows compute resources you specify. 
+<!-- Not Available on [Create a Linux HPC cluster with the HPC Pack IaaS deployment script](../../linux/classic/hpcpack-cluster-powershell-script.md) -->
 
 > [!IMPORTANT] 
 > The PowerShell script described in this article creates a Microsoft HPC Pack 2012 R2 cluster in Azure using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
-> In addition, the script described in this article does not support HPC Pack 2016.
+> In addition, the script described in this article does not support HPC Pack 2016. For information about Resource Manager templates for HPC Pack 2012 R2 and HPC Pack 2016, see the [HPC Pack cluster deployment options in Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -203,6 +204,7 @@ Scheduler REST API and HPC web portal are enabled on the head node.
   </BrokerNodes>
 </IaaSClusterConfig>
 ```
+<!-- Notice: Change V8 to V7 due to A8+ is invalid on Mooncake-->
 
 ### Example 4
 The following configuration file deploys an HPC Pack cluster
@@ -287,8 +289,10 @@ nodes are created for Azure node template *AzureTemplate1*. A script file runs o
     To work around this problem, log on to the domain controller and either
     remove the forwarder configuration setting or configure a valid forwarder DNS server. To configure this setting, in Server Manager click **Tools** >
     **DNS** to open DNS Manager, and then double-click **Forwarders**.
+<!-- Not Available on RDMA cluster -->
 
 ## Next steps
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster-node-manage.md).
 * To get set up to submit jobs to the cluster from a local computer, see [Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: update meta properties, wording update -->

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 4/10/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -297,4 +297,4 @@ Advance to the next tutorial to learn about automating VM configuration.
 > [!div class="nextstepaction"]
 > [Automate VM configuration](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->

@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/15/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 
@@ -64,7 +64,7 @@ az vm create \
     --admin-password myPassword12
 
 # Encrypt the VM disks.
-az vm encryption enable --resource-group myResourceGroup2 --name myVM \
+az vm encryption enable --resource-group myResourceGroup --name myVM \
   --aad-client-id $sp_id \
   --aad-client-secret $sp_password \
   --disk-encryption-keyvault $keyvault_name \
@@ -111,4 +111,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 
 Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fvirtual-machines%windows%2ftoc.json).
 
-<!--Update_Description: update meta propreties -->
+<!--Update_Description: update meta propreties, wording update -->

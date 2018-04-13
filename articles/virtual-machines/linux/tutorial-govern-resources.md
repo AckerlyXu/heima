@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 04/10/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
 # Virtual machine governance with Azure CLI
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -27,7 +27,7 @@ To install and use the CLI locally, see [Install Azure CLI 2.0](https://docs.azu
 
 ## Understand scope
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 In this tutorial, you apply all management settings to a resource group so you can easily remove those settings when done.
 
@@ -116,7 +116,7 @@ You see an error stating that the delete operation cannot be performed because o
 
 You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 To apply tags to a virtual machine, use the [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_tag) command. Any existing tags on the resource are not retained.
 
@@ -143,7 +143,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 <!-- Not Available on ### View costs by tag values -->
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## Clean up resources
 
@@ -183,4 +183,4 @@ Advance to the next tutorial to learn about how highly available virtual machine
 > [Monitor virtual machines](tutorial-monitoring.md)
 
 <!--The parent file of includes file of resource-manager-governance-tags-cli.md-->
-<!--ms.date:03/05/2018-->
+<!--ms.date: 04/16/2018-->

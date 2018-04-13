@@ -6,8 +6,8 @@
  ms.service: virtual-machines
  ms.topic: include
  origin.date: 03/09/2018
- ms.date: 4/10/2018
- ms.author: v-junlch
+ ms.date: 04/16/2018
+ ms.author: v-yeche
  ms.custom: include file
 ---
 
@@ -143,5 +143,4 @@ ACU: 160
 
 <br>
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 04/10/2018-->
 <!--PENDING to EV3 configuration list-->

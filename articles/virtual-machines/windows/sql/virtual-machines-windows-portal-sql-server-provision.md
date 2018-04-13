@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 02/15/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 # How to provision a Windows SQL Server virtual machine in the Azure portal
@@ -22,10 +22,13 @@ This guide provides details on the different options available when you create a
 
 Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
+> [!TIP]
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 <a name="select"></a>
-## SQL Server virtual machine gallery images
+##  SQL Server virtual machine gallery images
 
 When you create a SQL Server virtual machine, you can select one of several pre-configured images from the virtual machine gallery. The following steps demonstrate how to select one of the SQL Server 2017 images.
 

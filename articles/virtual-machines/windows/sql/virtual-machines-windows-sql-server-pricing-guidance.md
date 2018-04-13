@@ -7,20 +7,26 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
-
 ms.assetid: 
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 10/17/2017
-ms.date: 03/19/2018
+origin.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 # Pricing guidance for SQL Server Azure VMs
 
-This article provides pricing guidance for SQL Server virtual machines in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
+This article provides pricing guidance for [SQL Server virtual machines](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
+
+> [!TIP]
+> If you only need to find out a cost estimate for a specific combination of SQL Server edition and virtual machine size, see the [pricing page](https://www.azure.cn/pricing/details/virtual-machines/). Select your operating system and SQL Server edition from the **OS/Software** list.
+>
+> ![UI on VM Pricing page](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Or use the [pricing calculator](https://www.azure.cn/pricing/#explore-cost) to add and configure a virtual machine. 
 
 ## Free-licensed SQL Server editions
 

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 02/05/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -137,7 +137,7 @@ When executing the `commandToExecute` command, the extension will have set this 
 
 Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 ```json
-	"commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+	"commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
@@ -153,7 +153,6 @@ Path information after the first URI segment is retained for files downloaded vi
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure]
-(https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).
 
 <!--Update_Description: update meta properties-->

@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 
@@ -27,10 +27,16 @@ This quickstart steps through creating a SQL Server virtual machine in the Azure
 > [!TIP]
 > This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
+> [!TIP]
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+
+<a name="subscription"></a>
+##  Get an Azure subscription
+
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 <a name="select"></a>
-## Select a SQL Server VM image
+##  Select a SQL Server VM image
 
 1. Log in to the [Azure portal](https://portal.azure.cn) using your account.
 
@@ -48,7 +54,7 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 1. Click **Create**.
 
 <a name="configure"></a>
-## Provide basic details
+##  Provide basic details
 
 On the **Basics** window, provide the following information:
 
@@ -126,7 +132,7 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
     ![ssms connect](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
 <a name="remotedesktop"></a>
-## Log in to the VM remotely
+##  Log in to the VM remotely
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 

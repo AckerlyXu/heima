@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/10/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Resize a VM
-To resize a VM, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+To resize a VM, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -63,4 +63,4 @@ For additional scalability, run multiple VM instances and scale out.
 <!-- Redirect virtual-machine-scale-sets-linux-autoscale.md to virtual-machine-scale-sets-autoscale-cli.md -->
 [vm-sizes]:sizes.md
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update link -->

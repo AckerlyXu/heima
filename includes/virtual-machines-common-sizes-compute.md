@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 <!-- F-series, Fs-series* -->
 
 Compute optimized VM sizes have a high CPU-to-memory ratio and are good for medium traffic web servers, network appliances, batch processes, and application servers. This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping.
@@ -25,7 +38,7 @@ ACU: 210 - 250
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size, and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
 <br>
 
@@ -43,5 +56,3 @@ ACU: 210 - 250
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 <br>
-<!-- ms.date: 03/19/2018 -->
-<!-- Update_Description: wording update -->

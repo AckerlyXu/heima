@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 12/07/2017
-ms.date: 01/08/2018
+origin.date: 03/09/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -32,5 +32,4 @@ ms.author: v-yeche
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
-<!-- Update_Description: new articles on constrained vCPU -->
-<!--ms.date 01/08/2018 -->
+<!-- Update_Description: update meta properties -->

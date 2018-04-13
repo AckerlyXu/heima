@@ -6,7 +6,7 @@
  ms.service: virtual-machines
  ms.topic: include
  origin.date: 03/09/2018
- ms.date: 04/10/2018
+ ms.date: 04/16/2018
  ms.author: v-yeche
  ms.custom: include file
 ---
@@ -50,6 +50,3 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-
-<!-- Update_Description: new articles on virtual machines common b-series burstable -->
-<!--ms.date: 04/10/2018-->

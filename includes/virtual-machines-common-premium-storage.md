@@ -315,4 +315,3 @@ For more information about Premium Storage, see the following articles.
 
 <!--Update_Description: wording update-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 04/10/2018-->

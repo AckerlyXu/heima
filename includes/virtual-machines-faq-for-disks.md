@@ -109,7 +109,7 @@ No. This is not supported currently as a lease is present to prevent accidental 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list)
 * https://github.com/chagarw/MDPP
 
 ## Migrate to Managed Disks 
@@ -140,7 +140,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
 
-Yes. ASR Azure to Azure protection is not supported for VMs with Managed Disks. It is going to be supported by the end of Q1 CY2018. 
+Yes. Currently, ASR Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -154,7 +154,8 @@ Yes.
 
 **Who manages the encryption keys?**
 
-21 Vianet manages the encryption keys.
+21Vianet manages the encryption keys.
+<!-- Notice: Change Microsoft to 21Vianet -->
 
 **Can I disable Storage Service Encryption for my managed disks?**
 
@@ -255,9 +256,9 @@ You can take a snapshot of your small disks and then create a disk to automatica
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Azure Storage forum](https://www.azure.cn/support/contact/).
 
-<!--Not Available on [Azure feedback forum](https://feedback.azure.com/forums/217298-storage).-->
+To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://www.azure.cn/support/support-azure/).
 
-<!--Update_Description: add question and answer content of Migrate to Managed Disks -->
-<!--ms.date: 01/29/2018-->
+<!--Update_Description: update meta properties, wording update -->
+<!--ms.date: 04/16/2018-->

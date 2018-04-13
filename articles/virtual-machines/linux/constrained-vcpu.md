@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 12/07/2017
-ms.date: 01/08/2018
+origin.date: 03/09/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -27,10 +27,12 @@ ms.author: v-yeche
 ## Other sizes
 - [Compute optimized](../windows/sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
+<!-- Not Available on - [Storage optimized](sizes-storage.md) -->
+<!-- Not Available on - [GPU](sizes-gpu.md) -->
+<!-- Not Available on - [High performance compute](sizes-hpc.md) -->
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
-<!--Not Available the parent file of includes file of virtual-machines-common-constrained-vcpu.md-->
-<!--Update_Description: new article on virtual machine constrained vcpu -->
-<!--ms.date: 01/08/2018-->
+<!--The parent file of includes file of virtual-machines-common-constrained-vcpu.md-->
+<!--ms.date:04/16/2019-->

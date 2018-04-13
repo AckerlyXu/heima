@@ -3,7 +3,7 @@ title: Create a managed Azure VM from a generalized on-premises VHD | Azure
 description: Upload a generalized VHD to Azure and use it to create new VMs, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/19/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 04/16/2018
+ms.author: v-yeche
 ---
 
 # Upload a generalized VHD and use it to create new VMs in Azure
@@ -158,6 +158,12 @@ You can also upload a VHD to your storage account using one of the following:
 -	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
+> [!IMPORTANT]
+> If you are using AzCopy uploading your VHD to Azure, make sure you have set [/BlobType:page](/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running upload script. 
+> If the destination is a blob and this option is not specified, by default, AzCopy creates a block blob.
+> 
+> 
+
 ## Create a managed image from the uploaded VHD 
 
 Create a managed image using your generalized OS VHD. Replace the values with your own information.
@@ -298,3 +304,4 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 ## Next steps
 
 To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.cn), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: update meta properties, wording update  -->
