@@ -33,8 +33,9 @@ After reading this article, you'll be able to answer the following questions:
 [Azure Cosmos DB](../cosmos-db/introduction.md) is 21Vianet's multiple-region distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first multiple-region distributed database service in the market today to offer comprehensive [service level agreements](https://www.azure.cn/support/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency. 
 <!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB is a multiple-region distributed, multi-model database that is used in a wide range of applications and use cases. It supports multiple data models (key-value, documents and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
+Azure Cosmos DB is a multiple-region distributed, multi-model database that is used in a wide range of applications and use cases. It supports multiple data models (documents and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md) and [SQL API](documentdb-introduction.md) natively, and in an extensible manner. 
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
+<!--Not Available on  [Tables API](table-introduction.md) -->
 <!-- Notice: 全球 to 多个区域 -->
 <!--Not Available on [serverless](http://azure.com/serverless) -->
 

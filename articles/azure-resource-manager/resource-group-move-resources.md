@@ -307,7 +307,7 @@ Standard SKU Load Balancer cannot be moved.
 Basic SKU Public IP can be moved.
 Standard SKU Public IP cannot be moved.
 
-## <a name="use-portal">Use portal
+## <a name="use-portal"></a>Use portal
 
 To move resources, select the resource group containing those resources, and then select the **Move** button.
 
