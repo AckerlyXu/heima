@@ -339,9 +339,9 @@
     - name: Python
       href: sql-api-sdk-python.md
     - name: REST
-      href: /rest/api/documentdb/
+      href: https://docs.microsoft.com/rest/api/cosmos-db/
     - name: REST Resource Provider
-      href: /rest/api/documentdbresourceprovider/
+      href: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
     - name: SQL
       href: sql-api-sql-query-reference.md
 ### Not Available on  - name: Table APIs

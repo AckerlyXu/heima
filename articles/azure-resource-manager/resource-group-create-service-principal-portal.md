@@ -111,7 +111,7 @@ When programmatically logging in, you need the ID for your application and an au
     ![save key](./media/resource-group-create-service-principal-portal/save-key.png)
 
     After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the key value with the application ID to log in as the application. Store the key value where your application can retrieve it.
-
+    <a name="log-in-as-the-application"></a>
     ![saved key](./media/resource-group-create-service-principal-portal/copy-key.png)
 
 ## Get tenant ID

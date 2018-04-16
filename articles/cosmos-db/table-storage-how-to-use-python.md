@@ -49,7 +49,9 @@ You need the following to complete this tutorial successfully:
 
 ## Create an Azure service account
 
-You can work with tables using Azure Table storage or Azure Cosmos DB. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
+You can work with tables using Azure Table storage. You'll need to create an account for the service you're going to use. 
+<!-- Notice: Remove the Azure Cosmos DB -->
+<!-- Not Available on [Table offerings](table-introduction.md#table-offerings) -->
 
 ### Create an Azure storage account
 The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.cn). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
