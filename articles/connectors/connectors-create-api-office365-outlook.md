@@ -28,7 +28,7 @@ With Office 365 Outlook, you:
 * Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
 * Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
 
-This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
+This article shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
 
 > [!NOTE]
 > This version of the article applies to Logic Apps general availability (GA).
