@@ -37,8 +37,8 @@ The following table summarizes replication support for VMware VMs and physical s
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. Windows 2016 Nano Server isn't supported.
-Linux operating system | CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Upgrading replicated machines from SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.
-
+Linux operating system | CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Upgrading replicated machines from SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.
+<!-- Notice: Anchor should be #ubuntu-kernel-versions to replace #supported-ubuntu-kernel-versions-for-vmwarephysical-servers -->
 <!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/> -->
 <!-- Not Available on Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> -->
 >[!NOTE]
@@ -164,7 +164,8 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-Guest operating system | Verify [supported operating systems](#replicated machines). | Check fails if unsupported. 
+Guest operating system | Verify [supported operating systems](#replicated-machines). | Check fails if unsupported. 
+<!-- Notice: Anchor should be ##replicated-machines-->
 Guest operating system architecture | 64-bit. | Check fails if unsupported. 
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported. 
 Operating system disk count | 1 | Check fails if unsupported.  

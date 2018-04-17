@@ -22,6 +22,7 @@ You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the follo
 
 First, run the tool to get the list of VMs from a single or multiple Hyper-V hosts. Then run the tool in profiling mode to gather VM data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth and storage requirements.
 
+<a name="get-vm-list-for-profiling-hyper-v-vms"></a>
 ## Get the VM list for profiling Hyper-V VMs
 First, you need a list of the VMs to be profiled. Use the GetVMList mode of the deployment planner tool to generate the list of VMs present on multiple Hyper-V hosts in a single command. After you generate the complete list, you can remove VMs that you don't want to profile from the output file. Then use the output file for all other operations: profiling, report generation, and getting throughput.
 
@@ -152,6 +153,7 @@ When the storage-account name and key are passed, the tool measures the throughp
 
 Azure Site Recovery does not support VMs that have iSCSI and pass-through disks. However, the tool cannot detect and profile iSCSI and pass-through disks that are attached to VMs.
 
+<a name="generate-report"></a>
 ## Generate a report
 The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output. It summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_*unique numeric identifier*.xlsm and placed in the specified directory.
 

@@ -33,7 +33,7 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
 
 ### Deploy through Azure CLI
-You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login). Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group name `myResourceGroup` in the `China North` location.
+You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login). Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group name `myResourceGroup` in the `China North` location.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

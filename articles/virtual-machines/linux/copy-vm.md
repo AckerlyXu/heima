@@ -32,7 +32,7 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fvirtual-ma
 
 -   Install [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)
 
--   Sign in to an Azure account with [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
+-   Sign in to an Azure account with [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 -   Have an Azure VM to use as the source for your copy.
 

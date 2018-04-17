@@ -46,7 +46,7 @@
     - name: 1- Deploy a .NET app using Docker Compose
       href: service-fabric-host-app-in-a-container.md
     - name: 2- Monitor your container
-      href: service-fabric-tutorial-monitoring-wincontainers.md
+### Not Available href: service-fabric-tutorial-monitoring-wincontainers.md -->
 ### Not Avaialble on - name: Create a Linux container app
   - name: Create and manage a cluster
     items:
@@ -332,8 +332,7 @@
       items:
       - name: Container security
         href: service-fabric-securing-containers.md
-      - name: Docker compose (preview)
-        href: service-fabric-docker-compose.md
+### Not Available on  href: service-fabric-docker-compose.md
       - name: Resource governance for containers and services
         href: service-fabric-resource-governance.md
       - name: Volume and logging drivers
@@ -425,7 +424,7 @@
     - name: Migrate to Service Fabric
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
     - name: Recommended practices
-      href: /azure/architecture/service-fabric/migrate-from-cloud-services
+      href: https://docs.microsoft.com/zh-cn/azure/architecture/service-fabric/migrate-from-cloud-services
   - name: Manage application lifecycle
     items:
     - name: Package an application
@@ -532,16 +531,12 @@
       href: service-fabric-connect-to-secure-cluster.md
     - name: Patch cluster nodes
       href: service-fabric-patch-orchestration-application.md
-  - name: Monitor and diagnose
-    items:
+### name: Monitor and diagnose
 ### Not Available on - name: OMS
 ### Not Available on href: service-fabric-diagnostics-oms-setup.md
 ### Not Available on href: service-fabric-diagnostics-oms-agent.md
 ### Not Available on href: service-fabric-diagnostics-oms-containers.md
-    - name: Performance monitoring
-      items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
+### Not Available on href: service-fabric-diagnostics-perf-wad.md
 - name: Reference
   items:
   - name: Azure PowerShell

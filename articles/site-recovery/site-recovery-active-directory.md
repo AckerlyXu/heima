@@ -32,9 +32,11 @@ You must set up [Site Recovery replication](#enable-protection-using-site-recove
 ### Single-domain controller
 If you have only a few applications and one domain controller, you might want to fail over the entire site together. In this case, we recommend using Site Recovery to replicate the domain controller to the target site (either in Azure or in a secondary on-premises datacenter). You can use the same replicated domain controller or DNS virtual machine for [test failover](#test-failover-considerations).
 
+<a name="environment-with-multiple-domain-controllers"></a>
 ### Multiple domain controllers
 If you have many applications and more than one domain controller in your environment, or if you plan to fail over a few applications at a time, in addition to replicating the domain controller virtual machine with Site Recovery, we recommend that you set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (either in Azure or in a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you can use domain controller that's replicated by Site Recovery. For failover, you can use the additional domain controller on the target site.
 
+<a name="enable-protection-using-site-recovery"></a>
 ## Enable protection with Site Recovery
 
 You can use Site Recovery to protect the virtual machine that hosts the domain controller or DNS.
@@ -53,6 +55,7 @@ For the virtual machine that hosts the domain controller or DNS, in Site Recover
 ### Site-to-site protection
 Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often it occurs. For more information, see [Scheduling replication between sites](https://technet.microsoft.com/library/cc731862.aspx).
 
+<a name="protect-active-directory-with-active-directory-replication"></a>
 ### Site-to-Azure protection
 First, [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
 

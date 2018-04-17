@@ -35,17 +35,18 @@ To delete the vault, follow the recommended steps for your scenario.
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For System Center VMM** -> **Replication Policies**
 
-3.	Delete references to Virtual Machine Manager servers by following the steps in [Unregister a connected VMM server](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3. Delete references to Virtual Machine Manager servers by following the steps in [Unregister a connected VMM server](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server).
+<!--Not Available on ## -->
 
-4.	Delete the vault.
+4. Delete the vault.
 
 ### Hyper-V VMs (without Virtual Machine Manager) to Azure
 1. Delete all protected VMs by following the steps in [Disable protection for a Hyper-V virtual machine (Hyper-V to Azure)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure).
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For Hyper-V Sites** -> **Replication Policies**
 
-3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
-<!-- URL is correct with . [Unregister a Hyper-V host](./site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) -->
+3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+<!-- URL is correct with . [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) -->
 
 4. Delete the Hyper-V site.
 
