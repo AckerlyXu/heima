@@ -38,7 +38,7 @@ The activities in the following table are used to access certificates in a runbo
 |Get-AutomationCertificate|Gets a certificate to use in a runbook. Returns a [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) object.|
 
 > [!NOTE] 
-> You should avoid using variables in the –Name parameter of **Get-AutomationCertificate**  in a runbook or DSC configuration as it complicates discovering dependencies between runbooks or DSC configuration, and Automation variables at design time.
+> You should avoid using variables in the -Name parameter of **Get-AutomationCertificate**  in a runbook or DSC configuration as it complicates discovering dependencies between runbooks or DSC configuration, and Automation variables at design time.
 
 ## Python2 functions
 
@@ -74,7 +74,7 @@ $certPath = '.\MyCert.pfx'
 $certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 $ResourceGroup = "ResourceGroup01"
 
-New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
+New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath -Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
 ```
 
 ## Using a certificate
@@ -89,7 +89,7 @@ The following sample code shows how to add a certificate to a cloud service in a
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
 $certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
+-AutomationAccountName "MyAutomationAccount" -Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 
