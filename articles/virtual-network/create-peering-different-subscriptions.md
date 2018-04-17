@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -27,7 +27,7 @@ The steps to create a virtual network peering are different, depending on whethe
 
 |Azure deployment model  | Azure subscription  |
 |--------- |---------|
-|[Both Resource Manager](virtual-network-create-peering.md) |Same|
+|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
@@ -391,4 +391,4 @@ Peering virtual networks in the same region is generally available. Peering virt
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
 - Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
-<!--Update_Description: update meta propeties, wording update, update link -->
+<!--Update_Description: wording update, update link -->

@@ -13,14 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 03/04/2018
+origin.date: 03/01/2018
+ms.date: 04/02/2018
 ms.author: v-junlch
 
 ---
 # Set up Azure Key Vault with end-to-end key rotation and auditing
 ## Introduction
 After creating your key vault, you will be able to start using that vault to store your keys and secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
+
+>[!IMPORTANT]
+> The examples in this article are provided for illustration purposes only. They are not intended for production use. 
 
 This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It also demonstrates implementation of a scheduled rotation of that storage account key. Finally, it walks through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
@@ -79,25 +82,15 @@ Now that you have a secret stored, you can use code to retrieve and use it. Ther
 
 Open the applications tab of Azure Active Directory.
 
-![Open applications in Azure Active Directory](./media/keyvault-keyrotation/AzureAD_Header.png)
+Choose **App registrations** -> **New application registration** to add an application to your Azure Active Directory.
 
-Choose **ADD** to add an application to your Azure Active Directory.
-
-![Choose ADD](./media/keyvault-keyrotation/Azure_AD_AddApp.png)
-
-Leave the application type as **WEB APPLICATION AND/OR WEB API** and give your application a name.
-
-![Name the application](./media/keyvault-keyrotation/AzureAD_NewApp1.png)
+Leave the application type as **Web app/API** and give your application a name.
 
 Give your application a **SIGN-ON URL** and an **APP ID URI**. These can be anything you want for this demo, and they can be changed later if needed.
-
-![Provide required URIs](./media/keyvault-keyrotation/AzureAD_NewApp2.png)
 
 After the application is added to Azure Active Directory, you will be brought into the application page. Click the **Configure** tab and then find and copy the **Client ID** value. Make note of the client ID for later steps.
 
 Next, generate a key for your application so it can interact with your Azure Active Directory. You can create this under the **Keys** section in the **Configuration** tab. Make note of the newly generated key from your Azure Active Directory application for use in a later step.
-
-![Azure Active Directory App Keys](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
 
 Before establishing any calls from your application into the key vault, you must tell the key vault about your application and its permissions. The following command takes the vault name and the client ID from your Azure Active Directory app and grants
 **Get** access to your key vault for the application.
@@ -232,3 +225,4 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 From the editor pane, choose **Test pane** to test your script. Once the script is running without error, you can select **Publish**, and then you can apply a schedule for the runbook back in the runbook configuration pane.
 
+<!-- Update_Description: wording update -->

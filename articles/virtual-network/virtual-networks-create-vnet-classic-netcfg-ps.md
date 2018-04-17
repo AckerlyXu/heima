@@ -3,8 +3,8 @@ title: Create a virtual network using a network configuration file | PowerShell 
 description: Learn how to create a virtual network using a network configuration file in the Azure portal.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/12/2016
-ms.author: v-dazen
+ms.date: 04/02/2018
+ms.author: v-yeche
 
 ---
 # Create a virtual network (classic) using a network configuration file with PowerShell
@@ -26,8 +26,9 @@ ms.author: v-dazen
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model](virtual-networks-create-vnet-arm-ps.md).
+This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model](quick-create-powershell.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
+<!-- Update_Description: wording update, update link -->

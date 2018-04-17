@@ -3,8 +3,8 @@ title: SQL Hosting Servers on Azure Stack | Microsoft Docs
 description: How to add SQL instances for provisioning through the SQL Adapter Resource Provider
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/14/2017
-ms.date: 03/04/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -165,3 +165,4 @@ To modify the settings, click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; 
 
 [Add databases](azure-stack-sql-resource-provider-databases.md)
 
+<!-- Update_Description: update metedata properties -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/15/2018
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -28,11 +28,11 @@ ms.author: v-yeche
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker source</strong></td>
-  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
 
@@ -500,4 +500,4 @@ In this tutorial, you've learned how to use the local Emulator for free local de
 > [!div class="nextstepaction"]
 > [Export the Azure Cosmos DB Emulator certificates](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, add content of Controlling the Emulator and Change list, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

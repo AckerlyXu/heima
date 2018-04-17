@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/16/2018
-ms.date: 03/12/2018
+origin.date: 03/07/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -135,7 +135,9 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 ## Download the app package
 
-Download the application from the [download link](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=869567). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -358,3 +360,4 @@ An administrator must intervene and determine why the application or cluster bec
 <!-- Not Available ## Release Notes :-->
 
 <!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

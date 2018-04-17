@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 ---
 
@@ -101,6 +101,26 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
     - Submit interactive PySpark queries
     - Submit PySpark batch scripts
     - Set configurations
+
+**To link a cluster**
+
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
+
+   ![link cluster command](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Enter HDInsight cluster URL -> input Username -> input Password -> select cluster type -> it shows success info if verification passed.
+   
+   ![link cluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > We use the linked username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   
+3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
+
+   ![linked cluster](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. You also can unlink a cluster by inputing **HDInsight: Unlink a cluster** from command palette.
 
 ## List HDInsight clusters
 
@@ -293,7 +313,6 @@ HDInsight for VS Code supports the following features:
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building realtime streaming applications](spark/apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and running applications

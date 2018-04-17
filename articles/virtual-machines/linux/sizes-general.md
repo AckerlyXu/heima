@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 02/05/2018
+ms.date: 4/10/2018
 ms.author: v-yeche
 
 ---
@@ -37,4 +37,4 @@ ms.author: v-yeche
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 <!--The parent file of includes file of virtual-machines-common-sizes-general.md-->
-<!--ms.date:02/05/2018-->
+<!--ms.date:04/10/2018-->

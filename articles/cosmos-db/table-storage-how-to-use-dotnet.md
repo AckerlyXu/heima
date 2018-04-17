@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/30/2018
-ms.date: 03/05/2018
+origin.date: 03/14/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -38,7 +38,7 @@ You need the following to complete this tutorial successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). This is a required preview package that is supported in production environments. 
-* [Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+<!-- Not Available on [Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) -->
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -51,7 +51,8 @@ For additional examples using Table storage, see [Getting Started with Azure Tab
 
 ## Create an Azure service account
 
-You can work with tables using Azure Table storage or Azure Cosmos DB. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
+You can work with tables using Azure Table storage. You'll need to create an account for the service you're going to use. 
+<!-- Not Avaiable on  [Table offerings](table-introduction.md#table-offerings) -->
 
 ### Create an Azure storage account
 The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.cn). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -60,9 +61,7 @@ You can also create an Azure storage account by using [Azure PowerShell](../stor
 
 If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
 
-### Create an Azure Cosmos DB Table API account
-
-For instructions on creating an Azure Cosmos DB Table API account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
+<!-- Not Available on ### Create an Azure Cosmos DB Table API account -->
 
 ## Set up your development environment
 Next, set up your development environment in Visual Studio so you're ready to try the code examples in this guide.
@@ -81,10 +80,10 @@ All code examples in this tutorial can be added to the `Main()` method of your c
 You can use the Azure CosmosDB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 ### Use NuGet to install the required packages
-There are three packages you need to reference in your project to complete this tutorial:
+There are three recommended packages you need to reference in your project to complete this tutorial:
 
-* [Azure Storage Common Library for .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
+* [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+<!-- Not Available on * [Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) -->
 * [Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
 You can use NuGet to obtain both packages. Follow these steps:
@@ -99,11 +98,16 @@ You can use NuGet to obtain both packages. Follow these steps:
 > 
 > 
 
+> [!TIP]
+> Developers already familiar with Azure Table storage may have used the [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) package in the past. It is recommended that all new table applications use the [Azure Storage Common Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) and the [Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), however the WindowsAzure.Storage package is still supported. If you use the WindowsAzure.Storage library, include Microsoft.WindowsAzure.Storage.Table in your using statements.
+>
+>
+
 ### Determine your target environment
 You have two environment options for running the examples in this guide:
 
 * You can run your code against an Azure Storage account in the cloud. 
-* You can run your code against an Azure Cosmos DB account in the cloud.
+<!-- Not Available on * You can run your code against an Azure Cosmos DB account in the cloud. -->
 * You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
 If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [View and copy storage access keys](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
@@ -113,7 +117,7 @@ If you are targeting a storage account in the cloud, copy the primary access key
 > 
 > 
 
-If you are targeting an Azure Cosmos DB account, copy the primary access key for your Table API account from the Azure portal. For more information, see [Update your connection string](create-table-dotnet.md#update-your-connection-string).
+<!-- Not Available on  [Update your connection string](create-table-dotnet.md#update-your-connection-string) -->
 
 ### Configure your storage connection string
 The Azure Storage Common Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file. 
@@ -145,11 +149,13 @@ For example, if you're using an Azure Storage account, your configuration settin
 ```
 <!-- Add the TableEndPoint configuration-->
 
+<!-- Not Available on Azure Cosmos DB Table 
 If you're using an Azure Cosmos DB account, your configuration settings appear similar to:
 
 ```xml
 <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.cn:443/;" />
 ```
+-->
 
 To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting is:
 
@@ -162,9 +168,9 @@ Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
-using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
+using Microsoft.Azure.Storage; // Namespace for StorageAccounts
 ```
+<!-- Not Available on using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types -->
 
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]

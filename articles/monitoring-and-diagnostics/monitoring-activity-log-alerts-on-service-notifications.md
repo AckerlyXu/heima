@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 02/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -73,7 +73,7 @@ For information on how to configure service health notification alerts by using 
 
 Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
-For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](monitoring-activity-log-alerts-webhook.md).
+Learn how to [Configure webhook notifications for existing problem management systems](../service-health/service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
 >The action group defined in these steps is reusable as an existing action group for all future alert definitions.
@@ -99,6 +99,7 @@ After you create an alert, it's visible in the **Alerts** section of **Monitor**
 * Disable or enable it, if you want to temporarily stop or resume receiving notifications for the alert.
 
 ## Next steps
+- Learn how to [configure webhook notifications for existing problem management systems](../service-health/service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](monitoring-service-notifications.md).
 - Learn about [notification rate limiting](monitoring-alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).

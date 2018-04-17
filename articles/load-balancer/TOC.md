@@ -1,3 +1,5 @@
+# [Load Balancer Documentation](index.md)
+
 # Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
 <!-- Not Available ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)-->
@@ -9,6 +11,7 @@
 <!-- Not Available ## [IPv6 support](load-balancer-ipv6-overview.md)-->
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
 ## [Understanding outbound connections](load-balancer-outbound-connections.md)
+<!-- Not Available ## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)-->
 
 # Get Started
 
@@ -22,14 +25,13 @@
 ### [Configure public Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configure public Load Balancer (Template)](load-balancer-get-started-internet-arm-template.md)
 
+<!-- Not Available ## [Create public Load Balancer with IPv6](load-balancer-ipv6-internet-ps.md) -->
+<!-- Not Available ### [Create public Load Balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md) -->
+<!-- Not Available ### [Create public Load Balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md) -->
 
-
-<!-- Not Available ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)-->
-<!-- Not Available ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)-->
-<!-- Not Available ### [Create an Internet facing load balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)-->
-<!-- Not Available ## [Create a zone redundant Public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)-->
-<!-- Not Available ### [Create a zone redundant Public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)-->
-<!-- Not Available ### [Create a zone redundant Public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)-->
+<!-- Not Available ## [Create a zone redundant public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md) -->
+<!-- Not Available ### [Create a zone redundant public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md) -->
+<!-- Not Available ### [Create a zone redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md) -->
 
 # How to
 ## [Configure TCP idle timeout for Load Balancer](load-balancer-tcp-idle-timeout.md)
@@ -40,7 +42,7 @@
 ## [Using multiple IP configurations](load-balancer-multiple-ip.md)
 ### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
-## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
+<!-- Not Available ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md) -->
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
 <!-- Not Available ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)-->
 
@@ -48,6 +50,7 @@
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Classic deployment model articles
+### [Outbound connections (classic)](load-balancer-outbound-connections-classic.md)
 ### [Configure internal Load Balancer for Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Configure internal Load Balancer for Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Configure internal Load Balancer for Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
@@ -80,4 +83,4 @@
 ## [Service updates](https://www.azure.cn/what-is-new/)
 
 <!--Update_Description: wording update, update link -->
-<!-- ms.date: 12/25/2017 -->
+<!-- ms.date: 04/02/2018 -->

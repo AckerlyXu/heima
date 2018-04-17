@@ -3,8 +3,8 @@ title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 
 
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -140,3 +140,4 @@ Now that you've created a service principal and assigned a role, you can begin u
 
 [Manage user permissions](azure-stack-manage-permissions.md)
 
+<!-- Update_Description: update metedata properties -->

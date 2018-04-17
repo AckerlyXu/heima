@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
 # Create a complete Linux virtual machine with the Azure CLI
 To quickly create a virtual machine (VM) in Azure, you can use a single Azure CLI command that uses default values to create any required supporting resources. Resources such as a virtual network, public IP address, and network security group rules are automatically created. For more control of your environment in production use, you may create these resources ahead of time and then add your VMs to them. This article guides you through how to create a VM and each of the supporting resources one by one.
 
-Make sure that you have installed the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and logged to an Azure account in with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+Make sure that you have installed the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and logged to an Azure account in with [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -35,7 +35,7 @@ An Azure resource group is a logical container into which Azure resources are de
 az group create --name myResourceGroup --location chinaeast
 ```
 
-By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
+By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
 
 ```json                       
 {
@@ -331,7 +331,7 @@ Output:
 ```
 
 ## Create a virtual NIC
-Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
+Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
 
 ```azurecli
 az network nic create \

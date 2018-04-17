@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 12/22/2017
-ms.date: 01/22/2018
+ms.date: 04/04/2018
 ms.author: v-junlch
 
 ---
@@ -60,9 +60,11 @@ This section walks you through the steps to create a new notification hub and co
 
 <li>
 
-<p>Click the <b>Apple (APNS)</b>. Make sure to select <b>Certificate</b>, click the file icon, and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
+<p>Click the <b>Notification Services</b> button, then select <b>Apple (APNS)</b>. Make sure to select <b>Certificate</b>, click the file icon, and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
 
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
+
+![Configure APNS in Azure portal][6]
 
 ![Configure APNS certification in Azure portal][7]
 </li>
@@ -80,7 +82,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 2. Enter your App Name and Organization identifier, then hit **Next**, then **Create**
 
-3. From the Solution view, double click *Into.plist* and under **Identity** make sure your Bundle Identifier matches the one used when creating your provisioning profile. Under **Signing** ensure that your Developer account is selected under **Team**, "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
+3. From the Solution view, double click *Info.plist* and under **Identity** make sure your Bundle Identifier matches the one used when creating your provisioning profile. Under **Signing** ensure that your Developer account is selected under **Team**, "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
 
     ![Visual Studio- iOS App Config][32]
 
@@ -245,7 +247,7 @@ In this simple example, you broadcasted push notifications to all your iOS devic
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Use Notification Hubs to push notifications to users]: ./notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Use Notification Hubs to push notifications to users]: /notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification
 [Use Notification Hubs to send breaking news]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1

@@ -5,7 +5,7 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: ''
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 origin.date: 01/13/2017
-ms.date: 03/31/2017
+ms.date: 03/26/
 ms.author: v-yeche
 ---
 
 # View deployment operations with Azure Resource Manager
 
-You can view the operations for a deployment through the Azure Portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
+You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## Portal
 To see the deployment operations, use the following steps:
@@ -39,7 +39,7 @@ To see the deployment operations, use the following steps:
     ![view failed deployment](./media/resource-manager-deployment-operations/view-error.png)
 
     This error message should be enough for you to begin troubleshooting. However, if you need more details about which tasks were completed, you can view the operations as shown in the following steps.
-4. You can view all the deployment operations in the **Deployment** blade. Select any operation to see more details.
+4. You can view all the deployment operations. Select any operation to see more details.
 
     ![view operations](./media/resource-manager-deployment-operations/view-operations.png)
 
@@ -47,7 +47,7 @@ To see the deployment operations, use the following steps:
 5. You can view events for the deployment by selecting **Events**.
 
     ![view events](./media/resource-manager-deployment-operations/view-events.png)
-6. You see all the events for the deployment and select any one for more details. Notice too the correlation IDs. This value can be helpful when working with technical support to troubleshoot a deployment.
+6. You see all the events for the deployment and select any one for more details. Notice the correlation IDs. This value can be helpful when working with technical support to troubleshoot a deployment.
 
     ![see events](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -119,7 +119,7 @@ To see the deployment operations, use the following steps:
     DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. {}
     ```
 
-5. Every deployment operation in Azure includes request and response content. The request content is what you sent to Azure during deployment (for example, create a VM, OS disk, and other resources). The response content is what Azure sent back from your deployment request. During deployment, you can use **DeploymentDebugLogLevel** paramenter to specify that the request and/or response are retained in the log. 
+4. Every deployment operation in Azure includes request and response content. The request content is what you sent to Azure during deployment (for example, create a VM, OS disk, and other resources). The response content is what Azure sent back from your deployment request. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are retained in the log. 
 
     You get that information from the log, and save it locally by using the following PowerShell commands:
 
@@ -176,7 +176,7 @@ To see the deployment operations, use the following steps:
     }
     ```
 
-2. Get information about deployment operations with the [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) operation. 
+2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
     ```http
     GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -210,6 +210,7 @@ To see the deployment operations, use the following steps:
     ```
 
 ## Next steps
-* For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](./resource-manager-common-deployment-errors.md).
-* To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](./resource-group-audit.md).
-* To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](./resource-group-template-deploy.md).
+* For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](resource-group-audit.md).
+* To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -29,7 +29,7 @@ This task requires Azure PowerShell module version 4.0 or later. To find the ver
 > [!NOTE]
 > Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://www.azure.cn/pricing/details/analysis-services/).
 
-## Prerequisites
+## Before you begin
 To complete this quickstart, you need:
 
 * **Azure subscription**: Visit [Azure Trial](https://www.azure.cn/pricing/1rmb-trial-full) to create an account.
@@ -44,7 +44,7 @@ Import-Module AzureRM.AnalysisServices
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription by using the [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
+Sign in to your Azure subscription by using the [Add-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -63,7 +63,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
 Create a new server by using the [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the China North region, at the D1 tier, and specifies philipc@adventureworks.com as a server administrator.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location China North -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "China North" -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## Clean up resources
@@ -79,4 +79,4 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 [Deploy a model from SSDT](analysis-services-deploy.md)   
 [Create a model in Azure portal](analysis-services-create-model-portal.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: wording update, update link -->

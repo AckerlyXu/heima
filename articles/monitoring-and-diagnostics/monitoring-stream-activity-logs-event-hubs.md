@@ -13,42 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2018
+origin.date: 03/02/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ---
 
 # Stream the Azure Activity Log to Event Hubs
-The [**Azure Activity Log**](./monitoring-overview-activity-logs.md) can be streamed in near real time to any application using the built-in “Export” option in the portal, or by enabling the Service Bus Rule Id in a Log Profile via the Azure PowerShell Cmdlets or Azure CLI.
+You can stream the [Azure Activity Log](monitoring-overview-activity-logs.md) in near real time to any application by either:
+
+* Using the built-in **Export** option in the portal
+* Enabling the Azure Service Bus rule ID in a log profile via the Azure PowerShell cmdlets or Azure CLI
 
 ## What you can do with the Activity Log and Event Hubs
-Here are just a few ways you might use the streaming capability for the Activity Log:
+Here are two ways you might use the streaming capability for the Activity Log:
 
-- **Stream to third-party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
-- **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest the activity log. 
+* **Stream to third-party logging and telemetry systems**: Over time, Azure Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
+* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log. 
 
 ## Enable streaming of the Activity Log
-You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick a Service Bus Namespace and a shared access policy for that namespace, and an Event Hub is created in that namespace when the first new Activity Log event occurs. If you do not have a Service Bus Namespace, you first need to create one. If you have previously streamed Activity Log events to this Service Bus Namespace, the Event Hub that was previously created will be reused. The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify Service Bus Namespace shared access policies in the Azure portal under the “Configure” tab for your Service Bus Namespace. To update the Activity Log log profile to include streaming, the user making the change must have the ListKey permission on that Service Bus Authorization Rule.
+You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick an Event Hubs namespace and a shared access policy for that namespace. An event hub with the name insights-logs-operationallogs is created in that namespace when the first new Activity Log event occurs. 
 
-The service bus or event hub namespace does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+If you don't have an Event Hubs namespace, you first need to create one. If you previously streamed Activity Log events to this Event Hubs namespace, the event hub that was previously created will be reused. 
 
-### Via Azure portal
-1. Navigate to the **Activity Log** blade using the All services search on the left side of the portal.
+The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the **Configure** tab for your Event Hubs namespace. 
+
+To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+
+### Via the Azure portal
+1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
    
-    ![Navigate to Activity Log in portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Click the **Export** button at the top of activity log blade.
+   ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
    
-    ![Export button in portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
-3. In the blade that appears, you can select the regions for which you would like to stream events and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events. Select **All regions**.
+2. Select the **Export** button at the top of the log.
    
-    ![Export Activity Log blade](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
-4. Click **Save** to save these settings. The settings are immediately applied to your subscription.
-5. If you have several subscriptions, you should repeat this action and send all the data to the same event hub.
+   ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+
+   Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing through your Activity Log in the portal.
+3. In the section that appears, select **All regions**. Do not select particular regions.
+   
+   ![Export section](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Select **Save** to save these settings. The settings are immediately applied to your subscription.
+5. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell Cmdlets
 If a log profile already exists, you first need to remove that profile.
 
-1. Use `Get-AzureRmLogProfile` to identify if a log profile exists
+1. Use `Get-AzureRmLogProfile` to identify if a log profile exists.
 2. If so, use `Remove-AzureRmLogProfile` to remove it.
 3. Use `Set-AzureRmLogProfile` to create a profile:
 
@@ -57,7 +67,7 @@ If a log profile already exists, you first need to remove that profile.
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-chinaeast/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations chinaeast,chinanorth -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-The Service Bus Rule ID is a string with this format: {service bus resource ID}/authorizationrules/{key name}, for example 
+The Service Bus rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### Via Azure CLI
 If a log profile already exists, you first need to remove that profile.
@@ -72,8 +82,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
 
-## How do I consume the log data from Event Hubs?
-[The schema for the Activity Log is available here](./monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called “records.”
+## Consume the log data from Event Hubs
+The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called *records*.
 
 ## Next Steps
 - [Archive the Activity Log to a storage account](./monitoring-archive-activity-log.md)

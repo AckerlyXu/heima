@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/25/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
 
@@ -93,9 +93,9 @@ When you vote in the application the following events occur:
 When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
-1. Open the **/VotingWeb/Controllers/VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
+1. Open the **/VotingWeb/Controllers/VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 69) - You can search for the file in the Solution Explorer in Visual Studio.
 
-2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
+2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
@@ -128,7 +128,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
 2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`.
-<!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
+    <!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -138,7 +138,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 4. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:8080`. You should now see the application running in the cluster in Azure.
 
-![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+    ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.

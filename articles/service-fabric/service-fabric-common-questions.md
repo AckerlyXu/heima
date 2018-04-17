@@ -82,7 +82,9 @@ If you would like to create clusters for testing your application before it is d
 While we're working on an improved experience, today, you are responsible for the upgrade. You must upgrade the OS image on the virtual machines of the cluster one VM at a time. 
 
 ### Can I encrypt attached data disks in a cluster node type (virtual machine scale set)?
-Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks).
+<!--Not Available on [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) -->
+<!--Not Available on [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)-->
 
 ## Container Support
 
@@ -145,6 +147,6 @@ The are currently no plans to open-source the Service Fabric runtime.
 
 ## Next steps
 
-- [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+<!-- Not Available on  [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965) -->
 
 <!--Update_Description: update meta properties, wording update, update link -->

@@ -138,6 +138,7 @@ an Express 4.x application:
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
         app.use(mobile);
+    ```
 
     Save the file.
 
@@ -788,6 +789,7 @@ var payload = '{"aps": {"alert": "This is an APNS payload."}}';
             }
         });
     }
+```
 
 By creating a template push registration from the client, you can instead send a template push message to devices on all supported platforms. The following code shows how to send a template notification:
 

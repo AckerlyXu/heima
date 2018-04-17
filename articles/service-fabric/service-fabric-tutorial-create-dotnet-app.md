@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/29/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -152,7 +152,7 @@ Open the *Views/Home/Index.cshtml* file, the view specific to the Home controlle
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="col-xs-12 center-block">
                     <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item"/>
                     </div>
                     <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -272,6 +272,7 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
     return new Uri($"{context.CodePackageActivationContext.ApplicationName}/VotingData");
 }
 ```
+
 ### Add the VotesController.cs file
 Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  
 
@@ -471,7 +472,7 @@ In this tutorial, use [ASP.NET Core Web API](service-fabric-reliable-services-co
 In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes.
 
 ```csharp
-    public class VotesController : Controller
+public class VotesController : Controller
 {
     private readonly HttpClient httpClient;
     private readonly FabricClient fabricClient;

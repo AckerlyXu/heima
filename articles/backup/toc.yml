@@ -107,6 +107,8 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
+      - name: Upgrade to VM backup stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
@@ -123,14 +125,6 @@
         href: backup-azure-vms-encryption.md
       - name: Restore Key Vault key and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
-  - name: Configure Azure Backup reports
-    items:
-    - name: Configure Azure Backup reports
-      href: backup-azure-configure-reports.md
-    - name: Data model for Azure Backup reports
-      href: backup-azure-reports-data-model.md
-    - name: Log Analytics data model for Azure Backup
-      href: backup-azure-log-analytics-data-model.md
   - name: Data Protection Manager
     items:
     - name: Prepare DPM workloads in Azure portal

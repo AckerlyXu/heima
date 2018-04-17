@@ -2,9 +2,9 @@
 title: Install the Azure CLI 1.0 | Microsoft Docs
 description: Install the Azure CLI 1.0 for Mac, Linux, and Windows to start using Azure services
 editor: ''
-manager: digimobile
+manager: timlt
 documentationcenter: ''
-author: alexchen2016
+author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2017
-ms.date: 12/28/2017
+ms.date: 04/04/2018
 ms.author: v-junlch
 
 ---
 # Install the Azure CLI 1.0
 > [!div class="op_single_selector"]
-> * [PowerShell](/powershell-install-configure)
+> * [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 > * [Azure CLI 1.0](cli-install-nodejs.md)
 > * [Azure CLI 2.0](/cli/install-azure-cli)
 
 > [!IMPORTANT]
 > This topic describes how to install the Azure CLI 1.0. This CLI is deprecated and should only be used for support with the Azure Service Management (ASM) model with "classic" resources.
-> For Azure Resource Manager (ARM) deployments, use [Azure CLI 2.0](/cli/overview).
+> For Azure Resource Manager deployments, use [Azure CLI 2.0](/cli/overview).
 
 Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of open-source shell-based commands for creating and managing resources in Azure. You have several options to install these cross-platform tools on your computer:
 
@@ -138,4 +138,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: /cli/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -32,7 +32,9 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
      > 
      > 
 
-     If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.chinacloudsites.cn) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
+     If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images.
+     <!-- Not Available on  [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.chinacloudsites.cn) -->
+     <!-- Not Available on [MSDN 订阅](https://www.visualstudio.com/products/msdn-subscriptions-vs) -->
 5. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
 
     You'll use the new name and password to log into the machine using remote desktop, so it's a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://manage.windowsazure.cn/).
@@ -53,11 +55,13 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
     ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
     The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/virtual-machines/windows/classic/setup-endpoints) for more information.
+    <!-- Notice: URL Rediect to /virtual-machines/windows/classic/setup-endpoints -->
 
-   > [!NOTE]
-   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/virtual-machines/windows/classic/setup-endpoints) for more information.
-   > 
-   > 
+    > [!NOTE]
+    > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/virtual-machines/windows/classic/setup-endpoints) for more information.
+    > 
+    > 
+    <!-- Notice: URL Rediect to /virtual-machines/windows/classic/setup-endpoints -->
 10. After you're done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
 
      As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.

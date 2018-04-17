@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/11/2017
-ms.date: 01/01/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,7 @@ For the purpose of creating this article, we used VMware virtual machines with D
 
 ## Enable disaster recovery of the Dynamics AX application by using Site Recovery
 ### Protect your Dynamics AX application
-To enable the complete application replication and recovery, each component of Dynamics AX must be protected. 
+To enable the complete application replication and recovery, each component of Dynamics AX must be protected.
 
 ### 1. Set up Active Directory and DNS replication
 
@@ -124,13 +124,13 @@ For information about recovery steps specific to SQL server, see [Replication ap
 Make sure that the recovery point selected is as close as possible to the database PIT, but not ahead of it.
 
 * **Script**: Add load balancer (only E-A).
-Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/blog//cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
+Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
 * **Failover Group 2**: Fail over the Dynamics AX client VMs. Fail over the web tier VMs as part of the recovery plan.
 
 ### Perform a test failover
 
-For more information specific to Active Directory during test failover, see the "Active Directory disaster recovery solution" companion guide. 
+For more information specific to Active Directory during test failover, see the "Active Directory disaster recovery solution" companion guide.
 
 For more information specific to SQL server during test failover, see [Replicate applications with SQL Server and Azure Site Recovery](site-recovery-sql.md).
 
@@ -183,5 +183,4 @@ By using Site Recovery, you can create a complete automated disaster recovery pl
 
 ## Next steps
 To learn more about protecting enterprise workloads with Site Recovery, see [What workloads can I protect?](site-recovery-workload.md).
-<!-- Update_Description: new articles on site recovery dynamicsax -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta propeties, update link -->

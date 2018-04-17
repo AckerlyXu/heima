@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/15/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -29,12 +29,13 @@ If you need to add, change, or remove IP addresses for a network interface, see 
 <a name="before"></a>
 ## Before you begin
 
-Complete the following tasks before you perform the steps in any section of this article:
+Complete the following tasks before completing steps in any section of this article:
 
-- Sign in to the Azure [portal](https://portal.azure.cn), Azure CLI, or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial).
-- If you use PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`. 
+- If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- If using the portal, open https://portal.azure.cn, and log in with your Azure account.
+- If using PowerShell commands to complete tasks in this article, by running PowerShell from your computer. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 <!--Not Available on Cloud Shell Introduction -->
-- If you use Azure CLI commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure that you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. 
 
 <a name="vm-create"></a>
 ## Add existing network interfaces to a new VM
@@ -89,6 +90,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 |CLI|[az vm show](https://docs.azure.cn/zh-cn/cli/vm?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_vm_show)|
 |PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
 
+<a name="vm-remove-nic"></a>
 ## Remove a network interface from a VM
 
 1. Sign in to the Azure portal.
@@ -130,6 +132,6 @@ To create a VM with multiple network interfaces or IP addresses, read the follow
 |---|---|
 |Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)|
+<!-- Not Avaiable on |Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)| -->
 
-<!--Update_Description: update meta properties, wording udpate, update link -->
+<!--Update_Description: wording udpate, update link -->

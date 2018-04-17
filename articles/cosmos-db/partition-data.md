@@ -141,32 +141,7 @@ Results:
 }
 ```
 
-### Table API
-
-To create a table using the Azure Cosmos DB Table API, use the CreateIfNotExists method. 
-
-```csharp
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists(throughput: 800);
-```
-
-Throughput is set as an argument of CreateIfNotExists.
-
-The partition key is implicitly created as the `PartitionKey` value. 
-
-You can retrieve a single entity by using the following snippet:
-
-```csharp
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-```
-For more information, see [Develop with the Table API](tutorial-develop-table-dotnet.md).
-
+<!-- Not Available ### Table API -->
 <!-- Not Available ### Graph API -->
 
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2017
-ms.date: 02/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -31,7 +31,7 @@ Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that
 
 ## What are metrics in Azure?
 
-Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources.
+Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources.
 
 ## What are multi-dimensional metrics?
 

@@ -3,8 +3,8 @@ title: Using Dynamic DNS to register hostnames
 description: This page gives details on how to set up Dynamic DNS to register hostnames in your own DNS servers.
 services: dns
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+ms.date: 04/02/2018
+ms.author: v-yeche
 
 ---
 # Using Dynamic DNS to register hostnames in your own DNS server
@@ -24,7 +24,7 @@ ms.author: v-dazen
 When your custom DNS servers are hosted as Azure VMs you can forward hostname queries for the same vnet to Azure to resolve hostnames. If you do not wish to use this route, you can register your VM hostnames in your DNS server using Dynamic DNS.  Azure doesn't have the ability (e.g. credentials) to directly create records in your DNS servers, so alternative arrangements are often needed. Here are some common scenarios with alternatives.
 
 ## Windows clients
-Non-domain-joined Windows clients attempt unsecured Dynamic DNS (DDNS) updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set this in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+Non-domain-joined Windows clients attempt unsecured Dynamic DNS (DDNS) updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set this in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation as discussed here](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
 Domain-joined Windows clients register their IP addresses with the domain controller by using secure Dynamic DNS. The domain-join process sets the primary DNS suffix on the client and creates and maintains the trust relationship.
 
@@ -62,3 +62,5 @@ When you're using a Windows DNS server, you can use Kerberos authentication with
 If needed, you can add a DNS search suffix to your VMs. The DNS suffix is specified in the */etc/resolv.conf* file. Most Linux distros automatically manage the content of this file, so usually you can't edit it. However, you can override the suffix by using the DHCP client's *supersede* command. To do this, in */etc/dhcp/dhclient.conf*, add:
 
         supersede domain-name <required-dns-suffix>;
+        
+<!-- Update_Description: wording update, update link -->

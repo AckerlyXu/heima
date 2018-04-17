@@ -3,8 +3,8 @@ title: Security features to help protect hybrid backups that use Azure Backup | 
 description: Learn how to use security features in Azure Backup to make backups more secure
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: JPallavi
+manager: vijayts
 editor: ''
 
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/08/2017
-ms.date: 09/04/2017
+ms.date: 04/08/2018
 ms.author: v-junlch
 
 ---
@@ -71,12 +71,12 @@ For **Azure Recovery Services agent** users:
 For **Azure Backup Server** users:
 
 1. If the server where backups were happening is still available, re-protect the deleted data sources, and use the **Recover Data** feature to recover from all the old recovery points.
-2. If this server is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Azure Backup Server instance to get this data.
+2. If this server is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md) to use another Azure Backup Server instance to get this data.
 
 For **Data Protection Manager** users:
 
 1. If the server where backups were happening is still available, re-protect the deleted data sources, and use the **Recover Data** feature to recover from all the old recovery points.
-2. If this server is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Data Protection Manager server to get this data.
+2. If this server is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md) to use another Data Protection Manager server to get this data.
 
 ## Prevent attacks
 Checks have been added to make sure only valid users can perform various operations. These include adding an extra layer of authentication, and maintaining a minimum retention range for recovery purposes.
@@ -107,7 +107,7 @@ The security features mentioned in this article provide defense mechanisms again
 ## Troubleshooting errors
 | Operation | Error details | Resolution |
 | --- | --- | --- |
-| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error comes when security settings are enabled, you try to reduce retention range below the minimum values specified above and you are on unsupported  version (supported versions are specified in first note of this article). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy related udpates. Optionally, preferred approach would be to update backup agent, Azure Backup Server and/or DPM UR to leverage all the security updates. |
+| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error comes when security settings are enabled, you try to reduce retention range below the minimum values specified above and you are on unsupported  version (supported versions are specified in first note of this article). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy related updates. Optionally, preferred approach would be to update backup agent, Azure Backup Server and/or DPM UR to leverage all the security updates. |
 | Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 | Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error comes when security settings are enabled, you try to change passphrase and you are on unsupported version (valid versions specified in first note of this article).<br/>**Recommended Action:**<br/> To change passphrase, you must first update backup agent to minimum version minimum 2.0.9052, Azure Backup server to minimum update 1, and/or DPM to minimum DPM 2012 R2 UR12 or  DPM 2016 UR2 (download links below), then enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 
@@ -117,3 +117,4 @@ The security features mentioned in this article provide defense mechanisms again
 - [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to help protect workloads and guard your backup data against attacks.
 - [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.
 
+<!-- Update_Description: wording update -->

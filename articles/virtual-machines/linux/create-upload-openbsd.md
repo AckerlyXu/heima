@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/24/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 This article assumes that you have the following items:
 
 * **An Azure subscription** - If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://www.azure.cn/support/legal/offer-rate-plans/). Otherwise, learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
-* **Azure CLI 2.0** - Make sure you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed and logged in to your Azure account with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+* **Azure CLI 2.0** - Make sure you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed and logged in to your Azure account with [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 * **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system (6.1 version) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 ## Prepare OpenBSD image for Azure

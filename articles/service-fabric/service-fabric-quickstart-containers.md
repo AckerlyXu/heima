@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/25/18
-ms.date: 03/12/2018
+origin.date: 02/27/18
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -47,21 +47,25 @@ Start Visual Studio as "Administrator".  Select **File** > **New** > **Project**
 
 Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
 
-Select **Container** from the list of **service templates**.
+Select **Container** from the **Hosted Containers and Applications** templates.
 
 In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/). 
 
 Name your service "MyContainerService", and click **OK**.
 
 ## Configure communication and container port-to-host port mapping
-The service needs an endpoint for communication.  You can now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file. For this quickstart, the containerized service listens on port 80: 
+The service needs an endpoint for communication.  For this quickstart, the containerized service listens on port 80.  In Solution Explorer, open *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Update the existing `Endpoint` in the ServiceManifest.xml file and add the protocol, port, and uri scheme: 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quickstart, `ContainerPort` is 80 and `EndpointRef` is "MyContainerServiceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
+Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  In Solution Explorer, open *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* and specify a `PortBinding` policy in `ContainerHostPolicies`.  For this quickstart, `ContainerPort` is 80 and `EndpointRef` is "MyContainerServiceTypeEndpoint" (the endpoint defined in the service manifest).    
 
 ```xml
 <ServiceManifestImport>
@@ -86,7 +90,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-Copy the **Connection Endpoint** from the cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`. 
+Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`.
 <!-- Not Avaiable on Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. -->
 
 ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
@@ -167,7 +171,6 @@ Here are the complete service and application manifests used in this quickstart.
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -200,4 +203,4 @@ In this quickstart, you learned how to:
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
 
-<!--Update_Description: wording update, update link, remove the party cluster content not suit for azure china -->
+<!--Update_Description: wording update, update link -->

@@ -1,5 +1,7 @@
+# [Redis Cache Documentation](index.md)
+
 # Overview
-##[Why use Redis cache](/redis-cache/)
+##[Why use Redis cache](https://www.azure.cn/home/features/redis-cache/)
 ##[Explore premium tier features](cache-premium-tier-intro.md)
 ## Scenarios
 ###[Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
@@ -50,7 +52,7 @@
 # Reference
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache)
 ## [Azure CLI Preview](/cli/redis)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis clients](http://redis.io/clients)
 ## [Redis commands](http://redis.io/commands#)

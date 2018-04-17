@@ -1,6 +1,6 @@
 ---
 title: Update the Azure Linux Agent from GitHub | Azure
-description: Learn how to update Azure Linux Agent for your Linux VM in Azure to the latest version from GitHub
+description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -471,4 +471,4 @@ For CoreOS, the above command may not work.
 You will see that the Azure Linux Agent version has been updated to the new version.
 
 For more information regarding the Azure Linux Agent, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

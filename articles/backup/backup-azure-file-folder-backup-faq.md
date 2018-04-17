@@ -1,10 +1,11 @@
+
 ---
 title: Azure Backup agent FAQ | Microsoft Docs
 description: 'Answers to common questions about: how the Azure backup agent works, backup and retention limits.'
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: shreeshd
 editor: ''
 keywords: backup and disaster recovery; backup service
 
@@ -15,13 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/04/2017
+ms.date: 04/08/2018
 ms.author: v-junlch
 
 ---
 
 # Questions about the Azure Backup agent
 This article has answers to common questions to help you quickly understand the Azure Backup agent components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Configure backup
 ### Where can I download the latest Azure Backup agent? <br/>
@@ -125,3 +128,4 @@ Azure Backup agent relies on NTFS. The [filepath length specification is limited
 ### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
+<!-- Update_Description: wording update -->

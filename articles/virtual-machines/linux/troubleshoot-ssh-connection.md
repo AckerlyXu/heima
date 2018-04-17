@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -35,11 +35,10 @@ After each troubleshooting step, try reconnecting to the VM.
 3. Verify the [Network Security Group](../../virtual-network/virtual-networks-nsg.md) rules permit SSH traffic.
    * Ensure that a Network Security Group rule exists to permit SSH traffic (by default, TCP port 22).
    * You cannot use port redirection / mapping without using an Azure load balancer.
-<!-- Check the service-health for VM -->
 4. Check the [VM resource health](../../service-health/resource-health-overview.md). 
+    <!-- Redirect is Correct /resource-health/XXXX.md TO /service-health/XXXX.md -->
    * Ensure that the VM reports as being healthy.
    * If you have boot diagnostics enabled, verify the VM is not reporting boot errors in the logs.
-<!-- Check the service-health for VM -->
 5. Restart the VM.
 6. Redeploy the VM.
 
@@ -70,7 +69,7 @@ To reset the credentials of an existing user, select either `Reset SSH public ke
 You can also create a user with sudo privileges on the VM from this menu. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
 ## Use the Azure CLI 2.0
-If you haven't already, install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+If you haven't already, install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

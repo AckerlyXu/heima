@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/03/2018
-ms.date: 02/05/2018
+origin.date: 03/14/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 
 ---
@@ -100,7 +100,7 @@ Complete the following steps using the **ssh** connection to your Raspberry Pi:
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/11/2017
-ms.date: 02/26/2018
+origin.date: 02/28/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -44,7 +44,7 @@ As mentioned, reporting can be done from:
 > 
 > 
 
-Once the health reporting design is clear, health reports can be sent easily. You can use [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. Reporting can be done through the API by using [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
+Once the health reporting design is clear, health reports can be sent easily. You can use [FabricClient](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. Reporting can be done through the API by using [FabricClient.HealthManager.ReportHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth?view=azure-dotnet), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
 
 > [!NOTE]
 > Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client or the `Partition` or `CodePackageActivationContext` objects doesn't mean that it is applied in the store. It is sent asynchronously and possibly batched with other reports. The processing on the server may still fail: the sequence number could be stale, the entity on which the report must be applied has been deleted, etc.
@@ -64,7 +64,7 @@ The health reports are sent to the health store through a health client, which l
 > 
 
 The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the health store is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
-Specify configuration parameters when `FabricClient` is created by passing [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) with the desired values for health-related entries.
+Specify configuration parameters when `FabricClient` is created by passing [FabricClientSettings](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclientsettings?view=azure-dotnet) with the desired values for health-related entries.
 
 The following example creates a fabric client and specifies that the reports should be sent when they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
 
@@ -78,7 +78,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-We recommend keeping the default fabric client settings, which set `HealthReportSendInterval` to 30 seconds. This setting ensures optimal performance due to batching. For critical reports that must be sent as soon as possible, use `HealthReportSendOptions` with Immediate `true` in [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Immediate reports bypass the batching interval. Use this flag with care; we want to take advantage of the health client batching whenever possible. Immediate send is also useful when the fabric client is closing (for example, the process has determined invalid state and needs to shut down to prevent side effects). It ensures a best-effort send of the accumulated reports. When one report is added with Immediate flag, the health client batches all the accumulated reports since last send.
+We recommend keeping the default fabric client settings, which set `HealthReportSendInterval` to 30 seconds. This setting ensures optimal performance due to batching. For critical reports that must be sent as soon as possible, use `HealthReportSendOptions` with Immediate `true` in [FabricClient.HealthClient.ReportHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth?view=azure-dotnet) API. Immediate reports bypass the batching interval. Use this flag with care; we want to take advantage of the health client batching whenever possible. Immediate send is also useful when the fabric client is closing (for example, the process has determined invalid state and needs to shut down to prevent side effects). It ensures a best-effort send of the accumulated reports. When one report is added with Immediate flag, the health client batches all the accumulated reports since last send.
 
 Same parameters can be specified when a connection to a cluster is created through PowerShell. 
 The following example starts a connection to a local cluster:
@@ -121,12 +121,12 @@ For REST, the reports are sent to the Service Fabric gateway, which has an inter
 ## Report from within low privilege services
 If Service Fabric services do not have admin access to the cluster, you can report health on entities from the current context through `Partition` or `CodePackageActivationContext`.
 
-* For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) to report on the current service instance.
-* For stateful services, use [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) to report on current replica.
-* Use [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) to report on the current partition entity.
-* Use [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) to report on current application.
-* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) to report on the current application deployed on the current node.
-* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) to report on a service package for the application deployed on the current node.
+* For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth?view=azure-dotnet) to report on the current service instance.
+* For stateful services, use [IStatefulServicePartition.ReportReplicaHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth?view=azure-dotnet) to report on current replica.
+* Use [IServicePartition.ReportPartitionHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth?view=azure-dotnet) to report on the current partition entity.
+* Use [CodePackageActivationContext.ReportApplicationHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth?view=azure-dotnet) to report on current application.
+* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth?view=azure-dotnet) to report on the current application deployed on the current node.
+* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth?view=azure-dotnet) to report on a service package for the application deployed on the current node.
 
 > [!NOTE]
 > Internally, the `Partition` and the `CodePackageActivationContext` hold a health client configured with default settings. As explained for the [health client](service-fabric-report-health.md#health-client), reports are batched and sent on a timer. The objects should be kept alive to have a chance to send the report.
@@ -313,4 +313,4 @@ Based on the health data, service writers and cluster/application administrators
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

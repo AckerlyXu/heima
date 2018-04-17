@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/02/2018
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
 
 ---
@@ -30,6 +30,7 @@ ms.author: v-junlch
 cd \
 
 # Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -65,3 +66,4 @@ The **AzureStack-Tools** repository contains PowerShell modules that support the
 - [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)   
 - [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)  
 
+<!-- Update_Description: code update -->

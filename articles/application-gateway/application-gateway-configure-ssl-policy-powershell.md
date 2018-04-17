@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 01/17/2018
+ms.date: 04/04/2018
 ms.author: v-junlch
 
 ---
@@ -74,7 +74,7 @@ AvailableProtocols:
 
 ## List pre-defined SSL Policies
 
-Application gateway comes with 3 pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20170401** is selected if no specific SSL policy is defined.
+Application gateway comes with 3 pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20150501** is selected if no specific SSL policy is defined.
 
 The following is an example of running `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 
@@ -209,4 +209,4 @@ $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
 
 Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

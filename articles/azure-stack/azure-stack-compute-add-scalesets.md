@@ -9,8 +9,8 @@ editor: ''
 ms.assetid:
 ms.service: azure-stack
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/01/2018
+origin.date: 03/13/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: anajod
 keywords:
@@ -22,7 +22,7 @@ keywords:
 
 Virtual machine scale sets are an Azure Stack compute resource. You can use them to deploy and manage a set of identical virtual machines. With all virtual machines configured the same, scale sets don’t require pre-provisioning of virtual machines. It's easier to build large-scale services that target big compute, big data, and containerized workloads.
 
-This topic guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
+This article guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
 
 Virtual machine scale sets on Azure Stack are like virtual machine scale sets on Azure. For more information, see the following videos:
 - [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -40,8 +40,6 @@ On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can ad
         Import-Module .\AzureStack.ComputeAdmin.psm1
 
 - **Operating system image**
-
-   If you haven’t added an operating system image to your Azure Stack Marketplace, see [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md).
 
    For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsVMImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
@@ -65,7 +63,6 @@ $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
 $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-Select-AzureRmProfile -Profile $AzsEnvContext
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
@@ -79,10 +76,11 @@ To remove a virtual machine scale set gallery item, run the following PowerShell
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> The gallery item may not be removed immediately. You may need to refresh the portal several times before it is removed from the Marketplace.
+> The gallery item may not be removed immediately. You night need to refresh the portal several times before the item shows as removed from the Marketplace.
 
 
 ## Next steps
 [Frequently asked questions for Azure Stack](azure-stack-faq.md)
 
 
+<!-- Update_Description: wording update -->

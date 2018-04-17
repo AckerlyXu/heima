@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -58,16 +58,15 @@ az webapp deployment slot create --name $webappname --resource-group myResourceG
 az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --slot staging --repo-url $gitrepo --branch master --manual-integration
 
-# Browse to the deployed web app on staging. Deployment may be in progress, so rerun this if necessary.
-az webapp browse --name $webappname --resource-group myResourceGroup --slot staging
+# Copy the result of the following command into a browser to see the staging slot.
+echo http://$webappname-staging.chinacloudsites.cn
 
 # Swap the verified/warmed up staging slot into production.
 az webapp deployment slot swap --name $webappname --resource-group myResourceGroup \
 --slot staging
 
-# Browse to the production slot. 
-az webapp browse --name $webappname --resource-group myResourceGroup
-
+# Copy the result of the following command into a browser to see the web app in the production slot.
+echo http://$webappname.chinacloudsites.cn
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 10/23/2017
+origin.date: 01/22/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -247,7 +247,7 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
-The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template. 
+The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template or [linked template](resource-group-linked-templates.md#link-or-nest-a-template). It cannot be used in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template. 
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the dependsOn property. The function is not evaluated until the referenced resource has completed deployment.
 
@@ -723,4 +723,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!--Update_Description: update meta properties, add full parameter cmdlet sample and json file-->
+<!--Update_Description: update meta properties, wording update, update link -->

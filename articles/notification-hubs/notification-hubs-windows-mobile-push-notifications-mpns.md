@@ -14,8 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 12/22/2017
-ms.date: 01/22/2018
+origin.date: 03/06/2018
+ms.date: 04/04/2018
 ms.author: v-junlch
 
 ---
@@ -28,7 +28,7 @@ ms.author: v-junlch
 > 
 > 
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application. If you are targeting Windows Phone 8.1 (non-Silverlight), then refer to the [Windows Universal](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) version.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application. If you are targeting Windows Phone 8.1 (non-Silverlight), then refer to the [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) version.
 In this tutorial, you create a blank Windows Phone 8 app that receives push notifications by using the Microsoft Push Notification Service (MPNS). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>Under <b>Notification Settings</b>, select <b>Windows Phone (MPNS)</b> and then click the <b>Enable unauthenticated push</b> check box.</p>
+<li><p>Under <b>Notification Services</b>, select <b>Windows Phone (MPNS)</b> and then click the <b>Enable unauthenticated push</b> check box.</p>
 
 ![Azure portal - Enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 </li>
@@ -167,4 +167,4 @@ Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hubs - Windows Phone Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!-- Update_Description: wording update -->
+

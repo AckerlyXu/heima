@@ -2,8 +2,8 @@
 title: Tutorial - Use the Azure Batch client library for Node.js | Microsoft Docs
 description: Learn the basic concepts of Azure Batch and build a simple solution using Node.js.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: shwetams
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
@@ -11,7 +11,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 04/09/2018
 ms.author: v-junlch
 ---
 
@@ -24,7 +24,7 @@ ms.author: v-junlch
 >
 >
 
-Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
+Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](https://docs.microsoft.com/javascript/api/overview/azure/batch). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
 
 ## Prerequisites
 This article assumes that you have a working knowledge of Node.js and familiarity with Linux. It also assumes that you have an Azure account setup with access rights to create Batch and Storage services.
@@ -103,7 +103,7 @@ var batch_client = new batch.ServiceClient(credentials,accountUrl);
 
 The Azure Batch URI can be found in the Overview tab of the Azure portal. It is of the format:
 
-`https://accountname.location.batch.azure.com`
+`https://accountname.location.batch.chinacloudapi.cn`
 
 Refer to the screenshot:
 
@@ -190,7 +190,7 @@ Following is a sample result object returned by the pool.get function.
 ```
 { id: 'processcsv_201721152',
   displayName: 'processcsv_201721152',
-  url: 'https://<batch-account-name>.centralus.batch.azure.com/pools/processcsv_201721152',
+  url: 'https://<batch-account-name>.centralus.batch.chinacloudapi.cn/pools/processcsv_201721152',
   eTag: '<eTag>',
   lastModified: 2017-03-27T10:28:02.398Z,
   creationTime: 2017-03-27T10:28:02.398Z,
@@ -346,6 +346,7 @@ The portal has detailed views on the tasks and job statuses. You can also use th
 ## Next steps
 
 - Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
-- See the [Batch Node.js reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) to explore the Batch API.
+- See the [Batch Node.js reference](https://docs.microsoft.com/javascript/api/overview/azure/batch) to explore the Batch API.
 
 
+<!-- Update_Description: wording update -->

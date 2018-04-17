@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/14/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 
@@ -62,4 +62,4 @@ Once completed, a Bash session will start that is preloaded with the Azure CLI t
 
 [CLI samples for Azure SQL](../../sql-database/sql-database-cli-samples.md)
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

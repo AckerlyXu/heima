@@ -181,7 +181,7 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 >
 
 ##Validate Peering Configuration
-After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
+After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure), and Microsoft peering (traffic to Office 365 and Dynamics 365). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
 ###Verification via the Azure portal
 
@@ -194,7 +194,7 @@ In the Azure portal, status of an ExpressRoute circuit can be checked by selecti
 
 ![5][5]
 
-In the preceding example, as noted Azure private peering routing context is enabled, whereas Azure public peering routing contexts are not enabled. A successfully enabled peering context would also have the primary and secondary point-to-point (required for BGP) subnets listed. The /30 subnets are used for the interface IP address of the MSEEs and PE-MSEEs. 
+In the preceding example, as noted Azure private peering routing context is enabled, whereas Azure public and Microsoft peering routing contexts are not enabled. A successfully enabled peering context would also have the primary and secondary point-to-point (required for BGP) subnets listed. The /30 subnets are used for the interface IP address of the MSEEs and PE-MSEEs. 
 
 >[!NOTE]
 >If a peering is not enabled, check if the primary and secondary subnets assigned match the configuration on PE-MSEEs. If not, to change the configuration on MSEE routers, refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering]
@@ -290,6 +290,9 @@ To get the Azure public peering configuration details, use the following command
 Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
 
+To get the Microsoft peering configuration details, use the following commands:
+
+	Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 >[!IMPORTANT]
 >If layer 3 peerings were set by the service provider, setting the ExpressRoute peerings via the portal or PowerShell overwrites the service provider settings. Resetting the provider side peering settings requires the support of the service provider. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!

@@ -1,3 +1,5 @@
+# [ExpressRoute Documentation](index.md)
+
 # Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
@@ -27,14 +29,22 @@
 ### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [Configure a site-to-site VPN over Microsoft peering](site-to-site-vpn-over-microsoft-peering.md)
 ## Configure a virtual network gateway for ExpressRoute
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-## [Configure ExpressRoute and Site-to-Site coexisting connections](expressroute-howto-coexist-resource-manager.md)
+## [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md)
+## Configure route filters for Microsoft peering
+### [Azure portal](how-to-routefilter-portal.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
+## [Move from public peering to Microsoft peering](how-to-move-peering.md)
 ## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
 ### [Configure a router](expressroute-config-samples-routing.md)
+### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
+## [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
 ## Classic deployment model articles
 ### [Modify a circuit](expressroute-howto-circuit-classic.md)
 ### [Create and modify peering configuration](expressroute-howto-routing-classic.md)
@@ -44,9 +54,11 @@
 
 ## Best Practices
 ### [Optimize routing](expressroute-optimize-routing.md)
+### [NAT for ExpressRoute](expressroute-nat.md)
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
+### [Resolving network performance issues](expressroute-troubleshooting-network-performance.md)
 ### [Reset a failed circuit](reset-circuit.md)
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)

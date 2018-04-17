@@ -3,8 +3,8 @@ title: Tenant Resource Usage API | Microsoft Docs
 description: Reference for resource usage API, which retrieve Azure Stack usage information.
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
@@ -13,12 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2016
-ms.date: 03/04/2018
+origin.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
+ms.reviewer: alfredop
 
 ---
 # Tenant Resource Usage API
+
 A tenant can use the Tenant API to view the tenant’s own resource usage
 data. This API is consistent with the Azure Usage API (currently in
 private preview).
@@ -87,9 +89,11 @@ GET
 | *quantity* |Amount of resource consumption that occurred in this time frame |
 | *meterId* |Unique ID for the resource that was consumed (also called *ResourceID*) |
 
+
 ## Next steps
 [Provider resource usage API](azure-stack-provider-resource-api.md)
 
 [Usage-related FAQ](azure-stack-usage-related-faq.md)
 
 
+<!-- Update_Description: update metedata properties -->

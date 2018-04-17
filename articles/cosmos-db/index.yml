@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 02/14/2018
-  ms.date: 03/05/2018
+  ms.date: 03/26/2018
   ms.author: v-yeche
 abstract:
   description: Azure Cosmos DB is a multiple-region distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, and wide-column by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefitting from comprehensive SLAs. 
@@ -50,13 +50,7 @@ sections:
           - href: /cosmos-db/create-mongodb-dotnet
           - href: /cosmos-db/create-mongodb-nodejs
           - href: /cosmos-db/create-mongodb-flask
-      - title: Table API
-        values:
-          - href: /cosmos-db/create-table-java
-          - href: /cosmos-db/create-table-dotnet
-          - href: /cosmos-db/create-table-nodejs
-          - href: /cosmos-db/create-table-python
-          - href:
+### Not Avaiable on  - title: Table API
 ### Not Avaiable on - title: Cassandra API
 
 - title: Step-by-Step Tutorials
@@ -66,11 +60,15 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a> |  |
-    - html: Import data into Cosmos DB&#58; <a href="/cosmos-db/import-data">SQL</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">Table</a> |
+    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> |  |  |
+### Not Available on <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a> 
+    - html: Import data into Cosmos DB&#58; <a href="/cosmos-db/import-data">SQL</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | |
+### Not Avialable on <a href="/cosmos-db/table-import">Table</a> -->
 ### Redirect https://aka.ms/tableapiimporttool TO /cosmos-db/table-import -->
-    - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a>
-    - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
+    - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> |
+### Not Available on <a href="/cosmos-db/tutorial-query-table">Table</a>
+    - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> |
+### Not Available on <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
     - html: <a href="local-emulator">Develop your application locally using the emulator</a>
     - html: <a href="/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
 - title: Samples
@@ -82,4 +80,4 @@ sections:
     - html: <a href="/cosmos-db/cli-samples">Azure CLI</a>
     - html: <a href="/cosmos-db/powershell-samples">Azure PowerShell</a>
 ### Not Available - title: Reference
-### ms.date: 03/05/2018
+### ms.date: 03/26/2018

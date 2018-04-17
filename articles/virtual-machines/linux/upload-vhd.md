@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/06/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -55,7 +55,7 @@ To complete the following steps, you need:
 > 
 > 
 
-* Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+* Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 <!-- URL is CORRECT ON https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest -->
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *mydisks*.
@@ -228,4 +228,4 @@ You should be able to SSH into the VM using the credentials from the source VM.
 
 ## Next steps
 After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update meta properties -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/31/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -397,7 +397,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DCIPredictiveMatchPoliciesCount|Predictive Match Count|Count|Last||No Dimensions|
 |DCIPredictionsCount|Prediction Count|Count|Last||No Dimensions|
 
-
 ## Microsoft.Devices/IotHubs
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -549,6 +548,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |TotalRequestUnits|Total Request Units|Count|Total|Request Units consumed|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
 |TotalRequests|Total Requests|Count|Count|Number of requests made|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
 
+
 ## Microsoft.EventHub/namespaces
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -604,11 +604,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ServiceApiLatency|Overall Service Api Latency|Milliseconds|Count,Average,Minimum,Maximum|Overall latency of service api requests|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Total Service Api Results|Count|Count,Total|Number of total service api results|ActivityType, ActivityName, StatusCode|
 
-## Microsoft.LocationBasedServices/accounts
 
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|Latency|Latency|Milliseconds|Average|Duration of API calls|OperationName, OperationResult|
 ## Microsoft.Network/loadBalancers
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|

@@ -5,8 +5,8 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ---
 
@@ -43,7 +43,7 @@ Failover and failback has four stages:
 
 ## Verify VM properties
 
-Verify the VM properties, and make sure that the VM complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verify the VM properties, and make sure that the VM complies with [Azure requirements](hyper-v-azure-support-matrix.md#replicated-vms).
 
 1. In **Protected Items**, click **Replicated Items** > <VM-name>.
 
@@ -82,5 +82,4 @@ Fail over from Azure to the on-premises site, and start replicating VMs from the
 6. Log on to the on-premises VM to check it's available as expected.
 7. The on-premises VM is now in a **Commit Pending** state. Click **Commit**. This deletes the Azure VMs and its disks, and prepares the on-premises VM for reverse replication.
 To start replicating the on-premises VM to Azure, enable **Reverse Replicate**. This triggers replication of delta changes that have occurred since the Azure VM was switched off.
-<!-- Update_Description: new articles on hyper-v to azure failover failback tutorial -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties, update link -->

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -52,6 +52,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D series | 6144 |
+<!-- Not Available on G series-->
 <!-- Not Available on L, N, A and H series-->
 
 ## Azure data disks
@@ -65,6 +66,7 @@ Additional data disks can be added for installing applications and storing data.
 | [General purpose](sizes-general.md) | A and D series | 32 |
 | [Compute optimized](sizes-compute.md) | F series | 32 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D series | 64 |
+<!-- Not Available on G series-->
 <!-- Not Available on L, N, A and H series-->
 
 ## VM disk types
@@ -179,10 +181,10 @@ The output displays the UUID of the drive, `/dev/sdc1` in this case.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Add a line similar to the following to the */etc/fstab* file. Also note that write barriers can be disabled using *barrier=0*, this configuration can improve disk performance. 
+Add a line similar to the following to the */etc/fstab* file.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 Now that the disk has been configured, close the SSH session.
@@ -295,4 +297,4 @@ Advance to the next tutorial to learn about automating VM configuration.
 > [!div class="nextstepaction"]
 > [Automate VM configuration](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->

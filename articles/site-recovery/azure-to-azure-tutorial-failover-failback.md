@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/07/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -28,7 +28,7 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 
 - Make that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
 expected.
-- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
 
 <a name="run-a-failover"></a>
 ## Run a failover to the secondary region
@@ -78,4 +78,4 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 
 After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, follow the [failover](#run-a-failover) instructions.
 
-<!-- Update_Description: update meta properties， wording update -->
+<!-- Update_Description: update meta properties， update link -->

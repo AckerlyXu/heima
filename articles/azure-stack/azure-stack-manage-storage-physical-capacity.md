@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2018
-ms.author: mabrigg
+origin.date: 03/13/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: Thomas.Roettinger
 
 ---
@@ -50,3 +51,4 @@ The entire scale unit must be shut down as a rolling memory upgrade is not suppo
  - To learn how to manage storage accounts in Azure Stack to find, recover,
 and reclaim storage capacity based on business needs, see [Manage storage accounts in Azure Stack](azure-stack-manage-storage-accounts.md).
  - To learn the Azure Stack cloud operator monitors and manages the storage capacity of their Azure Stack deployment, see [Manage storage capacity for Azure Stack](azure-stack-manage-storage-shares.md). 
+

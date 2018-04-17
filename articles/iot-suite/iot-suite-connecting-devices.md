@@ -1,5 +1,5 @@
 ---
-title: Provision Windows devices to remote monitoring in C - Azure | Microsoft Docs
+title: Provision Windows devices to remote monitoring in C - Azure
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows.
 services: ''
 suite: iot-suite
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/12/2017
+origin.date: 03/14/2018
 ms.author: v-yiso
-ms.date: 01/08/2018
+ms.date: 04/02/2018
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (Windows)
@@ -93,7 +93,7 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -115,7 +115,7 @@ Add code to invoke the **remote\_monitoring\_run** function, then build and run 
     }
     ```
 
-1. Choose **Build** and then **Build Solution** to build the device application. Ignore the warning about the **gmtime** function.
+1. Choose **Build** and then **Build Solution** to build the device application.
 
 1. In **Solution Explorer**, right-click the **RMDevice** project, choose **Debug**, and then choose **Start new instance** to run the sample. The console displays messages as:
 

@@ -48,6 +48,7 @@ login.chinacloudapi.cn | Required for authorization and authentication to the Si
 *.hypervrecoverymanager.windowsazure.cn | Required so that the Site Recovery service communication can occur from the VM.
 *.servicebus.chinacloudapi.cn | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
 
+<a name="outbound-connectivity-for-azure-site-recovery-ip-ranges"></a>
 ## Outbound connectivity for IP address ranges
 
 If you are using an IP-based firewall proxy, or NSG rules to control outbound connectivity, these IP ranges need to be allowed.
@@ -121,7 +122,8 @@ Follow these best practices for ExpressRoute configuration:
   - The source virtual network and the ExpressRoute circuit.
   - The target virtual network and the ExpressRoute circuit.
 
-- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
+- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
+<!-- Archor is not Exist on #azure-regions-to-expressroute-locations-within-a-geopolitical-region -->
 
 - We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure virtual networks of the same IP ranges at the same time.
 

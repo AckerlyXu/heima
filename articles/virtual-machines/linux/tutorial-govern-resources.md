@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
 # Virtual machine governance with Azure CLI
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -27,7 +27,7 @@ To install and use the CLI locally, see [Install Azure CLI 2.0](https://docs.azu
 
 ## Understand scope
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 In this tutorial, you apply all management settings to a resource group so you can easily remove those settings when done.
 
@@ -67,69 +67,8 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
-
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az_policy_definition_list) command:
-
-```azurecli
-az policy definition list --query "[].[displayName, policyType, name]" --output table
-```
-
-You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
-
-* Limit the locations for all resources.
-* Limit the SKUs for virtual machines.
-* Audit virtual machines that do not use managed disks.
-
-In the following example, you retrieve three policy definitions based on the display name. You use the [az policy assignment create](https://docs.azure.cn/zh-cn/cli/policy/assignment?view=azure-cli-latest#az_policy_assignment_create) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
-
-```azurecli
-# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
-locationDefinition=$(az policy definition list --query "[?displayName=='Allowed locations'].name | [0]" --output tsv)
-skuDefinition=$(az policy definition list --query "[?displayName=='Allowed virtual machine SKUs'].name | [0]" --output tsv)
-auditDefinition=$(az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks'].name | [0]" --output tsv)
-
-# Assign policy for allowed locations
-az policy assignment create --name "Set permitted locations" \
-  --resource-group myResourceGroup \
-  --policy $locationDefinition \
-  --params '{ 
-      "listOfAllowedLocations": {
-        "value": [
-          "chinaeast", 
-          "chinaeast2"
-        ]
-      }
-    }'
-
-# Assign policy for allowed SKUs
-az policy assignment create --name "Set permitted VM SKUs" \
-  --resource-group myResourceGroup \
-  --policy $skuDefinition \
-  --params '{ 
-      "listOfAllowedSKUs": {
-        "value": [
-          "Standard_DS1_v2", 
-          "Standard_E2s_v2"
-        ]
-      }
-    }'
-
-# Assign policy for auditing unmanaged disks
-az policy assignment create --name "Audit unmanaged disks" \
-  --resource-group myResourceGroup \
-  --policy $auditDefinition
-```
-
-The preceding example assumes you already know the parameters for a policy. If you need to view the parameters, use:
-
-```azurecli
-az policy definition show --name $locationDefinition --query parameters
-```
+<!-- Not Avaiable on ## Azure policies -->
+<!-- Not Avaiable on ### Apply policies -->
 
 ## Deploy the virtual machine
 
@@ -177,7 +116,7 @@ You see an error stating that the delete operation cannot be performed because o
 
 You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 To apply tags to a virtual machine, use the [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_tag) command. Any existing tags on the resource are not retained.
 
@@ -204,7 +143,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 <!-- Not Available on ### View costs by tag values -->
 
-<!-- [!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## Clean up resources
 
@@ -244,4 +183,4 @@ Advance to the next tutorial to learn about how highly available virtual machine
 > [Monitor virtual machines](tutorial-monitoring.md)
 
 <!--The parent file of includes file of resource-manager-governance-tags-cli.md-->
-<!--ms.date:03/05/2018-->
+<!--ms.date: 04/16/2018-->

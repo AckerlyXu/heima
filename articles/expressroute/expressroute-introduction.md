@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute Overview: Extend your on-premises network to Azure over a private connection | Azure'
-description: This ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a dedicated private connection.
+description: This ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
 documentationCenter: na
 services: expressroute
 author: cherylmc
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/30/2017
+origin.date: 03/12/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 04/02/2018
 ---
 
 # ExpressRoute overview
 Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
 
-Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](./expressroute-connectivity-models.md).
+Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This lets ExpressRoute connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 
 ![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -47,26 +47,28 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 
 ### Connectivity to Microsoft cloud services
 
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
-
 ExpressRoute connections enable access to the following services:
 
 - Microsoft Azure services
 - Microsoft Office 365 services
 * Microsoft Dynamics 365
 
-You can visit the [ExpressRoute FAQ](./expressroute-faqs.md) page for a detailed list of services supported over ExpressRoute.
+> [!NOTE]
+> [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> 
+
+For a detailed list of services supported over ExpressRoute, visit the [ExpressRoute FAQ](expressroute-faqs.md) page. 
 
 ### Connectivity to all regions within a geopolitical region
 You can connect to Microsoft in one of our [peering locations](./expressroute-locations.md) and have access to all regions within the geopolitical region. 
 
-For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in Northern Europe and Western Europe. See the [ExpressRoute partners and peering locations](expressroute-locations.md) article for an overview of the geopolitical regions, associated Microsoft cloud regions, and corresponding ExpressRoute peering locations.
+For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in Northern Europe and Western Europe. For an overview of the geopolitical regions, the associated Microsoft cloud regions, and corresponding ExpressRoute peering locations, see the [ExpressRoute partners and peering locations](expressroute-locations.md) article.
 
 ### Global connectivity with ExpressRoute premium add-on
 You can enable the ExpressRoute premium add-on feature to extend connectivity across geopolitical boundaries. For example, if you are connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in all regions across the world (national clouds are excluded). You can access services deployed in South America or Australia the same way you access the North and West Europe regions.
 
 ### Rich connectivity partner ecosystem
-ExpressRoute has a constantly growing ecosystem of connectivity providers and SI partners. You can refer to the [ExpressRoute providers and locations](./expressroute-locations.md) article for the latest information.
+ExpressRoute has a constantly growing ecosystem of connectivity providers and SI partners. For the latest information, refer to the [ExpressRoute providers and locations](expressroute-locations.md) article.
 
 ### Connectivity to national clouds
 Microsoft operates isolated cloud environments for special geopolitical regions and customer segments. Refer to the [ExpressRoute providers and locations](./expressroute-locations.md) page for a list of national clouds and providers.
@@ -106,7 +108,7 @@ For frequently asked questions about ExpressRoute, see the [ExpressRoute FAQ](./
 - Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](./expressroute-circuit-peerings.md).
 - Find a service provider. See [ExpressRoute partners and peering locations](./expressroute-locations.md).
 - Ensure that all prerequisites are met. See [ExpressRoute prerequisites](./expressroute-prerequisites.md).
-- Refer to the requirements for [Routing](./expressroute-routing.md).
+- Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md).
 - Configure your ExpressRoute connection.
     - [Create an ExpressRoute circuit](./expressroute-howto-circuit-portal-resource-manager.md)
     - [Configure peering for an ExpressRoute circuit](./expressroute-howto-routing-portal-resource-manager.md)

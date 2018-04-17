@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/23/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -32,6 +32,5 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
-<!--Not Available the parent file of includes file of event-hubs-limits.md-->
-<!--ms.date:11/20/2017-->
-<!--Update_Description: update meta properties -->
+<!--The parent file of includes file of event-hubs-limits.md-->
+<!--ms.date:04/02/2018-->

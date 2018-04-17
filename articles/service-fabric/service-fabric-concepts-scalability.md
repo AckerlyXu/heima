@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ---
 # Scaling in Service Fabric
 Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. 
+<!-- Not Avaiable on VIDEO -->
 
 Scaling in Service Fabric is accomplished several different ways:
 
@@ -66,7 +67,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Scaling by creating or removing new named services
 A named service instance is a specific instance of a service type (see [Service Fabric application life cycle](service-fabric-application-lifecycle.md)) within some named application instance in the cluster. 
 
-New named service instances can be created (or removed) as services become more or less busy. This allows requests to be spread across more service instances, usually allowing load on existing services to decrease. When creating services, the Service Fabric Cluster Resource Manager places the services in the cluster in a distributed fashion. The exact decisions are governed by the [metrics](service-fabric-cluster-resource-manager-metrics.md) in the cluster and other placement rules. Services can be created several different ways, but the most common are either through administrative actions like someone calling [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), or by code calling [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` can even be called from within other services running in the cluster.
+New named service instances can be created (or removed) as services become more or less busy. This allows requests to be spread across more service instances, usually allowing load on existing services to decrease. When creating services, the Service Fabric Cluster Resource Manager places the services in the cluster in a distributed fashion. The exact decisions are governed by the [metrics](service-fabric-cluster-resource-manager-metrics.md) in the cluster and other placement rules. Services can be created several different ways, but the most common are either through administrative actions like someone calling [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), or by code calling [`CreateServiceAsync`](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` can even be called from within other services running in the cluster.
 
 Creating services dynamically can be used in all sorts of scenarios, and is a common pattern. For example, consider a stateful service that represents a particular workflow. Calls representing work are going to show up to this service, and this service is going to execute the steps to that workflow and record progress. 
 
@@ -147,4 +148,4 @@ For more information on Service Fabric concepts, see the following articles:
 * [Availability of Service Fabric services](service-fabric-availability-services.md)
 * [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link, wording update -->

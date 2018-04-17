@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: brenduns
+origin.date: 03/20/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: justini
 
 ---
@@ -34,15 +35,15 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 ## Before you begin    
 > [!IMPORTANT]    
-> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
+> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates#plan-for-updates).
 
 
 ### Prerequisites
 - Install the Azure Stack [1712 Update](azure-stack-update-1712.md) before you apply the Azure Stack 1802 update.    
 
-- Install **AzS Hotfix – 1.0.180312.1- Build 20180222.2** before you apply the Azure Stack 1802 update. This hotfix updates Windows Defender, and is available when you download updates for Azure Stack.
+- Install **AzS Hotfix - 1.0.180312.1- Build 20180222.2** before you apply the Azure Stack 1802 update. This hotfix updates Windows Defender, and is available when you download updates for Azure Stack.
 
-  To install the hotfix, follow the normal procedures for [installing updates for Azure Stack](azure-stack-apply-updates.md). The name of the update appears as **AzS Hotfix – 1.0.180312.1**, and includes the following files: 
+  To install the hotfix, follow the normal procedures for [installing updates for Azure Stack](azure-stack-apply-updates.md). The name of the update appears as **AzS Hotfix - 1.0.180312.1**, and includes the following files: 
     - PUPackageHotFix_20180222.2-1.exe
     - PUPackageHotFix_20180222.2-1.bin
     - Metadata.xml
@@ -66,7 +67,7 @@ This update includes the following improvements and fixes for Azure Stack.
     - 2015-12-11 
     - 2015-07-08 
     
-    For more information, see [Azure Stack Storage: Differences and considerations](/azure/azure-stack/user/azure-stack-acs-differences).
+    For more information, see [Azure Stack Storage: Differences and considerations](/azure-stack/user/azure-stack-acs-differences).
 
 - **Support for larger [Block Blobs](azure-stack-acs-differences.md)**:
     - The maximum allowable block size is increased from 4 MB to 100 MB.
@@ -122,6 +123,13 @@ The following are post-installation known issues for build  **20180302.1**
 
     This alert can be safely ignored. 
 
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). This includes system storage accounts like **updateadminaccount** that is used during patch and update. 
+
+  As a workaround, use PowerShell to run the **Start-ResourceSynchronization.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the privileged endpoint. 
+
+
 #### Health and monitoring
 There are no known issues after updating to 1802.
 
@@ -129,7 +137,7 @@ There are no known issues after updating to 1802.
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
 
 #### Compute
-- Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+- Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
 - Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs but those have been removed. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
 
@@ -275,9 +283,11 @@ You can download the Azure Stack 1802 update package from [here](https://aka.ms/
 ## More information
 Microsoft has provided a way to monitor and resume updates using the Privileged End Point (PEP) installed with Update 1710.
 
-- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).
+- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](/azure-stack/azure-stack-monitor-update).
 
 ## See also
 
 - For an overview of the update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).
 - For more information about how to apply updates with Azure Stack, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+
+<!-- Update_Description: wording update -->

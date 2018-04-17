@@ -1,5 +1,5 @@
 ---
-title: Azure Toolkit for IntelliJ - Debug Spark applications remotely through ssh | Azure
+title: Azure Toolkit for IntelliJ - Debug Spark applications remotely through ssh
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 services: hdinsight
@@ -17,7 +17,7 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 origin.date: 11/25/2017
-ms.date: 12/25/2017
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -165,7 +165,6 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 * [Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight to build real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

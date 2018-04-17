@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -172,4 +172,4 @@ Some deployments may achieve additional performance benefits using more advanced
 For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
 Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update meta properties  -->

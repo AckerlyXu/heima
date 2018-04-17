@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/31/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: 
 ---
@@ -227,7 +227,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## Azure CLI
 
 Set-up pre-requisites:
-- Log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest).
+- Log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest).
  - The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
  For full list of commands for virtual networks, see [Azure CLI Virtual Network commands](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest)
@@ -395,4 +395,4 @@ For more instructions to secure service resource to VNets, refer to below links:
 
 [Securing Azure SQL to Virtual networks](/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update wording, update link -->

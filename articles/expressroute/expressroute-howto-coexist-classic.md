@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/21/2017
-ms.date: ''
+ms.date: 03/26/2018
 ms.author: v-yiso
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections (classic)
@@ -51,8 +51,7 @@ Having the ability to configure Site-to-Site VPN and ExpressRoute has several ad
 ## Configuration designs
 
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
-
-You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public peering. The ExpressRoute circuit is always the primary link. Data will flow through the Site-to-Site VPN path only if the ExpressRoute circuit fails. 
+You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public and Microsoft peerings. The ExpressRoute circuit is always the primary link. Data will flow through the Site-to-Site VPN path only if the ExpressRoute circuit fails. 
 
 > [!NOTE]
 > While ExpressRoute circuit is preferred over Site-to-Site VPN when both routes are the same, Azure will use the longest prefix match to choose the route towards the packet's destination.

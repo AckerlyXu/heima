@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/6/2017
-ms.date: 12/25/2017
+origin.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 
 ---
@@ -38,6 +38,8 @@ If you are using a domain-joined HDInsight cluster, there are two Ambari permiss
 * **AMBARI.RUN\_CUSTOM\_COMMAND**: The Ambari Administrator role has this permission by default.
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**: Both the HDInsight Cluster Administrator and Ambari Administrator have this permission by default.
 
+For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md).
+
 ## Access control
 
 If you are not the administrator/owner of your Azure subscription, your account must have at least **Contributor** access to the resource group that contains the HDInsight cluster.
@@ -51,7 +53,7 @@ For more information on working with access management, see the following docume
 
 ## Understanding Script Actions
 
-A script action is Bash script that you provide a URI to, and parameters for. The script runs on nodes in the HDInsight cluster. The following are characteristics and features of script actions.
+A script action is Bash script that runs on the nodes in an HDInsight cluster. The following are characteristics and features of script actions.
 
 * Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
 
@@ -68,9 +70,7 @@ A script action is Bash script that you provide a URI to, and parameters for. Th
 
 * Can be **persisted** or **ad hoc**.
 
-    **Persisted** scripts are applied to worker nodes added to the cluster after the script runs. For example, when scaling up the cluster.
-
-    A persisted script might also apply changes to another node type, such as a head node.
+    **Persisted** scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type, such as a head node, when scaling operations occur.
 
   > [!IMPORTANT]
   > Persisted script actions must have a unique name.
@@ -84,7 +84,8 @@ A script action is Bash script that you provide a URI to, and parameters for. Th
 
 * Can accept **parameters** that are used by the script during execution.
 * Run with **root level privileges** on the cluster nodes.
-* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
+
+* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI v1.0**, or **HDInsight .NET SDK**
 
 The cluster keeps a history of all scripts that have been ran. The history is useful when you need to find the ID of a script for promotion or demotion operations.
 
@@ -102,10 +103,10 @@ The following diagram illustrates when Script Action is executed during the crea
 
 ![HDInsight cluster customization and stages during cluster creation][img-hdi-cluster-states]
 
-The script runs while HDInsight is being configured. At this stage, the script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
+The script runs while HDInsight is being configured. The script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
 
 > [!NOTE]
-> Because the script runs with root level privilege on the cluster nodes, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully determine the health and state of the cluster while it is being created.
+> You can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services running before the script completes. These services are required to successfully determine the health and state of the cluster while it is being created.
 
 During cluster creation, you can use multiple script actions at once. These scripts are invoked in the order in which they were specified.
 
@@ -116,12 +117,12 @@ During cluster creation, you can use multiple script actions at once. These scri
 
 ### Script action on a running cluster
 
-Unlike script actions used during cluster creation, a failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
+A failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
 
 > [!IMPORTANT]
 > Even if the cluster has a 'running' state, the failed script may have broken things. For example, a script could delete files needed by the cluster.
 >
-> Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
+> Scripts actions run with root privileges. Make sure that you understand what a script does before applying it to your cluster.
 
 When applying a script to a cluster, the cluster state changes from **Running** to **Accepted**, then **HDInsight configuration**, and finally back to **Running** for successful scripts. The script status is logged in the script action history, and you can use this information to determine whether the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It returns information similar to the following text:
 
@@ -130,7 +131,7 @@ When applying a script to a cluster, the cluster state changes from **Running** 
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!NOTE]
+> [!IMPORTANT]
 > If you have changed the cluster user (admin) password after the cluster was created, script actions ran against this cluster may fail. If you have any persisted script actions that target worker nodes, these scripts may fail when you scale the cluster.
 
 ## Example Script Action scripts
@@ -139,7 +140,7 @@ Script Action scripts can be used through the following utilities:
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI
+* Azure CLI v1.0
 * HDInsight .NET SDK
 
 HDInsight provides scripts to install the following components on HDInsight clusters:
@@ -180,8 +181,8 @@ This section provides examples on the different ways you can use script actions 
     | --- | --- |
     | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
     | Name |Specify a name for the script action. |
-    | Bash script URI |Specify the URI to the script that is invoked to customize the cluster. |
-    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
+    | Bash script URI |Specify the URI of the script. |
+    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the script is run. |
     | Parameters |Specify the parameters, if required by the script. |
 
     Use the __Persist this script action__ entry to ensure that the script is applied during scaling operations.
@@ -221,92 +222,92 @@ In this section, you use the [Add-AzureRmHDInsightScriptAction](https://msdn.mic
 The following script demonstrates how to apply a script action when creating a cluster using PowerShell:
 
 ```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-}
+  # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
 
-# If you have multiple subscriptions, set the one to use
-# $subscriptionID = "<subscription ID to use>"
-# Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    # If you have multiple subscriptions, set the one to use
+    # $subscriptionID = "<subscription ID to use>"
+    # Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
-# Get user input/default values
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$location = Read-Host -Prompt "Enter the Azure region to create resources in"
+    # Get user input/default values
+    $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+    $location = Read-Host -Prompt "Enter the Azure region to create resources in"
 
-# Create the resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    # Create the resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-$defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
+    $defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
 
-# Create an Azure storae account and container
-New-AzureRmStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $defaultStorageAccountName `
-    -Type Standard_LRS `
-    -Location $location
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                -ResourceGroupName $resourceGroupName `
-                                -Name $defaultStorageAccountName)[0].Value
-$defaultStorageContext = New-AzureStorageContext `
-                                -StorageAccountName $defaultStorageAccountName `
-                                -StorageAccountKey $defaultStorageAccountKey
+    # Create an Azure storae account and container
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Type Standard_LRS `
+        -Location $location
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $defaultStorageAccountKey
 
-# Get information for the HDInsight cluster
-$clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
-# Cluster login is used to secure HTTPS services hosted on the cluster
-$httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
-# SSH user is used to remotely connect to the cluster using SSH clients
-$sshCredential = Get-Credential -Message "Enter SSH user credentials"
+    # Get information for the HDInsight cluster
+    $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+    # Cluster login is used to secure HTTPS services hosted on the cluster
+    $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
+    # SSH user is used to remotely connect to the cluster using SSH clients
+    $sshCredential = Get-Credential -Message "Enter SSH user credentials"
 
-# Default cluster size (# of worker nodes), version, type, and OS
-$clusterSizeInNodes = "4"
-$clusterVersion = "3.5"
-$clusterType = "Hadoop"
-$clusterOS = "Linux"
-# Set the storage container name to the cluster name
-$defaultBlobContainerName = $clusterName
+    # Default cluster size (# of worker nodes), version, type, and OS
+    $clusterSizeInNodes = "4"
+    $clusterVersion = "3.5"
+    $clusterType = "Hadoop"
+    $clusterOS = "Linux"
+    # Set the storage container name to the cluster name
+    $defaultBlobContainerName = $clusterName
 
-# Create a blob container. This holds the default data store for the cluster.
-New-AzureStorageContainer `
-    -Name $clusterName -Context $defaultStorageContext
+    # Create a blob container. This holds the default data store for the cluster.
+    New-AzureStorageContainer `
+        -Name $clusterName -Context $defaultStorageContext
 
-# Create an HDInsight configuration object
-$config = New-AzureRmHDInsightClusterConfig
-# Add the script action
-$scriptActionUri="https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh"
-# Add for the head nodes
-$config = Add-AzureRmHDInsightScriptAction `
-    -Config $config `
-    -Name "Install Giraph" `
-    -NodeType HeadNode `
-    -Uri $scriptActionUri
-# Continue adding the script action for any other node types
-# that it must run on.
-$config = Add-AzureRmHDInsightScriptAction `
-    -Config $config `
-    -Name "Install Giraph" `
-    -NodeType WorkerNode `
-    -Uri $scriptActionUri
+    # Create an HDInsight configuration object
+    $config = New-AzureRmHDInsightClusterConfig
+    # Add the script action
+    $scriptActionUri="https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh"
+    # Add for the head nodes
+    $config = Add-AzureRmHDInsightScriptAction `
+        -Config $config `
+        -Name "Install Giraph" `
+        -NodeType HeadNode `
+        -Uri $scriptActionUri
+    # Continue adding the script action for any other node types
+    # that it must run on.
+    $config = Add-AzureRmHDInsightScriptAction `
+        -Config $config `
+        -Name "Install Giraph" `
+        -NodeType WorkerNode `
+        -Uri $scriptActionUri
 
-# Create the cluster using the configuration object
-New-AzureRmHDInsightCluster `
-    -Config $config `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $clusterName `
-    -Location $location `
-    -ClusterSizeInNodes $clusterSizeInNodes `
-    -ClusterType $clusterType `
-    -OSType $clusterOS `
-    -Version $clusterVersion `
-    -HttpCredential $httpCredential `
-    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultStorageContainer $containerName `
-    -SshCredential $sshCredential
+    # Create the cluster using the configuration object
+    New-AzureRmHDInsightCluster `
+        -Config $config `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName `
+        -Location $location `
+        -ClusterSizeInNodes $clusterSizeInNodes `
+        -ClusterType $clusterType `
+        -OSType $clusterOS `
+        -Version $clusterVersion `
+        -HttpCredential $httpCredential `
+        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageAccountKey `
+        -DefaultStorageContainer $containerName `
+        -SshCredential $sshCredential
 ```
 
 It can take several minutes before the cluster is created.
@@ -344,8 +345,8 @@ In this section, learn how to apply script actions to a running cluster.
     | --- | --- |
     | Select a script | To use your own script, select __custom__. Otherwise, select a provided script. |
     | Name |Specify a name for the script action. |
-    | Bash script URI |Specify the URI to the script that is invoked to customize the cluster. |
-    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
+    | Bash script URI |Specify the URI of the script. |
+    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the script is run. |
     | Parameters |Specify the parameters, if required by the script. |
 
     Use the __Persist this script action__ entry to make sure the script is applied during scaling operations.
@@ -385,9 +386,10 @@ Once the operation completes, you receive information similar to the following t
 
 ### Apply a Script Action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../cli-install-nodejs.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI 1.0](../cli-install-nodejs.md).
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+> [!IMPORTANT]
+> HDInsight requires Azure CLI 1.0. Currently Azure CLI 2.0 does not provide commands for working with HDInsight.
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
@@ -564,7 +566,7 @@ If cluster creation fails due to a script error, the logs are kept in the cluste
 
     * **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.chinacloudapp.cn`
 
-* All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. For example
+* All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. The following text is an example of this information:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 

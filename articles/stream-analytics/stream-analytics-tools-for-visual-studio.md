@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 01/15/2018
+origin.date: 03/05/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-yeche
 Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics users to troubleshoot as well as write complex queries and even write queries locally. You also can export a Stream Analytics job into a Visual Studio project.
 
 ## Introduction
-In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to create, author, test locally, manage, and debug your Stream Analytics jobs. 
+In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to create, author, test locally, manage, and debug your Stream Analytics jobs. After you create the job, you can set up a continuous integration and deployment process to Azure by using the CI/CD Nuget package, to learn more refer to [Stream Analytics VS tools to set up a CI/CD pipeline](stream-analytics-tools-for-visual-studio-cicd.md) article.
 
 After completing this tutorial, you will be able to:
 
@@ -221,7 +221,7 @@ Now your job is created, and the job view opens automatically.
 ### View job metrics
 Some basic job statistics are shown in **Job Metrics**. 
 
-![Job metrics](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
+![Job Metrics](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
 ## List the job in Server Explorer
 In **Server Explorer**, select **Stream Analytics Jobs** and then select **Refresh**. Your job appears under **Stream Analytics jobs**.

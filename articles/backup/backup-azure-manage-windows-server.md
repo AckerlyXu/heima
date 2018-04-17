@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/23/2018
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
 
 ---
@@ -30,7 +30,7 @@ This article contains an overview of the backup monitor and management tasks ava
 The Recovery Services vault dashboard shows you the details or attributes of a Recovery Services vault.
 
 1. Sign in to the [Azure Portal](https://portal.azure.cn/) using your Azure subscription.
-2. Click **More services**. 
+2. Click **All services**. 
 
 3. You want to open a Recovery Services vault. In the dialog box, start typing **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vaults** to display the list of Recovery Services vaults in your subscription.
 
@@ -118,21 +118,24 @@ You choose the columns you want to appear as part of the alert with the **Choose
 >
 
 ## Manage Backup items
-Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tile shows the number of backup items protected to the vault.
+In the Backup section of the dashboard, the **Backup Items** tile shows the number of backup items protected to the vault.
 
-![Backup items tile](./media/backup-azure-manage-windows-server/backup-items-tile_new.png)
+Click **File-Folders** in the Backup Items tile.
 
-Click **Azure Backup Agent**.
+![Backup items tile](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup_items.png)
-
-The Backup Items blade opens with the filter set to File-Folder where you see each specific backup item listed.
+The Backup Items menu opens with the filter set to File-Folder where you see each specific backup item listed.
 
 ![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 If you select a specific backup item from the list, you see the essential details for that item.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-files-and-folders_details.png)
+> [!NOTE]
+> From the **Settings** menu, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
+>
+>
+
+![Backup items from settings](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
 ## Manage Backup jobs
 Backup jobs for both on-premises (when the on-premises server is backing up to Azure) and Azure backups are visible in the dashboard.
@@ -191,6 +194,8 @@ From the **Actions** available at the right of the backup agent console you perf
 > To **Recover Data**, see [Restore files to a Windows server or Windows client machine](backup-azure-restore-windows-server.md).
 >
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Modify the backup schedule
 1. In the Azure Backup agent click **Schedule Backup**.

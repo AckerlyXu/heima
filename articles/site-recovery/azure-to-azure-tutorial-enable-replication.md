@@ -10,8 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/11/2017
-ms.date: 03/05/2018
+origin.date: 03/16/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -218,4 +218,4 @@ In this tutorial, you configured disaster recovery for an Azure VM. Next step is
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

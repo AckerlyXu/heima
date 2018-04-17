@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/18/2017
-ms.date: 01/15/2018
+origin.date: 03/18/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ---
 
@@ -63,7 +63,7 @@ Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For exam
 
 To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
 
-Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+<!-- Not Available on Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://www.azure.cn/support/support-azure/) -->
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic and Performance routing methods, traffic manager also considers the client subnet address if it is included in the query by the resolver making the request on behalf of the end user.  
@@ -265,4 +265,4 @@ The following table describes the behavior of Traffic Manager health checks for 
 - Learn more about Traffic Manager [endpoint monitoring and automatic failover](../traffic-manager/traffic-manager-monitoring.md).
 - Learn more about Traffic Manager [traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

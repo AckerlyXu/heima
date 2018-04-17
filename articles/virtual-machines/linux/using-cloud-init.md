@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---
@@ -36,7 +36,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 |CoreOS |CoreOS |Stable |latest |yes |
 |OpenLogic |CentOS |7-CI |latest |preview |
 <!-- Not Available on Red Hat -->
-During preview Azure Stack will not support the provisioning of CentOS 7.4 using cloud-init.
+Currently Azure Stack does not support the provisioning of CentOS 7.4 using cloud-init.
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 
@@ -63,7 +63,7 @@ The next step is to create a file in your current shell, named *cloud-init.txt* 
 #cloud-config
 package_upgrade: true
 packages:
-  -httpd
+  - httpd
 ```
 Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
 
@@ -97,4 +97,4 @@ For cloud-init examples of configuration changes, see the following documents:
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

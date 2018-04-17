@@ -43,14 +43,14 @@ As a multiple-region distributed, multi-model database service, Azure Cosmos DB 
 
 * **Multiple data models and popular APIs for accessing and querying data**
     * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, key-value, table, and column-family data models.
-<!--Not Available on Graph -->
+    <!--Not Available on Graph -->
     * APIs for the following data models are supported with SDKs available in multiple languages:
         * [SQL API](sql-api-introduction.md): A schema-less JSON database engine with rich SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A massively scalable *MongoDB-as-a-Service* powered by Azure Cosmos DB platform. Compatible with existing MongoDB libraries, drivers, tools, and applications.
-        * [Table API](table-introduction.md): A key-value database service built to provide premium capabilities (for example, automatic indexing, guaranteed low latency, multiple-region distribution) to existing Azure Table storage applications without making any app changes.
-<!--Not Available * [Cassandra API](cassandra-introduction.md)-->
-<!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
         * Additional data models coming soon!
+	<!--Not Available * [Table API](table-introduction.md)-->
+	<!--Not Available * [Cassandra API](cassandra-introduction.md)-->
+        <!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
 
 * **Elastically and independently scale throughput and storage on demand and multiple-region**
     * Easily scale database throughput at a [per-second](request-units.md) granularity, and change it anytime you want. 
@@ -106,5 +106,5 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 * [Get started with Azure Cosmos DB MongoDB API](create-mongodb-nodejs.md)
 <!--Not Available on * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Graph API](create-graph-dotnet.md) -->
-* [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
+<!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md) -->
 <!--Update_Description: update meta properties, update link, wording update-->

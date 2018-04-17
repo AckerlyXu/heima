@@ -3,8 +3,8 @@ title: 'Connect your on-premises network to an Azure virtual network: Site-to-Si
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services 
-origin.date: 11/17/2017
-ms.date: 12/11/2017
+origin.date: 03/13/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
 
 ---
@@ -77,9 +77,11 @@ DNS is not required to create a Site-to-Site connection. However, if you want to
 
 ## <a name="gatewaysubnet"></a>3. Create the gateway subnet
 
-[!INCLUDE [vpn-gateway-aboutgwsubnet](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+[!INCLUDE [about gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
+
+[!INCLUDE [no nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="VNetGateway"></a>4. Create the VPN gateway
 

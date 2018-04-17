@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/23/2018
-ms.date: 03/05/2018
+origin.date: 02/28/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -24,9 +24,10 @@ Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.
 ![Throughput calculator][5]
 
 ## Introduction
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is 21Vianet's multiple-region distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by our top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), and [Table API](table-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is 21Vianet's multiple-region distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by our top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md) and [MongoDB API](mongodb-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
 <!-- Not Available on Graph -->
 <!-- Notice: 全球 to 多个区域 -->
+<!-- Not Available on [Table API](table-introduction.md) -->
 
 Azure Cosmos DB supports a number of APIs with different operations ranging from simple reads and writes to complex queries. Since not all requests are equal, they are assigned a normalized quantity of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
 <!-- Notice: 全球 to 多个区域 -->
@@ -37,12 +38,13 @@ To provide predictable performance, you need to reserve throughput in units of 1
 After reading this article, you'll be able to answer the following questions:  
 
 * What are request units and request charges?
-* How do I specify request unit capacity for a collection?
+* How do I specify request unit capacity for a container?
 * How do I estimate my application's request unit needs?
-* What happens if I exceed request unit capacity for a collection?
+* What happens if I exceed request unit capacity for a container?
 
-As Azure Cosmos DB is a multi-model database, it is important to note that this article refers to a collection/document for a document API and a table/entity for the Table API. This article refers to concept of a collection, or table as a container, and a a document, node, or entity as an item.
+As Azure Cosmos DB is a multi-model database, it is important to note that this article refers to a collection/document for a document API . This article refers to concept of a collection as a container, and a a document, node, or entity as an item.
 <!-- Not Available on Graph API-->
+<!-- Not Available on Table API-->
 
 ## Request units and request charges
 Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
@@ -51,16 +53,16 @@ With Azure Cosmos DB, reserved throughput is specified in terms of request units
 <!-- Not Available > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]-->
 
 ## Specifying request unit capacity in Azure Cosmos DB
-When starting a new collection or table, you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
+When starting a new container you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your container and splits/rebalances data across partitions as it grows.
 <!-- Not Available on Graph -->
 
-Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your collection/table and requests can be scaled uniformly by Azure Cosmos DB. 
+Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your container/table and requests can be scaled uniformly by Azure Cosmos DB. 
 <!-- Not Available on Graph -->
 
 > [!NOTE]
 > A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as Azure Cosmos DB has more load balancing options.
 
-Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
+Here is a code snippet for creating a container with 3,000 request units per second using the .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +77,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.cn).
 
-Each collection/table are mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
+Each container is mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a container to 5,000 request units per second using the .NET SDK:
 <!-- Not Available on Graph -->
 
 ```csharp
@@ -93,6 +95,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 There is no impact to the availability of your container when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
+
+## Throughput isolation in multiple-region distributed databases
+
+When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region A do not take away from the RUs used for the read operation in region B. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the full amount of RUs provisioned. For more information about global replication, see [How to distribute data multiple-region with Azure Cosmos DB](distribute-data-globally.md).
 
 ## Request unit considerations
 When estimating the number of request units to reserve for your Azure Cosmos DB container, it is important to take the following variables into consideration:
@@ -211,7 +217,7 @@ For example:
 
 <a name="GetLastRequestStatistics"></a>
 ## Use API for MongoDB's GetLastRequestStatistics command
-API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
+The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
 
 For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
 ```
@@ -237,10 +243,10 @@ With this in mind, one method for estimating the amount of reserved throughput r
 > 
 > 
 
-## Use API for MongoDB's portal metrics
-The simplest way to get a good estimation of request unit charges for your API for MongoDB database is to use the [Azure portal](https://portal.azure.cn) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimation of how many request units each operation is consuming and how many request units they consume relative to one another.
+## Use MongoDB API portal metrics
+The simplest way to get a good estimation of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.cn) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimation of how many request units each operation is consuming and how many request units they consume relative to one another.
 
-![API for MongoDB portal metrics][6]
+![MongoDB API portal metrics][6]
 
 ## A request unit estimation example
 Consider the following ~1-KB document:
@@ -332,11 +338,11 @@ With this information, you can estimate the RU requirements for this application
 | Select by food group |10 |700 |
 | Select top 10 |15 |150 Total |
 
-In this case, you expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, you would provision 1,300 RU/s for this application's collection.
+In this case, you expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, you would provision 1,300 RU/s for this application's container.
 
 <a name="RequestRateTooLarge"></a>
 ## Exceeding reserved throughput limits in Azure Cosmos DB
-Recall that request unit consumption is evaluated as a rate per second if the budget is empty. For applications that exceed the provisioned request unit rate for a container, requests to that collection are throttled until the rate drops below the reserved level. When a throttle occurs, the server preemptively ends the request with RequestRateTooLargeException (HTTP status code 429) and returns the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+Recall that request unit consumption is evaluated as a rate per second if the budget is empty. For applications that exceed the provisioned request unit rate for a container, requests to that container are throttled until the rate drops below the reserved level. When a throttle occurs, the server preemptively ends the request with RequestRateTooLargeException (HTTP status code 429) and returns the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -347,8 +353,8 @@ If you are using the .NET Client SDK and LINQ queries, then most of the time you
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a DocumentClientException with status code 429 to the application. In cases such as this, you may consider handling retry behavior and logic in your application's error handling routines or increasing the reserved throughput for the container.
 
 <a name="RequestRateTooLargeAPIforMongoDB"></a>
-## Exceeding reserved throughput limits in API for MongoDB
-Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](set-throughput.md).
+## Exceeding reserved throughput limits in the MongoDB API
+Applications that exceed the provisioned request units for a container will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, the MongoDB API automatically retries up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the container](set-throughput.md).
 
 ## Next steps
 To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
@@ -366,4 +372,4 @@ To get started with scale and performance testing with Azure Cosmos DB, see [Per
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
 
-<!--Update_Description: update link, wording update, update meta properties -->
+<!--Update_Description: update link, wording update -->

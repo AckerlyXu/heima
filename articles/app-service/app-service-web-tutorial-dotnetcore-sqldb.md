@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 01/23/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -320,7 +320,7 @@ Find the `<td>` element that contains the `asp-action` tag helpers. Just above t
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

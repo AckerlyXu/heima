@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/15/2017
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -78,4 +78,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

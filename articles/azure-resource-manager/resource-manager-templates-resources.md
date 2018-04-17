@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/13/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ---
 
@@ -159,7 +159,7 @@ The following example shows a storage account that is deployed to the same locat
 
 ```json
 {
-	"$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"variables": {
       "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
@@ -188,7 +188,7 @@ If you need to hardcode the location in your template, provide the name of one o
 
 ```json
 {
-	"$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"resources": [
     {
@@ -211,7 +211,7 @@ If you need to hardcode the location in your template, provide the name of one o
 ```
 
 ## Tags
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### Add tags to your template
 
@@ -393,4 +393,4 @@ The following information can be helpful when you work with resources:
 * You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
 <!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
-<!-- Update_Description: new articles on resource manager templates resources -->
+<!-- Update_Description: wording update, update link -->

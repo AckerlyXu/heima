@@ -12,8 +12,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -35,17 +35,14 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected.
 
-## Solution
+## Solution 1 - PowerShell
 
-To resolve this issue, you need to determine which SKUs are available in a region. You can use PowerShell, the portal, or a REST operation to find available SKUs.
-
-### Solution 1
-
-Use the [Get-AzureRmComputeResourceSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command in PowerShell. Filter the results by location. You must have the latest version of PowerShell for this command.
+To determine which SKUs are available in a region, use the [Get-AzureRmComputeResourceSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command. Filter the results by location. You must have the latest version of PowerShell for this command.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("chinaeast")}
 ```
+<!-- Correct on {$_.Locations.Contains("chinaeast")} -->
 
 The results include a list of SKUs for the location and any restrictions for that SKU.
 
@@ -59,9 +56,9 @@ virtualMachines      Standard_A1 chinaeast
 virtualMachines      Standard_A2 chinaeast
 ```
 
-### Solution 2
+## Solution 2 - Azure CLI
 
-In the Azure CLI, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
+To determine which SKUs are available in a region, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
 
 ```bash
 $ az vm list-skus --output table
@@ -77,15 +74,15 @@ availabilitySets  chinaeast           Classic                 MaximumPlatformFau
 availabilitySets  chinaeast           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### Solution 3
+## Solution 3 - Azure portal
 
-Use the [portal](https://portal.azure.cn). Log in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
+To determine which SKUs are available in a region, use the [portal](https://portal.azure.cn). Log in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
 ![available SKUs](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### Solution 4
+## Solution 4 - REST
 
-Use the REST API for virtual machines. Send the following request:
+To determine which SKUs are available in a region, use the REST API for virtual machines. Send the following request:
 
 ```HTTP 
 GET
@@ -124,4 +121,4 @@ It returns available SKUs and regions in the following format:
 
 If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, submit a [SKU request](https://support.windowsazure.cn/support/support-azure) to Azure Support.
 <!-- Redirect  https://aka.ms/skurestriction to https://support.windowsazure.cn/support/support-azure -->
-<!--Update_Description: new articles on resource manager sku not available errors-->
+<!--Update_Description: update meta properties, wording update -->

@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 03/05/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -19,11 +19,11 @@ ms.author: v-yeche
 
 When you [fail over](site-recovery-failover.md) Azure VMs from one region to another using [Azure Site Recovery](site-recovery-overview.md), the VMs boot up in the secondary region, in an unprotected state. If fail back the VMs to the primary region, you need to do the following:
 
-- Reprotect the VMs in the secondary region, so that they start replicating to the primary region. 
+- Reprotect the VMs in the secondary region, so that they start to replicate to the primary region. 
 - After reprotection completes and the VMs are replicating, you can fail them over from the secondary to primary region.
 
 > [!WARNING]
-> If you've [migrated](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) machines from the primary to the secondary region, moved the VM to another resource group, or deleted the Azure VM, you can't reprotect the VM, or fail it back.
+> If you've [migrated](migrate-overview.md#what-do-we-mean-by-migration) machines from the primary to the secondary region, moved the VM to another resource group, or deleted the Azure VM, you can't reprotect the VM, or fail it back.
 
 ## Prerequisites
 1. The VM failover from the primary to secondary region must be committed.

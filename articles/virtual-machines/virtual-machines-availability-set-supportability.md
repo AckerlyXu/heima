@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/03/2017
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+ms.date: 4/10/2018
 ms.author: v-yeche
 
 ---
@@ -34,6 +33,7 @@ Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
 |D||OK|OK|OK|OK|OK|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
+<!-- Checking the last Row and Coloumn in the above matrix -->
 <!--PENDING FOR Dv3 GA ANOUNCEMENT -->
 
 All other series could not be in the same availability set because they require a specific hardware.

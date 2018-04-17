@@ -22,7 +22,8 @@ ms.author: v-haiqya
 This document describes version 2.3 of the Linux Diagnostic Extension.
 
 > [!IMPORTANT]
-> This version is deprecated, and it may be unpublished any time after June 30, 2018. It has been replaced by version 3.0. For more information, see the [documentation for version 3.0 of the Linux Diagnostic Extension](../diagnostic-extension.md).
+> This version is deprecated, and it may be unpublished any time after June 30, 2018.
+<!-- Not Available on  [documentation for version 3.0 of the Linux Diagnostic Extension](../diagnostic-extension.md) -->
 
 ## Introduction
 

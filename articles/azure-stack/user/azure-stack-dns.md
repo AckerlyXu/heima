@@ -3,9 +3,8 @@ title: DNS in Azure Stack | Microsoft Docs
 description: DNS in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: byronr
-editor: ''
+author: mattbriggs
+manager: femila
 
 ms.assetid:
 ms.service: azure-stack
@@ -13,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 
 ---
@@ -100,3 +99,4 @@ The following default limits apply when using Azure Stack DNS:
 ## Next steps
 [Introducing iDNS for Azure Stack](azure-stack-understanding-dns.md)
 
+<!-- Update_Description: wording update -->

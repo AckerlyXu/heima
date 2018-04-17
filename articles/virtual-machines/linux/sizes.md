@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 11/08/2017
-ms.date: 02/05/2018
+origin.date: 03/01/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 
@@ -64,5 +64,5 @@ Learn more about the different VM sizes that are available:
 <!--Not Available- [GPU](sizes-gpu.md)-->
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->
 <!--PENDING FOR B-SERIES, Ev3, Dv3 GA ANOUNCEMENT -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -58,7 +58,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.Devices/IotHubs|Connections|Connections|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|

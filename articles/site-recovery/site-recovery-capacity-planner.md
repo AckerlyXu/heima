@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/28/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
 
 # Plan capacity for protecting Hyper-V VMs with Site Recovery
 
-A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning. 
+A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning.
 The tool provides the following guidelines:
 
 * VM eligibility assessment, based on the number of disks, disk size, IOPS, churn, and a few VM characteristics
@@ -56,7 +56,7 @@ You can run the tool in two modes:
 
    a. In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
 
-   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md). 
+   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. The **Compression** setting isn't used when you replicate Hyper-V VMs to Azure. For compression, use a third-party appliance, such as Riverbed.
 
@@ -144,10 +144,10 @@ After all the information is entered, select **Submit data to the planner tool**
 ### Submit data in Capacity Planner
 1. When you open the **Capacity Planner** worksheet, it's populated based on the settings you specified. The word "Workload" appears in the **Infra inputs source** cell to show that the input is the **Workload Qualification** worksheet.
 
-2. If you want to make changes, you need to modify the **Workload Qualification** worksheet. Then select **Submit data to the planner tool** again. 
+2. If you want to make changes, you need to modify the **Workload Qualification** worksheet. Then select **Submit data to the planner tool** again.
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## Next steps
 [Learn how to run](site-recovery-capacity-planning-for-hyper-v-replication.md) the capacity planning tool.
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

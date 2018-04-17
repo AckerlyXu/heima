@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 03/08/2018
+origin.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 
 ---
@@ -195,3 +195,4 @@ There are some known issues that you must be aware of when using CLI in Azure St
 
 [Manage user permissions](azure-stack-manage-permissions.md)
 
+<!-- Update_Description: update metedata properties -->

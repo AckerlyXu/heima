@@ -47,7 +47,7 @@ The following table and graphic provide a high-level view of the components used
 
     * If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This method is useful if machines are running the same workload and need to be consistent.
 
-6. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
+6. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 <!-- Sync late on azure-public-peering-->
 
 **VMware to Azure replication process**

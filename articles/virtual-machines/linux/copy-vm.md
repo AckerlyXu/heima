@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 
 ---                    
@@ -32,7 +32,7 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fvirtual-ma
 
 -   Install [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)
 
--   Sign in to an Azure account with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+-   Sign in to an Azure account with [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 -   Have an Azure VM to use as the source for your copy.
 
@@ -159,4 +159,4 @@ az vm create --resource-group myResourceGroup \
 To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for
 the Azure Resource Manager](../azure-cli-arm-commands.md).
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, update link -->

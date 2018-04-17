@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 02/05/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -151,7 +151,7 @@ If you are creating multiple Virtual Machines in a loop, you have to populate th
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-The MetricAggregation value of *PT1H* and *PT1M* signify an aggregation over a minute and an aggregation over an hour.
+The MetricAggregation value of *PT1M* and *PT1H* signify an aggregation over a minute and an aggregation over an hour, respectively.
 
 ## WADMetrics tables in storage
 The Metrics configuration above generates tables in your diagnostics storage account with the following naming conventions:

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 03/12/2018
+ms.date: 03/26/2018
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several
 ## Configuration designs
 
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
-You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails.
+You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public and Microsoft peerings. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails.
 
 > [!NOTE]
 > While ExpressRoute circuit is preferred over Site-to-Site VPN when both routes are the same, Azure will use the longest prefix match to choose the route towards the packet's destination.
@@ -90,7 +90,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Create a virtual network including Gateway Subnet. For more information about the virtual network configuration, see [Azure Virtual Network configuration](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Create a virtual network including Gateway Subnet. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
 
     >[!IMPORTANT]
     > The Gateway Subnet must be /27 or a shorter prefix (such as /26 or /25).

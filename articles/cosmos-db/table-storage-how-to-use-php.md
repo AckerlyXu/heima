@@ -18,18 +18,23 @@ ms.date: 03/05/2018
 ms.author: v-yeche
 
 ---
-# How to use Azure Storage Table service or Cosmos DB Table API from PHP
+# How to use Azure Storage Table service from PHP
+<!-- Not Available on  Cosmos DB Table API -->
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Azure Storage Table service and Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
+This guide shows you how to perform common scenarios using the Azure Storage Table service. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
+<!-- Not Available on Azure Cosmos DB Table API -->
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## Create an Azure service account
 
-You can work with tables using Azure Table storage or Azure Cosmos DB Table API. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
+You can work with tables using Azure Table storage. You'll need to create an account for the service you're going to use. 
+<!-- Not Available on  Cosmos DB Table API -->
+<!-- Not Available on [Table offerings](table-introduction.md#table-offerings) -->
 
 ### Create an Azure Storage account
 
@@ -39,15 +44,15 @@ You can also create a Storage account by using [Azure PowerShell](../storage/com
 
 If you prefer not to create a Storage account at this time, you can also use the Azure Storage emulator to run and test your code in a local environment. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
-### Create an Azure Cosmos DB account
-
-For instructions on creating an Azure Cosmos DB account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
+<!-- Not Available on  ### Create an Azure Cosmos DB account -->
 
 ## Create a PHP application
 
-The only requirement to create a PHP application to access the Storage Table service or Azure Cosmos DB Table API is to reference classes in the azure-storage-table SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement to create a PHP application to access the Storage Table service is to reference classes in the azure-storage-table SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+<!-- Not Available on Azure Cosmos DB Table API -->
 
-In this guide, you use Storage Table service or Azure Cosmos DB features that can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+In this guide, you use Storage Table service that can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+<!-- Not Available on  Azure Cosmos DB features -->
 
 ## Get the client library
 
@@ -67,7 +72,8 @@ php composer.phar install
 Alternatively, go to the [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) on GitHub to clone the source code.
 
 ## Add required references
-To use the Storage Table service or Azure Cosmos DB APIs, you must:
+To use the Storage Table service , you must:
+<!-- Not Available on Azure Cosmos DB APIs -->
 
 * Reference the autoloader file using the [require_once][require_once] statement, and
 * Reference any classes you use.
@@ -88,12 +94,14 @@ To instantiate a Storage Table service client, you must first have a valid conne
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/"
 ```
 
+<!-- Not Available on Cosmos DB Table API
 ## Add an Azure Cosmos DB connection
 To instantiate an Azure Cosmos DB Table client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
 
 ```php
 $connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myaccount.documents.azure.cn]";
 ```
+-->
 
 ## Add a Storage emulator connection
 To access the emulator storage:
@@ -102,7 +110,8 @@ To access the emulator storage:
 UseDevelopmentStorage = true
 ```
 
-To create an Azure Table service client or Azure Cosmos DB client, you need to use the **TableRestProxy** class. You can:
+To create an Azure Table service client, you need to use the **TableRestProxy** class. You can:
+<!-- Not Available on  Azure Cosmos DB client -->
 
 * Pass the connection string directly to it or
 * Use the **CloudConfigurationManager  (CCM)** to check multiple external sources for the connection string:

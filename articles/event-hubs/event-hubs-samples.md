@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/19/2017
-ms.date: 03/12/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -60,11 +60,6 @@ The [Event Hubs Getting Started](https://code.msdn.microsoft.com/Service-Bus-Eve
 
 The [Scale out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample demonstrates how to use the [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) to distribute the workload of Event Hubs stream consumption. It shows how to implement the **EventProcessor** and **EventProcessorFactory** objects to manage the event stream. 
 
-<!-- Remove on Globle site ### Pull web data into an event hub  -->
-<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a> Pull web data into an event hub  -->
-<!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
-<!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
-
 ## Next steps
 
 Learn more about .NET Framework versions by visiting the following links:
@@ -75,7 +70,7 @@ Learn more about .NET Framework versions by visiting the following links:
 You can learn more about Event Hubs in the following articles:
 
 - [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-- [Create an event hub](event-hubs-create.md)
+- [Event Hubs features](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, wording update, update reference link-->

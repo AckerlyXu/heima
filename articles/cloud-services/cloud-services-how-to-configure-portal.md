@@ -7,13 +7,14 @@ author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/07/2016
-ms.date: 12/11/2017
+ms.date: 04/09/2018
 ms.author: v-yiso
 ---
 
@@ -30,15 +31,15 @@ After opening the [Azure portal](https://portal.azure.cn), navigate to your clou
 
 ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-The **Settings** or **All settings** links will open up the **Settings** blade where you can change the **Properties**, change the **Configuration**, manage the **Certificates**, setup **Alert rules**, and manage the **Users** who have access to this cloud service.
+The **Settings** or **All settings** links will open up **Settings** where you can change the **Properties**, change the **Configuration**, manage the **Certificates**, set up **Alert rules**, and manage the **Users** who have access to this cloud service.
 
-![Azure cloud service settings blade](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
+![Azure cloud service settings](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
 ### Manage Guest OS version
 
 By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
 
-If you need to target a specific OS version, you can set it in the **Configuration** blade.
+If you need to target a specific OS version, you can set it in **Configuration**.
 
 ![Set OS version](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
@@ -63,27 +64,29 @@ From here, you can setup an alert. With the **Metric** drop down box, you can se
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### Configure monitoring from a metric tile
-Instead of using **Settings** > **Alert Rules**, you can click on one of the metric tiles in the **Monitoring** section of the **Cloud service** blade.
+
+Instead of using **Settings** > **Alert Rules**, you can click on one of the metric tiles in the **Monitoring** section of the cloud service.
 
 ![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
 From here you can customize the chart used with the tile, or add an alert rule.
 
 ## Reboot, reimage, or remote desktop
-You can set up remote desktop through the [Azure portal (setup remote desktop)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-To reboot, reimage, or remote into a Cloud Service, click on the cloud service instance.
+You can set up remote desktop through the [Azure portal (set up remote desktop)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
+
+To reboot, reimage, or remote into a Cloud Service, select the cloud service instance.
 
 ![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-From the blade that opens you can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
+You can then initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
 
 ![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 ## Reconfigure your .cscfg
 You may need to reconfigure your cloud service through the [service config (cscfg)](./cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
 
-1. Click on the **Settings** icon or the **All settings** link to open up the **Settings** blade.
+1. Click on the **Settings** icon or the **All settings** link to open up **Settings**.
 
     ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 2. Click on the **Configuration** item.

@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: v-jysur
+origin.date: 02/05/2018
+ms.date: 04/16/2018
+ms.author: v-yiso
 ms.custom:
 
 ---
@@ -86,7 +87,7 @@ Use the following procedure:
 
      ![Select Target](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under **Target Criteria, click **add criteria** select the signal type as **Activity log**.
+    - Under **Target Criteria**, click **add criteria** select the signal type as **Activity log**.
 
     - Select the signal from the list displayed.
 
@@ -108,7 +109,7 @@ Use the following procedure:
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Under **define alert rules,** provide the following details:
+4. Under **define alert rules details**, provide the following details:
 
     - **Alert rule name** – Name for the new alert rule
     - **Description** – Description for the new alert rule

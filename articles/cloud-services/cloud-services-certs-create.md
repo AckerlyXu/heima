@@ -2,8 +2,8 @@
 title: Cloud Services and management certificates | Azure
 description: Learn how to create and use certificates with Azure
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 01/15/2018
+ms.date: 04/02/2018
 ---
 
 # Certificates overview for Azure Cloud Services
@@ -45,8 +45,6 @@ Management certificates allow you to authenticate with the classic deployment mo
 
 ### Limitations
 There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
-
-Before adding more than 100 certificates, see if you can reuse an existing certificate. Using co-administrators adds potentially unneeded complexity to your certificate management process.
 
 <a name="create"></a>
 ## Create a new self-signed certificate
@@ -85,7 +83,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 There are many pages on the internet that cover how to do this with IIS. [Here](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is a great one I found that I think explains it well. 
 
 ### Linux
-[This](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article describes how to create certificates with SSH.
+[This](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) article describes how to create certificates with SSH.
 
 ## Next steps
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).

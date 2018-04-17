@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+origin.date: 02/21/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 
 ---
@@ -296,8 +296,10 @@ If you use network security groups or user-defined routes, you must allow traffi
     | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 | Inbound |
     | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
     | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |
+    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | 443 | Inbound |
     | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | 443 | Inbound |
     | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 | Inbound |
+    | &nbsp; | West US | 13.64.254.98</br>23.101.196.19 | 443 | Inbound |
     | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inbound |
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
@@ -432,6 +434,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -Name $subnetName `
     -AddressPrefix $subnet.AddressPrefix `
     -NetworkSecurityGroup $nsg
+$vnet | Set-AzureRmVirtual Network
 ```
 
 > [!IMPORTANT]

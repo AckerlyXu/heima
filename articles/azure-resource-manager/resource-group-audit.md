@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 
 ---
@@ -27,7 +27,9 @@ Through activity logs, you can determine:
 * the status of the operation
 * the values of other properties that might help you research the operation
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+The activity log contains all write operations (PUT, POST, DELETE) performed on your resources. It does not include read operations (GET). For a list of resource actions, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md). You can use the audit logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+
+Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past.
 
 You can retrieve information from the activity logs through the portal, PowerShell, Azure CLI, Insights REST API, or [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -144,5 +146,4 @@ The REST operations for working with the activity log are part of the [Insights 
 * To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 * To see the list of operations available for each Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md)
-<!--Not Available the parent file of includes file of resource-manager-audit-limitations.md-->
-<!--ms.date:12/25/2017-->
+<!-- Update_Description: update meta properties, wording update, update link -->

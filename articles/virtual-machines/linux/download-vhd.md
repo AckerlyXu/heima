@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ---
 
@@ -43,7 +43,7 @@ To use the VHD as an image to create other VMs, complete these steps:
     exit 
     ```
 
-2. Sign in to your Azure account with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login).
+2. Sign in to your Azure account with [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 3. Stop and deallocate the VM.
 
     ```azurecli

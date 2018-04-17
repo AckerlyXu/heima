@@ -21,8 +21,9 @@ ms.author: v-yeche
 
 This article provides links to all Azure Cosmos DB content specific to the MongoDB API.
 
-These articles do not apply to the SQL API or Table API. 
+These articles do not apply to the SQL API. 
 <!-- Not Available on Graph API -->
+<!-- Not Available on Table API -->
 
 ## Introduction and concepts
 

@@ -1,5 +1,17 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/09/2018
+ ms.date: 04/16/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance up to 100% of an Intel® Broadwell E5-2673 v4 2.3GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor vCPU.
+The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance up to 100% of an Intel® Broadwell E5-2673 v4 2.3 GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor vCPU.
 
 The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
@@ -17,7 +29,7 @@ The B-series comes in the following six VM sizes:
 ## Q & A 
 
 ### Q: How do you get 135% baseline performance from a VM?
-**A**: The 135% is shared amongst the 8 vCPU's that make up the VM size. For example, if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU's are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU's giving that VM a Max CPU performance of 800%.
+**A**: The 135% is shared amongst the 8 vCPU's that make up the VM size. For example, if your application uses 4 of the 8 cores working on batch processing and each of those 4 vCPU's are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU's giving that VM a Max CPU performance of 800%.
 
 ### Q: How can I monitor my credit balance and consumption
 **A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
@@ -38,6 +50,3 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-
-<!-- Update_Description: new articles on virtual machines common b-series burstable -->
-<!--ms.date: 02/05/2018-->

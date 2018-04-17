@@ -13,8 +13,8 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 11/28/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 
 ---
@@ -22,6 +22,7 @@ ms.author: v-yeche
 In this article, we describe how Azure Site Recovery integrates with Azure Automation to help you extend your recovery plans. Recovery plans can orchestrate recovery of VMs that are protected with Site Recovery. Recovery plans work both for replication to a secondary cloud, and for replication to Azure. Recovery plans also help make the recovery **consistently accurate**, **repeatable**, and **automated**. If you fail over your VMs to Azure, integration with Azure Automation extends your recovery plans. You can use it to execute runbooks, which offer powerful automation tasks.
 
 If you are new to Azure Automation, you can [sign up](https://www.azure.cn/home/features/automation/) and [download sample scripts](../automation/automation-runbook-gallery.md). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](./site-recovery-create-recovery-plans.md), see [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/).
+<!-- Redirect https://azure.microsoft.com/documentation/scripts/ TO ../automation/automation-runbook-gallery.md -->
 
 In this article, we describe how you can integrate Azure Automation runbooks into your recovery plans. We use examples to automate basic tasks that previously required manual intervention. We also describe how to convert a multi-step recovery to a single-click recovery action.
 
@@ -187,7 +188,7 @@ For each recovery plan, create independent variables so that you can reuse the s
 
 ### Use a complex variable to store more information
 
-Consider a scenario in which you want a single script to turn on a public IP on specific VMs. In another scenario, you might want to apply different NSGs on different VMs (not on all VMs). You can make a script that is reusable for any recovery plan. Each recovery plan can have a variable number of VMs. For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end. You cannot create separate variables for each recovery plan. 
+Consider a scenario in which you want a single script to turn on a public IP on specific VMs. In another scenario, you might want to apply different NSGs on different VMs (not on all VMs). You can make a script that is reusable for any recovery plan. Each recovery plan can have a variable number of VMs. For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end. You cannot create separate variables for each recovery plan.
 
 In the following example, we use a new technique and create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets. You do this by specifying multiple values. You must use Azure PowerShell to complete the following steps:
 
@@ -216,7 +217,7 @@ In the following example, we use a new technique and create a [complex variable]
     $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
-5. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
+4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
 
     ```
     $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -253,4 +254,4 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 
 ## Next steps
 [Learn more](site-recovery-failover.md) about running failovers.
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

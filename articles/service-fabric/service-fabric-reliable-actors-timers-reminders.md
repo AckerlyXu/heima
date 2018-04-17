@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
 
 ---
@@ -144,8 +144,8 @@ protected override async Task OnActivateAsync()
     IActorReminder reminderRegistration = await this.RegisterReminderAsync(
         reminderName,
         BitConverter.GetBytes(amountInDollars),
-        TimeSpan.FromDays(3),
-        TimeSpan.FromDays(1));
+        TimeSpan.FromDays(3),    //The amount of time to delay before firing the reminder
+        TimeSpan.FromDays(1));    //The time interval between firing of reminders
 }
 ```
 

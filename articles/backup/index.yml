@@ -26,15 +26,15 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: Azure Portal
-      href: quick-backup-vm-portal
+      href: quick-backup-vm-portal.md
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: quick-backup-vm-powershell
+      href: quick-backup-vm-powershell.md
     - image: 
         src: https://docs.microsoft.com/media/common/cli.svg
       text: Azure CLI
-      href: quick-backup-vm-cli
+      href: quick-backup-vm-cli.md
 - title: Step-by-step Tutorials
   items:
   - type: paragraph

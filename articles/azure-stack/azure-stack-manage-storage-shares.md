@@ -3,7 +3,7 @@ title: Manage storage capacity in Azure Stack | Microsoft Docs
 description: Monitor and manage available storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 12/14/2017
-ms.date: 03/02/2018
+origin.date: 02/22/2017
+ms.date: 03/26/2018
 ms.author: v-junlch
 ms.reviewer: jiahan
 
@@ -195,3 +195,4 @@ The most extreme method to manage space involves the move of virtual machine dis
 ## Next Steps
 Learn more about [offering virtual machines to users](azure-stack-tutorial-tenant-vm.md).
 
+<!-- Update_Description: update metedata properties -->
