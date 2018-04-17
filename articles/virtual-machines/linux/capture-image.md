@@ -34,7 +34,7 @@ Ensure that you meet the following prerequisites:
 
 * You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-* You also need to have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and be logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
+* You also need to have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and be logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

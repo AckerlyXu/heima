@@ -238,9 +238,7 @@ In this tutorial, you learned how to:
 > * Create resources necessary for monitoring with ELK 
 > * Optional: How to use party clusters to try out Service Fabric
 
-Advance to the next tutorial:
-> [!div class="nextstepaction"]
-> [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md)
+<!-- Not Available on [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md) -->
 
 <!-- Update_Description: new articles on service fabric turioal java deploy azure -->
 <!--ms.date: 04/09/2018-->

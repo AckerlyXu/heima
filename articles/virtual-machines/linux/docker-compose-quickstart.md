@@ -28,7 +28,7 @@ You can use various Azure procedures and available images or Resource Manager te
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed.
 
 ### Create Docker host with Azure CLI 2.0
-Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
+Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

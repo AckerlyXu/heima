@@ -25,7 +25,7 @@ This article describes different ways to tag a Linux virtual machine in Azure th
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## Tagging with Azure CLI
-To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
+To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

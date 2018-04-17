@@ -48,6 +48,7 @@ login.chinacloudapi.cn | Required for authorization and authentication to the Si
 *.hypervrecoverymanager.windowsazure.cn | Required so that the Site Recovery service communication can occur from the VM.
 *.servicebus.chinacloudapi.cn | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
 
+<a name="outbound-connectivity-for-azure-site-recovery-ip-ranges"></a>
 ## Outbound connectivity for IP address ranges
 
 If you are using an IP-based firewall proxy, or NSG rules to control outbound connectivity, these IP ranges need to be allowed.

@@ -199,6 +199,7 @@ terraform apply terraformscripts
 ```
 After some time, the resources, including a virtual machine, appear in the `terraformtest` resource group in the Azure portal.
 
+<a name="complete-terraform-script"><a/>
 ## Complete the Terraform script
 
 ```

@@ -233,7 +233,8 @@ Use the following steps to create a retention disk:
 
     `multipath -ll`
 
-    ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/image22.png)
+    <!--Notice: Image Path NOT contains /media/image22.png-->
 
 3. Format the drive, and then create a file system on the new drive.
 

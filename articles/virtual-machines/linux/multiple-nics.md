@@ -24,7 +24,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 This article details how to create a VM with multiple NICs with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](multiple-nics-nodejs.md).
 
 ## Create supporting resources
-Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login).
+Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

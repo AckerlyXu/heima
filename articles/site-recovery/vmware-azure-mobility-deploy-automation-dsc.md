@@ -22,7 +22,8 @@ This article describes how to deploy the service on Windows machines, using Azur
 * A repository to store the required setup
 * A repository to store the required passphrase to register with the management server. A unique passphrase is generated for a specific configuration server. 
 * Windows Management Framework (WMF) 5.0 should be installed on the machines that you want to enable for protection. This is a requirement for Automation DSC.
-If you want to use DSC for Windows machines that have WMF 4.0 installed, see [use DSC in disconnected environments](## Use DSC in disconnected environments).
+If you want to use DSC for Windows machines that have WMF 4.0 installed, see [use DSC in disconnected environments](#use-dsc-in-disconnected-environments).
+<!-- Notice: Archor Should be #use-dsc-in-disconnected-environments-->
 
 ## Extract binaries
 
