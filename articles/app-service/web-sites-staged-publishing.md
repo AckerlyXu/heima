@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 
 ---
@@ -28,7 +28,7 @@ When you deploy your web app, mobile back end, and API app to [App Service](app-
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Pricing](https://www.azure.cn/pricing/details/app-service/).
+Each App Service plan tier supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Limits](https://www.azure.cn/pricing/details/app-service/).
 
 * When your app has multiple slots, you cannot change the tier.
 * Scaling is not available for non-production slots.
@@ -59,6 +59,7 @@ The app must be running in the **Standard** or **Premium** tier in order for you
 4. In your app's resource blade, click  **Deployment slots**, then click a deployment slot to open that slot's resource blade, with a set of metrics and configuration just like any other app. The name of the slot is shown at the top of the blade to remind you that you are viewing the deployment slot.
 
     ![Deployment Slot Title][StagingTitle]
+    
 5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App - block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](app-service-deploy-local-git.md).

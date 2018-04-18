@@ -13,9 +13,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 11/10/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ---
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
@@ -107,8 +107,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",

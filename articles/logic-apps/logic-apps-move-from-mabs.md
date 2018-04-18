@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
 ms.author: v-yiso
-ms.date: 04/23/2018
+ms.date: 04/30/2018
 
 ---
 
@@ -237,8 +237,7 @@ and then process these files in a logic app.
 In BizTalk Services, a dedicated portal provided tracking capabilities to monitor and troubleshoot issues. 
 Logic Apps provides richer tracking and monitoring capabilities through the 
 [Azure portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), 
-and with the [Operations Management Suite B2B solution](../logic-apps/logic-apps-monitor-b2b-message.md), 
-includes a mobile app for keeping an eye on things when you're on the move.
+and includes a mobile app for keeping an eye on things when you're on the move.
 
 ## High availability
 

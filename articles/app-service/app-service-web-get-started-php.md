@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
 # Create a PHP web app in Azure
 
-[Azure Web Apps](./app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the sample PHP code to the web app.
+[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -32,7 +32,8 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 To complete this quickstart:
 
-* <a href="https://php.net" target="_blank">Install PHP</a>
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="http://php.net/manual/install.php" target="_blank">Install PHP</a>
 
 ## Download the sample locally
 
@@ -51,7 +52,7 @@ Run the application locally by opening a terminal window and using the `php` com
 php -S localhost:8080
 ```
 
-Open a web browser, and navigate to the sample app at http://localhost:8080.
+Open a web browser, and navigate to the sample app at `http://localhost:8080`.
 
 You see the **Hello World!** message from the sample app displayed in the page.
 
@@ -69,13 +70,37 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+Create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) command. 
+
+In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+
+```azurecli
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+```
+
+When the web app has been created, the Azure CLI shows output similar to the following example:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.chinacloudapi.cn",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
 
 Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
 ```bash
 http://<app name>.chinacloudsites.cn
 ```
+
+Here is what your new web app should look like:
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
@@ -110,7 +135,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 
 Browse to the deployed application using your web browser.
 
-```bash
+```
 http://<app_name>.chinacloudsites.cn
 ```
 
@@ -135,7 +160,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 

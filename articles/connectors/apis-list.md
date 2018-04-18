@@ -3,7 +3,7 @@ title: Connectors for Azure Logic Apps
 description: Choose from all the available Microsoft connectors to build and create logic apps
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/21/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 
 ---
 # Connectors list
@@ -229,7 +229,6 @@ Are we missing a connector topic, or any details you think are important? If yes
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
 [Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
-[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
 [Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
 [Azure-Queues-icon]: ./media/apis-list/azure-queues.png

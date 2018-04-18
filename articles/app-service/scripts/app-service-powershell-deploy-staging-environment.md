@@ -14,7 +14,7 @@ ms.workload: web
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2017
-ms.date: 10/30/2017
+ms.date: 04/30/2017
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -86,7 +86,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermappserviceplan) | Modifies an App Service plan to change its pricing tier. |
 | [New-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebappslot) | Creates a deployment slot for a web app. |
 | [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource in a resource group. |
-| [Swap-​Azure​Rm​Web​App​Slot](https://docs.microsoft.com/powershell/module/azurerm.websites/swap-azurermwebappslot) | Swaps a web app's deployment slot into production. |
+| [Switch-​Azure​Rm​Web​App​Slot](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/switch-azurermwebappslot?view=azurermps-5.7.0) | Swaps a web app's deployment slot into production. |
 
 ## Next steps
 

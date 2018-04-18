@@ -10,8 +10,8 @@ ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 07/07/2017
-ms.date: 04/09/2018
+origin.date: 03/27/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 # Azure Service Health Documentation

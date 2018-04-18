@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 03/09/2017
-ms.date: 04/02/2017
+origin.date: 03/27/2018
+ms.date: 04/30/2017
 ms.author: v-yiso
 
 ---
@@ -24,7 +24,7 @@ ms.author: v-yiso
 ![Azure status page](./media/azure-status-overview/azure-status.PNG)
 
 ## Azure status updates
-The Azure status page gets updated in real time as the health of Azure services change. If you leave the Azure status page open, you can control the rate at which the page refreshes with new data. 
+The Azure status page gets updated in real time as the health of Azure services change. If you leave the Azure status page open, you can control the rate at which the page refreshes with new data. At the top, you can see the last time the page was updated.
 
 ![Azure status refresh](./media/azure-status-overview/update.PNG)
 

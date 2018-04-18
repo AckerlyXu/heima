@@ -352,10 +352,11 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
 
   [Azure SDK for Java]: https://www.azure.cn/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
-  [Service Bus queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter 
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-  [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
-  [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
-  [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
+[Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+
+[0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
+[2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
+[3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
