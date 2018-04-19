@@ -33,13 +33,6 @@ The following table includes links to bash scripts for Azure Functions that use 
 | [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |
 | [Create a function app and connect to an Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Create a function app and connect it to an Azure Cosmos DB. |
 | | |
-|**Continuous deployment**||
-| [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
-| [Deploy from VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from a Visual Studio Team Services (VSTS) repository.  |
-| | |
-|**Configure app**||
-| [Map a custom domain to a function app](scripts/functions-cli-configure-custom-domain.md) | Define a custom domain for your functions.  |
-| [Bind an SSL certificate to a function app](scripts/functions-cli-configure-ssl-certificate.md)  |  Upload SSL certificates for functions in a custom domain. |
 
 <!---
 

@@ -53,7 +53,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 
 ## Functions vs. WebJobs
 
-Like Azure Functions, Azure App Service WebJobs with the WebJobs SDK is a *code-first* integration service that is designed for developers. Both are built on [Azure App Service](../app-service/app-service-web-overview.md) and support features such as [source control integration](../app-service/app-service-continuous-deployment.md), [authentication](../app-service/app-service-authentication-overview.md), and [monitoring with Application Insights integration](functions-monitoring.md).
+Like Azure Functions, Azure App Service WebJobs with the WebJobs SDK is a *code-first* integration service that is designed for developers. Both are built on [Azure App Service](../app-service/app-service-web-overview.md) and support features such as [source control integration](../app-service/app-service-continuous-deployment.md) and [authentication](../app-service/app-service-authentication-overview.md).
 
 ### WebJobs vs. the WebJobs SDK
 
@@ -71,7 +71,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 |[Develop and test in browser](functions-create-first-azure-function.md) |✔||
 |[Pay-per-use pricing](functions-scale.md#consumption-plan)|✔||
 | Integration with Logic Apps |✔||
-| Trigger events |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| Trigger events |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Supported languages  |C#<br>F#<br>JavaScript<br>Java (preview) |C#<sup>1</sup>|
 |Package managers|NPM and NuGet|NuGet<sup>2</sup>|
 

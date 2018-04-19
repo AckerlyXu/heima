@@ -228,9 +228,6 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> For information about a newer logging framework that you can use instead of `TraceWriter`, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
-
 ## Async
 
 To make a function asynchronous, use the `async` keyword and return a `Task` object.

@@ -345,8 +345,5 @@ namespace VSSample
 
 ## Next steps
 
-This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the monitor pattern using [durable timers](durable-functions-timers.md).
-
-> [!div class="nextstepaction"]
-> [Run the monitor sample](durable-functions-monitor.md)
+This sample shows how to implement the monitor pattern using [durable timers](durable-functions-timers.md).
 
