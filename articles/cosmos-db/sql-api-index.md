@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/25/2017
-ms.date: 01/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: SQL API documentation
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This article provides links to all Azure Cosmos DB content specific to the SQL API.
 
@@ -34,7 +32,7 @@ These are must read topics and resources to start learning about the SQL API for
 - [SQL API introduction](sql-api-introduction.md)
 - [Database resource model](sql-api-resources.md)
 - Web site: [Query playground](https://www.documentdb.com/sql/demo)
-- Cheat sheet: [SQL grammar](sql-api-sql-query-cheat-sheet.md)
+- Cheat sheet: [SQL grammar](query-cheat-sheet.md)
 
 ## Quickstarts
 
@@ -102,8 +100,8 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 
 ## Reference
 
-- [REST](https://docs.microsoft.com/rest/api/documentdb/)
-- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+- [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+- [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 - [SQL query reference](sql-api-sql-query-reference.md)
 <!-- Not Availalbe on - [Azure Functions reference](../azure-functions/functions-bindings-cosmosdb.md) -->
 

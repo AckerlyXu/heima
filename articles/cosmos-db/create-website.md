@@ -4,7 +4,6 @@ description: Learn how to deploy an Azure Cosmos DB account, Azure App Service W
 services: cosmos-db, app-service\web
 author: rockboyfor
 manager: digimobile
-editor: monicar
 documentationcenter: ''
 
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/23/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -137,4 +136,4 @@ Congratulations! You've deployed Azure Cosmos DB, App Service web app and a samp
 <!-- Not Available on [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) -->
 
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties -->

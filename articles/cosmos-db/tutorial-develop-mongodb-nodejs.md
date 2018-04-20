@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -55,4 +55,4 @@ You can proceed to the next part of the tutorial to create the Node.js Express a
 > [!div class="nextstepaction"]
 > [Create a Node.js Express app with the Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)
 
-<!-- Update_Description: new articles on tutorial develop mongodb nodejs overview -->
+<!-- Update_Description: update meta properties, wording update -->

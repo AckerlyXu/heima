@@ -5,7 +5,6 @@ keywords: how to improve database performance
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
@@ -15,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +80,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 3. **Increase MaxPoolSize per host when using Gateway mode**
 
     Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) is 100. Use [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) to change the value.
-<!-- URL is valid on ._connection_mode without gsetmaxpoolsize -->
+<!-- URL is valid on ._connection_policy without gsetmaxpoolsize -->
 
 4. **Tuning parallel queries for partitioned collections**
 
@@ -105,14 +105,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 7. **Use name based addressing**
 
-    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching these may not help.
+    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching these may not help.
 
    <a name="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
 
     When performing a bulk read of documents by using read feed functionality (for example, [readDocuments]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
-    To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using the [x-ms-max-item-count](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
+    To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using the [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
     You may also set the page size using the [setPageSize method](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
@@ -145,7 +145,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
-    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header (or the equivalent RequestCharge property in [ResourceResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._resource_response) or [FeedResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_response) to measure the number of request units consumed by these operations.
+    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent RequestCharge property in [ResourceResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._resource_response) or [FeedResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_response) to measure the number of request units consumed by these operations.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -157,7 +157,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 <a name="429"></a>
 2. **Handle rate limiting/request rate too large**
 
-    When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+    When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -15,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 10/02/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a Flask app with the MongoDB API
 
-Azure Cosmos DB is Azure's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, all of which benefit from the multiple region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 
-
-This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](/local-emulator.md) instead of MongoDB.
+This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](/local-emulator.md) and the Azure Cosmos DB [MongoDB API](mongodb-introduction.md) instead of MongoDB.
 
 ## Prerequisites
 
@@ -38,15 +36,25 @@ This quick start guide, uses the following [Flask example](https://github.com/Az
     1. Select an extension.
     2. Install the extension by typing `ext install` into the Command Palette `Ctrl+Shift+P`.
 
-    The examples in this document use Don Jayamanne's popular and full featured Python Extension.
-<!-- Not Available on [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) -->
+    The examples in this document use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
 
 ## Clone the sample application
 
 Now let's clone a Flask-MongoDB API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically.
 
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.
-2. Run the following command to clone the sample repository.
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
@@ -60,7 +68,9 @@ Now let's clone a Flask-MongoDB API app from github, set the connection string, 
 
 ## Review the code
 
-Let's take a quick review of what's happening in the app. Open the **app.py** file under the root directory and you find that these lines of code create the Azure Cosmos DB connection. The following code uses the connection string for the local Azure Cosmos DB Emulator. The password needs to be split up as seen below to accommodate for the forward slashes that cannot be parsed otherwise.
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the web app](#run-the-web-app). 
+
+The following snippets are all taken from the app.py file and uses the connection string for the local Azure Cosmos DB Emulator. The password needs to be split up as seen below to accommodate for the forward slashes that cannot be parsed otherwise.
 
 * Initialize the MongoDB client, retrieve the database, and authenticate.
 
@@ -130,6 +140,8 @@ When deploying to Azure, you should remove your application keys and make sure t
 
 You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](/app-service/web-sites-configure#application-settings) to learn more about Application Settings in Azure Web Apps.
 <!-- Redirect /app-service-web/web-sites-configure TO /app-service/web-sites-configure -->
+
+If you don't want to create a fork of this repo, you can also click the deploy to Azure button below. You should then go into Azure and set up the application settings with your Cosmos DB account info.
 <!-- Not Available on <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank"> -->
 
 > [!NOTE]
@@ -141,10 +153,7 @@ You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the ap
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
@@ -153,4 +162,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
 
-<!-- Update_Description: new articles on create mongodb flask application -->
+<!-- Update_Description: update meta properties, wording update, update link  -->

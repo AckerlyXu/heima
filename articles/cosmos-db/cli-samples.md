@@ -4,7 +4,6 @@ description: Azure CLI Samples - Create and manage Azure Cosmos DB accounts, dat
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
 tags: azure-service-management
 
 ms.assetid:
@@ -15,13 +14,11 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 11/29/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ---
 
 # Azure CLI samples for Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI 2.0 Reference](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest).
 

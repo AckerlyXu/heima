@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: python
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 02/23/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -28,8 +27,6 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from a Python Flask web application hosted on Azure App Service. This tutorial presumes that you have some prior experience using Python and Azure websites.
 
@@ -410,7 +407,7 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
 10. In the **Choose extension** page, scroll down to the most recent Python 2.7 installation and select the x86 or x64 bit option, then click **OK** to accept the legal terms.  
 
 11. Use the Kudu console, which you can browse to at `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole`, to install the packages listed in your app's `requirements.txt` file. To do this, in the Kudu Diagnostic Console, navigate to your Python folder `D:\home\Python27` then run the following command as described in the [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) section:
-<!-- URL is correct on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
+<!-- URL is correct without .md on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt

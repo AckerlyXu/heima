@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/21/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -32,7 +32,8 @@ Follow the instructions in [How to install and configure Azure PowerShell][power
 * If you would like to execute the following commands without requiring user confirmation, append the `-Force` flag to the command.
 * All the following commands are synchronous.
 
-## <a id="create-documentdb-account-powershell"></a> Create an Azure Cosmos DB Account
+<a name="create-documentdb-account-powershell"></a>
+##  Create an Azure Cosmos DB Account
 
 This command allows you to create an Azure Cosmos DB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](consistency-levels.md).
 
@@ -64,7 +65,8 @@ Example:
 * The preceding example creates a database account with two regions. It is also possible to create a database account with either one region (which is designated as the write region and have a failover priority value of 0) or more than two regions. For more information, see [multi-region database accounts][scaling-globally].
 * The locations must be regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://www.azure.cn/support/service-dashboard/#services).
 
-## <a id="update-documentdb-account-powershell"></a> Update an Azure Cosmos DB database account
+<a name="update-documentdb-account-powershell"></a>
+##  Update an Azure Cosmos DB database account
 
 This command allows you to update your Azure Cosmos DB database account properties. This includes the consistency policy and the locations which the database account exists in.
 
@@ -95,7 +97,8 @@ Example:
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> Delete an Azure Cosmos DB database account
+<a name="delete-documentdb-account-powershell"></a>
+##  Delete an Azure Cosmos DB database account
 
 This command allows you to delete an existing Azure Cosmos DB database account.
 
@@ -108,7 +111,8 @@ Example:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> Get properties of an Azure Cosmos DB database account
+<a name="get-documentdb-properties-powershell"></a>
+##  Get properties of an Azure Cosmos DB database account
 
 This command allows you to get the properties of an existing Azure Cosmos DB database account.
 
@@ -121,7 +125,8 @@ Example:
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="update-tags-powershell"></a> Update Tags of an Azure Cosmos DB Database Account
+<a name="update-tags-powershell"></a>
+##  Update Tags of an Azure Cosmos DB Database Account
 
 The following example describes how to set [Azure resource tags][azure-resource-tags] for your Azure Cosmos DB database account.
 
@@ -133,7 +138,8 @@ Example:
     $tags = @{"dept" = "Finance"; environment = "Production"}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
-## <a id="list-account-keys-powershell"></a> List Account Keys
+<a name="list-account-keys-powershell"></a>
+##  List Account Keys
 
 When you create an Azure Cosmos DB account, the service generates two master access keys that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. Read-only keys for authenticating read-only operations are also available. There are two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
 
@@ -146,7 +152,8 @@ Example:
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="list-connection-strings-powershell"></a> List Connection Strings
+<a name="list-connection-strings-powershell"></a>
+##  List Connection Strings
 
 For MongoDB accounts, the connection string to connect your MongoDB app to the database account can be retrieved using the following command.
 
@@ -159,7 +166,8 @@ Example:
 
     $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="regenerate-account-key-powershell"></a> Regenerate Account Key
+<a name="regenerate-account-key-powershell"></a>
+##  Regenerate Account Key
 
 You should change the access keys to your Azure Cosmos DB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the Azure Cosmos DB account using one access key while you regenerate the other access key.
 
@@ -173,7 +181,8 @@ Example:
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
-## <a id="modify-failover-priority-powershell"></a> Modify Failover Priority of an Azure Cosmos DB Database Account
+<a name="modify-failover-priority-powershell"></a>
+##  Modify Failover Priority of an Azure Cosmos DB Database Account
 
 For multi-region database accounts, you can change the failover priority of the various regions which the Azure Cosmos DB database account exists in. For more information on failover in your Azure Cosmos DB database account, see [Distribute data globally with Azure Cosmos DB][distribute-data-globally].
 
@@ -201,5 +210,5 @@ Example:
 [distribute-data-globally]: distribute-data-globally.md
 [azure-resource-groups]: /azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+[rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
 <!-- Update_Description: update meta properties, update link, wording update -->

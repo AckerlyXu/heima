@@ -5,7 +5,6 @@ keywords: mongoimport, mongorestore
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -152,4 +151,4 @@ You can proceed to the next tutorial and learn how to query MongoDB data by usin
 > [!div class="nextstepaction"]
 >[How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

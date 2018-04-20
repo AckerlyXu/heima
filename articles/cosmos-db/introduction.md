@@ -4,7 +4,6 @@ description: Learn about Azure Cosmos DB. This multiple-region distributed multi
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
 documentationcenter: ''
 
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
@@ -13,15 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 12/15/2017
-ms.date: 12/25/2017
+origin.date: 04/08/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # Welcome to Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is 21Vianet's multiple-region distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://www.azure.cn/support/sla/documentdb/) (SLAs), something no other database service can offer.
 
@@ -39,11 +36,11 @@ As a multiple-region distributed, multi-model database service, Azure Cosmos DB 
 * **Turnkey multiple-region distribution**
     * You can [distribute your data](distribute-data-globally.md) to any number of [Azure regions](https://www.azure.cn/support/service-dashboard/), with the [click of a button](tutorial-global-distribution-sql-api.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
     * Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and sends requests to the nearest data center. All of this is possible with no config changes. You set your write-region and as many read-regions as you want, and the rest is handled for you.
-    * As you add and remove regions to your Cosmos DB database, your application does not need to be redeployed and continues to be highly available thanks to the multi-homing API capability.
+    * As you add and remove regions to your Azure Cosmos DB database, your application does not need to be redeployed and continues to be highly available thanks to the multi-homing API capability.
 
 * **Multiple data models and popular APIs for accessing and querying data**
-    * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, key-value, table, and column-family data models.
-    <!--Not Available on Graph -->
+    * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, key-value, and column-family data models.
+    <!--Not Available on Table and Graph -->
     * APIs for the following data models are supported with SDKs available in multiple languages:
         * [SQL API](sql-api-introduction.md): A schema-less JSON database engine with rich SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A massively scalable *MongoDB-as-a-Service* powered by Azure Cosmos DB platform. Compatible with existing MongoDB libraries, drivers, tools, and applications.
@@ -83,7 +80,7 @@ As a multiple-region distributed, multi-model database service, Azure Cosmos DB 
 
 ## Capability comparison
 
-Azure Cosmos DB provides the best capabilities of relational and non-relational databases.
+Azure Cosmos DB provides the best capabilities of traditional relational and non-relational databases.
 
 | Capabilities | Relational databases	| Non-relational (NoSQL) databases | 	Azure Cosmos DB |
 | --- | --- | --- | --- |

@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -47,12 +46,8 @@ You need the following to complete this tutorial successfully:
 ### More samples
 For additional examples using Table storage, see [Getting Started with Azure Table Storage in .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/). You can download the sample application and run it, or browse the code on GitHub.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## Create an Azure service account
-
-You can work with tables using Azure Table storage. You'll need to create an account for the service you're going to use. 
-<!-- Not Avaiable on  [Table offerings](table-introduction.md#table-offerings) -->
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
 The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.cn). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -83,7 +78,7 @@ You can use the Azure CosmosDB Table Library in any type of .NET application, in
 There are three recommended packages you need to reference in your project to complete this tutorial:
 
 * [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-<!-- Not Available on * [Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) -->
+* [Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
 * [Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
 You can use NuGet to obtain both packages. Follow these steps:
@@ -137,7 +132,7 @@ To configure your connection string, open the `app.config` file from Solution Ex
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
     </startup>
     <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.chinacloudapi.cn" />
     </appSettings>
 </configuration>
 ```
@@ -145,17 +140,11 @@ To configure your connection string, open the `app.config` file from Solution Ex
 For example, if you're using an Azure Storage account, your configuration settings appear similar to:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;EndpointSuffix=core.chinacloudapi.cn" />
 ```
 <!-- Add the TableEndPoint configuration-->
 
-<!-- Not Available on Azure Cosmos DB Table 
-If you're using an Azure Cosmos DB account, your configuration settings appear similar to:
-
-```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.cn:443/;" />
-```
--->
+<!-- Not Available on Azure Cosmos DB Table -->
 
 To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting is:
 
@@ -169,8 +158,8 @@ Add the following **using** directives to the top of the `Program.cs` file:
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.Azure.Storage; // Namespace for StorageAccounts
+using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
-<!-- Not Available on using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types -->
 
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]

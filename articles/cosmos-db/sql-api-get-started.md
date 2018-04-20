@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: monicar
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -29,8 +28,6 @@ ms.author: v-yeche
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -63,7 +60,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Step 2: Setup your Visual Studio solution
+<a name="SetupVS"></a>
+## Step 2: Setup your Visual Studio solution
 1. Open **Visual Studio 2017** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
@@ -80,7 +78,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
+<a name="Connect"></a>
+## Step 3: Connect to an Azure Cosmos DB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
     using System;
@@ -187,7 +186,8 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB database.  
 
-## <a id="CreateColl"></a>Step 5: Create a collection
+<a name="CreateColl"></a>
+## Step 5: Create a collection
 > [!WARNING]
 > **CreateDocumentCollectionIfNotExistsAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://www.azure.cn/pricing/details/cosmos-db/).
 > 
@@ -208,7 +208,8 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB document collection.  
 
-## <a id="CreateDoc"></a>Step 6: Create JSON documents
+<a name="CreateDoc"></a>
+## Step 6: Create JSON documents
 A [document](sql-api-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use the Azure Cosmos DB [Data Migration tool](import-data.md) to import the data into a database.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method.
@@ -369,7 +370,8 @@ Congratulations! You have successfully created two Azure Cosmos DB documents.
 
 ![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
+<a name="Query"></a>
+## Step 7: Query Azure Cosmos DB resources
 Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both Azure Cosmos DB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.
 
 Copy and paste the **ExecuteSimpleQuery** method after your **CreateFamilyDocumentIfNotExists** method.
@@ -425,7 +427,8 @@ The following diagram illustrates how the Azure Cosmos DB SQL query syntax is ca
 
 The [FROM](sql-api-sql-query.md#FromClause) keyword is optional in the query because Azure Cosmos DB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. Azure Cosmos DB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
-## <a id="ReplaceDocument"></a>Step 8: Replace JSON document
+<a name="ReplaceDocument"></a>
+## Step 8: Replace JSON document
 Azure Cosmos DB supports replacing JSON documents.  
 
 Copy and paste the **ReplaceFamilyDocument** method after your **ExecuteSimpleQuery** method.
@@ -455,7 +458,8 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB document.
 
-## <a id="DeleteDocument"></a>Step 9: Delete JSON document
+<a name="DeleteDocument"></a>
+## Step 9: Delete JSON document
 Azure Cosmos DB supports deleting JSON documents.  
 
 Copy and paste the **DeleteFamilyDocument** method after your **ReplaceFamilyDocument** method.
@@ -480,7 +484,8 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully deleted an Azure Cosmos DB document.
 
-## <a id="DeleteDatabase"></a>Step 10: Delete the database
+<a name="DeleteDatabase"></a>
+## Step 10: Delete the database
 Deleting the created database will remove the database and all children resources (collections, documents, etc.).
 
 Copy and paste the following code to your **GetStartedDemo** method after the document delete to delete the entire database and all children resources.
@@ -497,7 +502,8 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully deleted an Azure Cosmos DB database.
 
-## <a id="Run"></a>Step 11: Run your C# console application all together!
+<a name="Run"></a>
+## Step 11: Run your C# console application all together!
 Hit F5 in Visual Studio to build the application in debug mode.
 
 You should see the output of your get started app in a console window. The output will show the results of the queries we added and should match the example text below.
@@ -525,7 +531,8 @@ You should see the output of your get started app in a console window. The outpu
 
 Congratulations! You've completed the tutorial and have a working C# console application!
 
-## <a id="GetSolution"></a> Get the complete tutorial solution
+<a name="GetSolution"></a>
+##  Get the complete tutorial solution
 If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 To build the GetStarted solution, you will need the following:
@@ -547,4 +554,4 @@ That's it, build it and you're on your way!
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-sql-api-dotnet.md#create-account
-<!-- Update_Description: new articles on SQL api get started -->
+<!-- Update_Description: update meta properties -->

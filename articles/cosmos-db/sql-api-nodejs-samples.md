@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -24,11 +24,9 @@ ms.author: v-yeche
 > * [.NET Examples](sql-api-dotnet-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
-> * [Azure Code Sample Gallery](https://www.azure.cn/resources/samples/?sort=0&service=cosmos-db)
+> * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub repository. This article provides:
 
@@ -123,4 +121,4 @@ The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/
 | [Use a HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
 For more information about partitioning data in Azure Cosmos DB, see [Partition and scale data in Azure Cosmos DB](partition-data.md).
-<!-- Update_Description: new articles on SQL api nodejs sample -->
+<!-- Update_Description: wording update, update link -->

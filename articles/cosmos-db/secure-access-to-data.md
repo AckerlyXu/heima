@@ -4,7 +4,6 @@ description: Learn about access control concepts in Azure Cosmos DB, including m
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
 documentationcenter: ''
 
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -28,7 +27,7 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 |[Master keys](#master-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
 |[Resource tokens](#resource-tokens)|Used for application resources: collections, documents, attachments, stored procedures, triggers, and UDFs|
 
-<a id="master-keys"></a>
+<a name="master-keys"></a>
 
 ## Master keys 
 
@@ -72,7 +71,7 @@ Database database = await client.CreateDatabaseAsync(
     });
 ```
 
-<a id="resource-tokens"></a>
+<a name="resource-tokens"></a>
 
 ## Resource tokens
 
@@ -102,11 +101,11 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 
     ![Azure Cosmos DB resource tokens workflow](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) or the [source code for our SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) or the [source code for our SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 For an example of a middle tier service used to generate or broker resource tokens, see the [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-<a id="users"></a>
+<a name="users"></a>
 
 ## Users
 Cosmos DB users are associated with a Cosmos DB database.  Each database can contain zero or more Cosmos DB users.  The following code sample shows how to create a Cosmos DB user resource.
@@ -126,7 +125,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 > 
 > 
 
-<a id="permissions"></a>
+<a name="permissions"></a>
 
 ## Permissions
 A Cosmos DB permission resource is associated with a Cosmos DB user.  Each user may contain zero or more Cosmos DB permissions.  A permission resource provides access to a security token that the user needs when trying to access a specific application resource.
@@ -149,7 +148,7 @@ The following code sample shows how to create a permission resource, read the re
 Permission docPermission = new Permission
 {
     PermissionMode = PermissionMode.Read,
-    ResourceLink = documentCollection.SelfLink,
+    ResourceLink = UriFactory.CreateDocumentCollectionUri("db", "collection"),
     Id = "readperm"
 };
 
@@ -180,6 +179,5 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## Next steps
 * To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
 * To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#keys).
-* To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
-
-<!--Update_Description: wording update-->
+* To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
+<!-- Update_Description: wording update, update link -->

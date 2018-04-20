@@ -4,7 +4,6 @@ description: Learn about the feature support the Azure Cosmos DB MongoDB API pro
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
@@ -14,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-
+experimental: true
+experiment_id: "662dc5fd-886f-4a"
 ---
 # MongoDB API support for MongoDB features and syntax
 
 Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 <!-- Notice: globally to multiple-region -->
 
-By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of Azure Cosmos DB's enterprise capabilities: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of the enterprise capabilities Azure Cosmos DB provides: [multiple-region distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
 ## MongoDB query language support
 
@@ -90,6 +90,7 @@ Azure Cosmos DB supports aggregation pipeline in public preview. See the [Azure 
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### Aggregation expressions
 

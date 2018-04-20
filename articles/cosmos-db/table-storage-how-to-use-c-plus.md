@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/12/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -30,11 +29,15 @@ This guide will show you how to perform common scenarios by using the Azure Tabl
 > [!NOTE]
 > This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
-> 
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## Create an Azure service account
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### Create an Azure storage account
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+<!-- Not Available on ### Create an Azure Cosmos DB Table API account -->
+
 
 ## Create a C++ application
 In this guide, you will use storage features that can be run within a C++ application. To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.  
@@ -64,25 +67,7 @@ An Azure Storage client or Cosmos DB client uses a connection string to store en
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
-<!-- Not Available on Table API
-## Set up an Azure Cosmos DB connection string
-Use the name of your Azure Cosmos DB account, your primary key, and endpoint listed in the [Azure Portal](https://portal.azure.cn) for the *Account Name*, *Primary Key*, and *Endpoint* values. This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
-
-```cpp
-// Define the Azure Cosmos DB connection string with your values.
-const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
-```
-
-To test your application in your local Windows-based computer, you can use the Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with the [Azure SDK](/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
-
-```cpp
-// Define the connection string with Azure storage emulator.
-const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
-```
-
-To start the Azure storage emulator, click the **Start** button or press the Windows key. Begin typing **Azure Storage Emulator**, and then select **Azure Storage Emulator** from the list of applications.  
-
--->
+<!-- Not Available on ## Set up an Azure Cosmos DB connection string -->
 The following samples assume that you have used this method to get the storage connection string.  
 
 ## Retrieve your connection string
@@ -475,6 +460,7 @@ if (table.delete_table_if_exists())
 
 ## Next steps
 Follow these links to learn more about Azure Storage in Azure Cosmos DB: 
+<!-- Not Avaiable on Table API -->
 
 <!-- Not Available on * [Introduction to the Table API](table-introduction.md) -->
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

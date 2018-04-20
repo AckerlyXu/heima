@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
@@ -15,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: devcenter
 
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB
+<a name="_Toc395809351"></a>
+# ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -28,8 +28,6 @@ ms.custom: devcenter
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 To highlight how you can efficiently leverage Azure Cosmos DB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo app using Azure Cosmos DB. The tasks will be stored as JSON documents in Azure Cosmos DB.
 
@@ -42,7 +40,8 @@ This walk-through shows you how to use the Azure Cosmos DB service to store and 
 > 
 > 
 
-## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
+<a name="_Toc395637760"></a>
+## Prerequisites for this database tutorial
 Before following the instructions in this article, you should ensure that you have the following:
 
 * An active Azure account.  If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin. 
@@ -54,7 +53,8 @@ Before following the instructions in this article, you should ensure that you ha
 
 All the screen shots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
 
-## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos DB database account
+<a name="_Toc395637761"></a>
+## Step 1: Create an Azure Cosmos DB database account
 Let's start by creating an Azure Cosmos DB account. If you already have a SQL account for Azure Cosmos DB or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -64,7 +64,8 @@ Let's start by creating an Azure Cosmos DB account. If you already have a SQL ac
 <br/>
 We will now walk through how to create a new ASP.NET MVC application from the ground-up. 
 
-## <a name="_Toc395637762"></a>Step 2: Create a new ASP.NET MVC application
+<a name="_Toc395637762"></a>
+## Step 2: Create a new ASP.NET MVC application
 
 1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**. The **New Project** dialog box appears.
 
@@ -86,7 +87,8 @@ We will now walk through how to create a new ASP.NET MVC application from the gr
 
     We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding Azure Cosmos DB to this project and building our application.
 
-## <a name="_Toc395637767"></a>Step 3: Add Azure Cosmos DB to your MVC web application project
+<a name="_Toc395637767"></a>
+## Step 3: Add Azure Cosmos DB to your MVC web application project
 Now that we have most of the ASP.NET MVC plumbing that we need for
 this solution, let's get to the real purpose of this tutorial, adding Azure Cosmos DB to our MVC web application.
 
@@ -109,7 +111,8 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Cosm
 
     ![Sreen shot of the two references added to the JSON data project in Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>Step 4: Set up the ASP.NET MVC application
+<a name="_Toc395637763"></a>
+## Step 4: Set up the ASP.NET MVC application
 Now let's add the models, views, and controllers to this MVC application:
 
 * [Add a model](#_Toc395637764).
@@ -182,7 +185,8 @@ Now, let's create the **V** in MVC, the views:
 * [Add a New Item view](#AddNewIndexView).
 * [Add an Edit Item view](#_Toc395888515).
 
-#### <a name="AddItemIndexView"></a>Add an Item Index view
+<a name="AddItemIndexView"></a>
+#### Add an Item Index view
 1. In **Solution Explorer**, expand the **Views**  folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
 
     ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
@@ -196,7 +200,8 @@ Now, let's create the **V** in MVC, the views:
    ![Screen shot showing the Add View dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
 3. Once all these values are set, click **Add** and let Visual Studio create a new template view. Once it is done, it will open the cshtml file  that was created. We can close that file in Visual Studio as we will come back to it later.
 
-#### <a name="AddNewIndexView"></a>Add a New Item view
+<a name="AddNewIndexView"></a>
+#### Add a New Item view
 Similar to how we created an **Item Index** view, we will now create a new view for creating new **Items**.
 
 1. In **Solution Explorer**, right-click the **Item** folder again, click **Add**, and then click **View**.
@@ -208,7 +213,8 @@ Similar to how we created an **Item Index** view, we will now create a new view 
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
    * Click **Add**.
 
-#### <a name="_Toc395888515"></a>Add an Edit Item view
+<a name="_Toc395888515"></a>
+#### Add an Edit Item view
 And finally, add one last view for editing an **Item** in the same way as before.
 
 1. In **Solution Explorer**, right-click the **Item** folder again, click **Add**, and then click **View**.
@@ -222,7 +228,8 @@ And finally, add one last view for editing an **Item** in the same way as before
 
 Once this is done, close all the cshtml documents in Visual Studio as we will return to these views later.
 
-## <a name="_Toc395637769"></a>Step 5: Wiring up Azure Cosmos DB
+<a name="_Toc395637769"></a>
+## Step 5: Wiring up Azure Cosmos DB
 Now that the standard MVC stuff is taken care of, let's turn to adding the code for Azure Cosmos DB. 
 
 In this section, we'll add code to handle the following:
@@ -231,7 +238,8 @@ In this section, we'll add code to handle the following:
 * [Adding Items](#_Toc395637771).
 * [Editing Items](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Listing incomplete Items in your MVC web application
+<a name="_Toc395637770"></a>
+### Listing incomplete Items in your MVC web application
 The first thing to do here is add a class that contains all the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate all this logic in to a repository class called DocumentDBRepository. 
 
 1. In **Solution Explorer**, right-click on the project, click **Add**, and then click **Class**. Name the new class **DocumentDBRepository** and click **Add**.
@@ -379,7 +387,8 @@ If you build and run this project now, you should now see something that looks t
 
 ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
-### <a name="_Toc395637771"></a>Adding Items
+<a name="_Toc395637771"></a>
+### Adding Items
 Let's put some items into our database so we have something more than an empty grid to look at.
 
 Let's add some code to  Azure Cosmos DBRepository and ItemController to persist the record in Azure Cosmos DB.
@@ -425,7 +434,8 @@ Let's add some code to  Azure Cosmos DBRepository and ItemController to persist 
 
 This concludes the code required to add new Items to our database.
 
-### <a name="_Toc395637772"></a>Editing Items
+<a name="_Toc395637772"></a>
+### Editing Items
 There is one last thing for us to do, and that is to add the ability to edit **Items** in the database and to mark them as complete. The view for editing was already added to the project, so we just need to add some code to our controller and to the **DocumentDBRepository** class again.
 
 1. Add the following to the **DocumentDBRepository** class.
@@ -499,7 +509,8 @@ There is one last thing for us to do, and that is to add the ability to edit **I
 
 That's it, that is everything we need to run our application, list incomplete **Items**, add new **Items**, and edit **Items**.
 
-## <a name="_Toc395637773"></a>Step 6: Run the application locally
+<a name="_Toc395637773"></a>
+## Step 6: Run the application locally
 To test the application on your local machine, do the following:
 
 1. Hit F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
@@ -520,7 +531,8 @@ To test the application on your local machine, do the following:
     ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
-## <a name="_Toc395637774"></a>Step 7: Deploy the application to Azure App Service 
+<a name="_Toc395637774"></a>
+## Step 7: Deploy the application to Azure App Service 
 Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
 
 1. To publish this application all you need to do is right-click on the project in **Solution Explorer** and click **Publish**.
@@ -541,7 +553,8 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
 In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handiwork running in Azure!
 
-## <a name="_Toc395637775"></a>Next steps
+<a name="_Toc395637775"></a>
+## Next steps
 Congratulations! You just built your first ASP.NET MVC web application using Azure Cosmos DB and published it to Azure. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
 To add additional functionality to your application, review the APIs available in the [Azure Cosmos DB .NET Library](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the Azure Cosmos DB .NET Library on [GitHub][GitHub]. 
@@ -552,4 +565,4 @@ To add additional functionality to your application, review the APIs available i
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-<!-- Update_Description: new articles on SQL api dotnet MVC application. -->
+<!-- Update_Description: update meta properties -->

@@ -5,7 +5,6 @@ keywords: mongodb connection string
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/19/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -79,4 +78,4 @@ For example, consider the account shown in the **Connection String** blade. A va
 * Learn how to [use Studio 3T (MongoChef)](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
 * Explore the Azure Cosmos DB API for MongoDB by viewing [samples](mongodb-samples.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

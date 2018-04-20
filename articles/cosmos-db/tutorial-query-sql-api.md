@@ -16,14 +16,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The Azure Cosmos DB [SQL API](documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 

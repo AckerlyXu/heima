@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
 # Partitioning in Azure Cosmos DB using the SQL API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. 
 
@@ -78,7 +76,7 @@ In the SQL API, you specify the partition key definition in the form of a JSON p
 Let's look at how the choice of partition key impacts the performance of your application.
 
 ## Working with the Azure Cosmos DB SDKs
-Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](https://docs.microsoft.com/rest/api/documentdb/). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
+Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](https://docs.microsoft.com/rest/api/cosmos-db/). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
 
 ### Creating containers
 The following sample shows a .NET snippet to create a container to store device telemetry data of 20,000 request units per second of throughput. The SDK sets the OfferThroughput value (which in turn sets the `x-ms-offer-throughput` request header in the REST API). Here we set the `/deviceId` as the partition key. The choice of partition key is saved along with the rest of the container metadata like name and indexing policy.
@@ -225,6 +223,6 @@ In the next section, we look at how you can move to partitioned containers from 
 In this article, we provided an overview of how to work with partitioning of Azure Cosmos DB containers with the SQL API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
 * Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
-* Get started coding with the [SDKs](sql-api-sdk-dotnet.md) or the [REST API](https://docs.microsoft.com/rest/api/documentdb/)
+* Get started coding with the [SDKs](sql-api-sdk-dotnet.md) or the [REST API](https://docs.microsoft.com/rest/api/cosmos-db/)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
-<!-- Update_Description: new articles on SQL api partition data -->
+<!-- Update_Description: wording update, update link -->

@@ -13,7 +13,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.topic: article
 origin.date: 01/19/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-yeche
 Lambda architectures enable efficient data processing of massive data sets. Lambda architectures use batch-processing, stream-processing, and a serving layer to minimize the latency involved in querying big data. 
 
 To implement a lambda architecture on Azure, you can combine the following technologies to accelerate real-time big data analytics:
-* [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/), the industry's first globally distributed, multi-model database service. 
+* [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/), the industry's first multiple-region distributed, multi-model database service. 
 * [Apache Spark for Azure HDInsight](https://www.azure.cn/home/features/hdinsight/), a processing framework that runs large-scale data analytics applications
 * Azure Cosmos DB [change feed](change-feed.md), which streams new data to the batch layer for HDInsight to process
 * The [Spark to Azure Cosmos DB Connector](spark-connector.md)
@@ -285,5 +285,4 @@ If you haven't already, download the Spark to Azure Cosmos DB connector from the
 
 You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
 
-<!-- Update_Description: new articles intergrated lambda architecture in cosmod DB -->
-<!--ms.date: 03/05/2018 -->
+<!-- Update_Description: update meta properties, wording update -->

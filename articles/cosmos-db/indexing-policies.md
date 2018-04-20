@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: monicar
 
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
@@ -14,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 08/17/2017
-ms.date: 01/29/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -25,6 +24,7 @@ By default, all Azure Cosmos DB data is indexed. Although many customers are hap
 
 To learn how indexing works in Azure Cosmos DB, it's important to understand that when you manage indexing policy, you can make fine-grained trade-offs between index storage overhead, write and query throughput, and query consistency.  
 
+<!-- Not Available on https://www.youtube.com/embed/uFu2D-GscG0 -->
 In this article, we take a close look at Azure Cosmos DB indexing policies, at how to customize indexing policy, and associated trade-offs. 
 
 After reading this article, you'll be able to answer the following questions:
@@ -35,7 +35,7 @@ After reading this article, you'll be able to answer the following questions:
 * How do I make changes to a collection's indexing policy?
 * How do I compare storage and performance of different indexing policies?
 
-<a id="CustomizingIndexingPolicy"></a>
+<a name="CustomizingIndexingPolicy"></a> 
 ## Customizing the indexing policy of a collection
 You can customize the trade-offs between storage, write and query performance, and query consistency by overriding the default indexing policy on an Azure Cosmos DB collection. You can configure the following aspects:
 
@@ -67,7 +67,7 @@ You can change the indexing policy of a collection in the Azure portal:
 2. In the left navigation menu, select **Settings**, and then select **Indexing Policy**. 
 3. Under **Indexing Policy**, change your indexing policy, and then select **OK**. 
 
-<a id="indexing-modes"></a>
+<a name="indexing-modes"></a>
 ### Database indexing modes
 Azure Cosmos DB supports three indexing modes that you can configure via the indexing policy on an Azure Cosmos DB collection: Consistent, Lazy, and None.
 
@@ -234,7 +234,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude specific documents. Indexing on/off configurations are useful when you have only a subset of documents that needs to be queried.
 
-The following sample shows how to include a document explicitly by using the [SQL API .NET SDK](/cosmos-db/sql-api-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+The following sample shows how to include a document explicitly by using the [SQL API .NET SDK](/cosmos-db/sql-api-sdk-dotnet) and the [RequestOptions.IndexingDirective](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.requestoptions.indexingdirective?view=azure-dotnet) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,

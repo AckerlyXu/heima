@@ -5,7 +5,6 @@ keywords: json database, document database
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
 documentationcenter: ''
 
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/22/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -23,7 +22,7 @@ ms.author: v-yeche
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-[Azure Cosmos DB](introduction.md) is 21Vianet's multiple data-center distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, and columnar data models.
+[Azure Cosmos DB](introduction.md) is 21Vianet's multiple-region distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key multiple-region distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, and columnar data models.
 <!-- Not Available on Graph -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
@@ -51,7 +50,8 @@ Azure Cosmos DB, via the SQL API, offers the following key capabilities and bene
 
 * **Change feed support:** Change feed provides a sorted list of documents within an Azure Cosmos DB collection in the order in which they were modified. This feed can be used to listen for modifications to data in order to replicate data, trigger API calls, or perform stream processing on updates. Change feed is automatically enabled and easy to use: [learn more about change feed](/cosmos-db/change-feed). 
 
-## <a name="data-management"></a>How do you manage data with the SQL API?
+<a name="data-management"></a>
+## How do you manage data with the SQL API?
 The SQL API helps manage JSON data through well-defined database resources. These resources are replicated for high availability and are uniquely addressable by their logical URI. The SQL API offers a simple HTTP-based RESTful programming model for all resources. 
 
 The Azure Cosmos DB database account is a unique namespace that gives you access to Azure Cosmos DB. Before you can create a database account, you must have an Azure subscription, which gives you access to a variety of Azure services. 
@@ -64,13 +64,14 @@ The image below shows the relationships between the Azure Cosmos DB resources:
 
 A database account consists of a set of databases, each containing multiple collections, each of which can contain stored procedures, triggers, UDFs, documents, and related attachments. A database also has associated users, each with a set of permissions to access various other collections, stored procedures, triggers, UDFs, documents, or attachments. While databases, users, permissions, and collections are system-defined resources with well-known schemas - documents, stored procedures, triggers, UDFs, and attachments contain arbitrary, user-defined JSON content.  
 
-## <a name="develop"></a> How can I develop apps with the SQL API?
+<a name="develop"></a>
+##  How can I develop apps with the SQL API?
 
 Azure Cosmos DB exposes resources through the REST APIs that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the SQL API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries, and so forth. Libraries are currently available for the following languages and platforms:  
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
@@ -98,4 +99,4 @@ JavaScript execution within the Cosmos DB is modeled after the concepts supporte
 Already have an Azure account? Then you can get started with Azure Cosmos DB by following our [quick starts](../cosmos-db/create-sql-api-dotnet.md), which will walk you through creating an account and getting started with Cosmos DB.
 
 [1]: ./media/sql-api-introduction/json-database-resources1.png
-<!-- Update_Description: new articles on SQL api introduction -->
+<!-- Update_Description: update meta properties, update link -->

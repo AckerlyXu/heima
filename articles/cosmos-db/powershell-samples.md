@@ -4,10 +4,9 @@ description: Azure PowerShell Samples - Scripts to help you create and manage Az
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 
-ms.assetid:
+ms.assetid: 
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
@@ -15,13 +14,11 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 10/16/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time you can only manage the Azure Cosmos DB accountlayer via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
 
@@ -30,7 +27,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Create an Azure Cosmos DB account**||
 |[Create a SQL API account](scripts/create-database-account-powershell.md)| Creates a single Azure Cosmos DB account to use with the SQL API. |
 |**Scale Azure Cosmos DB**||
-|[Replicate Azure Cosmos DB account in multiple regions and configure failover priorities](scripts/scale-multiregion-powershell.md)|multiple data-center replicates account data into multiple regions with a specified failover priority.|
+|[Replicate Azure Cosmos DB account in multiple regions and configure failover priorities](scripts/scale-multiregion-powershell.md)|Multiple data-center replicates account data into multiple regions with a specified failover priority.|
 |**Secure Azure Cosmos DB**||
 | [Get account keys](scripts/secure-get-account-key-powershell.md) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
 | [Get MongoDB connection string](scripts/secure-mongo-connection-string-powershell.md) | Gets the connection string to connect your MongoDB app to your Azure Cosmos DB account.|

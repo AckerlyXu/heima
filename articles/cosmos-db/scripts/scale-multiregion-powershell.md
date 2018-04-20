@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 
 ms.assetid:
@@ -16,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ---
 
@@ -31,16 +30,14 @@ This sample replicates any kind of Azure Cosmos DB database account in multiple 
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "South Central US"
+$resourceGroupLocation = "China East"
 
 # Database name
 $DBName = "testdb"
 # Distribution locations
-$locations = @(@{"locationName"="East US"; 
-                 "failoverPriority"=2},
-               @{"locationName"="West US"; 
+$locations = @(@{"locationName"="China East"; 
                  "failoverPriority"=1},
-               @{"locationName"="South Central US"; 
+               @{"locationName"="China North"; 
                  "failoverPriority"=0})
 
 # Create the resource group
@@ -65,14 +62,10 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -PropertyObject $DBProperties
 
 # Modify locations/priorities
-$newLocations = @(@{"locationName"="West US"; 
-                 "failoverPriority"=0},
-               @{"locationName"="East US"; 
+$newLocations = @(@{"locationName"="China North"; 
                  "failoverPriority"=1},
-               @{"locationName"="South Central US"; 
-                 "failoverPriority"=2},
-               @{"locationName"="North Central US";
-                 "failoverPriority"=3})
+               @{"locationName"="China East"; 
+                 "failoverPriority"=0})
 
 # Updated properties
 $updateDBProperties = @{"databaseAccountOfferType"="Standard";
@@ -101,14 +94,15 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmResource](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
-| [Set-AzureRMResource](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | Modifies the database account. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
+| [Set-AzureRMResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | Modifies the database account. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/zh-cn/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
 Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../powershell-samples.md).
+<!-- Update_Description: wording update, update link -->

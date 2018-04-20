@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -29,8 +29,6 @@ ms.author: v-yeche
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the Node.js tutorial for the Azure Cosmos DB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -180,7 +178,7 @@ Finally, export your ```config``` object, so that you can reference it within th
     module.exports = config;
 
 <a name="Connect"></a>
-## Step 4: Connect to an Azure Cosmos DB account
+##  Step 4: Connect to an Azure Cosmos DB account
 Open your empty ```app.js``` file in the text editor. Copy and paste the code below to import the ```documentdb``` module and your newly created ```config``` module.
 
     // ADD THIS PART TO YOUR CODE

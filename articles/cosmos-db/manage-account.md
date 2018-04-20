@@ -1,7 +1,7 @@
 ---
 title: Manage an Azure Cosmos DB account via the Azure Portal | Azure
 description: Learn how to manage your Azure Cosmos DB account via the Azure Portal. Find a guide on using the Azure Portal to view, copy, delete and access accounts.
-keywords: Azure Portal, azure, 21Vianet azure
+keywords: Azure Portal, azure, 21Vianet Azure
 services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 # How to manage an Azure Cosmos DB account
 Learn how to set global consistency, work with keys, and delete an Azure Cosmos DB account in the Azure portal.
 
-## <a id="consistency"></a>Manage Azure Cosmos DB consistency settings
+<a name="consistency"></a>
+## Manage Azure Cosmos DB consistency settings
 Selecting the right consistency level depends on the semantics of your application. Familiarize yourself with the available consistency levels in Azure Cosmos DB by reading [Using consistency levels to maximize availability and performance in Azure Cosmos DB][consistency]. Azure Cosmos DB provides consistency, availability, and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of Strong requires that your data is confined to a single Azure region and not globally available. On the other hand, the relaxed consistency levels - bounded staleness, session, or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account.
 
 ### To specify the default consistency for an Azure Cosmos DB account
@@ -31,7 +32,8 @@ Selecting the right consistency level depends on the semantics of your applicati
 3. In the **Default Consistency** page, select the new consistency level and click **Save**.
     ![Default consistency session][5]
 
-## <a id="keys"></a>View, copy, and regenerate access keys and passwords
+<a name="keys"></a>
+## View, copy, and regenerate access keys and passwords
 When you create an Azure Cosmos DB account, the service generates two master access keys (or two passwords for MongoDB API accounts) that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. 
 
 In the [Azure portal](https://portal.azure.cn/), access the **Keys** page from the resource menu on the **Azure Cosmos DB account** page to view, copy, and regenerate the access keys that are used to access your Azure Cosmos DB account. For MongoDB API accounts, access the **Connection String** page from the resource menu to view, copy, and regenerate the passwords that are used to access your account.
@@ -85,7 +87,8 @@ To retrieve your connection string, do the following:
 
 If you are using the connection string in the [Azure Cosmos DB Database Migration Tool](import-data.md), append the database name to the end of the connection string. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
-## <a id="delete"></a> Delete an Azure Cosmos DB account
+<a name="delete"></a>
+##  Delete an Azure Cosmos DB account
 To remove an Azure Cosmos DB account from the Azure portal that you are no longer using, right-click the account name, and click **Delete account**.
 
 ![How to delete an Azure Cosmos DB account in the Azure portal](./media/manage-account/deleteaccount.png)
@@ -97,7 +100,8 @@ To remove an Azure Cosmos DB account from the Azure portal that you are no longe
 
 ![How to delete an Azure Cosmos DB account in the Azure portal](./media/manage-account/delete-account-confirm.png)
 
-## <a id="next"></a>Next steps
+<a name="next"></a>
+## Next steps
 Learn how to [get started with your Azure Cosmos DB account](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
 <!--Image references-->

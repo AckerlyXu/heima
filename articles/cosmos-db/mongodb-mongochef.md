@@ -5,7 +5,6 @@ keywords: mongochef, studio 3T
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/18/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -114,4 +113,4 @@ To create a database, collection, and documents using Studio 3T, perform the fol
 
 ## Next steps
 * Explore Azure Cosmos DB MongoDB API [samples](mongodb-samples.md).
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

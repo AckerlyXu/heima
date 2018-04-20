@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 02/08/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -28,8 +28,6 @@ ms.author: v-yeche
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) GitHub repository. This article provides:
 
@@ -161,5 +159,4 @@ The [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob
 | [Run a stored procedure with arguments](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L121-L144) | [DocumentClient.executeStoredProcedure](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
 | [Run a stored procedure with an object argument](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L147-L177) | [DocumentClient.executeStoredProcedure](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
 
-<!-- Update_Description: new articles about cosmos DB sql api java sample in cosmod DB -->
-<!--ms.date: 03/05/2018 -->
+<!-- Update_Description: update meta properties -->

@@ -4,8 +4,6 @@ description: 'Learn about the top five use cases for Azure Cosmos DB: user gener
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
-documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -33,7 +31,7 @@ After reading this article, you'll be able to answer the following questions:
 [Azure Cosmos DB](../cosmos-db/introduction.md) is 21Vianet's multiple-region distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first multiple-region distributed database service in the market today to offer comprehensive [service level agreements](https://www.azure.cn/support/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency. 
 <!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB is a multiple-region distributed, multi-model database that is used in a wide range of applications and use cases. It supports multiple data models (documents and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md) and [SQL API](documentdb-introduction.md) natively, and in an extensible manner. 
+Azure Cosmos DB is a multiple-region distributed, multi-model database that is used in a wide range of applications and use cases. It supports multiple data models (key-value, documents, and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md), and [SQL API](documentdb-introduction.md), natively, and in an extensible manner. 
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
 <!--Not Available on  [Tables API](table-introduction.md) -->
 <!-- Notice: 全球 to 多个区域 -->
@@ -63,7 +61,7 @@ For a sample IoT solution using Azure Cosmos DB, EventHubs and Storm, see the [h
 <!-- URL is NOT correct on  [Create the Internet of Your Things](http://www.microsoft.com/zh-cn/server-cloud/internet-of-things.aspx) -->
 
 ## Retail and marketing
-Azure Cosmos DB is used extensively in Microsoft's own e-commerce platforms, that run the Windows Store and XBox Live. It is also used in the retail industry for storing catalog data and for event sourcing in order processing pipelines.
+Azure Cosmos DB is used extensively in 21Vianet's own e-commerce platforms, that run the Windows Store and XBox Live. It is also used in the retail industry for storing catalog data and for event sourcing in order processing pipelines.
 
 Catalog data usage scenarios involve storing and querying a set of attributes for entities such as people, places, and products. Some examples of catalog data are user accounts, product catalogs, IoT device registries, and bill of materials systems. Attributes for this data may vary and can change over time to fit application requirements.
 
@@ -71,7 +69,7 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 ![Azure Cosmos DB retail catalog reference architecture](./media/use-cases/product-catalog.png)
 
-Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events) made to an Azure Cosmos DB. 
+Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events) made to an Azure Cosmos DB. This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](http://azure.com/serverless)).
 <!-- Not Available  [serverless Azure Functions](http://azure.com/serverless)). -->
 
 ![Azure Cosmos DB ordering pipeline reference architecture](./media/use-cases/event-sourcing.png)
@@ -99,7 +97,7 @@ A common use case for Azure Cosmos DB is to store and query user generated conte
 
 Applications that integrate with third-party social networks must respond to changing schemas from these networks. As data is automatically indexed by default in Cosmos DB, data is ready to be queried at any time. Hence, these applications have the flexibility to retrieve projections as per their respective needs.
 
-Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://www.azure.cn/support/service-dashboard).
+Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
 
 ![Azure Cosmos DB web app reference architecture](./media/use-cases/apps-with-global-reach.png)
 
@@ -125,7 +123,7 @@ TEXA's revolutionary IoT solution for vehicle owners helps save time, money, gas
 * [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. is an American pizza restaurant chain.
 * [Johnson Controls](http://www.johnsoncontrols.com). Johnson Controls is a global diversified technology and multi-industrial leader serving a wide range of customers in more than 150 countries.
 * [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live, and other Internet-scale services](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). How Microsoft builds massively scalable services using Azure Cosmos DB.
-* [Microsoft Data and Analytics team](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft's Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB
+<!-- Not Available on * [Microsoft Data and Analytics team](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft's Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB-->
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha uses Azure Cosmos DB to connect customers and businesses across India  .
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit takes flight with Azure Cosmos DB.
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio switches from AWS to Azure Cosmos DB to harness social data at scale.

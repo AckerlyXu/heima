@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/06/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -103,4 +103,4 @@ In this tutorial, you've done the following:
 
 <!-- Not Available on [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) -->
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

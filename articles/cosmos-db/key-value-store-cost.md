@@ -5,7 +5,6 @@ keywords: key value store
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: ''
 documentationcenter: ''
 
@@ -16,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ---
 
@@ -41,17 +40,7 @@ The following table shows the number of RUs required to perform read and write t
 |1 KB|1 RU|5 RUs|
 |100 KB|10 RUs|50 RUs|
 
-<!-- Not Available ## Cost of reads and writes
-
-If you provision 1,000 RU/sec, this amounts to 3.6 m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1-KB size document, this means that you can consume 3.6-m reads or 0.72-m writes (3.6 m RU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
-
-|Item Size|1-m Read|1-m Write|
-|-------------|-------|--------|
-|1 KB|$0.022|$0.111|
-|100 KB|$0.222|$1.111|
-
-Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Cosmos DB can be up to 98% cheaper than these other solutions (for 1KB transactions).
--->
+<!-- Not Available ## Cost of reads and writes -->
 
 ## Next steps
 

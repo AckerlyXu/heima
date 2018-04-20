@@ -5,7 +5,6 @@ keywords: modeling data
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig1
 documentationcenter: ''
 
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2016
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -179,7 +178,8 @@ This could represent a person's stock portfolio. We have chosen to embed the sto
 
 Stock *zaza* may be traded many hundreds of times in a single day and thousands of users could have *zaza* on their portfolio. With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale very well. 
 
-## <a id="Refer"></a>Referencing data
+<a name="Refer"></a>
+## Referencing data
 So, embedding data works nicely for many cases but it is clear that there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now? 
 
 Relational databases are not the only place where you can create relationships between entities. In a document database you can have information in one document that actually relates to data in other documents. Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be very useful. 
@@ -325,7 +325,8 @@ Consider the following.
 
 Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the ids of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make. 
 
-## <a id="WrapUp"></a>Hybrid data models
+<a name="WrapUp"></a>
+## Hybrid data models
 We've now looked embedding (or denormalizing) and referencing (or normalizing) data, each have their upsides and each have compromises as we have seen. 
 
 It doesn't always have to be either or, don't be scared to mix things up a little. 
@@ -385,7 +386,8 @@ In the example there are **pre-calculated aggregates** values to save expensive 
 
 The ability to have a model with pre-calculated fields is made possible because Azure Cosmos DB supports **multi-document transactions**. Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation. With Azure Cosmos DB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything in to one document just to be sure that your data remains consistent.
 
-## <a name="NextSteps"></a>Next steps
+<a name="NextSteps"></a>
+## Next steps
 The biggest takeaways from this article is to understand that data modeling in a schema-free world is just as important as ever. 
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily. 

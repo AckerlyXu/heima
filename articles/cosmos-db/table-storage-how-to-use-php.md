@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: php
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -28,21 +27,13 @@ ms.author: v-yeche
 This guide shows you how to perform common scenarios using the Azure Storage Table service. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 <!-- Not Available on Azure Cosmos DB Table API -->
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## Create an Azure service account
 
-You can work with tables using Azure Table storage. You'll need to create an account for the service you're going to use. 
-<!-- Not Available on  Cosmos DB Table API -->
-<!-- Not Available on [Table offerings](table-introduction.md#table-offerings) -->
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### Create an Azure Storage account
+### Create an Azure storage account
 
-The easiest way to create your first Storage account is by using the [Azure portal](https://portal.azure.cn). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-
-You can also create a Storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) or [Azure CLI](../storage/common/storage-azure-cli.md).
-
-If you prefer not to create a Storage account at this time, you can also use the Azure Storage emulator to run and test your code in a local environment. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 <!-- Not Available on  ### Create an Azure Cosmos DB account -->
 
@@ -91,17 +82,10 @@ In the examples below, the `require_once` statement is always shown, but only th
 To instantiate a Storage Table service client, you must first have a valid connection string. The format for the Storage Table service connection string is:
 
 ```php
-$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/"
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];EndpointSuffix=core.chinacloudapi.cn"
 ```
 
-<!-- Not Available on Cosmos DB Table API
-## Add an Azure Cosmos DB connection
-To instantiate an Azure Cosmos DB Table client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
-
-```php
-$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myaccount.documents.azure.cn]";
-```
--->
+<!-- Not Available on ## Add an Azure Cosmos DB connection -->
 
 ## Add a Storage emulator connection
 To access the emulator storage:
@@ -442,8 +426,6 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request. 
 
-> [!NOTE]
-> Azure Cosmos DB does not yet support batch operations for tables. 
 ```php
 require_once 'vendor/autoload.php';
 
@@ -454,7 +436,7 @@ use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
 
 // Configure a connection string for Storage Table service.
-$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/"
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];EndpointSuffix=core.chinacloudapi.cn"
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);

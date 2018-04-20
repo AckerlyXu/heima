@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: monicar
 
 ms.assetid: b2fa8e8f-7291-45a3-9bd1-7284ed9077f8
 ms.service: cosmos-db
@@ -15,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 # Tuning query performance with Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB provides a [SQL API for querying data](sql-api-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
@@ -138,7 +135,7 @@ The key response headers returned from the query include the following:
 | `x-ms-documentdb-query-metrics` | The query statistics for the execution. This is a delimited string containing statistics of time spent in the various phases of query execution. Returned if `x-ms-documentdb-populatequerymetrics` is set to `True`. | 
 | `x-ms-request-charge` | The number of [request units](request-units.md) consumed by the query. | 
 
-For details on the REST API request headers and options, see [Querying resources using the REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+For details on the REST API request headers and options, see [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## Best practices for query performance
 The following are the most common factors that impact Azure Cosmos DB query performance. We dig deeper into each of these topics in this article.
@@ -215,7 +212,7 @@ Following are implications of how the parallel queries would behave for differen
 For SDK release notes, and details on implemented classes and methods see [SQL SDKs](sql-api-sdk-dotnet.md)
 
 ### Network latency
-See [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.md) for how to set up global distribution, and connect to the closest region. Network latency has a significant impact on query performance when you need to make multiple round-trips or retrieve a large result set from the query. 
+See [Azure Cosmos DB multiple-region distribution](tutorial-global-distribution-sql-api.md) for how to set up multiple-region distribution, and connect to the closest region. Network latency has a significant impact on query performance when you need to make multiple round-trips or retrieve a large result set from the query. 
 
 The section on query execution metrics explains how to retrieve the server execution time of queries ( `totalExecutionTimeInMs`), so that you can differentiate between time spent in query execution and time spent in network transit.
 
@@ -279,4 +276,4 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 * To learn about request units, see [request units](request-units.md).
 * To learn about indexing policy, see [indexing policy](indexing-policies.md)
 
-<!-- Update_Description: new articles on SQL api query metrics -->
+<!-- Update_Description: update meta properties, update link -->

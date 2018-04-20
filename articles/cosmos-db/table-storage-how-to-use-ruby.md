@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-
 ---
 # How to use Azure Table Storage with Ruby
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -27,9 +26,13 @@ ms.author: v-yeche
 This guide shows you how to perform common scenarios using the Azure Table service. The samples are written in Ruby and use the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include **creating and deleting a table, and inserting and querying entities in a table**.
 <!-- Not Available on Azure Cosmos DB Table API -->
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## Create an Azure service account
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### Create an Azure storage account
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+<!-- Not Avaiable on ### Create an Azure Cosmos DB Table API account -->
 
 ## Add access to Storage
 <!-- Not Available on Azure Cosmos DB -->
@@ -64,15 +67,7 @@ To obtain these values from a classic or Resource Manager storage account in the
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
 5. Click the copy icon to copy the key to the clipboard.
 
-<!-- Not Available on Azure Cosmos DB Table API
-## Add an Azure Cosmos DB connection
-To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a **Client** object using your copied connection string. You can pass the **Client** object when you create a **TableService** object:
-
-```ruby
-common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
-table_client = Azure::Storage::Table::TableService.new(client: common_client)
-```
--->
+<!-- Not Available on ## Add an Azure Cosmos DB connection -->
 
 ## Create a table
 The **Azure::Storage::Table::TableService** object lets you work with tables and entities. To create a table, use the **create_table()** method. The following example creates a table or prints the error if there is any.

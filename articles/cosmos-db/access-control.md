@@ -5,13 +5,12 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.assetid: fae3af3f-4d6e-46d8-9d9b-b80a4218add9
 ms.service: cosmos-db
 ms.topic: article
 origin.date: 02/06/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -29,5 +28,4 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
 
 The entity can now read Azure Cosmos DB resources.
 
-<!-- Update_Description: new articles about access control in cosmod DB -->
-<!--ms.date: 03/05/2018 -->
+<!-- Update_Description: Update meta properties -->

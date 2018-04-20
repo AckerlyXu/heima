@@ -1,6 +1,6 @@
 ---
 title: C++ tutorial for Azure Cosmos DB | Azure
-description: A C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a planet-scale database service.
+description: A C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a multiple-region scale database service.
 services: cosmos-db
 documentationcenter: cpp
 author: rockboyfor
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 origin.date: 12/25/2016
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -28,8 +28,6 @@ ms.author: v-yeche
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Welcome to the C++ tutorial for the Azure Cosmos DB SQL API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 
@@ -50,7 +48,7 @@ Don't have time? Don't worry! The complete solution is available on [GitHub](htt
 Now let's get started!
 
 ## Prerequisites for the C++ tutorial
-Please make sure you have the following:
+Make sure you have the following resources:
 
 * An active Azure account. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin. 
 

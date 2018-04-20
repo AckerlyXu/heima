@@ -4,7 +4,6 @@ description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
 documentationcenter: ''
 
 ms.assetid: 
@@ -14,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
 origin.date: 10/18/2017
-ms.date: 01/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 
 # Azure Cosmos DB SQL syntax reference
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the SQL query language, which is compatible with SQL API accounts.
 
@@ -77,7 +74,8 @@ The query language supports T-SQL style comments like
 
 While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: - 1 e5` is a minus token followed by number 1 and identifier e5.  
 
-##  <a name="bk_select_query"></a> SELECT clause  
+<a name="bk_select_query"></a>
+##  SELECT clause  
 The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
 
 **Syntax**  
@@ -139,7 +137,8 @@ Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be
 [Scalar expressions](#bk_scalar_expressions)  
 [SELECT clause](#bk_select_query)  
 
-##  <a name="bk_from_clause"></a> FROM clause  
+<a name="bk_from_clause"></a>
+##  FROM clause  
 Specifies the source or joined sources. The FROM clause is optional. If not specified, other clauses will still be executed as if FROM clause provided a single document.  
 
 **Syntax**  
@@ -318,7 +317,8 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
 
  [SELECT clause](#bk_select_query)  
 
-##  <a name="bk_where_clause"></a> WHERE clause  
+<a name="bk_where_clause"></a>
+##  WHERE clause  
  Specifies the search condition for the documents returned by the query.  
 
  **Syntax**  
@@ -343,7 +343,8 @@ WHERE <filter_condition>
 
  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array or Object will not satisfy the condition.  
 
-##  <a name="bk_orderby_clause"></a> ORDER BY clause  
+<a name="bk_orderby_clause"></a>
+##  ORDER BY clause  
  Specifies the sorting order for results returned by the query.  
 
  **Syntax**  
@@ -381,7 +382,8 @@ ORDER BY <sort_specification>
 
  While the query grammar supports multiple order by properties, the Azure Cosmos DB query runtime supports sorting only against a single property, and only against property names, i.e., not against computed properties. Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
 
-##  <a name="bk_scalar_expressions"></a> Scalar expressions  
+<a name="bk_scalar_expressions"></a>
+##  Scalar expressions  
  A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators.  
 
  For details on values which scalar expression may have, see [Constants](#bk_constants) section.  
@@ -474,7 +476,8 @@ ORDER BY <sort_specification>
 
  When creating an array, any element value that is assigned **undefined** value will be skipped and not included in the created object. This will cause the next defined element to take its place in such a way that the created array will not have skipped indexes.  
 
-##  <a name="bk_operators"></a> Operators  
+<a name="bk_operators"></a>
+##  Operators  
  This section describes the supported operators. Each operator can be assigned to exactly one category.  
 
  See **Operator categories** table below, for details regarding handling of **undefined** values, type requirements for input values and handling of values with not matching types.  
@@ -537,7 +540,8 @@ ORDER BY <sort_specification>
 
  Objects are equal if both objects have same properties defined, and if values of matching properties are also equal. If comparing any pair of property values results in undefined, the result of object comparison is undefined.  
 
-##  <a name="bk_constants"></a> Constants  
+<a name="bk_constants"></a>
+##  Constants  
  A constant, also known as a literal or a scalar value, is a symbol that represents a specific data value. The format of a constant depends on the data type of the value it represents.  
 
  **Supported scalar data types:**  
@@ -639,7 +643,8 @@ ORDER BY <sort_specification>
 |\t|tab|U+0009|  
 |\uXXXX|A Unicode character defined by 4 hexadecimal digits.|U+XXXX|  
 
-##  <a name="bk_query_perf_guidelines"></a> Query performance guidelines  
+<a name="bk_query_perf_guidelines"></a>
+##  Query performance guidelines  
  In order for a query to be executed efficiently for a large collection, it should use filters which can be served through one or more indexes.  
 
  The following filters will be considered for index lookup:  
@@ -681,7 +686,8 @@ ORDER BY <sort_specification>
     |[ ,...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by commas.|  
     |[ ...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by blanks.|  
 
-##  <a name="bk_built_in_functions"></a> Built-in functions  
+<a name="bk_built_in_functions"></a>
+##  Built-in functions  
  Azure Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
 
 |Function|Description|  
@@ -692,7 +698,8 @@ ORDER BY <sort_specification>
 |[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean or array value.|  
 |[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on an spatial object input value and return a numeric or Boolean value.|  
 
-###  <a name="bk_mathematical_functions"></a> Mathematical functions  
+<a name="bk_mathematical_functions"></a>
+###  Mathematical functions  
  The following functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.  
 
 ||||  
@@ -706,7 +713,8 @@ ORDER BY <sort_specification>
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
 
-####  <a name="bk_abs"></a> ABS  
+<a name="bk_abs"></a>
+####  ABS  
  Returns the absolute (positive) value of the specified numeric expression.  
 
  **Syntax**  
@@ -739,7 +747,8 @@ SELECT ABS(-1), ABS(0), ABS(1)
 [{$1: 1, $2: 0, $3: 1}]  
 ```  
 
-####  <a name="bk_acos"></a> ACOS  
+<a name="bk_acos"></a>
+####  ACOS  
  Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.  
 
  **Syntax**  
@@ -772,7 +781,8 @@ SELECT ACOS(-1)
 [{"$1": 3.1415926535897931}]  
 ```  
 
-####  <a name="bk_asin"></a> ASIN  
+<a name="bk_asin"></a>
+####  ASIN  
  Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.  
 
  **Syntax**  
@@ -805,7 +815,8 @@ SELECT ASIN(-1)
 [{"$1": -1.5707963267948966}]  
 ```  
 
-####  <a name="bk_atan"></a> ATAN  
+<a name="bk_atan"></a>
+####  ATAN  
  Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.  
 
  **Syntax**  
@@ -838,7 +849,8 @@ SELECT ATAN(-45.01)
 [{"$1": -1.5485826962062663}]  
 ```  
 
-####  <a name="bk_atn2"></a> ATN2  
+<a name="bk_atn2"></a>
+####  ATN2  
  Returns the principal value of the arc tangent of y/x, expressed in radians.  
 
  **Syntax**  
@@ -871,7 +883,8 @@ SELECT ATN2(35.175643, 129.44)
 [{"$1": 1.3054517947300646}]  
 ```  
 
-####  <a name="bk_ceiling"></a> CEILING  
+<a name="bk_ceiling"></a>
+####  CEILING  
  Returns the smallest integer value greater than, or equal to, the specified numeric expression.  
 
  **Syntax**  
@@ -904,7 +917,8 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 [{$1: 124, $2: -123, $3: 0}]  
 ```  
 
-####  <a name="bk_cos"></a> COS  
+<a name="bk_cos"></a>
+####  COS  
  Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.  
 
  **Syntax**  
@@ -937,7 +951,8 @@ SELECT COS(14.78)
 [{"$1": -0.59946542619465426}]  
 ```  
 
-####  <a name="bk_cot"></a> COT  
+<a name="bk_cot"></a>
+####  COT  
  Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.  
 
  **Syntax**  
@@ -970,7 +985,8 @@ SELECT COT(124.1332)
 [{"$1": -0.040311998371148884}]  
 ```  
 
-####  <a name="bk_degrees"></a> DEGREES  
+<a name="bk_degrees"></a>
+####  DEGREES  
  Returns the corresponding angle in degrees for an angle specified in radians.  
 
  **Syntax**  
@@ -1003,7 +1019,8 @@ SELECT DEGREES(PI()/2)
 [{"$1": 90}]  
 ```  
 
-####  <a name="bk_floor"></a> FLOOR  
+<a name="bk_floor"></a>
+####  FLOOR  
  Returns the largest integer less than or equal to the specified numeric expression.  
 
  **Syntax**  
@@ -1036,7 +1053,8 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 [{$1: 123, $2: -124, $3: 0}]  
 ```  
 
-####  <a name="bk_exp"></a> EXP  
+<a name="bk_exp"></a>
+####  EXP  
  Returns the exponential value of the specified numeric expression.  
 
  **Syntax**  
@@ -1089,7 +1107,8 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
 
-####  <a name="bk_log"></a> LOG  
+<a name="bk_log"></a>
+####  LOG  
  Returns the natural logarithm of the specified numeric expression.  
 
  **Syntax**  
@@ -1146,7 +1165,8 @@ SELECT EXP(LOG(10))
 [{$1: 10.000000000000002}]  
 ```  
 
-####  <a name="bk_log10"></a> LOG10  
+<a name="bk_log10"></a>
+####  LOG10  
  Returns the base-10 logarithm of the specified numeric expression.  
 
  **Syntax**  
@@ -1183,7 +1203,8 @@ SELECT LOG10(100)
 [{$1: 2}]  
 ```  
 
-####  <a name="bk_pi"></a> PI  
+<a name="bk_pi"></a>
+####  PI  
  Returns the constant value of PI.  
 
  **Syntax**  
@@ -1216,7 +1237,8 @@ SELECT PI()
 [{"$1": 3.1415926535897931}]  
 ```  
 
-####  <a name="bk_power"></a> POWER  
+<a name="bk_power"></a>
+####  POWER  
  Returns the value of the specified expression to the specified power.  
 
  **Syntax**  
@@ -1253,7 +1275,8 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 [{$1: 8, $2: 15.625}]  
 ```  
 
-####  <a name="bk_radians"></a> RADIANS  
+<a name="bk_radians"></a>
+####  RADIANS  
  Returns radians when a numeric expression, in degrees, is entered.  
 
  **Syntax**  
@@ -1292,7 +1315,8 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
    }]  
 ```  
 
-####  <a name="bk_round"></a> ROUND  
+<a name="bk_round"></a>
+####  ROUND  
  Returns a numeric value, rounded to the closest integer value.  
 
  **Syntax**  
@@ -1325,7 +1349,8 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
 
-####  <a name="bk_sign"></a> SIGN  
+<a name="bk_sign"></a>
+####  SIGN  
  Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.  
 
  **Syntax**  
@@ -1358,7 +1383,8 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 [{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
 ```  
 
-####  <a name="bk_sin"></a> SIN  
+<a name="bk_sin"></a>
+####  SIN  
  Returns the trigonometric sine of the specified angle, in radians, in the specified expression.  
 
  **Syntax**  
@@ -1391,7 +1417,8 @@ SELECT SIN(45.175643)
 [{"$1": 0.929607286611012}]  
 ```  
 
-####  <a name="bk_sqrt"></a> SQRT  
+<a name="bk_sqrt"></a>
+####  SQRT  
  Returns the square root of the specified numeric value.  
 
  **Syntax**  
@@ -1424,7 +1451,8 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
 
-####  <a name="bk_square"></a> SQUARE  
+<a name="bk_square"></a>
+####  SQUARE  
  Returns the square of the specified numeric value.  
 
  **Syntax**  
@@ -1457,7 +1485,8 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 [{$1: 1, $2: 4, $3: 9}]  
 ```  
 
-####  <a name="bk_tan"></a> TAN  
+<a name="bk_tan"></a>
+####  TAN  
  Returns the tangent of the specified angle, in radians, in the specified expression.  
 
  **Syntax**  
@@ -1490,7 +1519,8 @@ SELECT TAN(PI()/2);
 [{"$1": 16331239353195370 }]  
 ```  
 
-####  <a name="bk_trunc"></a> TRUNC  
+<a name="bk_trunc"></a>
+####  TRUNC  
  Returns a numeric value, truncated to the closest integer value.  
 
  **Syntax**  
@@ -1523,7 +1553,8 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 [{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
 ```  
 
-###  <a name="bk_type_checking_functions"></a> Type checking functions  
+<a name="bk_type_checking_functions"></a>
+###  Type checking functions  
  The following functions support type checking against input values, and each return a Boolean value.  
 
 ||||  
@@ -1532,7 +1563,8 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 |[IS_NULL](#bk_is_null)|[IS_NUMBER](#bk_is_number)|[IS_OBJECT](#bk_is_object)|  
 |[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
 
-####  <a name="bk_is_array"></a> IS_ARRAY  
+<a name="bk_is_array"></a>
+####  IS_ARRAY  
  Returns a Boolean value indicating if the type of the specified expression is an array.  
 
  **Syntax**  
@@ -1572,7 +1604,8 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
 ```  
 
-####  <a name="bk_is_bool"></a> IS_BOOL  
+<a name="bk_is_bool"></a>
+####  IS_BOOL  
  Returns a Boolean value indicating if the type of the specified expression is a Boolean.  
 
  **Syntax**  
@@ -1612,7 +1645,8 @@ SELECT
 [{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
 ```  
 
-####  <a name="bk_is_defined"></a> IS_DEFINED  
+<a name="bk_is_defined"></a>
+####  IS_DEFINED  
  Returns a Boolean indicating if the property has been assigned a value.  
 
  **Syntax**  
@@ -1648,7 +1682,8 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
    }]  
 ```  
 
-####  <a name="bk_is_null"></a> IS_NULL  
+<a name="bk_is_null"></a>
+####  IS_NULL  
  Returns a Boolean value indicating if the type of the specified expression is null.  
 
  **Syntax**  
@@ -1688,7 +1723,8 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
 ```  
 
-####  <a name="bk_is_number"></a> IS_NUMBER  
+<a name="bk_is_number"></a>
+####  IS_NUMBER  
  Returns a Boolean value indicating if the type of the specified expression is a number.  
 
  **Syntax**  
@@ -1728,7 +1764,8 @@ SELECT
 [{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
 ```  
 
-####  <a name="bk_is_object"></a> IS_OBJECT  
+<a name="bk_is_object"></a>
+####  IS_OBJECT  
  Returns a Boolean value indicating if the type of the specified expression is a JSON object.  
 
  **Syntax**  
@@ -1768,7 +1805,8 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
 ```  
 
-####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
+<a name="bk_is_primitive"></a>
+####  IS_PRIMITIVE  
  Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric or null).  
 
  **Syntax**  
@@ -1808,7 +1846,8 @@ SELECT
 [{"$1": true, "$2": true, "$3": true, "$4": true, "$5": false, "$6": false, "$7": false}]  
 ```  
 
-####  <a name="bk_is_string"></a> IS_STRING  
+<a name="bk_is_string"></a>
+####  IS_STRING  
  Returns a Boolean value indicating if the type of the specified expression is a string.  
 
  **Syntax**  
@@ -1848,7 +1887,8 @@ SELECT
 [{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
 ```  
 
-###  <a name="bk_string_functions"></a> String functions  
+<a name="bk_string_functions"></a>
+###  String functions  
  The following scalar functions perform an operation on a string input value and return a string, numeric or Boolean value.  
 
 ||||  
@@ -1860,7 +1900,8 @@ SELECT
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
 |[UPPER](#bk_upper)|||  
 
-####  <a name="bk_concat"></a> CONCAT  
+<a name="bk_concat"></a>
+####  CONCAT  
  Returns a string that is the result of concatenating two or more string values.  
 
  **Syntax**  
@@ -1893,7 +1934,8 @@ SELECT CONCAT("abc", "def")
 [{"$1": "abcdef"}  
 ```  
 
-####  <a name="bk_contains"></a> CONTAINS  
+<a name="bk_contains"></a>
+####  CONTAINS  
  Returns a Boolean indicating whether the first string expression contains the second.  
 
  **Syntax**  
@@ -1926,7 +1968,8 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 [{"$1": true, "$2": false}]  
 ```  
 
-####  <a name="bk_endswith"></a> ENDSWITH  
+<a name="bk_endswith"></a>
+####  ENDSWITH  
  Returns a Boolean indicating whether the first string expression ends with the second.  
 
  **Syntax**  
@@ -1959,7 +2002,8 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 [{"$1": false, "$2": true}]  
 ```  
 
-####  <a name="bk_index_of"></a> INDEX_OF  
+<a name="bk_index_of"></a>
+####  INDEX_OF  
  Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.  
 
  **Syntax**  
@@ -1992,7 +2036,8 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 [{"$1": 0, "$2": 1, "$3": -1}]  
 ```  
 
-####  <a name="bk_left"></a> LEFT  
+<a name="bk_left"></a>
+####  LEFT  
  Returns the left part of a string with the specified number of characters.  
 
  **Syntax**  
@@ -2029,7 +2074,8 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 [{"$1": "a", "$2": "ab"}]  
 ```  
 
-####  <a name="bk_length"></a> LENGTH  
+<a name="bk_length"></a>
+####  LENGTH  
  Returns the number of characters of the specified string expression.  
 
  **Syntax**  
@@ -2062,7 +2108,8 @@ SELECT LENGTH("abc")
 [{"$1": 3}]  
 ```  
 
-####  <a name="bk_lower"></a> LOWER  
+<a name="bk_lower"></a>
+####  LOWER  
  Returns a string expression after converting uppercase character data to lowercase.  
 
  **Syntax**  
@@ -2096,7 +2143,8 @@ SELECT LOWER("Abc")
 
 ```  
 
-####  <a name="bk_ltrim"></a> LTRIM  
+<a name="bk_ltrim"></a>
+####  LTRIM  
  Returns a string expression after it removes leading blanks.  
 
  **Syntax**  
@@ -2129,7 +2177,8 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 [{"$1": "abc", "$2": "abc", "$3": "abc   "}]  
 ```  
 
-####  <a name="bk_replace"></a> REPLACE  
+<a name="bk_replace"></a>
+####  REPLACE  
  Replaces all occurrences of a specified string value with another string value.  
 
  **Syntax**  
@@ -2162,7 +2211,8 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 [{"$1": "This is a desk"}]  
 ```  
 
-####  <a name="bk_replicate"></a> REPLICATE  
+<a name="bk_replicate"></a>
+####  REPLICATE  
  Repeats a string value a specified number of times.  
 
  **Syntax**  
@@ -2199,7 +2249,8 @@ SELECT REPLICATE("a", 3)
 [{"$1": "aaa"}]  
 ```  
 
-####  <a name="bk_reverse"></a> REVERSE  
+<a name="bk_reverse"></a>
+####  REVERSE  
  Returns the reverse order of a string value.  
 
  **Syntax**  
@@ -2232,7 +2283,8 @@ SELECT REVERSE("Abc")
 [{"$1": "cbA"}]  
 ```  
 
-####  <a name="bk_right"></a> RIGHT  
+<a name="bk_right"></a>
+####  RIGHT  
  Returns the right part of a string with the specified number of characters.  
 
  **Syntax**  
@@ -2269,7 +2321,8 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 [{"$1": "c", "$2": "bc"}]  
 ```  
 
-####  <a name="bk_rtrim"></a> RTRIM  
+<a name="bk_rtrim"></a>
+####  RTRIM  
  Returns a string expression after it removes trailing blanks.  
 
  **Syntax**  
@@ -2302,7 +2355,8 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 [{"$1": "   abc", "$2": "abc", "$3": "abc"}]  
 ```  
 
-####  <a name="bk_startswith"></a> STARTSWITH  
+<a name="bk_startswith"></a>
+####  STARTSWITH  
  Returns a Boolean indicating whether the first string expression starts with the second.  
 
  **Syntax**  
@@ -2335,7 +2389,8 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 [{"$1": false, "$2": true}]  
 ```  
 
-####  <a name="bk_substring"></a> SUBSTRING  
+<a name="bk_substring"></a>
+####  SUBSTRING  
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
 
  **Syntax**  
@@ -2372,7 +2427,8 @@ SELECT SUBSTRING("abc", 1, 1)
 [{"$1": "b"}]  
 ```  
 
-####  <a name="bk_upper"></a> UPPER  
+<a name="bk_upper"></a>
+####  UPPER  
  Returns a string expression after converting lowercase character data to uppercase.  
 
  **Syntax**  
@@ -2405,7 +2461,8 @@ SELECT UPPER("Abc")
 [{"$1": "ABC"}]  
 ```  
 
-###  <a name="bk_array_functions"></a> Array functions  
+<a name="bk_array_functions"></a>
+###  Array functions  
  The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value  
 
 ||||  
@@ -2413,7 +2470,8 @@ SELECT UPPER("Abc")
 |[ARRAY_CONCAT](#bk_array_concat)|[ARRAY_CONTAINS](#bk_array_contains)|[ARRAY_LENGTH](#bk_array_length)|  
 |[ARRAY_SLICE](#bk_array_slice)|||  
 
-####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
+<a name="bk_array_concat"></a>
+####  ARRAY_CONCAT  
  Returns an array that is the result of concatenating two or more array values.  
 
  **Syntax**  
@@ -2446,7 +2504,8 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 [{"$1": ["apples", "strawberries", "bananas"]}]  
 ```  
 
-####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
+<a name="bk_array_contains"></a>
+####  ARRAY_CONTAINS  
 Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. 
 
  **Syntax**  
@@ -2508,7 +2567,8 @@ SELECT
 }] 
 ```  
 
-####  <a name="bk_array_length"></a> ARRAY_LENGTH  
+<a name="bk_array_length"></a>
+####  ARRAY_LENGTH  
  Returns the number of elements of the specified array expression.  
 
  **Syntax**  
@@ -2541,7 +2601,8 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 [{"$1": 3}]  
 ```  
 
-####  <a name="bk_array_slice"></a> ARRAY_SLICE  
+<a name="bk_array_slice"></a>
+####  ARRAY_SLICE  
  Returns part of an array expression.
 
  **Syntax**  
@@ -2583,7 +2644,8 @@ SELECT
        }]  
 ```  
 
-###  <a name="bk_spatial_functions"></a> Spatial functions  
+<a name="bk_spatial_functions"></a>
+###  Spatial functions  
  The following scalar functions perform an operation on an spatial object input value and return a numeric or Boolean value.  
 
 ||||  
@@ -2591,7 +2653,8 @@ SELECT
 |[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
 |[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
 
-####  <a name="bk_st_distance"></a> ST_DISTANCE  
+<a name="bk_st_distance"></a>
+####  ST_DISTANCE  
  Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.  
 
  **Syntax**  
@@ -2628,7 +2691,8 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```  
 
-####  <a name="bk_st_within"></a> ST_WITHIN  
+<a name="bk_st_within"></a>
+####  ST_WITHIN  
  Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument is within the GeoJSON (Point, Polygon, or LineString) in the second argument.  
 
  **Syntax**  
@@ -2670,7 +2734,8 @@ WHERE ST_WITHIN(f.location, {
 [{ "id": "WakefieldFamily" }]  
 ```  
 
-####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
+<a name="bk_st_intersects"></a>
+####  ST_INTERSECTS  
  Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument intersects the GeoJSON (Point, Polygon, or LineString) in the second argument.  
 
  **Syntax**  
@@ -2712,7 +2777,8 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
 
-####  <a name="bk_st_isvalid"></a> ST_ISVALID  
+<a name="bk_st_isvalid"></a>
+####  ST_ISVALID  
  Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.  
 
  **Syntax**  
@@ -2749,7 +2815,8 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 [{ "$1": false }]  
 ```  
 
-####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
+<a name="bk_st_isvaliddetailed"></a>
+####  ST_ISVALIDDETAILED  
  Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.  
 
  **Syntax**  

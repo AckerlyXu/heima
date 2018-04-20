@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: Java
 author: rockboyfor
 manager: digimobile
-editor: monicar
 
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -29,8 +28,6 @@ ms.author: v-yeche
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the NoSQL tutorial for the SQL API for Azure Cosmos DB Java SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -66,7 +63,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Step 2: Clone the GitHub project
+<a name="GitClone"></a>
+## Step 2: Clone the GitHub project
 You can get started by cloning the GitHub repository for [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
 
     git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -81,7 +79,8 @@ The directory contains a `pom.xml` for the project and a `src` folder containing
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
+<a name="Connect"></a>
+## Step 3: Connect to an Azure Cosmos DB account
 Next, head back to the [Azure Portal](https://portal.azure.cn) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
 
 In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.cn` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
@@ -101,7 +100,8 @@ Your Azure Cosmos DB [database](sql-api-resources.md#databases) can be created b
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a id="CreateColl"></a>Step 5: Create a collection
+<a name="CreateColl"></a>
+## Step 5: Create a collection
 > [!WARNING]
 > **createCollection** creates a new collection with reserved throughput, which has pricing implications. For more details, visit our [pricing page](https://www.azure.cn/pricing/details/cosmos-db/).
 > 
@@ -119,7 +119,8 @@ A [collection](sql-api-resources.md#collections) can be created by using the [cr
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a id="CreateDoc"></a>Step 6: Create JSON documents
+<a name="CreateDoc"></a>
+## Step 6: Create JSON documents
 A [document](sql-api-resources.md#documents) can be created by using the [createDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) to import the data into a database.
 
     // Insert your Java objects as documents 
@@ -142,7 +143,8 @@ A [document](sql-api-resources.md#documents) can be created by using the [create
 
 ![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a Java console application](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
+<a name="Query"></a>
+## Step 7: Query Azure Cosmos DB resources
 Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection.  The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) method.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -155,7 +157,8 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a id="ReplaceDocument"></a>Step 8: Replace JSON document
+<a name="ReplaceDocument"></a>
+## Step 8: Replace JSON document
 Azure Cosmos DB supports updating JSON documents using the [replaceDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.replacedocument) method.
 
     // Update a property
@@ -166,17 +169,20 @@ Azure Cosmos DB supports updating JSON documents using the [replaceDocument](htt
         andersenFamily,
         null);
 
-## <a id="DeleteDocument"></a>Step 9: Delete JSON document
+<a name="DeleteDocument"></a>
+## Step 9: Delete JSON document
 Similarly, Azure Cosmos DB supports deleting JSON documents using the [deleteDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.deletedocument) method.  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a id="DeleteDatabase"></a>Step 10: Delete the database
+<a name="DeleteDatabase"></a>
+## Step 10: Delete the database
 Deleting the created database removes the database and all children resources (collections, documents, etc.).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>Step 11: Run your Java console application all together!
+<a name="Run"></a>
+## Step 11: Run your Java console application all together!
 To run the application from the console, navigate to the project folder and compile using Maven:
 
     mvn package
@@ -193,4 +199,4 @@ Congratulations! You've completed this NoSQL tutorial and have a working Java co
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: new articles on SQL api java get started -->
+<!-- Update_Description: update meta properties, wording update -->

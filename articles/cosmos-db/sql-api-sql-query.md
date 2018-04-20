@@ -14,14 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2017
-ms.date: 03/05/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 # SQL queries for Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language on SQL API accounts. Azure Cosmos DB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes.
 
@@ -169,7 +167,7 @@ We would like to draw attention to a few noteworthy aspects of the Cosmos DB que
 * A Cosmos DB collection is a schema-free container of JSON documents. The relations in data entities within and across documents in a collection are implicitly captured by containment and not by primary key and foreign key relations. This is an important aspect worth pointing out in light of the intra-document joins discussed later in this article.
 
 <a name="Indexing"></a>
-## Cosmos DB indexing
+##  Cosmos DB indexing
 Before we get into the SQL syntax, it is worth exploring the indexing design in Azure Cosmos DB. 
 
 The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU and input/output) while providing good throughput and low latency. Often, the choice of the right index for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn't conform to a strict schema and evolves rapidly. 
@@ -1115,7 +1113,8 @@ You can also perform aggregation over the result of array iteration. For example
       }
     ]
 
-### <a name="Joins"></a>Joins
+<a name="Joins"></a>
+### Joins
 In a relational database, the need to join across tables is important. It's the logical corollary to designing normalized schemas. Contrary to this, the SQL API deals with the denormalized data model of schema-free documents. This is the logical equivalent of a "self-join".
 
 The syntax that the language supports is <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Overall, this returns a set of **N**-tuples (tuple with **N** values). Each tuple has values produced by iterating all collection aliases over their respective sets. In other words, this is a full cross product of the sets participating in the join.
@@ -2252,7 +2251,8 @@ The following example shows how to use the queryDocuments in the JavaScript serv
             });
     }
 
-## <a name="References"></a>References
+<a name="References"></a>
+## References
 1. [Introduction to Azure Cosmos DB][introduction]
 2. [Azure Cosmos DB SQL specification](/cosmos-db/sql-api-sql-query-reference)
 <!-- http://go.microsoft.com/fwlink/p/?LinkID=510612 Redirect to cosmos-db/sql-api-sql-query-reference-->
