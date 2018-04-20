@@ -7,8 +7,8 @@ manager: digimobile
 ms.custom: reference
 ms.service: sql-database
 ms.topic: article
-origin.date: 03/20/2017
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---

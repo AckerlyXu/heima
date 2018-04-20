@@ -9,8 +9,8 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 07/06/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ---
 # Use Node.js to query an Azure SQL database

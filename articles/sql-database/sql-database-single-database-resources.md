@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 
@@ -31,6 +31,11 @@ To set or change the service tier, performance level, or storage amount for a ne
 Click **Overview** to monitor and/or cancel an ongoing operation.
 
 ![Cancel operation](./media/sql-database-single-database-resources/cancel-operation.png)
+
+> [!IMPORTANT]
+> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
+>
+
 ## Manage single database resources using PowerShell
 
 To set or change Azure SQL databases service tiers, performance levels, and storage amount using PowerShell, use these PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 

@@ -5,8 +5,8 @@ services: sql-database
 author: Hayley244
 manager: digimobile
 ms.service: sql-database
-origin.date: 11/15/2016
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
 
@@ -14,7 +14,7 @@ ms.topic: article
 # Getting started with JSON features in Azure SQL Database
 Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text.
 
-JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such [Azure Storage](https://www.azure.cn/home/features/storage/), and [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) have REST endpoints that return or consume JSON.
+JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such [Azure Storage](https://www.azure.cn/home/features/storage/), and [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) have REST endpoints that return or consume JSON.
 
 Azure SQL Database lets you work with JSON data easily and integrate your database with modern services.
 

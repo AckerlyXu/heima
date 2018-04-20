@@ -8,8 +8,8 @@ ms.service: sql-database
 
 ms.custom: business continuity
 ms.topic: article
-origin.date: 10/13/2016
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---

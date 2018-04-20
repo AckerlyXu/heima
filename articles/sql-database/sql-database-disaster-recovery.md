@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/08/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 
@@ -25,12 +25,12 @@ Azure SQL Database offers the following capabilities for recovering from an outa
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](sql-database-business-continuity.md).
 
 > [!NOTE]
-> If you are using zone-redundant Premium databases or pools, the recovery process is automated and the rest of this material does not apply. 
+> If you are using zone-redundant Premium or Business Critical databases or pools (preview), the recovery process is automated and the rest of this material does not apply. 
 
 ### Prepare for the event of an outage
 For success with recovery to another data region using either failover groups or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well-defined steps documented and tested to ensure a smooth recovery. These preparation steps include:
 
-* Identify the logical server in another region to become the new primary server. For geo-restore, this will generally be a server in the paired region(China North and China East) for the region in which your database is located. This will eliminate the additional traffic cost during the geo-restoring operations.
+* Identify the logical server in another region to become the new primary server. For geo-restore, this is generally a server in the [paired region](../best-practices-availability-paired-regions.md) for the region in which your database is located. This eliminates the additional traffic cost during the geo-restoring operations.
 * Identify, and optionally define, the server-level firewall rules needed on for users to access the new primary database.
 * Determine how you are going to redirect users to the new primary server, such as by changing connection strings or by changing DNS entries.
 * Identify, and optionally create, the logins that must be present in the master database on the new primary server, and ensure these logins have appropriate permissions in the master database, if any. For more information, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
@@ -52,7 +52,7 @@ Depending on your application tolerance to downtime and possible business liabil
 Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
 
 ## Wait for service recovery
-The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://www.azure.cn/support/service-dashboard/). After the recovery of the region your application's availability will be restored.
+The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://www.azure.cn/support/service-dashboard/). After the recovery of the region, your application’s availability is restored.
 
 ## Fail over to geo-replicated secondary server in the failover group
 If your application’s downtime can result in business liability, you should be using failover groups. It enables the application to quickly restore availability in a different region in case of an outage. Learn how to [configure failover groups](sql-database-geo-replication-portal.md).

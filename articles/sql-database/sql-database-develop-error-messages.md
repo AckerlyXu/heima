@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-origin.date: 09/28/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
@@ -87,8 +87,8 @@ Related topics:
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [sql-database-resource-limits](sql-database-resource-limits.md).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
-| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [sql-database-resource-limits](sql-database-resource-limits.md). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
+| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
+| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers.md). |
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. |
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. |
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. |
@@ -101,8 +101,8 @@ The following errors are related to creating and using elastic pools:
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. |Elastic pool space limit in MBs. |Attempting to write data to a database when the storage limit of the elastic pool has been reached. |Consider increasing the DTUs of the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. |
-| 10929 |EX_USER |The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [sql-database-resource-limits](sql-database-resource-limits.md) for assistance. Otherwise, please try again later. |DTU min per database; DTU max per database |The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
+| 1132 |EX_RESOURCE |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. |Elastic pool space limit in MBs. |Attempting to write data to a database when the storage limit of the elastic pool has been reached. |Consider increasing the DTUs of and/or adding storage to the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. |
+| 10929 |EX_USER |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Otherwise, please try again later. |DTU / vCore min per database; DTU / vCore max per database |The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
 | 40844 |EX_USER |Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship. |database name, database edition, server name |A StartDatabaseCopy command is issued for a non-premium db in an elastic pool. |Coming soon |
 | 40857 |EX_USER |Elastic pool not found for server: '%ls', elastic pool name: '%ls'. |name of server; elastic pool name |Specified elastic pool does not exist in the specified server. |Provide a valid elastic pool name. |
 | 40858 |EX_USER |Elastic pool '%ls' already exists in server: '%ls' |elastic pool name, server name |Specified elastic pool already exists in the specified logical server. |Provide new elastic pool name. |
@@ -196,7 +196,7 @@ The following errors do not fall into any previous categories.
 | 40652 |16 |Cannot move or create server. Subscription (subscription-id) will exceed server quota. |
 | 40671 |17 |Communication failure between the gateway and the management service. Please retry later. |
 | 40852 |16 |Cannot open database '%.\*ls' on server '%.\*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain 'secure' in the server FQDN  -  'server name'.database.chinacloudapi.cn should be modified to 'server name'.database.`secure`.chinacloudapi.cn. |
-| 40914 | 16 | Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.|
+| 40914 | 16 | Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.<br /><br />To fix, consider adding a [virtual network rule](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |
 | 45169 |16 |The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later. |
 

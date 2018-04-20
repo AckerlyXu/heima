@@ -9,8 +9,8 @@ ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.devlang: PowerShell
 ms.topic: quickstart
-origin.date: 04/17/2017
-ms.date: 07/31/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ---
 
@@ -97,10 +97,10 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. 
+Other quickstart tutorials in this collection build upon this quickstart. 
 
 > [!TIP]
-> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+> If you plan to continue on to work with subsequent quickstart tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 >
 
 ```powershell
@@ -109,14 +109,8 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
-
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
+- Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages. 
+- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
+ - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
+  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
 

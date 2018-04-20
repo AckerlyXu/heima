@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-origin.date: 10/23/2017
-ms.date: 12/11/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 ---

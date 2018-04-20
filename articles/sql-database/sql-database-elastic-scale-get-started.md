@@ -7,8 +7,8 @@ author: yunan2016
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 11/16/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 ---
@@ -88,13 +88,13 @@ Congratulations! You have successfully built and run your first sharded applicat
 > 
 
 ## Key pieces of the code sample
-* **Managing shards and shard maps**: The code illustrates how to work with shards, ranges, and mappings in the file **ShardManagementUtils.cs**. For more information, see [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).  
+* **Managing shards and shard maps**: The code illustrates how to work with shards, ranges, and mappings in the *ShardManagementUtils.cs* file. For more information, see [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).  
 
-* **Data-dependent routing**: Routing of transactions to the right shard is shown in **DataDependentRoutingSample.cs**. For more information, see [Data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md). 
+* **Data-dependent routing**: Routing of transactions to the right shard is shown in the *DataDependentRoutingSample.cs*. For more information, see [Data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md). 
 
-* **Querying over multiple shards**: Querying across shards is illustrated in the file **MultiShardQuerySample.cs**. For more information, see [Multi-Shard Querying](sql-database-elastic-scale-multishard-querying.md).
+* **Querying over multiple shards**: Querying across shards is illustrated in the *MultiShardQuerySample.cs* file. For more information, see [Multi-shard querying](sql-database-elastic-scale-multishard-querying.md).
 
-* **Adding empty shards**: The iterative adding of new empty shards is performed by the code in the file **CreateShardSample.cs**. For more information, see [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).
+* **Adding empty shards**: The iterative adding of new empty shards is performed by the code in the *CreateShardSample.cs* file. For more information, see [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).
 
 ## Other elastic scale operations
 * **Splitting an existing shard**: The capability to split shards is provided by the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).

@@ -7,27 +7,30 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 11/06/2017
+origin.date: 04/10/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
 
 # Create and manage Azure SQL Database servers and databases
 
-SQL Database offers two types of databases:
+SQL Database offers three types of databases:
 
 - A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
 - A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
+- An [instance of a SQL server](sql-database-managed-instance.md) (a Managed Instance) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases. Managed Instance is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. Managed Instance provides high compatibility with the on-premises SQL Server programming model and supports the large majority of SQL Server features and accompanying tools and services.  
 
- Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
+Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
 
+> [!IMPORTANT]
+> SQL Database Managed Instance, currently in public preview, offers a single General Purpose service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
 
 ## What is an Azure SQL logical server?
 
 A logical server acts as a central administrative point for multiple single or [pooled](sql-database-elastic-pool.md) databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server.
 
-A logical server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. 
+A logical server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. In contrast, a server in a SQL Database Managed Instance is similar to a SQL Server instance that you may be familiar with in the on-premises world.
 
 When you create a logical server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database supports SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). Windows Authentication is not supported. 
 
@@ -41,14 +44,14 @@ An Azure Database logical server:
 - Is the parent resource for databases, elastic pools, and data warehouses
 - Provides a namespace for databases, elastic pools, and data warehouses
 - Is a logical container with strong lifetime semantics - delete a server and it deletes the contained databases, elastic pools, and data warehouses
-- Participates in [Azure role-based access control (RBAC)](/active-directory/role-based-access-control-what-is) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
+- Participates in [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
 - Is a high-order element of the identity of databases, elastic pools, and data warehouses for Azure resource management purposes (see the URL scheme for databases and pools)
 - Collocates resources in a region
 - Provides a connection endpoint for database access (<serverName>.database.chinacloudapi.cn)
 - Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
 - Provides the scope for management policies that apply to its databases - logins, firewall, audit, threat detection, etc. 
 - Is restricted by a quota within the parent subscription (six servers per subscription by default)
-- Provides the scope for database quota and DTU quota for the resources it contains (such as 45,000 DTU)
+- Provides the scope for database quota and DTU or vCore quota for the resources it contains (such as 45,000 DTU)
 - Is the versioning scope for capabilities enabled on contained resources 
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
@@ -73,7 +76,8 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.cn
 
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
->
+
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### Manage an existing SQL server
 

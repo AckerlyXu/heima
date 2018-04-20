@@ -8,13 +8,13 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-origin.date: 06/22/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart tutorial demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
 

@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 06/07/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
@@ -118,7 +118,7 @@ There are several methods you can use to view blob auditing logs:
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file or to a table.
 
-* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Operations Management Suite (OMS) Log Analytics public APIs to push SQL audit logs into OMS. The sync application pushes SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard.
+* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Log Analytics public APIs to push SQL audit logs into Log Analytics. The sync application pushes SQL audit logs into Log Analytics for consumption via the Log Analytics dashboard.
 
 * Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
@@ -164,6 +164,17 @@ In production, you are likely to refresh your storage keys periodically. When re
     ![Navigation pane][6]
 3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
 4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
+
+## Additional Information
+
+* For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Azure SQL Database Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
+
+* Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+   * **Premium Storage** is currently **not supported** by Append Blobs.
+   * **Storage in VNet** is currently **not supported**.
 
 ## Manage SQL database auditing using Azure PowerShell
 

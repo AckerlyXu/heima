@@ -13,25 +13,34 @@ ms.author: v-johch
 ---
 # What is the Azure SQL Database service? 
 
-SQL Database is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed [single SQL databases](sql-database-servers-databases.md), managed SQL databases in an [elastic pool](sql-database-elastic-pool.md), and SQL [Managed Instances](sql-database-managed-instance.md) (in public preview). It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
+
 SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
 > [!IMPORTANT]
 > To understand the feature differences between SQL Database and SQL Server, see [SQL features](sql-database-features.md). 
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure.
 
-> [!NOTE]
-> See [Azure Trust Center](https://www.trustcenter.cn/) for information about Azure's platform security.
+> [!IMPORTANT]
+> SQL Database Managed Instance is currently in preview and is only available at a single service level. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 >
 
 ## Scalable performance and pools
 
 With SQL Database, each database is isolated from each other and portable, each with its own [service tier](sql-database-service-tiers.md) with a guaranteed performance level. SQL Database provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
+With SQL Database Managed Instance, each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md) 
+
 ### Adjust performance and scale without downtime
 
-SQL Database offers three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model) or the [vCore-based purchasing model (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). 
+- The DTU-based purchasing model offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
+- The vCore-based purchasing model lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
 
-   ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+
+   ![DTU scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+SQL Database Managed Instance is in preview and offers a single service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md)
 
 ### Elastic pools to maximize resource utilization
 
@@ -41,13 +50,16 @@ For many businesses and applications, being able to create single databases and 
 
 With elastic pools, you don’t need to focus on dialing database performance up and down as demand for resources fluctuates. The pooled databases consume the performance resources of the elastic pool as needed. Pooled databases consume but don’t exceed the limits of the pool, so your cost remains predictable even if individual database usage doesn’t. What’s more, you can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. You can also control the minimum and maximum resources available to databases in the pool to ensure that no database in the pool uses all the pool resources and that every pooled database has a guaranteed minimum amount of resources. 
 
+> [!IMPORTANT]
+> SQL Database Managed Instance does not support elastic pools.
+
 ### Blend single databases with pooled databases
 
 Either way you go — single databases or elastic pools — you are not locked in. You can blend single databases with elastic pools, and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. With the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
 ### Extensive monitoring and alerting capabilities
 
-But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings based on [Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic pools](sql-database-what-is-a-dtu.md). Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
+But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
 
 You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 

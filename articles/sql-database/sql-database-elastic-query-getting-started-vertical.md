@@ -8,8 +8,8 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 05/23/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---

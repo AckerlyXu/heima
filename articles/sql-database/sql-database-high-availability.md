@@ -6,8 +6,8 @@ author: yunan2016
 manager: digimobile
 ms.service: sql-database
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: carlrab
 ---
@@ -25,7 +25,7 @@ While such individual events are infrequent, at cloud scale, they occur every we
 Customers are most interested in the resiliency of their own databases and are less interested in the resiliency of the SQL Database service as a whole. 99.99% uptime for a service is meaningless if “my database” is part of the 0.01% of databases that are down. Each and every database needs to be fault-tolerant and fault mitigation should never result in the loss of a committed transaction. 
 
 For data, SQL Database uses both local storage (LS) based on direct attached disks/VHDs and remote storage (RS) based on Azure Premium Storage page blobs. 
-- Local storage is used in the Premium databases and pools, which are designed for mission critical OLTP applications with high IOPS requirements. 
+- Local storage is used in the Premium or Business Critical (preview) databases and elastic pools, which are designed for mission critical OLTP applications with high IOPS requirements. 
 - Remote storage is used for Basic and Standard service tiers, designed for budget oriented business workloads that require storage and compute power to scale independently. They use a single page blob for database and log files, and built-in storage replication and failover mechanisms.
 
 In both cases, the replication, failure detection, and failover mechanisms of SQL Database are fully automated and operate without human intervention. This architecture is designed to ensure that committed data is never lost and that data durability takes precedence over all else.
@@ -42,7 +42,7 @@ Key benefits:
 
 ## Data redundancy
 
-The high availability solution in SQL Database is based on [AlwaysON](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, AlwaysON is used for persistence while in RS is it used for availability (low RTO). 
+The high availability solution in SQL Database is based on [Always ON Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, the Always ON availability group technology is used for persistence while in RS it is used for availability (low RTO). 
 
 ## Local storage configuration
 

@@ -49,7 +49,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 ## Change Azure SQL Database connection policy
 
-To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [conn-policy](https://docs.azure.cn/zh-cn/cli/sql/server/conn-policy) command.
 
 - If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**.
 - If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs.
@@ -138,7 +138,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## Next steps
 
-- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [conn-policy](https://docs.azure.cn/cli/sql/server/conn-policy).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).
 

@@ -8,15 +8,15 @@ author: yunan2016
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 11/28/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 ---
 # Data dependent routing
 **Data dependent routing** is the ability to use the data in a query to route the request to an appropriate database. This is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data dependent routing is restricted to accessing a single database per request. For the Azure SQL Database Elastic tools, this routing is accomplished with the **ShardMapManager** (Java, [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) class.
 
-The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request. 
+The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application's request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request. 
 
 For more information, see [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx).
 

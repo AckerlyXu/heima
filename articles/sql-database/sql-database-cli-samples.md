@@ -9,8 +9,8 @@ ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-origin.date: 06/23/2017
-ms.date: 07/31/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
 ---
 

@@ -8,8 +8,8 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 10/25/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
@@ -33,7 +33,7 @@ The GSM and LSM may become out of sync for the following reasons:
 2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for all shards in a shard map. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database if there is a data center outage, see [Business Continuity](sql-database-business-continuity.md) and [Disaster Recovery](sql-database-disaster-recovery.md).
 3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. To learn about point in time recovery using backups, see [Recovery using backups](sql-database-recovery-using-backups.md).
 
-For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, see the following: 
+For more information about Azure SQL Database Elastic Database tools, geo-replication and Restore, see the following: 
 
 * [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md) 
 * [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
@@ -57,6 +57,7 @@ The [DetachShard method](https://msdn.microsoft.com/library/azure/dn842083.aspx)
 
 * The location parameter is the shard location, specifically server name and database name, of the shard being detached. 
 * The shardMapName parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
+
 
 > [!IMPORTANT]
 > Use this technique only if you are certain that the range for the updated mapping is empty. The methods above do not check data for the range being moved, so it is best to include checks in your code.
@@ -105,14 +106,14 @@ The [AttachShard method](https://msdn.microsoft.com/library/azure/microsoft.azur
 
 This example adds a shard to the shard map that has been recently restored from an earlier point-in time. Since the shard (namely the mapping for the shard in the LSM) has been restored, it is potentially inconsistent with the shard entry in the GSM. Outside of this example code, the shard was restored and renamed to the original name of the database. Since it was restored, it is assumed the mapping in the LSM is the trusted mapping. 
 
-    
-    rm.AttachShard(s.Location, customerMap); 
-    var gs = rm.DetectMappingDifferences(s.Location); 
-       foreach (RecoveryToken g in gs) 
-        { 
-        rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-        } 
-    
+   ```
+   rm.AttachShard(s.Location, customerMap); 
+   var gs = rm.DetectMappingDifferences(s.Location); 
+      foreach (RecoveryToken g in gs) 
+       { 
+       rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+       } 
+   ```
 
 ## Updating shard locations after a geo-failover (restore) of the shards
 If there is a geo-failover, the secondary database is made write accessible and becomes the new primary database. The name of the server, and potentially the database (depending on your configuration), may be different from the original primary. Therefore the mapping entries for the shard in the GSM and LSM must be fixed. Similarly, if the database is restored to a different name or location, or to an earlier point in time, this might cause inconsistencies in the shard maps. The Shard Map Manager handles the distribution of open connections to the correct database. Distribution is based on the data in the shard map and the value of the sharding key that is the target of the applications request. After a geo-failover, this information must be updated with the accurate server name, database name and shard mapping of the recovered database. 
@@ -132,29 +133,29 @@ This example performs the following steps:
 2. Attaches shards to the Shard Map reflecting the new shard locations (the parameter "Configuration.SecondaryServer" is the new server name but the same database name).
 3. Retrieves the recovery tokens by detecting mapping differences between the GSM and the LSM for each shard. 
 4. Resolves the inconsistencies by trusting the mapping from the LSM of each shard. 
-
-    
-    var shards = smm.GetShards(); 
-    foreach (shard s in shards) 
-    { 
+   
+   ```
+   var shards = smm.GetShards(); 
+   foreach (shard s in shards) 
+   { 
      if (s.Location.Server == Configuration.PrimaryServer) 
-
+   
          { 
           ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
-
+   
           rm.DetachShard(s.Location); 
-
+   
           rm.AttachShard(slNew); 
-
+   
           var gs = rm.DetectMappingDifferences(slNew); 
-
+   
           foreach (RecoveryToken g in gs) 
             { 
                rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
             } 
         } 
     } 
-   
+   ```
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -8,14 +8,17 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 1/22/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
 # Azure SQL Database server-level and database-level firewall rules 
 
 Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
+#### Virtual network rules as alternatives to IP rules
+
+In addition to IP rules, the firewall also manages *virtual network rules*. Virtual network rules are based on Virtual Network service endpoints. Virtual network rules might be preferable to IP rules in some cases. To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## Overview
 

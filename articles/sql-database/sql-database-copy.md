@@ -6,15 +6,15 @@ author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-origin.date: 06/15/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
 
 ---
 # Copy an Azure SQL database
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure Portal, PowerShell, or T-SQL. 
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
 
 ## Overview
 
@@ -32,7 +32,7 @@ After the copying succeeds and before other users are remapped, only the login t
 
 ## Copy a database by using the Azure portal
 
-To copy a database by using the Azure Portal, open the page for your database, and then click **Copy**. 
+To copy a database by using the Azure portal, open the page for your database, and then click **Copy**. 
 
    ![Database copy](./media/sql-database-copy/database-copy.png)
 

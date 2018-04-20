@@ -8,13 +8,13 @@ editor: ''
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 03/06/2017
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
 # Elastic Database client library with Entity Framework
-This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
+This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as the running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
 
 ## Downloading and Running the Sample Code
 To download the code for this article:

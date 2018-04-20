@@ -7,7 +7,7 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-origin.date: 06/28/2017
+origin.date: 04/01/2018
 ms.date: 01/08/2018
 ms.author: v-johch
 

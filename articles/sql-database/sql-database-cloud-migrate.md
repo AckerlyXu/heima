@@ -30,7 +30,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
  Use this method to migrate to a single or a pooled database if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
 
-The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method.
+The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to Managed Instance, see [Migration to a Managed Instance](sql-database-managed-instance-migrate.md).
 
   ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
@@ -108,6 +108,10 @@ There are a wide variety of compatibility issues that you might encounter, depen
 * [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
 In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
+
+> [!IMPORTANT]
+> SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Managed Instance](sql-database-managed-instance.md).
+
 
 ## Next steps
 * Use the script on the Azure SQL EMEA Engineers blog to [Monitor tempdb usage during migration](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).

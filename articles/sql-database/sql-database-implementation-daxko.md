@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 
