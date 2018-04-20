@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 
 ms.assetid:
@@ -16,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ---
 
@@ -24,10 +23,9 @@ ms.author: v-yeche
 
 This sample gets an Azure Cosmos DB connection string for MongoDB apps using the Azure CLI. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-<!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Sample script
 

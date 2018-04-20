@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 
 ms.assetid:
@@ -16,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/06/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ---
 
@@ -26,11 +25,11 @@ This sample CLI script creates an Azure Cosmos DB SQL API account, database, and
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -93,5 +92,5 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties -->
  

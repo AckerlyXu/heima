@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: nodejs
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 03/06/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -23,11 +22,17 @@ ms.author: v-yeche
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This article shows how to perform common scenarios using Azure Storage Table service or Azure Comsos DB in a Node.js application.
+This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## Create an Azure service account
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### Create an Azure storage account
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+<!-- Not Available on ### Create an Azure Cosmos DB Table API account-->
 
 ## Configure your application to access Azure Storage
 To use Azure Storage, you need the Microsoft Azure Storage SDK for Node.js, which includes a set of convenience libraries that
@@ -60,15 +65,10 @@ var azure = require('azure-storage');
 The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling **TableService**. For example, the following code creates a **TableService** object:
 
 ```nodejs
-var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
+var tableSvc = azure.createTableService('myconnectionstring');
 ```
 
-## Add an Azure Comsos DB connection
-To add an Azure Cosmos DB connection, create a **TableService** object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
-
-```nodejs
-var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+<!--Not Avaiable on ## Add an Azure Comsos DB connection -->
 
 ## Create a table
 The following code creates a **TableService** object and uses it to create a new table. 
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 
 If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation`, which can be used to iterate through all the results.
 
-There is also a continuation sample (continuationsample.js) in the [azure-storage-node repository](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) on GitHub. 
-
 ## Work with shared access signatures
 Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your Storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 
@@ -454,7 +452,7 @@ For more information, see the following resources.
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 <!-- Notice: Remove from Microsoft -->
 * [Microsoft Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) repository on GitHub.
-* [Node.js Developer Center](https://docs.azure.cn/zh-cn/develop/nodejs)
+* [Azure for Node.js Developers](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [Create a Node.js web app in Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 <!--Update_Description: update meta properties, wording update, update link -->

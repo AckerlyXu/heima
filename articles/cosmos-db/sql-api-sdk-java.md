@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: SQL Java API, SDK & resources | Azure'
-description: Learn all about the SQL Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
+description: Learn all about the SQL Java API and SDK including changes made between each version of the Azure Cosmos DB SQL Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rockboyfor
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -28,14 +28,12 @@ ms.custom: H1Hack27Feb2017
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > 
 > 
 <!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -60,6 +58,6 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## See Also
+## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 <!-- Update_Description: wording update, update link -->

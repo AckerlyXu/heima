@@ -5,8 +5,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -14,8 +12,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 03/16/2018
-ms.date: 03/26/2018
+origin.date: 03/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -29,6 +27,7 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Querying data with MongoDB
+<!-- Not Avaiable on [!VIDEO https://www.youtube.com/tVk8S7lFWMA] -->
 
 ## Sample document
 
@@ -62,7 +61,8 @@ The queries in this article use the following sample document.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a> Example query 1 
+<a name="examplequery1"></a>
+##  Example query 1 
 
 Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
 
@@ -112,7 +112,8 @@ Given the sample family document above, the following query returns the document
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Example query 2 
+<a name="examplequery2"></a>
+## Example query 2 
 
 The next query returns all the children in the family. 
 
@@ -144,9 +145,10 @@ The next query returns all the children in the family.
     ]
     }
 
-## <a id="examplequery3"></a>Example query 3 
+<a name="examplequery3"></a>
+## Example query 3 
 
-The next query returns all the families which are registered. 
+The next query returns all the families that are registered. 
 
 **Query**
 
@@ -154,9 +156,10 @@ The next query returns all the families which are registered.
 **Results**
 	No document will be returned. 
 
-## <a id="examplequery4"></a>Example query 4
+<a name="examplequery4"></a>
+## Example query 4
 
-The next query returns all the families which are not registered. 
+The next query returns all the families that are not registered. 
 
 **Query**
 
@@ -198,9 +201,10 @@ The next query returns all the families which are not registered.
 	"isRegistered": false
 }
 
-## <a id="examplequery5"></a>Example query 5
+<a name="examplequery5"></a>
+## Example query 5
 
-The next query returns all the families which are not registered and state is NY. 
+The next query returns all the families that are not registered and state is NY. 
 
 **Query**
 
@@ -243,7 +247,8 @@ The next query returns all the families which are not registered and state is NY
 	"isRegistered": false
 }
 
-## <a id="examplequery6"></a>Example query 6
+<a name="examplequery6"></a>
+## Example query 6
 
 The next query returns all the families where children grades are 8.
 
@@ -288,7 +293,8 @@ The next query returns all the families where children grades are 8.
 	"isRegistered": false
 }
 
-## <a id="examplequery7"></a>Example query 7
+<a name="examplequery7"></a>
+## Example query 7
 
 The next query returns all the families where size of children array is 3.
 
@@ -298,7 +304,7 @@ The next query returns all the families where size of children array is 3.
 
 **Results**
 
-No results will be returned as we do not have more than 2 children. Only when parameter is 2 this query will succeed and return the full document.
+No results will be returned as there are no families with more than two children. Only when parameter is 2 this query will succeed and return the full document.
 
 ## Next steps
 
@@ -312,4 +318,4 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: update link, wording update -->

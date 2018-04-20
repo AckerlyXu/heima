@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 03/01/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -103,5 +103,4 @@ Currently, creating unique indexes is possible only when the collection contains
 * [How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
 
-<!-- Update_Description: new articles on mongodb indexing  -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: update meta properties  -->

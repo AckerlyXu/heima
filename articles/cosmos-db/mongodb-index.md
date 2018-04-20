@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -71,4 +71,4 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 - [Using Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [Using Robomongo](mongodb-robomongo.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

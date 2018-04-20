@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 11/27/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Connect to a MongoDB app using .NET
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
-
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, and key/value, all of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Availabel on Graph-->
 This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store data using the [MongoDB API](mongodb-introduction.md). 
 
 This tutorial covers the following tasks:
@@ -36,7 +36,7 @@ This tutorial covers the following tasks:
 
 Let's start by creating an Azure Cosmos DB account in the Azure portal.  
 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin. 
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 > [!TIP]

@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 
 ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -27,14 +26,12 @@ ms.author: v-yeche
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > 
 > 
 <!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](http://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 
@@ -78,5 +75,4 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
-<!-- Update_Description: new articles on sql api sdk async java -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: update meta properties, update link, wording update -->

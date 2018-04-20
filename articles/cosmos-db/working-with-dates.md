@@ -4,7 +4,6 @@ description: Learn about how to work with dates in Azure Cosmos DB.
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
 documentationcenter: ''
 
 ms.assetid: e587772f-ce9f-498c-a017-a51e7265bb23
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -89,4 +88,4 @@ In this article, we looked at how to store, index, and query DateTimes in Azure 
 * Learn more about [SQL queries](sql-api-sql-query.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

@@ -1,8 +1,8 @@
 ---
-title: Azure Cosmos DB global distribution tutorial for the SQL API | Azure
-description: Learn how to setup Azure Cosmos DB global distribution using the SQL API.
+title: Azure Cosmos DB multiple-region distribution tutorial for the SQL API | Azure
+description: Learn how to setup Azure Cosmos DB multiple-region distribution using the SQL API.
 services: cosmos-db
-keywords: global distribution
+keywords: multiple-region distribution
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
@@ -14,29 +14,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 
 ---
-# How to setup Azure Cosmos DB global distribution using the SQL API
+# How to setup Azure Cosmos DB multiple-region distribution using the SQL API
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the SQL API.
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB multiple-region distribution and then connect using the SQL API.
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
-> * Configure global distribution using the Azure portal
-> * Configure global distribution using the [SQL APIs](sql-api-introduction.md)
+> * Configure multiple-region distribution using the Azure portal
+> * Configure multiple-region distribution using the [SQL APIs](sql-api-introduction.md)
 
-<a id="portal"></a>
+<a name="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## Connecting to a preferred region using the SQL API
 
-In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
+In order to take advantage of [multiple-region distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
 
 This preference list is specified when initializing a connection using the SQL SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
@@ -163,8 +161,8 @@ That's it, that completes this tutorial. You can learn how to manage the consist
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * Configure global distribution using the Azure portal
-> * Configure global distribution using the SQL APIs
+> * Configure multiple-region distribution using the Azure portal
+> * Configure multiple-region distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
@@ -172,4 +170,4 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 > [Develop locally with the emulator](local-emulator.md)
 
 [regions]: https://www.azure.cn/support/service-dashboard/
-<!-- Update_Description: new articles on tutorial global distributyion sql api -->
+<!-- Update_Description: update meta propreties, wording update -->

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/29/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
 # Performance and scale testing with Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Performance and scale testing is a key step in application development. For many applications, the database tier has a significant impact on overall performance and scalability. Therefore, it's a critical component of performance testing. [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is purpose-built for elastic scale and predictable performance. These capabilities make it a great fit for applications that need a high-performance database tier. 
 
@@ -95,7 +93,8 @@ The quickest way to get started is to compile and run the .NET sample, as descri
     DocumentDBBenchmark completed successfully.
     Press any key to exit...
 
-**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step, file a support ticket from the [Azure portal](https://www.azure.cn/support/support-ticket-form).
+**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step, file a support ticket from the [Azure Support](https://www.azure.cn/support/support-ticket-form).
+<!-- Support ticket in [Azure Support](https://www.azure.cn/support/support-ticket-form) -->
 
 After you have the app running, you can try different [indexing policies](indexing-policies.md) and [consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 

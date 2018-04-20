@@ -4,7 +4,6 @@ description: Learn about the S1, S2, and S3 performance levels previously availa
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
 documentationcenter: ''
 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -24,8 +23,6 @@ ms.custom: H1Hack27Feb2017
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections late in 2017. After reading this article, you'll be able to answer the following questions:
 
@@ -38,7 +35,7 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 - [Can I change between the S1, S2, and S3 performance levels before the planned migration?](#change-before)
 - [How will I know when my collection has migrated?](#when-migrated)
 - [How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?](#migrate-diy)
-<!-- Not Available- [How am I impacted if I'm an EA customer?](#ea-customer)-->
+[How am I impacted if I'm an EA customer?](#ea-customer)
 
 <a name="why-retired"></a>
 
@@ -59,7 +56,7 @@ The following table compares the throughput and storage options available in sin
 |Maximum storage|Unlimited|10 GB|10 GB|10 GB|10 GB|
 <!-- Not Avaialbel |Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|-->
 
-<!-- Not Avaialbel Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer) -->
+Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer)
 
 <a name="uninterrupted-access"></a>
 
@@ -165,8 +162,9 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 
 <a name="ea-customer"></a>
 
-<!-- Not Available ## How am I impacted if I'm an EA customer?-->
+## How am I impacted if I'm an EA customer?
 
+EA customers will be price protected until the end of their current contract.
 
 ## Next steps
 To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:

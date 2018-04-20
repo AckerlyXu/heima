@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: devcenter
 
@@ -29,8 +29,6 @@ ms.custom: devcenter
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the SQL API for Azure Cosmos DB getting started with .NET Core tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -50,9 +48,6 @@ Don't have time? Don't worry! The complete solution is available on [GitHub](htt
 
 Want to build a Xamarin iOS, Android, or Forms application using the SQL API and .NET Core SDK? See [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md).
 
-> [!NOTE]
-> The Azure Cosmos DB .NET Core SDK used in this tutorial is not yet compatible with Universal Windows Platform (UWP) apps. For a preview version of the .NET Core SDK that does support UWP apps, please ask help from [Azure Support](https://www.azure.cn/support/contact/).
-
 Now let's get started!
 
 ## Prerequisites
@@ -71,7 +66,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Step 2: Setup your Visual Studio solution
+<a name="SetupVS"></a>
+## Step 2: Setup your Visual Studio solution
 1. Open **Visual Studio 2017** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **.NET Core**/**Console Application (.NET Core)**, name your project **DocumentDBGettingStarted**, and then click **OK**.
@@ -88,7 +84,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 Great! Now that setup is complete, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
-## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
+<a name="Connect"></a>
+## Step 3: Connect to an Azure Cosmos DB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
 ```csharp
@@ -205,7 +202,8 @@ Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB database.  
 
-## <a id="CreateColl"></a>Step 5: Create a collection
+<a name="CreateColl"></a>
+## Step 5: Create a collection
 > [!WARNING]
 > **CreateDocumentCollectionAsync** creates a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://www.azure.cn/pricing/details/cosmos-db/).
 
@@ -226,7 +224,8 @@ Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB document collection.  
 
-## <a id="CreateDoc"></a>Step 6: Create JSON documents
+<a name="CreateDoc"></a>
+## Step 6: Create JSON documents
 A [document](sql-api-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md).
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method.
@@ -393,7 +392,8 @@ Congratulations! You have successfully created two Azure Cosmos DB documents.
 
 ![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/sql-api-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
+<a name="Query"></a>
+## Step 7: Query Azure Cosmos DB resources
 Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both Azure Cosmos DB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.
 
 Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyDocumentIfNotExists** method.
@@ -453,7 +453,8 @@ The following diagram illustrates how the Azure Cosmos DB SQL query syntax is ca
 
 The [FROM](sql-api-sql-query.md#FromClause) keyword is optional in the query because Azure Cosmos DB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. Azure Cosmos DB infers the Families, root, or the variable name you chose, reference the current collection by default.
 
-## <a id="ReplaceDocument"></a>Step 8: Replace JSON document
+<a name="ReplaceDocument"></a>
+## Step 8: Replace JSON document
 Azure Cosmos DB supports replacing JSON documents.  
 
 Copy and paste the **ReplaceFamilyDocument** method underneath your **ExecuteSimpleQuery** method.
@@ -487,7 +488,8 @@ Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB document.
 
-## <a id="DeleteDocument"></a>Step 9: Delete JSON document
+<a name="DeleteDocument"></a>
+## Step 9: Delete JSON document
 Azure Cosmos DB supports deleting JSON documents.  
 
 Copy and paste the **DeleteFamilyDocument** method underneath your **ReplaceFamilyDocument** method.
@@ -516,7 +518,8 @@ Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully deleted an Azure Cosmos DB document.
 
-## <a id="DeleteDatabase"></a>Step 10: Delete the database
+<a name="DeleteDatabase"></a>
+## Step 10: Delete the database
 Deleting the created database will remove the database and all children resources (collections, documents, etc.).
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the document delete to delete the entire database and all children resources.
@@ -535,7 +538,8 @@ Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully deleted an Azure Cosmos DB database.
 
-## <a id="Run"></a>Step 11: Run your C# console application all together!
+<a name="Run"></a>
+## Step 11: Run your C# console application all together!
 Press the **DocumentDBGettingStarted** button in Visual Studio to build the application in debug mode.
 
 You should see the output of your get started app in the console window. The output will show the results of the queries we added and should match the example text below.
@@ -565,7 +569,8 @@ End of demo, press any key to exit.
 
 Congratulations! You've completed the tutorial and have a working C# console application!
 
-## <a id="GetSolution"></a> Get the complete tutorial solution
+<a name="GetSolution"></a>
+##  Get the complete tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
@@ -584,4 +589,4 @@ To restore the references to the SQL API for Azure Cosmos DB .NET Core SDK in Vi
 
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: wording update, update cmdlet -->
+<!-- Update_Description: wording update  -->

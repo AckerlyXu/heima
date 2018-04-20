@@ -5,7 +5,6 @@ keywords: robomongo
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -49,3 +48,4 @@ Both **User Name** and **Password** can be found in your connection information 
 
 ## Next steps
 * Explore Azure Cosmos DB: API for MongoDB [samples](mongodb-samples.md).
+<!-- Update_Description: update meta properties -->

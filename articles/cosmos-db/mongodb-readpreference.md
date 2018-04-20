@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
 origin.date: 02/26/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -24,10 +23,10 @@ ms.author: v-yeche
 This article shows how to globally distribute read operations using [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings with Azure Cosmos DB's MongoDB API. 
 
 ## Prerequisites 
-If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-Refer to this [Quickstart](tutorial-global-distribution-mongodb.md) article for instructions on using the Azure portal to set up Azure Cosmos DB account with global distribution and then connect using MongoDB API.
+Refer to this [Quickstart](tutorial-global-distribution-mongodb.md) article for instructions on using the Azure portal to set up Azure Cosmos DB account with multiple-region distribution and then connect using MongoDB API.
 
 ## Clone the sample application
 
@@ -154,5 +153,4 @@ If you're not going to continue to use this app, delete all resources created by
 * [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 * [Setup a globally replicated Azure Cosmos DB account and use it with MongoDB API](tutorial-global-distribution-mongodb.md)
 * [Develop locally with the emulator](local-emulator.md)
-<!-- Update_Description: new articles on mongodb read preference -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: nodejs
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
@@ -14,12 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 01/30/2018
-ms.date: 03/05/2018
+origin.date: 03/23/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
-# <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
+<a name="_Toc395783175"></a>
+# Build a Node.js web application using Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -28,15 +28,14 @@ ms.author: v-yeche
 > 
 > 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 This Node.js tutorial shows you how to use Azure Cosmos DB and the SQL API to store and access data from a Node.js Express application hosted on Azure Websites. You build a simple web-based task-management application, a ToDo app, that allows creating, retrieving, and completing tasks. The tasks are stored as JSON documents in Azure Cosmos DB. This tutorial walks you through the creation and deployment of the app and explains what's happening in each snippet.
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub]. Just read the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
 
-## <a name="_Toc395783176"></a>Prerequisites
+<a name="_Toc395783176"></a>
+## Prerequisites
 > [!TIP]
 > This Node.js tutorial assumes that you have some prior experience using Node.js and Azure Websites.
 > 
@@ -53,14 +52,16 @@ that you have the following:
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
 
-## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos DB database account
+<a name="_Toc395637761"></a>
+## Step 1: Create an Azure Cosmos DB database account
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Step 2: Create a new Node.js application
+<a name="_Toc395783178"></a>
+## Step 2: Create a new Node.js application
 Now let's learn to create a basic Hello World Node.js project using the [Express](http://expressjs.com/) framework.
 
 1. Open your favorite terminal, such as the Node.js command prompt.
@@ -81,7 +82,8 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 
     Then, to stop the application, press CTRL+C in the terminal window and then, on Windows machines only, click **y** to terminate the batch job.
 
-## <a name="_Toc395783179"></a>Step 3: Install additional modules
+<a name="_Toc395783179"></a>
+## Step 3: Install additional modules
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
 
 1. Back in the terminal, install the **async** module via npm.
@@ -90,7 +92,7 @@ The **package.json** file is one of the files created in the root of the project
 2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
 
         npm install documentdb --save
-        
+
 <a name="_Toc395783180"></a>
 ## Step 4: Using the Azure Cosmos DB service in a node application
 That takes care of all the initial setup and configuration, now let's get down to why we're here, and that's to write some code using Azure Cosmos DB.
@@ -154,7 +156,7 @@ That takes care of all the initial setup and configuration, now let's get down t
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Next, you will add code to define and export the Task object. This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.  
 
@@ -410,7 +412,8 @@ That takes care of all the initial setup and configuration, now let's get down t
 5. These lines define a new instance of our **TaskModel** object, with a new connection to Azure Cosmos DB (using the values read from the **config.js**), initialize the task object and then bind form actions to methods on our **TaskList** controller. 
 6. Finally, save and close the **app.js** file, we're just about done.
 
-## <a name="_Toc395783181"></a>Step 5: Build a user interface
+<a name="_Toc395783181"></a>
+## Step 5: Build a user interface
 Now let's turn our attention to building the user interface so a user can actually interact with our application. The Express application we created uses **Jade** as the view engine. For more information on Jade please refer to [http://jade-lang.com/](http://jade-lang.com/).
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website. 
@@ -487,7 +490,8 @@ The second form contains two input fields and a button that allows us to create 
 
 This should be all that we need for our application to work.
 
-## <a name="_Toc395783181"></a>Step 6: Run your application locally
+<a name="_Toc395783181"></a>
+## Step 6: Run your application locally
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
 
     ![Screenshot of the MyTodo List application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
@@ -505,7 +509,8 @@ This should be all that we need for our application to work.
 
 5. To stop the application, press CTRL+C in the terminal window and then click **Y** to terminate the batch job.
 
-## <a name="_Toc395783182"></a>Step 7: Deploy your application development project to Azure Websites
+<a name="_Toc395783182"></a>
+## Step 7: Deploy your application development project to Azure Websites
 1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service/app-service-deploy-local-git.md) topic.
 2. Add your Azure Website as a git remote.
 
@@ -521,7 +526,8 @@ This should be all that we need for our application to work.
 
     If you want to download or refer to the complete reference application for this tutorial, it can be downloaded from [GitHub][GitHub].
 
-## <a name="_Toc395637775"></a>Next steps
+<a name="_Toc395637775"></a>
+## Next steps
 
 * Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md)
 * Learn how to [monitor an Azure Cosmos DB account](monitor-accounts.md).

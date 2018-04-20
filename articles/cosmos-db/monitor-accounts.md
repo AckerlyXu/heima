@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 
 ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -32,7 +31,13 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
 
    ![Screen shot of the Monitoring lens that shows the metrics suite](./media/monitor-accounts/metrics-suite.png)
 
-<!--Not Available ## View performance metrics by using Azure Monitoring-->
+## View performance metrics by using Azure Monitoring
+1. In the [Azure portal](https://portal.azure.cn/), click **Monitor** on the left bar.
+2. In the resource menu, click **Metrics**.
+3. In the **Monitor - Metrics** window, in the **Resource group** drop-down menu, select the resource group associated with the Azure Cosmos DB account that you'd like to monitor. 
+4. In the **Resource** drop-down menu, select the database account to monitor.
+5. In the list of **Available metrics**, select the metrics to display. Use the CTRL button to multi-select. 
+
 ## View performance metrics on the account page
 1. In the [Azure portal](https://portal.azure.cn/), click **All services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
 2. The **Monitoring** lens displays the following tiles by default:
@@ -79,4 +84,4 @@ For more information, see [Retrieving Resource Metrics via the Azure Monitor RES
 ## Next steps
 To learn more about Azure Cosmos DB capacity planning, see the [Azure Cosmos DB capacity planner calculator](https://www.documentdb.com/capacityplanner).
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, add Monitor metirc content -->

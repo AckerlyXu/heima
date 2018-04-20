@@ -4,24 +4,23 @@ description: Presents a Golang code sample you can use to connect to and query A
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig1
 
 ms.service: cosmos-db
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
-Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document atabases which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: global to multiple-region -->
-<!-- Not Available on Graph -->
+<!-- Not Available on key/value an dGraph -->
 
-This quick-start demonstrates how to use an existing [MongoDB](/cosmos-db/mongodb-introduction) app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections.
+This quick-start demonstrates how to use an existing MongoDB app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [MongoDB API](mongodb-introduction.md).
 
 In other words, your Golang application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
@@ -34,7 +33,7 @@ In other words, your Golang application only knows that it's connecting to a dat
 - [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
 - An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 
-<a id="create-account"></a>
+<a name="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
@@ -57,7 +56,7 @@ Clone the sample application and install the required packages.
 
 The [mgo](http://labix.org/mgo) driver (pronounced as *mango*) is a [MongoDB](http://www.mongodb.org/) driver for the [Go language](http://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
 
-<a id="connection-string"></a>
+<a name="connection-string"></a>
 
 ## Update your connection string
 
@@ -81,7 +80,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review the code
 
-Let's make a quick review of what's happening in the main.go file. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app](#run-the-app). 
+
+The following snippets are all taken from the main.go file.
 
 ### Connecting the Go app to Azure Cosmos DB
 
@@ -129,7 +130,7 @@ An instance of the **DialWIthInfo{}** object is used to create the session objec
 collection := session.DB("database").C("package")
 ```
 
-<a id="create-document"></a>
+<a name="create-document"></a>
 
 ### Create a document
 
@@ -235,10 +236,7 @@ Go back to the Azure portal to see your document in Data Explorer.
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
@@ -247,4 +245,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

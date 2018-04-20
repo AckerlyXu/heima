@@ -24,11 +24,9 @@ ms.author: v-yeche
 > * [.NET Examples](sql-api-dotnet-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
-> * [Azure Code Sample Gallery](https://www.azure.cn/resources/samples/?sort=0&service=cosmos-db)
+> * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Latest sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub repository. This article provides:
 
@@ -174,4 +172,4 @@ The user management file, [azure-documentdb-dotnet/samples/code-samples/UserMana
 | [Set permissions on a collection or document](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) |[DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx) |
 | [Get a list of a user's permissions](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) |[DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx) |
 
-<!-- Update_Description: new articles on SQL api dotnet sample -->
+<!-- Update_Description: update meta properties -->

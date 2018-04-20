@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/27/2017
-ms.date: 12/25/2017
+origin.date: 03/21/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -58,7 +58,7 @@ Once a container is created with a unique key policy, the policy cannot be chang
 
 A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
 
-Each unique key policy can have a maximum of 10 unique key constraints or combinations. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
+Each unique key policy can have a maximum of 10 unique key constraints or combinations and the combined paths for all unique index properties should not exceed 60 characters. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
 
 Request unit charges for creating, updating, and deleting an item are slightly higher when there is a unique key policy on the container. 
 
@@ -136,4 +136,4 @@ db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } 
 ## Next steps
 
 In this article, you learned how to create unique keys for items in a database. If you are creating a container for the first time, review [Partitioning data in Azure Cosmos DB](partition-data.md) as unique keys and partition keys rely on each other.
-<!-- Update_Description: new articles on unique keys -->
+<!-- Update_Description: update meta propreties, wording update -->

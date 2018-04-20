@@ -5,7 +5,6 @@ keywords: change feed
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
 documentationcenter: ''
 
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
@@ -14,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/05/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -32,8 +31,9 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. 
+> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed.
 
+<!-- Not Available on https://www.youtube.com/embed/mFnxoxeXlaU -->
 ## How does change feed work?
 
 Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB collection for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
@@ -148,6 +148,11 @@ This section walks through how to use the SQL SDK to work with a change feed.
             }
     }
     ```
+
+> [!NOTE]
+> Instead of `ChangeFeedOptions.PartitionKeyRangeId`, you can use `ChangeFeedOptions.PartitionKey` to specify a single partition key for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> 
+>
 
 If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
@@ -284,4 +289,4 @@ For more information on using the change feed via the SDK, use the following res
 
 * [SDK information page](sql-api-sdk-dotnet.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, Update link -->

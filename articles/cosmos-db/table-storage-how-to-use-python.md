@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: python
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 02/08/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -45,27 +44,13 @@ You need the following to complete this tutorial successfully:
 - [Azure Storage account](/storage/common/storage-create-storage-account#create-a-storage-account)
 <!-- Not Avaiable on  [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/) -->
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## Create an Azure service account
-
-You can work with tables using Azure Table storage. You'll need to create an account for the service you're going to use. 
-<!-- Notice: Remove the Azure Cosmos DB -->
-<!-- Not Available on [Table offerings](table-introduction.md#table-offerings) -->
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
-The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.cn). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-You can also create an Azure storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) or [Azure CLI](../storage/common/storage-azure-cli.md).
-
-If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
-
-<!--Not Avaiable on Cosmos DB Table API
-### Create an Azure Cosmos DB Table API account
-
-For instructions on creating an Azure Cosmos DB Table API account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
-
--->
+<!--Not Avaiable on Cosmos DB Table API ### Create an Azure Cosmos DB Table API account -->
 
 ## Install the Azure Cosmos DB Table SDK for Python
 
@@ -89,15 +74,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey',endpo
 ```
 <!-- Add the endpoint_suffix configuration -->
 
-<!-- Not Avaiable on 
-## Connect to Azure Cosmos DB
-
-To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object using your copied connection string:
-
-```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=https://myaccount.documents.azure.cn')
-```
--->
+<!-- Not Avaiable on ## Connect to Azure Cosmos DB -->
 
 ## Create a table
 

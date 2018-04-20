@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 01/08/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 
 ---
@@ -22,7 +21,7 @@ ms.author: v-yeche
 
 This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
-Azure Cosmos DB is 21Vianet's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 ## Prerequisites
 
@@ -64,9 +63,6 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     ```
 
 1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
-    
-    > [!Note]
-    > Please convert all the illegal unescaped character in the Connection String, for example: convert = to %3D. or you will enconter error such as <Error: Password contains an illegal unescaped characters> when open one connection.
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
@@ -311,4 +307,4 @@ Learn more about the MongoDB operations, operators, stages, commands and options
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->
