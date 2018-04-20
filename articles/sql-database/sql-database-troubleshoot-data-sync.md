@@ -2,8 +2,8 @@
 title: "Troubleshoot Azure SQL Data Sync (Preview) | Azure"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync (Preview)."
 services: sql-database
-origin.date: 11/13/2017
-ms.date: 12/11/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.topic: "article"
 ms.service: "sql-database"

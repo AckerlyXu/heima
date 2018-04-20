@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-origin.date: 01/29/2018
-ms.date: 02/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
 
-# Design your first Azure SQL database
+# Design your first Azure SQL database using SSMS
 
 Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
 
@@ -26,7 +26,7 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 > * Query that data with SSMS
 > * Restore the database to a previous [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) in the Azure portal
 
-If you don't have an Azure subscription, [create a trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ Follow these steps to create a blank SQL database.
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the number of DTUs and storage that is available to you for each service tier. 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
@@ -91,8 +91,8 @@ Follow these steps to create a blank SQL database.
 11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
 12. On the toolbar, click **Notifications** to monitor the deployment process.
-
-    ![notification](./media/sql-database-get-started-portal/notification.png)
+    
+     ![notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Create a server-level firewall rule
 
@@ -104,7 +104,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.chinacloudapi.cn**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -125,7 +125,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 ## SQL server connection information
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure Portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
 1. Log in to the [Azure portal](https://portal.azure.cn/).
 2. Select **SQL Databases** from the left-hand menu and click your database on the **SQL databases** page. 

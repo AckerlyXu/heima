@@ -8,15 +8,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-origin.date: 02/16/2018
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 ---
-<a name="create-an-azure-sql-database-logical-server"></a>
 # Create an Azure SQL database in the Azure portal
 
-This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal.
+This quickstart tutorial walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating a SQL database using the Azure portal.
 
 If you don't have an Azure subscription, create a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
@@ -102,7 +101,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.chinacloudapi.cn**) and provides options for further configuration.
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials.
 
    ![server name](./media/sql-database-get-started-portal/server-name.png)
 
@@ -157,13 +156,7 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 
 ## Next steps
 
-Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
-
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
+- Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages. 
+- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
+ - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
+  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)

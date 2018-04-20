@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 10/24/2016
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
@@ -173,7 +173,7 @@ The script files included are:
     <td>2.    Creates 2 shard databases.
   </tr>
   <tr>
-    <td>3.    Creates a shard map for those database (deletes any existing shard maps on those databases). </td>
+    <td>3.    Creates a shard map for those databases (deletes any existing shard maps on those databases). </td>
   </tr>
   <tr>
     <td>4.    Creates a small sample table in both the shards, and populates the table in one of the shards.</td>

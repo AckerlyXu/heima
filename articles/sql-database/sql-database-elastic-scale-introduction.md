@@ -8,8 +8,8 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 09/06/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
@@ -21,7 +21,7 @@ You can easily scale out Azure SQL databases using the **Elastic Database** tool
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, PowerBI, Tableau, etc.
 * [Elastic transactions](sql-database-elastic-transactions-overview.md): This feature allows you to run transactions that span several databases in Azure SQL Database. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
 
-The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
+The following graphic shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
 
 In this graphic, colors of the database represent schemas. Databases with the same color share the same schema.
 
@@ -31,7 +31,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 4. An **Elastic Database job** runs scheduled or ad-hoc T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
-7. **Elastic transactions** allows you to run transactions that span several databases. 
+7. **Elastic transactions** allow you to run transactions that span several databases. 
 
 ![Elastic Database tools][1]
 
@@ -44,15 +44,15 @@ Achieving elasticity and scale for cloud applications has been straightforward f
 Traditionally, scenarios like these have been addressed by investing in larger-scale database servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically-structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
 
 ## Horizontal and vertical scaling
-The figure below shows the horizontal and vertical dimensions of scaling, which are the basic ways the elastic databases can be scaled.
+The following figure shows the horizontal and vertical dimensions of scaling, which are the basic ways the elastic databases can be scaled.
 
-![Horizontal versus Vertical Scaleout][2]
+![Horizontal versus vertical scale out][2]
 
 Horizontal scaling refers to adding or removing databases in order to adjust capacity or overall performance. This is also called "scaling out". Sharding, in which data is partitioned across a collection of identically structured databases, is a common way to implement horizontal scaling.  
 
 Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as "scaling up."
 
-Most cloud-scale database applications will use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer's database to grow or shrink resources as needed by the workload.
+Most cloud-scale database applications use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer's database to grow or shrink resources as needed by the workload.
 
 * Horizontal scaling is managed using the [Elastic Database client library](sql-database-elastic-database-client-library.md).
 * Vertical scaling is accomplished using Azure PowerShell cmdlets to change the service tier, or by placing databases in an elastic pool.

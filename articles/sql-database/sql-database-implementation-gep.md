@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ---
 # Azure gives GEP global reach and greater efficiency

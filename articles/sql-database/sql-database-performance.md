@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 07/19/2016
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/7/2018
 ms.author: v-johch
 ---
 # Monitor and improve performance
 Azure SQL Database identifies potential problems in your database and recommends actions that can improve performance of your workload by providing intelligent tuning actions and recommendations.
 
-To review your database performance, browse to your database in the [Azure Portal](http://portal.azure.cn) and use the **Performance** tile on the Overview page, or navigate down to "Support + troubleshooting" section:
+To review your database performance, use the **Performance** tile on the Overview page, or navigate down to "Support + troubleshooting" section:
 
    ![View Performance](./media/sql-database-performance/entries.png)
 
@@ -64,4 +64,5 @@ Find more information about this page in the article **[How to use Query Perform
 
 ## Additional resources
 * [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
-* [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
+* [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
+

@@ -9,8 +9,8 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 09/19/2016
-ms.date: 12/11/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 
 ---

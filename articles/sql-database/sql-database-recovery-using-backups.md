@@ -8,13 +8,13 @@ editor: monicar
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 02/13/2018
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
 # Recover an Azure SQL database using automated database backups
-SQL Database provides these options for database recovery using [automated database backups](sql-database-automated-backups.md) . You can restore from a database backup to:
+SQL Database provides these options for database recovery using [automated database backups](sql-database-automated-backups.md) and [backups in long-term retention](sql-database-long-term-retention.md). You can restore from a database backup to:
 
 * A new database on the same logical server recovered to a specified point in time within the retention period. 
 * A database on the same logical server recovered to the deletion time for a deleted database.
@@ -28,7 +28,7 @@ A restored database incurs an extra storage cost under the following conditions:
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
 - Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 
-The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://www.azure.cn/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount. For more information about database storage sizes and changing the database maximum size, see [single database resource limits](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount. For more information about database storage sizes and changing the database maximum size, see [single database DTU-based resource limits](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) and [single database vCore-based resource limits](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > [Automated database backups](sql-database-automated-backups.md) are used when you create a [database copy](sql-database-copy.md). 
@@ -46,8 +46,15 @@ The recovery time to restore a database using automated database backups is impa
 * The number of concurrent restore requests being processed in the target region. 
   
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
-  
-  There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
+
+For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+|  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+| :--- | --: | --: |
+|Single database (per subscription)|10|60|
+|Elastic pool (per pool)|4|200|
+||||
+
+There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
 > [!IMPORTANT]
 > To recover using automated backups, you must be a member of the SQL Server Contributor role in the subscription or be the subscription owner. You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL. 
@@ -108,7 +115,7 @@ Geo-restore is the default recovery option when your database is unavailable bec
 Point-in-time restore on a geo-secondary is not currently supported. Point-in-time restore can be done only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest Recovery Point Objective (RPO) and Estimate Recovery Time (ERT). For solutions using Basic databases, geo-restore is frequently a reasonable DR solution with an ERT of 12 hours. For solutions using larger Standard or Premium databases that require shorter recovery times, you should consider using [active geo-replication](sql-database-geo-replication-overview.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
+> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest Recovery Point Objective (RPO) and Estimate Recovery Time (ERT). For solutions using small size databases (e.g. Basic service tier or small size tenant databases in elastic pools), geo-restore is frequently a reasonable DR solution with an ERT of 12 hours. For solutions using large databases and require shorter recovery times, you should consider using [Failover groups and active geo-replication](sql-database-geo-replication-overview.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
 > 
 
 ### Azure portal
@@ -140,5 +147,6 @@ Automatic backups protect your databases from user and application errors, accid
 ## Next steps
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+* To learn about long-term retention, see [Long-term retention](sql-database-long-term-retention.md).
 * To learn about faster recovery options, see [Failover groups and active geo-replication](sql-database-geo-replication-overview.md).  
 <!--Update_Description: wording update-->

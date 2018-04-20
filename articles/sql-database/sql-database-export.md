@@ -6,8 +6,8 @@ author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-origin.date: 10/11/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
 

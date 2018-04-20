@@ -36,7 +36,56 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 > Users that are not based on an Azure AD account (including the Azure SQL server administrator account), cannot create Azure AD-based users, because they do not have permission to validate proposed database users with the Azure AD.
 > 
 
-## Provision an Azure Active Directory administrator for your Azure SQL server
+## Provision an Azure Active Directory administrator for your Managed Instance
+
+> [!IMPORTANT]
+> Only follow these steps if you are provisioning a Managed Instance. This operation can only be executed by Global/Company administrator in Azure AD. Following steps describe the process of granting permissions for users with different privileges in directory.
+
+Your Managed Instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. For this to work, you need to grant permissions to Managed Instance to read Azure AD. There are two ways to do it: from Portal and PowerShell. The following steps both methods.
+
+1. In the Azure portal, in the upper-right corner, click your connection to drop down a list of possible Active Directories. 
+2. Choose the correct Active Directory as the default Azure AD. 
+
+   This step links the subscription associated with Active Directory with Managed Instance making sure that the same subscription is used for both Azure AD and the Managed Instance.
+3. Navigate to Managed Instance and select one that you want to use for Azure AD integration.
+
+   ![aad](./media/sql-database-aad-authentication/aad.png)
+
+4.	Click on banner on top of Active Directory admin page. If you are logged in as Global/Company administrator in Azure AD, you can do it from Azure portal or using PowerShell.
+
+    ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
+
+    ![grant permissions-powershell](./media/sql-database-aad-authentication/grant-permissions-powershell.png)
+	
+    If you are logged in as Global/Company administrator in Azure AD, you can do it from the Azure portal or execute a PowerShell script.
+
+5. After operation is successfully completed, following notification will show up in top right corner:
+
+    ![success](./media/sql-database-aad-authentication/success.png)
+
+6.	Now you can choose your Azure AD admin for your Managed Instance. For that, on the Active Directory admin page, click **Set admin** command.
+
+    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+
+7. In the Add admin page, search for a user, select the user or group to be an administrator, and then click **Select**. 
+
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and is not propagated to SQL Server.
+
+    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+
+8. At the top of the Active Directory admin page, click **Save**.
+
+    ![save](./media/sql-database-aad-authentication/save.png)
+
+    The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
+
+> [!IMPORTANT]
+> When setting up the Azure AD admin, the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail and rolling back its creation, indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication fails.
+
+> [!TIP]
+> To later remove an Admin, at the top of the Active Directory admin page, click **Remove admin**, and then click **Save**.
+ 
+## Provision an Azure Active Directory administrator for your Azure SQL Database server
 
 The following two procedures show you how to provision an Azure Active Directory administrator for your Azure SQL server in the Azure portal and by using PowerShell.
 
@@ -314,4 +363,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn -U bob@contoso.com -
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
 
-<!--Update_Description: update Global CLI 2.O links to Mooncake CLI 2.O links-->
+<!--Update_Description: update management instance related content-->

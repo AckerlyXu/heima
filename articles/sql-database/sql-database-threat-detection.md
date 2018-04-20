@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security-protect
 ms.topic: article
-origin.date: 06/19/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---

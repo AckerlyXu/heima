@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop databases, mvc
 ms.topic: tutorial
-origin.date: 01/12/2018
-ms.date: 1/22/2018
+origin.date: 03/15/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET

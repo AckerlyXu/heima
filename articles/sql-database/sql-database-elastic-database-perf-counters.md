@@ -8,8 +8,8 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 05/23/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
@@ -27,9 +27,7 @@ Counters are used to track the performance of [data dependent routing](sql-datab
 ## Create performance category and counters
 To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagmentFactory class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
 
-```
-ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
-```
+    ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
 You can also use [this](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell script to execute the method. 
 The method creates the following performance counters:  

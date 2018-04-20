@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 09/20/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 4/17/2018
 ms.author: v-nany
 
 ---

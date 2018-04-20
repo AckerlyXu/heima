@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: migrate and move
 ms.topic: get-started-article
-origin.date: 01/10/2017
-ms.date: 09/18/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
 ---
 # Load data from CSV into Azure SQL Database (flat files)

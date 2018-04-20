@@ -8,8 +8,8 @@ editor: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-origin.date: 08/17/2016
-ms.date: 10/02/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 
 ---
