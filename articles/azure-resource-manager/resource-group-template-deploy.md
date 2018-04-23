@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -72,7 +72,9 @@ The preceding example requires a publicly accessible URI for the template, which
 <!-- Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)] -->
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri <copied URL> `
+  -storageAccountType Standard_GRS
 ```
 
 ## Deploy to more than one resource group or subscription
@@ -126,7 +128,7 @@ If your template includes a parameter with the same name as one of the parameter
 To test your template and parameter values without actually deploying any resources, use [Test-​Azure​Rm​Resource​Group​Deployment](https://docs.microsoft.com/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 

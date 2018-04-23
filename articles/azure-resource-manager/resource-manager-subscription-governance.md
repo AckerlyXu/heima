@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/31/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -246,4 +246,4 @@ Managing resources individually is both time-consuming and potentially error pro
 ## Next steps
 * Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md).
 
-<!--Update_Description: wording update, remove the unsuitable Secury Center content.-->
+<!--Update_Description: wording update, update link -->

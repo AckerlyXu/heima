@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2016
-ms.date: 11/27/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 # Manage Azure resources through portal
 
 This article shows how to use the [Azure portal](https://portal.azure.cn) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+
 <a name="create-resource-group-and-resources"></a>
 ##  Manage resource groups
 
@@ -124,7 +125,7 @@ Deleting a resource group deletes all the resources contained within it. You can
 * To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 * To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

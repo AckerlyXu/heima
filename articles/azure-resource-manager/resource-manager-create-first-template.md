@@ -11,9 +11,9 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 10/02/2017
+origin.date: 03/30/2018
+ms.date: 04/30/2018
 ms.topic: get-started-article
-ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 
@@ -25,7 +25,9 @@ To create and revise templates, you need a JSON editor. [Visual Studio Code](htt
 ## Prerequisites
 
 * Visual Studio Code. If needed, install it from [https://code.visualstudio.com/](https://code.visualstudio.com/).
-* An Azure subscription. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed locally. You need a local installation for this tutorial because your template is saved as a local file.
+<!-- Not Available on [load your template to a storage account](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell)-->
 
 ## Create template
 
@@ -228,12 +230,6 @@ For Azure CLI, use:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-For the Cloud Shell, upload your changed template to the file share. Overwrite the existing file. Then, use the following command:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## Use autocomplete
 
 So far, your work on the template has consisted of only copying and pasting JSON from this article. However, when developing your own templates, you want to find and specify properties and values that are available for the resource type. VS Code reads the schema for the resource type, and suggests properties and values. To see the autocomplete feature, go the properties element of your template and add a new line. Type a quotation mark, and notice that VS Code immediately suggests names that available within the properties element.
@@ -363,12 +359,6 @@ For Azure CLI, use:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
-For the Cloud Shell, upload your changed template to the file share. Overwrite the existing file. Then, use the following command:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
 ## Clean up resources
 
 When no longer needed, clean up the resources you deployed by deleting the resource group.
@@ -388,7 +378,7 @@ az group delete --name examplegroup
 ## Next steps
 * To gain greater assistance with developing templates, you can install a VS Code extension. For more information, see [Use Visual Studio Code extension to create Azure Resource Manager template](resource-manager-vscode-extension.md)
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-<!-- Not Available (/templates/microsoft.storage/storageaccounts)-->
+* To learn about the properties for a storage account, see [storage accounts template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.storage/storageaccounts).
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/).
 
 <!--Update_Description: update meta properties, wording update -->

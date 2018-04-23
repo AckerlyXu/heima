@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -77,10 +77,12 @@ az group deployment create \
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 
 <!-- Not Available on Cloud Shell -->
-   ```azurecli
-   az group create --name examplegroup --location "China East"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
-   ```
+```azurecli
+az group create --name examplegroup --location "China East"
+az group deployment create --resource-group examplegroup \
+  --template-uri <copied URL> \
+  --parameters storageAccountType=Standard_GRS
+```
 
 ## Deploy to more than one resource group or subscription
 

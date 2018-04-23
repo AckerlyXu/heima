@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/22/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -22,7 +22,9 @@ ms.author: v-yeche
 
 Resource Manager provides the following functions for getting resource values:
 
-* [listKeys and list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -31,15 +33,17 @@ Resource Manager provides the following functions for getting resource values:
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
 
-<a id="listkeys" />
-<a id="list" />
+<a name="listkeys" />
+<a name="list" />
 
-## listKeys and list{Value}
+## listKeys, listSecrets and list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Returns the values for any resource type that supports the list operation. The most common usage is `listKeys`. 
+Returns the values for any resource type that supports the list operation. The most common usages are `listKeys` and `listSecrets`. 
 
 ### Parameters
 
@@ -140,7 +144,7 @@ To deploy this example template with PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
 ```
 
-<a id="providers" />
+<a name="providers" />
 
 ## providers
 `providers(providerNamespace, [resourceType])`
@@ -226,7 +230,7 @@ To deploy this example template with PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
 ```
 
-<a id="reference" />
+<a name="reference" />
 
 ## reference
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -435,7 +439,7 @@ To deploy this example template with PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
 ```
 
-<a id="resourcegroup" />
+<a name="resourcegroup" />
 
 ## resourceGroup
 `resourceGroup()`
@@ -518,7 +522,7 @@ To deploy this example template with PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
 ```
 
-<a id="resourceid" />
+<a name="resourceid" />
 
 ## resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
@@ -667,7 +671,7 @@ To deploy this example template with PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
 ```
 
-<a id="subscription" />
+<a name="subscription" />
 
 ## subscription
 `subscription()`

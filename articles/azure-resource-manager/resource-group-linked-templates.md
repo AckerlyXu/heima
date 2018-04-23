@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/17/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -443,7 +443,7 @@ The following example shows how to pass a SAS token when linking to a template:
 }
 ```
 
-In PowerShell, you get a token for the container and deploy the templates with:
+In PowerShell, you get a token for the container and deploy the templates with the following commands. Notice that the **containerSasToken** parameter is defined in the template. It is not a parameter in the **New-AzureRmResourceGroupDeployment** command.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
