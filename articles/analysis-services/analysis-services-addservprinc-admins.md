@@ -1,21 +1,14 @@
 ---
 title: Add a service principle to Azure Analysis Services server admin role | Azure
 description: Learn how to add an automation service principle to the server admin role
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 
@@ -45,11 +38,10 @@ To complete this task, you must have [server administrator](analysis-services-se
     ![Search for service principle account](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 > [!NOTE]
-> For server operations using AzureRm cmdlets, service principle running scheduler must also belong to the **Owner** role for the resource in [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+> For server operations using AzureRm cmdlets, service principle running scheduler must also belong to the **Owner** role for the resource in [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview). 
 
 ## Related information
 
 * [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
-<!-- Update_Description: new articles on analysis services to add server admin -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: update link, update meta properties -->

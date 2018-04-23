@@ -1,22 +1,14 @@
 ---
 title: Manage Azure Analysis Services | Azure
 description: Learn how to manage an Analysis Services server in Azure.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Manage Analysis Services
@@ -44,13 +36,19 @@ To get all the latest features, and the smoothest experience when connecting to 
 
     ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
-3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following authentication types:
+3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following authentication types:   
+    > [!NOTE]
+    > Authentication type, **Active Directory - Universal with MFA support**, is recommended.
 
+    > [!NOTE]
+    > If you sign in with a Microsoft Account, Live ID, Yahoo, etc., leave the password field blank. You are prompted for a password after clicking Connect.
+    <!-- Not Available on Gmail-->
+    
     **Windows Authentication** to use your Windows domain\username and password credentials.
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
-    **Active Directory Universal Authentication** to use [non-interactive or multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
 
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

@@ -1,22 +1,14 @@
 ---
 title: Add a sample tabular model for your Azure Analysis Services server | Azure
 description: Learn how to add a sample model in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/28/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Tutorial: Add a sample model
@@ -69,5 +61,4 @@ Your sample model is using cache memory resources. If you are not using your sam
 
 [Connect in Power BI Desktop](analysis-services-connect-pbi.md)   
 [Manage database roles and users](analysis-services-database-users.md)
-<!-- Update_Description: new articles on analysis services to create sample model -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: udpate meta properties-->

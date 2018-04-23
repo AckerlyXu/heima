@@ -1,22 +1,14 @@
 ---
 title: Create a tabular model by using the Azure Analysis Services Web designer | Azure
 description: Learn how to create an Azure Analysis Services tabular model by using the Web designer in Azure portal.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Create a model in Azure portal

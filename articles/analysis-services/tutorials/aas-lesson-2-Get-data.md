@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 2: Get data | Azure"
 description: Describes how to get and import data in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 
 # Get data
@@ -133,7 +125,8 @@ Tables in the AdventureWorksDW2014 sample database have data that isn't necessar
 
       No columns removed.
 
-## <a name="Import"></a>Import the selected tables and column data  
+<a name="Import"></a>
+## Import the selected tables and column data  
 Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out is not be imported.  
 
 #### To import the selected tables and column data  
@@ -154,4 +147,4 @@ It's important to frequently save your model project.
 ## What's next?
 [Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

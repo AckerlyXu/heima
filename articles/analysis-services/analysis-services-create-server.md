@@ -1,22 +1,14 @@
 ---
 title: Create an Analysis Services server in Azure | Azure
 description: Learn how to create an Analysis Services server instance in Azure.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Create an Azure Analysis Services server in Azure portal
@@ -34,7 +26,7 @@ To complete this quickstart, you need:
 > 
 > 
 
-## To create a server in Azure portal
+## To create a server in the Azure portal
 1. Sign in to the [Azure portal](https://portal.azure.cn).  
 2. Click **+ New** > **Data + analytics** > **Analysis Services**.
 3. In the **Analysis Services** blade, fill in the required fields, and then press **Create**.

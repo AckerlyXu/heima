@@ -1,22 +1,14 @@
 ---
 title: Data sources supported in Azure Analysis Services | Azure
 description: Describes data sources supported for data models in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Data sources supported in Azure Analysis Services
@@ -31,13 +23,11 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
 |Azure Blob Storage*     |   Yes       |    No      |
 |Azure Table Storage*    |   Yes       |    No      |
-|Azure Cosmos DB (Beta)*     |  Yes        |  No        |
-<!-- Not Avaiable |Azure Data Lake Store*     |   Yes       |    No      | -->
+|Azure Cosmos DB*     |  Yes        |  No        |
 |Azure HDInsight HDFS*     |     Yes     |   No       |
-|Azure HDInsight Spark (Beta)*     |   Yes       |   No       |
-|Azure Database for MySQL (Preview)*     |   Yes       |   No      |
-|Azure Database for PostgreSQL (Preview)*     | Yes         |  No       |
+|Azure HDInsight Spark*     |   Yes       |   No       |
 ||||
+<!-- Not Avaiable |Azure Data Lake Store*     |   Yes       |    No      | -->
 
 \* Tabular 1400 models only. 
 

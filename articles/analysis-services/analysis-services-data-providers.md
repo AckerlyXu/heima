@@ -1,22 +1,14 @@
 ---
 title: Client libraries required for connecting to Azure Analysis Services | Azure
 description: Describes client libraries required for client applications and tools to connect Azure Analysis Services
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 
@@ -72,7 +64,8 @@ Client libraries for client connections are different from data providers requir
 
  When connecting to a database, the connection string properties for all three libraries are similar. Almost any connection string you define for ADOMD.NET by using  [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) also works for AMO and the Analysis Services OLE DB Provider (MSOLAP). To learn more, see [Connection string properties &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
-##  <a name="bkmk_LibUpdate"></a> How to determine client library version   
+<a name="bkmk_LibUpdate"></a>
+##  How to determine client library version   
 
 ### OLEDDB (MSOLAP)  
 
@@ -96,4 +89,4 @@ Client libraries for client connections are different from data providers requir
 [Connect with Excel](analysis-services-connect-excel.md)    
 [Connect with Power BI](analysis-services-connect-pbi.md)
 
-<!--Update_Description: update meta properties, wording update,  -->
+<!--Update_Description: update meta properties, wording update  -->

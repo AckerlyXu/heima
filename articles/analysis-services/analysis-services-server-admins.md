@@ -1,22 +1,14 @@
 ---
 title: Manage server admins in Azure Analysis Services | Azure
 description: Learn how to manage server admins for an Analysis Services server in Azure.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Manage server administrators
@@ -39,6 +31,6 @@ Server administrators must be a valid user or group in the Azure Active Director
 ## Next steps 
 [Authentication and user permissions](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md)  
-[Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)
+[Role-Based Access Control](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview)
 
 <!--Update_Description: update meta properties, wording update -->

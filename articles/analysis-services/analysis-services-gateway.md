@@ -1,22 +1,14 @@
 ---
 title: On-premises data gateway | Azure
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/02/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 # Connecting to on-premises data sources with Azure On-premises Data Gateway
@@ -59,7 +51,7 @@ The gateway creates an outbound connection to Azure Service Bus. It communicates
 We recommend you whitelist the IP addresses for your data region in your firewall. You can download the [Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=42064). This list is updated weekly.
 
 > [!NOTE]
-> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
+> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -183,7 +175,8 @@ and see if you can reproduce the issue.
 You might get this error if you try to install the gateway on a domain controller, which isn't supported. 
 Make sure that you deploy the gateway on a machine that isn't a domain controller.
 
-## <a name="logs"></a>Logs
+<a name="logs"></a>
+## Logs
 
 Log files are an important resource when troubleshooting.
 
@@ -199,7 +192,8 @@ Log files are an important resource when troubleshooting.
 
 You can find the Data Management Gateway and PowerBIGateway logs under **Application and Services Logs**.
 
-## <a name="telemetry"></a>Telemetry
+<a name="telemetry"></a>
+## Telemetry
 Telemetry can be used for monitoring and troubleshooting. By default
 
 **To turn on telemetry**

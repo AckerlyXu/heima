@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial supplemental lesson: Dynamic security | Azure"
 description: Describes how to use dynamic security by using row filters in the Azure Analysis Services tutorial.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 # Supplemental lesson - Dynamic security
 
@@ -185,4 +177,4 @@ In this task, you use the Analyze in Excel feature in SSDT to test the efficacy 
 [LOOKUPVALUE Function (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA Function (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->
