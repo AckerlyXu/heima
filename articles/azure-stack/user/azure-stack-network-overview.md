@@ -7,8 +7,8 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 03/27/2018
+origin.date: 04/09/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 
 ---

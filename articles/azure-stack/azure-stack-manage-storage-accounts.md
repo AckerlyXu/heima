@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 02/22/2018
-ms.date: 03/22/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: anirudha
 
@@ -119,7 +119,7 @@ In Azure Stack there is a simple way to do that:
 ## Set the retention period
 The retention period setting allows a cloud operator to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
-potentially be recovered. The default retention period is set to 15
+potentially be recovered. The default retention period is set to 0
 days. Setting the value to “0” means that any deleted account is
 immediately out of retention and marked for periodic garbage
 collection.
@@ -166,7 +166,9 @@ You can also use PowerShell to explicitly override the retention period and imme
    use the following instructions: 
    - To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure
    PowerShell](/powershell-install-configure/).
-   For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](/azure-resource-manager/powershell-azure-resource-manager)
+   For more information about Azure Resource Manager cmdlets, see
+   [Using Azure PowerShell with Azure Resource
+   Manager](/azure-resource-manager/powershell-azure-resource-manager)
 2. Run the following cmdlet:
 
 > [!NOTE]

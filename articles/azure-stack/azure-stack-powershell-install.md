@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2018
-ms.date: 03/02/2018
+origin.date: 03/30/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 
 ---
@@ -55,7 +55,7 @@ The following sections describe the steps required to install PowerShell for Azu
 ## Install PowerShell in a connected scenario (with internet connectivity)
 
 Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the **2017-03-09-profile** API version profile, which is available by installing the AzureRM.Bootstrapper module. To learn about API version profiles and the cmdlets provided by them,
- refer to the [manage API version profiles](azure-stack-version-profiles.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
+ refer to the [manage API version profiles](user/azure-stack-version-profiles.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
 
 > [!IMPORTANT]
 > The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes.
@@ -138,5 +138,6 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
 - [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
 - [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)  
 - [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md) 
-- [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md)  
+- [Manage API version profiles in Azure Stack](user/azure-stack-version-profiles.md)  
 
+<!-- Update_Description: link update -->

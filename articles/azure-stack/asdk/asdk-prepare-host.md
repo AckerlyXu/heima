@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/22/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
 ---
@@ -34,6 +34,8 @@ Before you can install the ASDK on the host computer, the ASDK host computer env
   $LocalPath = 'C:\AzureStack_Installer'
   # Create folder
   New-Item $LocalPath -Type directory
+  # Enforce usage of TLSv1.2 to download from GitHub
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
   # Download file
   Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
   ```
@@ -69,3 +71,4 @@ Before you can install the ASDK on the host computer, the ASDK host computer env
 ## Next steps
 [Install the ASDK](asdk-install.md)
 
+<!-- Update_Description: wording update -->

@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/11/2018
-ms.date: 03/04/2018
+origin.date: 04/06/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 
 ---
@@ -42,11 +42,14 @@ The Azure Stack 1712 update build number is **180106.1**. If a customer has depl
 You must first install the Azure Stack [1711 Update](/azure-stack/azure-stack-update-1711) before applying this update.
 
 ### Post-update steps
+- After the installation of 1712, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348)
 
-This update also requires that you install firmware updates from the OEM partner after you complete the 1712 Azure Stack update installation.
 
-> [!NOTE]
-> Please refer to your OEM partner website to download the updates.
+- Update 1712 also requires that you install firmware updates from the OEM partner after you complete the 1712 Azure Stack update installation.
+
+  > [!NOTE]
+  > Please refer to your OEM partner website to download the updates.
 
 ### New features and fixes
 
@@ -108,6 +111,7 @@ This section contains post-installation known issues with build **180106.1**.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 #### Health and monitoring
 
@@ -162,3 +166,4 @@ Microsoft has provided a way to monitor and resume updates using the Privileged 
 - See [Manage updates in Azure Stack overview](azure-stack-updates.md) for an overview of the update management in Azure Stack.
 - See [Apply updates in Azure Stack](azure-stack-apply-updates.md) for more information about how to apply updates with Azure Stack.
 
+<!-- Update_Description: wording update -->

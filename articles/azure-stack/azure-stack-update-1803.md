@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/06/2018
-ms.date: 04/08/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: justini
 
@@ -272,3 +272,4 @@ You can download the Azure Stack 1803 update package from [here](https://aka.ms/
 - For an overview of the update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).
 - For more information about how to apply updates with Azure Stack, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
+<!-- Update_Description: update metedata properties -->

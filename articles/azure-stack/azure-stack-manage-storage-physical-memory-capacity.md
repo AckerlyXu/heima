@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/13/2018
-ms.date: 03/22/2018
+origin.date: 04/03/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: Thomas.Roettinger
 

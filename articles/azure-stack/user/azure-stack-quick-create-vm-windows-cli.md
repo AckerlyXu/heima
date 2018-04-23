@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 03/08/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.custom: mvc
 ---
@@ -27,7 +27,7 @@ Azure CLI is used to create and manage Azure Stack resources from the command li
 
 - Make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
 
-- Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
+- Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## Create a resource group
 
@@ -97,3 +97,4 @@ az group delete --name myResourceGroup
 
 In this quickstart, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
 
+<!-- Update_Description: link update -->

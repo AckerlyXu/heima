@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/04/2018
+origin.date: 03/30/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 
 ---
@@ -39,6 +39,9 @@ If you open the alert, the alert description contains the scale unit node and th
  ## Replace the disk
 
 Follow your OEM hardware vendor’s FRU instructions for actual disk replacement.
+
+> [!note]
+> Replace disks for one scale unit node at a time. Wait for the virtual disk repair jobs to complete before moving on to the next scale unit node
 
 To prevent the use of an unsupported disk in an integrated system, the system blocks disks that are not supported by your vendor. If you try to use an unsupported disk, a new alert tells you that a disk has been quarantined because of an unsupported model or firmware.
 
@@ -74,3 +77,4 @@ If the virtual disk repair job appears stuck, run the following command to resta
   Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 
 
+<!-- Update_Description: wording update -->

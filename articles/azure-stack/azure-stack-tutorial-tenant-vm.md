@@ -3,7 +3,7 @@ title: Make virtual machines available to your Azure Stack users| Microsoft Docs
 description: Tutorial to make virtual machines available on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,17 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 10/23/2017
-ms.date: 03/04/2018
+origin.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: 
 ms.custom: mvc
 
 ---
 # Make virtual machines available to your Azure Stack users
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
 
 This article shows you how to create an offer, and then test it. 
@@ -162,3 +159,4 @@ What you learned in this tutorial:
 > [!div class="nextstepaction"]
 > [Make web, mobile, and API apps available to your Azure Stack users](azure-stack-tutorial-app-service.md)
 
+<!-- Update_Description: wording update -->

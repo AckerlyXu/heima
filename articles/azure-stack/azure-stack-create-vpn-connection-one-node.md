@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/10/2017
-ms.date: 03/01/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: scottnap
 ---
@@ -30,7 +30,7 @@ The following diagram shows what the connection configuration should look like w
 ### Before you begin
 To complete the connection configuration, ensure that you have the following items before you begin:
 
-- Two servers and other prerequisites that meet the Azure Stack Development Kit hardware requirements, as described in [Quickstart: Evaluate the Azure Stack Development Kit](/azure-stack/azure-stack-deploy-overview) .
+- Two servers and other prerequisites that meet the Azure Stack Development Kit hardware requirements, as described in [Quickstart: Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview.md). 
 - The [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
 
 ## Deploy the Azure Stack Development Kit environments
@@ -424,3 +424,4 @@ went through the VPN connection.
    
     ![Data in and out](./media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
 
+<!-- Update_Description: link update -->

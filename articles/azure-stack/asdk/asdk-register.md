@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
 ---
@@ -47,11 +47,12 @@ Before using these steps to register the ASDK with Azure, ensure that you have i
 
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
-    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     Set-AzsRegistration `
-        -CloudAdminCredential $CloudAdminCred `
+        -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
         -BillingModel Development
+	-ResourceGroupLocation "ChinaEast"
 
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
@@ -73,3 +74,4 @@ Follow these steps to verify that the ASDK registration with Azure was successfu
 ## Next steps
 [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
 
+<!-- Update_Description: wording update -->

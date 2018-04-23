@@ -57,6 +57,8 @@
     href: asdk-register.md
   - name: Configure Azure Stack telemetry settings
     href: asdk-telemetry.md  
+  - name: Start and stop the ASDK
+    href: asdk-start-stop.md
   - name: Troubleshooting
     href: asdk-troubleshooting.md
 - name: Reference
@@ -64,7 +66,7 @@
   - name: Azure Stack PowerShell
     href: https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
   - name: Azure Stack CLI
-    href: /cli/?view=azure-cli-2017-03-09-profile
+    href: /cli/overview?view=azure-cli-latest
 - name: Related
   items:
   - name: Azure Stack Operator Documentation
@@ -86,3 +88,4 @@
   - name: Training and certification
     href: /azure-stack/azure-stack-train-and-cert
 
+<!-- Update_Description: wording update -->

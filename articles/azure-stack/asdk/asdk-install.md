@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/22/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
 ---
@@ -96,3 +96,4 @@ If the deployment fails for some reason, you can [redeploy](asdk-redeploy.md) fr
 ## Next steps
 [Post deployment configuration](asdk-post-deploy.md)
 
+<!-- Update_Description: update metedata properties -->

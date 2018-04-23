@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 03/26/2018
+origin.date: 03/30/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 
 ---
@@ -31,9 +31,6 @@ This article is a condensed version of the steps that are described in the [Inst
 ## Set up PowerShell for Azure Active Directory-based deployments
 
 Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necessary for your environment configuration:
-
-> [!IMPORTANT]
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. 
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -173,18 +170,15 @@ Now that you’ve configured PowerShell, you can test the configuration by creat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> To specify a resource group, you will need to have a resource group in your subscription. For more information about subscriptions, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md)
+
 After the resource group is created, the **Provisioning state** property is set to **Succeeded**.
 
 ## Next steps
 
-- [Install and configure CLI](azure-stack-connect-cli.md)
+- [Install and configure CLI](user/azure-stack-connect-cli.md)
 
 - [Develop templates](user/azure-stack-develop-templates.md)
 
-
 <!-- Update_Description: wording update -->
-
-
-
-
-

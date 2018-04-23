@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/26/2018
-ms.date: 03/22/2018
+origin.date: 04/06/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ---
 # Run a validation test for Azure Stack
@@ -31,7 +31,8 @@ When you have an issue, contact Microsoft Customer Services Support and then run
 2. Contact Microsoft Customer Services Support.
 3. Run **Test-AzureStack** from the privileged end point.
     1. Access the privileged endpoint. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md). 
-    2. Log in as **AzureStack\CloudAdmin** on the management host.
+    2. On the ASDK, log in to the management host as **AzureStack\CloudAdmin**.  
+    On an integrated system you will need to use the IP address for the privileged-end-point for the management provided to you by your OEM hardware vendor.
     3. Open PowerShell as an administrator.
     4. Run: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Run: `Test-AzureStack`
@@ -170,4 +171,3 @@ The following table summarizes the validation tests run by Test-AzureStack.
  - To learn more about Azure Stack diagnostics tools and issue logging, see [ Azure Stack diagnostics tools](azure-stack-diagnostics.md).
  - To learn more about troubleshooting, see [Azure Stack troubleshooting](azure-stack-troubleshooting.md)
 
-<!-- Update_Description: wording update -->

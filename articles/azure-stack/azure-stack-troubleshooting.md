@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 03/04/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: unknown
 
@@ -42,7 +42,7 @@ This behavior is probably just the result of the default behavior of a PowerShel
 A Windows Server image and gallery item must be added before deploying VMs in Azure Stack.
 
 ### After restarting my Azure Stack host, some VMs may not automatically start.
-After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
+After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](asdk/asdk-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
 
 You may also notice that tenant VMs don't automatically start after a reboot of the Azure Stack development kit host. This is a known issue, and just requires a few manual steps to bring them online:
 
@@ -72,6 +72,6 @@ It may take up to fourteen hours for reclaimed capacity to show up in the portal
     - The dashboard titles may not appear. If this issue occurs, you must manually add them back.
     - Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
-
+<!-- Update_Description: link update -->
 
 

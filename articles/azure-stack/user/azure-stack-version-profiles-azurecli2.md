@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/26/2018
-ms.date: 03/27/2018
+origin.date: 03/16/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
+ms.reviewer: sijuman
 
 ---
-# Install and configure CLI for use with Azure Stack
+# Use API version profiles with Azure CLI 2.0 in Azure Stack
 
 In this article, we guide you through the process of using the Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
@@ -105,7 +106,6 @@ Use the following steps to connect to Azure Stack:
         --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
-        --endpoint-active-directory-graph-resource-id "https://graph.chinacloudapi.cn/" \
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
@@ -117,7 +117,6 @@ Use the following steps to connect to Azure Stack:
         --endpoint-resource-manager "https://management.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-        --endpoint-active-directory-graph-resource-id "https://graph.chinacloudapi.cn/" \
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
@@ -186,7 +185,7 @@ There are some known issues that you must be aware of when using CLI in Azure St
 - The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
 - To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
 - Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. This URN must match the image specifications as derived from the `az vm images list` command.
-- By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+- By default, CLI 2.0 uses “Standard_DS1” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
 
 
 ## Next steps
@@ -195,4 +194,3 @@ There are some known issues that you must be aware of when using CLI in Azure St
 
 [Manage user permissions](azure-stack-manage-permissions.md)
 
-<!-- Update_Description: update metedata properties -->

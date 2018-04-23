@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/17/2018
-ms.date: 03/01/2018
+origin.date: 04/05/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 
 ---
@@ -131,9 +131,9 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
     - Adds the VM image to the VM image repository.
     - Creates a Marketplace item.
 
-    To verify that the command ran successfully, in the portal, go to the Marketplace. Verify that the VM image is available in the **Virtual Machines** category.
+    To verify that the command ran successfully, in the portal, go to the Marketplace. Verify that the VM image is available in the **Compute** category.
 
-    ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG)
+    ![VM image added successfully](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## Remove a VM image by using PowerShell
 
@@ -206,3 +206,4 @@ Images must be able to be referenced by a Blob storage URI. Prepare a Windows or
 
 [Provision a virtual machine](azure-stack-provision-vm.md)
 
+<!-- Update_Description: wording update -->

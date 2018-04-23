@@ -3,7 +3,7 @@ title: Prepare Azure Stack Public Key Infrastructure certificates for Azure Stac
 description: Describes how to prepare the Azure Stack PKI certificates for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/04/2018
+origin.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
 ---
@@ -26,11 +26,11 @@ The certificate files [obtained from your CA of choice](azure-stack-get-pki-cert
 ## Prepare certificates for deployment
 Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
-1. Copy the original certificate versions [obtained from your CA of choice](azure-stack-get-pki-certs.md) into a directory on the deployment host. 
+1.	Copy the original certificate versions [obtained from your CA of choice](azure-stack-get-pki-certs.md) into a directory on the deployment host. 
     > [!WARNING]
     > Do not copy files that have already been imported, exported, or altered in any way from the files provided directly by the CA.
 
-2. Import the certificates onto the Local Machine certificate store:
+2.	Import the certificates onto the Local Machine certificate store:
 
     a.	Right-click on the certificate and select **Install PFX**.
 
@@ -77,5 +77,5 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     k.	Repeat this process for all of the certificates you imported for your deployment in step 2 above.
 
 ## Next steps
-[Validate PKI certificates](validate-pki-certs.md)
+[Validate PKI certificates](azure-stack-validate-pki-certs.md)
 
