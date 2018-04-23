@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/23/2017
-ms.date: 01/29/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -266,7 +266,7 @@ Browse to the DNS name(s) that you configured earlier (for example, `contoso.com
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## Resolve 404 error ¡°Web Site not found¡±
+## Resolve 404 error "Web Site not found"
 
 If you receive an HTTP 404 (Not Found) error when browsing to the URL of your custom domain, verify that your domain resolves to your app's IP address using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it may be due to one of the following reasons:
 
@@ -285,7 +285,7 @@ At the bottom of the page, the root virtual directory `/` points to `site\wwwroo
 
 ![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, you app should return the right page at the root path (for example, http://contoso.com).
+Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
 
 ## Automate with scripts
 

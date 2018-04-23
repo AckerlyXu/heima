@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/08/2016
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 
 ---
@@ -36,6 +36,9 @@ You can then create an Integration Map file that lets you
 visually map items between two XML schema files. 
 After you build this project, you will have an XSLT document.
 
+If the map has a reference to an external assembly, then both must be uploaded to the integration account. They should be uploaded in a specific order, first the assembly and then the map that references the assembly.
+
+
 ## How do I add a map?
 
 1. In the Azure portal, select **Browse**.
@@ -55,7 +58,7 @@ then select **Integration Accounts** from the results list.
 
 	![](./media/logic-apps-enterprise-integration-maps/map-1.png)
 
-5. After the Maps blade opens, choose **Add**.
+5. After the Maps page opens, choose **Add**.
 
 	![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
@@ -72,6 +75,21 @@ choose the **Maps** tile so you can view the newly added map.
 
 	![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
+
+## How do I add an assembly?
+Open the integration account where you want to upload the assembly.
+
+1. Choose the **Assemblies** tile.
+
+	![integrationaccount-assembly-tile](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+
+2. After the Assemblies page opens, choose **Add**. Enter a **Name** for your assembly. To upload the assembly file, 
+choose the folder icon on the right side of the **Assembly** text box. 
+After the upload process completes, choose **OK**.
+
+ 	![add-assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+
+
 ## How do I edit a map?
 
 You must upload a new map file with the changes that you want. 
@@ -82,9 +100,9 @@ follow these steps.
 
 1. Choose the **Maps** tile.
 
-2. After the Maps blade opens, select the map that you want to edit.
+2. After the Maps page opens, select the map that you want to edit.
 
-3. On the **Maps** blade, choose **Update**.
+3. On the **Maps** page, choose **Update**.
 
 	![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
 
@@ -97,7 +115,7 @@ then select **Open**.
 
 1. Choose the **Maps** tile.
 
-2. After the Maps blade opens, select the map you want to delete.
+2. After the Maps page opens, select the map you want to delete.
 
 3. Choose **Delete**.
 

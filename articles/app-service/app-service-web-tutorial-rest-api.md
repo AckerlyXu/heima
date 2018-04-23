@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/28/2018
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
 
@@ -198,8 +198,7 @@ What you learned:
 > * Deploy a RESTful API to Azure using Git
 > * Enable App Service CORS support
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to authenticate and authorize users.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
-
+> [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md)

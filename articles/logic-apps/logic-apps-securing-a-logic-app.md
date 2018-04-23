@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 11/22/2016
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 
 ---
 
@@ -97,7 +97,7 @@ In addition to the Shared Access Signature, you may wish to restrict calling a l
 This setting can be configured within the logic app settings:
 
 1. In the Azure portal, open the logic app you want to add IP address restrictions
-1. Click the **Access control configuration** menu item under **Settings**
+1. Click the **Workflow Settings** menu item under **Settings**
 1. Specify the list of IP address ranges to be accepted by the trigger
 
 A valid IP range takes the format `192.168.1.1/255`. 

@@ -8,7 +8,7 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 12/15/2017
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -66,22 +66,22 @@ The device model enables you to choose the type of device to simulate. You can c
 
 Device Simulation provides three pre-configured device models. Device models for Chillers, Elevators, and Trucks are available.
 
-Pre-configured device models include multiple sensors with a pre-determined telemetry frequency. You cannot customize the telemetry frequency for these devices.
+Pre-configured device models include multiple sensors with advanced behaviors defined in a JavaScript file. These custom behaviors are not supported in the web UI. 
 
 The following table shows a list of the configurations for each pre-configured device model:
 
-| Device model | Sensor | Unit | Telemetry frequency
-| -------------| ------ | -----| --------------------|
-| Chiller | humidity | % | 5 seconds |
-| | pressure | psig | 5 seconds |
-| | temperature | F | 5 seconds |
-| Elevator | Floor | | 5 seconds |
-| | Vibration | mm | 5 seconds |
-| | Temperature | F | 5 seconds |
-| Truck | Latitude | | 3 seconds |
-| | Longitude | | 3 seconds |
-| | speed | mph | 5 seconds |
-| | cargotemperature | F | 5 seconds |
+| Device model | Sensor | Unit | 
+| -------------| ------ | -----| 
+| Chiller | humidity | % |
+| | pressure | psig | 
+| | temperature | F | 
+| Elevator | Floor | 
+| | Vibration | mm | 
+| | Temperature | F | 
+| Truck | Latitude | |
+| | Longitude | | 
+| | speed | mph | 
+| | cargotemperature | F | 
 
 #### Custom device model
 
@@ -103,7 +103,7 @@ Custom sensors have the following properties:
 
 ### Number of devices
 
-Device Simulation currently enables you to simulate up to 1,000 devices.
+Device Simulation currently enables you to simulate up to 20,000 devices.
 
 ![Number of devices](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

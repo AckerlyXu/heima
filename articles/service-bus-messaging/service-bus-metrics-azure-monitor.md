@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/05/2018
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 
 ---
@@ -26,7 +26,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.cn), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite (OMS) and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.cn), or use the Azure Monitor APIs (REST and .NET) and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
 
@@ -44,8 +44,7 @@ For metrics supporting dimensions, you must filter with the desired dimension va
 
 ## Billing
 
-Using metrics in Azure Monitor is free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
-
+Using metrics in Azure Monitor is free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account.
 The following metrics give you an overview of the health of your service. 
 
 > [!NOTE]

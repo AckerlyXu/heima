@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
 
 ---
@@ -24,7 +24,7 @@ that you have previously backed up (see [Back up your app in Azure](web-sites-ba
 with its linked databases on-demand to a previous state, or create a new app based on one of
 your original app's backups. Azure App Service supports the following databases for backup and restore:
 - [SQL Database](https://www.azure.cn/home/features/sql-database/)
-- MySQL in-app
+- Azure Database for MySQL
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
 up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily

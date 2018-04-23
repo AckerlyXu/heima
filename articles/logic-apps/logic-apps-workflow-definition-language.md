@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 03/21/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ---
 
 # Workflow Definition Language schema for Azure Logic Apps

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 04/30/2018
 ---
 # Azure Relay Hybrid Connections protocol
 Azure Relay is one of the key capability pillars of the Azure Service Bus
 platform. The new *Hybrid Connections* capability of Relay is a secure,
 open-protocol evolution based on HTTP and WebSockets. It supersedes the former,
-equally named *BizTalk Services* feature that was built on a proprietary
+identically named *BizTalk Services* feature that was built on a proprietary
 protocol foundation. The integration of Hybrid Connections into Azure App
 Services will continue to function as-is.
 
@@ -42,12 +42,12 @@ established by many other networking APIs.
 
 There is a listener that first indicates readiness to handle incoming
 connections, and subsequently accepts them as they arrive. On the other side,
-there is a connecting client that connects towards the listener, expecting that
+there is a connecting client that offers a connection to the listener, expecting that
 connection to be accepted for establishing a bi-directional communication path.
 "Connect," "Listen," and "Accept" are the same terms you find in most socket
 APIs.
 
-Any relayed communication model has either party making outbound connections
+Any relayed communication model has both parties making outbound connections
 towards a service endpoint, which makes the "listener" also a "client" in
 colloquial use, and may also cause other terminology overloads. The precise
 terminology we therefore use for Hybrid Connections is as follows:
@@ -68,21 +68,21 @@ connections, it creates an outbound WebSocket connection. The connection
 handshake carries the name of a Hybrid Connection configured on the Relay
 namespace, and a security token that confers the "Listen" right on that name.
 When the WebSocket is accepted by the service, the registration is complete and
-the established web WebSocket is kept alive as the "control channel" for enabling
+the established WebSocket is kept alive as the "control channel" for enabling
 all subsequent interactions. The service allows up to 25 concurrent listeners on
 a Hybrid Connection. If there are two or more active listeners, incoming
 connections are balanced across them in random order; fair distribution is
 not guaranteed.
 
 #### Accept
-When a sender opens a new connection on the service, the service chooses and notifies one of the active listeners on the Hybrid Connection. This notification is sent to the listener over the open control channel as a JSON message containing the URL of the WebSocket endpoint that the listener must connect to for accepting the connection.
+When a sender opens a new connection on the service, the service chooses and notifies one of the active listeners on the Hybrid Connection. This notification is sent to the listener over the open control channel as a JSON message containing the URL of the WebSocket endpoint that the listener must connect to in order to accept the connection.
 
-The URL can and must be used directly by the listener without any extra work;
-the encoded information is only valid for a short period of time, essentially
+The URL can and must be used directly by the listener without any extra work.
+The encoded information is only valid for a short period of time, essentially
 for as long as the sender is willing to wait for the connection to be
 established end-to-end, but up to a maximum of 30 seconds. The URL can only be
-used for one successful connection attempt. As soon as the Web socket connection
-with the rendezvous URL is established, all further activity on this web socket
+used for one successful connection attempt. As soon as the WebSocket connection
+with the rendezvous URL is established, all further activity on this WebSocket
 is relayed from and to the sender, without any intervention or interpretation by
 the service.
 
@@ -97,7 +97,7 @@ maintained for extended periods.
 
 #### Ping
 If the control channel stays idle for a long time, intermediaries on the way,
-such as load balancers or NATs may drop the TCP connection. The "ping" operation
+such as load balancers or NATs, may drop the TCP connection. The "ping" operation
 avoids that by sending a small amount of data on the channel that reminds
 everyone on the network route that the connection is meant to be alive, and it
 also serves as a "live" test for the listener. If the ping fails, the control
@@ -141,7 +141,7 @@ The listener protocol consists of two connection gestures and three message
 operations.
 
 #### Listener control channel connection
-The control channel is opened with creating a WebSocket connection to:
+The control channel is opened by creating a WebSocket connection to:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -274,12 +274,12 @@ After the connection has been established, the server shuts down the WebSocket w
 | 1008 |The security token has expired, therefore the authorization policy is violated. |
 | 1011 |Something went wrong in the service. |
 
-#### Rejecting the Socket
+#### Rejecting the socket
 Rejecting the socket after inspecting the "accept" message requires a similar
 handshake so that the status code and status description communicating the
 reason for the rejection can flow back to the sender.
 
-The protocol design choice here is to use a web socket handshake (that is
+The protocol design choice here is to use a WebSocket handshake (that is
 designed to end in a defined error state) so that listener client
 implementations can continue to rely on a WebSocket client and do not need to
 employ an extra, bare HTTP client.
@@ -304,15 +304,16 @@ the following codes describe the error:
 | 500 |Internal Error |Something went wrong in the service. |
 
 ### Listener token renewal
-When the listener token is about to expire, it can replace it by sending a
+When the listener token is about to expire, the listener can replace it by sending a
 text frame message to the service via the established control channel. The
 message contains a JSON object called `renewToken`, which defines the following
 property at this time:
 
-* **token** – a valid, URL-encoded Service Bus Shared Access Token for the
+* **token** – a valid, URL-encoded Service Bus Shared Access token for the
   namespace or Hybrid Connection that confers the **Listen** right.
 
-#### renewToken Message
+#### renewToken message
+
 ```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      

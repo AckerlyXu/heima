@@ -15,7 +15,7 @@ Create a [web app](../articles/app-service/containers/app-service-linux-intro.md
 You can use the [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) command. In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `dotnetcore|1.1`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|2.0" --deployment-local-git
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:

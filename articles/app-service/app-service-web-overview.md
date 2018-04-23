@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 01/04/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -36,7 +36,7 @@ Here are some key features of App Service Web Apps:
 * **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 * **API and mobile features** - Web Apps provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
 
-Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, Web Apps is the best choice.  For microservice architecture, consider [Service Fabric](/service-fabric), and if you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md).
+Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, Web Apps is the best choice.  For microservice architecture, consider [Service Fabric](/service-fabric). If you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md).
 
 ## Next steps
 

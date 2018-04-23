@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 origin.date: 01/31/2018
 ms.author: v-yiso
-ms.date: 04/23/2018
+ms.date: 04/30/2018
 
 ---
 # Handle errors and exceptions in Logic Apps
@@ -71,9 +71,9 @@ to the policy in this example HTTP workflow definition:
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}

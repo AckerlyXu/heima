@@ -1,18 +1,17 @@
 ---
-layout: LandingPage
 title: Service Bus Relay Documentation
 description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
-services: service-bus
-author: czeumault
-manager: carolz
+services: service-bus-relay
+author: sethmanheim
+manager: timlt
 layout: LandingPage
 ms.assetid: 
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-orgin.date:  03/14/2017
-ms.date: 02/05/2018
+orgin.date:  04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 # Service Bus Relay Documentation

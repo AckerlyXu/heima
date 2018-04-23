@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus authorization rule using an Azure Resource Manager template | Azure
+title: Create a Service Bus authorization rule using Azure Resource Manager template | Azure
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
 services: service-bus
 documentationCenter: .net
@@ -13,9 +13,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 11/10/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ---
 
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
@@ -110,8 +110,7 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
             "location": "[variables('location')]",
             "kind": "Messaging",
             "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+                "name": "Standard",
             },
             "resources": [
                 {

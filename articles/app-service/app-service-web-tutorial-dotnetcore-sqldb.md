@@ -139,7 +139,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Replace the following string with the *\<server_name>*, *\<db_username>*, and *\<db_password>* you used earlier.
 
 ```
-Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 This is the connection string for your .NET Core app. Copy it for use later.
@@ -194,7 +194,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -207,7 +207,8 @@ The `Database.Migrate()` call helps you when it is run in Azure, because it auto
 Save your changes, then commit it into your Git repository. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### Push to Azure from Git
@@ -339,7 +340,8 @@ In your browser, navigate to `http://localhost:5000/`. You can now add a to-do i
 ### Publish changes to Azure
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

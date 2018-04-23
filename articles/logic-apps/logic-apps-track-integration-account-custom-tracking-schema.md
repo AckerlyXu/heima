@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/27/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 
 ms.custom: H1Hack27Feb2017 
 
@@ -84,5 +84,4 @@ For information about B2B protocol tracking schemas, see:
 
 ## Next steps
 * Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).   
-* Learn about [tracking B2B messages in the Operations Management Suite portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
