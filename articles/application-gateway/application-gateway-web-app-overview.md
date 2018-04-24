@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/26/2017
-ms.date: 03/15/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 
 ---
@@ -31,7 +31,7 @@ The ability to specify a host override is defined at the HTTP settings and can b
 2. The ability to derive the host name from the IP or FQDN of the back end pool members. HTTP settings also provide an option to pick the host name from a back end pool member's FQDN if configured with the option to derive host name from an individual back end pool member. When using end to end SSL, this host name is derived from the FQDN and is used in the SNI extension. This capability enables scenarios where a back end pool can have two or more multi-tenant PaaS services like Azure web apps and the request's host header to each member contains the host name derived from its FQDN.
 
 > [!NOTE]
-> In both of the preceding cases the settings only affect the live traffic behavior and not the health probe behavior. Custom probes already support the ability to specify a host header in the probe configuration. Custom probes now also support the ability to derive the host header behavior from the currently configured HTTP settings. This configuration can be specified by using the `PickHostNameFromback endAddress` parameter in the probe configuration. For end to end functionality to work, both the probe and the HTTP settings must be modified to reflect the correct configuration.
+> In both of the preceding cases the settings only affect the live traffic behavior and not the health probe behavior. Custom probes already support the ability to specify a host header in the probe configuration. Custom probes now also support the ability to derive the host header behavior from the currently configured HTTP settings. This configuration can be specified by using the `PickHostNameFromBackendHttpSettings` parameter in the probe configuration. For end to end functionality to work, both the probe and the HTTP settings must be modified to reflect the correct configuration.
 
 With this capability, customers specify the options in the HTTP settings and custom probes to the appropriate configuration. This setting is then tied to a listener and a back end pool by using a rule.
 

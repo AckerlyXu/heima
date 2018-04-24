@@ -1,20 +1,15 @@
 ---
-title: Frequently asked questions for Azure Application Gateway | Microsoft Docs
+title: Frequently asked questions for Azure Application Gateway
 description: This page provides answers to frequently asked questions about Azure Application Gateway
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/19/2017
-ms.date: 04/04/2018
+origin.date: 03/29/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 
 ---
@@ -37,7 +32,19 @@ Application Gateway is a layer 7 load balancer, which means it works with web tr
 
 **Q. What protocols does Application Gateway support?**
 
-Application Gateway supports HTTP, HTTPS, and WebSocket.
+Application Gateway supports HTTP, HTTPS, HTTP/2, and WebSocket.
+
+**Q. How does Application Gateway support HTTP/2?**
+
+HTTP/2 protocol support is available to clients connecting to Application Gateway listeners only. The communication to backend server pools is over HTTP/1.1. 
+
+By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **Q. What resources are supported today as part of backend pool?**
 
@@ -103,7 +110,7 @@ Network Security Groups are supported on the Application Gateway subnet with the
 
 - Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
 
-- Outbound internet connectivity can not be blocked.
+- Outbound internet connectivity can't be blocked.
 
 - Traffic from the AzureLoadBalancer tag must be allowed.
 
