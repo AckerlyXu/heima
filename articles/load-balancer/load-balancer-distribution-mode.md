@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
 # Configure the distribution mode for Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## Hash-based distribution mode
 
@@ -160,4 +158,4 @@ As previously described, set the `LoadBalancerDistribution` element to sourceIP 
 * [Get started with configuring an internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

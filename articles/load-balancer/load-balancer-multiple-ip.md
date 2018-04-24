@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -23,8 +23,6 @@ ms.author: v-yeche
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 In this article, we're going to show you how to use Azure Load Balancer with multiple IP addresses on a secondary network interface controller (NIC). The following diagram illustrates our scenario:
 
@@ -86,7 +84,7 @@ Create your load balancer for the configuration:
 
 1. Browse to the Azure portal: http://portal.azure.cn. Sign in with your Azure account.
 
-2. In the upper left of the screen, select **New** > **Networking** > **Load Balancer**. Next, select **Create**.
+2. In the upper left of the screen, select **Create a resource** > **Networking** > **Load Balancer**. Next, select **Create**.
 
 3. Under **Create load balancer**, type a name for your load balancer. In this scenario, we're using the name **mylb**.
 
