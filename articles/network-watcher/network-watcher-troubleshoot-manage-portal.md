@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Virtual Network Gateway and Connections - PowerShell | Azure
-description: This page explains how to use the Azure Network Watcher troubleshoot PowerShell cmdlet
+title: Troubleshoot Azure Virtual Network Gateway and Connections - Portal | Azure
+description: This page explains how to use the Azure Network Watcher troubleshoot Portal
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 06/19/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
 
-# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher PowerShell
+# Troubleshoot Virtual Network Gateway and Connections using Network Watcher from Azure Portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-troubleshoot-manage-portal.md)
@@ -71,8 +71,8 @@ The **Action** tab provides general guidance on how to resolve the issue. If an 
 
 ## Next steps
 
-If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.
+If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that may be in question.
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png
 
-<!--Update_Description: new articles on network watcher troubleshoot manage portal -->
+<!--Update_Description: update link, wording update -->

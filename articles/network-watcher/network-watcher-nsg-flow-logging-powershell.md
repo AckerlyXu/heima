@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 01/22/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -50,6 +50,8 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
+The storage account you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks.
+
 ## Disable Network Security Group Flow logs
 
 Use the following example to disable flow logs:
@@ -76,4 +78,4 @@ Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visuali
 
 Learn how to [Visualize your NSG flow logs with open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
-<!--Update_Description: cmdlet update -->
+<!--Update_Description: update link, wording update -->

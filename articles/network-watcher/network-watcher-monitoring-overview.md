@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -44,11 +44,12 @@ Network Watcher currently has the following capabilities:
 * **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
 * **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
 * **[Configuring Diagnostics Log](#diagnostic-logs)** - Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
-* **[Connectivity (Preview)](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint.
+* **[Connection Troubleshoot](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint enriched with Azure context.
+* **[Connection Monitor](connection-monitor.md)** - Monitor latency and configuration issues between an Azure virtual machine and an IP address, using source and destination IP address and port.
 
 ### Role-based Access Control (RBAC) in Network Watcher
 
-Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../role-based-access-control/overview.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission|
 |---|---| 
@@ -132,4 +133,4 @@ Detect security vulnerabilities with [Analyzing packet capture with Wireshark](n
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
 [nsl]: ./media/network-watcher-monitoring-overview/nsl.png
 
-<!--Update_Description: new articles on network watcher monitoring overview -->
+<!--Update_Description: update link, wording link -->

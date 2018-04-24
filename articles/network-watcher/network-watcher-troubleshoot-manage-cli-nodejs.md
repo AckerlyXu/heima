@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 06/19/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -103,6 +103,6 @@ For instructions on downloading files from azure storage accounts, refer to [Get
 
 ## Next steps
 
-If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.
+If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that may be in question.
 
-<!--Update_Description: new articles on network watcher troubleshoot manage CLI nodejs -->
+<!--Update_Description: wording update, update link -->
