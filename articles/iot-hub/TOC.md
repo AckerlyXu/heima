@@ -41,7 +41,7 @@
 # How-to guides
 ## Plan
 ### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)
-### [Scale your solution](iot-hub-scaling.md)
+### [Choose the right tier](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ## [Develop](iot-hub-how-to.md)
@@ -136,6 +136,7 @@
 #### [Use Azure portal](iot-hub-configure-file-upload.md)
 #### [Use Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Use Azure CLI](iot-hub-configure-file-upload-cli.md)
+#### [Operations monitoring](iot-hub-operations-monitoring.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)

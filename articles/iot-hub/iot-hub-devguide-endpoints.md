@@ -15,10 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ---
 
 # Reference - IoT Hub endpoints
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## IoT Hub names
 
 You can find the name of the IoT hub that hosts your endpoints in the portal on the **Overview** blade. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.cn`.

@@ -2,8 +2,8 @@
 title: Install .NET on Azure Cloud Services roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
 services: cloud-services
-documentationCenter: .net
-authors: thraka
+documentationcenter: .net
+author: thraka
 manager: timlt
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/31/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -96,7 +96,7 @@ You can use startup tasks to perform operations before a role starts. Installing
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
     set netfx="NDP471"
     
     REM ***** Set script start timestamp *****

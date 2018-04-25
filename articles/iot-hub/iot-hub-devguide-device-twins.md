@@ -14,13 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 
 # Understand and use device twins in IoT Hub
 
-*Device twins* are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. This article describes:
+*Device twins* are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+This article describes:
 
 * The structure of the device twin: *tags*, *desired* and *reported properties*.
 * The operations that device apps and back ends can perform on device twins.
@@ -231,7 +235,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 * All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed. The maximum value for integers is 4503599627370495 and the minimum value for integers is -4503599627370496.
 * All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
 
-    ```
+    ```json
     {
         ...
         "tags": {
@@ -262,49 +266,49 @@ IoT Hub rejects with an error all operations that would increase the size of tho
 IoT Hub maintains the timestamp of the last update for each JSON object in device twin desired and reported properties. The timestamps are in UTC and encoded in the [ISO8601] format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 For example:
 
-```
-    {
-        ...
-        "properties": {
-            "desired": {
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
                 "telemetryConfig": {
-                    "sendFrequency": "5m"
-                },
-                "$metadata": {
-                    "telemetryConfig": {
-                        "sendFrequency": {
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
                     "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "$version": 23
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
             },
-            "reported": {
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": "55%",
+            "$metadata": {
                 "telemetryConfig": {
                     "sendFrequency": "5m",
-                    "status": "success"
-                }
-                "batteryLevel": "55%",
-                "$metadata": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": {
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        },
+                    "status": {
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                    }
-                    "batteryLevel": {
-                        "$lastUpdated": "2016-04-01T16:35:48.789Z"
                     },
-                    "$lastUpdated": "2016-04-01T16:24:48.789Z"
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },
-                "$version": 123
-            }
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
-        ...
     }
+    ...
+}
 ```
 
 This information is kept at every level (not just the leaves of the JSON structure) to preserve updates that remove object keys.

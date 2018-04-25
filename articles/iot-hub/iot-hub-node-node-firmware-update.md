@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/07/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 
@@ -22,6 +22,8 @@ ms.author: v-yiso
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 

@@ -15,12 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ---
 # Use device management to initiate a device firmware update (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the [Raspberry Pi device implementation sample][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 

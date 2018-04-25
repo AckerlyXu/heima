@@ -14,11 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ---
 # Send cloud-to-device messages from IoT Hub
 
 To send one-way notifications to the device app from your solution back end, send cloud-to-devices messages from your IoT hub to your device. For a discussion of other cloud-to-devices options supported by IoT Hub, see [Cloud-to-device communications guidance][lnk-c2d-guidance].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 You send cloud-to-device messages through a service-facing endpoint (**/messages/devicebound**). A device then receives the messages through a device-specific endpoint (**/devices/{deviceId}/messages/devicebound**).
 

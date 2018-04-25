@@ -14,13 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 
 # Azure IoT Hub pricing information
 
 [Azure IoT Hub pricing][lnk-pricing] provides the general information on different SKUs and pricing for IoT Hub. This article contains additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## Charges per operation
 

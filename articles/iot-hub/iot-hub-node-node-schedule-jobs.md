@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 12/18/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 
@@ -34,6 +34,8 @@ Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
 * direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: direct methods][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 

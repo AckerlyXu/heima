@@ -14,12 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ---
 
 # Azure IoT Hub developer guide
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Azure IoT Hub provides you with:
 

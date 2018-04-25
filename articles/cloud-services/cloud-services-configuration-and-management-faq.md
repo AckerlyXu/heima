@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
+ms.date: 04/30/2018
 ---
 # Configuration and management issues for Azure Cloud Services: Frequently asked questions (FAQs)
 
@@ -176,6 +176,9 @@ Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client a
 4. Set its value to 1.
 5. Restart your server.
 6. Go to your **Default Web Site** and under **Bindings**, create a new TLS binding with the self-signed certificate just created. 
+For more information, see:
+
+- [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
 These steps could be automated via a startup task, so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a Cloud Service](cloud-services-startup-tasks.md).
 
  
