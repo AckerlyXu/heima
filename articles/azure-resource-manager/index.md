@@ -11,10 +11,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
-#Azure Resource Manager Documentation
+# Azure Resource Manager Documentation
 
 Learn how to use Resource Manager to deploy, monitor, and manage solution resources as a group. Tutorials, API references, and other documentation show you how to set up resource groups and create templates for consistent and repeatable deployment.
 

@@ -1,6 +1,6 @@
 ---
-title: Introduction to Connection monitoring in Azure Network Watcher | Azure
-description: This page provides an overview of the Network Watcher connectivity capability
+title: Introduction to Azure Network Watcher Connection Troubleshoot | Azure
+description: This page provides an overview of the Network Watcher connection troubleshooting capability
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -13,27 +13,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
-# Introduction to connection monitoring in Azure Network Watcher
+# Introduction to connection troubleshoot in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
+The connection troubleshoot feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using network security groups, firewalls, user-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Response
 
-The following table shows the properties returned when a connection monitoring has finished running.
+The following table shows the properties returned when connection troubleshoot has finished running.
 
 |Property  |Description  |
 |---------|---------|
-|ConnectionStatus     | The status of the connection monitoring. Possible results are **Reachable** and **Unreachable**.        |
-|AvgLatencyInMs     | Average latency during the connection monitoring in milliseconds. (Only shown if check status is reachable)        |
-|MinLatencyInMs     | Minimum latency during the connection monitoring in milliseconds. (Only shown if check status is reachable)        |
-|MaxLatencyInMs     | Maximum latency during the connection monitoring in milliseconds. (Only shown if check status is reachable)        |
+|ConnectionStatus     | The status of the connectivity check. Possible results are **Reachable** and **Unreachable**.        |
+|AvgLatencyInMs     | Average latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
+|MinLatencyInMs     | Minimum latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
+|MaxLatencyInMs     | Maximum latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
 |ProbesSent     | Number of probes sent during the check. Max value is 100.        |
 |ProbesFailed     | Number of probes that failed during the check. Max value is 100.        |
 |Hops     | Hop by hop path from source to destination.        |
@@ -69,7 +69,7 @@ The following is an example of an issue found on a hop.
 ```
 ## Fault types
 
-The connection monitoring returns fault types about the connection. The following table provides a list of the current fault types returned.
+Connection troubleshoot returns fault types about the connection. The following table provides a list of the current fault types returned.
 
 |Type  |Description  |
 |---------|---------|
@@ -82,9 +82,5 @@ The connection monitoring returns fault types about the connection. The followin
 
 ### Next steps
 
-Learn how to verify connectivity to a resource by visiting: [Check connectivity with Azure Network Watcher](network-watcher-connectivity-powershell.md).
-
-<!--Image references-->
-[1]: ./media/network-watcher-next-hop-overview/figure1.png
-
-<!--Update_Description: new articles on network watcher connectivity overview -->
+Learn how to troubleshoot connections using the [Azure portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), the [Azure CLI](network-watcher-connectivity-cli.md), or [REST API](network-watcher-connectivity-rest.md).
+<!--Update_Description: update link, wording update -->

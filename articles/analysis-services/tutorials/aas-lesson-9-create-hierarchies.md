@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 9: Create hierarchies | Azure"
-description: 
-services: analysis-services
-documentationcenter: ''
+description: Describes how to create hierarchies in a tabular model.
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 # Create hierarchies
 
@@ -78,4 +70,4 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
  ## What's next?
 [Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md).
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 3: Mark as Date Table | Azure"
 description: Describes how to mark a date table in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 # Mark as Date Table
 
@@ -52,4 +44,4 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 ## What's next?
 [Lesson 4: Create relationships](../tutorials/aas-lesson-4-create-relationships.md).
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 11/28/2017
-ms.date: 01/01/2018
+origin.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -28,7 +28,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
-﻿Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId 'yourSubscriptionId'
 
@@ -48,7 +48,7 @@ $lb.Properties.inboundNatPools.properties.frontendPortRangeEnd = $end
 Write-Host ($lb.Properties.inboundNatPools | Format-List | Out-String)
 
 # Update the load balancer
-Set-AzureRmResource -PropertyObject $lb.Properties -ResourceGroupName $groupname -ResourceType Microsoft.Network/loadBalancers -ResourceName $lbname  -Force
+Set-AzureRmResource -PropertyObject $lb.Properties -ResourceGroupName $groupname -ResourceType Microsoft.Network/loadBalancers -ResourceName $lb.name  -Force
 
 ```
 
@@ -67,4 +67,4 @@ For more information on the Azure PowerShell module, see [Azure PowerShell docum
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
 
-<!-- Update_Description: new articles on changing service fabric rdp port range with powershell -->
+<!-- Update_Description: update meta propreties, wording update -->

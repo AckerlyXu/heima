@@ -5,6 +5,7 @@
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
+<!-- Not Available on ## [Organize resources with management groups](management-groups-overview.md) -->
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
@@ -46,6 +47,9 @@
 ### [Azure portal](resource-group-portal.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
+<!-- Not Available on ### [Programmatically create EA subscriptions](programmatically-create-subscription.md)-->
+<!-- Not Available on ### [Create management groups](management-groups-create.md) -->
+<!-- Not Available on ### [Manage your management groups](management-groups-manage.md) -->
 ### [Governance examples](resource-manager-subscription-examples.md)
 
 ## Control Access
@@ -77,7 +81,7 @@
 ### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
-## [Template format](https://docs.microsoft.com/en-us/azure/templates/)
+## [Template format](https://docs.microsoft.com/zh-cn/azure/templates/)
 ## [Template functions](resource-group-template-functions.md)
 ### [Array and object functions](resource-group-template-functions-array.md)
 ### [Comparison functions](resource-group-template-functions-comparison.md)
@@ -88,7 +92,7 @@
 ### [String functions](resource-group-template-functions-string.md)
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.resources)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)
+## [.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.resourcemanager?view=azure-dotnet)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.resources)
 <!-- Not Available on ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html) -->
 <!-- URL is not Available on resourcemanagement.html -->
@@ -102,4 +106,4 @@
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!--ms.date: 03/26/2018 -->
+<!--ms.date: 04/30/2018 -->

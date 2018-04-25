@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
 # Using Azure Resource Manager Support with Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Resource Manager is the preferred management framework for services in Azure. Azure Load Balancer can be managed using Azure Resource Manager-based APIs and tools.
 
@@ -50,8 +48,8 @@ For Quickstart templates using Azure Load Balancer, see the [GitHub repository](
 
 Examples of templates:
 
-* [2 VMs in a Load Balancer and load balancing rules](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)
-* [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer)
+* [2 VMs in a Load Balancer and load balancing rules](http://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](http://go.microsoft.com/fwlink/?LinkId=544800)
 * [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules)
 
 ## Setting up Azure Load Balancer with a PowerShell or CLI
@@ -61,6 +59,7 @@ Get started with Azure Resource Manager cmdlets, command line tools, and REST AP
 * [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer.
 * [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Using the Azure CLI with Azure Resource Management](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+<!-- URL is CORRECT on (../azure-resource-manager/xplat-cli-azure-resource-manager.md) -->
 * [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 ## Next steps
@@ -68,6 +67,4 @@ Get started with Azure Resource Manager cmdlets, command line tools, and REST AP
 You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
 
 Learn how to manage [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). This is important when your application needs to keep connections alive for servers behind a load balancer.
-<!--Not Available the parent file of includes file of load-balancer-basic-sku-include.md-->
-<!--ms.date:11/20/2017-->
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->

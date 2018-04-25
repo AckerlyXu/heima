@@ -1,21 +1,14 @@
 ---
 title: Manage Azure Analysis Services with PowerShell | Azure
 description: Azure Analysis Services management with PowerShell.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: reference
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 
 ---
 
@@ -28,7 +21,7 @@ Server management tasks such as creating or deleting a server, suspending or res
 ## Permissions
 Most PowerShell tasks require you have Admin privileges on the Analysis Services server you are managing. Scheduled PowerShell tasks are unattended operations. The account running the scheduler must have Admin privileges on the Analysis Services server. 
 
-For server operations using AzureRm cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+For server operations using AzureRm cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview). 
 
 ## Server operations 
 Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) component module. To install AzureRM cmdlet modules, see [Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/azure/overview) in the PowerShell Gallery.
@@ -70,4 +63,4 @@ The SqlServer module provides task-specific database management cmdlets as well 
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)
 
-<!--Update_Description:Update meta propreties -->
+<!--Update_Description:Update meta propreties, update link -->

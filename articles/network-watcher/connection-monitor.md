@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/16/2018
-ms.date: 4/10/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -69,4 +69,4 @@ The following steps enable connection monitoring to a destination VM over ports 
 <!-- Not Avaialable on [Creating an alert-triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 - Determine if certain traffic is allowed in or out of your VM by using [IP flow verify](network-watcher-check-ip-flow-verify-portal.md).
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

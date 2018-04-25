@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/14/2018
-ms.date: 04/02/2018
+origin.date: 03/22/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -31,7 +31,8 @@ Azure uses source network address translation (SNAT) to perform this function. W
 
 There are multiple [outbound scenarios](#scenarios). You can combine these scenarios as needed. Review them carefully to understand the capabilities, constraints, and patterns as they apply to your deployment model and application scenario. Review guidance for [managing these scenarios](#snatexhaust).
 
-## <a name="scenarios"></a>Scenario overview
+<a name="scenarios"></a>
+## Scenario overview
 
 Azure provides three different methods to achieve outbound connectivity Classic deployments.  Not all Classic deployments have all three scenarios available to them:
 
@@ -54,15 +55,17 @@ Different deployments in Classic have different functionality:
 
 The [algorithm used for preallocating ephemeral ports](#ephemeralports) for PAT for classic deployments is the same as for Azure Resource Manager resource deployments.
 
-### <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
+<a name="ilpip"></a>
+### Scenario 1: VM with an Instance Level Public IP address
 
 In this scenario, the VM has an Instance Level Public IP (ILPIP) assigned to it. As far as outbound connections are concerned, it doesn't matter whether the VM has  load balanced endpoint or not. This scenario takes precedence over the others. When an ILPIP is used, the VM uses the ILPIP for all outbound flows.  
 
-Port masquerading (PAT) is not used, and the VM has all ephemeral ports available for use.
+A public IP assigned to a VM is a 1:1 relationship (rather than 1:many) and implemented as a stateless 1:1 NAT.  Port masquerading (PAT) is not used, and the VM has all ephemeral ports available for use.
 
 If your application initiates many outbound flows and you experience SNAT port exhaustion, consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) in its entirety.
 
-### <a name="publiclbendpoint"></a>Scenario 2: Public load-balanced endpoint
+<a name="publiclbendpoint"></a>
+### Scenario 2: Public load-balanced endpoint
 
 In this scenario, the VM or Web Worker Role is associated with a public IP address through the load-balanced endpoint. The VM does not have a public IP address assigned to it. 
 
@@ -74,7 +77,8 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 When [multiple public load-balanced endpoints](load-balancer-multivip.md) exist, any of these public IP addresses are a [candidate for outbound flows](#multivipsnat), and one is selected at random.  
 
-### <a name="defaultsnat"></a>Scenario 3: No public IP address associated
+<a name="defaultsnat"></a>
+### Scenario 3: No public IP address associated
 
 In this scenario, the VM or Web Worker ROle is not part of a public load-balanced endpoint.  And in the case of VM, it does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit.  Azure automatically allocates this address.
 
@@ -82,9 +86,11 @@ Azure uses SNAT with port masquerading ([PAT](#pat)) to perform this function. T
 
 SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#snat) section.  The number of VMs or Web Worker Roles sharing the public IP address determines the number of preallocated ephemeral ports.   It's important to understand how they are [consumed](#pat). To understand how to design for this consumption and mitigate as necessary, review [Managing SNAT exhaustion](#snatexhaust).
 
-## <a name="snat"></a>Understanding SNAT and PAT
+<a name="snat"></a>
+## Understanding SNAT and PAT
 
-### <a name="pat"></a>Port masquerading SNAT (PAT)
+<a name="pat"></a>
+### Port masquerading SNAT (PAT)
 
 When a deployment makes an outbound connection, each outbound connection source is rewritten. The source is rewritten from the private IP address space to the public IP associated with the deployment (based on scenarios described above). In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  
 
@@ -98,7 +104,8 @@ When SNAT port resources are exhausted, outbound flows fail until existing flows
 
 For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, review the [Managing SNAT](#snatexhaust) section.
 
-### <a name="preallocatedports"></a>Ephemeral port preallocation for port masquerading SNAT (PAT)
+<a name="preallocatedports"></a>
+### Ephemeral port preallocation for port masquerading SNAT (PAT)
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
 
@@ -121,18 +128,33 @@ Changing the size of your deployment might affect some of your established flows
 
 If the deployment size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
-## <a name="problemsolving"></a> Problem solving 
+SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
+
+### TCP SNAT port release
+
+- If both server/client sends FIN/ACK, SNAT port will be released after 240 seconds.
+- If a RST is seen, SNAT port will be released after 15 seconds.
+- idle timeout has been reached
+
+### UDP SNAT port release
+
+- idle timeout has been reached
+
+<a name="problemsolving"></a>
+##  Problem solving 
 
 This section is intended to help mitigate SNAT exhaustion and other scenarios which can occur with outbound connections in Azure.
 
-### <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
+<a name="snatexhaust"></a>
+###  Managing SNAT (PAT) port exhaustion
 [Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [no public IP associated](#defaultsnat) and [public load-balanced endpoint](#publiclbendpoint).
 
 If you know that you're initiating many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or are advised by support that you're exhausting SNAT ports (preallocated [ephemeral ports](#preallocatedports) used by [PAT](#pat)), you have several general mitigation options. Review these options and decide what is available and best for your scenario. It's possible that one or more can help manage this scenario.
 
 If you are having trouble understanding the outbound connection behavior, you can use IP stack statistics (netstat). Or it can be helpful to observe connection behaviors by using packet captures.
 
-#### <a name="connectionreuse"></a>Modify the application to reuse connections 
+<a name="connectionreuse"></a>
+#### Modify the application to reuse connections 
 You can reduce demand for ephemeral ports that are used for SNAT by reusing connections in your application. This is especially true for protocols like HTTP/1.1, where connection reuse is the default. And other protocols that use HTTP as their transport (for example, REST) can benefit in turn. 
 
 Reuse is always better than individual, atomic TCP connections for each request. Reuse results in more performant, very efficient TCP transactions.
@@ -147,17 +169,20 @@ When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are
 
 Ephemeral ports have a 4-minute idle timeout (not adjustable). If the retries are too aggressive, the exhaustion has no opportunity to clear up on its own. Therefore, considering how--and how often--your application retries transactions is a critical part of the design.
 
-#### <a name="assignilpip"></a>Assign an Instance Level Public IP to each VM
+<a name="assignilpip"></a>
+#### Assign an Instance Level Public IP to each VM
 Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#ilpip). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective deployment.) There are trade-offs to consider, such as the potential impact of whitelisting a large number of individual IP addresses.
 
 >[!NOTE] 
 >This option is not available for web worker roles.
 
-### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
+<a name="idletimeout"></a>
+### Use keepalives to reset the outbound idle timeout
 
 Outbound connections have a 4-minute idle timeout. This timeout is not adjustable. However, you can use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  Check with the supplier of any packaged software on whether this is supported or how to enable it.  Generally only one side needs to generate keepalives to reset the idle timeout. 
 
-## <a name="discoveroutbound"></a>Discovering the public IP that a VM uses
+<a name="discoveroutbound"></a>
+## Discovering the public IP that a VM uses
 There are many ways to determine the public source IP address of an outbound connection. OpenDNS provides a service that can show you the public IP address of your VM. 
 
 By using the nslookup command, you can send a DNS query for the name myip.opendns.com to the OpenDNS resolver. The service returns the source IP address that was used to send the query. When you run the following query from your VM, the response is the public IP used for that VM:
@@ -167,6 +192,5 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
 ## Next steps
 
 - Learn more about [Load Balancer](load-balancer-overview.md) used in Resource Manager deployments.
-
-<!-- Update_Description: new articles on load balancer outbound connection classic -->
-<!--ms.date: 04/02/2018-->
+- Learn mode about [outbound connection](load-balancer-outbound-connections.md) scenarios available in Resource Manager deployments.
+<!-- Update_Description: update meta properties, update link -->

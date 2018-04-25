@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -26,6 +26,7 @@ ms.author: v-yeche
 > 
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Azure. This article describes what is managed automatically and what you can configure yourself.
+<!-- Notice: Change Microsoft to Azure -->
 
 ## Controlling the fabric version that runs on your Cluster
 You can set your cluster to receive automatic fabric upgrades as they are released by 21ViaNet or you can select a supported fabric version you want your cluster to be on.
@@ -118,6 +119,7 @@ Output:
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
 Azure maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
+<!-- Notice: Change Microsoft to Azure-->
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
 During this phase, the upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.

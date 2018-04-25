@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -162,6 +162,5 @@ The response you get back tells you whether the traffic is allowed or denied. Th
 
 ## Next steps
 
-If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to learn more about Network Security Groups.
-
-<!--Update_Description: new articles on network watcher check ip flow verify rest -->
+If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to learn more about Network Security Groups.
+<!--Update_Description: updata link, wording update -->

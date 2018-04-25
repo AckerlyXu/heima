@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -83,7 +83,7 @@ Before getting started with deploying your resources, you should gain an underst
 ## <a name="template-deployment"></a>Template deployment
 With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](resource-manager-export-template.md) is a helpful way to learn about the template syntax.
 
-To learn about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/templates/).
+To learn about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](https://docs.microsoft.com/zh-cn/azure/templates/).
 
 Resource Manager processes the template like any other request (see the image for [Consistent management layer](#consistent-management-layer)). It parses the template and converts its syntax into REST API operations for the appropriate resource providers. For example, when Resource Manager receives a template with the following resource definition:
 
@@ -214,7 +214,7 @@ Azure also provides several resource-specific roles. Some common ones are:
 4. SQL Server Contributor - Can manage SQL servers and databases, but not their security-related policies
 5. Website Contributor - Can manage websites, but not the web plans to which they are connected
 
-For the full list of roles and permitted actions, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md). 
+For the full list of roles and permitted actions, see [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md). 
 
 In some cases, you want to run code or script that accesses resources, but you do not want to run it under a user's credentials. Instead, you want to create an identity called a service principal for the application and assign the appropriate role for the service principal. Resource Manager enables you to create credentials for the application and programmatically authenticate the application. To learn about creating service principals, see one of following topics:
 
@@ -264,7 +264,7 @@ Here are our Open Source SDK repositories. We welcome feedback, issues, and pull
 
 For information about using these languages with your resources, see:
 
-* [Azure for .NET developers](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet)
+* [Azure for .NET developers](https://docs.azure.cn/zh-cn/dotnet/?view=azure-dotnet)
 * [Azure for Java developers](https://docs.azure.cn/java/)
 * [Azure for Node.js developers](https://docs.microsoft.com/javascript/azure/)
 * [Azure for Python developers](https://docs.microsoft.com/python/azure/)

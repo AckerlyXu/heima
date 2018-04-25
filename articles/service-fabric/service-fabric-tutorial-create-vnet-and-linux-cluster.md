@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/22/2018
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -62,7 +62,7 @@ The cluster certificate must:
 
 Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
 
-This tutorial deplays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
+This tutorial deploys a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
 
 - The number of nodes and node types that your cluster needs 
 - The properties of each of node type (for example size, primary, internet facing, and number of VMs)
@@ -130,6 +130,7 @@ The [vnet-cluster.parameters.json][parameters] parameters file declares many val
 Next, set up the network topology and deploy the Service Fabric cluster. The [vnet-linuxcluster.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
 
 The following script uses the [az sf cluster create](https://docs.azure.cn/zh-cn/cli/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
+
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
 Location="chinaeast"  

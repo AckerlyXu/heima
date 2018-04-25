@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Network Watcher instance | Azure
-description: This page provides the steps to create an instance of Network Watcher using the portal and Azure REST API
+description: Learn how to enable Network Watcher in an Azure region.
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -22,20 +22,17 @@ ms.author: v-yeche
 
 Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
 
-> [!NOTE]
-> As Network Watcher currently only supports CLI 1.0, the instructions to create a new Network Watcher instance is provided for CLI 1.0.
-
 ## Create a Network Watcher in the portal
 
-Navigate to **More Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
+Navigate to **All Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
 
-![create a network watcher][1]
+![create a network watcher](./media/network-watcher-create/figure1.png)
 
-When you enable Network Watcher using the Portal, the name of the Network Watcher instance will automatically be set to NetworkWatcher_region_name where region_name corresponds to the Azure Region where the instance was enabled.  For example, a Network Watcher enabled in China North region will be named NetworkWatcher_chinaeast
+When you enable Network Watcher using the portal, the name of the Network Watcher instance is automatically set to *NetworkWatcher_region_name* where *region_name* corresponds to the Azure region where the instance is enabled. For example, a Network Watcher enabled in the China North region is named *NetworkWatcher_chinaeast*.
 
-Additionally, the Network Watcher instance will automatically be added into a Resource Group called NetworkWatcherRG.  This Resource Group will be created if it does not already exist.
+The Network Watcher instance is automatically created in a resource group named *NetworkWatcherRG*. The resource group is created if it does not already exist.
 
-If you wish to customize the name of a Network Watcher instance and the Resource Group it's placed into, you can use Powershell, the REST API, or ARMClient methods described below.  In each option, the Resource Group must exist before you place the Network Watcher into it.  
+If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use Powershell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
 
 ## Create a Network Watcher with PowerShell
 
@@ -45,9 +42,17 @@ To create an instance of Network Watcher, run the following example:
 New-AzureRmNetworkWatcher -Name "NetworkWatcher_chinaeast" -ResourceGroupName "NetworkWatcherRG" -Location "China North"
 ```
 
+## Create a Network Watcher with the Azure CLI
+
+To create an instance of Network Watcher, run the following example:
+
+```azurecli
+az network watcher configure --resource-group NetworkWatcherRG --locations chinaeast --enabled
+```
+
 ## Create a Network Watcher with the REST API
 
-ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+The ARMclient is used to call the REST API using PowerShell. The ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 ### Log in with ARMClient
 
@@ -84,7 +89,4 @@ Now that you have an instance of Network Watcher, learn about the features avail
 * [Virtual Network Gateway troubleshooting](network-watcher-troubleshoot-overview.md)
 
 <!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
-
-[1]: ./media/network-watcher-create/figure1.png
-
-<!--Update_Description: new articles on network watcher create -->
+<!--Update_Description: update link, wording update -->

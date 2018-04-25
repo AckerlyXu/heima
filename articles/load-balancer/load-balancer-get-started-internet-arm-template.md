@@ -1,6 +1,6 @@
 ---
-title: Create an Internet-facing load balancer - Azure template | Azure
-description: Learn how to create an Internet facing load balancer in Resource Manager using a template
+title: Create a public load balancer - Azure template | Azure
+description: Learn how to create a public load balancer in Resource Manager using a template
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -14,19 +14,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
-# Creating an Internet facing load balancer using a template
+# Creating a public load balancer using a template
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 

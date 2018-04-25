@@ -13,21 +13,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/15/2017
-ms.date: 11/13/2017
+origin.date: 03/20/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
 
-# Application and service level event and log generation
-
-## Instrumenting the code with custom events
+# Application and service level logging
 
 Instrumenting the code is the basis for most other aspects of monitoring your services. Instrumentation is the only way you can know that something is wrong, and to diagnose what needs to be fixed. Although technically it's possible to connect a debugger to a production service, it's not a common practice. So, having detailed instrumentation data is important.
 
 Some products automatically instrument your code. Although these solutions can work well, manual instrumentation is almost always required. In the end, you must have enough information to forensically debug the application. This document describes different approaches to instrumenting your code, and when to choose one approach over another.
 
+For examples on how to use these suggestions, see [Add logging to your Service Fabric application](service-fabric-how-to-diagnostics-log.md).
+
 ## EventSource
+
 When you create a Service Fabric solution from a template in Visual Studio, an **EventSource**-derived class (**ServiceEventSource** or **ActorEventSource**) is generated. A template is created, in which you can add events for your application or service. The **EventSource** name **must** be unique, and should be renamed from the default template string MyCompany-&lt;solution&gt;-&lt;project&gt;. Having multiple **EventSource** definitions that use the same name causes an issue at run time. Each defined event must have a unique identifier. If an identifier is not unique, a runtime failure occurs. Some organizations preassign ranges of values for identifiers to avoid conflicts between separate development teams. For more information, see [Vance's blog](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) or the [MSDN documentation](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
 
 ### Using structured EventSource events
@@ -176,4 +177,5 @@ If your application relies on high performance, **EventSource** is usually a goo
 
 Once you have chosen your logging provider to instrument your applications and services, your logs and events need to be aggregated before they can be sent to any analysis platform. Read about [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) and [WAD](service-fabric-diagnostics-event-aggregation-wad.md) to better understand some of the recommended options.
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->
+<!--Notice: We keep the previous code dut to the Application Insights is not support on MC-->

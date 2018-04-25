@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services Adventure Works Tutorial | Azure"
 description: Introduces the Adventure Works tutorial for Azure Analysis Services
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/10/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 # Azure Analysis Services - Adventure Works tutorial
 
@@ -97,4 +89,4 @@ These lessons are not required to complete the tutorial, but can be helpful in b
 ## Next steps  
 To get started, see [Lesson 1: Create a New Tabular Model Project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

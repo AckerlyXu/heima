@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 02/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -27,8 +27,6 @@ ms.author: v-yeche
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
-
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
@@ -38,7 +36,7 @@ ms.author: v-yeche
 Use the following steps to create an internal load balancer from the Azure portal.
 
 1. Open a browser, navigate to the [Azure portal](http://portal.azure.cn), and sign in with your Azure account.
-2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
+2. In the upper left hand side of the screen, click **Create a resource** > **Networking** > **Load balancer**.
 3. In the **Create load balancer** blade, enter a **Name** for your load balancer.
 4. Under **Type**, click **Internal**.
 5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.

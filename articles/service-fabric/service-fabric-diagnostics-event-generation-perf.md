@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/15/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -73,7 +73,7 @@ Service Fabric generates a substantial amount of custom performance counters. If
 
 In the applications you are deploying to your cluster, if you are using Reliable Actors, add countes from `Service Fabric Actor` and `Service Fabric Actor Method` categories (see [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-If you use Reliable Services, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
+If you use Service Remoting, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
 
 If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Commit` from the `Service Fabric Transactional Replicator` to collect the average commit latency per transaction metric.
 
@@ -82,4 +82,4 @@ If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Co
 * Learn more about [event generation at the platform level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
 * Collect performance metrics through [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
 
-<!--Update_Description: update meta properties, add Network Interface evelate factors -->
+<!--Update_Description: update meta properties  -->

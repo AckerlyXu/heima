@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -58,4 +58,4 @@ The latest runtime package is downloaded automatically during cluster deployment
 * [Create a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md)
 * [Service Fabric cluster security scenarios](service-fabric-windows-cluster-windows-security.md)
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: update meta properties -->

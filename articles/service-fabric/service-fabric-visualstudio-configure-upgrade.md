@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/29/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -86,4 +86,4 @@ The following example shows how to apply a unique health check policy for each s
 ## Next steps
 For more information about upgrading an application, see [Upgrade an application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

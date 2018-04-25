@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 12/10/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -50,7 +50,6 @@ Here are some things to keep in mind:
 ### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
   * [Backup and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
@@ -59,4 +58,4 @@ Here are some things to keep in mind:
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update link -->

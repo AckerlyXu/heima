@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 4: Create relationships | Azure"
 description: Describes how to create relationships in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 # Create relationships
 
@@ -99,4 +91,4 @@ In some cases, you may need to create additional relationships between tables in
 ## What's next?
 [Lesson 5: Create calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md).
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

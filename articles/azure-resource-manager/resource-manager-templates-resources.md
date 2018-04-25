@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager template structure and syntax | Azure
-description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
+title: Azure Resource Manager template resources | Azure
+description: Describes the resources section of Azure Resource Manager templates using declarative JSON syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/13/2017
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -40,9 +40,9 @@ You define resources with the following structure:
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -56,6 +56,21 @@ You define resources with the following structure:
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -76,11 +91,14 @@ You define resources with the following structure:
 | copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you do not want all or the resources to deploy at the same time. For more information, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources are not dependent on each other, they are deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that are not defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create multiple instances of a property. |
+| sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
+| kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
+| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied. You must explicitly define that dependency. |
 
 ## Resource-specific values
 
-The **apiVersion**, **type**, and **properties** are different for each resource type. To determine values for these properties, see [template reference](https://docs.microsoft.com/en-us/azure/templates/).
+The **apiVersion**, **type**, and **properties** elements are different for each resource type. The **sku**, **kind**, and **plan** elements are available for some resource types, but not all. To determine values for these properties, see [template reference](https://docs.microsoft.com/zh-cn/azure/templates/).
 
 ## Resource names
 Generally, you work with three types of resource names in Resource Manager:

@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/15/2018
-ms.date: 03/26/2018
+origin.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -86,6 +86,11 @@ There are some important steps to perform before moving a resource. By verifying
     az provider register --namespace Microsoft.Batch
     ```
 
+4. The account moving the resources must have at least the following permissions:
+
+    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+
 ## When to call support
 
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
@@ -93,7 +98,7 @@ You can move most resources through the self-service operations shown in this ar
 * Move Resource Manager resources.
 * Move classic resources according to the [classic deployment limitations](#classic-deployment-limitations).
 
-Contact [support](https://www.azure.cn/support/support-azure/) when you need to:
+Contact [support](https://www.azure.cn/support/support-ticket-form) when you need to:
 
 * Move your resources to a new Azure account (and Azure Active Directory tenant) and you need help with the instructions in the preceding section.
 * Move classic resources but are having trouble with the limitations.
@@ -137,6 +142,7 @@ The services that enable moving to both a new resource group and subscription ar
 
 <a name="services-that-do-not-enable-move"></a>
 ## Services that cannot be moved
+
 The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
@@ -163,6 +169,8 @@ Virtual Machines with certificate stored in Key Vault can be moved to a new reso
 
 ## Virtual Networks limitations
 
+When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
+
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
 You cannot move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
@@ -170,6 +178,7 @@ You cannot move a virtual network to a different subscription if the virtual net
 ## <a name="app-service-limitations"></a>App Service limitations
 
 The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
+The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
 
 ### Moving within the same subscription
 
@@ -297,12 +306,14 @@ You can move HDInsight clusters to a new subscription or resource group. However
 When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
 <!--Not Available ## Search limitations-->
-## <a name="lb-limitations"></a> Load Balancer limitations
+<a name="lb-limitations"></a>
+##  Load Balancer limitations
 
 Basic SKU Load Balancer can be moved.
 Standard SKU Load Balancer cannot be moved.
 
-## <a name="pip-limitations"></a> Public IP limitations
+<a name="pip-limitations"></a>
+##  Public IP limitations
 
 Basic SKU Public IP can be moved.
 Standard SKU Public IP cannot be moved.

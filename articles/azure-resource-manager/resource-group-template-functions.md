@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/18/2017
-ms.date: 03/26/2018
+origin.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -27,23 +27,23 @@ A template expression cannot exceed 24,576 characters.
 
 Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
-<a id="array" />
-<a id="coalesce" />
-<a id="concatarray" />
-<a id="contains" />
-<a id="createarray" />
-<a id="empty" />
-<a id="first" />
-<a id="intersection" />
-<a id="json" />
-<a id="last" />
-<a id="length" />
-<a id="min" />
-<a id="max" />
-<a id="range" />
-<a id="skip" />
-<a id="take" />
-<a id="union" />
+<a name="array" />
+<a name="coalesce" />
+<a name="concatarray" />
+<a name="contains" />
+<a name="createarray" />
+<a name="empty" />
+<a name="first" />
+<a name="intersection" />
+<a name="json" />
+<a name="last" />
+<a name="length" />
+<a name="min" />
+<a name="max" />
+<a name="range" />
+<a name="skip" />
+<a name="take" />
+<a name="union" />
 
 ## Array and object functions
 Resource Manager provides several functions for working with arrays and objects.
@@ -66,11 +66,11 @@ Resource Manager provides several functions for working with arrays and objects.
 * [take](resource-group-template-functions-array.md#take)
 * [union](resource-group-template-functions-array.md#union)
 
-<a id="equals" />
-<a id="less" />
-<a id="lessorequals" />
-<a id="greater" />
-<a id="greaterorequals" />
+<a name="equals" />
+<a name="less" />
+<a name="lessorequals" />
+<a name="greater" />
+<a name="greaterorequals" />
 
 ## Comparison functions
 Resource Manager provides several functions for making comparisons in your templates.
@@ -81,9 +81,9 @@ Resource Manager provides several functions for making comparisons in your templ
 * [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
-<a id="deployment" />
-<a id="parameters" />
-<a id="variables" />
+<a name="deployment" />
+<a name="parameters" />
+<a name="variables" />
 
 ## Deployment value functions
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
@@ -92,11 +92,11 @@ Resource Manager provides the following functions for getting values from sectio
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
-<a id="and" />
-<a id="bool" />
-<a id="if" />
-<a id="not" />
-<a id="or" />
+<a name="and" />
+<a name="bool" />
+<a name="if" />
+<a name="not" />
+<a name="or" />
 
 ## Logical functions
 Resource Manager provides the following functions for working with logical conditions:
@@ -107,16 +107,16 @@ Resource Manager provides the following functions for working with logical condi
 * [not](resource-group-template-functions-logical.md#not)
 * [or](resource-group-template-functions-logical.md#or)
 
-<a id="add" />
-<a id="copyindex" />
-<a id="div" />
-<a id="float" />
-<a id="int" />
-<a id="minint" />
-<a id="maxint" />
-<a id="mod" />
-<a id="mul" />
-<a id="sub" />
+<a name="add" />
+<a name="copyindex" />
+<a name="div" />
+<a name="float" />
+<a name="int" />
+<a name="minint" />
+<a name="maxint" />
+<a name="mod" />
+<a name="mul" />
+<a name="sub" />
 
 ## Numeric functions
 Resource Manager provides the following functions for working with integers:
@@ -132,54 +132,56 @@ Resource Manager provides the following functions for working with integers:
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
-<a id="listkeys" />
-<a id="list" />
-<a id="providers" />
-<a id="reference" />
-<a id="resourcegroup" />
-<a id="resourceid" />
-<a id="subscription" />
+<a name="listkeys" />
+<a name="list" />
+<a name="providers" />
+<a name="reference" />
+<a name="resourcegroup" />
+<a name="resourceid" />
+<a name="subscription" />
 
 ## Resource functions
 Resource Manager provides the following functions for getting resource values:
 
-* [listKeys and list{Value}](resource-group-template-functions-resource.md#listkeys)
+* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [listSecrets](resource-group-template-functions-resource.md#list)
+* [list*](resource-group-template-functions-resource.md#list)
 * [providers](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
 
-<a id="base64" />
-<a id="base64tojson" />
-<a id="base64tostring" />
-<a id="concat" />
-<a id="containsstring" />
-<a id="datauri" />
-<a id="datauritostring" />
-<a id="emptystring" />
-<a id="endswith" />
-<a id="firststring" />
-<a id="guid" />
-<a id="indexof" />
-<a id="laststring" />
-<a id="lastindexof" />
-<a id="lengthstring" />
-<a id="padleft" />
-<a id="replace" />
-<a id="skipstring" />
-<a id="split" />
-<a id="startswith" />
-<a id="string" />
-<a id="substring" />
-<a id="takestring" />
-<a id="tolower" />
-<a id="toupper" />
-<a id="trim" />
-<a id="uniquestring" />
-<a id="uri" />
-<a id="uricomponent" />
-<a id="uricomponenttostring" />
+<a name="base64" />
+<a name="base64tojson" />
+<a name="base64tostring" />
+<a name="concat" />
+<a name="containsstring" />
+<a name="datauri" />
+<a name="datauritostring" />
+<a name="emptystring" />
+<a name="endswith" />
+<a name="firststring" />
+<a name="guid" />
+<a name="indexof" />
+<a name="laststring" />
+<a name="lastindexof" />
+<a name="lengthstring" />
+<a name="padleft" />
+<a name="replace" />
+<a name="skipstring" />
+<a name="split" />
+<a name="startswith" />
+<a name="string" />
+<a name="substring" />
+<a name="takestring" />
+<a name="tolower" />
+<a name="toupper" />
+<a name="trim" />
+<a name="uniquestring" />
+<a name="uri" />
+<a name="uricomponent" />
+<a name="uricomponenttostring" />
 
 ## String functions
 Resource Manager provides the following functions for working with strings:

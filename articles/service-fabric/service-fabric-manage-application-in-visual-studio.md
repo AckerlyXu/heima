@@ -1,6 +1,6 @@
 ---
-title: Manage your applications in Visual Studio | Azure
-description: Use Visual Studio to create, develop, package, deploy, and debug your Service Fabric applications and services.
+title: Manage your Azure Servic Fabric applications in Visual Studio | Azure
+description: Use Visual Studio to create, develop, package, deploy, and debug your Azure Service Fabric applications and services.
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/07/2017
-ms.date: 12/04/2017
+origin.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ By default, deploying an application combines the following steps into one simpl
 4. Removing any running application instances
 5. Creating an application instance
 
-In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. 
+In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile.
 
 ### Application Debug Mode
 Visual Studio provide a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
@@ -39,11 +39,11 @@ Visual Studio provide a property called **Application Debug Mode**, which contro
 1. On the Service Fabric application project's (*.sfproj) shortcut menu, choose **Properties** (or press the **F4** key).
 2. In the **Properties** window, set the **Application Debug Mode** property.
 
-    ![Set Application Debug Mode Property][debugmodeproperty]
+![Set Application Debug Mode Property][debugmodeproperty]
 
 #### Application Debug Modes
 
-1. **Refresh Application** This mode enables you to quickly change and debug your code and supports editing static web files while debugging. This mode only works if your local development cluster is in [1-Node mode](../service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Refresh Application** This mode enables you to quickly change and debug your code and supports editing static web files while debugging. This mode only works if your local development cluster is in [1-Node mode](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). This is the default Application Debug Mode.
 <!-- URL should be Add . [1-Node mode](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode) -->
 2. **Remove Application** causes the application to be removed when the debug session ends.
 3. **Auto Upgrade** The application continues to run when the debug session ends. The next debug session will treat the deployment as an upgrade. The upgrade process preserves any data that you entered in a previous debug session.
@@ -52,7 +52,7 @@ Visual Studio provide a property called **Application Debug Mode**, which contro
 For **Auto Upgrade** data is preserved by applying the application upgrade capabilities of Service Fabric. For more information about upgrading applications and how you might perform an upgrade in a real environment, see [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
 ## Add a service to your Service Fabric application
-You can add new services to your application to extend its functionality.  To ensure that the service is included in your application package, add the service through the **New Fabric Service...** menu item.
+You can add new services to your application to extend its functionality. To ensure that the service is included in your application package, add the service through the **New Fabric Service...** menu item.
 
 ![Add a new Service Fabric service][newservice]
 
@@ -73,7 +73,7 @@ You can perform basic cluster management operations from within Visual Studio us
 ![Remove an application][removeapplication]
 
 > [!TIP]
-> For richer cluster management functionality, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> For a richer cluster management functionality, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 

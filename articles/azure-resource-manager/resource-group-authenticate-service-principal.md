@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/12/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -36,7 +36,7 @@ The easiest way to check whether your account has adequate permissions is throug
 
 ## Create service principal with self-signed certificate
 
-The following example covers a simple scenario. It uses [New-​Azure​Rm​AD​Service​Principal](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) to assign the [Contributor](../active-directory/role-based-access-built-in-roles.md#contributor) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzureRmContext](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext).
+The following example covers a simple scenario. It uses [New-​Azure​Rm​AD​Service​Principal](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) to assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzureRmContext](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -166,7 +166,7 @@ If you need to retrieve the application ID, use:
 
 ## Create service principal with certificate from Certificate Authority
 
-The following example uses a certificate issued from a Certificate Authority to create service principal. The assignment is scoped to the specified Azure subscription. It adds the service principal to the [Contributor](../active-directory/role-based-access-built-in-roles.md#contributor) role. If an error occurs during the role assignment, it retries the assignment.
+The following example uses a certificate issued from a Certificate Authority to create service principal. The assignment is scoped to the specified Azure subscription. It adds the service principal to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. If an error occurs during the role assignment, it retries the assignment.
 
 ```powershell
 Param (

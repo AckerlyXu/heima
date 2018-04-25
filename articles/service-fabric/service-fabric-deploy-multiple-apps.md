@@ -1,5 +1,5 @@
 ---
-title: Deploy a Node.js application that uses MongoDB | Azure
+title: Deploy a Node.js application that uses MongoDB to Azure Service Fabric | Azure
 description: Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster
 services: service-fabric
 documentationcenter: .net
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/02/2017
-ms.date: 12/04/2017
+origin.date: 02/23/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -205,7 +205,6 @@ Once the application is successfully published to the local cluster, you can acc
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
-
 ## Adding more guest executables to an existing application using Yeoman on Linux
 
 To add another service to an application already created using `yo`, perform the following steps: 
@@ -217,4 +216,4 @@ To add another service to an application already created using `yo`, perform the
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 
-<!--Update_Description: update link -->
+<!--Update_Description: update meta propreties -->

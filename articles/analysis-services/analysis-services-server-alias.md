@@ -1,22 +1,14 @@
 ---
 title: Azure Analysis Services alias server names | Azure
 description: Describes how to create and use server name aliases.
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-
+ms.reviewer: minewiskan
 ---
 
 # Alias server names
@@ -62,3 +54,4 @@ protected void Page_Load(object sender, EventArgs e)
 [Client libraries](analysis-services-data-providers.md)   
 [Connect from Power BI Desktop](analysis-services-connect-pbi.md)
 
+<!-- Update_Description: update meta properties, update link -->

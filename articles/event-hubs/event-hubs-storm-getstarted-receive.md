@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 02/26/2018
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
@@ -251,4 +251,4 @@ You can learn more about Event Hubs by visiting the following links:
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties  -->

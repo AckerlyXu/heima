@@ -15,13 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/08/2018
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
 # Understand Load Balancer probes
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance and existing flows on that instance are unaffected.  When all backend pool instances probe down, all existing flows will time out on all instances in the backend pool.
 

@@ -1,22 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 1: Create a new tabular model project | Azure"
 description: Describes how to create a new Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+ms.reviewer: minewiskan
 ---
 # Create a tabular model project
 
@@ -77,4 +69,4 @@ Explore some of the dialogs and locations for various features specific to autho
 ## What's next?
 [Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md).
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

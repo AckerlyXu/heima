@@ -1,22 +1,14 @@
 ---
 title: Create an Azure Analysis Services server by using PowerShell | Azure
 description: Learn how to create an Azure Analysis Services server by using PowerShell
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-origin.date: 02/14/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.custom: mvc
+ms.reviewer: minewiskan
 
 ---
 
@@ -44,7 +36,7 @@ Import-Module AzureRM.AnalysisServices
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription by using the [Add-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
+Sign in to your Azure subscription by using the [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -63,7 +55,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
 Create a new server by using the [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the China North region, at the D1 tier, and specifies philipc@adventureworks.com as a server administrator.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "China North" -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "chinanorth" -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## Clean up resources

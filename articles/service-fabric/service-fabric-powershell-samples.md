@@ -11,11 +11,11 @@ tags:
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: sampler
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 12/13/2017
-ms.date: 01/01/2018
+origin.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -41,4 +41,4 @@ The following table includes links to PowerShell scripts samples that create and
 | [Upgrade an application](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade an application.|
 | [Remove an application](./scripts/service-fabric-powershell-remove-application.md)| Remove an application from a cluster.|
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties -->

@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/27/18
-ms.date: 04/09/2018
+origin.date: 04/03/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -27,12 +27,12 @@ Running an existing application in a Windows container on a Service Fabric clust
 
 ![IIS default web page][iis-default]
 
-Using this quickstart you learn how to:
-> [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
+In this quickstart you learn how to:
+
+* Package a Docker image container
+* Configure communication
+* Build and package the Service Fabric application
+* Deploy the container application to Azure
 
 ## Prerequisites
 * An Azure subscription (you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial)).
@@ -83,7 +83,7 @@ A full ApplicationManifest.xml example file is provided at the end of this artic
 
 ## Create a cluster
 To deploy the application to a cluster in Azure, you can [create your own cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
+<!-- Notice: follow the previous code due to there is no party service fabric in china-->
 <!-- Not Avaiable on Party clusters -->
 ## Deploy the application to Azure using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
@@ -189,16 +189,16 @@ Here are the complete service and application manifests used in this quickstart.
 
 ## Next steps
 In this quickstart, you learned how to:
-> [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
 
-* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
-* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
+* Package a Docker image container
+* Configure communication
+* Build and package the Service Fabric application
+* Deploy the container application to Azure
+
+To learn more about working with Windows containers in Service Fabric, continue to the tutorial for Windows container apps.
+
+> [!div class="nextstepaction"]
+> [Create a Windows container app](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

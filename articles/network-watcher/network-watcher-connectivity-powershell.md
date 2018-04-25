@@ -1,6 +1,6 @@
 ---
-title: Check connectivity with Azure Network Watcher - PowerShell | Azure
-description: This page explains how to test connectivity with Network Watcher using PowerShell
+title: Troubleshoot connections with Azure Network Watcher - PowerShell | Azure
+description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using PowerShell.
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
-# Check connectivity with Azure Network Watcher using PowerShell
+# Troubleshoot connections with Azure Network Watcher using PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -25,47 +25,19 @@ ms.author: v-yeche
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
 ## Before you begin
 
-This article assumes you have the following resources:
-
-* An instance of Network Watcher in the region you want to check connectivity.
-
-* Virtual machines to check connectivity with.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* An instance of Network Watcher in the region you want to troubleshoot a connection.
+* Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## Register the preview capability
-
-Connectivity is currently in public preview, to use this feature it needs to be registered. To do this, run the following PowerShell sample:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-To verify the registration was successful, run the following Powershell sample:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-If the feature was properly registered, the output should match the following:
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Check connectivity to a virtual machine
 
-This example checks connectivity to a destination virtual machine over port 80. This example requires that you have Network Watcher enabled in the region containing the source VM.  
+This example checks a connection to a destination virtual machine over port 80. This example requires that you have Network Watcher enabled in the region containing the source VM.  
 
 ### Example
 
@@ -160,7 +132,7 @@ Hops             : [
 
 ## Validate routing issues
 
-The example checks connectivity between a virtual machine and a remote endpoint. This example requires that you have Network Watcher enabled in the region containing the source VM.  
+This example checks connectivity between a virtual machine and a remote endpoint. This example requires that you have Network Watcher enabled in the region containing the source VM.  
 
 ### Example
 
@@ -224,7 +196,7 @@ Hops             : [
 
 ## Check website latency
 
-The following example checks the connectivity to a website. This example requires that you have Network Watcher enabled in the region containing the source VM.  
+The following example checks connectivity to a website. This example requires that you have Network Watcher enabled in the region containing the source VM.  
 
 ### Example
 
@@ -276,7 +248,7 @@ Hops             : [
 
 ## Check connectivity to a storage endpoint
 
-The following example tests the connectivity from a virtual machine to a blog storage account. This example requires that you have Network Watcher enabled in the region containing the source VM.  
+The following example checks connectivity from a virtual machine to a blog storage account. This example requires that you have Network Watcher enabled in the region containing the source VM.  
 
 ### Example
 
@@ -298,7 +270,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 The following json is the example response from running the previous cmdlet. As the destination is reachable, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -329,10 +301,7 @@ Hops             : [
 
 ## Next steps
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Determine whether certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md).
 
-If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that are defined.
-
-<!-- Image references -->
-
-<!--Update_Description: new articles on network watcher connectivity powershell -->
+If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are defined.
+<!-- Update_Description: update link, wording update  -->

@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/23/2017
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
 
@@ -29,11 +29,10 @@ This quickstart shows how to deploy your first Java application to Service Fabri
 
 In this quickstart, you learn how to:
 
-> [!div class="checklist"]
-> * Use Eclipse as a tool for your Service Fabric Java applications
-> * Deploy the application to your local cluster 
-> * Deploy the application to a cluster in Azure
-> * Scale-out the application across multiple nodes
+* Use Eclipse as a tool for your Service Fabric Java applications
+* Deploy the application to your local cluster 
+* Deploy the application to a cluster in Azure
+* Scale-out the application across multiple nodes
 
 ## Prerequisites
 To complete this quickstart:
@@ -100,8 +99,8 @@ Now that the application and your cluster are ready, you can deploy it to the cl
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -110,16 +109,16 @@ Now that the application and your cluster are ready, you can deploy it to the cl
 
     ![Publish Dialog Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Open your favorite web browser and access the application by accessing **http://\<ConnectionIPOrURL>:8080**. 
+3. Open your web browser and access the application by accessing **http://\<ConnectionIPOrURL>:8080**. 
 
     ![Application front-end cloud](./media/service-fabric-quickstart-java/runningcloud.png)
 
 ## Scale applications and services in a cluster
-Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from Service Fabric CLI (sfctl). In this example,we are using Service Fabric Explorer.
+Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services; for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps, use Service Fabric Explorer.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`.
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser by browsing to the cluster's HTTP management port (19080); for example, `http://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`.
 
-To scale the web front-end service, do the following steps:
+To scale the web front-end service, do the following:
 
 1. Open Service Fabric Explorer in your cluster - for example, `https://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
@@ -135,18 +134,18 @@ To scale the web front-end service, do the following steps:
 
     You can now see that the service has two instances, and in the tree view you see which nodes the instances run on.
 
-By this simple management task, we doubled the resources available for our front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
+Through this simple management task, you've doubled the resources available for the front-end service to process user load. It's important to understand that you don't need multiple instances of a service for it to run reliably. If a service fails, Service Fabric makes sure that a new service instance runs in the cluster.
 
 ## Next steps
 In this quickstart, you learned how to:
 
-> [!div class="checklist"]
-> * Use Eclipse as a tool for your Service Fabric Java applications
-> * Deploy Java applications to your local cluster 
-> * Deploy Java applications to a cluster in Azure
-> * Scale-out the application across multiple nodes
+* Use Eclipse as a tool for your Service Fabric Java applications
+* Deploy Java applications to your local cluster 
+* Deploy Java applications to a cluster in Azure
+* Scale-out the application across multiple nodes
 
-* Learn more about [debugging services on Java using Eclipse](service-fabric-debugging-your-application-java.md)
-<!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
-* Checkout other [Java Samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+To learn more about working with Java apps in Service Fabric, continue to the tutorial for Java apps.
+
+> [!div class="nextstepaction"]
+> [Deploy a Java app](./service-fabric-tutorial-create-java-app.md)
 <!-- Update_Description: update meta properties, wording udpate -->

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 12/06/2017
-ms.date: 01/01/2018
+origin.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---

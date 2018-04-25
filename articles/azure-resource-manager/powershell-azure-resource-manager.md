@@ -14,8 +14,9 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 origin.date: 02/16/2018
-ms.date: 04/10/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
+
 ---
 # Manage resources with Azure PowerShell
 
@@ -48,9 +49,11 @@ Currently, the resource group is empty.
 
 In this article, you deploy a virtual machine and its related virtual network. For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+<!--Pending role-based-access-control to Release -->
+* [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor)
+<!--Pending role-based-access-control to Release -->
 
 Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
@@ -183,5 +186,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
 <!--Update_Description: update meta properties, wording update, update link -->
-<!--The parent file of includes file of resource-manager-governance-intro.md-->
-<!--ms.date:03/26/2018-->
+<!--The parent file of includes file of resource-manager-governance-rbac.md-->
+<!--ms.date:04/30/2018-->

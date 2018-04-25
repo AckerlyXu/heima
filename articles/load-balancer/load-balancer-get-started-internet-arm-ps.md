@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Internet-facing load balancer - PowerShell | Azure
-description: Learn how to create an Internet-facing load balancer in Resource Manager by using PowerShell
+title: Create a public load balancer - PowerShell | Azure
+description: Learn how to create a public load balancer in Resource Manager by using PowerShell
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -14,11 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
-# <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
+<a name="get-started"></a>
+# Creating a public load balancer in Resource Manager by using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -26,15 +27,13 @@ ms.author: v-yeche
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
-
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Deploying the solution by using Azure PowerShell
 
-The following procedures explain how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
+The following procedures explain how to create a public load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
 
 You must create and configure the following objects to deploy a load balancer:
 
@@ -85,7 +84,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
     New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'China North' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Create an Azure public IP address resource, named **PublicIP**, to be used by a front-end IP pool with the DNS name **loadbalancernrp.chinanorth.chinacloudapp.cn**. The following command uses the static allocation type.
+2. Create an Azure public IP address resource, named **PublicIP**, to be used by a front-end IP pool with the DNS name **loadbalancernrp.chinanorth.cloudapp.chinacloudapi.cn**. The following command uses the static allocation type.
 
     ```powershell
     $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'China North' -AllocationMethod Static -DomainNameLabel loadbalancernrp
@@ -93,7 +92,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
     > [!IMPORTANT]
     > The load balancer uses the domain label of the public IP as a prefix for its FQDN. This is different from the classic deployment model, which uses the cloud service as the load balancer FQDN.
-    > In this example, the FQDN is **loadbalancernrp.chinanorth.chinacloudapp.cn**.
+    > In this example, the FQDN is **loadbalancernrp.chinanorth.cloudapp.chinacloudapi.cn**.
 
 ## Create a front-end IP pool and a back-end address pool
 

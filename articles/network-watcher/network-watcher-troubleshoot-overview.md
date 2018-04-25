@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 06/19/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
+Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
 
 ![portal][2]
 
@@ -48,44 +48,44 @@ The following tables show the different fault types (id under results from the p
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected. |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
-| PlannedMaintenance |  Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | When a user update is in progress. This could be a resize operation. | No |
-| VipUnResponsive | Cannot reach the primary instance of the Gateway. This happens when the health probe fails. | No |
+| NoFault | When no error is detected |Yes|
+| GatewayNotFound | Cannot find gateway or gateway is not provisioned |No|
+| PlannedMaintenance |  Gateway instance is under maintenance  |No|
+| UserDrivenUpdate | This fault occurs when a user update is in progress. The update could be a resize operation. | No |
+| VipUnResponsive | This fault occurs when the primary instance of the gateway can't be reached due to a health probe failure. | No |
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
-| NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | Connections are not connected. This is only a warning.| Yes|
-| GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
+| NoConnectionsFoundForGateway | No connections exist on the gateway. This fault is only a warning.| No|
+| ConnectionsNotConnected | Connections are not connected. This fault is only a warning.| Yes|
+| GatewayCPUUsageExceeded | The current gateway CPU usage is > 95%. | Yes |
 
 ### Connection
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected. |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
-| PlannedMaintenance | Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | When a user update is in progress. This could be a resize operation.  | No |
-| VipUnResponsive | Cannot reach the primary instance of the Gateway. It happens when the health probe fails. | No |
-| ConnectionEntityNotFound | Connection configuration is missing. | No |
-| ConnectionIsMarkedDisconnected | The Connection is marked "disconnected". |No|
-| ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
+| NoFault | When no error is detected |Yes|
+| GatewayNotFound | Cannot find gateway or gateway is not provisioned |No|
+| PlannedMaintenance | Gateway instance is under maintenance  |No|
+| UserDrivenUpdate | This fault occurs when a user update is in progress. The update could be a resize operation.  | No |
+| VipUnResponsive | This fault occurs when the primary instance of the gateway can't be reached due to a health probe failure. | No |
+| ConnectionEntityNotFound | Connection configuration is missing | No |
+| ConnectionIsMarkedDisconnected | The connection is marked "disconnected" |No|
+| ConnectionNotConfiguredOnGateway | The underlying service does not have the connection configured. | Yes |
 | ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
-| Authentication | Preshared Key mismatch. | Yes|
+| Authentication | Preshared key mismatch | Yes|
 | PeerReachability | The peer gateway is not reachable. | Yes|
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
 | WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
 ## Supported Gateway types
 
-The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+The following table lists which gateways and connections are supported with Network Watcher troubleshooting:
+
 |  |  |
 |---------|---------|
 |**Gateway types**   |         |
 |VPN      | Supported        |
 |ExpressRoute | Not Supported |
-|Hypernet | Not Supported|
 |**VPN types** | |
 |Route Based | Supported|
 |Policy Based | Not Supported|
@@ -93,7 +93,6 @@ The following list shows the support shows which gateways and connections are su
 |IPSec| Supported|
 |VNet2Vnet| Supported|
 |ExpressRoute| Not Supported|
-|Hypernet| Not Supported|
 |VPNClient| Not Supported|
 
 ## Log files
@@ -149,7 +148,7 @@ Error: On-prem device sent invalid payload.
 
 The **Scrubbed-wfpdiag.txt** log file contains the wfp log. This log contains logging of packet drop and IKE/AuthIP failures.
 
-The following example shows the contents of the Scrubbed-wfpdiag.txt file. In this example, the shared key of a Connection was not correct as can be seen from the 3rd line from the bottom. The following example is just a snippet of the entire log, as the log can be lengthy depending on the issue.
+The following example shows the contents of the Scrubbed-wfpdiag.txt file. In this example, the shared key of a Connection was not correct as can be seen from the third line from the bottom. The following example is just a snippet of the entire log, as the log can be lengthy depending on the issue.
 
 ```
 ...
@@ -216,4 +215,4 @@ Learn how to diagnose VPN Gateways and Connections through the portal by visitin
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
 
-<!--Update_Description: new articles on network watcher troubleshoot overview -->
+<!--Update_Description: update link, wording update  -->

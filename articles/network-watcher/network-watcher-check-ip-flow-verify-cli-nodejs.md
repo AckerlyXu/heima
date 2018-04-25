@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -49,7 +49,7 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 ## Get the NICS
 
-The IP address of a NIC on the virtual machine is needed, in this example we retrieve the NICs on a virtual machine. If you already know the IP address that you want to test on the virtual machine, you can skip this step.
+The IP address of a NIC on the virtual machine is needed. Retrieve the NICs for a virtual machine with the command that follows. If you already know the IP address that you want to test on the virtual machine, you can skip this step.
 
 ```
 azure network nic show -g resourceGroupName -n nicName
@@ -57,7 +57,7 @@ azure network nic show -g resourceGroupName -n nicName
 
 ## Run IP flow verify
 
-Now that we have the information needed to run the cmdlet, we run the `network watcher ip-flow-verify` cmdlet to test the traffic. In this example, we are using the first IP address on the first NIC.
+Run the `network watcher ip-flow-verify` cmdlet to test the traffic. In this example, the first IP address of the first NIC is used:
 
 ```
 azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName -t targetResourceId -d directionInboundorOutbound -p protocolTCPorUDP -o localPort -m remotePort -l localIpAddr -r remoteIpAddr
@@ -78,11 +78,11 @@ info:    network watcher ip-flow-verify command OK
 
 ## Next steps
 
-If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that are defined.
+If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are defined.
 
 Learn to audit your NSG settings by visiting [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md).
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png
 
-<!--Update_Description: new articles on network watcher check ip flow verify CLI nodejs-->
+<!--Update_Description: update link, wording update -->

@@ -1,6 +1,6 @@
 ---
-title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Azure
-description: This page explains how to use Connection monitoring with Network Watcher using Azure CLI 2.0
+title: Troubleshoot connections with Azure Network Watcher - Azure CLI 2.0 | Azure
+description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure CLI 2.0.
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -13,62 +13,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 ---
 
-# Check connectivity with Azure Network Watcher using Azure CLI 2.0
+# Troubleshoot connections with Azure Network Watcher using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
 ## Before you begin
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to check connectivity.
-
-* Virtual machines to check connectivity with.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* An instance of Network Watcher in the region you want to troubleshoot a connection.
+* Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit Azure Network Watcher Agent virtual machine extension for Windows and for Linux VM visit Azure Network Watcher Agent virtual machine extension for Linux .
-
-## Register the preview capability 
-
-Connection monitoring is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-To verify the registration was successful, run the following CLI command:
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-If the feature was properly registered, the output should match the following: 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Check connectivity to a virtual machine
 
@@ -153,7 +119,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## Validate routing issues
 
-The example checks connectivity between a virtual machine and a remote endpoint.
+This example checks connectivity between a virtual machine and a remote endpoint.
 
 ### Example
 
@@ -306,6 +272,4 @@ The following json is the example response from running the previous cmdlet. As 
 
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
-<!--Update_Description: new articles on network watcher connectivity CLI -->
-<!--Not Available the parent file of includes file of network-watcher-public-preview-notice.md-->
-<!--ms.date:11/13/2017-->
+<!-- Update_Description: update link, wording update -->
