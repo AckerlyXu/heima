@@ -2,17 +2,11 @@
 title: Design guidance for replicated tables - Azure SQL Data Warehouse | Azure
 description: Recommendations for designing replicated tables in your Azure SQL Data Warehouse schema. 
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
+ms.topic: conceptual
+ms.component: design
 origin.date: 10/23/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
@@ -135,7 +129,7 @@ SQL Data Warehouse implements a replicated table by maintaining a master version
 
 Rebuilds are required after:
 - Data is loaded or modified
-- The data warehouse is scaled to a different [service level](performance-tiers.md#service-levels)
+- The data warehouse is scaled to a different level
 - Table definition is updated
 
 Rebuilds are not required after:

@@ -1,19 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure SQL data warehouse - Azure Portal | Azure'
 description: For Azure SQL Data Warehouse, create a SQL server, server-level firewall rule, and a data warehouse in the Azure portal. Then query it. 
-keywords: sql data warehouse tutorial, create a SQL data warehouse
 services: sql-database
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: "Active"
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: quickstart
+ms.component: implement
 origin.date: 11/20/2017
 origin.date: 03/12/2018
 ms.date: ''

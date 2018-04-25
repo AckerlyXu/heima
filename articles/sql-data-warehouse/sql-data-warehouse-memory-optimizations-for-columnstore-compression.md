@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 10/23/2017
-ms.date: 12/11/2017
+origin.date: 03/15/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 ---
 
@@ -138,7 +138,7 @@ OPTION (MAXDOP 1);
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
 - To increase the DWUs, see [How do I scale performance?](quickstart-scale-compute-portal.md)
-- To change the resource class for a query, see [Change a user resource class example](resource-classes-for-workload-management.md#assigning-resource-classes).
+- To change the resource class for a query, see [Change a user resource class example](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 For example, on DWU 100 a user in the smallrc resource class can use 100 MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](resource-classes-for-workload-management.md).
 

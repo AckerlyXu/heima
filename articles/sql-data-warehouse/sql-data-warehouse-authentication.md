@@ -2,34 +2,19 @@
 title: Authentication to Azure SQL Data Warehouse | Azure
 description: Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
+ms.topic: conceptual
+ms.component: implement
 origin.date: 03/21/2017
 ms.date: 07/24/2017
 ms.author: v-yeche
 
 ---
 
-# Authentication to Azure SQL Data Warehouse
-
-> [!div class="op_single_selector"]
-> * [Security Overview](sql-data-warehouse-overview-manage-security.md)
-> * [Authentication](sql-data-warehouse-authentication.md)
-> * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# Authenticate to Azure SQL Data Warehouse
+Learn how to authenticate to Azure SQL Data Warehouse by using Azure Active Directory (AAD) or SQL Server authentication.
 
 To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 

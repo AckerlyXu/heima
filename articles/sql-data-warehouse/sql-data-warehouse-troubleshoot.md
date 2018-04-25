@@ -3,24 +3,18 @@ title: Troubleshooting Azure SQL Data Warehouse | Azure
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: rockboyfor
 manager: digimobile
-editor: ''
 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-origin.date: 03/30/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 
 ---
 # Troubleshooting Azure SQL Data Warehouse
-This topic lists some of the more common troubleshooting questions we hear from our customers.
+This topic lists common troubleshooting question.
 
 ## Connecting
 | Issue | Resolution |
@@ -83,7 +77,7 @@ For more help in finding solution to your issue, here are some other resources y
 
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
-[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSMS]: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
 [SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
@@ -117,8 +111,8 @@ For more help in finding solution to your issue, here are some other resources y
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
-[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sys.database_principals]: https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql
+[CREATE FUNCTION]: https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->

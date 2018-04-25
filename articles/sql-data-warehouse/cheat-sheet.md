@@ -5,15 +5,10 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
+
+ms.topic: overview
+ms.component: design
 origin.date: 02/20/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
@@ -149,15 +144,16 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [partitions]:sql-data-warehouse-tables-partition.md
 [statistics]:sql-data-warehouse-tables-statistics.md
 [resource classes and concurrency]:resource-classes-for-workload-management.md
+[replicated tables]:design-guidance-for-replicated-tables.md
+[distributed tables]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
+
 
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [data migration]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[replicated tables]:/sql-data-warehouse/design-guidance-for-replicated-tables
-[distributed tables]:/sql-data-warehouse/sql-data-warehouse-tables-distribute
 <!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store -->
 [sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
 [sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

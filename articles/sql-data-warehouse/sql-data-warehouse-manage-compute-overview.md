@@ -27,7 +27,7 @@ The architecture of SQL Data Warehouse separates storage and compute, allowing e
 
 <a name="scale-compute"><a/>
 ## Scaling compute
-You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. SQL Data Warehouse offers [service levels](performance-tiers.md#service-levels) for data warehouse units that ensure a noticeable change in performance when you scale out or back. 
+You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
 
 For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 

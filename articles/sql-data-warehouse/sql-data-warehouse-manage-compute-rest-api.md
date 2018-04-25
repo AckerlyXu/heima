@@ -13,17 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-origin.date: 02/13/2018
-ms.date: 03/12/2018
+origin.date: 03/22/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 
 ---
 # REST APIs for Azure SQL Data Warehouse
 REST APIs for managing compute in Azure SQL Data Warehouse.
 
-
-<a name="scale-performance-bk"></a>
-<a name="scale-compute-bk"></a>
 ## Scale compute
 To change the data warehouse units, use the [Create or Update Database](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) REST API. The following example sets the data warehouse units to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
@@ -66,5 +63,5 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 <a name="next-steps-bk"></a>
 ## Next steps
-For other management tasks, see [Management overview](./sql-data-warehouse-overview-manage.md).
-<!--Update_Description: update meta properties, wording update-->
+For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview.md).
+

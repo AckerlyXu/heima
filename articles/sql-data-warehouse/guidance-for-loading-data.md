@@ -2,18 +2,11 @@
 title: Data loading best practices - Azure SQL Data Warehouse | Azure
 description: Recommendations for loading data and performing ELT with Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
+ms.topic: conceptual
+ms.component: implement
 origin.date: 12/13/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
@@ -60,11 +53,11 @@ Connect to the data warehouse and create a user. The following code assumes you 
 ```
 To run a load with resources for the staticRC20 resource classes, simply log in as LoaderRC20 and run the load.
 
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [service level](performance-tiers.md#service-levels). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
+Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
 ## Allowing multiple users to load
 
-There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
+There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
@@ -102,7 +95,7 @@ If you have thousands or more single inserts throughout the day, batch the inser
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics][Statistics]. The following example creates statistics on five columns of the Customer_Speed table.
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example creates statistics on five columns of the Customer_Speed table.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,16 +113,19 @@ To rotate Azure Storage account keys:
 For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
 <!-- URL is not Correct on remove .md postfox on [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) -->
 
-
 Example:
 
 Original key is created
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 Rotate key from key 1 to key 2
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 No other changes to underlying external data sources are needed.
 
