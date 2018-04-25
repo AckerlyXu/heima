@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/29/2018
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -22,6 +22,7 @@ ms.custom: mvc
 
 # Tutorial: create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).
+<!-- Not Available on [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100)-->
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 

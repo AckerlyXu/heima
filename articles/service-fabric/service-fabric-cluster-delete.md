@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/24/2017
-ms.date: 08/14/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -41,10 +41,10 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-You will get a prompt to confirm the deletion if you did not use the *-Force* option. On confirmation the RG and all the resources it contains are deleted.
+You will get a prompt to confirm the deletion if you did not use the *-Force* option. On confirmation, the RG and all the resources it contains are deleted.
 
 ### Delete a resource group in the Azure portal
-1. Login to the [Azure portal](https://portal.azure.cn).
+1. Log in to the [Azure portal](https://portal.azure.cn).
 2. Navigate to the Service Fabric cluster you want to delete.
 3. Click on the Resource Group name on the cluster essentials page.
 4. This brings up the **Resource Group Essentials** page.
@@ -58,21 +58,20 @@ If your resource group has only resources that are related to the Service Fabric
 
 If you deployed your cluster using the portal or using one of the Service Fabric Resource Manager templates from the template gallery, then all the resources that the cluster uses are tagged with the following two tags. You can use them to decide which resources you want to delete.
 
-***Tag#1:*** Key = clusterName, Value = 'name of the cluster'
+***Tag #1:*** Key = clusterName, Value = 'name of the cluster'
 
-***Tag#2:*** Key = resourceName, Value = ServiceFabric
+***Tag #2:*** Key = resourceName, Value = ServiceFabric
 
 ### Delete specific resources in the Azure portal
-
-1. Login to the [Azure portal](https://portal.azure.cn).
+1. Log in to the [Azure portal](https://portal.azure.cn).
 2. Navigate to the Service Fabric cluster you want to delete.
 3. Go to **All settings** on the essentials blade.
 4. Click on **Tags** under **Resource Management** in the settings blade.
 5. Click on one of the **Tags** in the tags blade to get a list of all the resources with that tag.
-   
+
     ![Resource Tags][ResourceTags]
 6. Once you have the list of tagged resources, click on each of the resources and delete them.
-   
+
     ![Tagged Resources][TaggedResources]
 
 ### Delete the resources using Azure PowerShell
@@ -83,13 +82,13 @@ Open a PowerShell window and run the following PS cmdlets:
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
-For each of the resources you want to delete, run the following:
+For each of the resources you want to delete, run the following script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-To delete the cluster resource, run the following:
+To delete the cluster resource, run the following script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

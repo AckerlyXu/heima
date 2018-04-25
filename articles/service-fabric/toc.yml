@@ -45,7 +45,6 @@
     items:
     - name: 1- Deploy a .NET app using Docker Compose
       href: service-fabric-host-app-in-a-container.md
-    - name: 2- Monitor your container
 ### Not Available href: service-fabric-tutorial-monitoring-wincontainers.md -->
 ### Not Avaialble on - name: Create a Linux container app
   - name: Create and manage a cluster
@@ -116,10 +115,6 @@
         href: service-fabric-reliable-services-reliable-concurrent-queue.md
       - name: Reliable Collection serialization
         href: service-fabric-reliable-services-reliable-collections-serialization.md
-      - name: Reliable State Manager and Reliable Collection internals
-        href: service-fabric-reliable-services-reliable-collections-internals.md
-      - name: Advanced usage
-        href: service-fabric-reliable-services-advanced-usage.md
     - name: Reliable Actors
       href: service-fabric-reliable-actors-introduction.md
       items:
@@ -166,6 +161,8 @@
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Reverse proxy diagnostics
         href: service-fabric-reverse-proxy-diagnostics.md      
+      - name: ASP.NET Core
+        href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Application lifecycle
       href: service-fabric-application-lifecycle.md
       items:
@@ -193,6 +190,8 @@
     items:
     - name: Cluster security
       href: service-fabric-cluster-security.md
+    - name: Scaling
+      href: service-fabric-cluster-scaling.md
     - name: Feature differences between Linux and Windows
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
@@ -309,8 +308,6 @@
         href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
       items:
-      - name: Container security
-        href: service-fabric-securing-containers.md
 ### Not Available on  href: service-fabric-docker-compose.md
       - name: Resource governance for containers and services
         href: service-fabric-resource-governance.md

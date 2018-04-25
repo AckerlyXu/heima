@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -28,8 +28,9 @@ ms.author: v-yeche
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
 
-One way to upload and collect logs is to use the Linux Azure Diagnostics (LAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product, such as another log-parsing solution.
-<!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
+One way to upload and collect logs is to use the Linux Azure Diagnostics (LAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product.
+<!-- Not Available [Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
+<!-- Not Available on Azure Application Insights -->
 
 ## Log and event sources
 
@@ -51,6 +52,6 @@ This configures the LAD agent to monitor specified log files. Whenever a new lin
 ## Next steps
 
 1. To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-<!-- Not Available on 2. [Set up the OMS agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs -->
+<!-- Not Available on 2. [Set up the Log Analytics agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs -->
 
 <!--Update_Description: update meta properties -->

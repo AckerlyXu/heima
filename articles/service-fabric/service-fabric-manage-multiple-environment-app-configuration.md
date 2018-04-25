@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/09/2017
-ms.date: 03/12/2018
+origin.date: 02/23/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -57,4 +57,4 @@ The following articles show you how to use some of the concepts described here:
 - [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [How to parameterize configuration files](service-fabric-how-to-parameterize-configuration-files.md)
 - [Environment variable reference](service-fabric-environment-variables-reference.md)
-<!--Update_Description: update meta properties, wording update， update link -->
+<!--Update_Description: update meta properties  -->

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 08/08/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-yeche
 Starting with the 5.7 release of Service Fabric, reverse proxy events are available for collection. 
 The events are available in two channels, one with only error events related to request processing failure at the reverse proxy and second channel containing verbose events with entries for both successful and failed requests.
 
-Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) to enable collecting events from these channels in local and Azure Service Fabric clusters.
+Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) to enable collecting events from these channels in local and Azure Service Fabric clusters.
 
 ## Troubleshoot using diagnostics logs
 Here are some examples on how to interpret the common failure logs that one can encounter:
@@ -201,4 +201,4 @@ The second event indicates that the request failed while forwarding to service, 
 * Refer to [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
 * Read [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to learn more.
 
-<!--Update_Description: add content of error FABRIC_E_SERVICE_DOES_NOT_EXIST -->
+<!--Update_Description: update link -->

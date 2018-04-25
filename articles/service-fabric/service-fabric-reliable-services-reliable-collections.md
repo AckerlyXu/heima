@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/06/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -57,7 +57,6 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
 * [Reliable Collection Guidelines & Recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
   * [Backup and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
@@ -68,4 +67,4 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

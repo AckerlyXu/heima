@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -127,7 +127,7 @@ $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser -Location $resourceGroupLocation
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser
 
 ```
 
@@ -312,7 +312,7 @@ $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.cn:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values.

@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/20/2018
-ms.date: 04/09/2018
+origin.date: 03/29/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ ms.author: v-yeche
 > 
 > 
 
- To build and run Azure Service Fabric applications on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+ To build and run Azure Service Fabric applications on your Windows development machine, install the Service Fabric runtime, SDK, and tools. You also need to [enable execution of the Windows PowerShell scripts](#enable-powershell-script-execution) included in the SDK.
 <!-- Not Available on [Azure Service Fabric applications][1] -->
 
 ## Prerequisites
@@ -53,7 +53,7 @@ In addition, you need to install the Azure Service Fabric SDK, using Web Platfor
 * [Install the Azure Service Fabric SDK][core-sdk]
 
 ### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
-For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
+For Visual Studio 2015, the Service Fabric tools are installed together with the SDK and runtime using the Web Platform Installer:
 
 * [Install the Azure Service Fabric SDK and Tools][full-bundle-vs2015]
 
@@ -62,14 +62,14 @@ If you only need the SDK, you can install this package:
 * [Install the Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.0.467
-* Service Fabric runtime 6.1.467
+* Service Fabric SDK and Tools 3.0.480
+* Service Fabric runtime 6.1.480
 * Service Fabric Tools for Visual Studio 2015 2.0.10124.2
 * Visual Studio 2017 15.5.6 includes Service Fabric Tools for Visual Studio 2.0.20180124.2  
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 
-## Enable PowerShell script execution
+## <a name="enable-powershell-script-execution"></a> Enable PowerShell script execution
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
 ```powershell

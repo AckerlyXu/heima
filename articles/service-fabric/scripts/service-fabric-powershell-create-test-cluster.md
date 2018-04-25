@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 01/29/2018
-ms.date: 03/12/2018
+origin.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---

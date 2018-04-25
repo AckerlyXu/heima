@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 
 ---
@@ -106,7 +106,7 @@ The following snippet shows the different kinds of resources that can be managed
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -120,7 +120,7 @@ The following snippet shows the different kinds of resources that can be managed
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
