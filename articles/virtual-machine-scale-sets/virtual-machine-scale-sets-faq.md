@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
 ms.custom: na
 
@@ -24,6 +24,45 @@ ms.custom: na
 # Azure virtual machine scale sets FAQs
 
 Get answers to frequently asked questions about virtual machine scale sets in Azure.
+
+## Top frequently asked questions for scale sets
+**Q.** How many VMs can I have in a scale set?
+
+**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 300 VMs based on custom images. 
+
+**Q.** Are data disks supported within scale sets?
+
+**A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+
+- Azure files (SMB shared drives)
+- OS drive
+- Temp drive (local, not backed by Azure Storage)
+- Azure data service (for example, Azure tables, Azure blobs)
+- External data service (for example, remote database)
+
+**Q.** Which Azure regions support scale sets?
+
+**A.** All regions support scale sets.
+
+**Q.** How do I create a scale set by using a custom image?
+
+**A.** Create a managed disk based on your custom image VHD and reference it in your scale set template. [Here's an example](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
+
+**A.** Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
+
+**Q.** What if I then increase the capacity from 15 to 18?
+
+**A.** If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
+
+**Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
+
+**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish. You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**Q.** Do scale sets work with Azure availability sets?
+
+**A.** A regional (non-zonal) scale set uses *placement groups*, each of which can be configured to act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
 
 ## Autoscale
 
@@ -64,9 +103,15 @@ You can create an autoscale setting on a VM to use host-level metrics or guest O
 
 For a list of supported metrics, see [Azure Monitor autoscaling common metrics](/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
 
+For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
+
+The sample uses the host-level CPU metric and a message count metric.
+
+
+
 ### How do I set alert rules on a virtual machine scale set?
 
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quick start samples](/monitoring-and-diagnostics/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quick start samples](/monitoring-and-diagnostics/insights-cli-samples/#work-with-alerts).
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](/monitoring-and-diagnostics/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quickstart samples](/monitoring-and-diagnostics/insights-cli-samples/#work-with-alerts).
 
 The TargetResourceId of the virtual machine scale set looks like this: 
 
@@ -347,10 +392,6 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 You can find the extensionName value in `$vmss`.
    
-### Is there a virtual machine scale set template example that integrates with Operations Management Suite?
-
-For a virtual machine scale set template example that integrates with Operations Management Suite, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
-   
 ### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
 
 To learn about extension sequencing in virtual machine scale sets, see [Extension sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
@@ -498,7 +539,7 @@ Yes. A Network Security Group can be applied directly to a scale set by referenc
 
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
-If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](/app-service/) which provides support for fast switching between staging and production slots.
+If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](https://www.azure.cn/home/features/app-service/) which provides support for fast switching between staging and production slots.
  
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -547,7 +588,7 @@ To create a virtual machine scale set with a custom DNS configuration, add a dns
 
 ### How can I configure a scale set to assign a public IP address to each VM?
 
-To create a virtual machine scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMAchineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
+To create a virtual machine scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
 
 ```json
     "publicipaddressconfiguration": {
@@ -638,15 +679,6 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### Is it possible to integrate scale sets with Azure OMS (Operations Management Suite)?
-
-Yes, you can by installing the OMS extension on the scale set VMs. Here is an Azure CLI example:
-```
-az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
-```
-You can find the required workspaceId and workspaceKey in the OMS portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
-
-Note: if your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
 
 ## Troubleshooting
 
@@ -693,7 +725,7 @@ You can set this property to **false**. For small virtual machine scale sets, th
 
 ### What is the difference between deleting a VM in a virtual machine scale set and deallocating the VM? When should I choose one over the other?
 
-The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn't delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
+The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn’t delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
 
 - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.

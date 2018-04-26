@@ -93,7 +93,7 @@ To create a virtual machine scale set, you must specify the following:
 The following example creates a basic virtual machine scale set (this step might take a few minutes).
 
 ```azurecli
-az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
+az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd! --vm-sku Standard_DS1
 ```
 
 Once the command finishes you will now have your virtual machine scale set created. You may need to get the IP address of the virtual machine so that you can connect to it. You can get a lot of different information about the virtual machine (including the IP address) with the following command. 

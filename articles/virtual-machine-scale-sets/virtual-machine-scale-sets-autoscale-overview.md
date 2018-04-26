@@ -3,8 +3,8 @@ title: Overview of autoscale with Azure virtual machine scale sets | Microsoft D
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2017
-ms.date: 12/06/2017
+ms.date: 04/25/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -38,11 +38,12 @@ You can create autoscale rules that built-in host metrics available from your VM
 Autoscale rules that use host-based metrics can be created with one of the following tools:
 
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure template](tutorial-autoscale-template.md)
 
-To create autoscale rules that use more detailed performance metrics, you can [install and configure the Azure diagnostics extension](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) on VM instances, or [configure your application use App Insights](#application-level-metrics-with-app-insights).
+To create autoscale rules that use more detailed performance metrics, you can [install and configure the Azure diagnostics extension](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) on VM instances.
 
-Autoscale rules that use host-based metrics, in-guest VM metrics with the Azure diagnostic extension, and App Insights can use the following configuration settings.
+Autoscale rules that use host-based metrics, in-guest VM metrics with the Azure diagnostic extension can use the following configuration settings.
 
 ### Metric sources
 Autoscale rules can use metrics from one of the following sources:
@@ -52,11 +53,10 @@ Autoscale rules can use metrics from one of the following sources:
 | Current scale set    | For host-based metrics that do not require additional agents to be installed or configured.                                  |
 | Storage account      | The Azure diagnostic extension writes performance metrics to Azure storage that is then consumed to trigger autoscale rules. |
 | Service Bus Queue    | Your application or other components can transmit messages on an Azure Service Bus queue to trigger rules.                   |
-| Application Insights | An instrumentation package installed in your application that streams metrics directly from the app.                         |
 
 
 ### Autoscale rule criteria
-The following host-based metrics are available for use when you create autoscale rules. If you use the Azure diagnostic extension or App Insights, you define which metrics to monitor and use with autoscale rules.
+The following host-based metrics are available for use when you create autoscale rules. If you use the Azure diagnostic extension, you define which metrics to monitor and use with autoscale rules.
 
 | Metric name               |
 |---------------------------|
@@ -114,8 +114,6 @@ To use the Azure diagnostics extension, you must create Azure storage accounts f
 For more information, see the articles for how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/linux/diagnostic-extension.md) or [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
 
 
-## Application-level metrics with App Insights
-To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create autoscale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
 
 ## Scheduled autoscale
 You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale the number of VM instances at fixed times. With performance-based rules, there may be a performance impact on the application before the autoscale rules trigger and the new VM instances are provisioned. If you can anticipate such demand, the additional VM instances are provisioned and ready for the additional customer use and application demand.
@@ -131,7 +129,8 @@ The following examples are scenarios that may benefit the use of schedule-based 
 You can create autoscale rules that use host-based metrics with one of the following tools:
 
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure template](tutorial-autoscale-template.md)
 
 This overview detailed how to use autoscale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. 
 

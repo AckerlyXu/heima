@@ -1,5 +1,5 @@
 ---
-title: Create a Windows virtual machine scale set with an Azure template | Microsoft Docs
+title: Quickstart - Create a Windows virtual machine scale set with an Azure template | Microsoft Docs
 description: Learn how to quickly create a Windows virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -13,19 +13,20 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 12/19/2017
-ms.date: 01/29/2018
+ms.topic: quickstart
+ms.custom: mvc
+origin.date: 03/27/18
+ms.date: 04/24/2018
 ms.author: v-junlch
 
 ---
 
-# Create a Windows virtual machine scale set with an Azure template
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with an Azure Resource Manager template. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or the [Azure portal](virtual-machine-scale-sets-create-portal.md).
+# Quickstart: Create a Windows virtual machine scale set with an Azure template
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with an Azure Resource Manager template.
 
-If you don't have an Azure subscription, create a [Trial](https://www.azure.cn/pricing/1rmb-trial) before you begin.
+If you don't have an Azure subscription, create a [Trial](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 4.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.5.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 
 
 ## Define a scale set in a template
@@ -90,8 +91,8 @@ A template defines the configuration for each resource type. A virtual machine s
  To keep the sample short, the virtual network interface card (NIC) configuration is not shown. Additional components, such as a load balancer, are also not shown. A complete scale set template is shown [at the end of this article](#deploy-the-template).
 
 
-## Install an application
-When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
+## Add a sample application
+To test your scale set, install a basic web application. When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
 
 - Extension type
 - Extension publisher
@@ -140,7 +141,7 @@ You can also use Azure PowerShell to install the ASP.NET application on Windows 
 
 ```azurepowershell
 # Create a resource group
-New-AzureRmResourceGroup -Name myResourceGroup -Location chinanorth
+New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaNorth
 
 # Deploy template into resource group
 New-AzureRmResourceGroupDeployment `
@@ -157,8 +158,8 @@ Update-AzureRmVmss `
 Answer the prompts to provide a scale set name and admin credentials for the VM instances. It can take 10-15 minutes for the scale set to be created and apply the extension to configure the app.
 
 
-## Test your sample application
-To see your app in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) as follows:
+## Test your scale set
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) as follows:
 
 ```azurepowershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -170,15 +171,16 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group, scale set, and all related resources as follows:
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group, scale set. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
 ## Next steps
-In this getting started article, you created a Windows scale set with an Azure template and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
+In this quickstart, you created a Windows scale set with an Azure template and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
 
-- [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
-- Automatically scale with the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+> [!div class="nextstepaction"]
+> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
+
