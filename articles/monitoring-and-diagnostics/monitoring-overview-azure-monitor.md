@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/23/2017
+origin.date: 03/28/2018
 ms.author: v-yiso
-ms.date: 04/16/2018
+ms.date: 05/07/2018
 ---
 
 # Overview of Azure Monitor
@@ -32,15 +32,13 @@ Azure Monitor has a landing page that helps users:
 - Understand the monitoring capabilities offered by Azure.
 - Discover, configure, and on-board Azure's platform and premium monitoring capabilities.
 
-While the Azure Monitor service is released, the landing overview page is in preview. 
-
 The page is a starting point for navigation, including on-boarding. It shows curated notable issues from different services and allows the user to navigate to them in context.
  
 ![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 When you open the page, you can select among the subscriptions you have read access to. For a selected subscription, you can see:
 
-- **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both metric and activity log alerts. *<Edit: Alerts (Preview) with unified experience also shown for all alerts - events, metrics and logs>*
+- **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both older and newer alerts. Read more about the [newer Azure Alerts](monitoring-overview-unified-alerts.md). 
 - **Activity Log Errors** - If any of your Azure resources log events with error-level severity, you can view a high-level count and click through to the activity log page to investigate each event.
 - **Azure Service Health** - You can see a count of Service Health service issues, planned maintenance events, and health advisories. Azure Service Health provides personalized information when problems in the Azure infrastructure impact your services.  See [Azure Service Health](../service-health/service-health-overview.md) for more information.  
 
@@ -135,12 +133,12 @@ A few visualization methods include:
 
 ### Automate
 > [!NOTE]
-> As part of the ongoing evolution of Alerts on Azure, now a unified experience for alerting is being previewed. More details on [Azure Alerts (Preview)](monitoring-overview-unified-alerts.md)
+> As part of the ongoing evolution of Alerts on Azure, now a unified experience for alerting is available. More details on [new Azure Alerts](monitoring-overview-unified-alerts.md)
 
-In the standard Azure Alerts, you can use monitoring data to trigger alerts or even whole processes. Examples include:
+In the Azure alerts, you can use monitoring data to trigger alerts or even whole processes. Examples include:
 
 * Use data to autoscale compute instances up or down based on application load.
-* Send emails when a metric crosses a predetermined threshold.
+* Send emails based on metric or log conditions. 
 * Call a web URL (webhook) to execute an action in a system outside of Azure
 * Start a runbook in Azure automation to perform any variety of tasks
 

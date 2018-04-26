@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ---
 # Using Azure API Management service with an internal virtual network
 With Azure Virtual Networks, Azure API Management can manage APIs not accessible on the internet. A number of VPN technologies are available to make the connection. API Management can be deployed in two main modes inside a virtual network:
@@ -69,7 +69,7 @@ You can also enable virtual network connectivity by using PowerShell cmdlets.
 When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own routing.
 
 > [!NOTE]
-> API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Developer portal, the Azurethe portal, direct management endpoint, and Git.
+> API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Azure portal and the Developer portal, direct management endpoint, and Git.
 
 ### Access on default host names
 When you create an API Management service, named "contoso" for example, the following service endpoints are configured by default:

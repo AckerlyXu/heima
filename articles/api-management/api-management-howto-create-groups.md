@@ -3,7 +3,7 @@ title: Manage developer accounts using groups in Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
 In API Management, groups are used to manage the visibility of products to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 

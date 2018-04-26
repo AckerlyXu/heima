@@ -14,16 +14,16 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 01/29/2018
+ms.date: 05/07/2018
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
 This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as:
 
-- Querying for data (inserting, updating, and deleting).
-- Authentication.
-- Handling errors.
-- Customizing the client. 
+* Querying for data (inserting, updating, and deleting).
+* Authentication.
+* Handling errors.
+* Customizing the client.
 
 This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK][10] or [How to use the Node.js backend SDK][11].
 
@@ -221,8 +221,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
-    public DateTimeOffset getUpdatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    public DateTimeOffset getCreatedAt() { return mCreatedAt; }
+    protected DateTimeOffset setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
@@ -1083,18 +1083,14 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
         compile 'com.android.support:support-v4:23.0.0'
     }
 
-3. Add the following code to your application, making the following replacements:
+1. Add the following code to your application, making the following replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The 
-  format should be https://login.chinacloudapi.cn/contoso.onmicrosoft.com. 
-
-* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client
-  ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
-
+* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.microsoftonline.com/contoso.onmicrosoft.com.
+* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
 * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 
 * Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This 
-  value should be similar to _https://contoso.azurewebsites.cn/.auth/login/done_.
+  value should be similar to _https://contoso.chinacloudsites.cn/.auth/login/done_.
 
 ```java
 private AuthenticationContext mContext;

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/27/2017
-ms.date: 12/11/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
 
 ---
@@ -67,7 +67,7 @@ If the above built-in roles don’t meet the exact needs of your team, you can [
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Read/write/delete action groups. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Read/write/delete activity log alerts. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Read/write/delete alert rules (metric alerts). |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Read/write/delete alert rules (from alerts classic). |
 | Microsoft.Insights/AlertRules/Incidents/Read |List incidents (history of the alert rule being triggered) for alert rules. This only applies to the portal. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Read/write/delete autoscale settings. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Read/write/delete diagnostic settings. |
@@ -77,7 +77,7 @@ If the above built-in roles don’t meet the exact needs of your team, you can [
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Read/write/delete diagnostic settings for network flow logs. |
 | Microsoft.Insights/LogDefinitions/Read |This permission is necessary for users who need access to Activity Logs via the portal. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Read/write/delete log profiles (streaming Activity Log to event hub or storage account). |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Read/write/delete near real-time metric alerts (public preview). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Read/write/delete near real-time metric alerts |
 | Microsoft.Insights/MetricDefinitions/Read |Read metric definitions (list of available metric types for a resource). |
 | Microsoft.Insights/Metrics/Read |Read metrics for a resource. |
 | Microsoft.Insights/Register/Action |Register the Azure Monitor resource provider. |
@@ -109,9 +109,9 @@ Monitoring data—particularly log files—can contain sensitive information, su
 2. Diagnostic Logs, which are logs emitted by a resource.
 3. Metrics, which are emitted by resources.
 
-All three of these data types can be stored in a storage account or streamed to Event Hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation usually reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
+All three of these data types can be stored in a storage account or streamed to Event Hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
 
-* Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (eg. a third-party SIEM) access to non-monitoring data.
+* Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (for example, a third-party SIEM) access to non-monitoring data.
 * Use a single, dedicated Service Bus or Event Hub namespace across all diagnostic settings for the same reason as above.
 * Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user only needs access to monitoring data. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.

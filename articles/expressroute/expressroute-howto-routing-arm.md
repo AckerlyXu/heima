@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/03/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ---
 # Create and modify peering for an ExpressRoute circuit using PowerShell
 
@@ -54,8 +54,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 > 
 
 ### To create Microsoft peering
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Import the PowerShell module for ExpressRoute.
 
@@ -287,7 +285,7 @@ You can get configuration details by using the following example:
 ```powershell
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration

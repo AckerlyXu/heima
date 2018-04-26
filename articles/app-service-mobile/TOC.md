@@ -1,3 +1,5 @@
+# [Mobile Apps Documentation](index.md)
+
 # Overview
 ## [What are Mobile Apps?](app-service-mobile-value-prop.md)
 ## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
@@ -84,7 +86,7 @@
 
 ### [Clone an existing app](../app-service/app-service-web-app-cloning.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fapp-service-mobile%2ftoc.json)
-### [Resource groups](../app-service/app-service-move-resources.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [Resource groups](../azure-resource-manager/resource-group-move-resources.md?toc=%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [Run Background tasks with WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## Migrate
 ### [How does App Service compare to Mobile Services?](app-service-mobile-value-prop-migration-from-mobile-services.md)
@@ -94,7 +96,6 @@
 #### [Node.js backend](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Secure
-### [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### Authenticate with identity providers
 #### [Azure Active Directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
 #### [Microsoft Account authentication](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
@@ -119,6 +120,7 @@
 ### General troubleshooting for Mobile Apps
 #### [.NET backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.JS backend](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
+### [Enable diagnostics logging](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### [Troubleshoot using Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 # Reference
@@ -135,8 +137,8 @@
 # Resources
 ## [App Service Best practices](../app-service/app-service-best-practices.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/)
-## [Service updates](https://azure.microsoft.com/updates/?product=mobile-services)
+## [Pricing](https://www.azure.cn/zh-cn/pricing/details/app-service/)
+## [Pricing calculator](https://www.azure.cn/zh-cn/pricing/calculator/)
 
 ## Samples
 ### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
