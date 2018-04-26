@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/27/2017
-ms.date: 03/28/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
 
 ---
@@ -107,7 +107,7 @@ The following are considerations for choosing a Cache offering.
 - **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 - **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 - **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
-- **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. For more information, see [Azure Redis Cache pricing](https://www.azure.cn/pricing/details/redis-cache/).
+- **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. Clustering does not increase the number of connections available for a clustered cache. For more information, see [Azure Redis Cache pricing](https://www.azure.cn/pricing/details/redis-cache/).
 - **Dedicated Core for Redis Server**: In the Premium tier, all cache sizes have a dedicated core for Redis. In the Basic/Standard tiers, the C1 size and above have a dedicated core for Redis server.
 - **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you receive timeouts on the client side.
 - **Performance improvements**: Caches in the Premium tier are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
@@ -282,17 +282,17 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 - [Performance testing](#performance-testing)
 
 #### StackExchange.Redis best practices
-- Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically. [See here for details](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
+- Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically. 
 - Reuse the ConnectionMultiplexer - do not create a new one for each request. The `Lazy<ConnectionMultiplexer>` pattern [shown here](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) is recommended.
-- Redis works best with smaller values, so consider chopping up bigger data into multiple keys. Read [this article](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) for an example problem that can be caused by large values.
+- Redis works best with smaller values, so consider chopping up bigger data into multiple keys. 
 - Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
 - Use at least the default connectTimeout of 5 seconds. This interval would give StackExchange.Redis sufficient time to re-establish the connection, in case of a network blip.
 - Be aware of the performance costs associated with different operations you are running. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io site](http://redis.io/commands/) has details around the time complexity for each operation that it supports. Click each command to see the complexity for each operation.
 
 #### Configuration and concepts
 - Use Standard or Premium Tier for Production systems. The Basic Tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are typically used for simple dev/test scenarios.
-- Remember that Redis is an **In-Memory** data store. Read [this article](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) so that you are aware of scenarios where data loss can occur.
-- Develop your system such that it can handle connection blips [due to patching and failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+- Remember that Redis is an **In-Memory** data store. 
+- Develop your system such that it can handle connection blips due to patching and failover.
 
 #### Performance testing
 - Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Because `redis-benchmark` does not support SSL, you must [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
@@ -395,6 +395,7 @@ Azure Redis Cache instances can be monitored in the [Azure portal](https://porta
 The Redis Cache **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
 
 - **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
+- **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../service-health/resource-health-overview.md).
 - **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
