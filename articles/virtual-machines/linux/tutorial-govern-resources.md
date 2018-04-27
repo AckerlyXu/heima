@@ -143,7 +143,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 <!-- Not Available on ### View costs by tag values -->
 
-[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+<!-- Not Available on [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
 
 ## Clean up resources
 

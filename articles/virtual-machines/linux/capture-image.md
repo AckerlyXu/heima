@@ -61,7 +61,7 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 ## Step 2: Create VM image
 Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-1. Deallocate the VM that you deprovisioned with [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
+1. Deallocate the VM that you deprovisioned with [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
     ```azurecli
     az vm deallocate \
