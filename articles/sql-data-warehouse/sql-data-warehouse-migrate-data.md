@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 06/29/2017
-ms.date: 11/20/2017
+ms.date: 04/25/2017
 ms.author: v-yeche
 
 ---
@@ -172,10 +172,11 @@ For more development tips, see [development overview][development overview].
 <!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
 <!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[migrate your schema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 <!--MSDN references-->
 

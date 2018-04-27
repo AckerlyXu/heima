@@ -1,30 +1,24 @@
 ---
-title: Optimizing transactions for SQL Data Warehouse | Azure
-description: Best Practice guidance on writing efficient transaction updates in Azure SQL Data Warehouse
+title: Optimizing transactions for Azure SQL Data Warehouse | Microsoft Docs
+description: Learn how to optimize the performance of your transactional code in Azure SQL Data Warehouse while minimizing risk for long rollbacks.
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: jhubbard
-editor: ''
 
-ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
+ms.topic: conceptual
+ms.component: implement
 origin.date: 10/31/2016
 ms.date: 01/17/2017
 ms.author: v-yeche
 
 ---
 
-# Optimizing transactions for SQL Data Warehouse
-This article explains how to optimize the performance of your transactional code while minimizing risk for long rollbacks.
+# Optimizing transactions in Azure SQL Data Warehouse
+Learn how to optimize the performance of your transactional code in Azure SQL Data Warehouse while minimizing risk for long rollbacks.
 
 ## Transactions and logging
-Transactions are an important component of a relational database engine. SQL Data Warehouse uses transactions during data modification. These transactions can be explicit or implicit. Single `INSERT`, `UPDATE`, and `DELETE` statements are all examples of implicit transactions. Explicit transactions use `BEGIN TRAN`, `COMMIT TRAN`, or `ROLLBACK TRAN`. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit. 
+Transactions are an important component of a relational database engine. SQL Data Warehouse uses transactions during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit. 
 
 Azure SQL Data Warehouse commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
 
@@ -33,7 +27,7 @@ Azure SQL Data Warehouse commits changes to the database using transaction logs.
 * Adopt a partition switching pattern for large modifications to a given partition
 
 ## Minimal vs. full logging
-Unlike fully logged operations, which use the transaction log to keep track of every row change, minimally logged operations keep track of extent allocations and meta-data changes only. Therefore, minimal logging involves logging only the information that is required to roll back the transaction after a failure, or for an explicit request (`ROLLBACK TRAN`). As much less information is tracked in the transaction log, a minimally logged operation performs better than a similarly sized fully logged operation. Furthermore, because fewer writes go the transaction log, a much smaller amount of log data is generated and so is more I/O efficient.
+Unlike fully logged operations, which use the transaction log to keep track of every row change, minimally logged operations keep track of extent allocations and meta-data changes only. Therefore, minimal logging involves logging only the information that is required to roll back the transaction after a failure, or for an explicit request (ROLLBACK TRAN). As much less information is tracked in the transaction log, a minimally logged operation performs better than a similarly sized fully logged operation. Furthermore, because fewer writes go the transaction log, a much smaller amount of log data is generated and so is more I/O efficient.
 
 The transaction safety limits only apply to fully logged operations.
 
@@ -45,7 +39,7 @@ The transaction safety limits only apply to fully logged operations.
 ## Minimally logged operations
 The following operations are capable of being minimally logged:
 
-* CREATE TABLE AS SELECT ([CTAS][CTAS])
+* CREATE TABLE AS SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -60,13 +54,13 @@ The following operations are capable of being minimally logged:
 - SELECT..INTO
 -->
 
->[!NOTE]
-> Internal data movement operations (such as `BROADCAST` and `SHUFFLE`) are not affected by the transaction safety limit.
+> [!NOTE]
+> Internal data movement operations (such as BROADCAST and SHUFFLE) are not affected by the transaction safety limit.
 > 
 > 
 
 ## Minimal logging with bulk load
-`CTAS` and `INSERT...SELECT` are both bulk load operations. However, both are influenced by the target table definition and depend on the load scenario. The following table explains when bulk operations are fully or minimally logged:  
+CTAS and INSERT...SELECT are both bulk load operations. However, both are influenced by the target table definition and depend on the load scenario. The following table explains when bulk operations are fully or minimally logged:  
 
 | Primary Index | Load Scenario | Logging Mode |
 | --- | --- | --- |
@@ -87,7 +81,7 @@ It is worth noting that any writes to update secondary or non-clustered indexes 
 Loading data into a non-empty table with a clustered index can often contain a mixture of fully logged and minimally logged rows. A clustered index is a balanced tree (b-tree) of pages. If the page being written to already contains rows from another transaction, then these writes will be fully logged. However, if the page is empty then the write to that page will be minimally logged.
 
 ## Optimizing deletes
-`DELETE` is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS][CTAS].  Once created, use [RENAME][RENAME] to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](sql-data-warehouse-develop-ctas.md).  Once created, use [RENAME](https://docs.microsoft.com/sql/t-sql/statements/rename-transact-sql) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -118,9 +112,9 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## Optimizing updates
-`UPDATE` is a fully logged operation.  If you need to update a large number of rows in a table or a partition, it can often be far more efficient to use a minimally logged operation such as [CTAS][CTAS] to do so.
+UPDATE is a fully logged operation.  If you need to update a large number of rows in a table or a partition, it can often be far more efficient to use a minimally logged operation such as [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to do so.
 
-In the example below a full table update has been converted to a `CTAS` so that minimal logging is possible.
+In the example below a full table update has been converted to a CTAS so that minimal logging is possible.
 
 In this case, we are retrospectively adding a discount amount to the sales in the table:
 
@@ -184,7 +178,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## Optimizing with partition switching
-If faced with large-scale modifications inside a [table partition][table partition], then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
+If faced with large-scale modifications inside a [table partition](sql-data-warehouse-tables-partition.md), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
 
 The steps to perform a partition switch are as follows:
 
@@ -416,22 +410,9 @@ Azure SQL Data Warehouse lets you [pause, resume, and scale](sql-data-warehouse-
 
 The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL Data Warehouse. However, this scenario might not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
 
-* Rewrite long running operations using [CTAS][CTAS]
+* Rewrite long running operations using [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+See [Transactions in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](sql-data-warehouse-best-practices.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-tables-partition.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-
-<!-- Other web references -->

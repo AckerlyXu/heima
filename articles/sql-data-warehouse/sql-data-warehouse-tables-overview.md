@@ -1,29 +1,24 @@
 ---
-title: Table design introduction - Azure SQL Data Warehouse | Azure
+title: Designing tables - Azure SQL Data Warehouse | Microsoft Docs
 description: Introduction to designing tables in Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-origin.date: 01/18/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 
 ---
 
-# Introduction to designing tables in Azure SQL Data Warehouse
+# Designing tables in Azure SQL Data Warehouse
 
 Learn key concepts for designing tables in Azure SQL Data Warehouse. 
 
-## Determining table category 
+## Determine table category 
 
 A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into fact and dimension tables. Some tables are used for integration or staging data before it moves to a fact or dimension table. As you design a table, decide whether the table data belongs in a fact, dimension, or integration table. This decision informs the appropriate table structure and distribution. 
 
@@ -45,9 +40,10 @@ CREATE SCHEMA wwi;
 To show the organization of the tables in SQL Data Warehouse, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW. It compares the names in SQL Server with names in SQL Data Warehouse. 
 
 | WideWorldImportersDW table  | Table type | SQL Server | SQL Data Warehouse |
-|:-----|:-----|:------|:----|
+|:-----|:-----|:------|:-----|
 | City | Dimension | Dimension.City | wwi.DimCity |
 | Order | Fact | Fact.Order | wwi.FactOrder |
+
 
 ## Table persistence 
 
@@ -142,7 +138,7 @@ SQL Data Warehouse supports many, but not all, of the table features offered by 
 - [User-Defined Types](https://docs.microsoft.com/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## Table size queries
-One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -341,6 +337,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data from Azure blob storage with PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
-
-<!--Update_Description: update meta properties, wording update-->
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).

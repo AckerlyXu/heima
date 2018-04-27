@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2017
-ms.date: 03/05/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
 
 ---
 # Manage a virtual machine scale set with the Azure CLI 2.0
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI 2.0 commands that let you perform these tasks.
 
-To complete these management tasks, you need the latest Azure CLI 2.0 build. For information on how to install and use the latest version, see [Install the Azure CLI 2.0](/cli/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set in the Azure portal](virtual-machine-scale-sets-create-portal.md).
+To complete these management tasks, you need the latest Azure CLI 2.0. For information, see [Install the Azure CLI 2.0](/cli/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI 2.0](quick-create-cli.md).
 
 
 ## View information about a scale set

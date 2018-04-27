@@ -7,15 +7,14 @@ author: rockboyfor
 manager: barbkess
 editor: ''
 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-origin.date: 10/31/2016
-ms.date: 03/20/2017
+origin.date: 03/22/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 ---
 
@@ -48,7 +47,7 @@ These articles highlight specific coding techniques, tips, and recommendations f
 * [variable assignment][variable assignment]
 
 ## Next steps
-For more reference information, see the [Transact-SQL reference][Transact-SQL reference] page for SQL Data Warehouse.
+For more reference information, see [SQL Data Warehouse T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
@@ -70,7 +69,7 @@ For more reference information, see the [Transact-SQL reference][Transact-SQL re
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

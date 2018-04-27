@@ -2,28 +2,23 @@
 title: Connect to Azure SQL Data Warehouse | Azure
 description: How to find the server name and connection string for your to Azure SQL Data Warehouse
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
+ms.topic: conceptual
+ms.component: implement
 origin.date: 12/14/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
 
 ---
+
 # Connect to Azure SQL Data Warehouse
-This article helps you get connected to SQL Data Warehouse for the first time.
+Get connected to Azure SQL Data Warehouse.
 
 ## Find your server name
-The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is samplesvr.database.chinacloudapi.cn. To find the fully qualified server name:
+The server name in the following example is samplesvr.database.chinacloudapi.cn. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
 2. Click on **SQL data warehouses**.

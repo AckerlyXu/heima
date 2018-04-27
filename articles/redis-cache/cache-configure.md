@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 03/28/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
 
 ---
@@ -63,6 +63,7 @@ You can view and configure the following settings using the **Resource Menu**.
  - [Alert rules](#alert-rules)
  - [Diagnostics](#diagnostics)
 - [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+ - [Resource health](#resource-health)
  - [New support request](#new-support-request)
 
 
@@ -362,7 +363,16 @@ The settings in the **Support + troubleshooting** section provide you with optio
 
 ![Support + troubleshooting](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
+- [Resource health](#resource-health)
 - [New support request](#new-support-request)
+
+### Resource health
+**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../service-health/resource-health-overview.md).
+
+> [!NOTE]
+> Resource health is currently unable to report on the health of Azure Redis Cache instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> 
+> 
 
 ### New support request
 Click **New support request** to open a support request for your cache.

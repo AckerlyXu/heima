@@ -8932,6 +8932,41 @@
       "source_path": "articles/application-gateway/application-gateway-configure-redirect-powershell.md",
       "redirect_url": "/application-gateway/tutorial-url-redirect-powershell",
       "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md",
+      "redirect_url": "/virtual-machine-scale-sets/tutorial-autoscale-cli",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-cli",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-portal",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-linux.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-template-linux",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-windows.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-template-windows",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
+      "redirect_url": "/virtual-machine-scale-sets/tutorial-use-disks-cli",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
+      "redirect_url": "/virtual-machine-scale-sets/overview",
+      "redirect_document_id": false
   }
     
 

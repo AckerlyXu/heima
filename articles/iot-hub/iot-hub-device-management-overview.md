@@ -19,8 +19,10 @@ ms.author: v-yiso
 ---
 
 # Overview of device management with IoT Hub
-## Introduction
+
 Azure IoT Hub provides the features and an extensibility model that enable device and back-end developers to build robust device management solutions. Devices range from constrained sensors and single purpose microcontrollers, to powerful gateways that route communications for groups of devices.  In addition, the use cases and requirements for IoT operators vary significantly across industries.  Despite this variation, device management with IoT Hub provides the capabilities, patterns, and code libraries to cater to a diverse set of devices and end users.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 A crucial part of creating a successful enterprise IoT solution is to provide a strategy for how operators handle the ongoing management of their collection of devices. IoT operators require simple and reliable tools and applications that enable them to focus on the more strategic aspects of their jobs. This article provides:
 
@@ -87,7 +89,7 @@ IoT Hub enables the following set of device management patterns.  The [device ma
     ![Device management reporting progress and status pattern graphic][img-report_progress_pattern]
 
 ## Next Steps
-The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within in each device lifecycle stage.
+The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within each device lifecycle stage.
 
 To continue learning about the device management features in IoT Hub, see the [Get started with device management][lnk-get-started] tutorial.
 

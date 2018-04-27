@@ -1,27 +1,21 @@
 ---
-title: Elastic Query Tutorial with Azure SQL Data Warehouse | Azure
-description: Learn how to use Elastic Query with Azure SQL Data Warehouse
+title: 'Tutorial: Elastic Query with Azure SQL Data Warehouse | Microsoft Docs'
+description: This tutorial uses the Elastic Query feature to query Azure SQL Data Warehouse from Azure SQL Database. 
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-origin.date: 11/03/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 ---
 
-# Configure Elastic Query with SQL Data Warehouse
+# Tutorial: Use Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database
 
-In this tutorial, you will learn how to use Elastic Query to submit a query from SQL Database to SQL Data Warehouse. Elastic Query is functionality that exists between Azure SQL products. For more information about Elastic Query as a concept, see [**How to use Elastic Query with SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse].
+This tutorial uses the Elastic Query feature to query Azure SQL Data Warehouse from Azure SQL Database. 
 
 ## Prerequisites for the tutorial
 
@@ -37,9 +31,9 @@ Before you begin the tutorial, you must have the following prerequisites:
 
 2. Create a login and user that represents the SQL database to data warehouse connection.
 
-    ```sql
-    CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-    ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. Using SSMS or another query client, open a new query for the **SQL data warehouse instance** on your logical server.
 
@@ -139,14 +133,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Congratulations, you have set up the very basics of Elastic Query. 
 
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-
-<!-- Update_Description: update meta properties, wording update -->
+## Next steps
+For recommendations, see [Best practices for using Elastic Query with Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).

@@ -2,33 +2,20 @@
 title: Load from Azure blob to Azure data warehouse | Azure
 description: Learn how to use PolyBase to load data from Azure blob storage into SQL Data Warehouse. Load a few tables from public data into the Contoso Retail Data Warehouse schema.
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
 
-ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
+ms.topic: conceptual
+ms.component: implement
 origin.date: 10/31/2016
 ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
-# Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
-> [!div class="op_single_selector"]
-> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-> 
-> 
-<!-- Not Available [Data Factory](/documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/) -->
+# Load Contoso Retail data to Azure SQL Data Warehouse
 
-Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
-
-To keep it simple, this tutorial loads two tables from a public Azure Storage Blob into the Contoso Retail Data Warehouse schema. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] from the Microsoft SQL Server Samples repository.
+Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
 
 In this tutorial you will:
 
@@ -37,8 +24,7 @@ In this tutorial you will:
 3. Perform optimizations after the load is finished.
 
 ## Before you begin
-To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. 
-<!-- Not Avaiable on If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
+To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
 
 ## 1. Configure the data source
 PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data itself is stored externally.

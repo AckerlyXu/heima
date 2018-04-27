@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 12/14/2017
-ms.date: 03/05/2018
+origin.date: 03/15/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 
 ---
@@ -288,7 +288,6 @@ For more information about DMVs, see [System views][System views].
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md

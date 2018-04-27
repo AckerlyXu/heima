@@ -3,7 +3,7 @@ title: Use Azure IoT Hub device twin properties (Python)
 description: How to use Azure IoT Hub device twins to configure devices. You use the Azure IoT SDKs for Python to implement a simulated device app and a service app that modifies a device configuration using a device twin.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/12/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
 
 ---
@@ -157,7 +157,7 @@ In this section, you create a Python console app that connects to your hub as **
 1. Run the device app:
    
     ```cmd/sh
-    node SimulateDeviceConfiguration.js
+    node SimulateDeviceConfiguration.py
     ```
    
     You should see the message `Device twins updated.`. Keep the app running.

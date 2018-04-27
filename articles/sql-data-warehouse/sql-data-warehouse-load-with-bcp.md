@@ -169,9 +169,13 @@ You can verify the data was exported correctly by opening the new file. The data
 > 
 
 ## Next steps
-To design your loading process, see the [Loading overview](design-elt-data-loading.md).  
+To design your loading process, see the [Best practices for loading data into Azure SQL Data Warehouse](guidance-for-loading-data.md).  
+
+
 
 <!--MSDN references-->
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

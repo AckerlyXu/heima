@@ -3,7 +3,7 @@ title: Manage Azure IoT Hub cloud device messaging with iothub-explorer | Azure
 description: Learn how to use the iothub-explorer CLI tool to monitor device to cloud (D2C) messages and send cloud to device (C2D) messages in Azure IoT Hub.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: 'iothub explorer, cloud device messaging, iot hub cloud to device, cloud to device messaging'
@@ -14,9 +14,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/24/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
+ms.date: 05/07/2018
 ---
 # Use iothub-explorer to send and receive messages between your device and IoT Hub
 
@@ -25,6 +25,8 @@ ms.date: 12/18/2017
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) has a handful of commands that makes IoT Hub management easier. This tutorial focuses on how to use iothub-explorer to send and receive messages between your device and your IoT hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## What you will learn
 
@@ -65,7 +67,7 @@ To send a message from your IoT hub to your device, follow these steps:
 1. Start a session on your IoT hub by running the following command:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Send a message to your device by running the following command:

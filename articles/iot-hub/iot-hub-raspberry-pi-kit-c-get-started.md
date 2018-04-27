@@ -3,7 +3,7 @@ title: Raspberry Pi to cloud (C) - Connect Raspberry Pi to Azure IoT Hub | Micro
 description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: 'azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
@@ -14,10 +14,10 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 09/25/2017
+ms.date: 05/07/2018
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (C)
@@ -25,7 +25,7 @@ ms.date: 09/25/2017
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](./iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
-Don't have a kit yet? Try [Raspberry Pi online simulator](./iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://www.azure.cn/develop/iot/iot-starter-kits).
+Don't have a kit yet? Try [Raspberry Pi online simulator](./iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits).
 
 ## What you do
 

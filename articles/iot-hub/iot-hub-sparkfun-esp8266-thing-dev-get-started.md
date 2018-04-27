@@ -14,9 +14,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 05/07/2018
 ---
 # Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub in the cloud
 
@@ -29,7 +29,7 @@ ms.date: 09/25/2017
 Connect Sparkfun ESP8266 Thing Dev to an IoT hub you will create. Then run a sample application on ESP8266 to collect temperature and humidity data from a DHT22 sensor. Finally, send the sensor data to your IoT hub.
 
 > [!NOTE]
-> If you are using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you are using, you may need to reconfigure the `LED_PIN`. For example, if you are using ESP8266 from AI-Thinker, you may change it from `0` to `2`. 
+> If you are using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you are using, you may need to reconfigure the `LED_PIN`. For example, if you are using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a kit yet?: Click [here](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)
 
 ## What you will learn
 
