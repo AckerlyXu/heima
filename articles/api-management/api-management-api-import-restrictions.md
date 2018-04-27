@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # API import restrictions and known issues
 ## About this list
@@ -35,7 +35,7 @@ If you are receiving errors importing your Open API document, ensure you have va
 
 ## <a name="wsdl"> </a>WSDL
 WSDL files are used to generate SOAP Pass-through APIs or serve as the backend of a SOAP-to-REST API.
-* **SOAP bindings** -Only SOAP bindings of style ¡±document¡± and ¡°literal¡± encoding are supported. There is no support for ¡°rpc¡± style or SOAP-Encoding.
+* **SOAP bindings** -Only SOAP bindings of style ï¿½ï¿½documentï¿½ï¿½ and ï¿½ï¿½literalï¿½ï¿½ encoding are supported. There is no support for ï¿½ï¿½rpcï¿½ï¿½ style or SOAP-Encoding.
 * **WSDL:Import** - This attribute is not supported. Customers should merge the imports into one document.
 * **Messages with multiple parts** - These types of messages are not supported.
 * **WCF wsHttpBinding** - SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.

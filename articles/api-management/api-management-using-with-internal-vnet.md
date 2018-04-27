@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # Using Azure API Management service with an internal virtual network
 With Azure Virtual Networks, Azure API Management can manage APIs not accessible on the internet. A number of VPN technologies are available to make the connection. API Management can be deployed in two main modes inside a virtual network:

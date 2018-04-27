@@ -19,7 +19,7 @@ ms.dyn365.ops.version:
 ms.topic: article
 origin.date: 03/19/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # Azure Monitoring REST API Walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         

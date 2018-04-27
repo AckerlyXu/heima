@@ -15,7 +15,7 @@ ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # How to use the Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]

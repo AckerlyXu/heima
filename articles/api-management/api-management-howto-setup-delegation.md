@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # How to delegate user registration and product subscription
 Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/28/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # ExpressRoute routing requirements
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:

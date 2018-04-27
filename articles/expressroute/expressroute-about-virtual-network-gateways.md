@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 
 # About virtual network gateways for ExpressRoute

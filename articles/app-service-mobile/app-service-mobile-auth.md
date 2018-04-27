@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
 ---
 # Authentication and authorization in Azure App Service for mobile apps

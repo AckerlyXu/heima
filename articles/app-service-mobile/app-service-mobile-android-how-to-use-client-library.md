@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # How to use the Azure Mobile Apps SDK for Android
 

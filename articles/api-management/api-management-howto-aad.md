@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management

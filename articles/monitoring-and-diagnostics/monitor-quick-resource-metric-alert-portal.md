@@ -10,7 +10,7 @@ ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
 origin.date: 02/08/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ms.custom: mvc
 ---
 

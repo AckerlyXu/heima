@@ -9,7 +9,7 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
 origin.date: 09/25/2017
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---

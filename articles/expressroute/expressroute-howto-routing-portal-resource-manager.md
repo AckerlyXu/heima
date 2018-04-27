@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/12/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # Create and modify peering for an ExpressRoute circuit
 

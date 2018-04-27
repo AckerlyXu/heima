@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.author: v-yiso
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ---
 # Create classic metric alerts in Azure Monitor for Azure services - Cross-platform CLI
 > [!div class="op_single_selector"]
