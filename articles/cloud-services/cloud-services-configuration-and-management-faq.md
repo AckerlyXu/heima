@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ---
 # Configuration and management issues for Azure Cloud Services: Frequently asked questions (FAQs)
 

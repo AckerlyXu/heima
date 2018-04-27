@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
 ---
 # Send messages from the cloud to your device with IoT Hub (.NET)

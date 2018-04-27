@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
+ms.date: 05/07/2018
 ---
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.

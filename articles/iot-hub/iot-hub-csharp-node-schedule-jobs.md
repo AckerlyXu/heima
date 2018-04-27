@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 
 ---
 # Schedule and broadcast jobs (.NET/Node.js)

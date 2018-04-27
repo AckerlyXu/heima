@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/09/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 
 ---
 # Use message routes and custom endpoints for device-to-cloud messages

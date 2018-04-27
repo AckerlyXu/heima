@@ -16,7 +16,7 @@ ms.workload: na
 origin.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 
 ---
 # Understand and use Azure IoT Hub SDKs

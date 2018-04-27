@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 
 ---
 # Device-to-cloud and cloud-to-device messaging with IoT Hub

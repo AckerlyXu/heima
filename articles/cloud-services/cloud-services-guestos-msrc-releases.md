@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 04/06/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.

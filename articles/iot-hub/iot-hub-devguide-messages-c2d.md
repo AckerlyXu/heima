@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ---
 # Send cloud-to-device messages from IoT Hub
 

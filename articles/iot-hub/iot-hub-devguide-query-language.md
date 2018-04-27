@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/26/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ---
 # IoT Hub query language for device twins, jobs, and message routing
 

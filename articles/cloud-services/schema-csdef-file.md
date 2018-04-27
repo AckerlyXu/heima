@@ -2,7 +2,7 @@
 title: "Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs"
 ms.custom: ""
 origin.date: "04/14/2015"
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ms.prod: "azure"
 ms.reviewer: ""
 ms.service: "cloud-services"

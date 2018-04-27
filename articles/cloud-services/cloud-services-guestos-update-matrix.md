@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 04/06/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ---
 # Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
