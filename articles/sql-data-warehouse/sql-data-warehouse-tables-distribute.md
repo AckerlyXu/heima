@@ -1,30 +1,30 @@
 ---
-title: Design guidance for distributed tables - Azure SQL Data Warehouse | Azure
-description: Recommendations for designing hash-distributed and round-robin tables in Azure SQL Data Warehouse.
+title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft Docs
+description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
 
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-origin.date: 01/18/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
 
 ---
 
 # Guidance for designing distributed tables in Azure SQL Data Warehouse
+Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 
-This article gives recommendations for designing distributed tables in Azure SQL Data Warehouse. Hash-distributed tables improve query performance on large fact tables, and are the focus of this article. Round-robin tables are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
+This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see [Azure SQL Data Warehouse - Massively Parallel Processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md). 
 
-## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
+## What is a distributed table?
+A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.  
+
+**Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
+
+Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -32,10 +32,6 @@ As part of table design, understand as much as possible about your data and how 
 - How often is the table refreshed?   
 - Do I have fact and dimension tables in a data warehouse?   
 
-## What is a distributed table?
-A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm. 
-
-Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
 
 ### Hash distributed
 A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](massively-parallel-processing-mpp-architecture.md#distributions). 
@@ -65,7 +61,8 @@ Consider using the round-robin distribution for your table in the following scen
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
 
-The tutorial [Loading data from Azure Storage blob](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
+The tutorial [Load New York taxicab data to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
+
 
 ## Choosing a distribution column
 A hash-distributed table has a distribution column that is the hash key. For example, the following code creates a hash-distributed table with ProductKey as the distribution column.

@@ -2,26 +2,20 @@
 title: Design ELT for Azure SQL Data Warehouse | Azure
 description: Combine technologies for moving data to Azure and loading data into SQL Data Warehouse to design an Extract, Load, and Transform (ELT) process for Azure SQL Data Warehouse.  
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-origin.date: 12/12/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.component: design
+origin.date: 04/11/2018
+ms.date: 04/24/2018
 ms.author: v-yeche
 
 ---
 # Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse
 
-Combine the technologies for landing data in Azure storage and loading data into SQL Data Warehouse to design an Extract, Load, and Transform (ELT) process for Azure SQL Data Warehouse. This article introduces the technologies that support loading with Polybase, and then focuses on designing an ELT process that uses PolyBase with T-SQL to load data into SQL Data Warehouse from Azure Storage.
+Instead of Extract, Transform, and Load (ETL), design an Extract, Load, and Transform (ELT) process for loading data into Azure SQL Data Warehouse. This article introduces ways to design an ELT process that moves data into an Azure data warehouse.
 
 ## What is ELT?
 
@@ -51,7 +45,7 @@ To load data with PolyBase, you can use any of these loading options.
 
 - [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use SSIS. 
 <!-- Not Available on Azure Data Lake Store,Azure Date Factory, Azure Functions-->
-- [PolyBase with SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
+- [PolyBase with SSIS](https://docs.microsoft.com/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
 <!-- Not Available on [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md)-->
 
 ### PolyBase external file formats
@@ -73,7 +67,7 @@ To land the data in Azure storage, you can move it to [Azure Blob storage](../st
 These are tools and services you can use to move data to Azure Storage.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AZCopy utility](../storage/common/storage-use-azcopy.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
+- [AZCopy utility](../storage/common/storage-moving-data.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
 <!-- Not Available on [Azure Data Factory (ADF)](../data-factory/introduction.md)-->
 
 For more information, see [Moving data to and from Azure Storage](../storage/common/storage-moving-data.md)
