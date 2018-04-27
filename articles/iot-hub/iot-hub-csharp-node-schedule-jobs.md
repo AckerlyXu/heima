@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 
 ---
 # Schedule and broadcast jobs (.NET/Node.js)
@@ -34,6 +34,8 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
 * Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 
@@ -116,7 +118,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             directMethod,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Method Job");
     }
@@ -136,7 +138,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             twin,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Twin Update Job");
     }

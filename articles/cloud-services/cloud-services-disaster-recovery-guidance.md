@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
+ms.date: 05/07/2018
 ---
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
@@ -27,7 +27,7 @@ Azure already has many built-in platform features that support highly available 
 This article covers a true disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences, but you must prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled geo-replication, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
 
 > [!NOTE]
-> Be aware that you do not have any control over this process, and it will only occur for datacenter-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see [Disaster recovery and high availability for applications built on Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). If you would like to be able to affect your own failover, you might want to consider the use of [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage), which creates a read-only copy of your data in another region.
+> Be aware that you do not have any control over this process, and it will only occur for datacenter-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see [Disaster recovery and high availability for applications built on Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). If you would like to be able to affect your own failover, you might want to consider the use of [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), which creates a read-only copy of your data in another region.
 >
 >
 
@@ -45,12 +45,13 @@ Maintaining multiple active deployments as described in the previous option incu
 For more detail about how to create and deploy a cloud service application, see [How to create and deploy a cloud service](./cloud-services-how-to-create-deploy-portal.md).
 
 Depending on your application data sources, you may need to check the recovery procedures for your application data source.
-  * For Azure Storage data sources, see [Azure Storage replication](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) to check on the options that are available based on the chose replication model for your application.
-  * For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md) to check on the options that are available based on the chosen replication model for your application.
+
+* For Azure Storage data sources, see [Azure Storage replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) to check on the options that are available based on the chose replication model for your application.
+* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md) to check on the options that are available based on the chosen replication model for your application.
 
 
 ## Option 3: Wait for recovery
-In this case, no action on your part is required, but your service will be unavailable until the region is restored.
+In this case, no action on your part is required, but your service will be unavailable until the region is restored. You can see the current service status on the [Azure Service Health Dashboard](https://www.azure.cn/support/service-dashboard/).
 
 ##Next steps
 

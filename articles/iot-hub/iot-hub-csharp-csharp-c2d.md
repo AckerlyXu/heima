@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 11/20/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
 ---
 # Send messages from the cloud to your device with IoT Hub (.NET)
@@ -22,6 +22,8 @@ ms.author: v-yiso
 
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -178,8 +180,8 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
     ```
     commandMessage.Ack = DeliveryAcknowledgement.Full;
     ```
-4. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
-
+4. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
+   
    ![App receiving message][22]
 
 > [!NOTE]

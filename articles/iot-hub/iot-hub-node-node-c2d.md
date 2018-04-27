@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 origin.author: v-yiso
-ms.date: 11/20/2017
+ms.date: 04/30/2017
 ---
 
 # Send cloud-to-device messages with IoT Hub (Node)
@@ -24,6 +24,8 @@ ms.date: 11/20/2017
 
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -47,7 +49,7 @@ To complete this tutorial, you need the following:
 
 * Node.js version 4.0.x or later.
 
-+ An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 ## Receive messages in the simulated device app
 In this section, you modify the simulated device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
