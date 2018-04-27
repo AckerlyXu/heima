@@ -43,7 +43,7 @@ Site Recovery provides a downloadable template to set up the configuration serve
 4. Download the Open Virtualization Format (OVF) template for the configuration server.
 
   > [!TIP]
-  You can download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+  You can download the latest version of the configuration server template directly from [Microsoft Download Center](http://aka\.ms/asrconfigurationserver_bjb).
 
 ## Import the template in VMware
 

@@ -57,7 +57,7 @@ To set up the configuration server as a highly available VMware VM, download a p
 4. Download the OVF template for the configuration server.
 
   > [!TIP]
-  You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+  You can download the latest version of the configuration server template directly from the [Microsoft Download Center](http://aka\.ms/asrconfigurationserver_bjb).
 
 ## Import the template in VMware
 

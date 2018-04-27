@@ -105,7 +105,7 @@ No. To do this, you need to set up a configuration server in each region.
 While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. The overhead probably isn't viable.
 
 ### Where can I get the latest version of the configuration server template?
-Download the latest version from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+Download the latest version from the [Microsoft Download Center](http://aka\.ms/asrconfigurationserver_bjb).
 
 ### How do I update the configuration server?
 You install update rollups. You can find the latest update information in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
