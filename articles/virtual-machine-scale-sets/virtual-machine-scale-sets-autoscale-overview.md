@@ -37,7 +37,7 @@ You can create autoscale rules that built-in host metrics available from your VM
 
 Autoscale rules that use host-based metrics can be created with one of the following tools:
 
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI 2.0](tutorial-autoscale-cli.md)
 - [Azure template](tutorial-autoscale-template.md)
 
@@ -128,7 +128,7 @@ The following examples are scenarios that may benefit the use of schedule-based 
 ## Next steps
 You can create autoscale rules that use host-based metrics with one of the following tools:
 
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI 2.0](tutorial-autoscale-cli.md)
 - [Azure template](tutorial-autoscale-template.md)
 

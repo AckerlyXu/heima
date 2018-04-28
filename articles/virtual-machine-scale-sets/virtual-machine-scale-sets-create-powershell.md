@@ -217,4 +217,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 In this getting started article, you created a basic scale set and used the Custom Script Extension to install a basic IIS web server on the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
 
 - [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
-- Automatically scale with [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md)
+- Automatically scale with [Azure PowerShell](tutorial-autoscale-powershell.md), the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md)

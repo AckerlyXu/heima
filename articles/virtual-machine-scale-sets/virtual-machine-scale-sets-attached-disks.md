@@ -30,7 +30,7 @@ To expand your available storage, Azure [virtual machine scale sets](/virtual-ma
 For detailed information on how to create a scale set with attached data disks, prepare and format, or add and remove data disks, see one of the following tutorials:
 
 - [Azure CLI 2.0](tutorial-use-disks-cli.md)
-- [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+- [Azure PowerShell](quick-create-powershell.md)
 
 The rest of this article outlines specific use cases such as Service Fabric clusters that require data disks, or attaching existing data disks with content to a scale set.
 

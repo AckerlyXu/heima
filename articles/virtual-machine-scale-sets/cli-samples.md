@@ -34,7 +34,5 @@ The following table includes links to bash scripts built using the Azure CLI 2.0
 | [Create and attach disks to a scale set](scripts/cli-sample-attach-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | Creates a virtual machine scale set with attached data disks. |
 |**Manage scale and redundancy**||
 | [Enable host-based autoscale](scripts/cli-sample-enable-autoscale.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine scale that is configured to automatically scale based on CPU usage. |
-| [Create a single-zone scale set](scripts/cli-sample-single-availability-zone-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine scale that uses a single Availability Zone. |
-| [Create a zone-redundant scale set](scripts/cli-sample-zone-redundant-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine scale across multiple Availability Zones. |
 | | |
 
