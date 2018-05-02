@@ -5,8 +5,8 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 03/24/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
 ---
@@ -30,7 +30,13 @@ This tutorial presumes you already have an Azure subscription. If you don't, cre
 
 ## Prerequisites
 
-To complete this tutorial, you need Azure VMs in an Azure region from which you want to migrate. In addition, there are a number of settings you should verify before you start.
+- Make sure you have Azure VMs in the Azure region from which you want to migrate.
+- Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
+- Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
+
+## Before you start
+
+Before you set up replication, complete these steps.
 
 ### Verify target resources
 
@@ -98,10 +104,6 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 6. Click **Enable replication**. This starts a job to enable replication for the VM.
 
     ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
-
->[!NOTE]
-  >
-  > Currently, replication of Azure VMs with managed disks is not supported. 
 
 ## Run a failover
 

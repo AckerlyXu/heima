@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 03/15/2018
-ms.date: 04/02/2018
+origin.date: 04/08/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
 
@@ -23,16 +23,13 @@ replicate VMware VMs to Azure. In this tutorial you'll learn how to:
 > * Review VMware server requirements
 > * Review VMware VM requirements
 
-In this tutorial series, we show how to back up a single VM using Azure Site Recovery. If you are
-planning to protect multiple VMware VMs, you should download the
-[Deployment Planner tool](https://aka.ms/asr-deployment-planner) for VMware replication. This tool
-you gather information about VM compatibility, disks per VM, and data churn per disk. The tool also
-covers network bandwidth requirements, and the Azure infrastructure needed for successful
-replication and test failover. [Learn more](site-recovery-deployment-planner.md) about running the
-tool.
+In this tutorial series, we show how to replicate a single VM using Azure Site Recovery. 
 
 This is the second tutorial in the series. Make sure that you have
 [set up the Azure components](tutorial-prepare-azure.md) as described in the previous tutorial.
+
+If you are replicating multiple VMs, download the
+[Deployment Planner Tool](https://aka.ms/asr-deployment-planner) for VMware replication. [Learn more](site-recovery-deployment-planner.md).
 
 ## Prepare an account for automatic discovery
 
@@ -116,4 +113,4 @@ To connect to Linux VMs using SSH after failover, do the following:
 > [!div class="nextstepaction"]
 > [Set up disaster recovery to Azure for VMware VMs](vmware-azure-tutorial.md)
 
-<!-- Update_Description: wording update, update link, update link -->
+<!-- Update_Description: wording update, update link -->

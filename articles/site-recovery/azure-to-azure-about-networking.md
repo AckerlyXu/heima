@@ -6,8 +6,8 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/08/2018
-ms.date: 03/05/2018
+origin.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -71,18 +71,17 @@ This example shows how to configure NSG rules for a VM to replicate.
 - If you're using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP address ranges.
 - The example presumes that the VM source location is "China East" and the target location is "China North.
 
+### NSG rules - China East
 
-* Create rules that correspond to [China East IP ranges](https://www.microsoft.com/download/details.aspx?id=42064). This is required so that data can be written to the cache storage account from the VM.
+1. Create rules that correspond to [China East IP address ranges](https://www.microsoft.com/download/details.aspx?id=42064). This is required so that data can be written to the cache storage account from the VM.
+2. Create rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Create rules that correspond to the target location:
 
-* Create rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-
-* Create rules that correspond to the target location:
-
-   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
    China North | 40.69.144.231 | 52.165.34.144
 
-### NSG rules on the China North network security group
+### NSG rules - China North 
 
 These rules are required so that replication can be enabled from the target region to the source region post-failover:
 
@@ -118,9 +117,9 @@ Follow these guidelines for connections between the target location and the on-p
 ### ExpressRoute configuration
 Follow these best practices for ExpressRoute configuration:
 
-- You need to create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
-  - The source virtual network and the ExpressRoute circuit.
-  - The target virtual network and the ExpressRoute circuit.
+- Create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
+    - The source virtual network and the on-premises network, via the ExpressRoute circuit in the source region.
+    - The target virtual network and the on-premises network, via the ExpressRoute circuit in the target region.
 
 - As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
 <!-- Archor is not Exist on #azure-regions-to-expressroute-locations-within-a-geopolitical-region -->

@@ -5,16 +5,10 @@ services: site-recovery
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 03/24/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -46,9 +40,9 @@ Site Recovery provides the capability to retain fixed IP addresses when failing 
 
 ### Failover example
 
-Let's look at an example for failover to Azure usng a ficticious company, Woodgrove Bank.
+Let's look at an example for failover to Azure using a fictitious company, Woodgrove Bank.
 
-- Woodgrove Bank hosts that business apps in an on-premises site. They host their mobile apps on Azure.
+- Woodgrove Bank hosts their business apps in an on-premises site. They host their mobile apps on Azure.
 - There's VPN site-to-site connectivity between their on-premises edge network and the Azure virtual network. Because of the VPN connection, the virtual network in Azure appears as an extension of the on-premises network.
 - Woodgrove wants to replicate on-premises workloads to Azure with Site Recovery.
  - Woodgrove has apps which depend on hard-coded IP addresses, so they need to retain IP addresses for the apps, after failover to Azure.
@@ -82,4 +76,4 @@ This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastru
 ## Next steps
 [Run a failover](site-recovery-failover.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

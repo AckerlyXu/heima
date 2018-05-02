@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/22/2018
+origin.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -197,4 +197,4 @@ For SQL Server Standard clusters, failback after an unplanned failover requires 
 ## Next steps
 [Learn more](site-recovery-components.md) about Site Recovery architecture.
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

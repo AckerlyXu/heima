@@ -8,7 +8,7 @@ editor: raynew
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -112,6 +112,18 @@ ResourceName      ResourceGroupName ResourceNamespace          ResouceType
 ------------      ----------------- -----------------          -----------
 VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
+
+> [!TIP]
+> As an alternative to the Set-ASRVaultContext cmdlet, one can also use the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet to set the vault context. Specify the path at which the vault registration key file is located as the -path parameter to the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet.
+>
+>For example:
+>
+>```azurepowershell
+>Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+>
+>Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+>```
+>
 
 Subsequent sections of this article assume that the vault context for Azure Site Recovery operations has been set.
 

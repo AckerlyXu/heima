@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
 # Common questions - VMware to Azure replication
 
-This article provides answers to common questions we see when replicating on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
+This article provides answers to common questions we see when replicating on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://www.azure.cn/support/contact/).
 
 ## General
 ### How is Site Recovery priced?
@@ -40,6 +40,13 @@ If you're a subscription adminstrator, you have the replication permissions you 
 
 ### What do I need on-premises?
 On on-premises you need Site Recovery components, installed on a single VMware VM. You also need a VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server. In addition, you need one or more VMware VMs to replicate. [Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
+
+The on-premises configuration server can be deployed in one of the two following ways
+
+1. Deploy it using a VM template that has the configuration server pre-installed. [Read more here](vmware-azure-tutorial.md#download-the-vm-template).
+2. Deploy it using the setup on a Windows Server 2016 machine of your choice. [Read more here](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+To discover the getting started steps of deploying the configuration server on your own Windows Server machines, in the Protection goal of enable protection, choose **To Azure > Not virtualized/Other**.
 
 ### Where do on-premises VMs replicate to?
 Data replicates to Azure storage. When you run a failover, Site Recovery automatically creates Azure VMs from the storage account.
@@ -178,5 +185,4 @@ Yes. [Learn more](site-recovery-plan-capacity-vmware.md).
 * [Review](vmware-physical-azure-support-matrix.md) support requirements.
 * [Set up](vmware-azure-tutorial.md) VMware to Azure replication.
 
-<!-- Update_Description: new articles on vmware azure common questions -->
-<!--ms.date: 04/02/2018-->
+<!-- Update_Description: update meta properties; wording update -->

@@ -5,8 +5,8 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/16/2018
-ms.date: 03/05/2018
+origin.date: 04/08/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
 
@@ -18,8 +18,9 @@ ms.custom: MVC
 This tutorial shows you how to prepare Azure components when you want to replicate on-premises VMs (Hyper-V or VMware) or Windows/Linux physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Verify that your account has replication permissions.
-> * Create an Azure storage account.
+> * Verify that your Azure account has replication permissions.
+> * Create an Azure storage account. Replicated data is stored in it.
+> * Create a Recovery Services vault.
 > * Set an Azure network. When Azure VMs are created after failover, they're joined to this Azure network.
 
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
@@ -36,9 +37,7 @@ If you just created your trial Azure account, you're the administrator of your s
 - Create a VM in the selected virtual network.
 - Write to the selected storage account.
 
-The Virtual Machine Contributor built-in role has these permissions. You also need permission to
-manage Site Recovery operations. The Site Recovery Contributor role has all the permissions
-required to manage Site Recovery operations in a Recovery Services vault.
+To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor build-in role.
 
 ## Create a storage account
 
@@ -104,4 +103,4 @@ When Azure VMs are created from storage after failover, they're joined to this n
 > [!div class="nextstepaction"]
 > [Prepare the on-premises VMware infrastructure for disaster recovery to Azure](tutorial-prepare-on-premises-vmware.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

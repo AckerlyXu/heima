@@ -7,7 +7,7 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/08/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -50,7 +50,7 @@ Get a Microsoft [Azure account](https://www.azure.cn/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../active-directory/role-based-access-control-configure.md) permissions. 
+- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 ### Set up an Azure network
 
@@ -167,5 +167,4 @@ To monitor servers you add, you can check the last discovered time for them in *
 ## Next steps
 
 [Run a disaster recovery drill](tutorial-dr-drill-azure.md).
-<!-- Update_Description: new articles on physical azure disaster recovery  -->
-<!--ms.date: 04/02/2018-->
+<!-- Update_Description: update link, wording update -->

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/06/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -119,7 +119,7 @@ Make sure that the virtual machine is added to the same Azure virtual network, w
 5. [Implement a DFS namespace](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. With the DFS namespace implemented, failover of shared folders from production to disaster recovery sites can be done by updating the DFS namespace folder targets. After these DFS namespace changes replicate via Active Directory, users are connected to the appropriate folder targets transparently.
 
-<!-- Not Available on ## Use Azure File Sync service to replicate your on-premises files: -->
+<!-- Not Available on ## Use File Sync to replicate your on-premises files -->
 
 ## Do a test failover
 
