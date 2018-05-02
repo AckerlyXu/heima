@@ -1,7 +1,7 @@
 | **Component** | **Requirement** |
 | --- |---|
 | CPU cores| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Number of disks | 3, including the OS disk, process server cache disk, and retention drive for failback |
 | Disk free space (process server cache) | 600 GB
 | Disk free space (retention disk) | 600 GB|
@@ -15,5 +15,5 @@
 | IP address type | Static |
 | Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (not required for scale-out process servers) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
-<!-- ms.date: 03/05/2018 -->
+<!-- ms.date: 05/07/2018 -->
 <!-- Update_Description: wording update -->
