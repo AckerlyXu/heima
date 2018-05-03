@@ -1,16 +1,16 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Node.js | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Node.js | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 03/15/2018
-ms.date: 03/20/2018
-ms.author: v-nany
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
 ---
 
 # Quickstart: Upload, download, and list blobs using Node.js
@@ -30,6 +30,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
 To open the application, look for the *storage-blobs-node-quickstart* folder and open it in your favorite code editing environment.
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## Configure your storage connection string
 
@@ -78,7 +80,7 @@ The purpose of the modules is as follows:
 - *dotenv* loads environment variables defined in a file named *.env* into the current execution context
 - *path* is required in order to determine the absolute file path of the file to upload to blob storage
 - *yargs* exposes a simple interface to access command-line arguments
-- *azure-storage* is the [Azure Storage SDK](https://github.com/Azure/azure-storage-node) module for Node.js
+- *azure-storage* is the [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) module for Node.js
 
 Next, a series of variables are initialized:
 
@@ -288,6 +290,6 @@ See these additional resources for Node.js development with Blob storage:
 This quickstart demonstrates how to upload a file between a local disk and Azure Blob storage using Node.js. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
+> [Blob Storage Operations How-To](storage-nodejs-how-to-use-blob-storage.md)
 
-For the Node.js reference for Azure Storage, see [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
-
+For the Node.js reference for Azure Storage, see [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage).

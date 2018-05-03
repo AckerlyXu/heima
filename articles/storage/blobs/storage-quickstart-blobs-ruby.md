@@ -1,17 +1,16 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Ruby | Azure
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Ruby to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Ruby | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Ruby to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 
-
+ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 02/22/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
 ---
 
 # Quickstart: Upload, download, and list blobs using Ruby
@@ -43,8 +42,10 @@ git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 
 This command clones the repository to your local git folder. To open the Ruby sample application, look for the storage-blobs-ruby-quickstart folder, and open the example.rb file.  
 
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+
 ## Configure your storage connection string
-In the application, you must provide your storage account name and account key to create the `Client` instance for your application. Open the `example.rb` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
+In the application, you must provide your storage account name and account key to create the `BlobService` instance for your application. Open the `example.rb` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
 
 ```ruby 
 blob_client = Azure::Storage::Blob::BlobService.create(
@@ -194,3 +195,4 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fstorage%2fblobs%2ftoc.json).
+<!--Update_Description: add copy key in portal guide-->

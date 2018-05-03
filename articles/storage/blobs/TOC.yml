@@ -28,14 +28,16 @@
     href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
-  - name: Work with blobs - Storage Explorer
-    href: storage-quickstart-blobs-storage-explorer.md
+  - name: Work with blobs - JS/HTML
+    href: storage-quickstart-blobs-javascript-client-libraries.md
 - name: Tutorials
   items:
   - name: Upload and process an image
     items:
       - name: 1 - Upload and retrieve image data in the cloud
         href: storage-upload-process-images.md
+      - name: 2 - Monitor and troubleshoot storage
+        href: storage-monitor-troubleshoot-storage-application.md
   - name: Design for high availability in cloud storage
     items:
       - name: 1 - Make your application highly available
@@ -44,6 +46,14 @@
         href: storage-simulate-failure-ragrs-account-app.md
   - name: Migrate on-premises data to cloud with AzCopy
     href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fstorage%2fblobs%2ftoc.json    
+  - name: Optimize storage application performance and scalability
+    items:
+      - name: 1 - Create a VM and storage account
+        href: storage-blob-scalable-app-create-vm.md
+      - name: 2 - Upload large data to an Azure storage account
+        href: storage-blob-scalable-app-upload-files.md
+      - name: 3- Download large data from a Azure storage account
+        href: storage-blob-scalable-app-download-files.md
 - name: Samples
   items:
   - name: .NET
@@ -61,9 +71,15 @@
     items:
     - name: Storage account options
       href: ../common/storage-account-options.md?toc=%2fstorage%2fblobs%2ftoc.json
-    - name: Replication
-      href: ../common/storage-redundancy.md?toc=%2fstorage%2fblobs%2ftoc.json
-    - name: Hot, cool, and archive tiers
+    - name: Data redundancy
+      items:
+      - name: Redundancy overview
+        href: ../common/storage-redundancy.md?toc=%2fstorage%2fblobs%2ftoc.json
+      - name: Locally-redundant storage
+        href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2fblobs%2ftoc.json
+      - name: Geo-redundant storage
+        href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: Hot, cool tiers
       href: storage-blob-storage-tiers.md
     - name: Scalability and performance targets
       href: ../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json
@@ -94,7 +110,7 @@
             - name: Migrating to Premium Storage using Azure Site Recovery
               href: https://docs.azure.cn/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery
             - name: Design for high performance
-              href: https://docs.azure.cn//virtual-machines/windows/premium-storage-performance
+              href: https://docs.azure.cn/virtual-machines/windows/premium-storage-performance
     - name: Standard Storage 
       items:
         - name: Linux
@@ -109,6 +125,8 @@
     items:
     - name: Security guide
       href: ../common/storage-security-guide.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: Configure firewalls and virtual networks 
+      href: ../common/storage-network-security.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Encryption for data at rest
       href: ../common/storage-service-encryption.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Require secure transfer
@@ -177,7 +195,9 @@
     href: storage-properties-metadata.md
   - name: Use the Storage Emulator
     href: ../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json
-  - name: Custom domains
+  - name: Recover deleted blobs
+    href: storage-blob-soft-delete.md
+  - name: Configure a custom domain
     href: storage-custom-domain-name.md
   - name: Transfer data
     items:

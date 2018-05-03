@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 10/30/2017
+origin.date: 01/11/2018
+ms.date: 05/07/2017
 ms.author: v-johch
 
 ---
@@ -156,7 +156,6 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
-    $builder = new ServicesBuilder();
     $queueClient->createMessage("myqueue", "Hello World!");
 }
 catch(ServiceException $e){
@@ -424,4 +423,4 @@ For more information, see also the [PHP Developer Center](/develop/php/).
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.cn
 [composer-phar]: http://getcomposer.org/composer.phar
-<!--Update_Description:update code namespace from "WindowsAzure" to "MicrosoftAzure"-->
+<!--Update_Description:remove unuseful code-->
