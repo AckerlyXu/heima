@@ -1,23 +1,15 @@
 ---
-title: IoT real-time data streams and Azure Stream Analytics | Azure
+title: IoT real-time data streams using Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
-keywords: iot solution, get started with iot
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 01/22/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: hero-article
+origin.date: 03/28/2017
+ms.date: 05/07/2018
 ---
 # Get started with Azure Stream Analytics to process data from IoT devices
 In this tutorial, you will learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
@@ -115,4 +107,4 @@ The purpose of this tutorial is to demonstrate how to write different Stream Ana
 
 <!--Not Available on https://azure.microsoft.com/en-us/documentation/learning-paths/stream-analytics/ -->
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta propreties -->

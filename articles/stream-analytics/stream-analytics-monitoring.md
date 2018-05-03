@@ -1,23 +1,15 @@
 ---
-title: Understanding Stream Analytics Job Monitoring | Azure
-description: Understanding Stream Analytics Job Monitoring
-keywords: query monitor
+title: Understand job monitoring in Azure Stream Analytics
+description: This article describes how to monitor jobs in Azure Stream Analytics
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
 
@@ -55,7 +47,7 @@ Another interesting data point to monitor your job is the time of the last outpu
 This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/)
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -64,4 +56,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://www.azure
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties, update link -->

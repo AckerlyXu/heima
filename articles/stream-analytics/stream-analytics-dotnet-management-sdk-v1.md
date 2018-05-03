@@ -1,23 +1,15 @@
 ---
-title: Management .NET SDK v1.x for Azure Stream Analytics | Azure
+title: Management .NET SDK v1.x for Azure Stream Analytics
 description: Get started with Stream Analytics Management .NET SDK. Learn how to set up and run analytics jobs. Create a project, inputs, outputs, and transformations.
-keywords: .net SDK, analytics API
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/06/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/06/2017
+ms.date: 05/07/2018
 ---
 # Management .NET SDK v1.x: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
 Learn how to set up and run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
@@ -92,42 +84,23 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
 2. Add an authentication helper method:
 
     ```   
-    public static string GetAuthorizationHeader()
-        {
+    private static async Task<string> GetAuthorizationHeader()
+    {
+       var context = new AuthenticationContext(
+           ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+           ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 
-            AuthenticationResult result = null;
-            var thread = new Thread(() =>
-            {
-                try
-                {
-                    var context = new AuthenticationContext(
-                        ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                        ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        AuthenticationResult result = await context.AcquireTokenASync(
+           resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+           clientId: ConfigurationManager.AppSettings["AsaClientId"],
+           redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+           promptBehavior: PromptBehavior.Always);
 
-                    result = context.AcquireToken(
-                        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                        clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                        redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                        promptBehavior: PromptBehavior.Always);
-                }
-                catch (Exception threadEx)
-                {
-                    Console.WriteLine(threadEx.Message);
-                }
-            });
+        if (result != null)
+            return result.AccessToken;
 
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Name = "AcquireTokenThread";
-            thread.Start();
-            thread.Join();
-
-            if (result != null)
-            {
-                return result.AccessToken;
-            }
-
-            throw new InvalidOperationException("Failed to acquire token");
-        }
+       throw new InvalidOperationException("Failed to acquire token");
+    }
     ```  
 
 ## Create a Stream Analytics management client
@@ -316,7 +289,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/).
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
@@ -350,4 +323,4 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

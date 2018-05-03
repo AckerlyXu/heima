@@ -1,23 +1,15 @@
 ---
-title: 'Azure Stream Analytics: Understand and adjust Streaming Units | Azure'
-description: Understand what factors impact performance in Azure Stream Analytics.
-keywords: streaming unit, query performance
+title: Understand and adjust Streaming Units in Azure Stream Analytics
+description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
 ---
 
 # Understand and adjust Streaming Units
@@ -26,8 +18,7 @@ Azure Stream Analytics aggregates the performance "weight" of running a job into
 
 In order to achieve low latency streaming processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it's important to monitor a streaming job's resource usage, and make sure there is enough resource allocated in order to keep the jobs running 24/7.
 
-The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It's best to keep the metric below 80% to account for occasional spikes. 
-<!-- Not Available on  [here to set up metric alerts](/monitoring-and-diagnostics/insights-alerts-portal) -->
+The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It's best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](/monitoring-and-diagnostics/insights-alerts-portal)).
 
 ## Configure Stream Analytics Streaming Units (SUs)
 1. Sign in to [Azure portal](http://portal.azure.cn/)
@@ -81,18 +72,18 @@ The state size of a temporal join is proportional to the number of events in the
 
 The number of unmatched events in the join affect the memory utilization for the query. The following query is looking to find the ad impressions that generate clicks:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 In this example, it is possible that lots of ads are shown and few people click on it and it is required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
 To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
 #### Temporal analytic function
@@ -114,7 +105,7 @@ Reference data in ASA are loaded into memory for fast lookup. With the current i
 When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime into memory. This will affect the SU%.
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/).
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
@@ -127,4 +118,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://www.azure
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 [img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -1,23 +1,15 @@
 ---
-title: Visualize and troubleshoot Stream Analytics jobs | Azure
-description: Learn how to visualize a Stream Analytics job pipeline for self-service troubleshooting using the diagnostics diagram feature.
-keywords: ''
-documentationcenter: ''
+title: Visualize and troubleshoot Azure Stream Analytics jobs
+description: This article describes how to visualize a Stream Analytics job, using the diagnostics diagram feature to do self-service troubleshooting.
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
 ---
 # Visualize and troubleshoot Stream Analytics jobs
 In Stream Analytics, as with other cloud-based technologies, troubleshooting is sometimes needed to look into why a job does not produce the expected output (or any output for that matter). With this concept in mind, Stream Analytics provides the capability for visualizing a streaming job. This is also handy as a modeling tool and has the side benefit for those requiring documentation of their work.
@@ -44,4 +36,4 @@ When the user wants to look at intermediate query steps to understand the data f
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

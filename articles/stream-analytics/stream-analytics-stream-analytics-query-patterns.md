@@ -1,23 +1,15 @@
 ---
-title: Query examples for common usage patterns in Stream Analytics | Azure
-description: Common Azure Stream Analytics query patterns
-keywords: query examples
+title: Common query patterns in Azure Stream Analytics
+description: This article describes a number of common query patterns and designs that are useful in Azure Stream Analytics jobs.
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
-
-ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 08/08/2017
-ms.date: 04/09/2018
 ms.author: v-yeche
-
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 08/08/2017
+ms.date: 05/07/2018
 ---
 # Query examples for common Stream Analytics usage patterns
 ## Introduction
@@ -597,4 +589,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://www.azure
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, add content of correlate two event types within the same stream -->
+<!--Update_Description: update meta properties, wording update -->

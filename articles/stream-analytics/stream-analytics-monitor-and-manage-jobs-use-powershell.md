@@ -1,23 +1,15 @@
 ---
-title: Monitor and manage Stream Analytics jobs with PowerShell | Azure
-description: Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs.
-keywords: azure powershell, azure powershell cmdlets, powershell command, powershell scripting
+title: Monitor and manage Azure Stream Analytics jobs using PowerShell
+description: This article describes how to use Azure PowerShell and cmdlets to monitor and manage Azure Stream Analytics jobs.
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
 ---
 # Monitor and manage Stream Analytics jobs with Azure PowerShell cmdlets
 Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets and powershell scripting that execute basic Stream Analytics tasks.
@@ -152,7 +144,6 @@ Azure PowerShell 0.9.8:
 Azure PowerShell 1.0:  
 
     Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
-
 
 This PowerShell command returns information about the output named Output defined in the job StreamingJob.
 
@@ -406,7 +397,7 @@ Azure PowerShell 1.0:
 This PowerShell command starts the job StreamingJob with a custom output start time set to December 12, 2012, 12:12:12 UTC.
 
 ### Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-Asynchronously stops a Stream Analytics job from running in Azure and de-allocates resources that were that were being used. The job definition and metadata will remain available within your subscription through both the Azure Portal and management APIs, such that the job can be edited and restarted. You will not be charged for a job in the stopped state.
+Asynchronously stops a Stream Analytics job from running in Azure and de-allocates resources that were that were being used. The job definition and metadata will remain available within your subscription through both the Azure portal and management APIs, such that the job can be edited and restarted. You will not be charged for a job in the stopped state.
 
 **Example 1**
 
@@ -451,7 +442,7 @@ Azure PowerShell 1.0:
 This PowerShell command tests the connection status of the output Output in StreamingJob.  
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics). 
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/). 
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -474,4 +465,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link, wording update -->

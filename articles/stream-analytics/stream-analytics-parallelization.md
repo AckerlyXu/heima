@@ -1,23 +1,15 @@
 ---
-title: Leverage query parallelization in Azure Stream Analytics| Azure
-description: Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
-keywords: data streaming, streaming data processing, tune analytics
+title: Use query parallelization and scale in Azure Stream Analytics
+description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 06/22/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 06/22/2017
+ms.date: 05/07/2018
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -41,15 +33,15 @@ All Azure Stream Analytics input can take advantage of partitioning:
 
 When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
 <!--Not Available -	Azure Data Lake Storage-->
-<!--Not Available -	Azure Functions -->
+-	Azure Functions 
 -	Azure Table
 -	Blob storage
-<!--Not Available -	CosmosDB  (need to set the partition key explicitly) -->
+-	CosmosDB  (need to set the partition key explicitly)
 -	EventHub (need to set the partition key explicitly)
 <!--Not Available -	IoT Hub  (need to set the partition key explicitly)-->
 -	Service Bus
 
-PowerBI, SQL, and SQL Data-Warehouse outputs don't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
+PowerBI, SQL, and SQL Data-Warehouse outputs don't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
@@ -63,7 +55,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
-3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#Outputs) for more details.
+3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
 4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
 
@@ -215,7 +207,7 @@ This query can be scaled to 24 SUs.
 > 
 
 ## Get help
-For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

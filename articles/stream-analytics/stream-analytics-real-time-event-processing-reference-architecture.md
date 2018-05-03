@@ -1,22 +1,15 @@
 ---
-title: Real-time event processing with Stream Analytics event processing | Azure
-description: Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics.
-keywords: real-time processing, event processing, reference architecture
-services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: ''
+title: Real-time event processing using Azure Stream Analytics event processing
+description: This article describes the reference architecture to acheive real-time event processing and analytics using Azure Stream Analytics.
+services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: ''
-
-ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
-ms.service: stream-analytics
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 01/24/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 01/24/2017
+ms.date: 05/07/2018
 ---
 # Reference architecture: Real-time event processing with Azure Stream Analytics
 The reference architecture for real-time event processing with Azure Stream Analytics is intended to provide a generic blueprint for deploying a real-time platform as a service (PaaS) stream-processing solution with Azure.
@@ -48,7 +41,7 @@ Azure provides an extensive catalog of analytics technologies that are capable o
 **Download:** [Real-Time Event Processing with Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## Get help
-For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)
+For further assistance, try the [Azure Stream Analytics forum](https://www.azure.cn/support/contact/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
