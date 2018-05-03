@@ -11,10 +11,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
+ms.date: 05/07/2018
 ms.author: v-yeche
 ---
-#Traffic Manager Documentation
+# Traffic Manager Documentation
 
 Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Tutorials, API references, and other documentation show how to manage traffic to Azure or external service endpoints.
 

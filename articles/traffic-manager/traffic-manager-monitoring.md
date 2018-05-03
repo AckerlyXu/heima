@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/22/2017
-ms.date: 12/11/2017
+ms.date: 05/07/2018
 ms.author: v-yeche
 ---
 
@@ -76,6 +76,9 @@ Endpoint monitor status is a Traffic Manager-generated value that shows the stat
 | Enabled |Enabled |Stopped |The cloud service or web app that the endpoint points to is not running. Check the cloud service or web app settings. This can also happen if the endpoint is of type nested endpoint and the child profile is disabled or is inactive. <br>An endpoint with a Stopped status is not monitored. It is not included in DNS responses and does not receive traffic. An exception to this is if all endpoints are degraded, in which case all of them will be considered to be returned in the query response.</br>|
 
 For details about how endpoint monitor status is calculated for nested endpoints, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> A Stopped Endpoint monitor status can happen on App Service if your web application is not running in the Standard tier or above. For more information, see [Traffic Manager integration with App Service](/app-service/web-sites-traffic-manager).
 
 ### Profile monitor status
 
@@ -156,4 +159,4 @@ Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.
 
 [Troubleshoot Degraded status](traffic-manager-troubleshooting-degraded.md) on a Traffic Manager endpoint
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->
