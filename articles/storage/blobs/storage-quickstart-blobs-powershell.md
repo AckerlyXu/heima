@@ -1,14 +1,15 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Azure PowerShell | Azure
-description: In this quickstart, you use Azure PowerShell to create a storage account and a container. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Azure PowerShell | Microsoft Docs
+description: In this quickstart, you use Azure PowerShell  in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: forester123
-manager: digimobile
+manager: josefree
+
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
-ms.date: 03/05/2018
+ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: v-johch
 ---
 
@@ -18,7 +19,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [1rmb account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 

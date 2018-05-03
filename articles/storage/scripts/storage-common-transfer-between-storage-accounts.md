@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Migrate blobs across storage accounts us
 description: Using AzCopy, copies the Blob contents of one Azure Storage Account to another.
 services: storage
 documentationcenter: na
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 
 ms.custom: mvc
 ms.service: storage
@@ -12,9 +12,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
-origin.date: 01/03/2018
-ms.date: 01/22/2018
-ms.author: v-nany
+origin.date: 02/01/2018
+ms.date: 05/07/2018
+ms.author: v-johch
 ---
 
 # Migrate blobs across storage accounts using AzCopy on Windows
@@ -57,13 +57,13 @@ If failure is experienced and the sample must be rerun from a particular contain
 
 ## Sample script
 
-```Powershell
+```powershell
 # Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
-# Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
-# Do not modify the Source or Destination accounts while the script is running
+# Need install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
+# Need install AzCopy before runing the script: https://docs.azure.cn/storage/common/storage-use-azcopy
+# Do not modify the Source or Destination accounts while the copy is running
 
- param (
+param (
     [Parameter(Mandatory = $true, 
     HelpMessage= "Source Storage account name.")]
     [ValidatePattern("^[a-z0-9`]{3,24}$")]
@@ -218,7 +218,7 @@ do{
 
         # Get AzCopy command for transfer one container
         $destContainer = $destCtx.StorageAccount.CreateCloudBlobClient().GetContainerReference($container.Name)
-        $azCopyCmd = [string]::Format("""{0}"" /source:{1} /dest:{2} /sourcekey:""{3}"" /destkey:""{4}"" /snapshot /y /s",$AzCopyPath, $container.CloudBlobContainer.Uri.AbsoluteUri, $destContainer.Uri.AbsoluteUri, $srcStorageAccountKey, $DestStorageAccountKey)
+        $azCopyCmd = [string]::Format("""{0}"" /source:{1} /dest:{2} /sourcekey:""{3}"" /destkey:""{4}"" /snapshot /y /s /synccopy",$AzCopyPath, $container.CloudBlobContainer.Uri.AbsoluteUri, $destContainer.Uri.AbsoluteUri, $srcStorageAccountKey, $DestStorageAccountKey)
     
         # Execute the AzCopy command first time
         Write-Host "$azCopyCmd"

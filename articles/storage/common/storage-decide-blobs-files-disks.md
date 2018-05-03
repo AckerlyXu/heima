@@ -1,21 +1,15 @@
 ---
-title: Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks
+title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
+author: forester123
+manager: josefree
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 06/13/2017
-ms.date: '3/5/2018'
-ms.author: v-nany
+origin.date: 03/28/2018
+ms.date: 05/07/2018
+ms.author: v-johch
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
@@ -45,9 +39,9 @@ The following table compares Azure Files with Azure Blobs.
 |Endpoints|`http://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob`|`\\myaccount.file.core.chinacloudapi.cn\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.chinacloudapi.cn/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
-|Capacity|Up to 500 TB containers|5 TB file shares|  
-|Throughput|Up to 60 MB/s per block blob|Up to 60 MB/s per share|  
-|Object Size|Up to 200 GB/block blob|Up to 1TB/file|  
+|Capacity|Up to 500 TiB containers|5 TiB file shares|  
+|Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per share|  
+|Object Size|Up to about 4.75 TiB per block blob|Up to 1 TiB per file|  
 |Billed capacity|Based on bytes written|Based on file size|  
 |Client libraries|Multiple languages|Multiple languages|  
   
@@ -66,9 +60,9 @@ The following table compares Azure Files with Azure Disks.
 |Authentication|Built-in|Set up with net use|  
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
-|Max Size|4 TB disk|5 TB File Share and 1 TB file within share|  
+|Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
 |Max 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MB/s per Disk|Up to 60 MB/s per File Share|  
+|Throughput|Up to 60 MiB/s per Disk|Up to 60 MiB/s per File Share|  
 
 ## Next steps
 
@@ -78,4 +72,4 @@ Some SMB features are not applicable to the cloud. For more information, see [Fe
 
 For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).
 
-<!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->
+<!--Update_Description: wording update-->

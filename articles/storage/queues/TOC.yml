@@ -28,8 +28,14 @@
   items:
   - name: Plan and design
     items:
-    - name: Replication
-      href: ../common/storage-redundancy.md?toc=%2fstorage%2fqueues%2ftoc.json
+    - name: Data redundancy
+      items:
+      - name: Redundancy overview
+        href: ../common/storage-redundancy.md?toc=%2fstorage%2fqueues%2ftoc.json
+      - name: Locally-redundant storage
+        href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2fqueues%2ftoc.json
+      - name: Geo-redundant storage
+        href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: Designing HA Apps using RA-GRS
       href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: Scalability and performance targets
@@ -54,14 +60,20 @@
       href: ../common/storage-use-emulator.md?toc=%2fstorage%2fqueues%2ftoc.json
   - name: Manage
     items:
-    - name: PowerShell
+    - name: PowerShell for Azure Queues
+      href: storage-powershell-how-to-use-queues.md
+    - name: PowerShell for Azure Storage
       href: ../common/storage-powershell-guide-full.md?toc=%2fstorage%2fqueues%2ftoc.json
+    - name: PowerShell for China
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: Azure Automation
       href: ../common/storage-manage-with-automation.md?toc=%2fstorage%2fqueues%2ftoc.json
   - name: Secure
     items:
     - name: Security guide
       href: ../common/storage-security-guide.md?toc=%2fstorage%2fqueues%2ftoc.json
+    - name: Configure firewalls and virtual networks 
+      href: ../common/storage-network-security.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: Client-side encryption
       items:
       - name: .NET

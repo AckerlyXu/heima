@@ -3,8 +3,8 @@ title: Designing Highly Available Applications using Azure Read-Access Geo-Redun
 description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages. 
 services: storage
 documentationcenter: .net
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 editor: tysonn
 
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -13,20 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 1/22/2018
-ms.date: 01/01/2018
+origin.date: 03/21/2018
+ms.date: 05/07/2018
 ms.author: v-johch
 ---
 # Designing Highly Available Applications using RA-GRS
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use Read Access Geo-Redundant Storage (RA-GRS) to ensure that their Azure Storage applications are highly available.
 
-Azure Storage offers four choices for redundancy for data in your storage account:
-
-- LRS (Locally Redundant Storage)
-- ZRS (Zone Redundant Storage) 
-- GRS (Geo-Redundant Storage)
-- RA-GRS (Read Access Geo-Redundant Storage). 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 This article focuses on GRS and RA-GRS. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS is the same thing as GRS except that you have read access to the secondary copy. For more information about the different Azure Storage redundancy options, see [Azure Storage replication](storage-redundancy.md). The replication article also shows the pairings of the primary and secondary regions.
 
@@ -240,4 +235,4 @@ If you have made the thresholds for switching your application to read-only mode
 * For more information about Read Access Geo-Redundancy, including another example of how the LastSyncTime is set, please see [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 * For a complete sample showing how to make the switch back and forth between the Primary and Secondary endpoints, please see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
-<!--Update_Description:wording udpate-->
+<!--Update_Description:update storage redundancy options-->

@@ -1,30 +1,24 @@
 ---
-title: How to use Azure Blob storage from iOS | Azure
+title: How to use object (Blob) storage from iOS - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: ios
 author: forester123
-manager: digimobile
-editor: tysonn
+manager: josefree
 
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 10/16/2017
+origin.date: 03/21/2018
+ms.date: 05/07/2018
 ms.author: v-johch
 
 ---
 # How to use Blob storage from iOS
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+This article shows how to perform common scenarios using Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include uploading, listing, downloading, and deleting blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
 
-## Overview
-This article will show you how to perform common scenarios using Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
+## What is Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -390,4 +384,4 @@ Now that you've learned how to use Blob Storage from iOS, follow these links to 
 
 If you have questions regarding this library feel free to post to our [MSDN Azure forum](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs&filter=alltypes&sort=lastpostdesc) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->
