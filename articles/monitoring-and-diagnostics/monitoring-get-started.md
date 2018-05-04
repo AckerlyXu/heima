@@ -13,31 +13,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/19/2018
+origin.date: 03/25/2018
+ms.date: 05/14/2018
 ms.author: johnkem
 
 ---
 # Get started with Azure Monitor
-Azure Monitor is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and take action on the metrics and logs coming from resources in Azure. You can work with this data using by using the Azure portal, [Monitor PowerShell Cmdlets](insights-powershell-samples.md), [Cross-Platform CLI](insights-cli-samples.md), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). In this article, we walk through a few of the key components of Azure Monitor, using the portal for demonstration.
+Azure Monitor is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and otherwise take action on the metrics and logs coming from resources in Azure. You can work with this data using by using the Azure portal, [Monitor PowerShell Cmdlets](insights-powershell-samples.md), [Cross-Platform CLI](insights-cli-samples.md), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). In this article, we walk through a few of the key components of Azure Monitor, using the portal for demonstration.
 
 ## Walkthrough
 1. In the portal, navigate to **All services** and find the **Monitor** option. Click the star icon to add this option to your favorites list so that it is always easily accessible from the left-hand navigation bar.
 
     ![Monitor in the services list](./media/monitoring-get-started/monitor-more-services.png)
-2. Click the **Monitor** option to open up the **Monitor** page. This page brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
+2. Click the **Monitor** option to open up the **Monitor** page. This page brings together all your monitoring settings and data into one consolidated view. It first opens to the **Overview** section. The Overview shows you a rollup of all monitoring alerts, errors, and service health advisories that relate to resources in your subscription.  
 
     ![Monitor navigation](./media/monitoring-get-started/monitor-blade-nav.png)
 
     Azure Monitor has three basic categories of monitoring data: The **activity log**, **metrics**, and **diagnostic logs**.
 3. Click **Activity log** to ensure that the activity log section is displayed.
 
-    ![Activity Log](./media/monitoring-get-started/monitor-act-log-blade.png)
-
     The [**activity log**](monitoring-overview-activity-logs.md) describes all operations performed on resources in your subscription. Using the Activity Log, you can determine the ‘what, who, and when’ for any create, update, or delete operations on resources in your subscription. For example, the Activity Log tells you when a web app was stopped and who stopped it. Activity Log events are stored in the platform and available to query for 90 days.
 
+    ![Activity Log](./media/monitoring-get-started/monitor-act-log-blade.png)
+
     You can create and save queries for common filters, then pin the most important queries to a portal dashboard so you'll always know if events that meet your criteria have occurred.
-4. Filter the view to a particular resource group over the last week, then click the **Save** button.
+4. Filter the view to a particular resource group over the last week, then click the **Save** button. Give your query a name.
 
     ![Save activity log query](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Now, click the **Pin** button.
@@ -65,6 +65,13 @@ Azure Monitor is the platform service that provides a single source for monitori
     [**Diagnostic logs**](monitoring-overview-of-diagnostic-logs.md) are logs emitted *by* a resource that provide data about the operation of that particular resource. For example, Network Security Group Rule Counters and Logic App Workflow Logs are both types of diagnostic logs. These logs can be stored in a storage account, streamed to an Event Hub, and/or sent to [Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics is Microsoft's operational intelligence product for advanced searching and alerting.
 
     In the portal you can view and filter a list of all resources in your subscription to identify if they have diagnostic logs enabled.
+    > [!NOTE]
+    > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+    >
+    > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+    >
+    >
+
 11. Click a resource in the diagnostic logs page. If diagnostic logs are being stored in a storage account, you will see a list of hourly logs that you can directly download.
 
     ![Diagnostic logs for one resource](./media/monitoring-get-started/monitor-diaglogs-detail.png)
@@ -74,21 +81,22 @@ Azure Monitor is the platform service that provides a single source for monitori
     ![Enable diagnostic logs](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     If you have set up diagnostic logs to Log Analytics, you can then search them in the **Log search** section of the portal.
-12. Navigate to the **Alerts** section of the Monitor page.
+12. Navigate to the **Alerts (Classic)** section of the Monitor page.
 
     ![alerts blade for public](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Here you can manage all [**alerts**](monitoring-overview-alerts.md) on your Azure resources. This includes alerts on metrics, activity log events, Application Insights web tests (Locations), and Application Insights proactive diagnostics. Alerts can trigger an email to be sent or an HTTP POST to a webhook URL.
+    Here you can manage all [**classic alerts**](monitoring-overview-alerts.md) on your Azure resources. This includes alerts on metrics, activity log events, Application Insights web tests (Locations), and Application Insights proactive diagnostics. Alerts connect to action groups. [Action groups](monitoring-action-groups.md) provide a way to notify people or perform specific actions when an alert fires.
+
 13. Click **Add metric alert** to create an alert.
 
     ![add metric alert](./media/monitoring-get-started/monitor-alerts-add.png)
 
     You can then pin an alert to your dashboard to easily see its state at any time.
 
-    Azure Monitor now also has [**near-real-time metric alerts**](https://aka.ms/azuremonitor/near-real-time-alerts)(preview) that can be evaluated at a frequency as low as every minute!
+    Azure Monitor now also has [**newer alerts**](https://aka.ms/azuremonitor/near-real-time-alerts) that can be evaluated at a frequency as low as every minute.
 By following these steps and pinning all relevant tiles to a dashboard, you can create comprehensive views of your application and infrastructure like this one:
 
 ![Azure Monitor dashboard](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## Next steps
-* Read the [Overview of Azure Monitor](monitoring-overview.md)
+* Read the [Overview of all Azure monitoring tools](monitoring-overview.md) to understand how Azure Monitor works with them.

@@ -526,6 +526,7 @@ status code and media type. If no example or schema found, the content is empty.
   <method>...</method>  
   <header name="" exists-action="override | skip | append | delete">...</header>  
   <body>...</body>  
+  <authentication-certificate thumbprint="thumbprint" />
 </send-one-way-request>  
   
 ```  
@@ -568,6 +569,7 @@ status code and media type. If no example or schema found, the content is empty.
 |method|The HTTP method for the request.|No if mode=copy; otherwise yes.|  
 |header|Request header. Use multiple header elements for multiple request headers.|No|  
 |body|The request body.|No|  
+|authentication-certificate|[Certificate to use for client authentication](api-management-authentication-policies.md#ClientCertificate)|No|
   
 ### Attributes  
   
@@ -596,6 +598,7 @@ status code and media type. If no example or schema found, the content is empty.
   <set-method>...</set-method>  
   <set-header name="" exists-action="override|skip|append|delete">...</set-header>  
   <set-body>...</set-body>  
+  <authentication-certificate thumbprint="thumbprint" />
 </send-request>  
   
 ```  
@@ -647,6 +650,7 @@ status code and media type. If no example or schema found, the content is empty.
 |method|The HTTP method for the request.|No if mode=copy; otherwise yes.|  
 |header|Request header. Use multiple header elements for multiple request headers.|No|  
 |body|The request body.|No|  
+|authentication-certificate|[Certificate to use for client authentication](api-management-authentication-policies.md#ClientCertificate)|No|
   
 ### Attributes  
   

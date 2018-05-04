@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date：12/11/2017
+origin.date: 04/04/2018
+ms.date：05/14/2018
 ms.author: v-yiso
 
 ---
@@ -26,6 +26,13 @@ Before you begin, you need to [create a storage account](../storage/storage-crea
 
 ## Diagnostic settings
 To archive your diagnostic logs using any of the methods below, you set a **diagnostic setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs and metric data sent to a destination (storage account, Event Hubs namespace, or Log Analytics). It also defines the retention policy (number of days to retain) for events of each log category and metric data stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted
+
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
 ## Archive diagnostic logs using the portal
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
@@ -64,17 +71,27 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |No |Boolean indicating if a retention policy are enabled on this resource. |
 | RetentionInDays |No |Number of days for which events should be retained between 1 and 2147483647. A value of zero stores the logs indefinitely. |
 
-## Archive diagnostic logs via the Cross-Platform CLI
-```
-azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg --storageId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage –categories networksecuritygroupevent,networksecuritygrouprulecounter --enabled true
+## Archive diagnostic logs via the Azure CLI 2.0
+
+```azurecli
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <name or ID of storage account> \
+    --resource <target resource object ID> \
+    --resource-group <storage account resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true,
+        "retentionPolicy": {
+            "days": <# days to retain>,
+            "enabled": true
+        }
+    }]'
 ```
 
-| Property | Required | Description |
-| --- | --- | --- |
-| resourceId |Yes |Resource ID of the resource on which you want to set a diagnostic setting. |
-| storageId |No |Resource ID of the Storage Account to which diagnostic logs should be saved. |
-| categories |No |Comma-separated list of log categories to enable. |
-| enabled |Yes |Boolean indicating whether diagnostics are enabled or disabled on this resource. |
+You can add additional categories to the diagnostic log by adding dictionaries to the JSON array passed as the `--logs` parameter.
+
+The `--resource-group` argument is only required if `--storage-account` is not an object ID. For the full documentation for archiving diagnostic logs to storage, see the [CLI command reference](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ## Archive diagnostic logs via the REST API
 [See this document](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.

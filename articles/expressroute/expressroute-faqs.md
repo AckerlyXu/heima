@@ -4,7 +4,7 @@ description: The ExpressRoute FAQ contains information about Supported Azure Ser
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/17/2018
+origin.date: 04/09/2018
 ms.author: v-yiso
-ms.date: 03/12/2018
+ms.date: 05/14/2018
 ---
 
 # ExpressRoute FAQ
@@ -58,13 +58,19 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Virtual Networks, including all virtual machines and cloud services
 
 ### Public peering
+
+>[!NOTE]
+>Microsoft peering is the preferred way to access all services hosted on Azure.
+>
+
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
-* Most of the Azure services, with the following few exceptions:
-  * CDN
-  * Visual Studio Team Services Load Testing
-  * Multi-factor Authentication
-  * Traffic Manager
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ### Microsoft peering
 
@@ -77,7 +83,8 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * Most of the Azure services, with the following few exceptions :
+  * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
     * CDN
     * Visual Studio Team Services Load Testing
     * Multi-factor Authentication
@@ -197,7 +204,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
-The public IP address is used for internal management only. This public IP address is not exposed to the Internet, and does not constitute a security exposure of your virtual network.
+The public IP address is used for internal management only, and does not constitute a security exposure of your virtual network.
 
 ### What do I need to connect to Azure storage over ExpressRoute?
 You must establish an ExpressRoute circuit and configure routes for public peering.

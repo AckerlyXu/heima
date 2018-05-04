@@ -47,7 +47,7 @@ This topic provides a reference for the following API Management policies. For i
 ### Policy statement  
   
 ```xml  
-<json-to-xml apply="always | content-type-json" consider-accept-header="true | false"/>  
+<json-to-xml apply="always | content-type-json" consider-accept-header="true | false" parse-date="true | false"/>
 ```  
   
 ### Example  
@@ -59,7 +59,7 @@ This topic provides a reference for the following API Management policies. For i
     </inbound>  
     <outbound>  
         <base />  
-        <json-to-xml apply="always" consider-accept-header="false" />  
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false"/>
     </outbound>  
 </policies>  
 ```  
@@ -76,6 +76,7 @@ This topic provides a reference for the following API Management policies. For i
 |----------|-----------------|--------------|-------------|  
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|  
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|  
+|parse-date|When set to `false` date values are simply copied during transformation|No|true|
   
 ### Usage  
  This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).  

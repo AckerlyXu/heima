@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 05/14/2018
 ---
 
 # Consume monitoring data from Azure
