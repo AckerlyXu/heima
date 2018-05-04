@@ -232,5 +232,4 @@ To perform tasks on network security groups, security rules, and application sec
 |Microsoft.Network/networkWatchers/nextHop/action                |   Gets the next hop from a VM                  |
 
 The *Join network security group* operation is required to associate a network security group to a subnet.
-<!-- Update_Description: new articles on managed network security group  -->
-<!--ms.date: 04/30/2018-->
+<!-- Update_Description: update meta properties  -->

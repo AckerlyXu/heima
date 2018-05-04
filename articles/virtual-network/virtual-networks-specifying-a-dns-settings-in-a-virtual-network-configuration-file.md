@@ -3,8 +3,8 @@ title: Specifying DNS Settings in a virtual network configuration file | Azure
 description: How to change DNS server settings in a virtual network using a virtual network configuration file in the classic deployment model
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2016
-ms.date: 12/16/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # Specifying DNS settings in a virtual network configuration file
@@ -65,3 +65,4 @@ The network configuration file may contain the following elements. The title of 
 * Understand the [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093).
 * Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710).
 * [Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md).
+<!-- Update_Description: update meta properties -->

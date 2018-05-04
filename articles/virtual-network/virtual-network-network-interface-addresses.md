@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -33,8 +33,8 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using the portal, open https://portal.azure.cn, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, by running PowerShell from your computer. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article,  by running PowerShell from your computer.  This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article,  by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -44,7 +44,7 @@ Complete the following tasks before completing steps in any section of this arti
 You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addresses as necessary to a network interface, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 <!-- Not Avaiable on IPV6 -->
 
-1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the network interface you want to add an IPv4 address for.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the network interface you selected.
@@ -63,7 +63,7 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-nic-ip-config-create)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="change-ip-config"></a>
@@ -71,7 +71,7 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 
 You may need to change the assignment method of an IPv4 address, change the static IPv4 address, or change the public IP address assigned to a network interface. If you're changing the private IPv4 address of a secondary IP configuration associated with a secondary network interface in a virtual machine (learn more about [primary and secondary network interfaces](virtual-network-network-interface-vm.md)), place the virtual machine into the stopped (deallocated) state before completing the following steps: 
 
-1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the network interface you want to view or change IP address settings for.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the network interface you selected.
@@ -85,7 +85,7 @@ You may need to change the assignment method of an IPv4 address, change the stat
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-nic-ip-config-update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="delete-ip-config"></a>
@@ -93,7 +93,7 @@ You may need to change the assignment method of an IPv4 address, change the stat
 
 You can remove [private](#private) and [public](#public) IP addresses from a network interface, but a network interface must always have at least one private IPv4 address assigned to it.
 
-1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the network interface you want to remove IP addresses from.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the network interface you selected.
@@ -104,7 +104,7 @@ You can remove [private](#private) and [public](#public) IP addresses from a net
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config delete](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_delete)|
+|CLI|[az network nic ip-config delete](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-nic-ip-config-delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 ## IP configurations

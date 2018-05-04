@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -32,6 +32,6 @@ This document covers creating a VNet by using the classic deployment model. You 
 
 [!INCLUDE [virtual-networks-create-vnet-classic-cli-include](../../includes/virtual-networks-create-vnet-classic-cli-include.md)]
 
-<!--The parent file of includes file of virtual-networks-create-vnet-selectors-classic-include.md-->
-<!--ms.date:03/26/2018-->
+<!--The parent file of includes file of virtual-networks-create-vnet-classic-cli-include.md-->
+<!--ms.date:05/07/2018-->
 <!-- Update_Description: wording update, update link -->

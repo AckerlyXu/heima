@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 01/29/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ ms.author: v-yeche
 
 This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
@@ -159,15 +159,16 @@ In addition to creating a VM with a NIC with 3 IP configurations, the script cre
 - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) article for details.
 - A virtual network with one subnet and two public IP addresses. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
-Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription.
+Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
 After the VM is created, enter the `az network nic show --name MyNic1 --resource-group myResourceGroup` command to view the NIC configuration. Enter the `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` to view a list of the IP configurations associated to the NIC.
 
 Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
 
-## <a name="add"></a>Add IP addresses to a VM
+<a name="add"></a>
+## Add IP addresses to a VM
 
-You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
+You can add additional private and public IP addresses to an existing Azure network interface by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
 1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.azure.cn/zh-cn/cli/install-az-cli2?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) article and login to your Azure account with the `az-login` command.
 
@@ -191,7 +192,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 
     A public IP address is added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
-    Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the Azure limits article.
+    Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
     - **Associate the resource to a new IP configuration**
 
@@ -276,5 +277,5 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 <!--The parent file of includes file of virtual-network-multiple-ip-addresses-os-config.md-->
-<!--ms.date:01/29/2018-->
-<!-- Update_Description: update meta properties wording update -->
+<!--ms.date:05/07/2018-->
+<!-- Update_Description: update meta properties, wording update -->

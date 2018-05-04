@@ -17,7 +17,8 @@
 | Private VIP (ILB) per deployment |1 |1 |
 | Endpoint Access Control Lists (ACLs) |50 |50 |
 
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
+<a name="azure-resource-manager-virtual-networking-limits"></a>
+#### Networking Limits - Azure Resource Manager
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
 
 | Resource | Default limit | Maximum Limit |
@@ -26,12 +27,12 @@ The following limits apply only for networking resources managed through Azure R
 | Subnets per virtual network |1000 |10000 |
 | Virtual network peerings per Virtual Network |10 |50 |
 | DNS Servers per virtual network |9 |25 |
-| Private IP Addresses per virtual network |4096 |8192 |
+| Private IP Addresses per virtual network |16384** |16384 |
 | Private IP Addresses per network interface |256 |1024 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
-| Network Interfaces (NIC) |350 |20000 |
+| Network Interfaces (NIC) |24000** |24000 |
 | Network Security Groups (NSG) |100 |5000 |
-| NSG rules per NSG |200 |1000 |
+| NSG rules per NSG |1000** |1000 |
 <!-- Not Available on | IP addresses and ranges specified for source or destination in a security rule |2000 |4000 | -->
 <!-- Not Available on | Application security groups |200 |500 | -->
 <!-- Not Available on | Application security groups per IP configuration, per NIC |10 |20 | -->
@@ -44,7 +45,10 @@ The following limits apply only for networking resources managed through Azure R
 <!-- Not Available on | Public IP addresses - static |(Standard) 20 |contact support | -->
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
-#### <a name="load-balancer"></a>Load Balancer limits
+**These default limits apply to subscriptions that have not previously had these limits increased through support
+
+<a name="load-balancer"></a>
+#### Load Balancer limits
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
@@ -60,4 +64,4 @@ The following limits apply only for networking resources managed through Azure R
 
 [Contact support](https://www.azure.cn/support/contact/) in case you need to increase limits from default.
 
-<!-- ms.date: 03/12/2018 -->
+<!-- ms.date: 05/07/2018 -->

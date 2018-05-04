@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/22/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -48,8 +48,8 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Complete the following steps to change the script to work in your environment:
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#prerequisites).
-<!-- Archor is Correct on #prerequisites -->
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+    <!-- Archor is Correct on #prerequisites -->
 
     ```azurecli
     location="chinaeast"
@@ -192,4 +192,6 @@ Now that you downloaded and changed the script based on your needs, run the scri
 
 Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md).
 
+<!--The parent file of includes file of virtual-network-deploy-multinic-classic-selectors-include.md-->
+<!--ms.date:05/07/2018-->
 <!-- Update_Description: update link -->

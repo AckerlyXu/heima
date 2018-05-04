@@ -6,7 +6,7 @@ documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
-tags: azure-resource-manager
+tags: azure-service-management
 
 ms.assetid: 
 ms.service: virtual-network
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: 
 
@@ -52,7 +52,7 @@ You can create a virtual network (classic) by using the [Azure portal](#portal),
     |Resource group|Leave **Create new** selected, and then enter **myResourceGroup**.|
     |Subscription and location|Select your subscription and location.
 
-    If you're new to Azure, learn more about [resource groups](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription), and [locations](https://www.azure.cn/support/service-dashboard/) (also referred to as *regions*).
+    If you're new to Azure, learn more about [resource groups](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (also referred to as *regions*).
 4. In the portal, you can create only one subnet when you create a virtual network. In this tutorial, you create a second subnet after you create the virtual network. You might later create Internet-accessible resources in the **Public** subnet. You also might create resources that aren't accessible from the Internet in the **Private** subnet. To create the second subnet, enter **myVnet** in the **Search resources** box at the top of the page. Click **myVnet** when it appears in the search results.
 5. Click **Subnets** (in the **SETTINGS** section) on the **Create virtual network (classic)** pane that appears.
 6. Click **+Add** on the **myVnet - Subnets** pane that appears.

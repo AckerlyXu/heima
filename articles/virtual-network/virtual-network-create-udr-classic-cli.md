@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -24,7 +24,6 @@ ms.author: v-yeche
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Azure CLI](tutorial-create-route-table-cli.md)
-> * [Template](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
@@ -135,4 +134,6 @@ To create the route table and route needed for the back-end subnet based on the 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!--The parent file of includes file of virtual-network-create-udr-scenario-include.md-->
+<!--ms.date:05/07/2018-->

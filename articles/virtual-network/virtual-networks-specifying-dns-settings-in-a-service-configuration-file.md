@@ -3,8 +3,8 @@ title: Specifying DNS Settings in a service configuration file | Azure
 description: specifying custom DNS settings using service configuration file for virtual network
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/24/2016
-ms.date: 04/26/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # Specifying DNS Settings in a Service Configuration File
@@ -41,3 +41,5 @@ A service configuration file may contain a DnsServers element with a list of IPv
 [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Configure a Virtual Network Using Network Configuration Files](/virtual-network/virtual-networks-create-vnet-classic-portal)
+<!-- Not Available on [About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092) -->
+<!-- Update_Description: update meta properties -->

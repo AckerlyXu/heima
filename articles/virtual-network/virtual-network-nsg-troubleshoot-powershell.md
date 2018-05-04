@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/15/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -42,7 +42,7 @@ While this example uses TCP port 3389, the following steps can be used to determ
 ## Detailed Troubleshooting Steps
 Complete the following steps to troubleshoot NSGs for a VM:
 
-1. Start an Azure PowerShell session and login to Azure. If you're not familiar with using Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions).
+1. Start an Azure PowerShell session and login to Azure. If you're not familiar with using Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions).
 2. Enter the following command to return all NSG rules applied to a NIC named *VM1-NIC1* in the resource group *RG1*:
 
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

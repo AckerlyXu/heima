@@ -3,8 +3,8 @@ title: What is an Azure network access control list?
 description: Learn about access control lists in Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # What is an endpoint access control list?
@@ -35,6 +35,8 @@ Using Network ACLs, you can do the following:
 * Create multiple rules per virtual machine endpoint
 * Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)
 * Specify an ACL for a specific remote subnet IPv4 address.
+
+See the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits) article for ACL limits.
 
 ## How ACLs work
 An ACL is an object that contains a list of rules. When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM. This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM. This prevents your VM from spending the precious CPU cycles on packet filtering.
@@ -88,4 +90,4 @@ Network ACLs can be specified on a load balanced set endpoint. If an ACL is spec
 ## Next Steps
 [Manage access control lists for endpoints using PowerShell](virtual-networks-acl-powershell.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

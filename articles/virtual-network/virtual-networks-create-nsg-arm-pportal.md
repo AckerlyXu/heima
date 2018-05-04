@@ -3,8 +3,8 @@ title: Create network security groups - Azure portal | Azure
 description: Learn how to create and deploy network security groups using the Azure portal.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/04/2016
-ms.date: 12/16/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -32,7 +32,7 @@ This article covers the Resource Manager deployment model. You can also [create 
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. The steps below use **RG-NSG** as the name of the resource group the template was deployed to.
+The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](https://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. The steps below use **RG-NSG** as the name of the resource group the template was deployed to.
 
 ## Create the NSG-FrontEnd NSG
 To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the steps below.
@@ -92,3 +92,5 @@ To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, fo
 ## Next Steps
 * Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
 <!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--The parent file of includes file of virtual-networks-create-nsg-intro-include.md-->
+<!--ms.date:05/07/2018-->

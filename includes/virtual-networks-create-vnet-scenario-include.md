@@ -1,9 +1,24 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: rockboyfor
+ ms.service: virtual-network
+ ms.topic: include
+ origin.date: 04/13/2018
+ ms.date: 05/07/2018
+ ms.author: v-yeche
+ ms.custom: include file
+
+---
+
 ## Scenario
-To better illustrate how to create a VNet and subnets, this document will use the scenario below.
+
+To illustrate how to create a VNet and subnets, this document uses the following scenario:
 
 ![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-In this scenario you will create a VNet named **TestVNet** with a reserved CIDR block of **192.168.0.0./16**. Your VNet will contain the following subnets: 
+In this scenario you create a VNet named **TestVNet**, with a reserved CIDR block of **192.168.0.0./16**. The VNet contains the following subnets: 
 
 * **FrontEnd**, using **192.168.1.0/24** as its CIDR block.
 * **BackEnd**, using **192.168.2.0/24** as its CIDR block.

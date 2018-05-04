@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/16/2017
-ms.date: 01/15/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -180,14 +180,13 @@ The following table shows the specific property through which a private IP addre
 | Application gateway |Front-end configuration |Yes |Yes |
 
 ## Limits
-The limits imposed on IP addressing are indicated in the full set of  in Azure. The limits are per region and per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
+The limits imposed on IP addressing are indicated in the full set of [limits for networking](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
 
 ## Pricing
 Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page.
 
 ## Next steps
 * [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-* [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
 * [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link -->

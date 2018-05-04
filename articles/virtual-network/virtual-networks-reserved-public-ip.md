@@ -3,8 +3,8 @@ title: Manage Azure reserved IP addresses (Classic) - PowerShell | Azure
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/10/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # Reserved IP addresses (Classic)
@@ -24,7 +24,6 @@ ms.author: v-dazen
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Template](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shut down or stopped (deallocated).
@@ -44,11 +43,13 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 ## FAQ
 1. Can I use a reserved IP for all Azure services? <br>
     No. Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
-2. Is there a charge for reserved IPs? <br>
+2. How many reserved IPs can I have? <br>
+    For details, see the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+3. Is there a charge for reserved IPs? <br>
     Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page.
-3. How do I reserve an IP address? <br>
+4. How do I reserve an IP address? <br>
     You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.cn) to reserve an IP address in an Azure region. A reserved IP address is associated to your subscription.
-4. Can I use a reserved IP with affinity group-based VNets? <br>
+5. Can I use a reserved IP with affinity group-based VNets? <br>
     No. Reserved IPs are only supported in regional VNets. Reserved IPs are not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or affinity group, see the [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md) article.
 
 ## Manage reserved VIPs
@@ -163,3 +164,4 @@ You can also associate a reserved IP to a cloud service by using a service confi
 * Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
 * Learn about [reserved private IP addresses](virtual-networks-reserved-private-ip.md).
 * Learn about [Instance Level Public IP (ILPIP) addresses](virtual-networks-instance-level-public-ip.md).
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/09/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ---
 
@@ -29,8 +29,8 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using the portal, open https://portal.azure.cn, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, by running PowerShell from your computer. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article,  by running PowerShell from your computer.  This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article,  by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 <!-- Not Available on Azure Cloud Shell -->
 
 ## Create a route table
@@ -43,7 +43,7 @@ There is a limit to how many route tables you can create per Azure location and 
 
 **Commands**
 
-- Azure CLI: [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_create)
+- Azure CLI: [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-create)
 - PowerShell: [New-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## View route tables
@@ -52,7 +52,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 **Commands**
 
-- Azure CLI: [az network route-table list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_list)
+- Azure CLI: [az network route-table list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-list)
 - PowerShell: [Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## View details of a route table
@@ -68,7 +68,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 **Commands**
 
-- Azure CLI: [az network route-table show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_show)
+- Azure CLI: [az network route-table show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-show)
 - PowerShell: [Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## Change a route table
@@ -78,7 +78,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 **Commands**
 
-- Azure CLI: [az network route-table update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_update)
+- Azure CLI: [az network route-table update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-update)
 - PowerShell: [Set-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## Associate a route table to a subnet
@@ -93,7 +93,7 @@ A subnet can have zero or one route table associated to it. A route table can be
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
+- Azure CLI: [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## Dissociate a route table from a subnet
@@ -108,7 +108,7 @@ When you dissociate a route table from a subnet, Azure routes traffic based on i
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
+- Azure CLI: [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
 
 ## Delete a route table
@@ -121,7 +121,7 @@ If a route table is associated to any subnets, it cannot be deleted. [Dissociate
 
 **Commands**
 
-- Azure CLI: [az network route-table delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_delete)
+- Azure CLI: [az network route-table delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-delete)
 - PowerShell: [Delete-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/delete-azurermroutetable) 
 
 ## Create a route
@@ -140,7 +140,7 @@ There is a limit to how many routes per route table can create per Azure locatio
 
 **Commands**
 
-- Azure CLI: [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- Azure CLI: [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-create)
 - PowerShell: [New-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## View routes
@@ -153,7 +153,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- Azure CLI: [az network route-table route list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-list)
 - PowerShell: [Get-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## View details of a route
@@ -165,7 +165,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- Azure CLI: [az network route-table route show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-show)
 - PowerShell: [Get-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## Change a route
@@ -178,7 +178,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
+- Azure CLI: [az network route-table route update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-update)
 - PowerShell: [Set-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## Delete a route
@@ -191,7 +191,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- Azure CLI: [az network route-table route delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-delete)
 - PowerShell: [Remove-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## View effective routes
@@ -206,7 +206,7 @@ The effective routes for each network interface attached to a virtual machine ar
 
 **Commands**
 
-- Azure CLI: [az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- Azure CLI: [az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermrouteconfig) 
 
 ## Validate routing between two endpoints
@@ -223,12 +223,12 @@ You can determine the next hop type between a virtual machine and the IP address
 
 **Commands**
 
-- Azure CLI: [az network watcher show-next-hop](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- Azure CLI: [az network watcher show-next-hop](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## Permissions
 
-To perform tasks on route tables and routes, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
+To perform tasks on route tables and routes, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
 
 |Operation                                                       |   Operation name                               |
 |--------------------------------------------------------------  |   -------------------------------------------  |

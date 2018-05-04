@@ -3,8 +3,8 @@ title: Migrate an Azure virtual network (classic) from an affinity group to a re
 description: Learn how to migrate a virtual network (classic) from an affinity group to a region.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # Migrate a virtual network (classic) from an affinity group to a region
@@ -38,7 +38,7 @@ We recommend that you don't use affinity groups in general. Aside from the virtu
 ## Edit the network configuration file
 
 1. Export the network configuration file. To learn how to export a network configuration file using PowerShell or the Azure command-line interface (CLI) 1.0, see [Configure a virtual network using a network configuration file](virtual-networks-using-network-configuration-file.md#export).
-2. Edit the network configuration file, replacing **AffinityGroup** with **Location**. You specify an Azure region for **Location**.
+2. Edit the network configuration file, replacing **AffinityGroup** with **Location**. You specify an Azure [region](https://azure.microsoft.com/regions) for **Location**.
 
    > [!NOTE]
    > The **Location** is the region that you specified for the affinity group that is associated with your virtual network (classic). For example, if your virtual network (classic) is associated with an affinity group that is located in China North, when you migrate, your **Location** must point to China North. 
@@ -60,4 +60,4 @@ We recommend that you don't use affinity groups in general. Aside from the virtu
 ## What to do if you have a VM (classic) in an affinity group
 VMs (classic) that are currently in an affinity group do not need to be removed from the affinity group. Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because the VM is already deployed to a scale unit, removing a VM from an affinity group has no effect on the VM.
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

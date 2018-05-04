@@ -3,8 +3,8 @@ title: Azure Instance level Public IP (Classic) addresses | Azure
 description: Understand instance level public IP (ILPIP) addresses and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/10/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # Instance level public IP (Classic) overview
@@ -42,6 +42,7 @@ When you create a cloud service in Azure, corresponding DNS A records are create
 If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:&lt;port number&gt;, request an ILPIP for your VM or your role instance.
 
 * **Active FTP** - By assigning an ILPIP to a VM, it can receive traffic on any port. Endpoints are not required for the VM to receive traffic.  See [FTP Protocol Overview](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) for details on the FTP protocol.
+<!-- Notice: Link sequence is correct on [FTP Protocol Overview](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) -->
 * **Outbound IP** - Outbound traffic originating from the VM is mapped to the ILPIP as the source and the ILPIP uniquely identifies the VM to external entities.
 
 > [!NOTE]
@@ -145,3 +146,4 @@ To add an ILPIP to a Cloud Services role instance, complete the following steps:
 ## Next steps
 * Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
 * Learn about [Reserved IPs](virtual-networks-reserved-public-ip.md).
+<!-- Update_Description: update meta properties -->

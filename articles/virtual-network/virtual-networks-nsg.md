@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,7 @@ NSGs contain the following properties:
 | Property | Description | Constraints | Considerations |
 | --- | --- | --- | --- |
 | Name |Name for the NSG |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs. |
-| Region |Azure [region](https://www.azure.cn/support/service-dashboard/) where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
+| Region |Azure [region](https://azure.microsoft.com/regions) where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
 | Resource group |The [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) the NSG exists in. |Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG. |Resource groups are used to manage multiple resources together, as a deployment unit.<br/>You may consider grouping the NSG with resources it is associated to. |
 | Rules |Inbound or outbound rules that define what traffic is allowed or denied. | |See the [NSG rules](#Nsg-rules) section of this article. |
 
@@ -48,8 +48,8 @@ NSG rules contain the following properties:
 | **Protocol** |Protocol to match for the rule. |TCP, UDP, or * |Using * as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP, and may reduce the number of rules you need.<br/>At the same time, using * might be too broad an approach, so it's recommended that you use * only when necessary. |
 | **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Destination port range** |Destination port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or \* (for all ports). |Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
-| **Source address prefix** |Source address prefix or tag to match for the rule. |Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
-| **Destination address prefix** |Destination address prefix or tag to match for the rule. | Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
+| **Source address prefix** |Source address prefix or tag to match for the rule. |Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [service tag](#service-tags), or * (for all addresses). |Consider using ranges, service tags, and * to reduce the number of rules. |
+| **Destination address prefix** |Destination address prefix or tag to match for the rule. | Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#service-tags), or * (for all addresses). |Consider using ranges, service tags, and * to reduce the number of rules. |
 | **Direction** |Direction of traffic to match for the rule. |Inbound or outbound. |Inbound and outbound rules are processed separately, based on direction. |
 | **Priority** |Rules are checked in the order of priority. Once a rule applies, no more rules are tested for matching. | Number between 100 and 4096. | Consider creating rules jumping priorities by 100 for each rule to leave space for new rules you might create in the future. |
 | **Access** |Type of access to apply if the rule matches. | Allow or deny. | Keep in mind that if an allow rule is not found for a packet, the packet is dropped. |
@@ -60,36 +60,15 @@ NSGs contain two sets of rules: Inbound and outbound. The priority for a rule mu
 
 The previous picture shows how NSG rules are processed.
 
-### Default Tags
-Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use:
+<a name="default-tags"></a>
+### System tags
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (CIDR ranges defined in Azure), all connected on-premises address spaces, and connected Azure VNets (local networks).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to an Azure datacenter IP where Azure Load Balancer's health probes originate.
-* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=42064).
+Service tags are system-provided identifiers to address a category of IP addresses. You can use service tags in the **source address prefix** and **destination address prefix** properties of any security rule. Learn more about [service tags](security-overview.md#service-tags).
 
-### Default rules
-All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
+<a name="default-rules"></a>
+### Default security rules
 
-The default rules allow and disallow traffic as follows:
-- **Virtual network:** Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
-- **Internet:** Outbound traffic is allowed, but inbound traffic is blocked.
-- **Load balancer:** Allow Azure Load Balancer to probe the health of your VMs and role instances. If you override this rule, Azure Load Balancer health probes will fail which could cause impact to your service.
-
-**Inbound default rules**
-
-| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | Allow |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | Allow |
-| DenyAllInBound |65500 | * | * | * | * | * | Deny |
-
-**Outbound default rules**
-
-| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Allow |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | Allow |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Deny |
+All NSGs contain a set of default security rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. Learn more about [default security rules](security-overview.md#default-security-rules).
 
 ## Associating NSGs
 You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using, as follows:
@@ -121,11 +100,11 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
-| Azure portal   | No | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
-| Azure Resource Manager template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
+| Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | No | [Yes](tutorial-filter-network-traffic-cli.md) |
+| Azure Resource Manager template   | No  | [Yes](template-samples.md) |
 
 ## Planning
 Before implementing NSGs, you need to answer the following questions:
