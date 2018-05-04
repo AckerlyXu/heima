@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/26/2017
-ms.date: 01/18/2018
+ms.date: 05/07/2018
 ms.author: v-nany
 
 ---
@@ -58,10 +58,10 @@ To access Media Services API, you need to collect the following data points.
 
 |Setting|Example|Description|
 |---|-------|-----|
-|Azure Active Directory tenant domain|testazure11.partner.onmschina.cn|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
-|REST API endpoint|https://jasonms.restv2.chinanorth.media.chinacloudapi.cn/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
-|Client ID (Application ID)|4c9b254b-43f9-41be-8504-0e35333dcbf2|Azure AD application (client) ID. The client ID is required to get the access token. |
-|Client Secret|104XwlvmQLqEk9wcavmYGxrRwET3uGMxKvHyflN6BtM=|Azure AD application keys (client secret). The client secret is required to get the access token.|
+|Azure Active Directory tenant domain|microsoft.partner.onmschina.cn|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
+|REST API endpoint|https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
+|Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
+|Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
 
 ### Get AAD auth info from the Azure portal
 

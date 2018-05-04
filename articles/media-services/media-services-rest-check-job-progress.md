@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
+origin.date: 12/07/2017
+ms.date: 05/07/2018
 ms.author: v-haiqya
 ---
 # How to: check job progress
