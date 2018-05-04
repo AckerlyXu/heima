@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 08/07/2017
+origin.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-haiqya
 
 ---

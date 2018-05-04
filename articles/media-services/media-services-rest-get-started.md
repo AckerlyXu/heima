@@ -14,8 +14,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 12/25/2017
+origin.date: 04/13/2018
+ms.date: 05/07/2017
 ms.author: v-nany
 
 
@@ -614,7 +614,7 @@ There are a few important things to note in any Job request:
 For more information see, [Creating an Encoding Job with the Media Services REST API](media-services-rest-encode-asset.md).
 
 ### Monitor Processing Progress
-You can retrieve the Job status by using the State property, as shown in the following example.
+You can retrieve the Job status by using the State property, as shown in the following example:
 
 **HTTP Request**
 
