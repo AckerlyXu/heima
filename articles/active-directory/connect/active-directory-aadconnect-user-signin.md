@@ -3,8 +3,8 @@ title: 'Azure AD Connect: User sign-in | Microsoft Docs'
 description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: curtand
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 12/25/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
 
 ---
@@ -47,7 +47,7 @@ Enable on-premises multi-factor authentication solutions.|||x|
 With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
 ![Password hash synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-For more information, see the [password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) article.
+For more information, see the [password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) article.
 
 ### Federation that uses a new or existing farm with AD FS in Windows Server 2012 R2
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.

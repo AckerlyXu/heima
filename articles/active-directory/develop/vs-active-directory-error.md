@@ -1,9 +1,9 @@
 ---
-title: How to diagnose errors with the Azure Active Directory Connection Wizard
-description: The active directory connection wizard detected an incompatible authentication type
+title: How to diagnose errors with the Azure Active Directory connected service
+description: The active directory connected service detected an incompatible authentication type
 services: active-directory
 documentationcenter: ''
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/9/2018
-ms.author: kraigb
-ms.custom: aaddev
+ms.date: 05/04/2018
 ms.author: v-junlch
+ms.custom: aaddev
+
 ---
 # Diagnosing errors with the Azure Active Directory Connected Service
 
@@ -95,3 +95,5 @@ To detect an old form of Organizational Account authentication, the connected se
 To change the authentication type, remove the incompatible authentication type and try adding the connected service again.
 
 For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+
+<!-- Update_Description: update metedata properties -->

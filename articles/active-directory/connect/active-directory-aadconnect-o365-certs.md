@@ -3,8 +3,8 @@ title: Certificate renewal for Office 365 and Azure AD users | Microsoft Docs
 description: This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 12/25/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
 
 ---
@@ -155,8 +155,8 @@ Update Office 365 with the new token signing certificates to be used for the tru
 1. Open the Azure Active Directory Module for Windows PowerShell.
 2. Run $cred=Get-Credential. When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.
 3. Run Connect-MsolService -Credential $cred -AzureEnvironment AzureChinaCloud. This cmdlet connects you to the cloud service. Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.
-4. If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer <AD FS primary server>, where <AD FS primary server> is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.
-5. Run Update-MSOLFederatedDomain -DomainName <domain>. This cmdlet updates the settings from AD FS into the cloud service, and configures the trust relationship between the two.
+4. If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer &lt;AD FS primary server&gt;, where &lt;AD FS primary server&gt; is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.
+5. Run Update-MSOLFederatedDomain -DomainName &lt;domain&gt;. This cmdlet updates the settings from AD FS into the cloud service, and configures the trust relationship between the two.
 
 > [!NOTE]
 > If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the **SupportMultipleDomain** switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).

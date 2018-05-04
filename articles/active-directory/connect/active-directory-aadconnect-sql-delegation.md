@@ -2,8 +2,8 @@
 title: 'Install Azure AD Connect using SQL delegated administrator permissions | Microsoft Docs'
 description: This topic describes an update to Azure AD Connect that allows for installation using an account that only has SQL dbo permissions.
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.reviewer: jparsons
 ms.assetid:
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/15/2018
-ms.date: 03/05/2018
-ms.author: v-nany
+origin.date: 03/19/2018
+ms.date: 05/03/2018
+ms.author: v-junlch
 ---
 
 # Install Azure AD Connect using SQL delegated administrator permissions
@@ -38,16 +38,20 @@ To provision the database out of band and install Azure AD Connect with database
 >Although it is not required, it is **highly recommended** that the Latin1_General_CI_AS collation is selected when creating the database.
 
 
-1.	Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type are updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.</br>
-![Collation](media/active-directory-aadconnect-sql-delegation/sql1.png)
-2.	Grant the Azure AD Connect administrator and the domain service account the following permissions:
+1. Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type are updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.</br>
+
+    ![Collation](./media/active-directory-aadconnect-sql-delegation/sql1.png)
+2. Grant the Azure AD Connect administrator and the domain service account the following permissions:
     - SQL Login 
     - **database owner(dbo)** rights.  </br>
-![Permissions](media/active-directory-aadconnect-sql-delegation/sql3.png)
-3.	Send an email to the Azure AD Connect administrator indicating the SQL server and instance name that should be used when installing Azure AD Connect.
+	![Permissions](./media/active-directory-aadconnect-sql-delegation/sql3.png)
+
+3. Send an email to the Azure AD Connect administrator indicating the SQL server and instance name that should be used when installing Azure AD Connect.
 
 ## Additional information
 Once the database is provisioned, the Azure AD Connect administrator can install and configure on-premises synchronization at their convenience.  
+
+The **/UseExistingDatabase** flag is required when using a pre-created database.  It is not only used in recovery situations.
 
 In addition to supporting new installations of Azure AD Connect, this feature also enables delegation for any scenario related to the **/UseExistingDatabase** flag.  For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](active-directory-aadconnect-existing-database.md)
 
@@ -57,3 +61,4 @@ In addition to supporting new installations of Azure AD Connect, this feature al
 - [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 - [Install Azure AD Connect using an existing ADSync database](active-directory-aadconnect-existing-database.md)  
 
+<!-- Update_Description: wording update -->

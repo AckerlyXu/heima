@@ -3,8 +3,8 @@ title: Get Started with Azure AD in Visual Studio WebApi projects | Microsoft Do
 description: How to get started using Azure Active Directory in WebApi projects after connecting to or creating an Azure AD using Visual Studio connected services
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: mtillman
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/09/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -37,3 +37,5 @@ All controllers in your project were adorned with the `[Authorize]` attribute. T
 
 - [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+
+<!-- Update_Description: update metedata properties -->
