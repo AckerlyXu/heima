@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 12/11/2017
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -49,7 +49,7 @@ When a public IP address needs to be assigned to an Azure resource, it is *dynam
 > 
 
 ### DNS hostname resolution
-When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.cloudapp.chinacloudapi.cn to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.cloudapp.chinacloudapi.cn** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
+When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.chinacloudapp.cn to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.chinacloudapp.cn** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
 <!-- Convert dnsname.cloudapp.net to dnsname.chinacloudapp.cn-->
 
 ### Cloud services
@@ -155,7 +155,7 @@ The table below shows the limits imposed on IP addressing in Azure per subscript
 | Public VIP per deployment (cloud service) |5 |contact support |
 | Private VIP (ILB) per deployment (cloud service) |1 |1 |
 
-<!-- Not Available Make sure you read the full set of [limits for Networking](../azure-subscription-service-limits.md#networking-limits) in Azure. -->
+Make sure you read the full set of [limits for Networking](../azure-subscription-service-limits.md#networking-limits) in Azure.
 
 ## Pricing
 In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://www.azure.cn/pricing/details/reserved-ip-addresses/).
@@ -177,4 +177,4 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 ## Next steps
 * [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Azure portal.
 
-<!--Update_Description: update reference link-->
+<!--Update_Description: update link, wording update -->

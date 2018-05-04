@@ -1,23 +1,15 @@
 ---
-title: Troubleshooting guide for Azure Stream Analytics | Azure
-description: How to troubleshoot your Stream Analytics job
-keywords: troubleshoot guide
-documentationcenter: ''
+title: Troubleshooting guide for Azure Stream Analytics
+description: This article describes techniques to troubleshoot your Azure Stream Analytics jobs, connections, inputs, outputs, queries, and data.
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
 ---
 
 # Troubleshooting guide for Azure Stream Analytics
@@ -87,7 +79,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 ## Get help
 
-For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 

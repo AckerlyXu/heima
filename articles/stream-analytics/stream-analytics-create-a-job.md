@@ -1,23 +1,15 @@
 ---
-title: How to create a data analytics processing job for Stream Analytics | Azure
+title: How to create a data analytics processing job for Azure Stream Analytics
 description: Create a data analytics processing job for Stream Analytics | learning path segment.
-keywords: data analytics processing
-documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
 ---
 # How to create a data analytics processing job for Stream Analytics
 The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It consists of one or more input data sources, a query expressing the data transformation, and one or more output targets that results are written to. Together these enable the user to perform data analytics processing for streaming data scenarios.
@@ -25,7 +17,7 @@ The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It 
 To start using Stream Analytics, begin by creating a new Stream Analytics job.  Note this action has no billing implications until the job is started.
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
-2. Select **New** > **Data + Analytics** > **Stream Analytics job**.
+2. Select **Create a resource** > **Data + Analytics** > **Stream Analytics job**.
 3. Select **Create**.
 
 3. Specify the desired configuration for the Stream Analytics job.
@@ -36,13 +28,13 @@ To start using Stream Analytics, begin by creating a new Stream Analytics job.  
 4. Select **Create**.
 It can take a few minutes for the Stream Analytics job to be created. To check the status, you can monitor the progress in the Notifications hub.
 
-    ![Azure portal Data analytics processing job create Job](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
+    ![Azure portal Data analytics processing job Create Job](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
 5. The new job will show a status of **Created**. Notice that the **Start** button is disabled. Configure the job input, query, and output before you start the job.
 
     ![Azure portal Data analytics processing job status](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/)
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

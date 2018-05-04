@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -31,4 +31,6 @@ This document covers creating a VNet by using the classic deployment model. You 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->
+<!--The parent file of includes file of virtual-networks-create-vnet-classic-netcfg-ps-include.md-->
+<!--ms.date:05/07/2018-->

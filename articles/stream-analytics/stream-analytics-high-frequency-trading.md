@@ -1,22 +1,15 @@
 ---
-title: High-frequency trading simulation With Stream Analytics | Azure
-description: How to perform linear regression model training and scoring in the same Stream Analytics job
-keywords: 'machine learning, advanced analytics, linear regression, simulation, UDA, user defined function'
-documentationcenter: ''
+title: High-frequency trading simulation using Azure Stream Analytics
+description: How to perform linear regression model training and scoring in an Azure Stream Analytics job.
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 11/05/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: get-started-article
+origin.date: 11/05/2017
+ms.date: 05/07/2018
 ---
 
 # High-frequency trading simulation with Stream Analytics
@@ -449,4 +442,4 @@ It's worth noting that most of the query, other than the JavaScript UDA, can be 
 Currently, the UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, note that the fields reaching the UDA have lowercase names. This was not an obvious behavior during query testing. But with Azure Stream Analytics compatibility level 1.1, we preserve the field name casing so the behavior is more natural.
 
 I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Let us know any feedback you have to make it easier to implement queries for advanced analytics scenarios.
-<!-- Update_Description: new articles on stream analytics high frequency trading -->
+<!-- Update_Description: update meta properties -->

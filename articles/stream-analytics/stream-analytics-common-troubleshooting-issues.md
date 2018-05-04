@@ -1,21 +1,15 @@
 ---
-title: Troubleshoot for malformed input events in Azure Stream Analytics| Azure
+title: Troubleshoot for malformed input events in Azure Stream Analytics
 description: How do I know which event in my input data is causing issue in a Stream Analytics job
-keywords: ''
-documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/05/2018
-ms.date: 04/09/2018
 ms.author: v-yeche
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/05/2018
+ms.date: 05/07/2018
 ---
 
 # Common issues in Stream Analytics and steps to troubleshoot
@@ -56,5 +50,4 @@ Note the following observations when configuring IGNORE_DUP_KEY for several type
 
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-<!-- Update_Description: new articles on stream analytics common troubleshooting issues  -->
-<!--ms.date: 04/09/2018-->
+<!-- Update_Description: update meta properties  -->

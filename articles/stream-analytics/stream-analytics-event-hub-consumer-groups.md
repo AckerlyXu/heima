@@ -1,22 +1,15 @@
 ---
-title: Debug Azure Stream Analytics with event hub receivers | Azure
+title: Troubleshoot event hub receivers in Azure Stream Analytics
 description: Query best practices for considering Event Hubs consumer groups in Stream Analytics jobs.
-keywords: event hub limit, consumer group
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
 
 ---
 
@@ -59,9 +52,9 @@ FROM inputEventHub
 Use this query:
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1
@@ -78,7 +71,7 @@ FROM data
 For queries in which three or more inputs are connected to the same Event Hubs consumer group, create separate consumer groups. This requires the creation of additional Stream Analytics inputs.
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
@@ -87,4 +80,4 @@ For additional assistance, try our [Azure Stream Analytics forum](https://social
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update, update link -->

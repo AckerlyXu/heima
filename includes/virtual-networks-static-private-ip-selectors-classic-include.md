@@ -1,3 +1,17 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: rockboyfor
+ ms.service: virtual-network
+ ms.topic: include
+ origin.date: 04/13/2018
+ ms.date: 05/07/2018
+ ms.author: v-yeche
+ ms.custom: include file
+
+---
+
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)

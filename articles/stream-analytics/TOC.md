@@ -2,36 +2,37 @@
 
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
-## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
-# Get started
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
-<!-- Not Available ## [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
+# Quickstarts
+<!-- Not Available on ## [Create a job - Azure portal](stream-analytics-quick-create-portal.md) -->
+## [Create a job - PowerShell](stream-analytics-quick-create-powershell.md)
+
+<!-- Not Available on # Tutorials -->
+<!-- Not Available on ## [1 - Create / manage a job](stream-analytics-manage-job.md) -->
+<!-- Not Available on ## [2 - Run Azure Functions](stream-analytics-with-azure-functions.md) -->
+<!-- Not Available on ## [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
+
+<!-- Not Available on # Samples-->
 
 # Concepts
-## Input types for a job
+## [Input types for a job](stream-analytics-add-inputs.md)
 ### [Streaming data inputs](stream-analytics-define-inputs.md)
 ### [Reference data inputs](stream-analytics-use-reference-data.md)
 ## [Output types for a job](stream-analytics-define-outputs.md)
+<!-- Not Available on ### [Output to Cosmos DB](stream-analytics-documentdb-output.md)-->
 ## [Window functions](stream-analytics-window-functions.md)
-<!-- Not Avaialable ## [Compatibility level](stream-analytics-compatibility-level.md) -->
+<!-- Not Available on ## [Compatibility level](stream-analytics-compatibility-level.md) -->
 ## [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ## [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 
 # How-to-guides
 
-## Create jobs
-### [Test queries and sample input data](stream-analytics-sample-data-input.md)
-### [Test queries](stream-analytics-test-query.md)
-### [Run a JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
-<!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
-<!-- Not Available ### [Output to Cosmos DB](stream-analytics-documentdb-output.md) -->
-<!-- Not Available ### [Configure alerts](stream-analytics-set-up-alerts.md) -->
-
 ## Manage
 <!-- Not Available ### [Update a job](stream-analytics-job-reliability.md) -->
 ### [Update credentials](stream-analytics-login-credentials-inputs-outputs.md)
+<!-- Not Available ### [Configure alerts](stream-analytics-set-up-alerts.md) -->
+### [Test your job](stream-analytics-test-query.md)
+<!-- Not Available ### [View results on a dashboard](stream-analytics-power-bi-dashboard.md) -->
 
 ## Build solutions
 <!-- Not Available ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md) -->

@@ -3,8 +3,8 @@ title: Static internal private IP - Azure VM - Classic
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2016
-ms.date: 12/12/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # How to set a static internal private IP address using PowerShell (Classic)
@@ -105,3 +105,4 @@ To add a static internal IP to the VM created using the script above, runt he fo
 [Instance-Level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+<!-- Update_Description: update meta properties -->

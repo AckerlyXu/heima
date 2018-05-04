@@ -1,23 +1,15 @@
 ---
-title: 'Analytics platforms: Apache Storm comparison to Stream Analytics | Azure'
-description: Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
-keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
+title: 'Analytics platforms: Apache Storm comparison to Azure Stream Analytics'
+description: Guidance to choose a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 06/27/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 06/27/2017
+ms.date: 05/07/2018
 ---
 # Choosing a streaming analytics platform: comparing Apache Storm and Azure Stream Analytics
 Azure provides multiple solutions for analyzing streaming data: [Azure Streaming Analytics](/stream-analytics/) and Apache Storm on Azure HDInsight. Both analytics platforms provide the benefits of a PaaS solution. But the platforms have some significant differences in their capabilities as well as in how you configure and manage them. 
@@ -310,7 +302,7 @@ This article provides a side-by-side comparison of features to help you choose b
             </td>
             <td width="204" valign="top">
                 <p>
-                    A streaming job can have multiple outputs. Supported outputs are Azure Event Hubs, Azure Blob storage, Azure Table storage, and Azure SQL DB.
+                    A streaming job can have multiple outputs. Supported outputs are Azure Event Hubs, Azure Blob storage, Azure Table storage, Azure SQL DB, and Power BI.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -562,4 +554,4 @@ This article provides a side-by-side comparison of features to help you choose b
     </tbody>
 </table>
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

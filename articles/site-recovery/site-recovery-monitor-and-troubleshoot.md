@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 02/22/2018
-ms.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -143,7 +143,7 @@ An infrastructure view scoped to the context of a single replicating machine is 
 **A.** The infrastructure view feature is only available for virtual machines that are replicating to Azure. The feature is currently not available for virtual machines that are replicating between on-premises sites.
 
 **Q.** Why is the count of virtual machines in the vault infrastructure view different from the total count shown in the replicated items donut?</br>
-**A.** The vault infrastructure view is scoped by replication scenarios. Only virtual machines participating in the currently selected replication scenario are included in the count of virtual machines shown in the infrastructure view. Also, for the selected scenario, only virtual machines that are currently configured to replicate to Azure are included in the count of virtual machines shown in the infrastructure view (For for example: failed over virtual machines, virtual machines replicating back to an on-premise site are not included in the infrastructure view.)
+**A.** The vault infrastructure view is scoped by replication scenarios. Only virtual machines participating in the currently selected replication scenario are included in the count of virtual machines shown in the infrastructure view. Also, for the selected scenario, only virtual machines that are currently configured to replicate to Azure are included in the count of virtual machines shown in the infrastructure view (Fo example: failed over virtual machines, virtual machines replicating back to an on-premise site are not included in the infrastructure view.)
 
 **Q.** Why is the count of replicated items shown in the essentials drawer on the overview page different from the total count of replicated items shown in the donut chart on the dashboard?</br>
 **A.** Only those virtual machines for which initial replication has completed are included in the count shown in the essentials drawer. The replicated items donut total includes all virtual machines in the vault including servers for which initial replication is currently in progress.
@@ -242,5 +242,4 @@ To subscribe to receive email notifications for Azure Site Recovery, go the **Mo
 2. Select "Email notifications" from the menu on top of the events page that is opened.
 3. Use the email notification wizard to turn on or off email notifications and to select recipients for the notifications. You may specify that all subscription admins be sent notifications, and/or provide a list of email addresses to send notifications to.
 
-<!-- Update_Description: new articles on site recovery monitor and troubleshoot -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: wording update, update meta propreties -->

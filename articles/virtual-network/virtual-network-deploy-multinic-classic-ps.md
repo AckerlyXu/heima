@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/22/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -49,7 +49,7 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Follow the steps below to change the script to work in your environment.
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#prerequisites).
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 <!-- Archor is correct on #prerequisites -->
 
     ```powershell

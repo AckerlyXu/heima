@@ -1,6 +1,20 @@
-## <a name="os-config"></a>Add IP addresses to a VM operating system
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: rockboyfor
+ ms.service: virtual-network
+ ms.topic: include
+ origin.date: 04/09/2018
+ ms.date: 05/07/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
+<a name="os-config"></a>
+## Add IP addresses to a VM operating system
+
+Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
 
 ### Windows
 
@@ -13,11 +27,11 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
     * **IP address**: Enter the *Primary* private IP address
     * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
     * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-    * Click **Use the following DNS server addresses** and enter the following values:
+    * Select **Use the following DNS server addresses** and enter the following values:
         * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
-    * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
-        >[!WARNING] 
-        >If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
+    * Select the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses, that you added to the Azure network interface in a previous step, to the Windows network interface that is assigned the primary IP address assigned to the Azure network interface.
+
+        You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
 
     * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 
@@ -176,6 +190,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 	- **10.0.0.5** with the private IP address that has a public IP address associated to it
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
-
-<!-- Update_Description: wording update -->
-<!-- ms.date: 01/29/2018 -->

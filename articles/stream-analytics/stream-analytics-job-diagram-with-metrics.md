@@ -1,23 +1,15 @@
 ---
-title:  Azure Stream Analytics data-driven debugging by using the job diagram | Azure
-description: Troubleshoot your Stream Analytics job by using the job diagram and metrics.
-keywords: 
-documentationcenter: ''
+title: Data-driven debugging in Azure Stream Analytics
+description: This article describes how to troubleshoot your Azure Stream Analytics job by using the job diagram and metrics in the Azure portal.
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 05/01/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 05/01/2017
+ms.date: 05/07/2018
 ---
 
 # Data-driven debugging by using the job diagram
@@ -84,7 +76,7 @@ If the preceding query step is an input processor, use the input metrics to help
 *   **InputEventsSourcesBackloggedTotal** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs.
 
 ## Get help
-For additional assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
+For additional assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
@@ -93,4 +85,4 @@ For additional assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

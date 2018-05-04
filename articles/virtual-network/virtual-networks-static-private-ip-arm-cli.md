@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/16/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -43,7 +43,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-2. Create a public IP for the VM with the [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) command. The list shown after the output explains the parameters used.
+2. Create a public IP for the VM with the [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) command. The list shown after the output explains the parameters used.
 
     > [!NOTE]
     > You may want or need to use different values for your arguments in this and subsequent steps, depending upon your environment.
@@ -74,7 +74,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    * `--name`: Name of the public IP.
    * `--location`: Azure region in which to create the public IP.
 
-3. Run the [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
+3. Run the [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
 
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     * `--vnet-name`: Name of the VNet in which to create the NIC.
     * `--subnet`: Name of the subnet in which to create the NIC.
 
-4. Run the [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#az_vm_nic_create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
+4. Run the [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#az-vm-nic-create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
 
     ```azurecli
     az vm create \
@@ -154,9 +154,11 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     }
     ```
 
-   Parameters other than the basic [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) parameters.
+   Parameters other than the basic [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) parameters.
 
    * `--nics`: Name of the NIC to which the VM is attached.
+
+It's recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-cli.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
 
 ## Retrieve static private IP address information for a VM
 
@@ -268,8 +270,6 @@ To change the NIC for the VM used in the previous commands, complete the followi
     > If the VM is large enough to have more than one NIC, run the **azure network nic delete** command to delete the old NIC.
 
 ## Next steps
-* Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
-* Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
-* Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!-- Update_Description: wording update, update link -->
+Learn about managing [IP address settings](virtual-network-network-interface-addresses.md).
+<!-- Update_Description: wording update, update link, update meta properties -->

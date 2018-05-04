@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/23/2017
-ms.date: 03/05/2018
+origin.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 
 ---
@@ -200,4 +200,4 @@ Follow [this guidance](site-recovery-failover.md) for doing a failover.
 ## Next steps
 You can learn more about [replicating other applications](site-recovery-workload.md) using Site Recovery.
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

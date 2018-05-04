@@ -1,22 +1,15 @@
 ---
-title: How to configure data outputs for Stream Analytics jobs | Azure
+title: How to configure data outputs for Azure Stream Analytics jobs
 description: Configure Outputs for Stream Analytics jobs | learning path segment.
-keywords: data output, data movement
-documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/26/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/26/2017
+ms.date: 05/07/2018
 ---
 
 # How to configure data outputs for Stream Analytics jobs
@@ -47,7 +40,7 @@ To add an output to your Stream Analytics job:
 > 
 
 ## Get help
-For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/contact/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -56,4 +49,4 @@ For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

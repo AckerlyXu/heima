@@ -1,23 +1,15 @@
 ---
-title: Handling event order and lateness with Azure Stream Analytics | Azure
-description: Learn about how Stream Analytics works with out-of-order or late events in data streams.
-keywords: out of order, late, events
-documentationcenter: ''
+title: Handling event order and lateness in Azure Stream Analytics
+description: This article describes how Stream Analytics handles out-of-order or late events in data streams.
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
 ---
 # Azure Stream Analytics event order considerations
 
@@ -25,7 +17,7 @@ ms.author: v-yeche
 
 In a temporal data stream of events, each event is assigned a time stamp. Azure Stream Analytics assigns a time stamp to each event by using either arrival time or application time. The **System.Timestamp** column has the time stamp assigned to the event. 
 
-Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
+Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the [BlobProperties.LastModified](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azure-dotnet?view=azurestorage-8.1.3) property for blob input. 
 
 Application time is assigned when the event is generated and it is part of the payload. To process events by application time, use the **Timestamp by** clause in the select query. If the **Timestamp by** clause is absent, events are processed by arrival time. 
 
@@ -67,6 +59,9 @@ Events that arrive out of order but within the set out-of-order tolerance window
 * **Dropped**: Discarded.
 
 When Stream Analytics reorders events that are received within the out-of-order tolerance window, the output of the query is delayed by the out-of-order tolerance window.
+
+### Early events
+When processing by application time, events whose application time is more than 5 minutes ahead of their arrival time are either dropped or adjusted according to the configuration option selected.
 
 ### Example
 
@@ -127,7 +122,7 @@ Azure Stream Analytics implements this functionality by using the [TIMESTAMP BY 
 * When you're combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
 
 ## Get help
-For additional assistance, try the [Azure Stream Analytics forum](https://www.azure.cn/support/forums/).
+For additional assistance, try the [Azure Stream Analytics forum](https://www.azure.cn/support/contact/).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
@@ -136,4 +131,4 @@ For additional assistance, try the [Azure Stream Analytics forum](https://www.az
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties, update link -->

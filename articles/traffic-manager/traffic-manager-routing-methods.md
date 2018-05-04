@@ -3,8 +3,8 @@ title: Azure Traffic Manager - traffic routing methods | Azure
 description: This articles helps you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 ---
 
 # Traffic Manager routing methods
@@ -48,7 +48,7 @@ The 'Weighted' traffic-routing method allows you to distribute traffic evenly or
 
 ![Azure Traffic Manager 'Weighted' traffic-routing method][2]
 
-In the Weighted traffic-routing method, you assign a weight to each endpoint in the Traffic Manager profile configuration. The weight is an integer from 1 to 1000. This parameter is optional. If omitted, Traffic Managers uses a default weight of '1'.
+In the Weighted traffic-routing method, you assign a weight to each endpoint in the Traffic Manager profile configuration. The weight is an integer from 1 to 1000. This parameter is optional. If omitted, Traffic Managers uses a default weight of '1'. The higher weight, the higher the priority.
 
 For each DNS query received, Traffic Manager randomly chooses an available endpoint. The probability of choosing an endpoint is based on the weights assigned to all available endpoints. Using the same weight across all endpoints results in an even traffic distribution. Using higher or lower weights on specific endpoints causes those endpoints to be returned more or less frequently in the DNS responses.
 
@@ -72,7 +72,7 @@ These DNS caching effects are common to all DNS-based traffic routing systems, n
 
 ## <a name="performance"></a>Performance traffic-routing method
 
-Deploying endpoints in two locations across the nation can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
+Deploying endpoints in two or more locations across the nation can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
 
 ![Azure Traffic Manager 'Performance' traffic-routing method][3]
 

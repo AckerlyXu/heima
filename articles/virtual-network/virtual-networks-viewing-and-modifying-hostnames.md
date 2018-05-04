@@ -3,8 +3,8 @@ title: Viewing and Modifying Hostnames | Azure
 description: How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/27/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 
 ---
 # Viewing and modifying hostnames
@@ -63,3 +63,4 @@ You can modify the host name for any virtual machine or role instance by uploadi
 [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+<!-- Update_Description: update meta properties -->
