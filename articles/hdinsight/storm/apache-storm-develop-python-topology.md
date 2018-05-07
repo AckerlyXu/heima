@@ -12,11 +12,11 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/02/2017
-ms.date: 12/25/2017
+origin.date: 01/22/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---

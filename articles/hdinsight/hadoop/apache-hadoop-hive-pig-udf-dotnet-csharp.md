@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/05/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---
@@ -51,7 +51,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
 ## .NET on HDInsight
 
-* __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5.
+* __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 

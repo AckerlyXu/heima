@@ -14,9 +14,9 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/06/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 02/22/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---
@@ -47,6 +47,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code:
 
+    ```csharp
         using System.Collections.Generic;
         using System.IO;
         using System.Text;
@@ -162,6 +163,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                 }
             }
         }
+    ```
 4. Press **F5** to run the application.
 
 To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".

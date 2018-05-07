@@ -10,12 +10,10 @@ tags: azure-portal
 
 ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-origin.date: 12/05/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+origin.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive

@@ -149,7 +149,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
    > [!NOTE]
-   > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the **Invoke-Hive** cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
+   > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
@@ -157,7 +157,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 ## Troubleshooting
 
-If no information is returned when the job completes, view the error logs. To view error information for this job, add the following to the end of the **hivejob.ps1** file, save it, and then run it again.
+If no information is returned when the job completes, view the error logs. To view error information for this job, add the following to the end of the `hivejob.ps1` file, save it, and then run it again.
 
 ```powershell
 # Print the output of the Hive job.

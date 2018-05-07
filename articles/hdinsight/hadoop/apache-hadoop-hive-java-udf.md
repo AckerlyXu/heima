@@ -11,11 +11,11 @@ ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/18/2017
+origin.date: 02/20/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---

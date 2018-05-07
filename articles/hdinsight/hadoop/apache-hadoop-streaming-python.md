@@ -5,7 +5,7 @@ services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -13,11 +13,11 @@ ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/23/2017
-ms.date: 12/18/2017
+origin.date: 04/10/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---
@@ -299,11 +299,10 @@ switch ($defaultStoreageType)
 
     As the MapReduce job works, the process is displayed as percentages.
 
-    ```
-    15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
-    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
-    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
-    ```
+        15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
+        15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
+        15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
+
 
 5. To view the output, use the following command:
 
