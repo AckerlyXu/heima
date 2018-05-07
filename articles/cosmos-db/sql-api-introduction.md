@@ -22,8 +22,8 @@ ms.author: v-yeche
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-[Azure Cosmos DB](introduction.md) is 21Vianet's multiple-region distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key multiple-region distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, and columnar data models.
-<!-- Not Available on Graph -->
+[Azure Cosmos DB](introduction.md) is 21Vianet's multiple-region distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key multiple-region distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document and columnar data models.
+<!-- Not Available on Graph, Key/Value -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
 ![Azure SQL API](./media/sql-api-introduction/cosmosdb-sql-api.png) 

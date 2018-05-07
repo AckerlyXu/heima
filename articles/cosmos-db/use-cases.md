@@ -97,7 +97,7 @@ A common use case for Azure Cosmos DB is to store and query user generated conte
 
 Applications that integrate with third-party social networks must respond to changing schemas from these networks. As data is automatically indexed by default in Cosmos DB, data is ready to be queried at any time. Hence, these applications have the flexibility to retrieve projections as per their respective needs.
 
-Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
+Many of the social applications run at multiple-region scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
 
 ![Azure Cosmos DB web app reference architecture](./media/use-cases/apps-with-global-reach.png)
 
