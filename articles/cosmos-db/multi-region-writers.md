@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Multi-master globally replicated database architectures with Azure Cosmos DB
-Azure Cosmos DB supports turnkey [global replication](distribute-data-globally.md), which allows you to distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and multiple-region distributed readers in other (read) regions. 
+Azure Cosmos DB supports turnkey [multiple-region replication](distribute-data-globally.md), which allows you to distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and multiple-region distributed readers in other (read) regions. 
 <!-- Notice: 全球 to 多个区域 -->
 
 You can also use Azure Cosmos DB's multiple-region replication support to build applications in which writers and readers are multiple-region distributed. This document outlines a pattern that enables achieving local write and local read access for distributed writers using Azure Cosmos DB.
@@ -29,7 +29,7 @@ You can also use Azure Cosmos DB's multiple-region replication support to build 
 ## Content Publishing - an example scenario
 Let's look at a real world scenario to describe how you can use multiple-region distributed multi-region/multi-master read write patterns with Azure Cosmos DB. Consider a content publishing platform built on Azure Cosmos DB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers.
 
-* Both authors and subscribers are spread over the world 
+* Both authors and subscribers are spread over China
 * Authors must publish (write) articles to their local (closest) region
 * Authors have readers/subscribers of their articles who are distributed across the multiple-region. 
 * Subscribers should get a notification when new articles are published.
