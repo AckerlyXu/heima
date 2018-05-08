@@ -11,12 +11,10 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/25/2017
-ms.date: 12/25/2017
+ms.topic: conceptual
+origin.date: 01/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -32,6 +30,8 @@ Learn how to use Apache Oozie with Hadoop on Azure HDInsight. Oozie is a workflo
 * Apache Sqoop
 
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
+> [!IMPORTANT]
+> Oozie is not enabled on domain-joined HDInsight.
 
 ## Prerequisites
 

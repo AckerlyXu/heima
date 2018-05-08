@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/05/2016
 ms.date: 12/25/2017
 ms.author: v-yiso

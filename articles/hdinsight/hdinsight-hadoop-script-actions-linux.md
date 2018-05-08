@@ -4,7 +4,7 @@ description: 'Learn how to use Bash scripts to customize Linux-based HDInsight c
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
@@ -13,9 +13,9 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/23/2017
-ms.date: 12/25/2017
+ms.topic: conceptual
+origin.date: 04/10/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -36,7 +36,7 @@ Script actions can be applied through the following methods:
 | --- |:---:|:---:|
 | Azure portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Azure CLI |&nbsp; |✓ |
+| Azure CLI 1.0 |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager Template |✓ |&nbsp; |
 

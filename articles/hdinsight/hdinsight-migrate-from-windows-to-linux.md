@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/05/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -42,8 +42,7 @@ The general workflow for migration is as follows.
 
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
-Once you have verified that everything works as expected, schedule
-downtime for the migration. During this downtime, perform the following actions:
+Once you have verified that everything works as expected, schedule downtime for the migration. During this downtime, perform the following actions:
 
 1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
 

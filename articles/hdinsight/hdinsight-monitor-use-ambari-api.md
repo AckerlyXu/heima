@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 12/25/2017
+ms.date: 05/28/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 
@@ -158,7 +158,7 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-powershell-1.0/ee176949(v=technet.10)
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

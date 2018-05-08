@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/21/2018
-ms.date: 04/16/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -173,7 +173,7 @@ To enable name resolution between the virtual network and resources in joined ne
 
     For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
 
-For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 ## Directly connect to Hadoop services
 

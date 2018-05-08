@@ -4,17 +4,17 @@ description: Information on the various ways that you can delete an HDInsight cl
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 55f7838b-9786-47ff-96db-1b64437bd0bb
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/23/2017
-ms.date: 12/25/2017
+origin.date: 03/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive

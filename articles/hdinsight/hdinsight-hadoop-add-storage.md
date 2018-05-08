@@ -10,11 +10,11 @@ tags: azure-portal
 
 ms.service: hdinsight
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-origin.date: 10/24/2017
-ms.date: 12/25/2017
+origin.date: 01/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive

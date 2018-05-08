@@ -15,8 +15,8 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/28/2017
-ms.date: 12/25/2017
+origin.date: 02/23/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 ---
 # Apache Spark streaming (DStream) example with Kafka on HDInsight
