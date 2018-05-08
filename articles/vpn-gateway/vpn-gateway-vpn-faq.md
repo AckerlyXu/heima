@@ -4,7 +4,7 @@ description: The VPN Gateway FAQ. FAQ for Azure Virtual Network cross-premises c
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/20/2017
-ms.date: 01/23/2018
+origin.date: 04/05/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
 
 ---
@@ -243,4 +243,4 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 - For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 - For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

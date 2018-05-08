@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+origin.date: 03/21/2018
+ms.date: 05/08/2018
+ms.author: v-junlch
+ ms.custom: include file
+---
 1. In the portal, on the left side, click **+** and type 'virtual network gateway' in search. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** page, click **Create** at the bottom of the page to open the **Create virtual network gateway** page.
 2. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway.
 
@@ -16,11 +28,11 @@
       - First, click **Create gateway IP configuration** to open the 'Choose public IP address' page, then click **+Create new** to open the 'Create public IP address' page.
       - Next, input a **Name** for your public IP address. Leave the SKU as **Basic** unless there is a specific reason to change it to something else, then click **OK** at the bottom of this page to save your changes.
 
-        ![Create public IP](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Create PIP")
+        ![Create public IP](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "Create PIP")
 
 4. Verify the settings. You can select **Pin to dashboard** at the bottom of the page if you want your gateway to appear on the dashboard. 
 5. Click **Create** to begin creating the VPN gateway. The settings are validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
 After the gateway is created, view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device. You can click the connected device (your virtual network gateway) to view more information.
 
-<!-- ms.date: 12/12/2017 -->
+<!-- ms.date: 05/08/2018 -->

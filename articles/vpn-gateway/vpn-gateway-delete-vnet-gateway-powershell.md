@@ -1,5 +1,5 @@
 ---
-title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Azure'
+title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model. 
 services: vpn-gateway
 documentationcenter: na
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article 
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/20/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 03/26/2018
+ms.date: 05/08/2018
+ms.author: v-junlch
 
 ---
 # Delete a virtual network gateway using PowerShell
@@ -72,7 +72,7 @@ The following steps apply to the Resource Manager deployment model.
 ### 1. Get the virtual network gateway that you want to delete.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Check to see if the virtual network gateway has any connections.
@@ -154,7 +154,7 @@ The following steps apply to the Resource Manager deployment model.
 ### 1. Get the virtual network gateway that you want to delete.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Check to see if the virtual network gateway has any connections.
@@ -247,7 +247,7 @@ The following steps apply to the Resource Manager deployment model.
 ### 1. Get the virtual network gateway that you want to delete.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Delete the virtual network gateway.
@@ -329,8 +329,8 @@ The result that is returned shows 'Succeeded'.
 
 ```
 ResourceGroupName : RG1
-Location          : chinaeast
+Location          : chinanorth
 ProvisioningState : Succeeded
 ```
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->

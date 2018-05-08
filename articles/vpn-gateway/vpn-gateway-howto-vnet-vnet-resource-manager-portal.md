@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+origin.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
 
 ---
@@ -51,7 +51,7 @@ If you are working with a complicated network configuration, you may prefer to c
 
 ### VNet peering
 
-You may want to consider connecting your VNets using VNet Peering. VNet peering does not use a VPN gateway and has different constraints. Additionally, [VNet peering pricing](https://www.azure.cn/pricing/details/networking) is calculated differently than [VNet-to-VNet VPN Gateway pricing](https://www.azure.cn/pricing/details/vpn-gateway). For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+You may want to consider connecting your VNets using VNet Peering. VNet peering does not use a VPN gateway and has different constraints. Additionally, [VNet peering pricing](https://www.azure.cn/pricing/details/virtual-network) is calculated differently than [VNet-to-VNet VPN Gateway pricing](https://www.azure.cn/pricing/details/vpn-gateway). For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Why create a VNet-to-VNet connection?
 
@@ -125,7 +125,7 @@ You can add additional address space and create subnets once your VNet has been 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Create a gateway subnet
-Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. If possible, it's best to create a gateway subnet using a CIDR block of /28 or /27 in order to provide enough IP addresses to accommodate additional future configuration requirements.
+Before creating a virtual network gateway for your virtual network, you first need to create the gateway subnet. The gateway subnet contains the IP addresses that are used by the virtual network gateway. If possible, it's best to create a gateway subnet using a CIDR block of /28 or /27 in order to provide enough IP addresses to accommodate additional future configuration requirements.
 
 If you are creating this configuration as an exercise, refer to these [Example settings](#values) when creating your gateway subnet.
 
