@@ -3,8 +3,8 @@ title: Guidelines for Deploying Windows Server Active Directory on Azure Virtual
 description: If you know how to deploy AD Domain Services and AD Federation Services on premises, learn how they work on Azure virtual machines.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/26/2017
-ms.date: 3/5/2018
+origin.date: 03/20/2018
+ms.date: 05/07/2018
 ms.author: v-junlch
 
 ---
@@ -40,7 +40,7 @@ This article does not discuss the configuration of [Azure Active Directory](/act
 
 1. You might run Windows Server AD DS in the cloud on Azure virtual machines when you are using Azure to extend your on-premises datacenter into the cloud.
 2. You might use Azure AD to give your users single sign-on to Software-as-a-Service (SaaS) applications. Microsoft Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
-3. You might use Azure AD (its Access Control Service) to let users sign in using identities from Facebook, Google, Microsoft, and other identity providers to applications that are hosted in the cloud or on-premises.
+3. You might use Azure AD (its Access Control Service) to let users sign in using identities from Microsoft and other identity providers to applications that are hosted in the cloud or on-premises.
 
 For more information about these differences, see [Azure Identity](fundamentals-identity.md).
 
@@ -66,8 +66,10 @@ See [Virtual Network](/virtual-network/) for a demonstration video and a list of
 > 
 > 
 
-### Static IP addresses must be configured with Azure PowerShell.
-Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet to assign a static IP address instead. That sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### Static IP addresses can be configured with Azure PowerShell
+Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet if you want to assign a static IP address instead. That cmdlet sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). You can also configure a static IP address while creating your VM in the Azure portal, as shown below. For more information, see [Create a VM with a static public IP address using the Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![screenshot of step to add static IP address when creating a VM](./media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Terms and definitions
 The following is a non-exhaustive list of terms for various Azure technologies which will be referenced in this article.

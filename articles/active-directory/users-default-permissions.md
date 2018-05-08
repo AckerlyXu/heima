@@ -3,8 +3,8 @@ title: Compare default user permissions in Azure Active Directory | Microsoft Do
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: curtand
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: article
 origin.date: 01/29/2018
-ms.date: 03/05/2018
-ms.author: v-nany
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: vincesm
 ---
 
 # Default user permissions in Azure Active Directory
 
-In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists the type of user, their [role
-memberships](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
+In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A userâ€™s access consists the type of user, their [role
+memberships](/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
 The set of default permissions received depends on if the user is a native member of the tenant (member user) 
@@ -67,5 +67,8 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ## Next steps
 
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
-* [Manage users](active-directory-create-users.md)
+- To learn more about how resource access is controlled in Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Manage users](active-directory-create-users.md)
+
+<!-- Update_Description: wording update -->

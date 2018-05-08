@@ -1,10 +1,10 @@
 ---
-title: Assigning administrator roles in Azure Active Directory | Azure
-description: An admin role can create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains. A user who is assigned an admin role has the same permissions across all cloud services to which your organization has subscribed.
+title: Assigning administrator roles in Azure Active Directory | Microsoft Docs
+description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains. A user who is assigned an admin role has the same permissions across all cloud services to which your organization has subscribed.
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: curtand
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: article
-origin.date: 02/07/2018
-ms.date: 03/05/2018
-ms.author: v-nany
+origin.date: 03/15/2018
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 
@@ -155,5 +155,10 @@ The following roles should not be used. They been deprecated and will be removed
 ## Next steps
 
 
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- To learn more about how resource access is controlled in Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Manage users](add-users-azure-active-directory.md)
+- [Manage passwords](active-directory-passwords-update-your-own-password.md)
+- [Manage groups](active-directory-manage-groups.md)
 
+<!-- Update_Description: wording update -->

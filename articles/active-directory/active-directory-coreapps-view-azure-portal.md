@@ -1,11 +1,10 @@
 ---
-title: View all the enterprise apps that I can manage in Azure Active Directory | Azure Docs
+title: View all the enterprise apps that I can manage in Azure Active Directory | Microsoft Docs
 description: How to see a list of the enterprise apps that you have the permissions to manage in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
-
+author: MarkusVi
+manager: mtillman
 editor: ''
 
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
@@ -15,9 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 3/5/2018
-ms.author: v-nany
-
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
 
@@ -34,7 +32,9 @@ You can manage your enterprise applications in the Azure Active Directory (Azure
 4. On the **Enterprise applications** pane, select **All applications**. From this pane you can select apps to manage, change the displayed columns, or filter the list to find that app you want (for example, to view only disabled apps).
 
 ## Next steps
-* [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-* [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
-* [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-* [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+<!-- Update_Description: update metedata properties -->

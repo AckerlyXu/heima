@@ -3,8 +3,8 @@ title: What is application access and single sign-on with Azure Active Directory
 description: Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/11/2017
-ms.date: 09/20/2017
+ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: asmalser
 ms.custom: it-pro
@@ -63,7 +63,7 @@ Configuring password-based single sign-on enables the users in your organization
 Azure AD can support password-based single sign-on for any cloud-based app that has an HTML-based sign-in page. By using a custom browser plugin, AAD automates the user’s sign-in process via securely retrieving application credentials such as the username and the password from the directory, and enters these credentials into the application’s sign-in page on behalf of the user. There are two use cases:
 
 1. **Administrator manages credentials** – Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application. In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link. This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords. The credentials are obfuscated from the end user during the automated sign-in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user. Administrator-provided credentials are useful when providing account access that is shared among many users, such as social media or document sharing applications.
-2. **User manages credentials** – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
+2. **User manages credentials** - Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. Users can continue to manage their passwords by updating or deleting them as needed. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
 
 In both cases, credentials are stored in an encrypted state in the directory, and are only passed over HTTPS during the automated sign-in process. Using password-based single sign-on, Azure AD offers a convenient identity access management solution for apps that are not capable of supporting federation protocols.
 
@@ -139,4 +139,4 @@ These links use the same access control mechanisms as the access panel and Offic
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!--Update_Description: update meta properties -->   
+<!-- Update_Description: wording update -->

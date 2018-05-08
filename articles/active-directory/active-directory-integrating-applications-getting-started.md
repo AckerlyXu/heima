@@ -4,8 +4,8 @@ title: Get started integrating Azure AD with apps | Microsoft Docs
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: MarkusVi
+manager: mtillman
 editor: ''
 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/21/2017
-ms.date: 11/22/2017
+origin.date: 01/15/2018
+ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 
@@ -50,7 +50,7 @@ Before you jump in to integrating applications with Azure AD, it is important to
 - Will you need to clean up user/group databases before integrating?  (This is a pretty important question. Garbage in, garbage out.)
 
 ### Access management inventory
-- How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [RBAC](role-based-access-control-configure.md) for example?
+- How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [RBAC](../role-based-access-control/role-assignments-portal.md) for example?
 - Who needs access to what?
 
 Maybe you don't have the answers to all of these questions up front but that's okay.  This guide can help you answer some of those questions and make some informed decisions.
@@ -87,4 +87,4 @@ If you want to add your custom application to the Azure Application Gallery, see
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 
-<!--Update_Description: update metadata properties -->
+<!-- Update_Description: link update -->

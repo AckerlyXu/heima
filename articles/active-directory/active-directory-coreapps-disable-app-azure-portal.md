@@ -1,11 +1,10 @@
 ---
-title: Disable user sign-ins for an enterprise app in Azure Active Directory | Azure
+title: Disable user sign-ins for an enterprise app in Azure Active Directory | Microsoft Docs
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
-
+author: MarkusVi
+manager: mtillman
 editor: ''
 
 ms.assetid: a27562f9-18dc-42e8-9fee-5419566f8fd7
@@ -15,9 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 03/05/2018
-ms.author: v-nany
-
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
 
@@ -40,7 +38,9 @@ It's easy to disable an enterprise application so that no users may sign in to i
 8. Select the **Save** command.
 
 ## Next steps
-* [See all my groups](active-directory-groups-view-azure-portal.md)
-* [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-* [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
-* [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+- [See all my groups](active-directory-groups-view-azure-portal.md)
+- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+<!-- Update_Description: update metedata properties -->
