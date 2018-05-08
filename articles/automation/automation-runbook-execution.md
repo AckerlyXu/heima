@@ -9,8 +9,8 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 
@@ -54,7 +54,17 @@ On the right of your selected Automation account, you can see a summary of all o
 
 Clicking on the tile presents the **Jobs** blade, which includes a summarized list of all jobs executed, with status, job execution, and start and completion times.<br><br> ![Automation account Jobs blade](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)<br><br>  You can filter the list of jobs by selecting **Filter jobs**  and filter on a specific runbook, job status, or from the drop-down list, the date/time range to search within.<br><br> ![Filter Job status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the **Runbooks** blade in your Automation account, and then select the **Jobs** tile.  This presents the **Jobs** blade, and from there you can click on the job record to view its detail and output.<br><br> ![Automation account Jobs blade](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)<br> 
+Clicking on the tile presents the **Jobs** blade, which includes a summarized list of all jobs executed, with status, job execution, and start and completion times.
+
+![Automation account Jobs blade](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+
+You can filter the list of jobs by selecting **Filter jobs**  and filter on a specific runbook, job status, or from the drop-down list, the date/time range to search within.
+
+![Filter Job status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
+
+Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the **Runbooks** blade in your Automation account, and then select the **Jobs** tile. This presents the **Jobs** blade, and from there you can click on the job record to view its detail and output.
+
+![Automation account Jobs blade](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### Job Summary
 You can view a list of all of the jobs that have been created for a particular runbook and their most recent status. You can filter this list by job status and the range of dates for the last change to the job. To view its detailed information and output, click on the name of a job. The detailed view of the job includes the values for the runbook parameters that were provided to that job.
@@ -78,10 +88,42 @@ The following sample commands retrieve the last job for a sample runbook and dis
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 
-## Fair share
-In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for three hours.  During this time, jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) are stopped and will not be restarted.  The job status shows **Stopped**.  This type of runbook is always restarted from the beginning since they don't support checkpoints.  
+The following sample retrieves the output for a specific job, and returns each record. In the case that there was an exception for one of the records, the exception is written out instead of the value. This is useful as exceptions can provide additional information which may not be logged normally during output.
 
-[PowerShell-Workflow-based runbooks](automation-runbook-types.md#powershell-workflow-runbooks) will be resumed from their last [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints).  After running three hours, the runbook job will be suspended by the service and its status shows **Running, waiting for resources**.  When a sandbox becomes available, the runbook will be automatically restarted by the Automation service and resumes from the last checkpoint.  This is normal PowerShell-Workflow behavior for suspend/restart.  If the runbook again exceeds three hours of runtime, the process repeats, up to three times.  After the third restart, if the runbook still has not completed in three hours, then the runbook job is failed, and the job status shows **Failed, waiting for resources**.  In this case, you receive the following exception with the failure.
+```azurepowershell-interactive
+$output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
+foreach($item in $output)
+{
+    $fullRecord = Get-AzureRmAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
+    if ($fullRecord.Type -eq "Error")
+    {
+        $fullRecord.Value.Exception
+    }
+    else
+    {
+    $fullRecord.Value
+    }
+}
+```
+
+## Get details from Activity log
+
+Other details such as the person or account that started the runbook can be retrieved from the Activity log for the automation account. The following PowerShell example provides the last user to run the runbook in question:
+
+```powershell-interactive
+$SubID = "00000000-0000-0000-0000-000000000000"
+$rg = "ResourceGroup01"
+$AutomationAccount = "MyAutomationAccount"
+$RunbookName = "Test-Runbook"
+$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+
+Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+```
+
+## Fair share
+In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for three hours. During this time, jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) are stopped and are not be restarted. The job status shows **Stopped**. This type of runbook is always restarted from the beginning since they don't support checkpoints.
+
+[PowerShell-Workflow-based runbooks](automation-runbook-types.md#powershell-workflow-runbooks) are resumed from their last [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). After running three hours, the runbook job will be suspended by the service and its status shows **Running, waiting for resources**. When a sandbox becomes available, the runbook is automatically restarted by the Automation service and resumes from the last checkpoint. This is normal PowerShell-Workflow behavior for suspend/restart. If the runbook again exceeds three hours of runtime, the process repeats, up to three times. After the third restart, if the runbook still has not completed in three hours, then the runbook job is failed, and the job status shows **Failed, waiting for resources**. In this case, you receive the following exception with the failure.
 
 *The job cannot continue running because it was repeatedly evicted from the same checkpoint. Please make sure your Runbook does not perform lengthy operations without persisting its state.*
 
@@ -89,7 +131,7 @@ This is to protect the service from runbooks running indefinitely without comple
 
 If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it restarts from the beginning.  
 
-When you create a runbook, you should ensure that the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to ensure that it does not reach this three hour limit or break up long running operations. For example, your runbook might perform a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job are unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so that the job could resume after the last operation to complete.
+When you create a runbook, you should ensure that the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to ensure that it does not reach this three-hour limit or break up long running operations. For example, your runbook might perform a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job is unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so that the job could resume after the last operation to complete.
 
 ## Next steps
 * To learn more about the different methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)

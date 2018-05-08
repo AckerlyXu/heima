@@ -9,8 +9,8 @@ keywords: powershell,  runbook, json, azure automation
 ms.service: automation
 ms.devlang: NA
 ms.topic: article
-origin.date: 07/09/2017
-ms.date: 01/11/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 ---
 
@@ -31,7 +31,7 @@ In this topic, we create a PowerShell runbook that uses an Resource Manager temp
 To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [sign up for a Trial](https://www.azure.cn/pricing/1rmb-trial/).
-* Automation account to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Automation account](automation-create-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
 * Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) for information about how to get Azure PowerShell.
 
@@ -99,7 +99,7 @@ and upload the Resource Manager template to that file share.
 
 ```powershell
 # Login to Azure
-Login-AzureRmAccount -Environment "AzureChinaCloud"
+Connect-AzureRmAccount -Environment "AzureChinaCloud"
 
 # Get the access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
@@ -146,7 +146,7 @@ param (
 
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `

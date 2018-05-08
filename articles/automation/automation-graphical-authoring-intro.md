@@ -9,8 +9,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/14/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 
@@ -41,9 +41,9 @@ The Library control is where you select [activities](#activities) to add to your
 
 | Section | Description |
 |:--- |:--- |
-| Cmdlets |Includes all the cmdlets that can be used in your runbook.  Cmdlets are organized by module.  All of the modules that you have installed in your automation account will be available. |
+| Cmdlets |Includes all the cmdlets that can be used in your runbook. Cmdlets are organized by module. All of the modules that you have installed in your automation account are available. |
 | Runbooks |Includes the runbooks in your automation account. These runbooks can be added to the canvas to be used as child runbooks. Only runbooks of the same core type as the runbook being edited are shown; for Graphical runbooks only PowerShell-based runbooks are shown, while for Graphical PowerShell Workflow runbooks only PowerShell-Workflow-based runbooks are shown. |
-| Assets |Includes the [automation assets](/automation) in your automation account that can be used in your runbook. When you add an asset to a runbook, it adds a workflow activity that gets the selected asset. In the case of variable assets, you can select whether to add an activity to get the variable or set the variable. |
+| Assets |Includes the [automation assets](http://msdn.microsoft.com/library/dn939988.aspx) in your automation account that can be used in your runbook. When you add an asset to a runbook, it adds a workflow activity that gets the selected asset. In the case of variable assets, you can select whether to add an activity to get the variable or set the variable. |
 | Runbook Control |Includes runbook control activities that can be used in your current runbook. A *Junction* takes multiple inputs and waits until all have completed before continuing the workflow. A *Code* activity runs one or more lines of PowerShell or PowerShell Workflow code depending on the graphical runbook type. You can use this activity for custom code or for functionality that is difficult to achieve with other activities. |
 
 ### Configuration control
@@ -233,13 +233,13 @@ You can set [checkpoints](automation-powershell-workflow.md#checkpoints) in a Gr
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is not available in Graphical runbooks. If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Add-AzureRMAccount in case the runbook is suspended and restarts from this checkpoint on a different worker. 
+Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is not available in Graphical runbooks. If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Connect-AzureRmAccount in case the runbook is suspended and restarts from this checkpoint on a different worker.
 
 ## Authenticating to Azure resources
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-offering-get-started.md#creating-an-automation-account) (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet to the canvas. This is illustrated in the following example:<br>![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-offering-get-started.md#creating-an-automation-account) (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Connect-AzureRmAccount](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.profile/connect-azurermaccount?view=azurermps-6.0.0) cmdlet to the canvas. This is illustrated in the following example:<br>![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 The Get Run As Connection activity (that is, Get-AutomationConnection), is configured with a constant value data source named AzureRunAsConnection.<br>![Run As Connection Configuration](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
-The next activity, Add-AzureRmAccount, adds the authenticated Run As account for use in the runbook.<br>
-![Add-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
+The next activity, Connect-AzureRmAccount, adds the authenticated Run As account for use in the runbook.<br>
+![Connect-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you need to specify the name of the property for the Field path because the activity outputs an object with multiple properties. Otherwise when you execute the runbook, it fails attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
 To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](automation-credentials.md) that represents an Active Directory user with access to the Azure account.
@@ -361,3 +361,5 @@ The following example uses output from an activity called *Get Twitter Connectio
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md) 
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
+* To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](automation-create-runas-account.md)
+

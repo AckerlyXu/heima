@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/22/2017
-ms.date: 01/22/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 
@@ -27,7 +27,7 @@ This article provides help troubleshooting common errors you might experience in
 ## Authentication errors when working with Azure Automation runbooks
 ### Scenario: Sign in to Azure Account failed
 **Error:**
-You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Login-AzureRmAccount cmdlets.
+You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Connect-AzureRmAccount cmdlets.
 
 **Reason for the error:**
 This error occurs if the credential asset name is not valid or if the username and password that you used to set up the Automation credential asset are not valid.
@@ -42,7 +42,7 @@ In order to determine what's wrong, take the following steps:
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
 ### Scenario: Unable to find the Azure subscription
@@ -79,7 +79,7 @@ Your runbook fails with the error "The job was tried three times but it failed."
 **Reason for the error:**
 This error can be caused by the following reasons:  
 
-1. Memory Limit.  We have limits on how much memory allocated to a Sandbox Automation service limits so a job may fail it if is using more than 400 MB of memory. 
+1. Memory Limit. There are documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure-subscription-service-limits.md#automation-limits) so a job may fail it if it is using more than 400 MB of memory. 
 
 2. Module Incompatible. This can occur if module dependencies are not correct and if they are not, your runbook typically returns a "Command not found" or "Cannot bind parameter" message. 
 

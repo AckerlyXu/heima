@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2016
-ms.date: 01/22/2018
+origin.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 ---
@@ -24,18 +24,7 @@ Many customers create more than one resource group. Some might be used for manag
 This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription. The default setting of the runbook is to test before proceeding. This ensures that you don't accidentally delete the resource group before you're ready to complete this procedure.   
 
 ## Getting the scenario
-This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). After download the script file , open it and modify the `Add-AzureRmAccount` command to :
-
-```powershell
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint -EnvironmentName AzureChinaCloud
- ```
-  
-You can also import it directly from the [Runbook Gallery](automation-runbook-gallery.md) in the Azure portal.<br><br>
-
+This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). <br><br>
 
 | Runbook | Description |
 | --- | --- |
@@ -51,7 +40,7 @@ The following input parameters are defined for this runbook:
 
 ## Install and configure this scenario
 ### Prerequisites
-This runbook authenticates using the Azure Run As account.    
+This runbook authenticates using the [Azure Run As account](automation-create-runas-account.md).    
 
 ### Install and publish the runbooks
 After you download the runbook, you can import it by using the procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publish the runbook after it has been successfully imported into your Automation account.
