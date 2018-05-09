@@ -160,7 +160,7 @@ This way each version can read as much it can and jump over the remaining part o
 
 ## Next steps
   * [Serialization and upgrade](service-fabric-application-upgrade-data-serialization.md)
-  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
   * [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
   * [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
   * Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).

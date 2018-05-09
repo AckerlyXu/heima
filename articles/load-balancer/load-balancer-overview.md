@@ -138,10 +138,10 @@ Basic Load Balancer is offered at no charge.
 <!-- Not Available on ## SLA-->
 ## Next steps
 
-- Review [Standard Load Balancer in more detail](load-balancer-standard-overview.md)
-- Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
+<!-- Not Available on - Review [Standard Load Balancer in more detail](load-balancer-standard-overview.md)-->
+<!-- Not Available on - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)-->
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md)
-- Learn about [Load Balancer HA Ports](load-balancer-ha-ports-overview.md)
+<!-- Not Available on - Learn about [Load Balancer HA Ports](load-balancer-ha-ports-overview.md)-->
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
 - Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Learn how to create a [basic public load balancer](load-balancer-get-started-internet-portal.md)

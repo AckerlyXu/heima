@@ -339,4 +339,4 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Reliable State Manager Configuration](service-fabric-reliable-services-configuration.md)
 * [Getting Started with Service Fabric Web API Services](service-fabric-reliable-services-communication-webapi.md)
 * [Advanced Usage of the Reliable Services Programming Model](service-fabric-reliable-services-advanced-usage.md)
-* [Developer Reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on * [Developer Reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->

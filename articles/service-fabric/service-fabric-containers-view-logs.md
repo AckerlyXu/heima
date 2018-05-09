@@ -31,7 +31,7 @@ In the tree view, find the code package on the *_lnxvm_0* node by expanding **No
 ![Service Fabric platform][Image1]
 
 ## Next steps
-- Work through the [Create a Linux container application tutorial](service-fabric-tutorial-create-container-images.md).
+<!-- Not Available on - Work through the [Create a Linux container application tutorial](service-fabric-tutorial-create-container-images.md)-->
 - Learn more about [Service Fabric and containers](service-fabric-containers-overview.md)
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png

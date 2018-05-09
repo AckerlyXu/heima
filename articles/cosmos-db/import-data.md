@@ -349,6 +349,7 @@ Here is a command-line sample to import from HBase:
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
 <a name="SQLBulkTarget"></a>
+<a name="SQLBulkImport"></a>
 ## Import to the SQL API (Bulk Import)
 The Azure Cosmos DB Bulk importer allows you to import from any of the available source options, using an Azure Cosmos DB stored procedure for efficiency. The tool supports import to one single-partitioned Azure Cosmos DB collection, as well as sharded import whereby data is partitioned across multiple single-partitioned Azure Cosmos DB collections. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md). The tool creates, executes, and then deletes the stored procedure from the target collection(s).  
 
@@ -418,6 +419,7 @@ The Azure Cosmos DB Bulk importer has the following additional advanced options:
 > 
 
 <a name="SQLSeqTarget"></a>
+<a name="DocumentDBSeqTarget"></a>
 ## Import to the SQL API (Sequential Record Import)
 The Azure Cosmos DB sequential record importer allows you to import from any of the available source options on a record by record basis. You might choose this option if you're importing to an existing collection that has reached its quota of stored procedures. The tool supports import to a single (both single-partition and multi-partition) Azure Cosmos DB collection, as well as sharded import whereby data is partitioned across multiple single-partition and/or multi-partition Azure Cosmos DB collections. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
 

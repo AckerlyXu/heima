@@ -95,10 +95,12 @@ Metrics are performance measurements and counters collected over a period of tim
 
 ### Diagnostic logs
 
-Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics.
+Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI.
+<!-- Not Available on Log Analytics -->
 <!-- Not Available on [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) -->
 
-Diagnostic logs are available for [Load Balancer](../load-balancer/load-balancer-monitor-log.md), Routes, and [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
+Diagnostic logs are available for Routes, and [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
+<!-- Not Available on [Load Balancer](../load-balancer/load-balancer-monitor-log.md) -->
 <!-- Not Available on [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view, you can enable and disable networking resources conveniently and quickly.
