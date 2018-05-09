@@ -50,9 +50,10 @@ The following image describes the components of the scaffold. The foundation rel
 ![scaffold components](./media/resource-manager-subscription-governance/components.png)
 
 > [!NOTE]
-> Azure has grown rapidly since its introduction in 2008. This growth required Microsoft engineering teams to rethink their approach for managing and deploying services. The Azure Resource Manager model was introduced in 2014 and replaces the classic deployment model. Resource Manager enables organizations to more easily deploy, organize, and control Azure resources. Resource Manager includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata. Azure recommends that you create all resources through the Resource Manager model. The enterprise scaffold is explicitly designed for the Resource Manager model.
+> Azure has grown rapidly since its introduction in 2008. This growth required our engineering teams to rethink their approach for managing and deploying services. The Azure Resource Manager model was introduced in 2014 and replaces the classic deployment model. Resource Manager enables organizations to more easily deploy, organize, and control Azure resources. Resource Manager includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata. Azure recommends that you create all resources through the Resource Manager model. The enterprise scaffold is explicitly designed for the Resource Manager model.
 > 
 > 
+<!-- Notice: Change Microsoft to our -->
 
 ## Define your hierarchy
 The foundation of the scaffold is the Azure Enterprise Enrollment (and the Enterprise Portal). The enterprise enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enterprise agreement, customers are able to further subdivide the environment into departments, accounts, and finally, subscriptions. An Azure subscription is the basic unit where all resources are contained. It also defines several limits within Azure, such as number of cores, resources, etc.
@@ -112,7 +113,8 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 "Traditional IT" subscription for line-of-business applications
 
 * Enforce Department and Owner tags on all resources
-* Restrict resource creation to the North American Region
+* Restrict resource creation to the specific Region
+<!-- Notice: Change North American to Specific Region -->
 <!-- Not Available on * Restrict the ability to create G-Series VMs and HDInsight Clusters-->
 
 "Agile" Environment for a business unit creating cloud applications

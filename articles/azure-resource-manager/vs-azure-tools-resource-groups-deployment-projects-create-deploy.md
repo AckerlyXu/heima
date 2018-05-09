@@ -305,8 +305,8 @@ Now that we've created a solution it's time to go the last mile and make it oper
 
    > [!NOTE] 
    > Access to the dashboard can be managed using RBAC groups and customizations can be published to the resource after its deployed. Note that when you redploy the resource group it will reset it back to the default in your template. You should consider updating the template with the customizations. 
-   > For help on how to do this refer to [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md)
 
+    <!-- Not Available on [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md) -->
     ![Custom Dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
 ## Next steps
