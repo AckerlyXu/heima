@@ -9,8 +9,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/21/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 ---
@@ -228,7 +228,7 @@ The following same code demonstrates how to handle this in your PowerShell Workf
     workflow CreateTestVms
     {
        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-       $null = Add-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+       $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
 
        $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
 
@@ -243,7 +243,7 @@ The following same code demonstrates how to handle this in your PowerShell Workf
           $Cred = $null
           Checkpoint-Workflow
           $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-          $null = Add-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+          $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
          }
      }
 

@@ -7,8 +7,8 @@ manager: digimobile
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 01/13/2017
-ms.date: 01/12/2018
+origin.date: 03/15/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 ---
 
@@ -89,7 +89,7 @@ The following sample commands show how to use the Run As account mentioned earli
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
 ```
 
 ### Graphical runbook samples
@@ -102,6 +102,46 @@ The following image shows an example of using a connection in a graphical runboo
 
 ![](./media/automation-connections/automation-get-connection-object.png)
 
+### Python2 runbook sample
+The following sample shows how to authenticate using the Run As connection in a Python2 runbook.
+
+```python
+""" Tutorial to show how to authenticate against Azure resource manager resources """
+import azure.mgmt.resource
+import automationassets
+
+def get_automation_runas_credential(runas_connection):
+  """ Returns credentials to authenticate against Azure resoruce manager """
+  from OpenSSL import crypto
+  from msrestazure import azure_active_directory
+  import adal
+
+  # Get the Azure Automation Run As service principal certificate
+  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+  pks12_cert = crypto.load_pkcs12(cert)
+  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+
+  # Get Run As connection information for the Azure Automation service principal
+  application_id = runas_connection["ApplicationId"]
+  thumbprint = runas_connection["CertificateThumbprint"]
+  tenant_id = runas_connection["TenantId"]
+
+  # Authenticate with service principal certificate
+  resource = "https://management.core.chinacloudapi.cn/"
+  authority_url = ("https://login.partner.microsoftonline.cn/" + tenant_id)
+  context = adal.AuthenticationContext(authority_url)
+  return azure_active_directory.AdalAuthentication(
+    lambda: context.acquire_token_with_client_certificate(
+      resource,
+      application_id,
+      pem_pkey,
+      thumbprint)
+  )
+
+# Authenticate to Azure using the Azure Automation Run As service principal
+runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+azure_credential = get_automation_runas_credential(runas_connection)
+```
 
 ## Next steps
 

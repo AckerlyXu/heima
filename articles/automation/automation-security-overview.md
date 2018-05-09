@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/01/2017
-ms.date: 04/27/2017
+origin.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
 
 ---
@@ -46,5 +46,5 @@ The following table summarizes the different authentication methods for each env
 | Method | Environment | Article |
 | --- | --- | --- |
 | Azure AD User Account |Azure Resource Manager and Azure classic |[Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md) |
-| Azure Run As Account |Azure Resource Manager | None |
-| Azure Classic Run As Account |Azure Service Management | None |
+| Azure Run As Account |Azure Resource Manager |[Authenticate Runbooks with Azure Run As account](automation-create-runas-account.md) |
+| Azure Classic Run As Account |Azure classic |[Authenticate Runbooks with Azure Run As account](automation-create-runas-account.md) |

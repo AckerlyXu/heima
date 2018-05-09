@@ -9,8 +9,8 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2016
-ms.date: 03/28/2017
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
 
 ---
@@ -41,10 +41,10 @@ A parameter definition in PowerShell Workflow runbooks has the following general
      Param
      (
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+         [Type] $Name1 = <Default value>,
 
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
+         [Type] $Name2 = <Default value>
      )
    ```
 
@@ -73,6 +73,7 @@ Then you can pass the following value to the parameter:
 
 To [configure a graphical runbook](automation-first-runbook-graphical.md) with input parameters, let’s create a graphical runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. Configuring a runbook consists of two major activities, as described below.
 
+[**Authenticate Runbooks with Azure Run As account**](automation-create-runas-account.md) to authenticate with Azure.
 
 [**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) to get the properties of a virtual machine.
 

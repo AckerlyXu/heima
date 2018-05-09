@@ -9,8 +9,8 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 12/14/2016
-ms.date: 01/25/2017
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
 
 ---
@@ -25,7 +25,7 @@ The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/sea
 You can only import directly from the Runbook Gallery using the Azure portal. You cannot perform this function using Windows PowerShell.
 
 > [!NOTE]
-> You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.|
+> You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.
 > 
 > 
 
@@ -42,7 +42,7 @@ You can only import directly from the Runbook Gallery using the Azure portal. Yo
 7. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 8. The runbook appears on the **Runbooks** tab for the Automation Account.
 
-###<a name="AddRunbook"></a> Adding a runbook to the runbook gallery
+### Adding a runbook to the runbook gallery
 Microsoft encourages you to add runbooks to the Runbook Gallery that you think would be useful to other customers.  You can add a runbook by [uploading it to the Script Center](http://gallery.technet.microsoft.com/site/upload) taking into account the following details.
 
 * You must specify *Windows Azure* for the **Category** and *Automation* for the **Subcategory** for the runbook to be displayed in the wizard.  

@@ -9,8 +9,8 @@ keywords: automation rbac, role based access control, azure rbac
 
 ms.service: automation
 ms.devlang: na
-origin.date: 02/05/2018
-ms.date: 2/27/2018
+origin.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 
@@ -28,6 +28,8 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Contributor |The Contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
 | Reader |The Reader role allows you to view all the resources in an Automation account but cannot make any changes. |
 | Automation Operator |The Automation Operator role allows you to perform operational tasks such as start, stop, suspend, resume, and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. |
+|Automation Job Operator|The Automation Job Operator role allows you to create and manage jobs for all runbooks in an Automation account.|
+|Automation Runbook Operator|The Automation Runbook Operator role allows you read runbook properties - to be able to create jobs of the runbook.|
 | User Access Administrator |The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
 ## Role permissions
@@ -81,7 +83,48 @@ An Automation Operator is able to start, stop, suspend, and resume jobs. The fol
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
 
+### Automation Runbook Operator
 
+An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can view the runbook's properties.  This role combined with the 'Automation Job Operator' role enables the operator to also create jobs of the runbook. The following table shows the permissions granted for the role:
+
+> [!NOTE]
+> Do not set the 'Automation Operator' role unless you want to grant an operator the ability to manage jobs for all runbooks in the account.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Automation/automationAccounts/runbooks/read     | List the runbooks.        |
+|Microsoft.Authorization/*/read      | Read authorization.        |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
+|Microsoft.Resources/deployments/*      | Create and manage resource group deployments.         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
+|Microsoft.Support/*      | Create and manage support tickets.        |
+### Automation Job Operator
+
+An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. The following table shows the permissions granted for the role:
+
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
+|Microsoft.Support/* |Create and manage support tickets.|
+### User Access Administrator
+
+A User Access Administrator can manage user access to Azure resources. The following table shows the permissions granted for the role:
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|Read all resources|
+|Microsoft.Authorization/*|Manage authorization|
+|Microsoft.Support/*|Create and manage support tickets|
 ## Configure RBAC for your Automation account using Azure portal
 1. Log in to the [Azure portal](https://portal.azure.cn/) and open your Automation account from the Automation Accounts page.  
 2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation account.

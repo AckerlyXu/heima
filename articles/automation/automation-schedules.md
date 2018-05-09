@@ -9,8 +9,8 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 09/29/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 
@@ -50,6 +50,7 @@ You can create a new schedule for runbooks in the Azure portal, in the classic p
 
 > [!NOTE]
 > Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.  To avoid impacting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing.  This validates your scheduled runbooks continue to work correctly and if not, you can further troubleshoot and apply any changes required before migrating the updated runbook version to production.  
+>  Your Automation account does not automatically get any new versions of modules unless you have updated them manually by selecting the [Update Azure Modules](automation-update-azure-modules.md) option from the **Modules** 
 >  . 
 >  
 

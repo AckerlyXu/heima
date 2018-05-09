@@ -9,8 +9,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
-origin.date: 06/15/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 ---
@@ -31,7 +31,7 @@ The PowerShell runbook starts an Azure VM, getting the parameters for the VM fro
 To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can create a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
-* Automation account to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Automation account](automation-create-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We stop and start this machine so it should not be a production VM.
 * Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) for information about how to get Azure PowerShell.
 
@@ -64,8 +64,8 @@ Param(
 
 # Connect to Azure account   
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud"
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json
@@ -83,7 +83,7 @@ Run the following PowerShell commands:
 
 1. Log in to Azure:
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
     You are prompted to enter your Azure credentials.
 1. Get the contents of the JSON file and convert it to a string:
