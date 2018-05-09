@@ -65,6 +65,7 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1:many) and impl
 If your application initiates many outbound flows and you experience SNAT port exhaustion, consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) in its entirety.
 
 <a name="publiclbendpoint"></a>
+<a name="lb"></a>
 ### Scenario 2: Public load-balanced endpoint
 
 In this scenario, the VM or Web Worker Role is associated with a public IP address through the load-balanced endpoint. The VM does not have a public IP address assigned to it. 
@@ -78,6 +79,7 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 When [multiple public load-balanced endpoints](load-balancer-multivip.md) exist, any of these public IP addresses are a [candidate for outbound flows](#multivipsnat), and one is selected at random.  
 
 <a name="defaultsnat"></a>
+<a name="multivipsnat"></a>
 ### Scenario 3: No public IP address associated
 
 In this scenario, the VM or Web Worker ROle is not part of a public load-balanced endpoint.  And in the case of VM, it does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit.  Azure automatically allocates this address.
@@ -105,6 +107,7 @@ When SNAT port resources are exhausted, outbound flows fail until existing flows
 For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, review the [Managing SNAT](#snatexhaust) section.
 
 <a name="preallocatedports"></a>
+<a name="ephemeralports"></a>
 ### Ephemeral port preallocation for port masquerading SNAT (PAT)
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.

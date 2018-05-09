@@ -75,6 +75,7 @@ When [multiple (public) IP addresses are associated with Load Balancer Basic](lo
 To monitor the health of outbound connections with Load Balancer Basic, you can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [alert event logs](load-balancer-monitor-log.md#alert-event-log) to monitor for SNAT port exhaustion messages.
 
 <a name="defaultsnat"></a>
+<a name="multivipsnat"></a>
 ### Scenario 3: Standalone VM without an Instance Level Public IP address
 
 In this scenario, the VM is not part of a public Load Balancer pool (and not part of an internal Standard Load Balancer pool) and does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit.
@@ -132,7 +133,8 @@ The same number of SNAT ports are preallocated for UDP and TCP respectively and 
 >[!IMPORTANT]
 >Standard SKU SNAT programming is per IP transport protocol and derived from the load balancing rule.  If only a TCP load balancing rule exists, SNAT is only available for TCP. If you have only a TCP load balancing rule and need outbound SNAT for UDP, create a UDP load balancing rule from the same frontend to the same backend pool.  This will trigger SNAT programming for UDP.  A working rule or health probe is not required.  Basic SKU SNAT always programs SNAT for both IP transport protocol, irrespective of the transport protocol specified in the load balancing rule.
 
-Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
+Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#idletimeout) happen.
+<!-- Should be #idletimeout -->
 
 The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 
@@ -247,5 +249,5 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 - Learn more about [Load Balancer](load-balancer-overview.md).
 <!-- Not Avaiable on - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md) -->
 - Learn more about [network security groups](../virtual-network/virtual-networks-nsg.md).
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
+<!-- Not Avaiable on  [networking capabilities](../networking/networking-overview.md) -->
 <!--Update_Description: update meta properties, wording update, update link -->

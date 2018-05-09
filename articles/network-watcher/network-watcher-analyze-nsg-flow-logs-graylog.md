@@ -45,7 +45,8 @@ In this example, both Graylog and Logstash are configured on an Ubuntu 14.04 Ser
 - Refer to the [documentation](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) from Graylog, for step by step instructions on how install onto Ubuntu.
 - Make sure to also configure the Graylog web interface by following the [documentation](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
 
-This example uses the minimum Graylog setup (i.e a single instance of a Graylog), but Graylog can be architected to scale across resources depending on your system and production needs. For more information on architectural considerations or a deep architectural guide, see Graylog's [documentation](http://docs.graylog.org/en/2.2/pages/architecture.html) and [architectural guide](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture).
+This example uses the minimum Graylog setup (i.e a single instance of a Graylog), but Graylog can be architected to scale across resources depending on your system and production needs. For more information on architectural considerations or a deep architectural guide, see Graylog's [documentation](http://docs.graylog.org/en/2.2/pages/architecture.html).
+<!-- Not Available on [architectural guide](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)-->
 
 Graylog can be installed in many ways, depending on your platform and preferences. For a full list of possible installation methods, refer to Graylog's official
 [documentation](http://docs.graylog.org/en/2.2/pages/installation.html). The Graylog server application runs on Linux distributions and has the following

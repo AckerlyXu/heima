@@ -203,7 +203,8 @@ But, what can we learn? A few easy examples include [sentiment analysis](https:/
 
 Now that I got you hooked, you'll probably think you need some PhD in math science to extract these patterns and information out of simple databases and files, but you'd be wrong.
 
-Azure Machine Learning, part of the Cortana Intelligence Suite, is the a fully managed cloud service that lets you create workflows using algorithms in a simple drag-and-drop interface, code your own algorithms in [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) or use some of the already-built and ready to use APIs such as: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2),  [Content Moderator](https://www.microsoft.com/moderator) or [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+Azure Machine Learning, part of the Cortana Intelligence Suite, is the a fully managed cloud service that lets you create workflows using algorithms in a simple drag-and-drop interface, code your own algorithms in [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) or use some of the already-built and ready to use APIs such as: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2) or [Content Moderator](https://www.microsoft.com/moderator).
+<!-- Not Available on [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2) -->
 <!-- Not Available on [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)-->
 <!-- URL is not Correct on  [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx) -->
 

@@ -49,8 +49,8 @@ The Reliable Collections APIs are an evolution of concurrent collections APIs
 
 Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
 
-* [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
-* [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+<!-- Not Available on * [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx) -->
+<!-- Not Available on * [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx)-->
 * [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md): Represents a replicated, transactional, and asynchronous best effort ordering queue for high throughput. Similar to the **ConcurrentQueue**, the value can be of any type.
 
 ## Next steps
@@ -65,6 +65,6 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
 
 <!-- Update_Description: update meta properties, update link -->

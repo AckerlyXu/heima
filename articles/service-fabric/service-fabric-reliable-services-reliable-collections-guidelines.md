@@ -57,5 +57,5 @@ Here are some things to keep in mind:
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
 <!-- Update_Description: update link -->
