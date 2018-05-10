@@ -114,8 +114,8 @@ A new disk attached to the VM must be initialized.
 Ensure that the data disks have been initialized, and then retry the operation:
 
 - For Windows: [Attach and initialize a new disk](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- For Linux: [Initialize a new data disk in Linux](/virtual-machines/linux/classic/add-disk).
-<!-- URL is CORRECT on add-disk.md -->
+- For Linux: [Initialize a new data disk in Linux](/virtual-machines/linux/add-disk).
+<!-- URL is CORRECT WITHOUT CLASSIC on add-disk.md -->
 
 If the problem persists, contact support.
 

@@ -228,6 +228,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 }
 ```
 
+<a name="complete-terraform-script"></a>
 ## Complete Terraform script
 
 To bring all these sections together and see Terraform in action, create a file called *terraform_azure.tf* and paste the following content:

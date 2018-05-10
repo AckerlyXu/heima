@@ -132,6 +132,7 @@ IPv4 | Yes
 Retain source IP address | Yes
 Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and virtual networks) | No
 
+<a name="support-for-storage"></a>
 ## Storage
 **Component** | **Supported**
 --- | ---
@@ -186,6 +187,7 @@ Availability sets | Yes
 HUB | Yes
 Managed disks | Yes
 
+<a name="failed-over-azure-vm-requirements"></a>
 ## Azure VM requirements
 
 On-premises VMs that you replicate to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs a prerequisites check, it will fail if some of the requirements aren't met.

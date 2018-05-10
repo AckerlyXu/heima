@@ -264,6 +264,6 @@ This step ensures that the recovered state is consistent.
   - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
   - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
-  - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on - [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
 
 <!--Update_Description: update meta properties -->

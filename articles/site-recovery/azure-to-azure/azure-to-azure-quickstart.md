@@ -69,5 +69,6 @@ Stop replication as follows:
 In this quickstart, you replicated a single VM to a secondary region.
 
 > [!div class="nextstepaction"]
-> [Configure disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)
+> [Configure disaster recovery for Azure VMs](../azure-to-azure-tutorial-enable-replication.md)
+<!-- URL is Correct to Add ../ forazure-to-azure-tutorial-enable-replication.md -->
 <!-- Update_Description: new articles on azure to azure quickstart -->
