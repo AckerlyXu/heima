@@ -81,7 +81,7 @@ IaaS application data issues are another possibility. Consider an application th
 
 ## Disaster recovery solution: Azure Backup 
 
-[Azure Backup](https://www.azure.cn/home/features/backup/) is used for backups and DR, and it works with [managed disks](../articles/virtual-machines/windows/managed-disks-overview.md) as well as [unmanaged disks](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration, and backup retention policies. 
+[Azure Backup](https://www.azure.cn/home/features/back-up/) is used for backups and DR, and it works with [managed disks](../articles/virtual-machines/windows/managed-disks-overview.md) as well as [unmanaged disks](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration, and backup retention policies. 
 
 If you use [Premium Storage disks](../articles/virtual-machines/windows/premium-storage.md), [managed disks](../articles/virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage](../articles/storage/common/storage-redundancy.md#locally-redundant-storage) option, it's especially important to make periodic DR backups. Azure Backup stores the data in your recovery services vault for long-term retention. Choose the [geo-redundant storage](../articles/storage/common/storage-redundancy.md#geo-redundant-storage) option for the backup recovery services vault. That option ensures that backups are replicated to a different Azure region for safeguarding from regional disasters.
 
@@ -250,5 +250,6 @@ For more information, see [What to do if an Azure Storage outage occurs](../arti
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-<!--Update_Description: update link -->
-<!--ms.date: 01/29/2018-->
+<!--Update_Description: update link, wording update -->
+<!--Notice: We keep the original link due to the new articles is not releasement --> 
+<!--ms.date: 05/14/2018-->

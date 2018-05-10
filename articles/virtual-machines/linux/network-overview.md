@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
@@ -15,9 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-origin.date: 10/16/2017
-origin.date: ''
-ms.date: 10/16/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -26,4 +24,6 @@ ms.author: v-yeche
 
 [!INCLUDE [virtual-machines-common-network-overview](../../../includes/virtual-machines-common-network-overview.md)]
 
-<!--Update_Description: new articles on linux network overview-->
+<!--The parent file of includes file of virtual-machines-common-network-overview.md-->
+<!--ms.date:05/14/2017-->
+<!--Update_Description: update meta properties -->

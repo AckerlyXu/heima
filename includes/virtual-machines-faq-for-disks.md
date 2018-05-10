@@ -42,7 +42,7 @@ No.
 
 **Are there any scale limitations for customers that use managed disks?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the number of managed disks per subscription is limited to 2,000 by default. You can call support to increase this number.
+Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit, and also the default limit, is 10,000 managed disks per region and per disk type for a subscription.
 
 **Can I take an incremental snapshot of a managed disk?**
 
@@ -260,5 +260,5 @@ If your question isn't listed here, let us know and we'll help you find an answe
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://www.azure.cn/support/support-azure/).
 
-<!--Update_Description: update meta properties, wording update -->
-<!--ms.date: 04/16/2018-->
+<!--Update_Description: wording update, update link-->
+<!--ms.date: 05/14/2018-->

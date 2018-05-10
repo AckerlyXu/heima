@@ -5,8 +5,8 @@
  author: rockboyfor
  ms.service: virtual-machines
  ms.topic: include
- origin.date: 03/09/2018
- ms.date: 04/16/2018
+ origin.date: 03/27/2018
+ ms.date: 05/14/2018
  ms.author: v-yeche
  ms.custom: include file
 ---
@@ -85,4 +85,4 @@ If the load balancer is not configured to balance traffic across multiple virtua
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
 <!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

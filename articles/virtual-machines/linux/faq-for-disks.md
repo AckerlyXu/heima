@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]
+
 <!--The parent file of includes file of virtual-machines-faq-for-disks.md-->
-<!--ms.date:02/05/2018-->
+<!--ms.date:05/14/2017-->
 <!-- Update_Description: update meta properties -->

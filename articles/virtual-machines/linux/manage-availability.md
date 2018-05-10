@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2017
-ms.date: 01/08/2018
+origin.date: 03/27/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -33,5 +33,5 @@ For instructions on creating an availability set using CLI in the Resource Manag
 To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../virtual-machines-linux-load-balance.md).
 
 <!--The parent file of includes file of virtual-machines-common-manage-availability.md-->
-<!--ms.date:01/08/2018-->
+<!--ms.date:05/14/2017-->
 <!--Update_Description: update meta properties -->

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Linux VM allocation failures | Azure
+title: Troubleshooting Azure Linux VM allocation failures | Azure
 description: Troubleshoot allocation failures when you create, restart, or resize a Linux VM in Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2016
-ms.date: 02/05/2018
+origin.date: 04/13/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
 # Troubleshoot allocation failures when you create, restart, or resize Linux VMs in Azure
-When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services. You can also [troubleshoot allocation failures when you create, restart, or resize Windows VMs in Azure](../windows/allocation-failure.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-allocation-failure](../../../includes/virtual-machines-common-allocation-failure.md)]
 
-<!--Update_Description: update meta properties-->
+<!--The parent file of includes file of virtual-machines-common-allocation-failure.md-->
+<!--ms.date:05/14/2018-->
+<!--Update_Description: update meta properties, wording update -->

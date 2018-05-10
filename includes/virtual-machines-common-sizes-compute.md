@@ -6,7 +6,7 @@
  ms.service: virtual-machines
  ms.topic: include
  origin.date: 03/09/2018
- ms.date: 04/16/2018
+ ms.date: 05/14/2018
  ms.author: v-yeche
  ms.custom: include file
 ---
