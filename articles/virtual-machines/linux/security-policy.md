@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 origin.date: 08/14/2017
-ms.date: 10/16/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 ---
 
@@ -21,4 +21,4 @@ ms.author: v-yeche
 
 [!INCLUDE [virtual-machines-security-policy](../../../includes/virtual-machines-security-policy.md)]
 
-<!--Update_Description: new articles on security policy for Linux VM -->
+<!--Update_Description: update meta properties -->

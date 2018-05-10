@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 09/15/2017
-ms.date: 10/23/2017
+origin.date: 03/21/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -26,6 +26,8 @@ ms.author: v-yeche
 
 ## Next steps
 
-For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
+For information on managing maintenance requiring a reboot, see [Handling planned maintenance notifications](maintenance-notifications.md). 
 
+<!--The parent file of includes file of virtual-machines-common-planned-maintenance.md-->
+<!--ms.date:05/14/2017-->
 <!--Update_Description: wording update-->

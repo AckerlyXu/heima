@@ -23,14 +23,14 @@ When you connect to VMs, you should use public-key cryptography to provide a mor
 
 ## Policies
 
-[Azure Resource Manager policies](../articles/azure-resource-manager/resource-manager-policy.md) can be used to define the desired behavior for your organization's [Windows VMs](../articles/virtual-machines/windows/policy.md) and [Linux VMs](../articles/virtual-machines/linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
-
+Azure policies can be used to define the desired behavior for your organization's [Windows VMs](../articles/virtual-machines/windows/policy.md) and [Linux VMs](../articles/virtual-machines/linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
+<!-- Not Available on [Azure policies](../articles/azure-policy/azure-policy-introduction.md)-->
 ## Role-based access control
 
-Using [role-based access control (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/active-directory/role-based-access-control-configure.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Using [role-based access control (RBAC)](../articles/role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.azure.cn/zh-cn/cli/role?view=azure-cli-latest), or[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 ## Next steps
 <!-- Not Avaiable on - Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) or [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md). -->
 
-<!--Update_Description: new articles on VM security policy -->
-<!--ms.date: 10/16/2017-->
+<!--Update_Description: wording update, update link-->
+<!--ms.date: 05/14/2018-->

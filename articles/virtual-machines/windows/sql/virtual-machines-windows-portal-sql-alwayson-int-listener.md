@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/16/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -299,4 +299,8 @@ Repeat these steps for the load balancer on the other availability groups that p
 ## Next steps
 
 - [Configure a SQL Server Always On availability group on Azure virtual machines in different regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
-<!-- Update_Description: add content of load balancing rule for ditributed availability group -->
+
+<!--The parent file of includes file of virtual-machines-ag-listener-configure.md-->
+<!--ms.date:05/14/2018-->
+<!-- Update_Description: update meta properties -->
+

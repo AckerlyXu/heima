@@ -1,5 +1,5 @@
 ---
-title: Azure Premium and Standard Managed Disks Overview for Linux VMs| Microsoft Docs
+title: Azure Premium and Standard Managed Disks Overview for Linux VMs| Azure
 description: Overview of Azure Managed Disks, which handles the storage accounts for you when using Azure Linux VMs
 services: virtual-machines-linux
 documentationcenter: na
@@ -14,10 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 01/29/2048
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
+
 <!--The parent file of includes file of virtual-machines-managed-disks-overview.md-->
-<!--ms.date:01/29/2018-->
+<!--ms.date:05/14/2017-->
+<!--Update_Description: update meta properties -->

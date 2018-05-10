@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 11/27/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 
-<!--Not Available the parent file of includes file of virtual-machines-common-premium-storage-performance.md-->
-<!--ms.date:11/27/2017-->
-
-<!--Not Available the parent file of includes file of virtual-machines-common-premium-storage-performance.md-->
-<!--ms.date:11/27/2017-->
+<!--The parent file of includes file of virtual-machines-common-premium-storage-performance.md-->
+<!--ms.date:05/14/2017-->
+<!-- Update_Description: update meta properties -->

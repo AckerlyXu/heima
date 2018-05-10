@@ -1,11 +1,34 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rockboyfor
+ ms.service: virtual-machines
+ ms.topic: include
+ origin.date: 03/27/2018
+ ms.date: 05/14/2018
+ ms.author: v-yeche
+ ms.custom: include file
+---
+
 # Regions and availability for virtual machines in Azure
-Azure operates in two datacenters in China. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
+Azure operates in two datacenters around China. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
 <!--Notice: multiple TO two -->
-<!--Notice: around the world TO in china -->
+<!--Notice: around the world TO China -->
 
 ## What are Azure regions?
 You create Azure resources in defined geographic regions like 'China North' or 'China East'. You can review the [list of regions and their locations](https://www.azure.cn/support/service-dashboard/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility as you design applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
-These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Azure in China](http://www.azure.cn/).
+
+## Special Azure regions
+Azure has some special regions that you may wish to use when building out your applications for compliance or legal purposes. These special regions include:
+
+* **US Gov Virginia** and **US Gov Iowa**
+  * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://www.azure.cn/features/gov/).
+* **China East** and **China North**
+  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Azure in China](http://www.windowsazure.cn/).
+* **Germany Central** and **Germany Northeast**
+  * These regions are available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
+
 ## Region pairs
 Each Azure region is paired with another region within the same geography. This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
 

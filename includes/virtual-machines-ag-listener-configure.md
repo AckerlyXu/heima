@@ -89,3 +89,5 @@ The availability group listener is an IP address and network name that the SQL S
 
     > [!NOTE]
     > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same.
+<!-- Update_Description: update meta propreties -->
+<!-- ms.date: 05/14/2018 -->

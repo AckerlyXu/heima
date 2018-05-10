@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/23/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -55,10 +55,17 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
 > [!NOTE]
+> The credential name we created here will be mapped to an SQL login later. This allows the SQL login to access the key vault. 
+>
+>
+
+> [!NOTE]
 > You can also configure AKV integration using a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
 > 
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
+<!--The parent file of includes file of virtual-machines-sql-server-akv-next-steps.md-->
+<!--ms.date:05/14/2018-->
 <!--Update_Description: update meta data, update link -->
