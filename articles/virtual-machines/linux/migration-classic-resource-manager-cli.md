@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -185,4 +185,4 @@ If the prepared configuration looks good, you can move forward and commit the re
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -69,7 +69,7 @@ It is best to use self-service maintenance in the following cases:
 
 ## Find VMs scheduled for maintenance using CLI
 
-Planned maintenance information can be seen using [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_get_instance_view).
+Planned maintenance information can be seen using [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view).
 
 Maintenance information is returned only if there is maintenance planned. If there is no maintenance scheduled that impacts the VM, the command does not return any maintenance information. 
 
@@ -179,7 +179,4 @@ For more information about high availability, see [Regions and availability for 
 
 Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
 
-<!--The parent file of includes file of virtual-machines-common-maintenance-notifications.md-->
-<!--ms.date:01/29/2018-->
-<!--Update_Description: wording update -->
-<!--01/29/2018 PLEASE FOLLOW THE MC_DOCS_PR-ZH.CN REPOSITORY CONTENT-->
+<!--Update_Description: wording update, update meta properties -->

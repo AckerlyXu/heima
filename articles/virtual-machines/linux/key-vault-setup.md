@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -29,14 +29,14 @@ To perform these steps, you need the latest [Azure CLI 2.0](https://docs.azure.c
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Create a Key Vault
-Create a key vault and assign the deployment policy with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Create a key vault and assign the deployment policy with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault create -l chinanorth -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## Update a Key Vault for use with VMs
-Set the deployment policy on an existing key vault with [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Set the deployment policy on an existing key vault with [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true

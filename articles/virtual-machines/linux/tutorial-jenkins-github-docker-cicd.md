@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 12/15/2017
-ms.date: 03/19/2018
+origin.date: 03/27/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -62,19 +62,18 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-Before you can create a VM, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group named *myResourceGroupJenkins* in the *chinaeast* location:
+Before you can create a VM, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create). The following example creates a resource group named *myResourceGroupJenkins* in the *chinaeast* location:
 
 ```azurecli 
 az group create --name myResourceGroupJenkins --location chinaeast
 ```
 
-Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +86,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 It takes a few minutes for the VM to be created and configured.
 
-To allow web traffic to reach your VM, use [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
+To allow web traffic to reach your VM, use [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
 
 ```azurecli 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -117,10 +116,13 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
-- Enter the username **admin**, then provide the *initialAdminPassword* obtained from the VM in the previous step.
-- Select **Manage Jenkins**, then **Manage plugins**.
-- Choose **Available**, then search for *GitHub* in the text box across the top. Check the box for *GitHub plugin*, then select **Download now and install after restart**.
-- Check the box for **Restart Jenkins when installation is complete and no jobs are running**, then wait until the plugin install process is finished.
+- Choose **Select plugins to install**
+- Search for *GitHub* in the text box across the top. Check the box for *GitHub*, then select **Install**
+- Create the first admin user. Enter a username, such as **admin**, then provide your own secure password. Finally, type a full name and e-mail address.
+- Select **Save and Finish**
+- Once Jenkins is ready, select **Start using Jenkins**
+  - If your web browser displays a blank page when you start using Jenkins, restart the Jenkins service. From your SSH session, type `sudo service jenkins restart`, then refresh you web browser.
+- Log in to Jenkins with the username and password you created.
 
 ## Create GitHub webhook
 To configure the integration with GitHub, open the [Node.js Hello World sample app](https://github.com/Azure-Samples/nodejs-docs-hello-world) from the Azure samples repo. To fork the repo to your own GitHub account, select the **Fork** button in the top right-hand corner.
@@ -136,12 +138,12 @@ Create a webhook inside the fork you created:
 ![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 ## Create Jenkins job
-To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. 
+To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. Use the URLs for your own GitHub fork.
 
 In your Jenkins website, select **Create new jobs** from the home page:
 
 - Enter *HelloWorld* as job name. Choose **Freestyle project**, then select **OK**.
-- Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
 - Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in the command window.

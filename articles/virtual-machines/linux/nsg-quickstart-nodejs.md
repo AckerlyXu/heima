@@ -3,8 +3,8 @@ title: Open ports to a Linux VM with Azure CLI 1.0 | Azure
 description: Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -13,8 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 ---
 
 # Opening ports and endpoints to a Linux VM in Azure using the Azure CLI 1.0
@@ -77,9 +77,9 @@ azure network vnet subnet set \
 ```
 
 ## More information on Network Security Groups
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../../virtual-network/virtual-networks-create-nsg-arm-cli.md).
+The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../../virtual-network/tutorial-filter-network-traffic-cli.md).
 
-You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
+You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../../virtual-network/template-samples.md).
 
 If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
@@ -89,3 +89,4 @@ In this example, you created a simple rule to allow HTTP traffic. You can find i
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
 * [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
 * [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
+<!-- Update_Description: wording update, update link -->

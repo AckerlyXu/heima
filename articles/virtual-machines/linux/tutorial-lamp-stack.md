@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 11/27/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -126,8 +126,4 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
 
-<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-stack-intro.md-->
-<!--ms.date:01/08/2018-->
-<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-wordpress.md-->
-<!--ms.date:01/08/2018-->
 <!--Update_Description: update meta properties, wording update-->

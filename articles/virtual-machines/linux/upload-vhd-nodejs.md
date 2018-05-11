@@ -3,7 +3,7 @@ title: Upload a custom Linux image with Azure CLI 1.0 | Azure
 description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model and the Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 # Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0
@@ -72,7 +72,7 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
     --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```azurecli
 azure vm create myVM -l "ChinaNorth" --resource-group myResourceGroup \
@@ -105,7 +105,7 @@ azure config mode arm
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myimages`.
 
-<a id="prepimage"> </a>
+<a name="prepimage"> </a>
 
 ## Prepare the image to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
@@ -240,3 +240,4 @@ azure group deployment create --resource-group myResourceGroup
 
 ## Next steps
 After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+<!-- Update_Description: update meta properties -->

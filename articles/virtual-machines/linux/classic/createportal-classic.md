@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -28,5 +28,4 @@ ms.author: v-yeche
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 
 [!INCLUDE [virtual-machines-create-linuxvm](../../../../includes/virtual-machines-create-linuxvm.md)]
-<!-- Update_Description: new articles on create portal for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -10,7 +10,7 @@ ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 02/05/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -55,4 +55,4 @@ You can add data disks to a virtual machine at any time, by **attaching** the di
 * [Attach a disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to add additional storage for your VM.
 * [Create a snapshot](snapshot-copy-managed-disk.md).
 * [Convert to managed disks](convert-unmanaged-to-managed-disks.md).
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->

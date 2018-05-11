@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 12/18/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -209,4 +209,4 @@ You may want to forbid usage of certain types of extensions. For example, an ext
 <!-- Not Available on azure-policy/* -->
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

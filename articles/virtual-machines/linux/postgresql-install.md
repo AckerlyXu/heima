@@ -3,8 +3,8 @@ title: Set up PostgreSQL on a Linux VM | Azure
 description: Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: SuperScottz
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/01/2016
-ms.date: 03/28/2016
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 # Install and configure PostgreSQL on Azure
@@ -43,15 +43,15 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
    * CentOS base Linux:
-<!-- Change Red Hat to CentOS -->
+   <!-- Change Red Hat to CentOS -->
 
-           # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
    * Debian base Linux:
 
             # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
    * SUSE Linux:
 
-           # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 3. Download PostgreSQL into the root directory, and then unzip the package:
 
         # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
@@ -236,3 +236,4 @@ Use the following command to update data in a table. For this one, Sandy has con
 
 ## Get more information about PostgreSQL
 Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](http://www.postgresql.org/).
+<!-- Update_Description: update meta propreties -->

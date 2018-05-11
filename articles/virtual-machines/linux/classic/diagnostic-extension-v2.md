@@ -2,8 +2,8 @@
 title: Monitoring a Linux VM with a VM extension | Azure
 description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
 services: virtual-machines-linux
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/14/2018
+ms.author: v-yeche
 ---
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
 
@@ -163,4 +163,4 @@ If you've enabled fileCfg or perfCfg (as described in Scenarios 2 and 3), you ca
 ## Known issues
 
 * The Rsyslog information and customer-specified log file can only be accessed via scripting.
-<!--Update_Description: update storage table link to cosmosdb link-->
+<!--Update_Description: update meta properties-->

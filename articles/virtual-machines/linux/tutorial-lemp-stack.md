@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 11/27/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -171,4 +171,4 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

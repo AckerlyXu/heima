@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -98,13 +98,13 @@ Data disks can be created and attached at VM creation time or to an existing VM.
 
 ### Attach disk at VM creation
 
-Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) command. 
 
 ```azurecli 
 az group create --name myResourceGroupDisk --location chinaeast
 ```
 
-Create a VM using the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli 
 az vm create \
@@ -118,7 +118,7 @@ az vm create \
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -197,19 +197,19 @@ exit
 
 Once a VM has been deployed, the operating system disk or any attached data disks can be increased in size. Increasing the size of a disk is beneficial when needing more storage space or a higher level of performance (P10, P20, P30). Note, disks cannot be decreased in size.
 
-Before increasing disk size, the Id or name of the disk is needed. Use the [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
+Before increasing disk size, the Id or name of the disk is needed. Use the [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
 
 ```azurecli 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-The VM must also be deallocated. Use the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate) command to stop and deallocate the VM.
+The VM must also be deallocated. Use the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) command to stop and deallocate the VM.
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Use the [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
+Use the [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
 
 ```azurecli 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -229,7 +229,7 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azur
 
 ### Create snapshot
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
+Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
 
 ```azurecli 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -267,13 +267,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 All data disks need to be reattached to the virtual machine.
 
-First find the data disk name using the [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
+First find the data disk name using the [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
 
 ```azurecli 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command to attach the disk.
+Use the [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) command to attach the disk.
 
 ```azurecli 
 az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
@@ -297,4 +297,4 @@ Advance to the next tutorial to learn about automating VM configuration.
 > [!div class="nextstepaction"]
 > [Automate VM configuration](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

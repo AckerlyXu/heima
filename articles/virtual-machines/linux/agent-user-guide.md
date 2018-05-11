@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2016
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ---
@@ -29,6 +29,7 @@ The Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM int
 > See the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional details.
 > 
 > 
+<!-- Notice: URL contains .md in link of Https://github.com/.../read.md -->
 
 * **Image Provisioning**
 
@@ -321,4 +322,4 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 
   * [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

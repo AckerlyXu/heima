@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 12/18/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -45,7 +45,7 @@ The following walkthrough has an UbuntuLTS VM being deployed, step by step, with
 
 ## VM quick-create aliases
 
-A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image in PowerShell](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), [on the web](https://portal.azure.cn/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/Compute_MP/resetMenuId/), or [upload your own custom image](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).)
+A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image in PowerShell](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), [on the web](https://market.azure.cn/zh-cn/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), or [upload your own custom image](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).)
 
 | Alias | Publisher | Offer | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
@@ -147,7 +147,7 @@ data:          Provisioning State        :Succeeded
 data:          Name                      :examp-chinanorth-1633070839-nic
 data:          Location                  :chinanorth
 data:            Public IP address       :138.91.247.29
-data:            FQDN                    :examp-chinanorth-1633070839-pip.chinanorth.chinacloudapp.cn
+data:            FQDN                    :examp-chinanorth-1633070839-pip.chinanorth.cloudapp.chinacloudapi.cn
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true

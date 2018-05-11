@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 10/16/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -38,12 +38,12 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a Linux VM
 
-Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command and create a Linux VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) command and create a Linux VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example uses the Azure CLI to create a resource group named *myResourceGroupMEAN* in the *China North* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
+The following example uses the Azure CLI to create a resource group named *myResourceGroupMEAN* in the *chinanorth* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 
 ```azurecli
-az group create --name myResourceGroupMEAN --location "China North"
+az group create --name myResourceGroupMEAN --location chinanorth
 az vm create \
     --resource-group myResourceGroupMEAN \
     --name myVM \
@@ -60,7 +60,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 {
   "fqdns": "",
   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroupMEAN/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "China North",
+  "location": "chinanorth",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -351,4 +351,4 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 > [!div class="nextstepaction"]
 > [Secure web server with SSL](tutorial-secure-web-server.md)
 
-<!--Update_Description: update meta properties， wording update, update link-->
+<!--Update_Description: update meta properties， wording upsssdate, update link-->

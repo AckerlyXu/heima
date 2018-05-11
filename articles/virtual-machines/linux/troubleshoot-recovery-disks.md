@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/16/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,7 @@ In the following examples, replace parameter names with your own values. Example
 ## Determine boot issues
 Examine the serial output to determine why your VM is not able to boot correctly. A common example is an invalid entry in `/etc/fstab`, or the underlying virtual hard disk being deleted or moved.
 
-Get the boot logs with [az vm boot-diagnostics get-boot-log](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az_vm_boot_diagnostics_get_boot_log). The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
+Get the boot logs with [az vm boot-diagnostics get-boot-log](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -51,7 +51,7 @@ Review the serial output to determine why the VM is failing to boot. If the seri
 ## View existing virtual hard disk details
 Before you can attach your virtual hard disk (VHD) to another VM, you need to identify the URI of the OS disk. 
 
-View information about your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show). Use the `--query` flag to extract the URI to the OS disk. The following example gets disk information for the VM named `myVM` in the resource group named `myResourceGroup`:
+View information about your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show). Use the `--query` flag to extract the URI to the OS disk. The following example gets disk information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -65,7 +65,7 @@ Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard d
 
 The first step to recover your VM is to delete the VM resource itself. Deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
 
-Delete the VM with [az vm delete](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_delete). The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
+Delete the VM with [az vm delete](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-delete). The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 
@@ -76,7 +76,7 @@ Wait until the VM has finished deleting before you attach the virtual hard disk 
 ## Attach existing virtual hard disk to another VM
 For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
 
-Attach the existing virtual hard disk with [az vm unmanaged-disk attach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach). When you attach the existing virtual hard disk, specify the URI to the disk obtained in the preceding `az vm show` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
+Attach the existing virtual hard disk with [az vm unmanaged-disk attach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az-vm-unmanaged-disk-attach). When you attach the existing virtual hard disk, specify the URI to the disk obtained in the preceding `az vm show` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -140,7 +140,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
     sudo umount /dev/sdc1
     ```
 
-2. Now detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. List the attached data disks to your troubleshooting VM with [az vm unmanaged-disk list](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_list). The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
+2. Now detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. List the attached data disks to your troubleshooting VM with [az vm unmanaged-disk list](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az-vm-unmanaged-disk-list). The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -149,7 +149,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
     Note the name for your existing virtual hard disk. For example, the name of a disk with the URI of **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd** is **myVHD**. 
 
-    Detach the data disk from your VM [az vm unmanaged-disk detach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_detach). The following example detaches the disk named `myVHD` from the VM named `myVMRecovery` in the `myResourceGroup` resource group:
+    Detach the data disk from your VM [az vm unmanaged-disk detach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az-vm-unmanaged-disk-detach). The following example detaches the disk named `myVHD` from the VM named `myVMRecovery` in the `myResourceGroup` resource group:
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -161,7 +161,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-The template deploys a VM using the VHD URI from the earlier command. Deploy the template with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_create). Provide the URI to your original VHD and then specify the OS type, VM size, and VM name as follows:
+The template deploys a VM using the VHD URI from the earlier command. Deploy the template with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create). Provide the URI to your original VHD and then specify the OS type, VM size, and VM name as follows:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -173,7 +173,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```
 
 ## Re-enable boot diagnostics
-When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. Enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az_vm_boot_diagnostics_enable). The following example enables the diagnostic extension on the VM named `myDeployedVM` in the resource group named `myResourceGroup`:
+When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. Enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-enable). The following example enables the diagnostic extension on the VM named `myDeployedVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
@@ -181,4 +181,4 @@ az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployed
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta propreties, wording update, update link -->

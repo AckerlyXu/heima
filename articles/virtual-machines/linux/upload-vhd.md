@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/06/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,7 @@ You have two options:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-When creating a new VM using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) from a customized or specialized disk you **attach** the disk (--attach-os-disk) instead of specifying a custom or marketplace image (--image). The following example creates a VM named *myVM* using the managed disk named *myManagedDisk* created from your customized VHD:
+When creating a new VM using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) from a customized or specialized disk you **attach** the disk (--attach-os-disk) instead of specifying a custom or marketplace image (--image). The following example creates a VM named *myVM* using the managed disk named *myManagedDisk* created from your customized VHD:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
@@ -88,7 +88,7 @@ You can upload a customized VHD that you have running on a local machine or that
 
 ### Create a resource group
 
-Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create).
+Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create).
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 [Azure Managed Disks overview](../windows/managed-disks-overview.md)
@@ -100,7 +100,7 @@ az group create \
 
 ### Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create). 
+Create a storage account for your custom disk and VMs with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create). 
 
 The following example creates a storage account named *mystorageaccount* in the resource group previously created:
 
@@ -114,7 +114,7 @@ az storage account create \
 ```
 
 ### List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list).
 
 View the access keys for the storage account you created:
 
@@ -138,7 +138,7 @@ info:    storage account keys list command OK
 Make a note of **key1** as you will use it to interact with your storage account in the next steps.
 
 ### Create a storage container
-In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create).
+In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 The following example creates a container named *mydisks*:
 
@@ -149,7 +149,7 @@ az storage container create \
 ```
 
 ### Upload the VHD
-Now upload your custom disk with [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload). You upload and store your custom disk as a page blob.
+Now upload your custom disk with [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload). You upload and store your custom disk as a page blob.
 
 Specify your access key, the container you created in the previous step, and then the path to the custom disk on your local computer:
 
@@ -165,7 +165,7 @@ Uploading the VHD may take a while.
 
 ### Create a managed disk
 
-Create a managed disk from the VHD using [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
+Create a managed disk from the VHD using [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
 
 ```azurecli
 az disk create \
@@ -213,7 +213,7 @@ az disk create \
 
 ## Create the VM
 
-Now, create your VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) and attach (--attach-os-disk) the managed disk as the OS disk. The following example creates a VM named *myNewVM* using the managed disk created from your uploaded VHD:
+Now, create your VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) and attach (--attach-os-disk) the managed disk as the OS disk. The following example creates a VM named *myNewVM* using the managed disk created from your uploaded VHD:
 
 ```azurecli
 az vm create \
@@ -228,4 +228,4 @@ You should be able to SSH into the VM using the credentials from the source VM.
 
 ## Next steps
 After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: wording update, update link, update meta properties -->

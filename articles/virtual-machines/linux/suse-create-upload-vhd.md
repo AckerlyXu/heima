@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -36,7 +36,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
 As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at VMDepot.
-
+<!-- Not Available on https://vmdepot.msopentech.com/User/Show?user=1007 -->
 ## Prepare SUSE Linux Enterprise Server 11 SP4
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 2. Click **Connect** to open the window for the virtual machine.

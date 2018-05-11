@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -32,5 +32,4 @@ You can read more about using your Linux VM in the following articles:
 * [How to Attach a Data Disk to a Linux Virtual Machine](attach-disk-classic.md)
 * [Using the Azure CLI with the Classic deployment model](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 
-<!--The parent file of includes file of howto-detach-disk-linux.md-->
-<!--ms.date:03/19/2018-->
+<!-- Update_Description: update meta properties -->

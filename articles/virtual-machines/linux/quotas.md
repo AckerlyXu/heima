@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 4/10/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ The vCPU quotas for virtual machines and virtual machine scale sets are arranged
 
 ## Check usage
 
-You can check your quota usage using [az vm list-usage](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_usage).
+You can check your quota usage using [az vm list-usage](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-usage).
 
 ```azurecli
 az vm list-usage --location "China East"
@@ -75,4 +75,3 @@ If a quota increase is required to either purchase a Single Subscription RI, you
 
 For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
 <!-- Update_Description: update meta propertiessss -->
-<!-- ms.date: 04/10/2018 -->

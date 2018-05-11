@@ -3,7 +3,7 @@ title: Reset access on Azure Linux VMs using the VMAccess Extension  | Azure
 description: Reset access on Azure Linux VMs using the VMAccess Extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/25/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 # Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension with the Azure CLI 1.0
@@ -265,3 +265,4 @@ Updating Linux using Azure VMAccess Extensions is one method to make changes on 
 [Authoring Azure Resource Manager templates with Linux VM extensions](../windows/template-description.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+<!-- Update_Description: update meta properties -->

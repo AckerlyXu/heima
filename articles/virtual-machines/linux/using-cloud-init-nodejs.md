@@ -3,8 +3,8 @@ title: Using cloud-init to customize a Linux VM during creation in Azure | Azure
 description: How to use cloud-init to customize a Linux VM during creation with the Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/26/2016
-ms.date: 04/17/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 # Use cloud-init to customize a Linux VM during creation with the Azure CLI 1.0
@@ -268,3 +268,4 @@ Cloud-init is becoming one standard way to modify your Linux VM on boot. Azure a
 [About virtual machine extensions and features](../windows/extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+<!-- Update_Description: update meta properties -->

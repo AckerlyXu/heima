@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/13/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## Create virtual machine
 
-Create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. 
+Create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) command. 
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -67,7 +67,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) command to open the desired port.  
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) command to open the desired port.  
 
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -101,7 +101,7 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -114,4 +114,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, update link -->

@@ -11,7 +11,7 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 4/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ---
 
@@ -117,5 +117,4 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 [Unexpected reboots of VMs with attached VHDs]: #you-are-experiencing-unexpected-reboots
 [Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm
 
-<!-- Update_Description: new articles on troubleshoot for vhds on linux VM -->
-<!--ms.date: 04/16/2018-->
+<!-- Update_Description: update meta properties -->

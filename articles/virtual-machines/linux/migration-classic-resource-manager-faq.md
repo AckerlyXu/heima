@@ -3,8 +3,8 @@ title: Frequently asked questions about Classic to Azure Resource Manager migrat
 description: Frequently asked questions about Classic to Azure Resource Manager migration
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 
@@ -31,3 +31,5 @@ ms.author: v-dazen
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!-- Update_Description: update meta properties -->

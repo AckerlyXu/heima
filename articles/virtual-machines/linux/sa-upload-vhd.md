@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -33,33 +33,33 @@ Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/c
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
-First, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
+First, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
 
-Create a storage account to hold your virtual disks with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create). The following example creates a storage account named `mystorageaccount`:
+Create a storage account to hold your virtual disks with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create). The following example creates a storage account named `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location chinanorth \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-List the access keys for your storage account with [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list). Make a note of `key1`:
+List the access keys for your storage account with [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list). Make a note of `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Create a container within your storage account using the storage key you obtained with [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create). The following example creates a container named `mydisks` using the storage key value from `key1`:
+Create a container within your storage account using the storage key you obtained with [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create). The following example creates a container named `mydisks` using the storage key value from `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Finally, upload your VHD to the container you created with [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload). Specify the local path to your VHD under `/path/to/disk/mydisk.vhd`:
+Finally, upload your VHD to the container you created with [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload). Specify the local path to your VHD under `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -67,7 +67,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Specify the URI to your disk (`--image`) with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+Specify the URI to your disk (`--image`) with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location chinanorth \
@@ -120,7 +120,7 @@ Also see the **[Linux Installation Notes](create-upload-generic.md#general-linux
 > 
 
 ## Create a resource group
-Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. For more information resource groups, see [resource groups overview](../../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create).
+Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. For more information resource groups, see [resource groups overview](../../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create).
 
 The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
 
@@ -130,7 +130,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. 
+Create a storage account for your custom disk and VMs with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. 
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 
@@ -140,7 +140,7 @@ az storage account create --resource-group myResourceGroup --location chinanorth
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list).
 
 View the access keys for the storage account you created:
 
@@ -162,7 +162,7 @@ info:    storage account keys list command OK
 Make a note of `key1` as you will use it to interact with your storage account in the next steps.
 
 ## Create a storage container
-In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create).
+In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 The following example creates a container named `mydisks`:
 
@@ -173,7 +173,7 @@ az storage container create \
 ```
 
 ## Upload VHD
-Now upload your custom disk with [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload). You upload and store your custom disk as a page blob.
+Now upload your custom disk with [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload). You upload and store your custom disk as a page blob.
 
 Specify your access key, the container you created in the previous step, and then the path to the custom disk on your local computer:
 
@@ -184,9 +184,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## Create the VM
-To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
-You specify the `--image` parameter with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
+You specify the `--image` parameter with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
 
 The following example creates a VM named `myVM` from your custom disk:
 
@@ -223,7 +223,7 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you ha
 
 You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Once you have a template configured, use [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_create) to create your VMs. Specify the URI of your JSON template with the `--template-uri` parameter:
+Once you have a template configured, use [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) to create your VMs. Specify the URI of your JSON template with the `--template-uri` parameter:
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \
@@ -239,4 +239,4 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## Next steps
 After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update link, wording update, update meta properties -->

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -38,5 +38,4 @@ This topic describes how to create a Linux virtual machine (VM) with the Azure C
 
 ## How to create a Linux VM using the Classic deployment model
 [!INCLUDE [virtual-machines-create-LinuxVM](../../../../includes/virtual-machines-create-linuxvm.md)]
-<!-- Update_Description: new articles on create custom classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

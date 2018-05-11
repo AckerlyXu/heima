@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -113,4 +113,4 @@ Alternatively, use the [Azure portal](http://portal.azure.cn) to create a custom
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
 [How to Create a Linux Virtual Machine]:create-custom-classic.md
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->
