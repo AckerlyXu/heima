@@ -4,7 +4,7 @@ description: Debugging a Cloud Service or Virtual Machine in Visual Studio
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/11/2016
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -188,4 +188,4 @@ Visual Studio ASP.NET projects offer an option to create a handy virtual machine
 
 - Use **Azure Diagnostics** to log detailed information from code running within roles, whether the roles are running in the development environment or in Azure. See [Collecting logging data by using Azure Diagnostics](/cloud-services/cloud-services-dotnet-diagnostics).
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

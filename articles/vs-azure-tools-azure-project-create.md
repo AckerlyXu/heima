@@ -3,7 +3,7 @@ title: Creating an Azure cloud service project with Visual Studio | Microsoft Do
 description: Learn now to create an Azure cloud service project with Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/21/2017
-ms.date: 05/22/2017
+ms.date: 05/09/2018
 ms.author: v-junlch
 
 ---
@@ -56,3 +56,4 @@ For more information about these files, see [Configure the Roles for an Azure cl
 ## Next steps
 - [Managing roles in Azure cloud service projects with Visual Studio](./vs-azure-tools-cloud-service-project-managing-roles.md)
 
+<!-- Update_Description: update metedata properties -->

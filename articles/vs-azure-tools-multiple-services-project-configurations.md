@@ -3,8 +3,8 @@ title: Configuring your Azure project using multiple service configurations | Mi
 description: Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg, and ServiceConfiguration.Cloud.cscfg files.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/11/2017
-ms.date: 01/25/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 ---
 # Configuring your Azure project in Visual Studio to use multiple service configurations
@@ -107,4 +107,4 @@ When you add a certificate from the certificate store, any intermediate certific
 
 Any management certificates that you associate with your service apply to your service only when it is running in the cloud. When your service is running in the local development environment, it uses a standard certificate that is managed by the compute emulator.
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

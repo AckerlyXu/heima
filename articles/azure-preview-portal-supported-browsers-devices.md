@@ -3,9 +3,9 @@ title: Supported browsers and devices for Azure portal | Microsoft Docs
 description: Describes the browsers and devices on which the Azure portal will work.
 services: ''
 documentationcenter: ''
-author: alexchen2016
+author: flanakin
 writer: flanakin
-manager: digimobile
+manager: lwelicki
 editor: ''
 
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
@@ -14,7 +14,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+origin.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 ms.custom: accessibility
 ---
@@ -33,3 +34,4 @@ We recommend that you use the most up-to-date browser that's compatible with you
 * Chrome (latest version)
 * Firefox (latest version)
 
+<!-- Update_Description: update metedata properties -->

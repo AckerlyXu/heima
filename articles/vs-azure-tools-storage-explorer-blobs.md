@@ -1,10 +1,10 @@
 ---
-title: Manage Azure Blob Storage resources with Storage Explorer (Preview) | Azure
+title: Manage Azure Blob Storage resources with Storage Explorer (Preview) | Microsoft Docs
 description: Manage Azure Blob Containers and Blobs with Storage Explorer (Preview)
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: ''
 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/18/2016
-ms.date: 03/30/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
----
 
+---
 # Manage Azure Blob Storage resources with Storage Explorer (Preview)
 ## Overview
-[Azure Blob Storage](./storage/blobs/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
+[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
 You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer (Preview)
 to work with blob containers and blobs.
 
@@ -28,7 +28,7 @@ to work with blob containers and blobs.
 To complete the steps in this article, you'll need the following:
 
 - [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
-- [Connect to a Azure storage account or service](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+- [Connect to a Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## Create a blob container
 All blobs must reside in a blob container, which is simply a logical grouping of blobs. An account can contain an unlimited number of containers, and each container can store an unlimited number of blobs.
@@ -41,8 +41,7 @@ The following steps illustrate how to create a blob container within Storage Exp
 
    ![Create blob containers context menu][0]
 4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See
-   the [Container naming rules](./storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) section for a list of
-   rules and restrictions on naming blob containers.
+   the [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on rules and restrictions on naming blob containers.
 
    ![Create Blob Containers text box][1]
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
@@ -99,7 +98,7 @@ The following steps illustrate how to copy a blob container from one storage acc
    ![Paste blob container context menu][7]
 
 ## Get the SAS for a blob container
-A [shared access signature (SAS)](./storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
+A [shared access signature (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
 This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to
 share your account access keys.
 
@@ -179,7 +178,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      2. In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
 
         ![Upload files options][16]
-     3. Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](./storage/blobs/storage-dotnet-how-to-use-blobs.md) explains the differences between the various blob types.
+     3. Specify the type of **Blob type**. See [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) for more information.
      4. Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
      5. Select **Upload**.
    - **Upload a folder to a blob container**
@@ -190,7 +189,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      2. In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
 
         ![Upload folder options][18]
-     3. Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](./storage/blobs/storage-dotnet-how-to-use-blobs.md) explains the differences between the various blob types.
+     3. Specify the type of **Blob type**. See [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) for more information.
      4. Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
      5. Select **Upload**.
    - **Download a blob to your local computer**
@@ -240,3 +239,5 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 [17]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
+
+<!-- Update_Description: wording update -->

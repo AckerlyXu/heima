@@ -3,7 +3,7 @@ title: Add Azure Storage by using Connected Services in Visual Studio | Microsof
 description: Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 
@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2017
+origin.date: 03/26/2017
+ms.date: 05/09/2018
 ms.author: v-junlch
 
 ---
@@ -53,7 +54,7 @@ After completion, the **Add Connected Services** dialog automatically displays d
 
    1. Fill out the **Create Storage Account** dialog, and select **Create**.
       
-		![New Azure storage account](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+       ![New Azure storage account](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
       
    1. When the **Azure Storage** dialog is displayed, the new storage account appears in the list. Select the new storage account in the list, and select **Add**.
 
@@ -72,3 +73,4 @@ When you finish the dialog, Visual Studio adds references and modifies certain c
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure Storage documentation](/storage/)
 
+<!-- Update_Description: update metedata properties -->

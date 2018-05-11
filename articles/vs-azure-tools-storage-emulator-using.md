@@ -3,8 +3,8 @@ title: Configuring and using the Storage Emulator with Visual Studio | Microsoft
 description: Configuring and using the Storage Emulator with Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: c8e7996f-6027-4762-806e-614b93131867
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/17/2017
-ms.date: 08/29/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -54,4 +54,4 @@ The storage emulator provides a user interface to view the status of the local s
 ## Viewing storage emulator data in Server Explorer
 The Azure Storage node in Server Explorer enables you to view data and change settings for blob and table data in your storage accounts, including the storage emulator. See [Manage Azure Blob Storage resources with Storage Explorer (Preview)](/vs-azure-tools-storage-explorer-blobs) for more information.
 
-<!--Update_Description: wording update -->  
+<!-- Update_Description: update metedata properties -->

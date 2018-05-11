@@ -4,7 +4,7 @@ description: Debugging Azure cloud services
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/18/2017
-ms.date: 03/16/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -33,4 +33,4 @@ You can enable remote debugging on your cloud services at the time when you depl
 ## Next steps
 - [Debugging an Azure cloud service or VM in Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md) - Learn the details of how to debug Azure cloud services.
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

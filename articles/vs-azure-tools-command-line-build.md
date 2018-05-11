@@ -3,8 +3,8 @@ title: Command-line build for Azure | Microsoft Docs
 description: Command-line build for Azure
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/05/2017
-ms.date: 03/16/2018
+ms.date: 05/09/2018
 ms.author: v-junlch
 
 ---
@@ -36,4 +36,4 @@ If you want to use an alternate directory for the stored package and configurati
 ## Next steps
 After the package is built, you can deploy it to Azure.
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

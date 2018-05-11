@@ -3,7 +3,7 @@ title: Managing Azure resources with Cloud Explorer | Microsoft Docs
 description: Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 
@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/25/2017
+origin.date: 03/25/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
 # Manage the resources associated with your Azure accounts in Visual Studio Cloud Explorer
 Cloud Explorer enables you to view your Azure resources and resource groups, inspect their properties, and perform key developer diagnostics actions from within Visual Studio. 
 
-Like the [Azure portal](https://portal.azure.cn), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](active-directory/role-based-access-control-configure.md) (RBAC). 
+Like the [Azure portal](https://portal.azure.cn), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
 ## Prerequisites
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **Azure workload** selected, or an earlier version of Visual Studio with the [Azure SDK for .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
-- Azure account - If you don't have an account, you can [sign up for a trial](http://go.microsoft.com/fwlink/?LinkId=623901) or [activate your Visual Studio subscriber benefits](http://go.microsoft.com/fwlink/?LinkId=623901).
+- Azure account - If you don't have an account, you can [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial).
 
 > [!NOTE]
 > To view Cloud Explorer, select **View** > **Cloud Explorer** on the menu bar.   
@@ -100,3 +101,4 @@ To locate resources with a specific name in your Azure account subscriptions, en
 
 As you enter characters in the **Search** box, only resources that match those characters appear in the resource tree.
 
+<!-- Update_Description: link update -->
