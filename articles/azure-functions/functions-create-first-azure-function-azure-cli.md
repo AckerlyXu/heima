@@ -44,11 +44,11 @@ You must have a function app to host the execution of your functions. The functi
 In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
 
 ```azurecli
-az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  \
---resource-group myResourceGroup --consumption-plan-location chinanorth \
+az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  `
+--resource-group myResourceGroup --plan <App Service plan> chinanorth `
 --name <app_name> --storage-account  <storage_name>  
 ```
-Setting the _consumption-plan-location_ parameter means that the function app is hosted in a Consumption hosting plan. In this plan, resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
+In this plan, resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
 
 After the function app has been created, the Azure CLI shows information similar to the following example:
 

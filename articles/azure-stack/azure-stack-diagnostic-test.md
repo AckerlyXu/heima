@@ -63,7 +63,6 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 | ServiceAdminCredentials | PSCredential    | No       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   |
 | AdminCredential         | PSCredential    | No       | NA      |
-<!-- | StorageConnectionString | String          | No       | NA      | not supported in 1802 -->
 | List                    | SwitchParameter | No       | FALSE   |
 | Ignore                  | String          | No       | NA      |
 | Include                 | String          | No       | NA      |
