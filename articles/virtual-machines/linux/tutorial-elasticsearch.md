@@ -12,7 +12,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 10/11/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ---
 
@@ -36,7 +36,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group
 
-Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## Create a virtual machine
 
-Create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. 
+Create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) command. 
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -76,7 +76,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## SSH into your VM
 
-If you don't already know the public IP address of your VM, run the [az network public-ip list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_list) command:
+If you don't already know the public IP address of your VM, run the [az network public-ip list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list) command:
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
@@ -124,7 +124,7 @@ sudo systemctl start elasticsearch.service
 This command produces no output, so verify that Elasticsearch is running on the VM with this `curl` command:
 
 ```bash
-curl -XGET 'localhost:9200/'
+sudo curl -XGET 'localhost:9200/'
 ```
 
 If Elasticsearch is running, you see output like the following:
@@ -238,4 +238,4 @@ In this tutorial, you deployed the Elastic Stack into a development VM in Azure.
 > * Install Elasticsearch, Logstash, and Kibana on the VM
 > * Send sample data to Elasticsearch from Logstash 
 > * Open ports and work with data in the Kibana console
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

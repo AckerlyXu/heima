@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ---
 
@@ -417,4 +417,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 ## Next steps
 
 - Learn more about [Scheduled Events](scheduled-events.md)
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

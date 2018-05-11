@@ -3,8 +3,8 @@ title: Set up Key Vault for Linux VMs with the Azure CLI 1.0 | Azure
 description: How to set up Key Vault for use with an Azure Resource Manager virtual machine with the Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager with the Azure CLI 1.0
@@ -25,7 +25,7 @@ In the Azure Resource Manager stack, secrets/certificates are modeled as resourc
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions
 
-- Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI 2.0](../windows/key-vault-setup.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Use CLI 1.0 to set up Key Vault
@@ -53,4 +53,6 @@ When you use a template, you need to set the `enabledForDeployment` property to 
 For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create/).
 
 >[!NOTE]
-> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "cloudapp.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+
+<!-- Update_Description: wording update, update link -->

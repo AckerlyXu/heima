@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -35,19 +35,19 @@ To ensure your virtual machines (VMs) in Azure are running correctly, you can re
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create). The following example creates a resource group named *myResourceGroupMonitor* in the *chinaeast* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create). The following example creates a resource group named *myResourceGroupMonitor* in the *chinaeast* location.
 
-```azurecli 
+```azurecli
 az group create --name myResourceGroupMonitor --location chinaeast
 ```
 
-Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create). The following example creates a VM named *myVM*:
+Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*:
 
-```azurecli 
+```azurecli
 az vm create \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -60,9 +60,9 @@ az vm create \
 
 As Linux VMs boot, the boot diagnostic extension captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
 
-Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create) command. In this example, a random string is used to create a unique storage account name. 
+Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) command. In this example, a random string is used to create a unique storage account name.
 
-```azurecli 
+```azurecli
 storageacct=mydiagdata$RANDOM
 
 az storage account create \
@@ -74,13 +74,13 @@ az storage account create \
 
 When enabling boot diagnostics, the URI to the blob storage container is needed. The following command queries the storage account to return this URI. The URI value is stored in a variable names *bloburi*, which is used in the next step.
 
-```azurecli 
+```azurecli
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az_vm_boot_diagnostics_enable). The `--storage` value is the blob URI collected in the previous step.
+Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-enable). The `--storage` value is the blob URI collected in the previous step.
 
-```azurecli 
+```azurecli
 az vm boot-diagnostics enable \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -89,21 +89,21 @@ az vm boot-diagnostics enable \
 
 ## View boot diagnostics
 
-When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate) command as follows:
+When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) command as follows:
 
-```azurecli 
+```azurecli
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Now start the VM with the [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_stop) command as follows:
+Now start the VM with the [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-stop) command as follows:
 
-```azurecli 
+```azurecli
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az_vm_boot_diagnostics_get_boot_log) command as follows:
+You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log) command as follows:
 
-```azurecli 
+```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 <!--Not Available ## View host metrics-->
@@ -133,10 +133,10 @@ The following example creates an alert for average CPU usage.
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
-4. Provide a **Name** for your alert, such as *myAlertRule*
-5. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
-6. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
-7. Click the **OK** button.
+3. Provide a **Name** for your alert, such as *myAlertRule*
+4. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
+5. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
+6. Click the **OK** button.
 
 <!-- Not Avaialbel ## Manage package updates-->
 <!-- Not Available ## Advanced monitoring -->
@@ -150,4 +150,4 @@ In this tutorial, you configured, reviewed, and managed updates for a VM. You le
 > * Enable diagnostics extension on the VM
 > * Create alerts based on diagnostic metrics
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties, update link, wording update -->

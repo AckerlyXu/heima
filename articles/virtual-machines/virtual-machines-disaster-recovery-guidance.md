@@ -3,8 +3,8 @@ title: Disaster recovery scenarios for Azure VMs | Azure
 description: Learn what to do in the event that an Azure service disruption impacts Azure virtual machines.
 services: virtual-machines
 documentationcenter: ''
-author: kmouss
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -52,3 +52,4 @@ This is the best option if you have not set up Azure Site Recovery, read-access 
 - To develop a detailed technical understanding of a cloud platform's capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
 
 - If the instructions are not clear, or if you would like Azure.cn to do the operations on your behalf, contact [Customer Support](https://www.azure.cn/support/support-azure/).
+<!-- Update_Description: update meta properties -->

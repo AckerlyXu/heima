@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 03/19/2018
+origin.date: 03/30/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ---
 
@@ -110,5 +110,4 @@ done
 ## Next steps
 
 [Delete storage account](../../storage/common/storage-create-storage-account.md)
-<!-- Update_Description: new articles on find unattached disks -->
-<!--ms.date: 03/19/2018-->
+<!-- Update_Description: Update meta properties -->

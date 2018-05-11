@@ -4,8 +4,8 @@ title: Use a Linux troubleshooting VM with the Azure CLI 1.0 | Azure
 description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI 1.0
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/09/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 
@@ -228,3 +228,4 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+<!-- Update_Description: update meta properties -->

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -135,4 +135,4 @@ Some useful links to additional resources:
 * [Azure Linux Agent User Guide](agent-user-guide.md)
 * [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
 * [Configure Software RAID on Linux](configure-raid.md)
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties, update link, wording update -->

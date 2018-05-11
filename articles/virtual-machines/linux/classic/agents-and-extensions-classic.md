@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/02/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -26,5 +26,4 @@ ms.custom: H1Hack27Feb2017
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about VM agents and extensions using Resource Manager, see [here](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-<!--Update_Description: new article on the agent and extensions classic for linux VM-->
-<!--ms.date: 01/29/2018-->
+<!--Update_Description: Update meta properties -->

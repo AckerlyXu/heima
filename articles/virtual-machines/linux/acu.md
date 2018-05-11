@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/05/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -28,5 +28,4 @@ Here are links to more information about the different sizes:
 - [General-purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
 - [Compute optimized](sizes-compute.md)
-<!--Not Available the parent file of includes file of virtual-machines-common-acu.md-->
-<!--ms.date:01/08/2018-->
+<!-- Update_Description: update meta properties -->

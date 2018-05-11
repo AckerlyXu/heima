@@ -14,7 +14,7 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
 ---
@@ -26,12 +26,12 @@ If you are familiar with the various features of Amazon's AWS, you can examine t
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
 ## Regions
-Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area.  Azure currently (as of November 2017) has 2 regions generally available in china. 
+Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area.  Azure currently (as of November 2017) has 2 regions generally available in China. An updated list of existing and newly announced regions can be found in the following page:
 
 * [Azure China Regions](https://www.azure.cn/support/service-dashboard/)
 
 ## Availability
-We announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
+Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
 ## Managed Disks
 
@@ -75,7 +75,7 @@ We work closely with partners to ensure the images available are updated and opt
 <!-- Not Available * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)
+* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 * CoreOS - [Azure Marketplace - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
 <!-- Not Avaialbe * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
@@ -126,4 +126,4 @@ You now have an overview of Linux on Azure.  The next step is to dive in and cre
 
 * [Explore the growing list of sample scripts for common tasks via AzureCLI](cli-samples.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

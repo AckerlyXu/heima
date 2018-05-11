@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/28/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ This article describes different ways to tag a Linux virtual machine in Azure th
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## Tagging with Azure CLI
-To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
+To begin, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -33,15 +33,24 @@ You can also perform these steps with the [Azure CLI 1.0](tag-nodejs.md?toc=%2fv
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 
-        az vm show --resource-group MyResourceGroup --name MyTestVM
+```azurecli
+az vm show --resource-group MyResourceGroup --name MyTestVM
+```
 
 To add a new VM tag through the Azure CLI, you can use the `azure vm update` command along with the tag parameter **--set**:
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```azurecli
+az vm update \
+    --resource-group MyResourceGroup \
+    --name MyTestVM \
+    --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```
 
 To remove tags, you can use the **--remove** parameter in the `azure vm update` command.
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
+```azurecli
+az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
+```
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let's take a look at the usage details to see the tags in the billing portal.
 
@@ -57,4 +66,4 @@ Now that we have applied tags to our resources Azure CLI and the Portal, let's t
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing-understand-your-bill.md
 <!-- Notice correct : [Understanding your Azure Bill]: ../../billing-understand-your-bill.md -->
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

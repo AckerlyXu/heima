@@ -3,8 +3,8 @@ title: How to tag an Azure Linux virtual machine | Azure
 description: Learn about tagging an Azure Linux virtual machine created in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mmccrory
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/28/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
+ms.date: 05/14/2018
+ms.author: v-yeche
 
 ---
 # How to tag a Linux virtual machine in Azure
@@ -45,7 +45,12 @@ Now that we have applied tags to our resources Azure CLI and the Portal, let's t
 
 ## Next steps
 * To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
+<!--Not Available on [Understanding your Azure Bill] and [Gain insights into your Azure resource consumption] -->
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+<!--Not Available on [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md -->
+<!--Not Available on [Gain insights into your Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md -->
+
+<!-- Update_Description: update meta properties, wording update -->

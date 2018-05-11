@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ---
 
@@ -29,6 +29,7 @@ Let's go through each section of a Terraform template. You can also see the full
 
 The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). 
 
+<!-- Not Available on [Azure Cloud Shell Bash experience](/cloud-shell/overview) -->
 ```tf
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -441,13 +442,13 @@ Note: You didn't specify an "-out" parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-If everything looks correct and you ready to build the infrastructure in Azure, apply the template in Terraform:
+If everything looks correct and you are ready to build the infrastructure in Azure, apply the template in Terraform:
 
 ```bash
 terraform apply
 ```
 
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show):
+Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

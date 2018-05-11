@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -41,15 +41,15 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../active-directory/role-based-access-control-what-is.md) enables you to manage which users have permission to complete specific actions at a scope.
+You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 
 To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 
 For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
@@ -86,7 +86,7 @@ After your deployment finishes, you can apply more management settings to the so
 
 To create or delete management locks, you must have access to `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
 
-To lock the virtual machine and network security group, use the [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_create) command:
+To lock the virtual machine and network security group, use the [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-create) command:
 
 ```azurecli
 # Add CanNotDelete lock to the VM
@@ -118,7 +118,7 @@ You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to y
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-To apply tags to a virtual machine, use the [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_tag) command. Any existing tags on the resource are not retained.
+To apply tags to a virtual machine, use the [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-tag) command. Any existing tags on the resource are not retained.
 
 ```azurecli
 az resource tag -n myVM \
@@ -129,7 +129,7 @@ az resource tag -n myVM \
 
 ### Find resources by tag
 
-To find resources with a tag name and value, use the [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_list) command:
+To find resources with a tag name and value, use the [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-list) command:
 
 ```azurecli
 az resource list --tag Environment=Test --query [].name
@@ -147,7 +147,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## Clean up resources
 
-The locked network security group can't be deleted until the lock is removed. To remove the lock, retrieve the IDs of the locks and provide them to the [az lock delete](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_delete) command:
+The locked network security group can't be deleted until the lock is removed. To remove the lock, retrieve the IDs of the locks and provide them to the [az lock delete](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-delete) command:
 
 ```azurecli
 vmlock=$(az lock show --name LockVM \
@@ -161,7 +161,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -182,5 +182,4 @@ Advance to the next tutorial to learn about how highly available virtual machine
 > [!div class="nextstepaction"]
 > [Monitor virtual machines](tutorial-monitoring.md)
 
-<!--The parent file of includes file of resource-manager-governance-tags-cli.md-->
-<!--ms.date: 04/16/2018-->
+<!-- Update_Description: update meta properties, update links -->

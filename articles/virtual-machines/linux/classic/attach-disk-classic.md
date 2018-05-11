@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -233,5 +233,5 @@ You can read more about using your Linux VM in the following articles:
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -185,4 +185,4 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 ## Next steps
 You're now ready to use your Oracle Linux .vhd to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties -->

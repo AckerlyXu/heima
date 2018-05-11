@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 10/05/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -45,7 +45,7 @@ Use Availability Sets when you want to deploy reliable VM-based solutions within
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 Create a resource group.
 
@@ -67,7 +67,7 @@ Availability Sets allow you to isolate resources across fault domains and update
 
 VMs must be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
 
-When you create a VM using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set.
+When you create a VM using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set.
 
 ```azurecli 
 for i in `seq 1 2`; do
@@ -91,8 +91,8 @@ If you look at the availability set in the portal by going to Resource Groups > 
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware.  Use [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set.
-<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes -->
+You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware.  Use [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes) to list all the available sizes on the hardware cluster for the availability set.
+<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes -->
 
 ```azurecli 
 az vm availability-set list-sizes \
@@ -115,4 +115,4 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 > [!div class="nextstepaction"]
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

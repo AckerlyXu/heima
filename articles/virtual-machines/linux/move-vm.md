@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 12/14/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,7 @@ This article walks you through how to move a Linux VM between resource groups or
 
 ## Use the Azure CLI to move a VM
 
-Before you can move your VM using the CLI, you need to make sure the source and destination subscriptions exist within the same tenant. To check that both subscriptions have the same tenant ID, use [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_show).
+Before you can move your VM using the CLI, you need to make sure the source and destination subscriptions exist within the same tenant. To check that both subscriptions have the same tenant ID, use [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -41,13 +41,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 If the tenant IDs for the source and destination subscriptions are not the same, you must contact [support](https://www.azure.cn/support/support-ticket-form) to move the resources to a new tenant.
 
-To successfully move a VM, you need to move the VM and all its supporting resources. Use the [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_list) command to list all the resources in a resource group and their IDs. It helps to pipe the output of this command to a file so you can copy and paste the IDs into later commands.
+To successfully move a VM, you need to move the VM and all its supporting resources. Use the [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-list) command to list all the resources in a resource group and their IDs. It helps to pipe the output of this command to a file so you can copy and paste the IDs into later commands.
 
 ```azurecli
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-To move a VM and its resources to another resource group, use [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_move). The following example shows how to move a VM and the most common resources it requires. Use the **-ids** parameter and pass in a comma-separated list (without spaces) of IDs for the resources to move.
+To move a VM and its resources to another resource group, use [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-move). The following example shows how to move a VM and the most common resources it requires. Use the **-ids** parameter and pass in a comma-separated list (without spaces) of IDs for the resources to move.
 
 ```azurecli
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
@@ -72,6 +72,4 @@ If you are asked to confirm that you want to move the specified resource. Type *
 ## Next steps
 You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).
 
-<!--Not Available the parent file of includes file of virtual-machines-common-move-vm.md-->
-<!--ms.date:01/08/2018-->
 <!--Update_Description: wording update, update link -->

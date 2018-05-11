@@ -11,55 +11,36 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 10/09/2017
-ms.date: 03/19/2018
+origin.date: 03/20/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-
 ---
 # Create a snapshot 
 
-Take a snapshot of an OS or data disk VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
+Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 
-## Use Azure CLI 2.0 to take a snapshot
+## Use Azure CLI 
 
 The following example requires the Azure CLI 2.0 installed and logged into your Azure account. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
-The following steps show how to take a snapshot using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` created with a managed OS disk in the `myResourceGroup` resource group.
+The following steps show how to take a snapshot using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` in the `myResourceGroup` resource group.
 
+Get the disk ID.
 ```azure-cli
-# take the disk id with which to create a snapshot
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ```
 
-The output should look something like:
+Take a snapshot named *osDisk-backup*.
 
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Copy",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/osdisk_6NexYgkFQU",
-    "storageAccountId": null
-  },
-  "diskSizeGb": 30,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/osDisk-backup",
-  "location": "chinanorth",
-  "name": "osDisk-backup",
-  "osType": "Linux",
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-06T21:27:10.172980+00:00",
-  "type": "Microsoft.Compute/snapshots"
-}
+```azurecli
+az snapshot create \
+    -g myResourceGroup \
+	--source "$osDiskId" \
+	--name osDisk-backup
 ```
 
-## Use Azure portal to take a snapshot 
+<!-- Not Available on Availability zones -->
+## Use Azure portal 
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. Starting in the upper-left, click **Create a resource** and search for **snapshot**.
@@ -71,9 +52,7 @@ The output should look something like:
 8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
 9. Click **Create**.
 
-If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--sku Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).
-
 ## Next steps
 
  Create a virtual machine from a snapshot by creating a managed disk from the snapshot and then attaching the new managed disk as the OS disk. For more information, see the [Create a VM from a snapshot](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script.
-<!--Update_Description: update link, wording update -->
+<!-- Update_Description: update link, wording update -->
