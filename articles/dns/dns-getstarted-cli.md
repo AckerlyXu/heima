@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 01/01/2018
+ms.date: 05/21/2018
 ms.author: v-nany
 
 ---
@@ -32,6 +32,8 @@ This article walks you through the steps to create your first DNS zone and recor
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
 
 These instructions assume you have already installed and signed in to Azure CLI 2.0. For help, see [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md).
+
+Azure DNS now also supports private DNS zones (currently in public preview). To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using CLI](./private-dns-getstarted-cli.md).
 
 ## Create the resource group
 

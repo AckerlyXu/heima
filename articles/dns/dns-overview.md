@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 01/01/2018
+ms.date: 05/21/2018
 ms.author: v-nany
 
 ---
 
 # Azure DNS overview
 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. Azure DNS now also supports private DNS domains. For more information, see [Using Azure DNS for private domains](private-dns-overview.md).
+The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. Azure DNS now also supports private DNS domains. For more information, see [Using Azure DNS for private domains](private-dns-overview.md).
 
 ![DNS overview](./media/dns-overview/scenario.png)
 
