@@ -178,7 +178,7 @@ The table below lists the property names and their description for creating a ta
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) is a multiple-region distributed, multi-model database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs. To learn about Cosmos DB collection options for Stream Analytics, refer to the [Stream Analytics with Cosmos DB as output](stream-analytics-documentdb-output.md) article.
+[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) is a multiple-region distributed, multi-model database service that offers limitless elastic scale around China, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs. To learn about Cosmos DB collection options for Stream Analytics, refer to the [Stream Analytics with Cosmos DB as output](stream-analytics-documentdb-output.md) article.
 
 > [!Note]
 > At this time, Azure Stream Analytics only supports connection to CosmosDB using **SQL API**.

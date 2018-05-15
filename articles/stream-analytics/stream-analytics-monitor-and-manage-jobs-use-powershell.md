@@ -460,7 +460,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://www.azure
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+<!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md-->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
