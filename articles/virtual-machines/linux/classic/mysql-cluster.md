@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2015
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ ms.author: v-yeche
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Azure, exploring MySQL Server high availability as a primer.
-<!-- Not Available on  A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL). -->
+<!-- Not Available on  [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL). -->
 
 We will outline a shared-nothing, two-node, single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
 
@@ -341,4 +341,4 @@ The following limitations apply:
 * MySQL tuning is necessary to ensure that writing is done at a manageable pace and caches are flushed to disk as frequently as possible to minimize memory loss.
 * Write performance is dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

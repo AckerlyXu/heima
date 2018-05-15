@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -39,7 +39,7 @@ and availability of your HPC Pack cluster resources so you can control costs.
   * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
 
     ```PowerShell
-    Get-AzurePublishSettingsFile
+    Get-AzurePublishSettingsFile -Environment AzureChinaCloud 
 
     Import-AzurePublishSettingsFile -PublishSettingsFile <publish settings file>
     ```

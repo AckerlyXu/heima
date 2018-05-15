@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 10/14/2016
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -113,4 +113,4 @@ Pack](http://technet.microsoft.com/library/jj159097.aspx).
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -84,4 +84,4 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->
