@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-nany
 
 ---
@@ -49,6 +49,7 @@ A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The following ex
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
+Azure DNS now also supports private DNS zones (currently in public preview).  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
 
 ## Create a DNS record
 
