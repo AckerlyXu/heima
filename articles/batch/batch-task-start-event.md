@@ -2,17 +2,17 @@
 title: "Azure Batch task start event | Microsoft Docs"
 description: Reference for Batch task start event.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
 ---
 
@@ -81,3 +81,4 @@ ms.author: v-junlch
 |------------------|----------|-----------|
 |retryCount|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount|
 
+<!-- Update_Description: update metedata properties -->

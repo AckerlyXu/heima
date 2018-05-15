@@ -1,19 +1,20 @@
 ---
-title: Start building Batch solutions with Visual Studio project templates - Azure | Microsoft Docs
+title: Build Batch solutions with Visual Studio templates - Azure | Microsoft Docs
 description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 02/27/2017
+origin.date: 02/27/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
 > [!IMPORTANT]
-> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](./batch-technical-overview.md), [Batch feature overview for developers](./batch-api-basics.md), and [Get started with the Azure Batch library for .NET](./batch-dotnet-get-started.md).
+> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md), [Batch feature overview for developers](batch-api-basics.md), and [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md).
 > 
 > 
 
@@ -51,7 +52,7 @@ As shown in the diagram below, a compute job that uses these templates will go t
 ## Prerequisites
 To use the Batch templates, you will need the following:
 
-- A computer with Visual Studio 2015 or newer installed.
+- A computer with Visual Studio 2015 installed. Batch templates are currently only supported for Visual Studio 2015.
 - The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
   
   - Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:
@@ -59,7 +60,7 @@ To use the Batch templates, you will need the following:
     - Azure Batch Job Manager with Job Splitter
     - Azure Batch Task Processor
   - Download the templates from the online gallery for Visual Studio: [Azure Batch Project Templates][vs_gallery_templates]
-- If you plan to use the [Application Packages](./batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
+- If you plan to use the [Application Packages](batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
 
 ## Preparation
 We recommend creating a solution that can contain your job manager as well as your task processor, because this can make it easier to share code between your job manager and task processor programs. To create this solution, follow these steps:
@@ -76,7 +77,7 @@ The Job Manager template helps you to implement a job manager task that can perf
 - Submit those tasks to run on Batch.
 
 > [!NOTE]
-> For more information about job manager tasks, see [Batch feature overview for developers](./batch-api-basics.md#job-manager-task).
+> For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
 > 
 > 
 
@@ -195,7 +196,7 @@ A job manager task that is implemented with the Job Manager template can return 
 
 In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](./batch-api-basics.md#error-handling).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
 
 ### Client considerations
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
@@ -206,7 +207,7 @@ In order to add tasks to the Azure Batch job, the job manager task requires your
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
-    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.azure.com"),
+    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.chinacloudapi.cn"),
     new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
 };
 ```
@@ -433,7 +434,7 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 
 ## Next steps
 ### Persist job and task output to Azure Storage
-Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](./batch-task-output.md) contains a full discussion of the library and its usage.
+Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](batch-task-output.md) contains a full discussion of the library and its usage.
 
 ### Batch Forum
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
@@ -450,3 +451,5 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
+
+<!-- Update_Description: wording update -->

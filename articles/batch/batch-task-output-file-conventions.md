@@ -3,18 +3,18 @@ title: Persist job and task output to Azure Storage with the File Conventions li
 description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task and job output to Azure Storage, and view the persisted output in the Azure portal.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 07/03/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -224,9 +224,9 @@ The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure 
 
 ### Get the Batch File Conventions library for .NET
 
-The Batch File Conventions library for .NET is available on [NuGet][nuget_package]. The library extends the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes with new methods. 
+The Batch File Conventions library for .NET is available on [NuGet][nuget_package]. The library extends the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes with new methods. Also see the [reference documentation](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files) for the File Conventions library.
 
-The [source code][github_file_conventions] for the File Conventions library is available on GitHub in the Azure SDK for .NET repository.
+The [source code][github_file_conventions] for the File Conventions library is available on GitHub in the Azure SDK for .NET repository. 
 
 ### Explore other approaches for persisting output data
 
@@ -260,3 +260,4 @@ The [source code][github_file_conventions] for the File Conventions library is a
 [1]: ./media/batch-task-output/task-output-01.png "Saved output files and Saved logs selectors in portal"
 [2]: ./media/batch-task-output/task-output-02.png "Task outputs blade in the Azure portal"
 
+<!-- Update_Description: wording update -->

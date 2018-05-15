@@ -3,18 +3,18 @@ title: Automatically scale compute nodes in an Azure Batch pool | Microsoft Docs
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 services: batch
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: multiple
 origin.date: 06/20/2017
-ms.date: 08/02/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -32,7 +32,7 @@ This article discusses the various entities that make up your autoscale formulas
 > [!IMPORTANT]
 > When you create a Batch account, you can specify the [account configuration](batch-api-basics.md#account), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 >
->If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. 
+>If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 >
 >
 
@@ -353,11 +353,11 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 To create a pool with autoscaling enabled in .NET, follow these steps:
 
-1. Create the pool with [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Set the [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) property to `true`.
-3. Set the [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) property with your autoscale formula.
-4. (Optional) Set the [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) property (default is 15 minutes).
-5. Commit the pool with [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) or [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Create the pool with [BatchClient.PoolOperations.CreatePool](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+2. Set the [CloudPool.AutoScaleEnabled](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) property to `true`.
+3. Set the [CloudPool.AutoScaleFormula](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) property with your autoscale formula.
+4. (Optional) Set the [CloudPool.AutoScaleEvaluationInterval](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) property (default is 15 minutes).
+5. Commit the pool with [CloudPool.Commit](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.commit) or [CommitAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 The following code snippet creates an autoscale-enabled pool in .NET. The pool's autoscale formula sets the target number of dedicated nodes to 5 on Mondays, and 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, `myBatchClient` is a properly initialized instance of the [BatchClient][net_batchclient] class.
 
@@ -452,7 +452,7 @@ You can evaluate a formula before applying it to a pool. In this way, you can te
 
 To evaluate an autoscale formula, you must first enable autoscaling on the pool with a valid formula. To test a formula on a pool that doesn't yet have autoscaling enabled, use the one-line formula `$TargetDedicatedNodes = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
 
-- [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) or [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+- [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) or [EvaluateAutoScaleAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     These Batch .NET methods require the ID of an existing pool and a string containing the autoscale formula to evaluate.
 
@@ -542,11 +542,11 @@ AutoScaleRun.Results:
 
 To ensure that your formula is performing as expected, we recommend that you periodically check the results of the autoscaling runs that Batch performs on your pool. To do so, get (or refresh) a reference to the pool, and examine the properties of its last autoscale run.
 
-In Batch .NET, the [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) property has several properties that provide information about the latest automatic scaling run performed on the pool:
+In Batch .NET, the [CloudPool.AutoScaleRun](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) property has several properties that provide information about the latest automatic scaling run performed on the pool:
 
-- [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-- [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-- [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+- [AutoScaleRun.Timestamp](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+- [AutoScaleRun.Results](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+- [AutoScaleRun.Error](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
 In the REST API, the [Get information about a pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) request returns information about the pool, which includes the latest automatic scaling run information in the [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) property.
 
@@ -657,17 +657,17 @@ string formula = string.Format(@"
 - [Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md) contains details about how you can execute multiple tasks simultaneously on the compute nodes in your pool. In addition to autoscaling, this feature may help to lower job duration for some workloads, saving you money.
 - For another efficiency booster, ensure that your Batch application queries the Batch service in the most optimal way. See [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to learn how to limit the amount of data that crosses the wire when you query the status of potentially thousands of compute nodes or tasks.
 
-[net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
-[net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
+[net_api]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch
+[net_batchclient]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudpool_autoscaleformula]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
+[net_cloudpool_autoscaleevalinterval]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
+[net_enableautoscaleasync]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
+[net_maxtasks]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
+[net_poolops_resizepoolasync]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
 
 [rest_api]: https://docs.microsoft.com/rest/api/batchservice/
 [rest_autoscaleformula]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
 [rest_autoscaleinterval]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
 [rest_enableautoscale]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

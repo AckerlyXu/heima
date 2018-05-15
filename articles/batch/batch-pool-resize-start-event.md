@@ -2,17 +2,17 @@
 title: "Azure Batch pool resize start event | Microsoft Docs"
 description: Reference for Batch pool resize start event.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ---
 
@@ -42,3 +42,4 @@ ms.author: v-junlch
 |enableAutoScale|Bool|Specifies whether the pool size automatically adjusts over time.|
 |isAutoPool|Bool|Speficies whether the pool was created via a job's AutoPool mechanism.|
 
+<!-- Update_Description: update metedata properties -->

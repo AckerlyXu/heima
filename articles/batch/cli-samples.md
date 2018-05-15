@@ -1,10 +1,10 @@
 ---
 title: Azure CLI Examples - Batch | Microsoft Docs
 description: Azure CLI Examples for Batch service
-services: virtual-machines-linux
+services: batch
 documentationcenter: batch
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: 
 origin.date: 01/29/2018
-ms.date: 03/07/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: mvc
 
@@ -38,3 +38,4 @@ The following table includes links to Azure CLI examples for Azure Batch.
 | [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
 
 
+<!-- Update_Description: update metedata properties -->

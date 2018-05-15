@@ -2,17 +2,17 @@
 title: Azure Batch Analytics | Microsoft Docs
 description: Reference for Azure Batch Analytics.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ---
 
@@ -35,3 +35,4 @@ The Azure Batch service emits the following diagnostic log events during the lif
 - [Task complete](batch-task-complete-event.md)
 - [Task fail](batch-task-fail-event.md)
 
+<!-- Update_Description: update metedata properties -->

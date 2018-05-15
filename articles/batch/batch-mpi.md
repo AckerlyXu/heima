@@ -2,19 +2,18 @@
 title: Use multi-instance tasks to run MPI applications - Azure Batch | Microsoft Docs
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 services: batch
-documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 origin.date: 05/22/2017
-ms.date: 12/04/2017
-ms.workload: 5/22/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
@@ -47,7 +46,11 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 >
 
 ## Requirements for multi-instance tasks
-Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) property to 1.
+Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.MaxTasksPerComputeNode](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) property to 1.
+
+> [!NOTE]
+> Batch [limits](batch-quota-limit.md#other-limits) the size of a pool that has inter-node communication enabled.
+
 
 This code snippet shows how to create a pool for multi-instance tasks using the Batch .NET library.
 
@@ -104,8 +107,7 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   - [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](batch-api-basics.md).
->
+> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. 
 >
 
 ## Create a multi-instance task with Batch .NET
