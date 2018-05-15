@@ -1,9 +1,9 @@
 ---
-title: Publish-WebApplicationWebSite (Windows PowerShell script) | Azure
+title: Publish-WebApplicationWebSite (Windows PowerShell script) | Microsoft Docs
 description: Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 
@@ -14,23 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/11/2016
-ms.date: 03/30/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
----
 
+---
 # Publish-WebApplicationWebSite (Windows PowerShell script)
 ## Syntax
 Publishes a web project to an Azure website. The script creates the required resources in your Azure subscription if they don't exist.
 
-```
-Publish-WebApplicationWebSite
--Configuration <configuration>
--SubscriptionName <subscriptionName>
--WebDeployPackage <packageName>
--DatabaseServerPassword @{Name = "name"; Password = "password"}
--SendHostMessagesToOutput
--Verbose
-```
+    Publish-WebApplicationWebSite
+    -Configuration <configuration>
+    -SubscriptionName <subscriptionName>
+    -WebDeployPackage <packageName>
+    -DatabaseServerPassword @{Name = "name"; Password = "password"}
+    -SendHostMessagesToOutput
+    -Verbose
+
 
 ## Configuration
 The path to the JSON configuration file that describes the details of the deployment.
@@ -93,35 +92,36 @@ If true, print messages from the script to the output stream.
 | Accept wildcard characters? |false |
 
 ## Remarks
-For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](./vs-azure-tools-publishing-using-powershell-scripts.md).
+For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name and username for the website. It also includes the database to provision, if any. The following code shows an example JSON configuration file:
 
-```
-{
-    "environmentSettings": {
-        "webSite": {
-            "name": "WebApplication10554",
-            "location": "China North"
-        },
-        "databases": [
-            {
-                "connectionStringName": "DefaultConnection",
-                "databaseName": "WebApplication10554_db",
-                "serverName": "iss00brc88",
-                "user": "sqluser2",
-                "password": "",
-                "edition": "",
-                "size": "",
-                "collation": "",
+    {
+        "environmentSettings": {
+            "webSite": {
+                "name": "WebApplication10554",
                 "location": "China North"
-            }
-        ]
+            },
+            "databases": [
+                {
+                    "connectionStringName": "DefaultConnection",
+                    "databaseName": "WebApplication10554_db",
+                    "serverName": "iss00brc88",
+                    "user": "sqluser2",
+                    "password": "",
+                    "edition": "",
+                    "size": "",
+                    "collation": "",
+                    "location": "China North"
+                }
+            ]
+        }
     }
-}
-```
 
 You can edit the JSON configuration file to change what is deployed. A webSite section is required, but the database section is optional.
 
 ## Next steps
-For more information, see [Publish-WebApplicationVM (Windows PowerShell script)](./vs-azure-tools-publish-webapplicationvm.md)
+For more information, see [Publish-WebApplicationVM (Windows PowerShell script)](vs-azure-tools-publish-webapplicationvm.md)
+
+
+<!-- Update_Description: update metedata properties -->

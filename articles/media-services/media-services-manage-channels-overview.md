@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 08/07/2017
+origin.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-haiqya
 ---
 # Overview of Live Streaming using Azure Media Services
+
 
 ## Overview
 

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/02/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.date: 06/21/2017
+
 
 ---
 
@@ -26,7 +27,7 @@ Azure Active Directory allows an application to use its own credentials for auth
 One form of credential that can be used is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
 
 ## Format of the assertion
-To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.io/) libraries in the language of your choice. The information carried by the token is:
+To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.ms/) libraries in the language of your choice. The information carried by the token is:
 
 #### Header
 
@@ -42,10 +43,10 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 | --- | --- |
 | `aud` | Audience: Should be **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Expiration date: the date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
-| `iss` | Issuer: should be the client_id (Application Id of the client service) |
+| `iss` | Issuer: should be the client_id (Application ID of the client service) |
 | `jti` | GUID: the JWT ID |
 | `nbf` | Not Before: the date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
-| `sub` | Subject: As for `iss`, should be the client_id (Application Id of the client service) |
+| `sub` | Subject: As for `iss`, should be the client_id (Application ID of the client service) |
 
 #### Signature
 The signature is computed applying the certificate as described in the [JSON Web Token RFC7519 specification](https://tools.ietf.org/html/rfc7519)
@@ -80,7 +81,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### Register your certificate with Azure AD
-To associate the certificate credential with the client application in Azure AD, you need to edit the application manifest.
+You can associate the certificate credential with the client application in Azure AD through the Azure portal using any of the following methods:
+
+**Uploading the certificate file**
+
+In the Azure app registration for the client application, click on **Settings**, click **Keys** and then click **Upload Public Key**. Select the certificate file you want to upload and click **Save**. Once you save, the certificate is uploaded and the thumbprint, start date and expires values are displayed. 
+
+**Updating the application manifest**
+
 Having hold of a certificate, you need to compute:
 - `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
 - `$base64Value`, which is the base64 encoding of the certificate raw data
@@ -102,3 +110,4 @@ In the Azure app registration for the client application, open the application m
 
 Save the edits to the application manifest, and upload to Azure AD. The keyCredentials property is multi-valued, so you may upload multiple certificates for richer key management.
 
+<!-- Update_Description: wording update -->

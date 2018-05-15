@@ -34,8 +34,7 @@
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
-### Manage group settings
-#### [Azure portal](active-directory-groups-settings-azure-portal.md)
+### [Manage group settings](active-directory-groups-settings-azure-portal.md)
 
 
 ## Manage passwords

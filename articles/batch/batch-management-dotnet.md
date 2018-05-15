@@ -3,8 +3,8 @@ title: Manage Batch account resources with the client library for .NET - Azure |
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 04/24/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -93,7 +93,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 
 ## Check Azure subscription and Batch account quotas
-Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
+Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
 
 ### Check an Azure subscription for Batch account quotas
 Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.
@@ -146,7 +146,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Use Azure AD with Batch Management .NET
 
-The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. 
+The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. For information about using Azure AD with the Batch Management .NET library, see [Use Azure Active Directory to authenticate Batch solutions](batch-aad-auth.md). 
 
 ## Sample project on GitHub <a name="sample"></a>
 
@@ -170,14 +170,18 @@ To see Batch Management .NET in action, check out the [AccountManagment][acct_mg
 
 Before deleting the newly created Batch account and resource group, you can view them in the [Azure portal][azure_portal]:
 
-[aad_about]:../active-directory/active-directory-whatis.md
+To run the sample application successfully, you must first register it with your Azure AD tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
+
+
+[aad_about]: ../active-directory/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/active-directory-authentication-scenarios.md
+[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [azure_portal]: http://portal.azure.cn
-[azure_storage]: /storage/
+[azure_storage]: https://www.azure.cn/home/features/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -189,7 +193,6 @@ Before deleting the newly created Batch account and resource group, you can view
 [net_mgmt_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.aspx
 [net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
 [net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
-[resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
@@ -198,3 +201,4 @@ Before deleting the newly created Batch account and resource group, you can view
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
+<!-- Update_Description: wording update -->

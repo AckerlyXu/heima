@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/09/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -249,7 +249,7 @@ You should now have a `adal4jsample.war` file in your `/targets` directory. You 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
+> It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your `adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
 > 
 > 
 

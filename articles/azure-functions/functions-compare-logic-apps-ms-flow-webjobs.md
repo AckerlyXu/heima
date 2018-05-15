@@ -23,8 +23,7 @@ ms.custom: mvc
 This article compares and contrasts the following services in the Azure cloud:
 
 - [Microsoft Flow](https://flow.microsoft.com/)
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-- [Azure Functions](https://azure.microsoft.com/services/functions/)
+- [Azure Functions](/azure-functions/)
 - [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. However, each service has unique advantages, and this article explains the differences.
@@ -67,9 +66,9 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|[Serverless app model](https://azure.microsoft.com/overview/serverless-computing/) with [automatic scaling](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[Serverless app model](https://azure.microsoft.com/overview/serverless-computing/) with automatic scaling |✔||
 |[Develop and test in browser](functions-create-first-azure-function.md) |✔||
-|[Pay-per-use pricing](functions-scale.md#consumption-plan)|✔||
+|Pay-per-use pricing |✔||
 | Integration with Logic Apps |✔||
 | Trigger events |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Supported languages  |C#<br>F#<br>JavaScript<br>Java (preview) |C#<sup>1</sup>|

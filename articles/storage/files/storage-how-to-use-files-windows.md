@@ -4,7 +4,7 @@ description: Mount an Azure File share and access the share in Windows.
 services: storage
 documentationcenter: na
 author: forester123
-manager: digimobile
+manager: josefree
 editor: tysonn
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/19/2017
-ms.date: 10/30/2017
+origin.date: 04/11/2018
+ms.date: 05/07/2018
 ms.author: v-johch
 ---
 
@@ -23,11 +23,12 @@ ms.author: v-johch
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-You can mount Azure File shares on a Windows installation that is running either in an Azure VM or on-premises. The table below illustrates which OS versions support mounting file shares in which environment:
+You can mount Azure File shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support mounting file shares in which environment:
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
@@ -35,7 +36,8 @@ You can mount Azure File shares on a Windows installation that is running either
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows 10 versions 1507, 1511, 1607, 1703, and 1709.
+<sup>1</sup>Windows Server version 1709.  
+<sup>2</sup>Windows 10 versions 1507, 1607, 1703, and 1709.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -45,7 +47,41 @@ You can mount Azure File shares on a Windows installation that is running either
 
 * **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
+* **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. You can use Portqry to check whether the TCP port 445 is open. If the TCP port 445 is displayed as filtered, the TCP port is blocked. Here is an example query:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
+
+    If TCP port 445 is blocked by a rule along the network path, you will see the following output:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
+
+
+## Persisting connections across reboots
+### CmdKey
+The easiest way to establish a persistent connection is to save your storage account credentials into windows using the “CmdKey” command-line utility. The following is an example command-line for persisting your storage account credentials into your VM:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.chinacloudapi.cn /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Domainname here will be "AZURE"
+
+CmdKey will also allow you to list the credentials it stored:
+
+```
+C:\>cmdkey /list
+```
+Output will be as follows:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.chinacloudapi.cn
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Once the credentials have been persisted, you no longer have to supply them when connecting to your share. Instead you can connect without specifying any credentials.
 
 ## Mount the Azure File share with File Explorer
 > [!Note]  
@@ -57,7 +93,7 @@ You can mount Azure File shares on a Windows installation that is running either
 
     ![A screenshot of the "Map network drive" drop down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copy the UNC path from the "Connect" pane in the Azure portal**: A detailed description of how to find this information can be found [here](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Copy the UNC path from the "Connect" pane in the Azure portal.** 
 
     ![The UNC path from the Azure Files Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
@@ -141,3 +177,4 @@ See these links for more information about Azure Files.
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+<!--Update_Description: update supported os version table; add "Persisting connections across reboots" section-->

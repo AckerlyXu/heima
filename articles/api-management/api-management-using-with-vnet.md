@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
+ms.date: 05/14/2018
 ---
 # How to use Azure API Management with virtual networks
 Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routeable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -95,7 +95,7 @@ After your API Management service is connected to the VNET, accessing backend se
 ## <a name="network-configuration-issues"> </a>Common Network Configuration Issues
 Following is a list of common misconfiguration issues that can occur while deploying API Management service into a Virtual Network.
 
-* **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
+* **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
 > [!IMPORTANT]
 > If you plan to use a Custom DNS Server(s) for the VNET, you should set it up **before** deploying an API Management service into it. Otherwise you need to 

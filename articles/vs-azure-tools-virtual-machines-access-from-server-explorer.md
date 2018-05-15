@@ -3,8 +3,8 @@ title: Accessing Azure Virtual Machines from Server Explorer | Microsoft Docs
 description: Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 08/31/2017
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -44,4 +44,4 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
    | Protocol |The protocol that the transport layer for this endpoint uses, either TCP or UDP. |
    | Public Port |The port that’s used for public access to your application. |
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

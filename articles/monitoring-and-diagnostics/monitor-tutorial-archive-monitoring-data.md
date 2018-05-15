@@ -9,7 +9,7 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 05/14/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -64,7 +64,7 @@ Monitoring data from your subscription is now flowing into the storage account.
 
 Now we configure resource-level data (resource metrics and diagnostic logs) to be routed to the storage account by setting up **resource diagnostic settings**.
 
-1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. 
+1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
 
 2. Click on a resource in the list, and then click **Turn on diagnostics**.
    
@@ -91,6 +91,13 @@ Now we configure resource-level data (resource metrics and diagnostic logs) to b
 7. Click **Save**.
 
 Monitoring data from your resource is now flowing into the storage account.
+
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
 ## Route virtual machine (guest OS) data to the storage account
 
@@ -160,7 +167,7 @@ You have now successfully set up monitoring data to be archived to a storage acc
 
 4. Navigate to the storage account you created in the preceding **Create a storage account** step and click **Delete storage account**. Type the name of the storage account, and then click **Delete**.
 
-5. If you created a virtual machine for the preceding steps, delete those as well.
+5. If you created a virtual machine or Logic App for the preceding steps, delete those as well.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/26/2017
-ms.date: 01/18/2018
+ms.date: 05/07/2018
 ms.author: v-nany
 
 ---
@@ -99,11 +99,13 @@ To get the information, follow these steps:
 
 7.  Get the application's **Key** (client secret). 
 
-    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
-    2. Press **Keys**.
+    1. Click the **Azure Active Directory** button . 
+    2. Press **App registration**.
+    3. Press **testapp**.
+    4. Press **Keys** (notice that the Client ID info is under **Application ID**).
     
         ![API access](./media/connect-with-rest/manage-app.png)
-    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
+    5. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
     
         Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
 

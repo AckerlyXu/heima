@@ -3,8 +3,8 @@ title: Prepare to publish or deploy a Cloud Service from Visual Studio | Microso
 description: Learn the procedures to set up cloud and storage account services and configure your Azure application.
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/10/2017
-ms.date: 12/28/2017
+ms.date: 05/09/2018
 ms.author: v-junlch
 
 ---
@@ -21,7 +21,7 @@ ms.author: v-junlch
 
 To publish a cloud service project, you must set up the following services as described in this article:
 
-- A **cloud service** to run your roles in the Azure environment.
+- A **cloud service** to run your roles in the Azure environment, and 
 - A **storage account** that provides access to the Blob, Queue, and Table services.
 
 ## Create a cloud service

@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+origin.date: 04/05/2018
+ms.date: 05/08/2018
+ms.author: v-junlch
+ ms.custom: include file
+---
 The VNet-to-VNet FAQ applies to VPN Gateway connections. If you are looking for VNet Peering, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md)
 
 ### Does Azure charge for traffic between VNets?
@@ -7,6 +19,10 @@ VNet-to-VNet traffic within the same region is free for both directions when usi
 ### Does VNet-to-VNet traffic travel across the Internet?
 
 No. VNet-to-VNet traffic travels across the Azure backbone, not the Internet.
+
+### Can I establish a VNet-to-VNet connection across AAD Tenants?
+
+Yes, VNet-to-VNet connections using Azure VPN gateways work across AAD Tenants.
 
 ### Is VNet-to-VNet traffic secure?
 
@@ -68,6 +84,6 @@ No. You can't have overlapping IP address ranges.
 
 No. You can't have overlapping IP address ranges.
 
-<!-- ms.date: 10/10/2017 -->
+<!-- ms.date: 05/08/2018 -->
 
 

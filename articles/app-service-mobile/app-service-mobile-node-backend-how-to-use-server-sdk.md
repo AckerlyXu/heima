@@ -1,5 +1,5 @@
 ---
-title: How to work with the Node.js backend server SDK for Mobile Apps
+title: How to work with the Node.js back-end Server SDK for Mobile Apps
 description: Learn how to work with the Node.js back-end Server SDK for Azure App Service Mobile Apps.
 services: app-service\mobile
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 03/12/2018
+ms.date: 05/14/2018
 ---
 # How to use the Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -48,30 +48,30 @@ The Mobile Apps Node.js SDK supports two database drivers:
 Every Mobile Apps Node.js back end starts as an ExpressJS application. ExpressJS is the most popular web service framework
 available for Node.js. You can create a basic [Express] application as follows:
 
-1. In a command or PowerShell window, create a directory for your project.
+1. In a command or PowerShell window, create a directory for your project:
 
     ```
     mkdir basicapp
     ```
 
-2. Run npm init to initialize the package structure.
+2. Run `npm init` to initialize the package structure:
 
     ```
     cd basicapp
     npm init
     ```
 
-    The npm init command asks a set of questions to initialize the project.  See the example output:
+   The `npm init` command asks a set of questions to initialize the project. See the example output:
 
     ![The npm init output][0]
 
-3. Install the express and azure-mobile-apps libraries from the npm repository.
+3. Install the `express` and `azure-mobile-apps` libraries from the npm repository:
 
     ```
     npm install --save express azure-mobile-apps
     ```
 
-4. Create an app.js file to implement the basic mobile server.
+4. Create an app.js file to implement the basic mobile server:
 
     ```
     var express = require('express'),
@@ -166,7 +166,7 @@ The following procedure uses a Git repository to download the quickstart
 project code:
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Follow the steps in [Enable the App Service app repository](../app-service/app-service-deploy-local-git.md#Step3) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
+2. See [Prepare your repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
 3. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
 4. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
    following example:
@@ -212,7 +212,7 @@ a temporary home page. To enable a temporary home page, use the following code t
 var mobile = azureMobileApps({ homePage: true });
 ```
 
-If you only want this option available when developing locally, you can add this setting to your `azureMobile.js` 
+If you only want this option available when developing locally, you can add this setting to your azureMobile.js
 file.
 
 ## <a name="TableOperations"></a>Table operations
@@ -834,8 +834,8 @@ If you want to use App Service Authentication with a custom API, you must config
 in the [Azure portal] first. For more information, see
 the configuration guide for the identity provider that you intend to use:
 
-- [How to configure Azure Active Directory Authentication]
-- [How to configure Microsoft Authentication]
+* [Configure Azure Active Directory authentication]
+* [Configure Microsoft authentication]
 
 Custom APIs are defined in much the same way as the Tables API:
 

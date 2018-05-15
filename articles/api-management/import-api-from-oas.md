@@ -13,13 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-ms.date: 02/26/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
 
 ---
 # Import an OpenAPI specification
 
 This article shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.cn?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
+
+> [!IMPORTANT]
+> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 In this article, you learn how to:
 

@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/24/2018
-ms.date: 04/16/2018
+origin.date: 04/12/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
 
 ---
@@ -70,6 +70,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Devices/IotHubs|TwinQueries|Twin Queries|
 |Microsoft.Devices/IotHubs|JobsOperations|Jobs Operations|
 |Microsoft.Devices/IotHubs|DirectMethods|Direct Methods|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E Diagnostics (Preview)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Device Operations|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Service Operations|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -80,7 +81,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS protection notifications|
@@ -91,6 +91,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Route Diagnostic Logs|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE Diagnostic Logs|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S Diagnostic Logs|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup Reporting Data|
@@ -111,6 +113,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|Audit|Audit Logs|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL Security Audit Event|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 

@@ -2,8 +2,8 @@
 title: "Azure Batch compute node environment variables | Microsoft Docs"
 description: Compute node environment variable reference for Azure Batch Analytics.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 05/05/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ---
 
 # Azure Batch compute node environment variables
 The [Azure Batch service](https://azure.microsoft.com/services/batch/) sets the following environment variables on compute nodes. You can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
 
-For additional information about using environment variables with Batch, see [Environment settings for tasks](/batch/batch-api-basics#environment-settings-for-tasks/).
+For additional information about using environment variables with Batch, see [Environment settings for tasks](/batch/batch-api-basics#environment-settings-for-tasks).
 
 ## Environment variable visibility
 
@@ -62,3 +62,5 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 [multi_instance]: batch-mpi.md
 [coord_cmd]: batch-mpi.md#coordination-command
 [app_cmd]: batch-mpi.md#application-command
+
+<!-- Update_Description: update metedata properties -->

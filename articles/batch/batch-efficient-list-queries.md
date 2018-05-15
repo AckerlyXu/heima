@@ -3,18 +3,18 @@ title: Design efficient list queries - Azure Batch | Microsoft Docs
 description: Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 08/02/2017
-ms.date: 09/06/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -300,4 +300,4 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

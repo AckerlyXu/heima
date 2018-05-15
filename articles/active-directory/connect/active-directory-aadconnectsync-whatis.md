@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Understand and customize synchronization | Micros
 description: Explains how Azure AD Connect sync works and how to customize.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/08/2017
-ms.date: 11/22/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
 
 ---
@@ -44,7 +44,7 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | **Features and scenarios** | |
 | [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Describes the *prevent accidental deletes* feature and how to configure it. |
 | [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |Describes the built-in scheduler, which is importing, synchronizing, and exporting data. |
-| [Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
+| [Implement password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
 | [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |Describes how to extend the Azure AD schema with your own custom attributes. |
 | **Sync Service** | |
 | [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md) |Describes the sync service side and how to change sync settings in Azure AD. |

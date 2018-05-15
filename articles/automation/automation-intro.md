@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/13/2017
-ms.date: 01/17/2018
+origin.date: 13/15/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 ms.custom: mvc
 
@@ -41,6 +41,7 @@ Azure Automation consists of a set of shared resources that make it easier to au
 * **[Certificates](automation-certificates.md)** - Store and make available at runtime so they can be used for authentication and securing deployed resources.
 * **[Connections](automation-connections.md)** - Store a name / value pairs of information that contains common information when connecting to systems in connection resources. Connections are defined by the module author for use at runtime in runbooks and configurations.
 * **[Schedules](automation-schedules.md)** - Used in the service to trigger automation on predefined times.
+* **[Integration with source control](automation-source-control-integration.md)** - Promotes configuration as code where runbooks or configurations can be checked into a source control system.
 * **[PowerShell modules](automation-integration-modules.md)** -  Modules are used to manage Azure and other systems. Import into the Automation account for Microsoft, third party, community, or custom defined cmdlets and DSC resources.
 
 ### Windows and Linux

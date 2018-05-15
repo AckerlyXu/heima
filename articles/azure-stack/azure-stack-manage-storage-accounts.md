@@ -171,15 +171,15 @@ You can also use PowerShell to explicitly override the retention period and imme
    Manager](/azure-resource-manager/powershell-azure-resource-manager)
 2. Run the following cmdlet:
 
-> [!NOTE]
-> If you run this cmdlet, you permanently delete the account and its contents. It is not recoverable. Use this with care.
+    > [!NOTE]
+    > If you run this cmdlet, you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
+            Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-For more information, see [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
- 
+    For more information, see [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+    
 
 ## Migrate a container
 Due to uneven storage use by tenants, a cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 

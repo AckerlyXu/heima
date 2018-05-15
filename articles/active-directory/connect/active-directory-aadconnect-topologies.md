@@ -3,20 +3,18 @@ title: 'Azure AD Connect: Supported topologies | Microsoft Docs'
 description: This topic details supported and unsupported topologies for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
-
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 11/22/2017
+origin.date: 02/27/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
-
 ---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
@@ -33,6 +31,11 @@ Here's the legend for pictures in the article:
 | Azure AD Connect sync server, detailed |![Azure AD Connect sync server, detailed](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Unsupported scenario |![Unsupported scenario](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+
 
 ## Single forest, single Azure AD tenant
 ![Topology for a single forest and a single tenant](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

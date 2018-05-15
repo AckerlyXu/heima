@@ -2,17 +2,17 @@
 title: "Azure Batch pool resize complete event | Microsoft Docs"
 description: Reference for Batch pool resize complete event.
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ---
 
@@ -50,3 +50,4 @@ ms.author: v-junlch
 |resultCode|String|The result of the resize.|
 |resultMessage|String|The resize error includes the details of the result.<br /><br /> If the resize completed successfully it states that the operation succeeded.|
 
+<!-- Update_Description: update metedata properties -->

@@ -3,8 +3,8 @@ title: Browse and manage storage resources by using Server Explorer | Microsoft 
 description: Browsing and managing storage resources by using Server Explorer
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 12/28/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -297,4 +297,4 @@ If you delete a storage account from Server Explorer, it doesn’t affect your s
 
 To learn more about how to use Azure storage services, see [Accessing the Azure Storage Services](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/11/2016
-ms.date: 01/15/2018
+origin.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-nany
 
 ---
@@ -49,7 +49,7 @@ The following sample commands show how to set the properties for a runbook. This
     $runbookName = "Sample-TestRunbook"
     $tags = (Get-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName).Tags
-    $tags += @{"Tag1" = "Tag1"; "Tag2" = "Tag2"; "Tag3" = "Tag3"}
+    $tags += "Tag1,Tag2,Tag3"
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 

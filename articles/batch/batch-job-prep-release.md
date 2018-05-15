@@ -3,18 +3,18 @@ title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure B
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 02/27/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -195,7 +195,7 @@ Written by one of the Azure Batch team members, it discusses several techniques 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[azure_storage]: /storage/
+[azure_storage]: https://www.azure.cn/home/features/storage/
 [portal]: https://portal.azure.cn
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
@@ -223,4 +223,4 @@ Written by one of the Azure Batch team members, it discusses several techniques 
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

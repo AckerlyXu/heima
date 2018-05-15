@@ -2,12 +2,12 @@
 title: Understand Azure Identity | Microsoft Docs
 description: Get a basic understanding of Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
 keywords:
-author: alexchen2016
-manager: digimobile
+author: jeffgilb
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: v-junlch
 origin.date: 07/17/2017
-ms.date: 10/18/2017
+ms.date: 05/07/2018
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -57,7 +57,7 @@ Now that you know the basic Azure identity terms, you should learn more about th
 |Concept to understand |Description|
 |-----|-----|
 |[How Azure subscriptions are associated with Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory) |Every Azure subscription has a trust relationship with an Azure AD directory to authenticate users, services, and devices. *Multiple subscriptions can trust the same Azure AD directory, but a subscription will only trust a single Azure AD directory*. This trust relationship is unlike the relationship that a subscription has with other Azure resources (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to resources associated with the subscription other than Azure AD also stops. However, the Azure AD directory remains in Azure, so that you can associate another subscription with that directory and continue to manage tenant resources.|
-|[Role-Based Access Control in the Azure portal](/active-directory/role-based-access-control-what-is)|Azure Role-Based Access Control (RBAC) helps provide fine-grained access management for Azure resources. Too many permissions can expose and account to attackers. Too few permissions means that employees can’t get their work done efficiently. Using RBAC, you can give employees the exact permissions they need based on three basic roles that apply to all resource groups: owner, contributor, reader. You can also create up to 2,000 of your own [custom RBAC roles](/active-directory/role-based-access-control-custom-roles) to meet your specific needs. |
+|[Role-Based Access Control in the Azure portal](/role-based-access-control/overview)|Azure Role-Based Access Control (RBAC) helps provide fine-grained access management for Azure resources. Too many permissions can expose and account to attackers. Too few permissions means that employees can’t get their work done efficiently. Using RBAC, you can give employees the exact permissions they need based on three basic roles that apply to all resource groups: owner, contributor, reader. You can also create up to 2,000 of your own [custom RBAC roles](/role-based-access-control/custom-roles) to meet your specific needs. |
 
 
 ### The difference between Windows Server AD DS and Azure AD

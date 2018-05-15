@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 11/06/2017
+ms.date: 05/07/2018
 ms.author: v-johch
 
 ---
@@ -29,10 +29,9 @@ This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azu
 ## Use the Azure Cloud Shell
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
-2. Launch the Cloud Shell from the upper navigation pane of the portal.
+2. Launch the Cloud Shell.
 
-	![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
-
+	
 
 ## Create an Azure AD app and configure access to the media account with CLI 2.0
 

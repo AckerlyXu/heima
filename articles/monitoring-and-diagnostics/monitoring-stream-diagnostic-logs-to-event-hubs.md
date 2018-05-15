@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/22/2017
-ms.date: 02/26/2018
+origin.date: 04/042018
+ms.date: 05/14/2018
 ms.author: v-yiso
 
 ---
 # Stream Azure Diagnostic Logs to an event hub
-**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Event Hub Authorization Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI.
+**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Event Hub Authorization Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI 2.0.
 
 ## What you can do with diagnostics logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Diagnostic Logs:
@@ -47,10 +47,14 @@ You can enable streaming of diagnostic logs programmatically, via the portal, or
 
 > [!WARNING]
 > Enabling and streaming diagnostic logs from Compute resources (for example, VMs or Service Fabric) [requires a different set of steps](../event-hubs/event-hubs-streaming-azure-diags-data.md).
-> 
-> 
-
 The Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
 ## Stream diagnostic logs using the portal
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
@@ -86,14 +90,26 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 The Event Hub Authorization Rule ID is a string with this format: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. You cannot currently select a particular event hub name with PowerShell.
 
-### Via Azure CLI
-To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
+### Via Azure CLI 2.0
+
+To enable streaming via the [Azure CLI 2.0](insights-cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Use the same format for Event Hub Authorization Rule ID as explained for the PowerShell Cmdlet. You cannot currently select a particular event hub name with the Azure CLI.
+You can add additional categories to the diagnostic log by adding dictionaries to the JSON array passed as the `--logs` parameter.
+
+The `--event-hub-rule` argument uses the same format as the Event Hub Authorization Rule ID as explained for the PowerShell Cmdlet.
 
 ## How do I consume the log data from Event Hubs?
 Here is sample output data from Event Hubs:

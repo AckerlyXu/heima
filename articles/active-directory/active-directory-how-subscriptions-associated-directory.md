@@ -1,11 +1,10 @@
 ---
-title: How to add an existing Azure subscription to your Azure AD directory | Azure
+title: How to add an existing Azure subscription to your Azure AD directory | Microsoft Docs
 description: How to add an existing subscription to your Azure AD directory
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
-
+author: curtand
+manager: mtillman
 editor: ''
 
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
@@ -15,9 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/12/2017
-ms.date: 1/1/2018
-ms.author: v-nany
-
+ms.date: 05/07/2018
+ms.author: v-junlch
 
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
@@ -34,9 +32,9 @@ All users have a single home directory that authenticates them, but they can als
 ## Next steps
 
 * To learn more about creating a new Azure AD directory for free, see [How to get an Azure Active Directory tenant](develop/active-directory-howto-tenant.md)
-* To learn more about how resource access is controlled in  Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* To learn more about how resource access is controlled in Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

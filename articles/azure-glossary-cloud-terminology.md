@@ -4,8 +4,8 @@ description: Use the Azure glossary to understand cloud terminology on the Azure
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
 services: na
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: MonicaRush
+manager: jhubbard
 editor: ''
 
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 08/29/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -98,7 +98,7 @@ See [Azure Resource Manager overview](azure-resource-manager/resource-group-over
 
 ## <a name="role"></a>Role
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  
-See [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md)
+See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
 The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
@@ -142,4 +142,4 @@ Another name for [App Service App](#app-service-app).
 
 - [Get started with Azure](https://www.azure.cn/pricing/1rmb-trial/)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

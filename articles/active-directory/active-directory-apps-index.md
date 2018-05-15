@@ -3,8 +3,8 @@ title: Article Index for Application Management in Azure Active Directory | Azur
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: MarkusVi
+manager: mtillman
 
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
-ms.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 
@@ -40,7 +40,7 @@ This section provides quick access to relevant troubleshooting guides. More info
 |:---:| --- |
 | Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
 | Password-Based Single Sign-On | Troubleshooting the Access Panel Extension for Internet Explorer |
-| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)|
+| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Hash Synchronization](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)|
 
 ## Single Sign-On (SSO)
 ### Federated Single Sign-On: Sign into many apps using one identity
@@ -75,7 +75,7 @@ If your organization maintains a Windows Server Active Directory on premises alo
 |:---:| --- |
 | An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments |[User Sign On Options in Azure AD Connect](./connect/active-directory-aadconnect-user-signin.md) |
 | General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Integrating your On-Premises Identities with Azure Active Directory](./connect/active-directory-aadconnect.md) |
-| Guidance on using Password Sync to enable SSO |[Implement Password Synchronization with Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/zh-cn/kb/2855271) |
+| Guidance on using Password Sync to enable SSO |[Implement Password Synchronization with Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/zh-cn/kb/2855271) |
 | Guidance on using third party identity providers to enable SSO |[List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) |
 
 Azure AD Connect is available for [all editions of Azure Active Directory](https://www.azure.cn/pricing/details/identity/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) and [Azure AD Premium](https://www.azure.cn/pricing/details/identity/). Password Writeback to on-prem AD is an [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) feature.

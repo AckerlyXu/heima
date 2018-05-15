@@ -3,15 +3,13 @@ title: Azure Storage security guide | Microsoft Docs
 description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
 services: storage
 author: forester123
-manager: digimobile
-
+manager: josefree
 
 ms.service: storage
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 10/30/2017
+ms.date: 03/06/2018
+ms.date: 05/07/2018
 ms.author: v-johch
-
 ---
 # Azure Storage security guide
 ## Overview
@@ -55,7 +53,7 @@ When you create a new storage account, you select a deployment model of Classic 
 This guide focuses on the Resource Manager model that is the recommended means for creating storage accounts. With the Resource Manager storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
 
 ### How to secure your storage account with Role-Based Access Control (RBAC)
-Let's talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.cn/), the [Azure CLI tools](../../cli-install-nodejs.md), [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Let's talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This type of security is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.cn/), the [Azure CLI tools](../../cli-install-nodejs.md), [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 With the Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.
 
@@ -83,16 +81,16 @@ Here are the main points that you need to know about using RBAC to access the ma
 * You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
 
 #### Resources
-* [Azure Active Directory Role-based Access Control](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../../role-based-access-control/role-assignments-portal.md)
 
   This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md)
 
   This article details all of the built-in roles available in RBAC.
 * [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
-* [Managing Role-Based Access Control with the REST API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Managing Role-Based Access Control with the REST API](../../role-based-access-control/role-assignments-rest.md)
 
   This article shows how to use the REST API to manage RBAC.
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -162,6 +160,9 @@ There are two methods for authorizing access to the data objects themselves. The
 
 In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
 
+In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.
+
+
 ### Storage Account Keys
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
 
@@ -220,7 +221,7 @@ For example, with our URL above, if the URL was pointing to a file instead of a 
 #### Revocation
 Suppose your SAS has been compromised, or you want to change it because of corporate security or regulatory compliance requirements. How do you revoke access to a resource using that SAS? It depends on how you created the SAS URI.
 
-If you are using ad hoc URI's, you have three options. You can issue SAS tokens with short expiration policies and simply wait for the SAS to expire. You can rename or delete the resource (assuming the token was scoped to a single object). You can change the storage account keys. This last option can have a big impact, depending on how many services are using that storage account, and probably isn't something you want to do without some planning.
+If you are using ad hoc URI's, you have three options. You can issue SAS tokens with short expiration policies and wait for the SAS to expire. You can rename or delete the resource (assuming the token was scoped to a single object). You can change the storage account keys. This last option can have a big impact, depending on how many services are using that storage account, and probably isn't something you want to do without some planning.
 
 If you are using a SAS derived from a Stored Access Policy, you can remove access by revoking the Stored Access Policy – you can just change it so it has already expired, or you can remove it altogether. This takes effect immediately, and invalidates every SAS created using that Stored Access Policy. Updating or removing the Stored Access Policy may impact people accessing that specific container, file share, table, or queue via SAS, but if the clients are written so they request a new SAS when the old one becomes invalid, this will work fine.
 
@@ -352,7 +353,7 @@ This feature ensures that all data on your virtual machine disks is encrypted at
 
 #### IaaS VMs and their VHD files
 
-For data disks used by IaaS VMs, Azure Disk Encryption is recommended. If you create a VM using an image from the Azure Marketplace, Azure performs a [shallow copy](https://en.wikipedia.org/wiki/Object_copying) of the image to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. After it creates the VM and starts updating the image, SSE will start encrypting the data. For this reason, it's best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
+For data disks used by IaaS VMs, Azure Disk Encryption is recommended. If you create a VM with unmanaged disks using an image from the Azure Marketplace, Azure performs a [shallow copy](https://en.wikipedia.org/wiki/Object_copying) of the image to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. After it creates the VM and starts updating the image, SSE will start encrypting the data. For this reason, it's best to use Azure Disk Encryption on VMs with unmanaged disks created from images in the Azure Marketplace if you want them fully encrypted. If you create a VM with Managed Disks, SSE encrypts all the data by default using platform managed keys. 
 
 If you bring a pre-encrypted VM into Azure from on-premises, you will be able to upload the encryption keys to Azure Key Vault, and continue using the encryption for that VM that you were using on-premises. Azure Disk Encryption is enabled to handle this scenario.
 

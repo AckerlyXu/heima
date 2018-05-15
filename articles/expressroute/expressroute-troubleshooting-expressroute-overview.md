@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 03/12/2018
+ms.date: 05/14/2018
 
 ---
 
@@ -449,6 +449,6 @@ For more information or help, check out the following links:
 [Support]: https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md 
 [CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
-[OldPortal]: https://manage.windowsazure.cn
 [ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[OldPortal]: https://manage.windowsazure.cn
 <!--Update_Description:update meta properties and wording-->

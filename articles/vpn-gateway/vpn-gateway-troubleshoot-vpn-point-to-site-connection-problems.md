@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2018
-ms.date: 03/28/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -286,7 +286,7 @@ Point-to-site VPN client uses Azure DNS servers that are configured in the Azure
 
 ### Solution
 
-To resolve the problem, make sure that the Azure DNS servers that used on the Azure virtual network can resolve the DNS records for local resources. To do this, you can use DNS Forwarders or Conditional forwarders. For more information, see [Name resolution using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+To resolve the problem, make sure that the Azure DNS servers that used on the Azure virtual network can resolve the DNS records for local resources. To do this, you can use DNS Forwarders or Conditional forwarders. For more information, see [Name resolution using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## The point-to-site VPN connection is established, but you still cannot connect to Azure resources 
 
@@ -355,4 +355,4 @@ Delete the old VPN client configuration files from **C:\users\username\AppData\M
 
 Check the sleep and hibernate settings in the computer that the VPN client is running on.
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

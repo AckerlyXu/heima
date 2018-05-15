@@ -53,6 +53,8 @@
           href: automation-child-runbooks.md
         - name: Runbook output
           href: automation-runbook-output-and-messages.md
+        - name: Source control integration
+          href: automation-source-control-integration.md
     - name: Automate
       items:
         - name: Start a runbook
@@ -116,3 +118,7 @@
   - name: REST (Classic)
     href: https://msdn.microsoft.com/library/azure/mt163781
 
+  - name: Pricing
+    href: https://www.azure.cn/zh-cn/pricing/details/automation/
+  - name: Pricing calculator
+    href: https://www.azure.cn/zh-cn/pricing/calculator/automation/

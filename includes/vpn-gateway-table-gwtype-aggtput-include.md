@@ -1,4 +1,15 @@
-Azure offers the following VPN gateway SKUs:
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+origin.date: 03/21/2018
+ms.date: 05/08/2018
+ms.author: v-junlch
+ ms.custom: include file
+---
 
 |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput Benchmark** |
 |---       | ---                             | ---                    | ---                         |
@@ -14,4 +25,6 @@ Azure offers the following VPN gateway SKUs:
 
 - SLA (Service Level Agreement) information can be found on the [SLA](https://www.azure.cn/support/sla/vpn-gateway/) page.
 
-<!-- ms.date: 09/01/2017 -->
+- VpnGw1, VpnGw2, and VpnGw3 are supported for VPN gateways using the Resource Manager deployment model only.
+
+<!-- ms.date: 05/08/2018 -->

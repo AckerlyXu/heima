@@ -2,7 +2,7 @@
 |-----------------------------------------|------------|---|
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|GA|Preview|
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA|Preview|
-|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA||
+|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA|Preview|
 |[Java](../articles/azure-functions/functions-reference-java.md)||Preview|
 |Python              |Experimental||
 |PHP                 |Experimental||
@@ -13,3 +13,4 @@
 
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).
 
+<!-- ms.date: 05/08/2018 -->

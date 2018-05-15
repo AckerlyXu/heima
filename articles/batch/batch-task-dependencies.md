@@ -3,18 +3,18 @@ title: Use task dependencies to run tasks based on the completion of other tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -220,9 +220,9 @@ See [Installing applications and staging data on Batch compute nodes][forum_post
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_dependson]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.dependson.aspx
 [net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
-[net_exitconditions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitconditions
-[net_exitoptions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
-[net_dependencyaction]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions#Microsoft_Azure_Batch_ExitOptions_DependencyAction
+[net_exitconditions]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.exitconditions
+[net_exitoptions]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.exitoptions
+[net_dependencyaction]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.exitoptions#Microsoft_Azure_Batch_ExitOptions_DependencyAction
 [net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx
@@ -236,3 +236,4 @@ See [Installing applications and staging data on Batch compute nodes][forum_post
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: one-to-many dependency"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
 
+<!-- Update_Description: link update -->

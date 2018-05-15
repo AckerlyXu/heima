@@ -1,9 +1,9 @@
 ---
-title: Publish-WebApplicationVM | Azure
+title: Publish-WebApplicationVM | Microsoft Docs
 description: Learn how to deploy a web application to a virtual machine. This script creates the required resources in your Azure subscription if they don't exist.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/11/2016
-ms.date: 03/30/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
----
 
+---
 # Publish-WebApplicationVM (Windows PowerShell script)
 Deploys a web application to a virtual machine. The script creates the required resources in your Azure subscription if they don't exist.
 
@@ -55,7 +55,7 @@ The name of the Azure subscription in which you want to create the virtual machi
 | Accept wildcard characters? |false |
 
 ### WebDeployPackage
-The path to the web deployment package to publish to the virtual machine. You can create this package by using the Publish Web wizard in Visual Studio. See [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/zh-cn/library/dd465323.aspx).
+The path to the web deployment package to publish to the virtual machine. You can create this package by using the Publish Web wizard in Visual Studio. See [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
 | Aliases | none |
 | --- | --- |
@@ -110,7 +110,7 @@ If true, print messages from the script to the output stream.
 | Accept wildcard characters? |false |
 
 ## Remarks
-For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](./vs-azure-tools-publishing-using-powershell-scripts.md).
+For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name, affinity group, VHD image, and size of the virtual machine. It also includes the endpoints on the virtual machine, the databases to provision, if any, and web deployment parameters. The following code shows an example JSON configuration file:
 
@@ -182,3 +182,6 @@ The JSON configuration file specifies the details of what is to be deployed. It 
 ```
 
 You can edit the JSON configuration file to change what is provisioned. A virtual machine and a cloud service are required, but the database section is optional.
+
+
+<!-- Update_Description: update metedata properties -->

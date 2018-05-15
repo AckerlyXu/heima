@@ -2,7 +2,7 @@
 title: Azure ExpressRoute Documentation - Tutorials, API Reference | Azure
 description: Learn how to configure and manage a private ExpressRoute connection to Microsoft cloud services from your on-premises infrastructure or colocation facility.
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	
@@ -10,8 +10,8 @@ ms.service: expressroute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
+origin.date: 01/23/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
 ---
 

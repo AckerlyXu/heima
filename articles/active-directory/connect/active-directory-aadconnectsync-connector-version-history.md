@@ -3,8 +3,8 @@ title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/06/2017
-ms.date: 12/25/2017
+origin.date: 03/22/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
 
 ---
@@ -32,9 +32,26 @@ Related links:
 - [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
 - [Generic LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) reference documentation
 - [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) reference documentation
-- [Web Services Connector](http://go.microsoft.com/fwlink/?LinkID=226245) reference documentation
+- [Web Services Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
 - [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 - [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
+
+
+## 1.1.830.0
+
+### Fixed issues:
+- Resolved ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
+- In this release of connectors you will need to update binding redirect from 3.3.0.0-4.1.3.0 to 4.1.4.0 in miiserver.exe.config
+- Generic Web Services:
+    - Resolved Valid JSON response could not be saved in configuration tool
+- Generic SQL:
+    - Export always generates only update query for the operation of deleting. Added to generate a delete query
+    - The SQL query which gets objects for the operation of Delta Import,  if ‘Delta Strategy’ is ‘Change Tracking’ was fixed. In this implementation known limitation:  Delta Import with ‘Change Tracking’ mode does not track changes in multi-valued attributes
+    - Added possibility to generate a delete query for case, when it is necessary to delete the last value of multivalued attribute and this row does not contain any other data except value which it is necessary to delete.
+    - System.ArgumentException handling when implemented OUTPUT parameters by SP 
+    - Incorrect query to make the operation of export into field which has varbinary(max) type
+    - Issue with parameterList variable was initialized twice (in the functions ExportAttributes and GetQueryForMultiValue)
+
 
 ## 1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -87,6 +104,8 @@ Related links:
   - The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. This caused problems with serialization this Json array for the REST request.
   - Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names 
     - A Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> JSONSpaceNamePattern key is required as for export you will recieve the following error: Message: Empty name is not legal. 
 
 - Lotus Notes:
   - When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. 
@@ -259,3 +278,4 @@ Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-wha
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!-- Update_Description: wording update -->

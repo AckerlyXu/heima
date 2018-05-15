@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+origin.date: 03/21/2018
+ms.date: 05/08/2018
+ms.author: v-junlch
+ ms.custom: include file
+---
 ### <a name="supportedclientos"></a>What client operating systems can I use with Point-to-Site?
 
 The following client operating systems are supported:
@@ -10,8 +22,8 @@ The following client operating systems are supported:
 - Windows Server 2012 R2 (64-bit only)
 - Windows Server 2016 (64-bit only)
 - Windows 10
-- OSX version 10.11 for Mac (El Capitan)
-- macOS version 10.12 for Mac (Sierra)
+- Mac OS X version 10.11 (El Capitan)
+- Mac OS X version 10.12 (Sierra)
 
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 
@@ -77,4 +89,4 @@ Azure supports only Windows and Mac for P2S VPN.
 
 Yes, you can enable these new features on already deployed gateways using Powershell or the Azure portal, provided that the gateway SKU that you are using supports RADIUS and/or IKEv2. For example, the VPN gateway Basic SKU does not support RADIUS or IKEv2.
 
-<!-- ms.date: 03/14/2018 -->
+<!-- ms.date: 05/08/2018 -->

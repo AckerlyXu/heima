@@ -3,8 +3,8 @@ title: Publishing a Cloud Service using the Azure Tools | Microsoft Docs
 description: Learn about how to publish Azure cloud service projects by using Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/11/2017
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 
 ---
@@ -47,7 +47,7 @@ When you publish your Azure application, you can do one of the following tasks:
 
    b. In the **Package Azure Application** dialog box, choose the service configuration for which you want to create a package, and then choose the build configuration.
 
-   c. (Optional) To turn on Remote Desktop for the cloud service after you publish it, select **Enable Remote Desktop for all Roles**, and then select **Settings** to configure Remote Desktop credentials. 
+   c. (Optional) To turn on Remote Desktop for the cloud service after you publish it, select **Enable Remote Desktop for all Roles**, and then select **Settings** to configure Remote Desktop credentials. For more information, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
       If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
 
@@ -81,7 +81,7 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 
 ### Enable Web Deploy when you publish your application
 
-1. To enable the **Enable Web Deploy for all web roles** option, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that is used to connect remotely in the **Remote Desktop Configuration** box that appears. 
+1. To enable the **Enable Web Deploy for all web roles** option, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that is used to connect remotely in the **Remote Desktop Configuration** box that appears. See [Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
 1. To enable Web Deploy for all the web roles in your application, select **Enable Web Deploy for all web roles**.
 
@@ -120,7 +120,7 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 
 1. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
 
-   a. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. Your browser prompts you to download an `.rdp` file.
+   a. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md). Your browser prompts you to download an `.rdp` file.
 
    b. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** drop-down list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the Azure portal. For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
 

@@ -1,10 +1,10 @@
 ---
-title: Changes made to a WebApi project when you connect to Azure AD | Microsoft Docs
-description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
+title: Changes made to a WebAPI project when you connect to Azure AD | Microsoft Docs
+description: Describes what happens to your WebAPI project when you connect to Azure AD by using Visual Studio
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: mtillman
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/9/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -131,3 +131,5 @@ When adding the connected service, Visual Studio 2015 backs up changed and remov
 
 - [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+
+<!-- Update_Description: update metedata properties -->
