@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -243,7 +243,7 @@ After connecting, you should see something similar to the following:
      Check your public port and private port endpoint settings and make sure the private port is the same as the Tomcat listen port. See "Phase 1: Create an image" section of this article for instructions on configuring endpoints for your virtual machine.  
 
      To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (CentOS release), or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
-<!-- Change Red Hat to CentOS -->
+     <!-- Change Red Hat to CentOS -->
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
@@ -254,7 +254,7 @@ After connecting, you should see something similar to the following:
      Then uncomment the last line and change "no" to "yes".  
 
         AUTHBIND=yes
-  2. The firewall has disabled the listen port of Tomcat.
+  * The firewall has disabled the listen port of Tomcat.
 
      You can only see the Tomcat default page from the local host. The problem is most likely that the port, which is listened to by Tomcat, is blocked by the firewall. You can use the w3m tool to browse the webpage. The following commands install w3m and browse to the Tomcat default page:  
 
@@ -325,4 +325,4 @@ The following command only changes the permission of the folder directory. The f
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

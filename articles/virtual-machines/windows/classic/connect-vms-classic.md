@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -35,5 +35,4 @@ If you place your virtual machines in the same standalone cloud service, you can
 ## Next steps
 After you create a virtual machine, it's a good idea to [add a data disk](attach-disk.md) so your services and workloads have a location to store data.
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -31,5 +31,4 @@ ms.author: v-yeche
 
 [How to attach a data disk to a Windows virtual machine](attach-disk.md)
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

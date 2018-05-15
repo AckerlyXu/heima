@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -25,5 +25,5 @@ ms.author: v-yeche
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about planned maintenance in the Resource Manager model, see [here](../planned-maintenance.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
-<!-- Update_Description: new articles on planned maintenace schedule classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+
+<!-- Update_Description: update meta properties -->

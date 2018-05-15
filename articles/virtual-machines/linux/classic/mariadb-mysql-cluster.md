@@ -3,8 +3,8 @@ title: Run a MariaDB (MySQL) cluster on Azure | Azure
 description: Create a MariaDB + Galera MySQL cluster on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
-author: sabbour
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,13 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/15/2015
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # MariaDB (MySQL) cluster: Azure tutorial
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers the classic deployment model. Azure recommends that most new deployments use the Azure Resource Manager model.
+<!-- Not Available on MariaDB Enterprise cluster-->
 
 This article shows you how to create a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/) (a robust, scalable, and reliable drop-in replacement for MySQL) to work in a highly available environment on Azure virtual machines.
 
@@ -55,12 +56,12 @@ This article describes how to complete the following steps:
 4. Find the name of the CentOS 7 virtual machine image.
 
         azure vm image list | findstr CentOS
-   The output will be something like `f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329`.
+   The output will be something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
 
    Use that name in the following step.
 5. Create the VM template and replace /path/to/key.pem with the path where you stored the generated .pem SSH key.
 
-        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329 azureuser
+        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
 6. Attach four 500-GB data disks to the VM for use in the RAID configuration.
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-data-%d.vhd
@@ -357,3 +358,4 @@ You might want to look at [another way to cluster MySQL on Linux](mysql-cluster.
 [MariaDBs]:https://mariadb.org/en/about/
 [create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
+<!-- Update_Description: update meta properties, wording update -->

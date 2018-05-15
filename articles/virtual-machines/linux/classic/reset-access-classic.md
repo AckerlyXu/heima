@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2016
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -50,7 +50,8 @@ You will need to do the following:
     ```
 * Have a new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 
-## <a name="pwresetcli"></a>Reset the password
+<a name="pwresetcli"></a>
+## Reset the password
 1. Create a file on your local computer named PrivateConf.json with these lines. Replace **myUserName** and **myP@ssW0rd** with your own user name and password and set your own date for expiration.
 
     ```   
@@ -67,7 +68,8 @@ You will need to do the following:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="sshkeyresetcli"></a>Reset the SSH key
+<a name="sshkeyresetcli"></a>
+## Reset the SSH key
 1. Create a file named PrivateConf.json with these contents. Replace the **myUserName** and **mySSHKey** values with your own information.
 
     ```   
@@ -80,7 +82,8 @@ You will need to do the following:
 
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="resetbothcli"></a>Reset both the password and the SSH key
+<a name="resetbothcli"></a>
+## Reset both the password and the SSH key
 1. Create a file named PrivateConf.json with these contents. Replace the **myUserName**, **mySSHKey** and **myP@ssW0rd** values with your own information.
 
     ``` 
@@ -97,7 +100,8 @@ You will need to do the following:
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="createnewsudocli"></a>Create a new sudo user account
+<a name="createnewsudocli"></a>
+## Create a new sudo user account
 
 If you forget your user name, you can use VMAccess to create a new one with the sudo authority. In this case, the existing user name and password will not be modified.
 
@@ -107,7 +111,8 @@ To create a new sudo user with SSH key access, use the script in [Reset the SSH 
 
 You can also use [Reset the password and the SSH key](#resetbothcli) to create a new user with both password and SSH key access.
 
-## <a name="sshconfigresetcli"></a>Reset the SSH configuration
+<a name="sshconfigresetcli"></a>
+## Reset the SSH configuration
 If the SSH configuration is in an undesired state, you might also lose access to the VM. You can use the VMAccess extension to reset the configuration to its default state. To do so, you just need to set the "reset_ssh" key to "True". The extension will restart the SSH server, open the SSH port on your VM, and reset the SSH configuration to default values. The user account (name, password or SSH keys) will not be changed.
 
 > [!NOTE]
@@ -129,7 +134,8 @@ If the SSH configuration is in an undesired state, you might also lose access to
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="deletecli"></a>Delete a user
+<a name="deletecli"></a>
+## Delete a user
 If you want to delete a user account without logging into to the VM directly, you can use this script.
 
 1. Create a file named PrivateConf.json with this content, substituting the user name to remove for **removeUserName**. 
@@ -146,7 +152,8 @@ If you want to delete a user account without logging into to the VM directly, yo
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="statuscli"></a>Display the status of the VMAccess extension
+<a name="statuscli"></a>
+## Display the status of the VMAccess extension
 To display the status of the VMAccess extension, run this command.
 
 ```
@@ -192,5 +199,5 @@ To repair disks that are not mounting or have mount configuration errors, use th
 * If you want to use Azure PowerShell cmdlets or Azure Resource Manager templates to reset the password or SSH key, fix the SSH configuration, and check disk consistency, see the [VMAccess extension documentation on GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * You can also use the [Azure portal](https://portal.azure.cn) to reset the password or SSH key of a Linux VM deployed in the classic deployment model. You can't currently use the portal do to this for a Linux VM deployed in the Resource Manager deployment model.
 * See [About virtual machine extensions and features](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for more about using VM extensions for Azure virtual machines.
-<!-- Update_Description: new articles on reset access for classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->
+

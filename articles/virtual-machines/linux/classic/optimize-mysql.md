@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -244,7 +244,8 @@ In this example, you can see that the slow query feature has been turned on. You
 ## Appendices
 The following are sample performance test data produced in a targeted lab environment. They provide general background on the performance data trend with different performance tuning approaches. The results might vary under different environment or product versions.
 
-### <a name="AppendixA"></a>Appendix A  
+<a name="AppendixA"></a>
+### Appendix A  
 **Disk performance (IOPS) with different RAID levels**
 
 ![Disk IOPS with different RAID levels][9]
@@ -258,7 +259,8 @@ The following are sample performance test data produced in a targeted lab enviro
 >
 >
 
-### <a name="AppendixB"></a>Appendix B  
+<a name="AppendixB"></a>
+### Appendix B  
 **MySQL performance (throughput) comparison with different RAID levels**   
 (XFS file system)
 
@@ -276,7 +278,8 @@ The following are sample performance test data produced in a targeted lab enviro
 
     time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-### <a name="AppendixC"></a>Appendix C   
+<a name="AppendixC"></a>
+### Appendix C   
 **Disk performance (IOPS) comparison for different chunk sizes**  
 (XFS file system)
 
@@ -289,7 +292,8 @@ The following are sample performance test data produced in a targeted lab enviro
 
 The file sizes used for this testing are 30 GB and 1 GB, respectively, with RAID 0 (4 disks) XFS file system.
 
-### <a name="AppendixD"></a>Appendix D  
+<a name="AppendixD"></a>
+### Appendix D  
 **MySQL performance (throughput) comparison before and after optimization**  
 (XFS File System)
 
@@ -337,4 +341,4 @@ For more detailed [optimization configuration parameters](http://dev.mysql.com/d
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!-- Update_Description: add classic portal migrate notice -->
+<!-- Update_Description: update meta properties, wording update -->

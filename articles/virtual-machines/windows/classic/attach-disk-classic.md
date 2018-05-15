@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -110,5 +110,4 @@ If your application needs to use the D: drive to store data, you can [change the
 
 ## Additional resources
 [About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md)
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

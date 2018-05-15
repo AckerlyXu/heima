@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Create a Linux VM | Azure
 description: Azure PowerShell Script Sample - Create a Linux VM 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 03/02/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
+origin.date: 03/23/2018
+ms.date: 05/21/2018
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -104,6 +104,9 @@ This script uses the following commands to create the deployment. Each item in t
 | [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) | Gets subnet information. This information is used when creating a network interface. |
 | [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) | Creates a network interface. |
 | [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
+| [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) | Sets operating system properties for a virtual machine. |
+| [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) | Specifies the image for a virtual machine. |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) | Adds a network interface to a virtual machine. |
 | [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) | Create a virtual machine. |
 |[Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 
@@ -112,3 +115,4 @@ This script uses the following commands to create the deployment. Each item in t
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+<!-- Update_Description: update meta properties, wording update, update link -->

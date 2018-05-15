@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 01/29/2018
+origin.date: 11/03/17
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -34,5 +34,4 @@ ms.author: v-yeche
 ## Next steps 
 You can also [create a custom virtual machine running Linux](../../linux/classic/createportal-classic.md).
 
-<!-- Update_Description: update meta properties, rename the article, update link -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->
