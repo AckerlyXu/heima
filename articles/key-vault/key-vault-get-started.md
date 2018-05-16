@@ -3,8 +3,8 @@ title: Get started with Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.
 services: key-vault
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: barclayn
+manager: mbaldwin
 tags: azure-resource-manager
 
 ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 11/20/2017
-ms.date: 11/30/2017
+ms.date: 05/16/2018
 ms.author: v-junlch
 
 ---
@@ -229,13 +229,16 @@ You must select the same directory that contains the Azure subscription with whi
 5. Click the **Create** button.
 6. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
 7. Click on the **Registered app** blade copy the **Application ID**
-8. On the **Settings** blade click on **keys**
+8. Click on **All settings**
+9. On the **Settings** blade click on **keys**
 9. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
 10. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret
-To authorize the application to access the key or secret in the vault, use the
- [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet.
+There are two ways to authorize the application to access the key or secret in the vault.
+
+### Using PowerShell
+To use PowerShell, use the [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet.
 
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
 
@@ -248,6 +251,13 @@ If you want to authorize that same application to read secrets in your vault, ru
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### Using the Azure portal
+To change the authorization of an application to use keys or secrets:
+1. Select **Access Policies** from the Key Vault resource blade
+2. Click the [+ Add new] button at the top of the blade
+3. Click **Select Principal** to select the application you created earlier
+4. From the **Key permissions** drop down, select "Decrypt" and "Sign" to authorize the application to decrypt and sign with keys in your vault
+5. From the **Secret permissions** drop-down, select "Get" to allow the application to read secrets in the vault
 
 
 ## <a id="delete"></a>Delete the key vault and associated keys and secrets
@@ -278,4 +288,6 @@ Other commands that you might find useful for managing Azure Key Vault:
 - For a follow-up tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
 - For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 - For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault).
+<!-- Update_Description: wording update -->
+
 <!-- Update_Description: wording update -->

@@ -2,8 +2,8 @@
 title: Use Azure Key Vault from a Web Application | Microsoft Docs
 description: Use this tutorial to help you learn how to use Azure Key Vault from a web application.
 services: key-vault
-author: alexchen2016
-manager: digimobile
+author: adhurwit
+manager: mbaldwin
 tags: azure-resource-manager
 
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
@@ -11,7 +11,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 12/22/2017
+ms.date: 05/16/2018
 ms.author: v-junlch
 
 ---
@@ -145,7 +145,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Make note of the end date and the password for the .pfx (in this example: 07/31/2017 and test123). You will need them below.
+Make note of the end date and the password for the .pfx (in this example: 07/31/2018 and test123). You will need them below.
 
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
@@ -252,9 +252,6 @@ To learn more about adding a Certificate to a Web App, see [Using Certificates i
 
 Instead of uploading your certificate to the Web App service directly, you can store it in Key Vault as a secret and deploy it from there. This is a two-step process that is outlined in the following blog post, [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
-## <a id="next"></a>Next steps
-
-For programming references, see [Azure Key Vault C# Client API Reference](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
