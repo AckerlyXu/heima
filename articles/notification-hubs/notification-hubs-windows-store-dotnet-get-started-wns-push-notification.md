@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 12/22/2017
-ms.date: 01/23/2018
+ms.date: 05/16/2018
 ms.author: v-junlch
 
 ---
@@ -94,11 +94,11 @@ Your notification hub is now configured to work with WNS. You have the connectio
 1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**.  
     The **Manage NuGet Packages** window opens.
 
-2. In the search box, enter **WindowsAzure.Messaging.Managed**, select **Install**, and accept the terms of use.
+2. In the search box, enter **Microsoft.Azure.NotificationHubs**, select **Install**, and accept the terms of use.
    
     ![The Manage NuGet Packages window][20]
    
-    This action downloads, installs, and adds a reference to the Azure messaging library for Windows by using the [WindowsAzure.Messaging.Managed NuGet package](http://nuget.org/packages/WindowsAzure.Messaging).
+    This action downloads, installs, and adds a reference to the Azure Notification Hubs library for Windows by using the [Microsoft.Azure.NotificationHubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Open the App.xaml.cs project file, and add the following `using` statements: 
    
@@ -156,7 +156,6 @@ This tutorial demonstrates how to test your client app simply by sending notific
 - **Azure Notification Hubs .NET SDK**: In the NuGet Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 - **Node.js**: See [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-- **Azure Mobile Apps**: For an example of how to send notifications from an Azure mobile app that's integrated with Notification Hubs, see [Add push notifications for Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
 - **Java or PHP**: For examples of how to send notifications by using the REST APIs, see:
     - [Java](notification-hubs-java-push-notification-tutorial.md)

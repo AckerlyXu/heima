@@ -220,7 +220,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 - [Role-Based Access Control for Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
-- [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+- [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/develop/active-directory-protocols-oauth-code.md)
   
   This article describes complete OAuth 2.0 flow for authenticating with Azure Active Directory.
 - [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
