@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 09/06/2017
-ms.date: 01/08/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: mvc
 
@@ -41,10 +41,10 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 Create a Recovery Services vault with **New-AzureRmRecoveryServicesVault**. Be sure to specify the resource group name and location used when configuring the virtual machine that you want to back up. 
 
 ```powershell
-New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "chinanorth"
+New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "ChinaNorth"
 ```
 
-Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable. Then use **Set-AzureRmRecoveryServicesBackupProperties** to set the **-BackupStorageRedundancy** option to [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable. Then use **Set-AzureRmRecoveryServicesBackupProperties** to set the **-BackupStorageRedundancy** option to [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault -Name myRSVault
@@ -92,4 +92,4 @@ Now that you have protected your virtual machines, see the following articles to
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-arm-restore-vms.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->
