@@ -3,8 +3,8 @@ title: Set up Key Vault for Windows VMs in Azure Resource Manager | Azure
 description: How to set up Key Vault for use with an Azure Resource Manager virtual machine.
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager
@@ -67,4 +67,6 @@ While you use a template, you need to set the `enabledForDeployment` property to
 For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create/).
 
 >[!NOTE]
-> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "cloudapp.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+
+<!-- Update_Description: update meta properties -->

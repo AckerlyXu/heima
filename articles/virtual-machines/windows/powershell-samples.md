@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2017
-ms.date: 01/15/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -45,4 +45,4 @@ The following table includes links to PowerShell scripts samples that create and
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
 <!-- Not Available |**Monitor virtual machines**||-->
 | | |
-<!--Update_Description: update VM scripts links-->
+<!--Update_Description: update mets properties -->

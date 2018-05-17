@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -41,15 +41,15 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../active-directory/role-based-access-control-what-is.md) enables you to manage which users have permission to complete specific actions at a scope.
+You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 
 To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 
 For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
@@ -193,4 +193,4 @@ Advance to the next tutorial to learn about how highly available virtual machine
 
 > [!div class="nextstepaction"]
 > [Monitor virtual machines](tutorial-monitoring.md)
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

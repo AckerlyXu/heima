@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -129,5 +129,4 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 
 - [Azure Virtual Machine Agent overview](agent-user-guide.md)
 - [Virtual machine extensions and features for Windows](extensions-features.md)
-<!-- Update_Description: new articles on install VM agent offline -->
-<!--ms.date: 03/19/2018-->
+<!-- Update_Description: update meta properties -->

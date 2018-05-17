@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -85,7 +85,8 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
-### <a name="addNode"></a>Add the other SQL Server to cluster
+<a name="addNode"></a>
+### Add the other SQL Server to cluster
 
 Add the other SQL Server to the cluster.
 
@@ -190,7 +191,8 @@ Next, enable the **AlwaysOn Availability Groups** feature. Do these steps on bot
 Repeat these steps on the other SQL Server.
 
 <!-----------------
-## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
+<a name="endpoint-firewall"></a>
+## Open firewall for the database mirroring endpoint
 
 Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
 
@@ -218,7 +220,8 @@ Repeat these steps on the second SQL Server.
 7. In **Object Explorer**, right-click **Databases** and click **New Database**.
 8. In **Database name**, type **MyDB1**, then click **OK**.
 
-### <a name="backupshare"></a> Create a backup share
+<a name="backupshare"></a>
+###  Create a backup share
 
 1. On the first SQL Server in **Server Manager**, click **Tools**. Open **Computer Management**.
 
@@ -353,7 +356,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
    | **Virtual network** |Use the name of the Azure virtual network. |
    | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
    | **IP address assignment** |Static |
-   | **IP address** |Use an available address from subnet. |
+   | **IP address** |Use an available address from subnet. Note that this is different from your cluster IP address |
    | **Subscription** |Use the same subscription as the virtual machine. |
    | **Location** |Use the same location as the virtual machine. |
 
@@ -371,22 +374,14 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
    ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Click the load balancer, click **Backend pools**, and click **+Add**. Set the backend pool as follows:
+1. Click the load balancer, click **Backend pools**, and click **+Add**. 
 
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Type a text name | SQLLBBE
-   | **Associated to** | Pick from list | Availability set
-   | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
-   | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type the name for the back end pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose both of the virtual machines that will host availability group replicas. Do not include the file share witness server.
 
-1. Click **+ Add a virtual machine**.
-
-1. For the availability set, choose the availability set that the SQL Servers are in.
-
-1. For virtual machines, include both of the SQL Servers. Do not include the file share witness server.
+   >[!NOTE]
+   >If both virtual machines are not specified, connections will only succeed to the primary replica.
 
 1. Click **OK** to create the backend pool.
 
@@ -428,7 +423,8 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 1. Click **OK** to set the load balancing rules.
 
-## <a name="configure-listener"></a> Configure the listener
+<a name="configure-listener"></a>
+##  Configure the listener
 
 The next thing to do is to configure an Availability Group listener on the failover cluster.
 
@@ -493,4 +489,4 @@ The SQLCMD connection automatically connects to whichever instance of SQL Server
 ## Next steps
 
 - [Add an IP address to a load balancer for a second availability group](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

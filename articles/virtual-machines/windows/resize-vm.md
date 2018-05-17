@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2016
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -100,7 +100,7 @@ If the new size for a VM in an availability set is not available on the hardware
    ```
 
 ## Next steps
-* For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md).
+* For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 
 <!-- Update_Description: update meta properties, update link -->
 <!-- REDIRECT virtual-machine-scale-sets-windows-autoscale.md to virtual-machine-scale-sets-autoscale-powershell.md -->

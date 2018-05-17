@@ -16,11 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 02/02/2018
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
 # Introduction to the Azure Desired State Configuration extension handler
+
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 The Azure VM Agent and associated extensions are part of Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
@@ -68,7 +69,7 @@ In most scenarios, Resource Manager deployment templates are the expected way to
 
 The PowerShell cmdlets that are used to manage the DSC extension are best used in interactive troubleshooting and information-gathering scenarios. You can use the cmdlets to package, publish, and monitor DSC extension deployments. Note that cmdlets for the DSC extension aren't yet updated to work with the [default configuration script](#default-configuration-script).
 
-The **Publish-AzureRMVMDscConfiguration** cmdlet takes in a configuration file, scans it for dependent DSC resources, and then creates a .zip file. The .zip file contains the configuration and DSC resources that are needed to enact the configuration. The cmdlet can also create the package locally by using the *-ConfigurationArchivePath* parameter. Otherwise, the cmdlet publishes the .zip file to blob storage, and then secures it with an SAS token.
+The **Publish-AzureRMVMDscConfiguration** cmdlet takes in a configuration file, scans it for dependent DSC resources, and then creates a .zip file. The .zip file contains the configuration and DSC resources that are needed to enact the configuration. The cmdlet can also create the package locally by using the *-OutputArchivePath* parameter. Otherwise, the cmdlet publishes the .zip file to blob storage, and then secures it with an SAS token.
 
 The .ps1 configuration script that the cmdlet creates is in the .zip file at the root of the archive folder. The module folder is placed in the archive folder in resources.
 
@@ -130,7 +131,7 @@ To set up DSC in the portal:
 
 The portal requires the following input:
 
-* **Configuration Modules or Script**: This field is mandatory (the form has not been updated for the [default configuration script](#default-configuration-script)). Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user blob storage and secured by an SAS token.
+* **Configuration Modules or Script**: This field is mandatory (the form has not been updated for the [default configuration script](#default-configuration-script)). Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user blob storage and secured by an SAS token.
 
 * **Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select the data field and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
 
@@ -151,4 +152,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>
 * Examine the [Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
 * For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 * For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update  -->

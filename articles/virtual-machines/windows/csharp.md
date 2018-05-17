@@ -3,8 +3,8 @@ title: Create and Manage an Azure Virtual Machine Using C# | Azure
 description: Use C# and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # Create and manage Windows VMs in Azure using C# #
@@ -393,6 +393,6 @@ It should take about five minutes for this console application to run completely
 
 ## Next steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-* Learn more about using the [Azure libraries for .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
+* Learn more about using the [Azure libraries for .NET](https://docs.azure.cn/zh-cn/dotnet/?view=azure-dotnet).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

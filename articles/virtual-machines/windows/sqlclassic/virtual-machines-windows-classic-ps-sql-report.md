@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 01/15/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---

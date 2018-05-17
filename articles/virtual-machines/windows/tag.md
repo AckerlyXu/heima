@@ -3,8 +3,8 @@ title: How to tag a Windows VM resource in Azure | Azure
 description: Learn about tagging a Windows virtual machine created in Azure using the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
-author: mmccrory
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2016
-ms.date: 08/23/2016
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # How to tag a Windows virtual machine in Azure
@@ -92,8 +92,12 @@ To learn more about tagging through PowerShell, check out the [Azure Resource Cm
 
 ## Next steps
 * To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
+<!-- Not Available on [Understanding your Azure Bill][Understanding your Azure Bill] and [Gain insights into your Azure resource consumption][Gain insights into your Azure resource consumption]-->
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
 [Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+<!-- Not Available on [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md -->
+<!-- Not Available on [Gain insights into your Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md-->
+<!-- Update_Description: wording update, update link -->

@@ -13,10 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 11/27/2017
+origin.date: 03/30/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
+### Design and implement with Premium Storage
+* [Design for performance with Premium Storage](premium-storage-performance.md)
+* [Blob storage operations with Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
+
+### Operational guidance
+* [Migrate to Azure Premium Storage](../../storage/common/storage-migration-to-premium-storage.md)
+
+### Blog posts
+* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+<!-- Update_Description: update meta properties, update link -->

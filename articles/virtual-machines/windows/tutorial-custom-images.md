@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 12/07/2017
-ms.date: 01/08/2018
+origin.date: 03/27/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -31,13 +31,15 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
-
 ## Before you begin
 
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
+
+<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+
+If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM module version 5.6.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 ## Prepare VM
 
@@ -93,80 +95,21 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU and version. With a custom image, you just need to provide the ID of the custom image resource. 
+Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU and version. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
 
-In the following script, we create a variable *$image* to store information about the custom image using [Get-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermimage) and then we use [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) and specify the ID using the *$image* variable we just created. 
-
-The script creates a VM named *myVMfromImage* from our custom image in a new resource group named *myResourceGroupFromImage* in the *China North* location.
+This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
 
 ```powershell
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location ChinaEast
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -Name MYvNET `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-$pip = New-AzureRmPublicIpAddress `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -Name "mypublicdns$(Get-Random)" `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4
-
-  $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-  $nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP
-
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $pip.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-$vmConfig = New-AzureRmVMConfig `
-    -VMName myVMfromImage `
-    -VMSize Standard_D1 | Set-AzureRmVMOperatingSystem -Windows `
-        -ComputerName myComputer `
-        -Credential $cred 
-
-# Here is where we create a variable to store information about the image 
-$image = Get-AzureRmImage `
-    -ImageName myImage `
-    -ResourceGroupName myResourceGroup
-
-# Here is where we specify that we want to create the VM from and image and provide the image ID
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
-
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-New-AzureRmVM `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVMfromImage" `
+	-ImageName "myImage" `
+    -Location "China East" `
+    -VirtualNetworkName "myImageVnet" `
+    -SubnetName "myImageSubnet" `
+    -SecurityGroupName "myImageNSG" `
+    -PublicIpAddressName "myImagePIP" `
+    -OpenPorts 3389
 ```
 
 ## Image management 

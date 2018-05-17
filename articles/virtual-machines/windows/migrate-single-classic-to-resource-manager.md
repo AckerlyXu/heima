@@ -3,7 +3,7 @@ title: Migrate a Classic VM to an ARM Managed Disk VM | Azure
 description: Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 
@@ -30,7 +30,7 @@ This section helps you to make the best decision on VM and disk types.
 
 ### Location
 
-Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to.
+Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services byRegion](https://www.azure.cn/support/service-dashboard/) for up-to-date information on available locations.
 
 ### VM sizes
 
@@ -67,7 +67,7 @@ By default, disk caching policy is *Read-Only* for all the Premium data disks, a
 
 ### Pricing
 
-Review the [pricing for Managed Disks](https://www.azure.cn/pricing/details/managed-disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
+Review the [pricing for Managed Disks](https://www.azure.cn/pricing/details/storage/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
 
 ## Checklist
 
@@ -165,3 +165,4 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 ## Next steps
 
 - Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: update meta properties, wording update -->

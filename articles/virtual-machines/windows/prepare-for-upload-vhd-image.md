@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -65,7 +65,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 
    * To view the route table, run `route print` at the command prompt.
    * Check the **Persistence Routes** sections. If there is a persistent route, use route delete to remove it.
-<!-- Not Available on [route delete](https://technet.microsoft.com/library/cc739598.apx) -->
+   <!-- Not Available on [route delete](https://technet.microsoft.com/library/cc739598.apx) -->
 2. Remove the WinHTTP proxy:
 
     ```PowerShell
@@ -355,7 +355,8 @@ The ideal configuration is to **have the patch level of the machine at the lates
 |                         |                   | KB4012215                          | KB4012214                                   | KB4012216                            | KB4013429                            | KB4013429                  |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            | KB4013429                  |
 
-### When to use sysprep <a id="step23"></a>    
+<a name="step23"></a>  
+### When to use sysprep
 
 Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an "out of the box experience" by removing all personal data and resetting several components. You typically do this if you want to create a template from which you can deploy several other VMs that have a specific configuration. This is called a **generalized image**.
 

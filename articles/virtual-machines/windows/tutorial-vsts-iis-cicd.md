@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -222,4 +222,4 @@ Advance to the next tutorial to learn how to install a SQL&#92;IIS&#92;.NET stac
 
 > [!div class="nextstepaction"]
 > [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

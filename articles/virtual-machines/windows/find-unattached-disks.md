@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 03/19/2018
+origin.date: 03/30/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ---
 
@@ -87,7 +87,7 @@ foreach($storageAccount in $storageAccounts){
 
     $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
+    $context = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 
     $containers = Get-AzureStorageContainer -Context $context
 
@@ -126,6 +126,5 @@ foreach($storageAccount in $storageAccounts){
 
 ## Next steps
 
-[Delete storage account](../../storage/common/storage-create-storage-account.md)
-<!-- Update_Description: new articles on find unattached disks on windows server -->
-<!--ms.date: 03/19/2018-->
+For more information, see [Delete storage account](../../storage/common/storage-create-storage-account.md) and [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+<!-- Update_Description: update meta properties, wording update -->

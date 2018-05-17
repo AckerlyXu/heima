@@ -3,8 +3,8 @@ title: Azure CLI Samples Windows | Azure
 description: Azure CLI Samples Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 ms.custom: mvc
 
 ---
@@ -37,3 +37,5 @@ The following table includes links to bash scripts built using the Azure CLI tha
 |**Secure virtual machines**||
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
 | | |
+<!-- Not Available on OMS -->
+<!-- Update_Description: wording update, update link -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -62,7 +62,7 @@ Create a load-balanced endpoint for each VM that hosts an Azure replica. If you 
 5. Start Azure PowerShell.  
     A new PowerShell session opens, with the Azure administrative modules loaded.
 
-6. Run `Get-AzurePublishSettingsFile`. This cmdlet directs you to a browser to download a publish settings file to a local directory. You might be prompted for your sign-in credentials for your Azure subscription.
+6. Run `Get-AzurePublishSettingsFile -Environment AzureChinaCloud `. This cmdlet directs you to a browser to download a publish settings file to a local directory. You might be prompted for your sign-in credentials for your Azure subscription.
 
 7. Run the following `Import-AzurePublishSettingsFile` command with the path of the publish settings file that you downloaded:
 
@@ -164,4 +164,4 @@ Create the availability group listener in two steps. First, create the client ac
 
 ## Next steps
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update link, update meta properties -->

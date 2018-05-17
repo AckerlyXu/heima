@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 02/05/2018
+origin.date: 03/23/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select **Get Support**.
 
-<a id="quickfixrdp"></a>
+<a name="quickfixrdp"></a>
 
 ## Quick troubleshooting steps
 After each troubleshooting step, try reconnecting to the VM:
@@ -62,7 +62,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Set the **Mode** to **Reset configuration only** and then click the **Update** button:
 
     ![Reset the RDP configuration in the Azure portal](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verify Network Security Group rules**. You can review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+2. **Verify Network Security Group rules**. Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) to confirm if a rule in a Network Security Group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
 
@@ -88,6 +88,10 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     ![Redeploy the VM in the Azure portal](./media/troubleshoot-rdp-connection/redeploy-vm.png)
 
     After this operation finishes, ephemeral disk data is lost and dynamic IP addresses that are associated with the VM are updated.
+
+9. **Verify routing**. Use Network Watcher's [Next hop](../../network-watcher/network-watcher-check-next-hop-portal.md) capability to confirm that a route isn't preventing traffic from being routed to or from a virtual machine. You can also review effective routes to see all effective routes for a network interface. For more information, see [Using effective routes to troubleshoot VM traffic flow](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+10. Ensure that any on-premises firewall, or firewall on your computer, allows outbound TCP 3389 traffic to Azure.
 
 If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -175,6 +179,10 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
+6. **Verify routing**. Use Network Watcher's [Next hop](../../network-watcher/network-watcher-check-next-hop-portal.md) capability to confirm that a route isn't preventing traffic from being routed to or from a virtual machine. You can also review effective routes to see all effective routes for a network interface. For more information, see [Using effective routes to troubleshoot VM traffic flow](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+7. Ensure that any on-premises firewall, or firewall on your computer, allows outbound TCP 3389 traffic to Azure.
+
 If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Troubleshoot VMs created using the Classic deployment model
@@ -202,7 +210,7 @@ After each troubleshooting step, try reconnecting to the VM.
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Resource Health** button. A healthy VM reports as being **Available**:
 
     ![Check VM resource health in the Azure portal](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Reset user credentials**. This troubleshooting step resets the password on the local administrator account that you specify when you are unsure or have forgotten the credentials.
+5. **Reset user credentials**. This troubleshooting step resets the password on the local administrator account that you specify when you are unsure or have forgotten the credentials.  Once you have logged into the VM, you should reset the password for that user.
 
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Enter your username and a new password. Finally, click the **Save** button:
 
@@ -212,6 +220,8 @@ After each troubleshooting step, try reconnecting to the VM.
     Select your VM in the Azure portal and click the **Overview** tab. Click the **Restart** button:
 
     ![Restart the VM in the Azure portal](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+
+7. Ensure that any on-premises firewall, or firewall on your computer, allows outbound TCP 3389 traffic to Azure.
 
 If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -228,4 +238,4 @@ You may encounter a specific error message when trying to connect to your VM via
 If none of these errors occurred and you still can't connect to the VM via Remote Desktop, read the detailed [troubleshooting guide for Remote Desktop](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 * If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, wording update -->

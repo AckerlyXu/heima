@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ---
 
@@ -157,4 +157,4 @@ In the example of the `IaasDiagnostic` extension, the following parameters would
 ```
 
 At this point, the template can be deployed using any template deployment method.
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

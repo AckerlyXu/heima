@@ -3,8 +3,8 @@ title: Encrypt disks on a Windows VM in Azure | Azure
 description: How to encrypt virtual disks on a Windows VM for enhanced security using Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 07/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 03/07/2018
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # How to encrypt virtual disks on a Windows VM
@@ -53,6 +53,7 @@ Supported scenarios and requirements for disk encryption:
 * Disabling encryption on OS and data drives for Windows VMs.
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
 * Standard tier VMs, such as A, D, and DS series VMs.
+<!-- Not Available on G and GS series VM-->
 
 Disk encryption is not currently supported in the following scenarios:
 
@@ -103,7 +104,7 @@ Create a service principal in Azure Active Directory with [New-AzureRmADServiceP
 
 ```powershell
 $appName = "My App"
-$securePassword = "P@ssword!"
+$securePassword = ConvertTo-SecureString -String "P@ssw0rd!" -AsPlainText -Force
 $app = New-AzureRmADApplication -DisplayName $appName `
     -HomePage "https://myapp.contoso.com" `
     -IdentifierUris "https://contoso.com/myapp" `
@@ -121,55 +122,20 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
 ```
 
 ## Create virtual machine
-To test the encryption process, let's create a VM. The following example creates a VM named *myVM* using a *Windows Server 2016 Datacenter* image:
+To test the encryption process, create a VM with [New-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* using a *Windows Server 2016 Datacenter* image. When prompted for credentials, enter the username and password to be used for your VM:
 
 ```powershell
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "mypublicdns$(Get-Random)"
-
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP
-
-$nic = New-AzureRmNetworkInterface -Name myNic `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $pip.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
 $cred = Get-Credential
 
-$vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName $rgName `
+    -Name "myVM" `
+    -Location $location `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred
 ```
 
 ## Encrypt virtual machine
@@ -189,9 +155,9 @@ $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
-    -VMName $vmName `
+    -VMName "myVM" `
     -AadClientID $app.ApplicationId `
-    -AadClientSecret $securePassword `
+    -AadClientSecret (New-Object PSCredential "user",$securePassword).GetNetworkCredential().Password `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
     -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
@@ -201,7 +167,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
 Accept the prompt to continue with the VM encryption. The VM restarts during the process. Once the encryption process completes and the VM has rebooted, review the encryption status with [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
 ```powershell
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
+Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 The output is similar to the following example:
@@ -217,4 +183,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 * For more information about managing Azure Key Vault, see [Set up Key Vault for virtual machines](key-vault-setup.md).
 * For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

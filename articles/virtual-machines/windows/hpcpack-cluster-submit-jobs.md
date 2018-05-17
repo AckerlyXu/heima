@@ -3,8 +3,8 @@ title: Submit jobs to an HPC Pack cluster in Azure | Azure
 description: Learn how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 10/14/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
@@ -76,7 +76,7 @@ Components](http://technet.microsoft.com/library/hh314627.aspx).
     ```powershell
     .\Set-HPCWebComponents.ps1 -Service REST -enable
     ```
-4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn. If you use the Resource Manager deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.chinacloudapp.cn.
+4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn. If you use the Resource Manager deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.chinacloudapi.cn.
 
    > [!NOTE]
    > You select this certificate later when you submit jobs to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
@@ -138,7 +138,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     or
 
     ```command
-    job list /scheduler:https://<HeadNodeDnsName>.<region>.chinacloudapp.cn /all
+    job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.chinacloudapi.cn /all
     ```
 
    > [!TIP]
@@ -157,9 +157,9 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
 
     b. Click **Windows Credentials** > **Add a generic credential**.
 
-    c. Specify the Internet address (for example, https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn/HpcScheduler), and the user name (&lt;DomainName&gt;\\&lt;UserName&gt;) and password of the cluster administrator or another cluster user that you configured.
+    c. Specify the Internet address (for example, https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.chinacloudapi.cn/HpcScheduler), and the user name (&lt;DomainName&gt;\\&lt;UserName&gt;) and password of the cluster administrator or another cluster user that you configured.
 2. On the client computer, start HPC Job Manager.
-3. In the **Select Head Node** dialog box, type the URL to the head node in Azure (for example, https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn).
+3. In the **Select Head Node** dialog box, type the URL to the head node in Azure (for example, https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.chinacloudapi.cn).
 
     HPC Job Manager opens and shows a list of jobs on the head node.
 
@@ -174,7 +174,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     or
 
     ```
-    https://<HeadNodeDnsName>.<region>.chinacloudapp.cn/HpcPortal
+    https://<HeadNodeDnsName>.<region>.cloudapp.chinacloudapi.cn/HpcPortal
     ```
 2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx).)
 
@@ -190,3 +190,4 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
+<!-- Update_Description: update meta properties, wording update  -->

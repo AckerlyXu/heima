@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2016
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ When considering the ability to resize a VM, there are two concepts which contro
 ## Add your account
 You must configure Azure PowerShell to work with classic Azure resources. Follow the steps below to configure Azure PowerShell to manage classic resources.
 
-1. At the PowerShell prompt, type `Add-AzureAccount -Environment AzureChinaCloud` and click **Enter**. 
+1. At the PowerShell prompt, type `Add-AzureAccount -Environment AzureChinaCloud ` and click **Enter**. 
 2. Type in the email address associated with your Azure subscription and click **Continue**. 
 3. Type in the password for your account. 
 4. Click **Sign in**. 
@@ -67,5 +67,4 @@ A sample script for deleting and recreating a cloud service using a new VM size 
 ## Next steps
 * [Resize a VM created in the Resource Manager deployment model](../resize-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

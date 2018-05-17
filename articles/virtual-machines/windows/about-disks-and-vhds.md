@@ -10,7 +10,7 @@ ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -73,4 +73,4 @@ fsutil behavior set DisableDeleteNotify 0
 * [Attach a disk](attach-disk-portal.md) to add additional storage for your VM.
 * [Create a snapshot](snapshot-copy-managed-disk.md).
 * [Convert to managed disks](convert-unmanaged-to-managed-disks.md).
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

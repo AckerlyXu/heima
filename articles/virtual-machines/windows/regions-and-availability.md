@@ -13,13 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 12/13/2017
-ms.date: 01/15/2018
+origin.date: 03/27/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
 [!INCLUDE [virtual-machines-common-regions-and-availability](../../../includes/virtual-machines-common-regions-and-availability.md)]
-
-
-
 <!--Update_Description: update meta data-->

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2016
-ms.date: 10/16/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -154,4 +154,4 @@ The following script provides an example of gathering the required information, 
 
 ## Next steps
 Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!--Update_Description: update powershell scripts-->
+<!--Update_Description: update meta properties -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -75,7 +75,7 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 The ReportViewer needs to use proper credentials to authenticate with the report server, and the credentials must be authorized by the report server to access the reports you want. For information on authentication, see the white paper [Reporting Services report viewer control and Azure virtual machine based report servers](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## Publish the ASP.NET Web application to Azure
-For instructions on publishing an ASP.NET Web application to Azure, see [How to: Migrate and Publish a Web Application to Azure from Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) and [Get started with Web Apps and ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+For instructions on publishing an ASP.NET Web application to Azure, see [How to: Migrate and Publish a Web Application to Azure from Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) and [Get started with Web Apps and ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > If the Add Azure Deployment Project or Add Azure Cloud Service Project command does not appear in the shortcut menu in Solution Explorer, you may need to change the Target framework for the project to .NET Framework 4.
@@ -90,4 +90,4 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md)
 
 [Use PowerShell to Create an Azure VM With a Native Mode Report Server](../classic/ps-sql-report.md)
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

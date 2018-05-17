@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 origin.date: 05/09/2016
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ By using Azure virtual machines, you can create MATLAB Distributed Computing Ser
 * **Client computer** - You'll need a Windows-based client computer to communicate with Azure and the MATLAB Distributed Computing Server cluster after deployment.
 * **Azure PowerShell** - See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to install it on your client computer.
 * **Azure subscription** - If you don't have a subscription, you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
-* **vCPUs quota** - You might need to increase the vCPU quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+* **vCPUs quota** - You might need to increase the vCPU quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 * **MATLAB, Parallel Computing Toolbox, and MATLAB Distributed Computing Server licenses** - The scripts assume that the [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) is used for all licenses.  
 * **MATLAB Distributed Computing Server software** - Will be installed on a VM that will be used as the base VM image for the cluster VMs.
 
@@ -69,4 +69,4 @@ As with other types of MATLAB Distributed Computing Server clusters, you need to
 ## Next steps
 * For detailed instructions to deploy and manage MATLAB Distributed Computing Server clusters in Azure, see the [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) repository containing the templates and scripts.
 * Go to the [MathWorks site](http://www.mathworks.com/) for detailed documentation for MATLAB and MATLAB Distributed Computing Server.
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

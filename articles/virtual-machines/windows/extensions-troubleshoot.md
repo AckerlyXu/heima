@@ -3,8 +3,8 @@ title: Troubleshooting Windows VM extension failures | Azure
 description: Learn about troubleshooting Azure Windows VM extension failures
 services: virtual-machines-windows
 documentationcenter: ''
-author: kundanap
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue,azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/29/2016
-ms.date: 06/29/2016
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # Troubleshooting Azure Windows VM extension failures
@@ -53,8 +53,8 @@ Here is the sample output:
           "Message": "",
           "Time": null
         }
-      ]
-    }
+      }
+    ]
 
 ## Troubleshooting extension failures
 ### Re-running the extension on the VM
@@ -65,3 +65,4 @@ Note: In future, this functionality would be enhanced to remove the need for uni
     Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
+<!-- Update_Description: update meta properties, wording update -->

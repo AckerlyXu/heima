@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -39,7 +39,7 @@ This section shows you how to use the **Dashboard** in the Azure portal to selec
 
 You can also create VMs using [your own images](createupload-vhd.md). To learn about this and other methods, see [Different ways to create a Windows virtual machine](../../virtual-machines-windows-creation-choices.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a id="createvirtualmachine"> </a>Create the virtual machine
+## <a name="createvirtualmachine"> </a>Create the virtual machine
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Next steps
@@ -47,5 +47,4 @@ You can also create VMs using [your own images](createupload-vhd.md). To learn a
 * Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](connect-logon.md).
 * Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk to a Windows virtual machine created with the classic deployment model](attach-disk.md).
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -85,4 +85,4 @@ Review the [pricing for Managed Disks](https://www.azure.cn/pricing/details/mana
 ## Next steps
 
 - Learn more about [Managed Disks](managed-disks-overview.md)
-<!-- Update_Description: add P15 and S15 disk size content -->
+<!-- Update_Description: update meta properties -->

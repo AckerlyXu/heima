@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -176,6 +176,7 @@ For the real migrations, you might want to consider:
 ### Patterns of success
 
 The technical guidance from the _Lab Test_ section should be considered and mitigated prior to a real migration.  With adequate testing, the migration is actually a non-event.  For production environments, it might be helpful to have additional support, such as a trusted Azure.cn partner or Azure.cn Premier services.
+<!-- Notice: Change Microsoft to Azure.cn-->
 
 ### Pitfalls to avoid
 
@@ -217,4 +218,4 @@ Remember why you started this Classic to Azure Resource Manager migration journe
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

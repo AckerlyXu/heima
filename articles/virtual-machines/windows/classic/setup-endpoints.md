@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -35,5 +35,5 @@ When you create a Windows virtual machine in the Azure portal, common endpoints 
 ## Next steps
 * To use an Azure PowerShell cmdlet to set up a VM endpoint, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * To use an Azure PowerShell cmdlet to manage an ACL on an endpoint, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* If you created a virtual machine in the Resource Manager deployment model, you can use Azure PowerShell to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) to control traffic to the VM.
-<!-- Update_Description: update meta properties -->
+* If you created a virtual machine in the Resource Manager deployment model, you can use Azure PowerShell to [create network security groups](../../../virtual-network/tutorial-filter-network-traffic.md) to control traffic to the VM.
+<!-- Update_Description: update meta properties, update link -->
