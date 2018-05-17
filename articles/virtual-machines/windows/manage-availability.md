@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2017
-ms.date: 03/19/2018
+origin.date: 03/27/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -30,4 +30,4 @@ For instructions on creating and using availability sets when using the classic 
 
 ## Next steps
 To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

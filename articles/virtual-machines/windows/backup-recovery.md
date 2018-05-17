@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/13/2017
-ms.date: 10/16/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ---
 
@@ -24,4 +24,4 @@ You can protect your data by taking backups at regular intervals. There are seve
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]
 
-<!--Update_Description: new articles on back up on windoows VM -->
+<!--Update_Description: update meta properties -->

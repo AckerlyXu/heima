@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -32,4 +32,4 @@ ms.author: v-yeche
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

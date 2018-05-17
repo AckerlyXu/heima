@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -80,4 +80,4 @@ When logged in to a Windows Azure VM, task manager can be used to examine runnin
 ## Upgrade the VM Agent
 
 The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they receive the latest VM agent. Custom VM images should be manually updated to include the new VM agent.
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

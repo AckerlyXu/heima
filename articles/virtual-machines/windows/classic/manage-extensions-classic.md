@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/29/2016
-ms.date: 02/05/2018
+ms.date: 05/21/2018r
 ms.author: v-yeche
 
 ---
@@ -27,5 +27,4 @@ Describes how to find, add, modify, or remove VM Extensions with either Windows 
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: Create and manage a Windows VM in Azure using Python | Azure
 description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/21/2018
+ms.author: v-yeche
 ---
 
 # Create and manage Windows VMs in Azure using Python
@@ -92,7 +92,8 @@ Before you start this step, make sure that you have an [Active Directory service
 
         return credentials
     ```
-
+    <!-- Notice: Add China = True -->
+    
     Replace **application-id**, **authentication-key**, and **tenant-id** with the values that you previously collected when you created your Azure Active Directory service principal.
 
 5. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
@@ -342,7 +343,7 @@ Now that you created all the supporting resources, you can create a virtual mach
             VM_NAME, 
             vm_parameters
         )
-    
+
         return creation_result.result()
     ```
 
@@ -573,4 +574,4 @@ Because you are charged for resources used in Azure, it's always a good practice
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
 - Learn more about the [Azure Python Library](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 
-<!--Update_Description: update storage links-->
+<!--Update_Description: update meta properties, update storage links-->

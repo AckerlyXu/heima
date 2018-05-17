@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 02/09/2018
-ms.date: 04/10/2018
+origin.date: 03/23/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -86,6 +86,8 @@ Use the following command, on your local machine, to create a remote desktop ses
 mstsc /v:<publicIpAddress>
 ```
 
+In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username and password you created for the for the virtual machine and then click **OK**.
+
 ## Understand VM images
 
 The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using the Windows Server 2016-Datacenter image. In this step, the PowerShell module is used to search the marketplace for other Windows images, which can also as a base for new VMs. This process consists of finding the publisher, offer, and the image name (Sku). 
@@ -131,7 +133,7 @@ Skus                            Offer         PublisherName          Location
 2016-Nano-Server                WindowsServer MicrosoftWindowsServer ChinaEast
 ```
 
-This information can be used to deploy a VM with a specific image. This example deploys a virtual machine using a Windows Server 2016 with Containers image.
+This information can be used to deploy a VM with a specific image. This example deploys a virtual machine using the latest version of a Windows Server 2016 with Containers image.
 
 ```powershell
 New-AzureRmVm `

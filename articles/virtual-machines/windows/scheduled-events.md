@@ -15,18 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
 # Azure Metadata Service: Scheduled Events for Windows VMs
 
-
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine maintenance. It provides information about upcoming maintenance events (e.g. reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
 
-> [!NOTE] 
+> [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
 
 ## Why Scheduled Events?
@@ -118,7 +117,7 @@ In the case where there are scheduled events, the response contains an array of 
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
-| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
@@ -199,7 +198,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-08-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI
@@ -221,7 +220,8 @@ foreach($event in $scheduledEvents.Events)
 
 ## Next steps 
 
+<!-- Not Available on https://channel9.msdn.com/-->
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
-<!-- Update_Description: update meta properties， wording update, update link  -->
+<!-- Update_Description: update meta properties  -->

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 09/15/2017
-ms.date: 10/23/2017
+origin.date: 03/21/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -23,8 +23,8 @@ ms.author: v-yeche
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
-## Next steps
+## Next steps 
 
-For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
+For information on managing maintenance requiring a reboot, see [Handling planned maintenance notifications](maintenance-notifications.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

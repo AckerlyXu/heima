@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -107,4 +107,4 @@ If the Azure VM access extension does not respond and you are unable to reset th
 [Connect to an Azure virtual machine with RDP or SSH](/virtual-machines/linux/overview)
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: update meta properties -->

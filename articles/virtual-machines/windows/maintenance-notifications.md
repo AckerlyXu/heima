@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -201,9 +201,8 @@ For more information about high availability, see [Regions and availability for 
 
 **A:** If you have clicked to update multiple instances in an availability set in short succession, Azure will queue these requests and starts to update only the VMs in one update domain (UD) at a time. However, since there might be a pause between update domains, the update might appear to take longer. If the update queue takes longer than 60 minutes, some instances will show the **skipped** state even if they have been updated successfully. To avoid this incorrect status, update your availability sets by clicking only on instance within one availability set and wait for the update on that VM to complete before clicking on the next VM in a different update domain.
 
-## Next Steps
+## Next steps
 
 Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
 
 <!--Update_Description: update meta properties, wording update -->
-<!--There are no update except on Link 175  -->

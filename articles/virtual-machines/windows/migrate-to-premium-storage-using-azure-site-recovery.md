@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -78,7 +78,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 ### Step 1: Create a Recovery Services vault
 
 1. Open the [Azure portal](https://portal.azure.cn).
-2. Select **Create a resource** > **Management** > **Backup** and **Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**. 
+2. Select **Create a resource** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**. 
 3. Specify a region that VMs will be replicated to. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. 
 
 ### Step 2: Choose your protection goals 
@@ -207,7 +207,7 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
 ## Troubleshooting
 
 * [Monitor and troubleshoot protection for virtual machines and physical servers](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Azure Site Recovery forum](https://www.azure.cn/support/forums/
+* [Azure Site Recovery forum](https://www.azure.cn/support/contact/)
 
 ## Next steps
 
@@ -238,4 +238,4 @@ Also, see the following resources to learn more about Azure Storage and Azure Vi
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 <!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png -->
 [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

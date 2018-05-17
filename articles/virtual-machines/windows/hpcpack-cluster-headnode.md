@@ -3,8 +3,8 @@ title: Create an HPC Pack head node in an Azure VM | Azure
 description: Learn how to use the Azure portal and the Resource Manager deployment model to create a Microsoft HPC Pack 2012 R2 head node in an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,hpc-pack
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 02/24/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # Create the head node of an HPC Pack cluster in an Azure VM with a Marketplace image
@@ -24,6 +24,7 @@ Use a [Microsoft HPC Pack 2012 R2 virtual machine image](https://azure.microsoft
 to create the head node of an HPC cluster. This HPC Pack
 VM image is based on Windows Server 2012 R2 Datacenter with HPC
 Pack 2012 R2 Update 3 pre-installed. Use this head node for a proof of concept deployment of HPC Pack in Azure. You can then add compute nodes to the cluster to run HPC workloads.
+<!-- Notice: URL is not Correct on https://market.azure.cn/zh-cn/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/-->
 
 > [!TIP]
 > To deploy a complete HPC Pack 2012 R2 cluster in Azure that includes the head node and compute nodes, we recommend that you use an automated method. Options include the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) and Resource Manager templates such as the [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). Resource Manager templates are also available for [Microsoft HPC Pack 2016 clusters](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates). 
@@ -84,3 +85,4 @@ Pack head node by using the Resource Manager deployment model.
 <!--Image references-->
 [headnode]: ./media/hpcpack-cluster-headnode/headnode.png
 [marketplace]: ./media/hpcpack-cluster-headnode/marketplace.png
+<!-- Update_Description: update meta properties -->

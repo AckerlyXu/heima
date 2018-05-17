@@ -1,6 +1,6 @@
 ---
-title: Compute benchmark scores for Windows VMs | Azure
-description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server
+title: Compute benchmark scores for Azure Windows VMs | Azure
+description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 05/11/2017
-ms.date: 12/18/2017
+origin.date: 04/09/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
 # Compute benchmark scores for Windows VMs
-The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). 
+
+> [!NOTE]
+> The Linux numbers have been recently updated and contain a more comprehensive set of VMs.
 <!-- Not Available A8-A11 ## A-series - compute-intensive -->
 
 ## Dv2-series
@@ -41,4 +44,4 @@ Windows numbers were computed by running [SPECint 2006](https://www.spec.org/cpu
 
 ## Next steps
 * For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

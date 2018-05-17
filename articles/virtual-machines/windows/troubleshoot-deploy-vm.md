@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -100,4 +100,4 @@ Yes. You can add an existing classic VM to a new or existing Availability Set. F
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/).
 
 Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select **Get Support**.
-<!--Update_Description: update link -->
+<!--Update_Description: update link, update meta properties -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -120,4 +120,4 @@ To test your remote connection to the Azure VM running the MySQL Server service,
 
 ## Next steps
 To learn more about running MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: Create a Windows VM from a template in Azure | Azure
 description: Use a Resource Manager template and PowerShell to easily create a new Windows VM.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/21/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -29,9 +29,9 @@ For a detailed description of the virtual machine resource, see [Virtual machine
 
 It should take about five minutes to do the steps in this article.
 
-## Install Azure PowerShell
+<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-See [How to install and configure Azure PowerShell](../../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -65,7 +65,7 @@ In this step, you create a template file that deploys the resources and a parame
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]" 
       },
       "resources": [
         {
@@ -177,7 +177,7 @@ In this step, you create a template file that deploys the resources and a parame
     $storageName = "st" + (Get-Random)
     New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "China North" -SkuName "Standard_LRS" -Kind Storage
     $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
-    $context = New-AzureStorageContext -StorageAccountName $storageName -StorageAccountKey $accountKey 
+    $context = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageName -StorageAccountKey $accountKey 
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
@@ -207,4 +207,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 
 - If there were issues with the deployment, you might take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Learn how to create and manage a virtual machine in [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!--Update_Description: add section "Create the files"-->
+<!--Update_Description: update meta properties, wording update -->

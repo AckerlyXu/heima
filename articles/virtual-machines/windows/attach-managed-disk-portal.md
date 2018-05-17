@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -77,4 +77,4 @@ You can also ensure the entire volume is trimmed by formatting the volume.
 
 ## Next steps
 If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -283,4 +283,4 @@ Advance to the next tutorial to learn about monitoring securing data on virtual 
 > [!div class="nextstepaction"]
 > [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
 
-<!--Update_Description: update meta properties, wording update, update cmdlet code -->
+<!--Update_Description: update meta properties, wording update-->

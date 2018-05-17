@@ -3,8 +3,8 @@ title: Common errors during Classic to Azure Resource Manager migration | Azure
 description: This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 
@@ -31,3 +31,4 @@ ms.author: v-dazen
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!-- Update_Description: update meta properties -->

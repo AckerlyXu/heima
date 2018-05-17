@@ -15,9 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-
 ---
 # Publish an ASP.NET Web App to an Azure VM from Visual Studio
 
@@ -130,5 +129,4 @@ To set up a continuous delivery pipeline with Visual Studio Team Service, see [D
 [Publish Page - Settings button]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Publish Settings - Connection page]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
 [Publish Settings - Settings page]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
-<!--Update_Description: new articles on publish web app from visual studio -->
-<!--ms.date: 01/08/2018-->
+<!-- Update_Description: update meta properties, update link -->

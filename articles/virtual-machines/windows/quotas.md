@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 4/10/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -78,10 +78,9 @@ Premium Storage Managed Disks                1 10000 Count
 ## Reserved VM Instances
 Reserved VM Instances, which are scoped to a single subscription, will add a new aspect to the vCPU quotas. These values describe the number of instances of the stated size that must be deployable in the subscription. They work as a placeholder in the quota system to ensure that quota is reserved to ensure reserved instances are deployable in the subscription. For example, if a specific subscription has 10 Standard_D1 reserved instances the usages limit for Standard_D1 Reserved Instances will be 10. This will cause Azure to ensure that there are always at least 10 vCPUs available in the Total Regional vCPUs quota to be used for Standard_D1 instances and there are at least 10 vCPUs available in the Standard D Family vCPU quota to be used for Standard_D1 instances.
 
-If a quota increase is required to either purchase a Single Subscription RI, you can [request a quota increase](https://support.windowsazure.cn/support/support-azure) on your subscription.
+If a quota increase is required to purchase a Single Subscription RI, you can [request a quota increase](https://support.windowsazure.cn/support/support-azure) on your subscription.
 
 ## Next steps
 
 For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
-<!--Update_Description: new article on quotas in Windows VM-->
-<!--ms.date: 04/10/2018, update the output screen -->
+<!--Update_Description: update meta properties, wording update-->

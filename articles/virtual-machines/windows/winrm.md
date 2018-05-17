@@ -3,8 +3,8 @@ title: Set up WinRM access for an Azure VM | Azure
 description: Setup WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/16/2016
-ms.date: 05/15/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
@@ -139,8 +139,10 @@ While creating a VM through templates, the certificate gets referenced in the se
 
 A sample template for the above can be found here at [201-vm-winrm-keyvault-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
+Source code for this template can be found on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+
 >[!NOTE]
-> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.chinacloudapi.cn" by "blob.core.chinacloudapi.cn", "chinacloudapp.cn" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "cloudapp.chinacloudapi.cn"; change some unsupported VM images and sku. 
 
 #### PowerShell
     $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
@@ -164,3 +166,4 @@ Before you can connect to the VM you'll need to make sure your machine is config
 Once the setup is done, you can connect to the VM using the below command
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
+<!-- Update_Description: update meta properties, wording update -->

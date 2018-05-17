@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -97,5 +97,4 @@ Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
 > [Govern virtual machines](tutorial-govern-resources.md)
-<!-- Update_Description: new articles on tutorial backup vms -->
-<!--ms.date: 03/19/2018-->
+<!-- Update_Description: update meta properties -->

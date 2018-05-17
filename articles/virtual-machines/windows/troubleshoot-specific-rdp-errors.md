@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,7 @@ For information on specific error messages, see the following:
 * [Windows Security error: Your credentials did not work](#wincred).
 * [This computer can't connect to the remote computer](#rdpconnect).
 
-<a id="rdplicense"></a>
+<a name="rdplicense"></a>
 
 ## The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
 Cause: The 120-day licensing grace period for the Remote Desktop Server role has expired and you need to install licenses.
@@ -44,7 +44,7 @@ If you don't actually need more than two simultaneous Remote Desktop connections
 
 For more information, see the blog post [Azure VM fails with "No Remote Desktop License Servers available"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
 
-<a id="rdpname"></a>
+<a name="rdpname"></a>
 
 ## Remote Desktop can't find the computer "name".
 Cause: The Remote Desktop client on your computer can't resolve the name of the computer in the settings of the RDP file.
@@ -64,7 +64,7 @@ The address portion of this RDP file has:
 <!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 * The external TCP port of the endpoint for Remote Desktop traffic (55919).
 
-<a id="rdpauth"></a>
+<a name="rdpauth"></a>
 
 ## An authentication error has occurred. The Local Security Authority cannot be contacted.
 Cause: The target VM can't locate the security authority in the user name portion of your credentials.
@@ -77,7 +77,7 @@ Possible solutions:
 * If the account is on an Active Directory domain, check the spelling of the domain name.
 * If it is an Active Directory domain account and the domain name is spelled correctly, verify that a domain controller is available in that domain. It's a common issue in Azure virtual networks that contain domain controllers that a domain controller is unavailable because it hasn't been started. As a workaround, you can use a local administrator account instead of a domain account.
 
-<a id="wincred"></a>
+<a name="wincred"></a>
 
 ## Windows Security error: Your credentials did not work.
 Cause: The target VM can't validate your account name and password.
@@ -95,7 +95,7 @@ Make sure that the account name is a name that the virtual machine can verify as
 
 If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<a id="rdpconnect"></a>
+<a name="rdpconnect"></a>
 
 ## This computer can't connect to the remote computer.
 Cause: The account that's used to connect does not have Remote Desktop sign-in rights.

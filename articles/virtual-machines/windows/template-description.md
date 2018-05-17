@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -162,7 +162,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_show)
+- Azure CLI 2.0 - [az provider show](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az-provider-show)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

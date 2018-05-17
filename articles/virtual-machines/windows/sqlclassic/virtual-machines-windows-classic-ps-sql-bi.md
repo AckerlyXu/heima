@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/30/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -30,6 +30,7 @@ There are two ways to license SQL Server in Azure Virtual Machines:
 
 1. License mobility benefits that are part of Software Assurance. For more information, see [License Mobility through Software Assurance on Azure](https://www.azure.cn/pricing/license-mobility/).
 2. Pay per hour rate of Azure Virtual Machines with SQL Server installed. See the "SQL Server" section in [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
+<!-- Not Available on [Virtual Machines Licensing FAQ](https://www.azure.cn/pricing/licensing-faq/%20/)-->
 
 ## SQL Server Images Available in Azure Virtual Machine Gallery
 The Azure Virtual Machine gallery includes several images that contain Microsoft SQL Server. The software installed on the virtual machine images varies based on the version of the operating system and the version of SQL Server. The list of images available in the Azure virtual machine gallery changes frequently.

@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 # Overview of Windows virtual machines in Azure
 
-Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
 
@@ -51,6 +51,7 @@ If you use Azure to create the operating system disk, the computer name and the 
 
 ### Locations
 All resources created in Azure are distributed across multiple [geographical regions](https://www.azure.cn/support/service-dashboard/) around the china. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
+<!-- Notice: Change around the world to China -->
 
 This table shows some of the ways you can get a list of available locations.
 
@@ -59,7 +60,7 @@ This table shows some of the ways you can get a list of available locations.
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) command. |
 | REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) operation. |
-| Azure CLI |Use the [az account list-locations](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_list_locations) operation. |
+| Azure CLI |Use the [az account list-locations](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-list-locations) operation. |
 
 ### VM size
 The [size](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
@@ -68,6 +69,7 @@ Azure charges an [hourly price](https://www.azure.cn/pricing/details/virtual-mac
 
 ### VM Limits
 Your subscription has default [quota limits](../../azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
+<!-- Not Available on [filing a support ticket requesting an increase](../../azure-supportability/resource-manager-core-quotas-request.md)-->
 
 ### Operating system disks and images
 Virtual machines use [virtual hard disks (VHDs)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
@@ -81,7 +83,7 @@ This table shows some ways that you can find the information for an image.
 | Azure portal |The values are automatically specified for you when you select an image to use. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST APIs |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 You can choose to [upload and use your own image](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) and when you do, the publisher name, offer, and sku aren't used.
 

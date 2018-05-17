@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -328,4 +328,4 @@ It should take about five minutes for this console application to run completely
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

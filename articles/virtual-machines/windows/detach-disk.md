@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 11/17/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
@@ -58,4 +58,4 @@ For more information, see [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/
 
 ## Next steps
 If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!--Update_Description: update meta properties, wording update, update cmdlet-->
+<!--Update_Description: update meta properties -->

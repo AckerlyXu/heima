@@ -15,11 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/11/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 
 ---
-
 # Attach a data disk to a Windows VM using PowerShell
 
 This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. 
@@ -45,7 +44,7 @@ $location = 'China East'
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
@@ -64,7 +63,7 @@ $location = 'China East 2'
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
@@ -124,4 +123,4 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ## Next steps
 
 Create a [snapshot](snapshot-copy-managed-disk.md).
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -180,4 +180,4 @@ Each WADMetrics table will contain the following columns:
 * Deploy the Azure Resource Manager template using [Azure PowerShell](ps-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * Learn more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->
