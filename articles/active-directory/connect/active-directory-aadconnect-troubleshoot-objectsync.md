@@ -72,10 +72,12 @@ Object is out of scope due to domain not being configured. In the example below,
 
 ### Domain is configured to sync but is missing run profiles/run steps
 Object is out of scope as the domain is missing run profiles/run steps. In the example below, the object is out of sync scope as the domain that it belongs to is missing run steps for the Full Import run profile.
+
 ![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
 ### Object is filtered due to OU filtering
 The object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com.  This OU is not included in sync scope.
+
 ![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
 
 ## HTML Report

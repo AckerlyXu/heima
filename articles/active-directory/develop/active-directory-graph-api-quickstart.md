@@ -56,8 +56,6 @@ The following screenshot is the output you would see if you were to navigate to 
 
 ![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Load the Azure AD Graph Explorer**: To load the tool, navigate to [https://graphexplorerchina.azurewebsites.net/](https://graphexplorerchina.azurewebsites.net/). Click **Login** and sign-in with your Azure AD account credentials to run the Azure AD Graph Explorer against your tenant. If you run Azure AD Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Azure AD Graph Explorer.
-
 **Run a query**: To run a query, type your query in the request text box and click **GET** or click the **enter** key. The results are displayed in the response box. For example, `https://graph.chinacloudapi.cn/myorganization/groups?api-version=1.6` lists all group objects in the signed-in user's directory.
 
 Note the following features and limitations of the Azure AD Graph Explorer:
