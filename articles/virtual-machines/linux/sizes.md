@@ -15,24 +15,23 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/01/2018
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ---
 
 # Sizes for Linux virtual machines in Azure
 This article describes the available sizes and options for the Azure virtual machines you can use to run your Linux apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources. This article is also available for [Windows virtual machines](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--PENDING FOR B-SERIES, Dv3, Ev3 GA ANOUNCEMENT -->
+<!--PENDING FOR B-SERIES, Dv3, Ev3, FsV2 GA ANOUNCEMENT -->
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7,  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-<!--Not Available B(Preview), Dsv3,Dv3-->
-| [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
+| [Compute optimized](sizes-compute.md)        | Fsv2, Fs, F            | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
 | [Memory optimized](sizes-memory.md)         | Esv3, Ev3, DSv2, DS, Dv2, D   | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
-<!--PENDING FOR B-SERIES, Dv3, Ev3 GA ANOUNCEMENT -->
-<!--Not Available Esv3, Ev3, M, GS, G -->
+<!--PENDING FOR B-SERIES, Dv3, Ev3, FsV2 GA ANOUNCEMENT -->
+<!--Not Available M, GS, G -->
 <!--Not Available Ls-->
-<!--Not Available NV, NC-->
+<!--Not Available NV, NC, NCv2, NCv3, ND-->
 <!--Not Available H, A8-11-->
 
 <br>
@@ -69,4 +68,4 @@ Learn more about the different VM sizes that are available:
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 
 <!--Update_Description: update meta properties, wording update -->
-<!--PENDING FOR B-SERIES, Ev3, Dv3 GA ANOUNCEMENT -->
+<!--PENDING FOR B-SERIES, Dv3, Ev3, FsV2 GA ANOUNCEMENT -->
