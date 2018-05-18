@@ -454,7 +454,7 @@ Memstore local allocation buffer usage is determined by the property `hbase.hreg
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## See also
+## Next steps
 
 * [Manage HDInsight clusters with the Ambari web UI](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

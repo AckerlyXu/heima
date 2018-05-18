@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/04/2018
-ms.date: 02/26/2018
+origin.date: 03/23/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -39,7 +39,7 @@ The Ambari Web UI is provided by default with HDInsight clusters that use the Li
 
 ## Connectivity
 
-The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdidnsight.net, where **CLUSTERNAME** is the name of your cluster.
+The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdinsight.cn, where **CLUSTERNAME** is the name of your cluster.
 
 > [!IMPORTANT]
 > Connecting to Ambari on HDInsight requires HTTPS. When prompted for authentication, use the admin account name and password you provided when the cluster was created.

@@ -12,10 +12,10 @@ ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/25/2017
-ms.author: v-dazen
+ms.date: 05/28/2018
+ms.author: v-yiso
 ROBOTS: NOINDEX
 
 ---

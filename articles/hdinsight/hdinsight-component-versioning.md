@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -108,7 +108,7 @@ The following table lists the versions of HDInsight that are **not** available i
 
 ## Enterprise Security Package for HDInsight
 
-Azure HDInsight is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
+Enterprise Security is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
 
 - Integration with Active Directory for authentication.
 

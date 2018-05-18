@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
-ms.date: 03/26/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
@@ -201,13 +201,15 @@ Script actions can be used with Azure Resource Manager templates. For an example
 
 In this example, the script action is added using the following code:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 For information on how to deploy a template, see the following documents:
 
@@ -393,15 +395,21 @@ Before proceeding, make sure you have installed and configured the Azure CLI. Fo
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use the following to authenticate to your Azure subscription.
 
+    ```bash
         azure login -e AzureChinaCloud
+    ```
 
 3. Use the following command to apply a script action to a running cluster
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     If you omit parameters for this command, you are prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
 
@@ -601,7 +609,7 @@ __Cause__: This error occurs if you upgrade the Python Azure Storage client that
 
 __Resolution__: To resolve this error, manually connect to each cluster node using `ssh` and use the following command to reinstall the correct storage client version:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

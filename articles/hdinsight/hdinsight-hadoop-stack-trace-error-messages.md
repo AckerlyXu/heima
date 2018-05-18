@@ -12,11 +12,11 @@ ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/25/2017
+origin.date: 02/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 
 ---
