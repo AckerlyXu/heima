@@ -15,9 +15,9 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/01/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 02/20/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---

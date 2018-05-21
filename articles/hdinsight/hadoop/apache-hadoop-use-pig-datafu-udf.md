@@ -4,18 +4,18 @@ description: DataFu is a collection of libraries for use with Hadoop. Learn how 
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 0016721a-82be-4773-88ad-91e6b2c21cbb
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/23/2017
-ms.date: 12/18/2017
+origin.date: 04/10/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---

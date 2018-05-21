@@ -11,12 +11,10 @@ tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 01/25/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---
@@ -259,7 +257,7 @@ scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsigh
 
 Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-This command copies the files from the local system to the head node. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+This command copies the files from the local system to the head node. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="run"></a>Run the MapReduce job on Hadoop
 

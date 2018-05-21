@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 
 ---
@@ -126,7 +126,7 @@ If you choose to use existing Azure SQL database or Microsoft SQL Server
   > 
   > 
   
-  * To create and configure a virtual network, see [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * To create and configure a virtual network, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
     
     * When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
 
