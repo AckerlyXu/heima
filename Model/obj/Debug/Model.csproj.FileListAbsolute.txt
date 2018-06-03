@@ -1,0 +1,6 @@
+D:\sdevelop\vsworkingspace\bookshop\Model\bin\Debug\cn.itcast.bookshop.Model.dll
+D:\sdevelop\vsworkingspace\bookshop\Model\bin\Debug\cn.itcast.bookshop.Model.pdb
+D:\sdevelop\vsworkingspace\bookshop\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\sdevelop\vsworkingspace\bookshop\Model\obj\Debug\cn.itcast.bookshop.Model.dll
+D:\sdevelop\vsworkingspace\bookshop\Model\obj\Debug\cn.itcast.bookshop.Model.pdb
+D:\sdevelop\vsworkingspace\bookshop\Model\obj\Debug\Model.csprojAssemblyReference.cache
