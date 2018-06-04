@@ -134,15 +134,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Account.aspx" />
+    <Content Include="aspx\ImageUpload.aspx" />
+    <Content Include="aspx\Login.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Css\book_list.css" />
+    <Content Include="Css\border-anim-h.gif" />
+    <Content Include="Css\border-anim-v.gif" />
+    <Content Include="Css\border-h.gif" />
+    <Content Include="Css\border-v.gif" />
     <Content Include="Css\cart.css" />
     <Content Include="Css\default.css" />
     <Content Include="Css\demos.css" />
+    <Content Include="Css\gongyong.css" />
+    <Content Include="Css\imgareaselect-animated.css" />
+    <Content Include="Css\imgareaselect-default.css" />
+    <Content Include="Css\imgareaselect-deprecated.css" />
     <Content Include="Css\index.css" />
     <Content Include="Css\login.css" />
     <Content Include="Css\page_bottom_new.css" />
@@ -204,6 +214,7 @@
     <Content Include="Css\themes\ui-lightness\jquery.ui.slider.css" />
     <Content Include="Css\themes\ui-lightness\jquery.ui.tabs.css" />
     <Content Include="Css\themes\ui-lightness\jquery.ui.theme.css" />
+    <Content Include="Css\ucenter.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1211,6 +1222,7 @@
     <Content Include="Images\logo123x40.jpg" />
     <Content Include="Images\menu-bottom.gif" />
     <Content Include="Images\menu-top.gif" />
+    <Content Include="Images\mm.jpg" />
     <Content Include="Images\nosend.ico" />
     <Content Include="Images\page_white_add.png" />
     <Content Include="Images\png-0170.png" />
@@ -1252,17 +1264,19 @@
     <Content Include="Images\放大镜.gif" />
     <Content Include="Images\毛泽东.jpg" />
     <Content Include="Images\集团网站.jpg" />
-    <Content Include="Images\集团网站1.jpg" />
+    <Content Include="Images\jituan1.jpg" />
     <Content Include="Images\页面不存在.jpg" />
     <Content Include="ashx\existUser.ashx" />
     <Content Include="ashx\ValidateCodeEqual.ashx" />
     <Content Include="ashx\ImageUpLoadTest.ashx" />
+    <Content Include="ashx\upload.ashx" />
     <None Include="js\jquery-1.4.2-vsdoc.js" />
     <Content Include="ImageUpLoadTest.aspx" />
     <Content Include="js\handlers.js" />
     <Content Include="js\jquery-1.4.2.js" />
     <Content Include="js\jquery-1.7.1.js" />
     <Content Include="js\jquery-ui-1.8.2.custom.min.js" />
+    <Content Include="js\jquery.imgareaselect.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\swfupload.js" />
     <Content Include="js\swfupload.swf" />
@@ -1385,6 +1399,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Images\BookCovers\9787560925110jpg" />
     <Content Include="ashx\ValidateCode.ashx" />
+    <Content Include="Master\UserMaster.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1432,11 +1447,31 @@
     <Compile Include="ashx\ImageUpLoadTest.ashx.cs">
       <DependentUpon>ImageUpLoadTest.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\upload.ashx.cs">
+      <DependentUpon>upload.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\ValidateCodeEqual.ashx.cs">
       <DependentUpon>ValidateCodeEqual.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\ImageUpload.aspx.cs">
+      <DependentUpon>ImageUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\ImageUpload.aspx.designer.cs">
+      <DependentUpon>ImageUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1447,6 +1482,13 @@
     </Compile>
     <Compile Include="ImageUpLoadTest.aspx.designer.cs">
       <DependentUpon>ImageUpLoadTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\UserMaster.Master.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\UserMaster.Master.designer.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Master\Site1.Master.cs">
@@ -1459,6 +1501,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="base\" />
     <Folder Include="Images\inc\" />
     <Folder Include="upload\thumb\" />
   </ItemGroup>

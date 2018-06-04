@@ -11,6 +11,11 @@ namespace cn.itcast.bookshop.BLL
         public int GetCountByName(string username) {
             return dal.GetCountByName(username);
         }
+        public Model.Users GetUserByName(string username) {
+
+            return dal.GerUserByName(username);
+
+        }
 
     }
 }
