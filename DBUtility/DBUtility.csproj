@@ -156,9 +156,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PubConstant.cs" />
-    <Compile Include="SQLHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DbHelperSQLP.cs" />
   </ItemGroup>
   <ItemGroup>

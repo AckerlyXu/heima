@@ -4,8 +4,8 @@ D:\sdevelop\vsworkingspace\bookshop\Common\bin\Debug\COM.Excel.dll
 D:\sdevelop\vsworkingspace\bookshop\Common\bin\Debug\Excel.dll
 D:\sdevelop\vsworkingspace\bookshop\Common\bin\Debug\OpenSmtp.dll
 D:\sdevelop\vsworkingspace\bookshop\Common\bin\Debug\OWC10Chart.dll
-D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csprojAssemblyReference.cache
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csproj.CopyComplete
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\cn.itcast.bookshop.Common.dll
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\cn.itcast.bookshop.Common.pdb
+D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csprojAssemblyReference.cache
