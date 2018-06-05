@@ -29,7 +29,7 @@ namespace WebApplication1.aspx
                     else
                     {
 
-                        Response.Redirect("/aspx/Login.aspx");
+                        Response.Redirect("/aspx/Login.aspx?returnurl="+Request.Url.ToString());
 
                     }
 
@@ -38,7 +38,7 @@ namespace WebApplication1.aspx
                 else
                 {
 
-                    Response.Redirect("/aspx/Login.aspx");
+                    Response.Redirect("/aspx/Login.aspx?returnurl=" + Request.Url.ToString());
 
                 }
 

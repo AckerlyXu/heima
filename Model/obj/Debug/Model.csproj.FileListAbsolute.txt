@@ -8,3 +8,8 @@ D:\develop\vsworkspace\BookShop\master\Model\bin\Debug\cn.itcast.bookshop.Model.
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\cn.itcast.bookshop.Model.dll
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\cn.itcast.bookshop.Model.pdb
+<<<<<<< HEAD
+=======
+D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\sdevelop\vsworkingspace\bookshop\Model\obj\Debug\Model.csprojAssemblyReference.cache
+>>>>>>> 4a44de1554d9b934b50f0c9da01c3a7ae57bd558

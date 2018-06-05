@@ -173,7 +173,10 @@
         <tr>
           <td width="24%" align="center" valign="top" style="height: 26px">用户名</td>
           <td valign="top" width="37%" align="left" style="height: 26px">
-            <input type="text" name="txtName" id="txtUserName" placeholder="请输入用户名" /><span style="font-size:14px;color:red" id="userNameMsg"></span></td>          
+            <input type="text" name="txtName" id="txtUserName" placeholder="请输入用户名" />
+              <input type="hidden" name="returnurl" value="<%=url %>" />
+              
+              <span style="font-size:14px;color:red" id="userNameMsg"></span></td>          
         </tr>
         <tr>
           <td width="24%" height="26" align="center" valign="top">真实姓名：</td>

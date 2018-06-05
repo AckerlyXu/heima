@@ -8,7 +8,6 @@ D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csproj.CoreCompileIn
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csproj.CopyComplete
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\cn.itcast.bookshop.Common.dll
 D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\cn.itcast.bookshop.Common.pdb
-D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csprojAssemblyReference.cache
 D:\develop\vsworkspace\BookShop\master\Common\bin\Debug\cn.itcast.bookshop.Common.dll
 D:\develop\vsworkspace\BookShop\master\Common\bin\Debug\cn.itcast.bookshop.Common.pdb
 D:\develop\vsworkspace\BookShop\master\Common\bin\Debug\COM.Excel.dll
@@ -20,3 +19,4 @@ D:\develop\vsworkspace\BookShop\master\Common\obj\Debug\Common.csproj.CopyComple
 D:\develop\vsworkspace\BookShop\master\Common\obj\Debug\cn.itcast.bookshop.Common.dll
 D:\develop\vsworkspace\BookShop\master\Common\obj\Debug\cn.itcast.bookshop.Common.pdb
 D:\develop\vsworkspace\BookShop\master\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\sdevelop\vsworkingspace\bookshop\Common\obj\Debug\Common.csprojAssemblyReference.cache

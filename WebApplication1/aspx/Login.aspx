@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.aspx.Login" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.aspx.Login" %>
 
 
 
@@ -149,16 +149,14 @@ SPAN.papa {
                             <strong>用户登陆</strong><span class="fr">
                                 没有账号
 
-                               <%-- <%if(!string.IsNullOrEmpty(ReturnUrl)){%>
-                                <a href="/Account/Register.aspx?returnUrl=<%=ReturnUrl%>">快速注册</a>
-                                <%}else{%>
-                                  <a href="/Account/Register.aspx">快速注册</a>
-                                <%} %>--%>
+                              <a href="/Account/Account.aspx<%=url==null?"":"?returnurl="+url %>">快速注册</a>
                             </span>
                         </span>
                         <div class="reg_boxes ">
-<form id="form1"  runat="server">                              
-      <input type="hidden" id="txtReturn" name="returnurl" value="">
+
+<form runat="server"  id="form1">                              
+      <input type="hidden" id="txtReturn" name="returnurl" value="<%=url %>"">
+
     
                                 <dl>
                                     <dt>用&nbsp;户&nbsp;名</dt>
