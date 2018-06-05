@@ -9,3 +9,4 @@ D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\Model.csproj.CoreCompileI
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\cn.itcast.bookshop.Model.dll
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\cn.itcast.bookshop.Model.pdb
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\sdevelop\vsworkingspace\bookshop\Model\obj\Debug\Model.csprojAssemblyReference.cache

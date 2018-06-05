@@ -125,6 +125,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Publishers.cs" />
     <Compile Include="SysNode.cs" />
     <Compile Include="Books.cs" />
     <Compile Include="BookComment.cs" />
