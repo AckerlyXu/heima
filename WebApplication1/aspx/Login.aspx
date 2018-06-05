@@ -6,6 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>用户登</title>
     <!--[if IE 6]>
     <script type="text/javascript" src="../js/iepngfix_tilebg.js"></script>
@@ -191,7 +192,7 @@ SPAN.papa {
                             <span class="reg_tit">
                                 <strong>找回密码</strong><span>请输入您注册时的电子邮箱</span><span class="fr">
 
-                                    <a href="/aspx/Login.aspx">登陆</a>
+                                    <a href="javascript:;" id="showLogin">登陆</a>
                                 </span>
                             </span>
                             <dl>
@@ -203,7 +204,7 @@ SPAN.papa {
                             </dl>
                             <dl>
                                 <dd>
-                                    <button type="submit" id="btnForgetsub" class="lognow" style="margin-left:90px;">找回密码</button><span id="loginerrofor"></span>
+                                    <button  id="btnForgetsub" class="lognow" style="margin-left:90px;">找回密码</button><span id="loginerrofor"></span>
                                 </dd>
                             </dl>
                             <dl id="txtmsgdl" style="height:200px;display:none;">
@@ -233,7 +234,40 @@ SPAN.papa {
                 $("#pageflip img").stop().animate({ width: '50px', height: '52px' }, 220);
                 $(".msg_block").stop().animate({ width: '50px', height: '50px' }, 200);
             });
+            $("#btnForget").click(function () {
+                $("#forgetdiv").show();
 
+                $("#logindiv").hide();
+
+            })
+            $("#showLogin").click(function () {
+                 $("#forgetdiv").hide();
+
+                $("#logindiv").show();
+
+
+
+            })
+            $("#btnForgetsub").click(function () {
+
+                if ($("#txtforumail").val() != "") {
+
+                    $.post("/ashx/checkMail.ashx", { address: $("#txtforumail").val() }, function (data) {
+                        if (data == 'yes') {
+                            alert("您的密码已修改，请前往邮箱查看")
+
+                        } else {
+
+                            alert("用户名或邮箱错误");
+                        }
+
+
+                    }, "text")
+
+                }
+
+            })
+          
         });
     </script>
     <!--注册区 结束-->

@@ -143,6 +143,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheHelper.cs" />
     <Compile Include="GeneratingSmallerPicture.cs" />
     <Compile Include="HttpProc.cs" />
     <Compile Include="MailSender.cs" />

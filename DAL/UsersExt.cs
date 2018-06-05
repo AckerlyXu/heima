@@ -40,6 +40,30 @@ namespace cn.itcast.bookshop.DAL
             }
 
         }
-        
+        public Model.Users GetUserByEmail(string email) {
+            string sql = "select * from USERS where mail=@mail";
+            using (SqlDataReader reader = SqlHelper.GetSqlDataReader(sql, new SqlParameter("@mail", System.Data.SqlDbType.NVarChar, 100) { Value = email }))
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    Model.Users user = new Model.Users();
+                    user.Id = reader.GetInt32(0);
+                    user.LoginId = reader.GetString(1);
+                    user.LoginPwd = reader.GetString(2);
+                    user.Name = reader.GetString(3);
+                    user.Address = reader.GetString(4);
+                    user.Mail = reader.GetString(6);
+                    user.Phone = reader.GetString(5);
+                    user.UserStateId = reader.GetInt32(7);
+                    return user;
+
+                }
+                return null;
+            }
+
+
+        }
+
     }
 }

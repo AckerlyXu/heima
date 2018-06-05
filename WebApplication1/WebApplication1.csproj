@@ -135,6 +135,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Account.aspx" />
+    <Content Include="aspx\BookDetails.aspx" />
+    <Content Include="aspx\BookList.aspx" />
     <Content Include="aspx\ImageUpload.aspx" />
     <Content Include="aspx\Login.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -1272,6 +1274,7 @@
     <Content Include="ashx\ImageUpLoadTest.ashx" />
     <Content Include="ashx\upload.ashx" />
     <Content Include="ashx\Logout.ashx" />
+    <Content Include="ashx\CheckMail.ashx" />
     <None Include="js\jquery-1.4.2-vsdoc.js" />
     <Content Include="ImageUpLoadTest.aspx" />
     <Content Include="js\handlers.js" />
@@ -1429,6 +1432,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Test\MailTest.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Master\Site1.Master" />
@@ -1443,6 +1447,9 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ashx\CheckMail.ashx.cs">
+      <DependentUpon>CheckMail.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\existUser.ashx.cs">
       <DependentUpon>existUser.ashx</DependentUpon>
     </Compile>
@@ -1461,8 +1468,22 @@
     <Compile Include="ashx\ValidateCodeEqual.ashx.cs">
       <DependentUpon>ValidateCodeEqual.ashx</DependentUpon>
     </Compile>
-    <Compile Include="aspx\BasePage.cs">
+    <Compile Include="aspx\BasePageAnonymos.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\BookDetails.aspx.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\BookDetails.aspx.designer.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\BookList.aspx.cs">
+      <DependentUpon>BookList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\BookList.aspx.designer.cs">
+      <DependentUpon>BookList.aspx</DependentUpon>
     </Compile>
     <Compile Include="aspx\ImageUpload.aspx.cs">
       <DependentUpon>ImageUpload.aspx</DependentUpon>
@@ -1502,6 +1523,13 @@
     </Compile>
     <Compile Include="Master\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Test\MailTest.aspx.cs">
+      <DependentUpon>MailTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\MailTest.aspx.designer.cs">
+      <DependentUpon>MailTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

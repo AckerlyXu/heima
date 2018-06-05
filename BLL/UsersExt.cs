@@ -16,6 +16,11 @@ namespace cn.itcast.bookshop.BLL
             return dal.GerUserByName(username);
 
         }
+        public Model.Users GetUserByMail(string mail) {
+
+            return dal.GetUserByEmail(mail);
+
+        }
 
     }
 }

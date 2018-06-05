@@ -65,7 +65,7 @@ namespace cn.itcast.bookshop.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Publishers set ");
-#warning 系统发现缺少更新的字段，请手工确认如此更新是否正确！ 
+
             strSql.Append("Id=@Id,");
             strSql.Append("Name=@Name");
             strSql.Append(" where Id=@Id");

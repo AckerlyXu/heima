@@ -1,5 +1,5 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication1.Site1" %>
-
+<%@ Import Namespace="cn.itcast.bookshop.Model" %>
 <!DOCTYPE html>
 
 <html>
@@ -33,7 +33,7 @@
       <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
       <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
       <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >myorder</a></span></div></div>
+	  <a href="/OrderInfo.aspx" >myorder</a></span></div></div>&nbsp; &nbsp; &nbsp; <%=Session["user"]==null?"<a href='/aspx/Login.aspx'>login</a>":"welcome  "+((Users)Session["user"]).LoginId+"  <a href='/ashx/logout.ashx'>logout</a>" %>
 
 
 	<div style="WIDTH: 750px; text-align: left;"><img src="/images/jituan1.jpg" width="780" height="93" /><br />

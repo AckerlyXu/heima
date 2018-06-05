@@ -119,9 +119,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BooksExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Publishers.cs" />
+    <Compile Include="SettingsBll.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="Books.cs" />
     <Compile Include="BookComment.cs" />

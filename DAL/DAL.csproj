@@ -141,9 +141,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BooksExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Publishers.cs" />
+    <Compile Include="SettingsDal.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="Books.cs" />

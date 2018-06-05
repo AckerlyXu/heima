@@ -20,7 +20,7 @@ namespace WebApplication1.aspx
 
             url = Request["returnurl"];
             
-
+           Response.ContentType = "text/html;charset=utf-8";
             if (Request.HttpMethod.ToLower() == "post") {
 
                 string username = Request["username"];
