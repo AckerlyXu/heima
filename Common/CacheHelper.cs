@@ -16,6 +16,8 @@ namespace cn.itcast.bookshop.Common
 
         }
         public static void SetCacheValue(string key,Object value) {
+                                           //获得运行时的缓存+++++++ 对比 HttpContext.Current 获取当前请求+++++++++++++++
+                                          
             System.Web.Caching.Cache cache = HttpRuntime.Cache;
             cache[key] = value; 
 

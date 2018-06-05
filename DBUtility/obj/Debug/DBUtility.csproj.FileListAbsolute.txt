@@ -6,7 +6,6 @@ D:\sdevelop\vsworkingspace\bookshop\DBUtility\obj\Debug\DBUtility.csproj.CoreCom
 D:\sdevelop\vsworkingspace\bookshop\DBUtility\obj\Debug\DBUtility.csproj.CopyComplete
 D:\sdevelop\vsworkingspace\bookshop\DBUtility\obj\Debug\cn.itcast.bookshop.DBUtility.dll
 D:\sdevelop\vsworkingspace\bookshop\DBUtility\obj\Debug\cn.itcast.bookshop.DBUtility.pdb
-D:\sdevelop\vsworkingspace\bookshop\DBUtility\obj\Debug\DBUtility.csprojAssemblyReference.cache
 D:\sdevelop\vsworkingspace\bookshop\DBUtility\bin\Debug\IBatisNet.Common.dll
 D:\sdevelop\vsworkingspace\bookshop\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
 D:\develop\vsworkspace\BookShop\master\DBUtility\bin\Debug\cn.itcast.bookshop.DBUtility.dll

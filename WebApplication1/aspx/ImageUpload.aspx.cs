@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1.aspx
 {
-    public partial class ImageUpload :BasePageAnonymos
+    public partial class ImageUpload :BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

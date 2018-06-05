@@ -1468,7 +1468,7 @@
     <Compile Include="ashx\ValidateCodeEqual.ashx.cs">
       <DependentUpon>ValidateCodeEqual.ashx</DependentUpon>
     </Compile>
-    <Compile Include="aspx\BasePageAnonymos.cs">
+    <Compile Include="aspx\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="aspx\BookDetails.aspx.cs">
