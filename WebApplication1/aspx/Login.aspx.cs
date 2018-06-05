@@ -14,9 +14,12 @@ namespace WebApplication1.aspx
     public partial class Login : System.Web.UI.Page
     {
         public string Msg { get; set; }
+        public string url { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.HttpMethod.ToLower() == "get") {
+            url = Request["returnurl"];
+            
+            if (Request.HttpMethod.ToLower() == "post") {
 
                 string username = Request["username"];
                 string password = Request["password"];
@@ -32,7 +35,7 @@ namespace WebApplication1.aspx
                         {
 
                             Session["user"] = user;
-                            if (string.IsNullOrEmpty(Request["autoLogin"])) {
+                            if (!string.IsNullOrEmpty(Request["autoLogin"])) {
 
                                 HttpCookie cName = new HttpCookie("username");
                                 HttpCookie cPwd = new HttpCookie("password");
@@ -45,8 +48,11 @@ namespace WebApplication1.aspx
 
 
                             }
+                            if (url != null) {
+                                Response.Redirect(url);
 
-                            Response.Redirect("/aspx/index.aspx");
+                            }
+                            
 
 
                         }
