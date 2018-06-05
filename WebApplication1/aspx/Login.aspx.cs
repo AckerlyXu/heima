@@ -16,7 +16,7 @@ namespace WebApplication1.aspx
         public string Msg { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.HttpMethod.ToLower() == "get") {
+            if (Request.HttpMethod.ToLower() == "post") {
 
                 string username = Request["username"];
                 string password = Request["password"];

@@ -157,7 +157,7 @@ SPAN.papa {
                             </span>
                         </span>
                         <div class="reg_boxes ">
-<form action="/aspx/Login.aspx" method="post">                              
+<form id="form1"  runat="server">                              
       <input type="hidden" id="txtReturn" name="returnurl" value="">
     
                                 <dl>

@@ -8,4 +8,3 @@ D:\develop\vsworkspace\BookShop\master\Model\bin\Debug\cn.itcast.bookshop.Model.
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\cn.itcast.bookshop.Model.dll
 D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\cn.itcast.bookshop.Model.pdb
-D:\develop\vsworkspace\BookShop\master\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
