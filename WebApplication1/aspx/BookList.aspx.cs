@@ -15,6 +15,7 @@ namespace WebApplication1.aspx
         protected m.PageModel Model;
         protected void Page_Load(object sender, EventArgs e)
         {
+       Response.ContentType = "text/html;charset=utf-8";
             b.Books bll = new b.Books();
             int currentPage = int.Parse((Request["currentPage"] ?? "1"));
             int pageSize = int.Parse(Request["pageSize"]??"5");

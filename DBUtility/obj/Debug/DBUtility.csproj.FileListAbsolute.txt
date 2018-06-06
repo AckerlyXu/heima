@@ -19,3 +19,4 @@ D:\develop\vsworkspace\BookShop\master\DBUtility\obj\Debug\DBUtility.csproj.Copy
 D:\develop\vsworkspace\BookShop\master\DBUtility\obj\Debug\cn.itcast.bookshop.DBUtility.dll
 D:\develop\vsworkspace\BookShop\master\DBUtility\obj\Debug\cn.itcast.bookshop.DBUtility.pdb
 D:\develop\vsworkspace\BookShop\master\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\sdevelop\vsworkingspace\bookshop\DBUtility\obj\Debug\DBUtility.csprojAssemblyReference.cache

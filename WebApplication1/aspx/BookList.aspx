@@ -78,7 +78,7 @@
 <TABLE>
                     <TBODY>
                     <TR>
-                      <TD rowSpan=2><a  href="BookDetails_<%=item.Id %>.aspx"
+                      <TD rowSpan=2><a  target="_blank" href="<%="/BookDetails/"+item.PublishDate.Year+"/"+item.PublishDate.Month+"/"+item.PublishDate.Day+"/"+item.Id+".html" %>"
                        ><IMG 
                         style="CURSOR: hand" height=121 
                         alt="<%=item.Title %>" hspace=4 
