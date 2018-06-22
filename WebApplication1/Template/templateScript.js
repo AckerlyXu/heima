@@ -37,7 +37,21 @@
 
 
     })
+    $.post("/ashx/bookcomment.ashx", {}, function (data) {
 
+        if (data.Msg != undefined) {
+            $("#showLoginInfo").show();
+           
+        } else {
+
+            $("#showLoginInfo").hide();
+            $("#showUserName").html("欢迎"+data.LoginId);
+            $("#showUserName").show();
+        }
+
+    }, "json"
+        
+        )
 
 
 })

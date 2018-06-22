@@ -1510,6 +1510,7 @@
     <Compile Include="ashx\ValidateCodeEqual.ashx.cs">
       <DependentUpon>ValidateCodeEqual.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\ViewModelMsg.cs" />
     <Compile Include="aspx\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
